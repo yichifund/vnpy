@@ -58,26 +58,16 @@ def is_psycopg2_exists():
 
 def get_install_requires():
     install_requires = [
-        "PyQt5",
-        "qdarkstyle",
-        "requests",
-        "websocket-client",
         "peewee",
-        "numpy",
+        "pymysql",
         "pandas",
-        "matplotlib",
-        "seaborn",
-        "rqdatac",
         "ta-lib",
-        "deap",
-        "pyzmq",
-        "QScintilla"
     ]
-    if not is_psycopg2_exists():
-        install_requires.append("psycopg2-binary")
+    # if not is_psycopg2_exists():
+    #     install_requires.append("psycopg2-binary")
 
-    if sys.version_info.minor < 7:
-        install_requires.append("dataclasses")
+    # if sys.version_info.minor < 7:
+    #     install_requires.append("dataclasses")
     return install_requires
 
 
@@ -305,10 +295,10 @@ def get_ext_modules():
     else:
         ext_modules = [
             vnctptd, vnctpmd,
-            vnxtptd, vnxtpmd,
-            vnsgittd, vnsgitmd,
-            vnksgoldmd, vnksgoldtd,
-            vnnhmd, vnnhfutures, vnnhstock
+            # vnxtptd, vnxtpmd,
+            # vnsgittd, vnsgitmd,
+            # vnksgoldmd, vnksgoldtd,
+            # vnnhmd, vnnhfutures, vnnhstock
         ]
 
     ext_modules = check_extension_build_flag(

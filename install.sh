@@ -7,7 +7,7 @@ shift 2
 [[ -z $python ]] && python=python
 [[ -z $prefix ]] && prefix=/usr
 
-$python -m pip install --upgrade pip setuptools wheel
+#$python -m pip install --upgrade pip setuptools wheel
 
 # Get and build ta-lib
 function install-ta-lib()
@@ -32,8 +32,8 @@ $python -m pip install numpy
 
 # Install extra packages
 $python -m pip install ta-lib
-$python -m pip install psycopg2-binary
-$python -m pip install https://pip.vnpy.com/colletion/ibapi-9.76.1.tar.gz
+#$python -m pip install psycopg2-binary
+#$python -m pip install https://pip.vnpy.com/colletion/ibapi-9.76.1.tar.gz
 
 # Install Python Modules
 $python -m pip install -r requirements.txt
