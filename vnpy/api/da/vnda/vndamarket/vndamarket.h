@@ -1,4 +1,4 @@
-//ÏµÍ³
+ï»¿//ç³»ç»Ÿ
 #ifdef WIN32
 #include "stdafx.h"
 #endif
@@ -13,76 +13,76 @@ using namespace pybind11;
 using namespace std;
 
 ///-------------------------------------------------------------------------------------
-///C++ SPIµÄ»Øµ÷º¯Êý·½·¨ÊµÏÖ
+///C++ SPIçš„å›žè°ƒå‡½æ•°æ–¹æ³•å®žçŽ°
 ///-------------------------------------------------------------------------------------
 
-//APIµÄ¼Ì³ÐÊµÏÖ
+//APIçš„ç»§æ‰¿å®žçŽ°
 class MarketApi : public IMarketEvent
 {
 private:
-	CMarketApi *api; //API¶ÔÏó
+    CMarketApi *api; //APIå¯¹è±¡
 
 public:
-	MarketApi(){};
+    MarketApi(){};
 
-	~MarketApi(){};
+    ~MarketApi(){};
 
-	//-------------------------------------------------------------------------------------
-	//API»Øµ÷º¯Êý
-	//-------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------
+    //APIå›žè°ƒå‡½æ•°
+    //-------------------------------------------------------------------------------------
 
-	void OnFrontConnected();
-	void OnFrontDisconnected(int iReason);
-	void OnHeartBeatWarning(int iTimeLapse);
+    void OnFrontConnected();
+    void OnFrontDisconnected(int iReason);
+    void OnHeartBeatWarning(int iTimeLapse);
 
-	void OnRspRawData(const char *rawData);
-	void OnRspUserLogin(CMarketRspInfoField *pRspInfo, int iRequestID, bool bIsLast);
-	void OnRspTradeDate(CMarketRspTradeDateField *pRspTradeDate, CMarketRspInfoField *pRspInfo, int iRequestID, bool bIsLast);
-	void OnRspBrokerData(CMarketRspBrokerDataField *pRspBrokerData, CMarketRspInfoField *pRspInfo, int iRequestID, bool bIsLast);
-	void OnRspMarketData(CMarketRspMarketDataField *pRspMarketData, CMarketRspInfoField *pRspInfo, int iRequestID, bool bIsLast);
+    void OnRspRawData(const char *rawData);
+    void OnRspUserLogin(CMarketRspInfoField *pRspInfo, int iRequestID, bool bIsLast);
+    void OnRspTradeDate(CMarketRspTradeDateField *pRspTradeDate, CMarketRspInfoField *pRspInfo, int iRequestID, bool bIsLast);
+    void OnRspBrokerData(CMarketRspBrokerDataField *pRspBrokerData, CMarketRspInfoField *pRspInfo, int iRequestID, bool bIsLast);
+    void OnRspMarketData(CMarketRspMarketDataField *pRspMarketData, CMarketRspInfoField *pRspInfo, int iRequestID, bool bIsLast);
 
-	//-------------------------------------------------------------------------------------
-	//Python»Øµ÷º¯Êý
-	//-------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------
+    //Pythonå›žè°ƒå‡½æ•°
+    //-------------------------------------------------------------------------------------
 
-	virtual void onFrontConnected(){};
+    virtual void onFrontConnected(){};
 
-	virtual void onFrontDisconnected(int reqid){};
+    virtual void onFrontDisconnected(int reqid){};
 
-	virtual void onHeartBeatWarning(int reqid){};
+    virtual void onHeartBeatWarning(int reqid){};
 
-	virtual void onRspRawData(string data){};
+    virtual void onRspRawData(string data){};
 
-	virtual void onRspUserLogin(const dict &error, int reqid, bool last){};
+    virtual void onRspUserLogin(const dict &error, int reqid, bool last){};
 
-	virtual void onRspTradeDate(const dict &data, const dict &error, int reqid, bool last){};
+    virtual void onRspTradeDate(const dict &data, const dict &error, int reqid, bool last){};
 
-	virtual void onRspBrokerData(const dict &data, const dict &error, int reqid, bool last){};
+    virtual void onRspBrokerData(const dict &data, const dict &error, int reqid, bool last){};
 
-	virtual void onRspMarketData(const dict &data, const dict &error, int reqid, bool last){};
+    virtual void onRspMarketData(const dict &data, const dict &error, int reqid, bool last){};
 
-	//-------------------------------------------------------------------------------------
-	//req:Ö÷¶¯º¯ÊýµÄÇëÇó×Öµä
+    //-------------------------------------------------------------------------------------
+    //req:ä¸»åŠ¨å‡½æ•°çš„è¯·æ±‚å­—å…¸
 
-	//-------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------
 
-	string getVersion();
+    string getVersion();
 
-	void createMarketApi(bool recordLog, string logFileName);
+    void createMarketApi(bool recordLog, string logFileName);
 
-	void init();
+    void init();
 
-	void release();
+    void release();
 
-	int exit();
+    int exit();
 
-	void setHeartbeatTimeout(int timeout);
+    void setHeartbeatTimeout(int timeout);
 
-	void registerNameServer(string address);
+    void registerNameServer(string address);
 
-	int reqUserLogin(const dict &req, int reqid);
+    int reqUserLogin(const dict &req, int reqid);
 
-	int reqBrokerData(const dict &req, int reqid);
+    int reqBrokerData(const dict &req, int reqid);
 
-	int reqMarketData(const dict &req, int reqid);
+    int reqMarketData(const dict &req, int reqid);
 };

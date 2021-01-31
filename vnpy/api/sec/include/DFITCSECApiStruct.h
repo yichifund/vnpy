@@ -1,10 +1,10 @@
-/**
- * °æÈ¨ËùÓĞ(C)2012-2016, ´óÁ¬·É´´ĞÅÏ¢¼¼ÊõÓĞÏŞ¹«Ë¾
- * ÎÄ¼şÃû³Æ£ºDFITCSECApiStruct.h
- * ÎÄ¼şËµÃ÷£º¶¨Òå½Ó¿ÚËùĞèµÄÊı¾İ½Ó¿Ú
- * µ±Ç°°æ±¾£º1.6
- * ×÷Õß£ºXSpeedÖ¤È¯ÏîÄ¿×é
- * ·¢²¼ÈÕÆÚ£º2019Äê11ÔÂ
+ï»¿/**
+ * ç‰ˆæƒæ‰€æœ‰(C)2012-2016, å¤§è¿é£åˆ›ä¿¡æ¯æŠ€æœ¯æœ‰é™å…¬å¸
+ * æ–‡ä»¶åç§°ï¼šDFITCSECApiStruct.h
+ * æ–‡ä»¶è¯´æ˜ï¼šå®šä¹‰æ¥å£æ‰€éœ€çš„æ•°æ®æ¥å£
+ * å½“å‰ç‰ˆæœ¬ï¼š1.6
+ * ä½œè€…ï¼šXSpeedè¯åˆ¸é¡¹ç›®ç»„
+ * å‘å¸ƒæ—¥æœŸï¼š2019å¹´11æœˆ
  */
 #ifndef DFITCSECAPISTRUCT_H_
 #define DFITCSECAPISTRUCT_H_
@@ -22,7 +22,7 @@
 #define APISTRUCT
 #endif//WIN32
 
-//ÖØ´«·½Ê½
+//é‡ä¼ æ–¹å¼
 enum RESUME_TYPE
 {
     TERT_QUICK = 0,
@@ -30,2314 +30,2314 @@ enum RESUME_TYPE
     TERT_RESTART
 };
 
-//ERR-´íÎóĞÅÏ¢
+//ERR-é”™è¯¯ä¿¡æ¯
 struct APISTRUCT DFITCSECRspInfoField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECSessionIDType                sessionID;                //»á»°±êÊ¶
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECErrorIDType                  errorID;                  //´íÎóID
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECMessageType                  errorMsg;                 //´íÎóĞÅÏ¢
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECSessionIDType                sessionID;                //ä¼šè¯æ ‡è¯†
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECErrorIDType                  errorID;                  //é”™è¯¯ID
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·
+    DFITCSECMessageType                  errorMsg;                 //é”™è¯¯ä¿¡æ¯
 };
 
-//ERR-ÏûÏ¢Í¨Öª
+//ERR-æ¶ˆæ¯é€šçŸ¥
 struct APISTRUCT DFITCSECRspNoticeField
 {
-    DFITCSECMessageType                  noticeMsg;                 //Í¨Öª
+    DFITCSECMessageType                  noticeMsg;                 //é€šçŸ¥
 };
 
-//SEC-µÇÂ¼ÇëÇó
+//SEC-ç™»å½•è¯·æ±‚
 struct APISTRUCT DFITCSECReqUserLoginField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECPasswordType                 password;                 //ÃÜÂë(Y)
-    DFITCSECMDCompressFalgType           compressflag;             //ĞĞÇéÑ¹Ëõ±êÖ¾(N)(Ö»ÓĞµÇÂ¼ĞĞÇéÕË»§µÄÊ±ºò¸Ã×Ö¶ÎÓĞĞ§)
-    DFITCSECAuthenticCodeType            authenticCode;            //ÈÏÖ¤Âë
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECPasswordType                 password;                 //å¯†ç (Y)
+    DFITCSECMDCompressFalgType           compressflag;             //è¡Œæƒ…å‹ç¼©æ ‡å¿—(N)(åªæœ‰ç™»å½•è¡Œæƒ…è´¦æˆ·çš„æ—¶å€™è¯¥å­—æ®µæœ‰æ•ˆ)
+    DFITCSECAuthenticCodeType            authenticCode;            //è®¤è¯ç 
     DFITCSECAppID                        appID;
-    DFITCSECCollectInterfaceType         collectInterType;         //¿´´©Ê½¼à¹Ü²É¼¯½Ó¿ÚÀàĞÍ
+    DFITCSECCollectInterfaceType         collectInterType;         //çœ‹ç©¿å¼ç›‘ç®¡é‡‡é›†æ¥å£ç±»å‹
 };
 
-//SEC-µÇÂ¼ÏìÓ¦
+//SEC-ç™»å½•å“åº”
 struct APISTRUCT DFITCSECRspUserLoginField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECSessionIDType                sessionID;                //»á»°±àºÅ
-    DFITCSECFrontIDType                  frontID;                  //Ç°ÖÃ±àºÅ
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ
-    DFITCSECTimeType                     loginTime;                //µÇÂ¼Ê±¼ä
-    DFITCSECDateType                     tradingDay;               //½»Ò×ÈÕ
-    DFITCSECErrorIDType                  result;                   //½á¹û
-    DFITCSECMessageType                  rtnMsg;                   //·µ»ØĞÅÏ¢
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECSessionIDType                sessionID;                //ä¼šè¯ç¼–å·
+    DFITCSECFrontIDType                  frontID;                  //å‰ç½®ç¼–å·
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·
+    DFITCSECTimeType                     loginTime;                //ç™»å½•æ—¶é—´
+    DFITCSECDateType                     tradingDay;               //äº¤æ˜“æ—¥
+    DFITCSECErrorIDType                  result;                   //ç»“æœ
+    DFITCSECMessageType                  rtnMsg;                   //è¿”å›ä¿¡æ¯
 };
 
-//SEC-µÇ³öÇëÇó
+//SEC-ç™»å‡ºè¯·æ±‚
 struct APISTRUCT DFITCSECReqUserLogoutField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
 };
 
-//SEC-µÇ³öÏìÓ¦ 
+//SEC-ç™»å‡ºå“åº” 
 struct APISTRUCT DFITCSECRspUserLogoutField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECErrorIDType                  result;                   //½á¹û
-    DFITCSECMessageType                  rtnMsg;                   //·µ»ØĞÅÏ¢
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECErrorIDType                  result;                   //ç»“æœ
+    DFITCSECMessageType                  rtnMsg;                   //è¿”å›ä¿¡æ¯
 };
 
-//SEC-¸üĞÂÓÃ»§ÃÜÂëÇëÇó
+//SEC-æ›´æ–°ç”¨æˆ·å¯†ç è¯·æ±‚
 struct APISTRUCT DFITCSECReqPasswordUpdateField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECPasswordType                 oldPassword;              //¾ÉÃÜÂë(Y)
-    DFITCSECPasswordType                 newPassword;              //ĞÂÃÜÂë(Y)
-    DFITCSECPasswordTypeType             passwordType;             //ÃÜÂëÀàĞÍ(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECPasswordType                 oldPassword;              //æ—§å¯†ç (Y)
+    DFITCSECPasswordType                 newPassword;              //æ–°å¯†ç (Y)
+    DFITCSECPasswordTypeType             passwordType;             //å¯†ç ç±»å‹(Y)
 };
 
-//SEC-¸üĞÂÓÃ»§ÃÜÂëÏìÓ¦
+//SEC-æ›´æ–°ç”¨æˆ·å¯†ç å“åº”
 struct APISTRUCT DFITCSECRspPasswordUpdateField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECPasswordTypeType             passwordType;             //ÃÜÂëÀàĞÍ
-    DFITCSECErrorIDType                  result;                   //¸üĞÂ½á¹û
-    DFITCSECMessageType                  rtnMsg;                   //¸üĞÂ·µ»ØĞÅÏ¢
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECPasswordTypeType             passwordType;             //å¯†ç ç±»å‹
+    DFITCSECErrorIDType                  result;                   //æ›´æ–°ç»“æœ
+    DFITCSECMessageType                  rtnMsg;                   //æ›´æ–°è¿”å›ä¿¡æ¯
 };
 
-//SEC-¸üĞÂĞĞÇéÕË»§ÃÜÂëÇëÇó
+//SEC-æ›´æ–°è¡Œæƒ…è´¦æˆ·å¯†ç è¯·æ±‚
 struct APISTRUCT DFITCSECReqMDPasswordUpdateField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECPasswordType                 oldPassword;              //¾ÉÃÜÂë(Y)
-    DFITCSECPasswordType                 newPassword;              //ĞÂÃÜÂë(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECPasswordType                 oldPassword;              //æ—§å¯†ç (Y)
+    DFITCSECPasswordType                 newPassword;              //æ–°å¯†ç (Y)
 };
 
-//SEC-¸üĞÂĞĞÇéÕË»§ÃÜÂëÏìÓ¦
+//SEC-æ›´æ–°è¡Œæƒ…è´¦æˆ·å¯†ç å“åº”
 struct APISTRUCT DFITCSECRspMDPasswordUpdateField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECErrorIDType                  result;                   //¸üĞÂ½á¹û
-    DFITCSECMessageType                  rtnMsg;                   //¸üĞÂ·µ»ØĞÅÏ¢
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECErrorIDType                  result;                   //æ›´æ–°ç»“æœ
+    DFITCSECMessageType                  rtnMsg;                   //æ›´æ–°è¿”å›ä¿¡æ¯
 };
 
-//SEC-³·µ¥ÇëÇó
+//SEC-æ’¤å•è¯·æ±‚
 struct APISTRUCT DFITCSECReqWithdrawOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ(N)
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ(N)(¹ñÌ¨Î¯ÍĞºÅºÍ±¾µØÎ¯ÍĞºÅ¶şÑ¡Ò»)
-    DFITCSECSessionIDType                sessionID;                //»á»°±àºÅ(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·(N)
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·(N)(æŸœå°å§”æ‰˜å·å’Œæœ¬åœ°å§”æ‰˜å·äºŒé€‰ä¸€)
+    DFITCSECSessionIDType                sessionID;                //ä¼šè¯ç¼–å·(N)
 };
 
-//SEC-³·µ¥ÏìÓ¦
+//SEC-æ’¤å•å“åº”
 struct APISTRUCT DFITCSECRspWithdrawOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECTimeType                     entrustTime;              //Î¯ÍĞÊ±¼ä(¹ÉÆ±Ã»ÓĞÕâ¸ö×Ö¶Î£¬ÆÚÈ¨ÓĞ)
-    DFITCSECMessageType                  cancelMsg;                //³·µ¥·µ»ØĞÅÏ¢
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·
+    DFITCSECTimeType                     entrustTime;              //å§”æ‰˜æ—¶é—´(è‚¡ç¥¨æ²¡æœ‰è¿™ä¸ªå­—æ®µï¼ŒæœŸæƒæœ‰)
+    DFITCSECMessageType                  cancelMsg;                //æ’¤å•è¿”å›ä¿¡æ¯
 };
 
-//STOCK-Î¯ÍĞÇëÇó
+//STOCK-å§”æ‰˜è¯·æ±‚
 struct APISTRUCT DFITCStockReqEntrustOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECPriceType                    entrustPrice;             //Î¯ÍĞ¼Û¸ñ(N)
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ(Y)
-    DFITCSECQuantityType                 entrustQty;               //Î¯ÍĞÊıÁ¿(Y)
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë(Y)
-    DFITCSECOrderTypeType                orderType;                //¶©µ¥ÀàĞÍ(Y)
-    DFITCSECEntrustBatchIDType           entrustBatchID;           //Î¯ÍĞÅú´ÎºÅ(N)
-    DFITCSECSeatIDType                   eachSeatID;               //¶Ô·½Ï¯Î»ºÅ(N)
-    DFITCSECHKEntrustLimitType           hkEntrustLimit;           //¸Û¹É½»Ò×ÏŞÖÆ(¸Û¹É½»Ò×£ºY)
-    DFITCSECHKOrderTypeType              hkOrderType;              //¸Û¹É¶©µ¥ÊôĞÔ(¸Û¹É½»Ò×£ºY)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECPriceType                    entrustPrice;             //å§”æ‰˜ä»·æ ¼(N)
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«(Y)
+    DFITCSECQuantityType                 entrustQty;               //å§”æ‰˜æ•°é‡(Y)
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç (Y)
+    DFITCSECOrderTypeType                orderType;                //è®¢å•ç±»å‹(Y)
+    DFITCSECEntrustBatchIDType           entrustBatchID;           //å§”æ‰˜æ‰¹æ¬¡å·(N)
+    DFITCSECSeatIDType                   eachSeatID;               //å¯¹æ–¹å¸­ä½å·(N)
+    DFITCSECHKEntrustLimitType           hkEntrustLimit;           //æ¸¯è‚¡äº¤æ˜“é™åˆ¶(æ¸¯è‚¡äº¤æ˜“ï¼šY)
+    DFITCSECHKOrderTypeType              hkOrderType;              //æ¸¯è‚¡è®¢å•å±æ€§(æ¸¯è‚¡äº¤æ˜“ï¼šY)
 };
 
-//STOCK-Î¯ÍĞÏìÓ¦
+//STOCK-å§”æ‰˜å“åº”
 struct APISTRUCT DFITCStockRspEntrustOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECEntrustBatchIDType           entrustBatchID;           //Î¯ÍĞÅú´ÎºÅ(N)
-    DFITCSECMessageType                  entrustMsg;               //Î¯ÍĞ·µ»ØĞÅÏ¢
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·
+    DFITCSECEntrustBatchIDType           entrustBatchID;           //å§”æ‰˜æ‰¹æ¬¡å·(N)
+    DFITCSECMessageType                  entrustMsg;               //å§”æ‰˜è¿”å›ä¿¡æ¯
 };
 
-//STOCK-Î¯ÍĞ²éÑ¯ÇëÇó
+//STOCK-å§”æ‰˜æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCStockReqQryEntrustOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(N)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECSpdOrderIDType               spdOrderID;               //Î¯ÍĞºÅ(N)
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ(N)
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë(N)
-    DFITCSECEntrustBatchIDType           entrustBatchID;           //Î¯ÍĞÅú´ÎºÅ(N)
-    DFITCSECEntrustQryFlagType           entrustQryFlag;           //²éÑ¯±êÖ¾(N)
-    DFITCSECWithdrawFlagType             withdrawFlag;             //³·Ïú±êÖ¾(N)
-    DFITCSECIncQryIndexType              incQryIndex;              //ÔöÁ¿²éÑ¯Ë÷ÒıÖµ(N)(²»ÄÜ³¬¹ıint×î´óÖµ)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (N)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECSpdOrderIDType               spdOrderID;               //å§”æ‰˜å·(N)
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«(N)
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç (N)
+    DFITCSECEntrustBatchIDType           entrustBatchID;           //å§”æ‰˜æ‰¹æ¬¡å·(N)
+    DFITCSECEntrustQryFlagType           entrustQryFlag;           //æŸ¥è¯¢æ ‡å¿—(N)
+    DFITCSECWithdrawFlagType             withdrawFlag;             //æ’¤é”€æ ‡å¿—(N)
+    DFITCSECIncQryIndexType              incQryIndex;              //å¢é‡æŸ¥è¯¢ç´¢å¼•å€¼(N)(ä¸èƒ½è¶…è¿‡intæœ€å¤§å€¼)
 };
 
-//STOCK-Î¯ÍĞ²éÑ¯ÏìÓ¦
+//STOCK-å§”æ‰˜æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCStockRspQryEntrustOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECShareholderIDType            offerShareholderID;       //±¨ÅÌ¹É¶«ºÅ
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECFundsType                    turnover;                 //³É½»½ğ¶î
-    DFITCSECPriceType                    tradePrice;               //³É½»¼Û¸ñ
-    DFITCSECTimeType                     tradeTime;                //³É½»Ê±¼ä
-    DFITCSECQuantityType                 tradeQty;                 //³É½»ÊıÁ¿
-    DFITCSECShareholderIDType            shareholderID;            //¹É¶«ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECFundsType                    clearFunds;               //ÇåËã×Ê½ğ
-    DFITCSECEntrustTypeType              entrustType;              //Î¯ÍĞ·½Ê½
-    DFITCSECSpdOrderIDType               spdOrderID;               //Î¯ÍĞºÅ
-    DFITCSECPriceType                    entrustPrice;             //Î¯ÍĞ¼Û¸ñ
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ
-    DFITCSECQuantityType                 entrustQty;               //Î¯ÍĞÊıÁ¿
-    DFITCSECSecurityIDType               securityID;               //Ö¤„»´úÂë
-    DFITCSECSecurityTypeType             securityType;             //Ö¤È¯Àà±ğ
-    DFITCSECSecurityNameType             securityName;             //Ö¤È¯Ãû³Æ
-    DFITCSECTimeType                     entrustTime;              //Î¯ÍĞÊ±¼ä
-    DFITCSECTimeType                     declareTime;              //Éê±¨Ê±¼ä
-    DFITCSECDeclareResultType            declareResult;            //Éê±¨½á¹û
-    DFITCSECWithdrawFlagType             withdrawFlag;             //³·Ïú±êÖ¾
-    DFITCSECFundsType                    freezeFunds;              //¶³½á×Ê½ğ
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECMessageType                  noteMsg;                  //½á¹ûËµÃ÷
-    DFITCSECQuantityType                 withdrawQty;              //³·µ¥ÊıÁ¿
-    DFITCSECDeclareOrderIDType           declareOrderID;           //Éê±¨Î¯ÍĞºÅ
-    DFITCSECOrderTypeType                orderType;                //¶©µ¥ÀàĞÍ
-    DFITCSECEntrustBatchIDType           entrustBatchID;           //Î¯ÍĞÅú´ÎºÅ
-    DFITCSECSerialIDType                 freezeFundsSerialID;      //×Ê½ğ¶³½áÁ÷Ë®ºÅ
-    DFITCSECSerialIDType                 freezeStockSerialID;      //Ö¤È¯¶³½áÁ÷Ë®ºÅ
-    DFITCSECDateType                     declareDate;              //Éê±¨ÈÕÆÚ
-    DFITCSECSerialIDType                 declareSerialID;          //Éê±¨¼ÇÂ¼ºÅ
-    DFITCSECDateType                     entrustDate;              //Î¯ÍĞÈÕÆÚ
-    DFITCSECIncQryIndexType              incQryIndex;              //ÔöÁ¿²éÑ¯Ë÷ÒıÖµ
-    DFITCSECIPAddressType                ipAddr;                   //IPµØÖ·
-    DFITCSECMacAddressType               macAddr;                  //MACµØÖ·
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECShareholderIDType            offerShareholderID;       //æŠ¥ç›˜è‚¡ä¸œå·
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECFundsType                    turnover;                 //æˆäº¤é‡‘é¢
+    DFITCSECPriceType                    tradePrice;               //æˆäº¤ä»·æ ¼
+    DFITCSECTimeType                     tradeTime;                //æˆäº¤æ—¶é—´
+    DFITCSECQuantityType                 tradeQty;                 //æˆäº¤æ•°é‡
+    DFITCSECShareholderIDType            shareholderID;            //è‚¡ä¸œå·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECFundsType                    clearFunds;               //æ¸…ç®—èµ„é‡‘
+    DFITCSECEntrustTypeType              entrustType;              //å§”æ‰˜æ–¹å¼
+    DFITCSECSpdOrderIDType               spdOrderID;               //å§”æ‰˜å·
+    DFITCSECPriceType                    entrustPrice;             //å§”æ‰˜ä»·æ ¼
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«
+    DFITCSECQuantityType                 entrustQty;               //å§”æ‰˜æ•°é‡
+    DFITCSECSecurityIDType               securityID;               //è¯åŠµä»£ç 
+    DFITCSECSecurityTypeType             securityType;             //è¯åˆ¸ç±»åˆ«
+    DFITCSECSecurityNameType             securityName;             //è¯åˆ¸åç§°
+    DFITCSECTimeType                     entrustTime;              //å§”æ‰˜æ—¶é—´
+    DFITCSECTimeType                     declareTime;              //ç”³æŠ¥æ—¶é—´
+    DFITCSECDeclareResultType            declareResult;            //ç”³æŠ¥ç»“æœ
+    DFITCSECWithdrawFlagType             withdrawFlag;             //æ’¤é”€æ ‡å¿—
+    DFITCSECFundsType                    freezeFunds;              //å†»ç»“èµ„é‡‘
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECMessageType                  noteMsg;                  //ç»“æœè¯´æ˜
+    DFITCSECQuantityType                 withdrawQty;              //æ’¤å•æ•°é‡
+    DFITCSECDeclareOrderIDType           declareOrderID;           //ç”³æŠ¥å§”æ‰˜å·
+    DFITCSECOrderTypeType                orderType;                //è®¢å•ç±»å‹
+    DFITCSECEntrustBatchIDType           entrustBatchID;           //å§”æ‰˜æ‰¹æ¬¡å·
+    DFITCSECSerialIDType                 freezeFundsSerialID;      //èµ„é‡‘å†»ç»“æµæ°´å·
+    DFITCSECSerialIDType                 freezeStockSerialID;      //è¯åˆ¸å†»ç»“æµæ°´å·
+    DFITCSECDateType                     declareDate;              //ç”³æŠ¥æ—¥æœŸ
+    DFITCSECSerialIDType                 declareSerialID;          //ç”³æŠ¥è®°å½•å·
+    DFITCSECDateType                     entrustDate;              //å§”æ‰˜æ—¥æœŸ
+    DFITCSECIncQryIndexType              incQryIndex;              //å¢é‡æŸ¥è¯¢ç´¢å¼•å€¼
+    DFITCSECIPAddressType                ipAddr;                   //IPåœ°å€
+    DFITCSECMacAddressType               macAddr;                  //MACåœ°å€
 };
 
-//STOCK-ÊµÊ±³É½»²éÑ¯ÇëÇó
+//STOCK-å®æ—¶æˆäº¤æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCStockReqQryRealTimeTradeField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(N)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë(N)
-    DFITCSECEntrustBatchIDType           entrustBatchID;           //Î¯ÍĞÅú´ÎºÅ(N)
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ(N)
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ(N)
-    DFITCSECTradeQryFlagType             queryFlag;                //²éÑ¯±êÖ¾(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (N)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç (N)
+    DFITCSECEntrustBatchIDType           entrustBatchID;           //å§”æ‰˜æ‰¹æ¬¡å·(N)
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«(N)
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·(N)
+    DFITCSECTradeQryFlagType             queryFlag;                //æŸ¥è¯¢æ ‡å¿—(N)
 };
 
-//STOCK-ÊµÊ±³É½»²éÑ¯ÏìÓ¦
+//STOCK-å®æ—¶æˆäº¤æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCStockRspQryRealTimeTradeField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECDeclareOrderIDType           declareOrderID;           //Éê±¨Î¯ÍĞºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECShareholderIDType            shareholderID;            //¹É¶«ºÅ
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ
-    DFITCSECWithdrawFlagType             withdrawFlag;             //³·Ïú±êÖ¾
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë
-    DFITCSECSecurityNameType             securityName;             //Ö¤È¯Ãû³Æ
-    DFITCSECQuantityType                 entrustQty;               //Î¯ÍĞÊıÁ¿
-    DFITCSECPriceType                    entrustPrice;             //Î¯ÍĞ¼Û¸ñ
-    DFITCSECQuantityType                 withdrawQty;              //³·µ¥ÊıÁ¿
-    DFITCSECQuantityType                 tradeQty;                 //³É½»ÊıÁ¿
-    DFITCSECFundsType                    turnover;                 //³É½»½ğ¶î
-    DFITCSECPriceType                    tradePrice;               //³É½»¼Û¸ñ
-    DFITCSECTimeType                     tradeTime;                //³É½»Ê±¼ä
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECFundsType                    clearFunds;               //ÇåËã×Ê½ğ
-    DFITCSECEntrustBatchIDType           entrustBatchID;           //Î¯ÍĞÅú´ÎºÅ
-    DFITCSECOrderTypeType                orderType;                //¶©µ¥ÀàĞÍ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·
+    DFITCSECDeclareOrderIDType           declareOrderID;           //ç”³æŠ¥å§”æ‰˜å·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECShareholderIDType            shareholderID;            //è‚¡ä¸œå·
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«
+    DFITCSECWithdrawFlagType             withdrawFlag;             //æ’¤é”€æ ‡å¿—
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç 
+    DFITCSECSecurityNameType             securityName;             //è¯åˆ¸åç§°
+    DFITCSECQuantityType                 entrustQty;               //å§”æ‰˜æ•°é‡
+    DFITCSECPriceType                    entrustPrice;             //å§”æ‰˜ä»·æ ¼
+    DFITCSECQuantityType                 withdrawQty;              //æ’¤å•æ•°é‡
+    DFITCSECQuantityType                 tradeQty;                 //æˆäº¤æ•°é‡
+    DFITCSECFundsType                    turnover;                 //æˆäº¤é‡‘é¢
+    DFITCSECPriceType                    tradePrice;               //æˆäº¤ä»·æ ¼
+    DFITCSECTimeType                     tradeTime;                //æˆäº¤æ—¶é—´
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECFundsType                    clearFunds;               //æ¸…ç®—èµ„é‡‘
+    DFITCSECEntrustBatchIDType           entrustBatchID;           //å§”æ‰˜æ‰¹æ¬¡å·
+    DFITCSECOrderTypeType                orderType;                //è®¢å•ç±»å‹
 };
 
-//STOCK-·Ö±Ê³É½»²éÑ¯ÇëÇó
+//STOCK-åˆ†ç¬”æˆäº¤æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCStockReqQrySerialTradeField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(N)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ(N)
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ(N)
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë(N)
-    DFITCSECEntrustBatchIDType           entrustBatchID;           //Î¯ÍĞÅú´ÎºÅ(N)
-    DFITCSECTradeQryFlagType             tradeQryFlag;             //²éÑ¯±êÖ¾(N)
-    DFITCSECIncQryIndexType              incQryIndex;              //ÔöÁ¿²éÑ¯Ë÷ÒıÖµ(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (N)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·(N)
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«(N)
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç (N)
+    DFITCSECEntrustBatchIDType           entrustBatchID;           //å§”æ‰˜æ‰¹æ¬¡å·(N)
+    DFITCSECTradeQryFlagType             tradeQryFlag;             //æŸ¥è¯¢æ ‡å¿—(N)
+    DFITCSECIncQryIndexType              incQryIndex;              //å¢é‡æŸ¥è¯¢ç´¢å¼•å€¼(N)
 };
 
-//STOCK-·Ö±Ê³É½»²éÑ¯ÏìÓ¦
+//STOCK-åˆ†ç¬”æˆäº¤æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCStockRspQrySerialTradeField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECTradeIDType                  tradeID;                  //³É½»±àºÅ
-    DFITCSECFundsType                    turnover;                 //³É½»½ğ¶î
-    DFITCSECPriceType                    tradePrice;               //³É½»¼Û¸ñ
-    DFITCSECQuantityType                 tradeQty;                 //³É½»ÊıÁ¿
-    DFITCSECShareholderIDType            shareholderID;            //¹É¶«ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECFundsType                    clearFunds;               //ÇåËã×Ê½ğ
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë
-    DFITCSECSecurityTypeType             securityType;             //Ö¤„»Àà±ğ
-    DFITCSECSecurityNameType             securityName;             //Ö¤È¯Ãû³Æ
-    DFITCSECWithdrawFlagType             withdrawFlag;             //³·Ïú±êÖ¾
-    DFITCSECFundsType                    commission;               //Ó¶½ğ
-    DFITCSECSerialIDType                 rtnSerialID;              //»Ø±¨ĞòºÅ
-    DFITCSECFundsType                    interestQuote;            //ÀûÏ¢±¨¼Û
-    DFITCSECDeclareOrderIDType           declareOrderID;           //Éê±¨Î¯ÍĞºÅ
-    DFITCSECIncQryIndexType              incQryIndex;              //ÔöÁ¿²éÑ¯Ë÷ÒıÖµ
-    DFITCSECFundsType                    interest;                 //ÀûÏ¢
-    DFITCSECTimeType                     tradeTime;                //³É½»Ê±¼ä
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECTradeIDType                  tradeID;                  //æˆäº¤ç¼–å·
+    DFITCSECFundsType                    turnover;                 //æˆäº¤é‡‘é¢
+    DFITCSECPriceType                    tradePrice;               //æˆäº¤ä»·æ ¼
+    DFITCSECQuantityType                 tradeQty;                 //æˆäº¤æ•°é‡
+    DFITCSECShareholderIDType            shareholderID;            //è‚¡ä¸œå·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECFundsType                    clearFunds;               //æ¸…ç®—èµ„é‡‘
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç 
+    DFITCSECSecurityTypeType             securityType;             //è¯åŠµç±»åˆ«
+    DFITCSECSecurityNameType             securityName;             //è¯åˆ¸åç§°
+    DFITCSECWithdrawFlagType             withdrawFlag;             //æ’¤é”€æ ‡å¿—
+    DFITCSECFundsType                    commission;               //ä½£é‡‘
+    DFITCSECSerialIDType                 rtnSerialID;              //å›æŠ¥åºå·
+    DFITCSECFundsType                    interestQuote;            //åˆ©æ¯æŠ¥ä»·
+    DFITCSECDeclareOrderIDType           declareOrderID;           //ç”³æŠ¥å§”æ‰˜å·
+    DFITCSECIncQryIndexType              incQryIndex;              //å¢é‡æŸ¥è¯¢ç´¢å¼•å€¼
+    DFITCSECFundsType                    interest;                 //åˆ©æ¯
+    DFITCSECTimeType                     tradeTime;                //æˆäº¤æ—¶é—´
 };
 
-//STOCK-³Ö²Ö²éÑ¯ÇëÇó
+//STOCK-æŒä»“æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCStockReqQryPositionField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(N)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECSecurityIDType               securityID;               //Ö¤„»´úÂë(N)
-    DFITCSECPositionQryFlagType          posiQryFlag;              //²éÑ¯±êÖ¾(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (N)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECSecurityIDType               securityID;               //è¯åŠµä»£ç (N)
+    DFITCSECPositionQryFlagType          posiQryFlag;              //æŸ¥è¯¢æ ‡å¿—(N)
 };
 
-//STOCK-³Ö²Ö²éÑ¯ÏìÓ¦
+//STOCK-æŒä»“æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCStockRspQryPositionField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECFundsType                    sellTurnover;             //µ±ÈÕÂô³ö³É½»½ğ¶î
-    DFITCSECQuantityType                 sellTradeQty;             //µ±ÈÕÂô³ö³É½»ÊıÁ¿
-    DFITCSECQuantityType                 sellEntrustQty;           //µ±ÈÕÂô³öÎ¯ÍĞÊıÁ¿
-    DFITCSECFundsType                    buyTurnover;              //µ±ÈÕÂòÈë³É½»½ğ¶î
-    DFITCSECQuantityType                 buyTradeQty;              //µ±ÈÕÂòÈë³É½»ÊıÁ¿
-    DFITCSECQuantityType                 buyEntrustQty;            //µ±ÈÕÂòÈëÎ¯ÍĞÊıÁ¿
-    DFITCSECQuantityType                 nonCirculateQty;          //·ÇÁ÷Í¨ÊıÁ¿
-    DFITCSECShareholderIDType            shareholderID;            //¹É¶«ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù
-    DFITCSECDateType                     openDate;                 //¿ª²ÖÈÕÆÚ
-    DFITCSECQuantityType                 ableSellQty;              //¿ÉÂô³öÊıÁ¿
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë
-    DFITCSECSecurityTypeType             securityType;             //Ö¤È¯Àà±ğ
-    DFITCSECSecurityNameType             securityName;             //Ö¤È¯Ãû³Æ
-    DFITCSECQuantityType                 securityQty;              //Ö¤È¯ÊıÁ¿
-    DFITCSECQuantityType                 position;                 //½ñ³Ö²ÖÁ¿
-    DFITCSECQuantityType                 unSettleQty;              //Î´½»ÊÕÊıÁ¿
-    DFITCSECDateType                     changeDate;               //±ä¶¯ÈÕÆÚ
-    DFITCSECQuantityType                 ablePurchaseQty;          //¿ÉÉê¹ºÊıÁ¿
-    DFITCSECQuantityType                 ableRedemptionQty;        //¿ÉÊê»ØÊıÁ¿
-    DFITCSECQuantityType                 freezeQty;                //¶³½áÊıÁ¿
-    DFITCSECQuantityType                 offsetSQty;               //Âô³öµÖÏûÊıÁ¿
-    DFITCSECQuantityType                 offsetBQty;               //ÂòÈëµÖÏûÊıÁ¿
-    DFITCSECQuantityType                 purchaseTradeQty;         //Éê¹º³É½»ÊıÁ¿
-    DFITCSECQuantityType                 redemptionTradeQty;       //Êê»Ø³É½»ÊıÁ¿
-    DFITCSECTradeUnitType                tradeUnit;                //½»Ò×µ¥Î»(N)
-    DFITCSECQuantityType                 totalSellQty;             //ÀÛ¼ÆÂô³öÊıÁ¿(N)
-    DFITCSECQuantityType                 totalBuyQty;              //ÀÛ¼ÆÂòÈëÊıÁ¿(N)
-    DFITCSECQuantityType                 rationedSharesQty;        //Åä¹ÉÊıÁ¿(N)
-    DFITCSECQuantityType                 purchaseQty;              //ËÍ¹ÉÊıÁ¿(N)
-    DFITCSECFundsType                    dilutedFloatProfitLoss;   //Ì¯±¡¸¡¶¯Ó¯¿÷(N)
-    DFITCSECPriceType                    dilutedBreakevenPrice;    //Ì¯±¡±£±¾¼Û(N)
-    DFITCSECPriceType                    dilutedCost;              //Ì¯±¡³É±¾¼Û(N)
-    DFITCSECPriceType                    avgPositionPrice;         //³Ö²Ö¾ù¼Û(N)
-    DFITCSECFundsType                    floatProfitLoss;          //¸¡¶¯Ó¯¿÷(N)
-    DFITCSECFundsType                    dividend;                 //ºìÀû½ğ¶î(N)
-    DFITCSECFundsType                    totalFloatProfitLoss;     //ÀÛ¼Æ¸¡¶¯Ó¯¿÷(N)
-    DFITCSECFundsType                    sellAmount;               //Âô³ö½ğ¶î(N)
-    DFITCSECFundsType                    buyAmount;                //ÂòÈë½ğ¶î(N)
-    DFITCSECPriceType                    buyAvgPrice;              //ÂòÈë¾ù¼Û(N)
-    DFITCSECFundsType                    rationedSharesAmount;     //Åä¹É½ğ¶î(N)
-    DFITCSECFundsType                    latestMarket;             //×îĞÂÊĞÖµ(N)
-    DFITCSECPriceType                    breakevenPrice;           //±£±¾¼Û(N)
-    DFITCSECPriceType                    latestPrice;              //×îĞÂ¼Û(N)
-    DFITCSECFundsType                    nonCirculateMarket;       //·ÇÁ÷Í¨ÊĞÖµ(N)
-    DFITCSECFundsType                    interestQuote;            //ÀûÏ¢±¨¼Û(N)
-    DFITCSECPriceType                    preClosePrice;            //×òÊÕÅÌ¼Û(N)(Ô¤Áô)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECFundsType                    sellTurnover;             //å½“æ—¥å–å‡ºæˆäº¤é‡‘é¢
+    DFITCSECQuantityType                 sellTradeQty;             //å½“æ—¥å–å‡ºæˆäº¤æ•°é‡
+    DFITCSECQuantityType                 sellEntrustQty;           //å½“æ—¥å–å‡ºå§”æ‰˜æ•°é‡
+    DFITCSECFundsType                    buyTurnover;              //å½“æ—¥ä¹°å…¥æˆäº¤é‡‘é¢
+    DFITCSECQuantityType                 buyTradeQty;              //å½“æ—¥ä¹°å…¥æˆäº¤æ•°é‡
+    DFITCSECQuantityType                 buyEntrustQty;            //å½“æ—¥ä¹°å…¥å§”æ‰˜æ•°é‡
+    DFITCSECQuantityType                 nonCirculateQty;          //éæµé€šæ•°é‡
+    DFITCSECShareholderIDType            shareholderID;            //è‚¡ä¸œå·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€
+    DFITCSECDateType                     openDate;                 //å¼€ä»“æ—¥æœŸ
+    DFITCSECQuantityType                 ableSellQty;              //å¯å–å‡ºæ•°é‡
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç 
+    DFITCSECSecurityTypeType             securityType;             //è¯åˆ¸ç±»åˆ«
+    DFITCSECSecurityNameType             securityName;             //è¯åˆ¸åç§°
+    DFITCSECQuantityType                 securityQty;              //è¯åˆ¸æ•°é‡
+    DFITCSECQuantityType                 position;                 //ä»ŠæŒä»“é‡
+    DFITCSECQuantityType                 unSettleQty;              //æœªäº¤æ”¶æ•°é‡
+    DFITCSECDateType                     changeDate;               //å˜åŠ¨æ—¥æœŸ
+    DFITCSECQuantityType                 ablePurchaseQty;          //å¯ç”³è´­æ•°é‡
+    DFITCSECQuantityType                 ableRedemptionQty;        //å¯èµå›æ•°é‡
+    DFITCSECQuantityType                 freezeQty;                //å†»ç»“æ•°é‡
+    DFITCSECQuantityType                 offsetSQty;               //å–å‡ºæŠµæ¶ˆæ•°é‡
+    DFITCSECQuantityType                 offsetBQty;               //ä¹°å…¥æŠµæ¶ˆæ•°é‡
+    DFITCSECQuantityType                 purchaseTradeQty;         //ç”³è´­æˆäº¤æ•°é‡
+    DFITCSECQuantityType                 redemptionTradeQty;       //èµå›æˆäº¤æ•°é‡
+    DFITCSECTradeUnitType                tradeUnit;                //äº¤æ˜“å•ä½(N)
+    DFITCSECQuantityType                 totalSellQty;             //ç´¯è®¡å–å‡ºæ•°é‡(N)
+    DFITCSECQuantityType                 totalBuyQty;              //ç´¯è®¡ä¹°å…¥æ•°é‡(N)
+    DFITCSECQuantityType                 rationedSharesQty;        //é…è‚¡æ•°é‡(N)
+    DFITCSECQuantityType                 purchaseQty;              //é€è‚¡æ•°é‡(N)
+    DFITCSECFundsType                    dilutedFloatProfitLoss;   //æ‘Šè–„æµ®åŠ¨ç›ˆäº(N)
+    DFITCSECPriceType                    dilutedBreakevenPrice;    //æ‘Šè–„ä¿æœ¬ä»·(N)
+    DFITCSECPriceType                    dilutedCost;              //æ‘Šè–„æˆæœ¬ä»·(N)
+    DFITCSECPriceType                    avgPositionPrice;         //æŒä»“å‡ä»·(N)
+    DFITCSECFundsType                    floatProfitLoss;          //æµ®åŠ¨ç›ˆäº(N)
+    DFITCSECFundsType                    dividend;                 //çº¢åˆ©é‡‘é¢(N)
+    DFITCSECFundsType                    totalFloatProfitLoss;     //ç´¯è®¡æµ®åŠ¨ç›ˆäº(N)
+    DFITCSECFundsType                    sellAmount;               //å–å‡ºé‡‘é¢(N)
+    DFITCSECFundsType                    buyAmount;                //ä¹°å…¥é‡‘é¢(N)
+    DFITCSECPriceType                    buyAvgPrice;              //ä¹°å…¥å‡ä»·(N)
+    DFITCSECFundsType                    rationedSharesAmount;     //é…è‚¡é‡‘é¢(N)
+    DFITCSECFundsType                    latestMarket;             //æœ€æ–°å¸‚å€¼(N)
+    DFITCSECPriceType                    breakevenPrice;           //ä¿æœ¬ä»·(N)
+    DFITCSECPriceType                    latestPrice;              //æœ€æ–°ä»·(N)
+    DFITCSECFundsType                    nonCirculateMarket;       //éæµé€šå¸‚å€¼(N)
+    DFITCSECFundsType                    interestQuote;            //åˆ©æ¯æŠ¥ä»·(N)
+    DFITCSECPriceType                    preClosePrice;            //æ˜¨æ”¶ç›˜ä»·(N)(é¢„ç•™)
 };
 
-//STOCK-¿Í»§×Ê½ğ²éÑ¯ÇëÇó
+//STOCK-å®¢æˆ·èµ„é‡‘æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCStockReqQryCapitalAccountField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECFundsQryFlagType             FundsQryFlag;             //²éÑ¯±êÖ¾(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECFundsQryFlagType             FundsQryFlag;             //æŸ¥è¯¢æ ‡å¿—(N)
 };
 
-//STOCK-¿Í»§×Ê½ğ²éÑ¯ÏìÓ¦
+//STOCK-å®¢æˆ·èµ„é‡‘æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCStockRspQryCapitalAccountField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECFundsType                    availableFunds;           //¿ÉÓÃ×Ê½ğ
-    DFITCSECFundsType                    t2AvailableFunds;         //T+2¿ÉÓÃ×Ê½ğ
-    DFITCSECFundsType                    anticipatedInterest;      //Ô¤¼ÆÀûÏ¢
-    DFITCSECFundsType                    accountBalance;           //ÕË»§Óà¶î
-    DFITCSECAccountStatusType            accountStatus;            //ÕÊ»§×´Ì¬
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECFundsType                    freezeFunds;              //¶³½á×Ê½ğ
-    DFITCSECFundsType                    t2FreezeFunds;            //T+2¶³½á×Ê½ğ
-    DFITCSECBranchIDType                 branchID;                 //»ú¹¹´úÂë
-    DFITCSECFundsType                    totalFunds;               //×Ü×Ê½ğ(²éÑ¯±êÖ¾Îª1Ê±»á·µ»ØÖµ
-    DFITCSECFundsType                    totalMarket;              //×ÜÊĞÖµ(²éÑ¯±êÖ¾Îª1Ê±»á·µ»ØÖµ)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECFundsType                    availableFunds;           //å¯ç”¨èµ„é‡‘
+    DFITCSECFundsType                    t2AvailableFunds;         //T+2å¯ç”¨èµ„é‡‘
+    DFITCSECFundsType                    anticipatedInterest;      //é¢„è®¡åˆ©æ¯
+    DFITCSECFundsType                    accountBalance;           //è´¦æˆ·ä½™é¢
+    DFITCSECAccountStatusType            accountStatus;            //å¸æˆ·çŠ¶æ€
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECFundsType                    freezeFunds;              //å†»ç»“èµ„é‡‘
+    DFITCSECFundsType                    t2FreezeFunds;            //T+2å†»ç»“èµ„é‡‘
+    DFITCSECBranchIDType                 branchID;                 //æœºæ„ä»£ç 
+    DFITCSECFundsType                    totalFunds;               //æ€»èµ„é‡‘(æŸ¥è¯¢æ ‡å¿—ä¸º1æ—¶ä¼šè¿”å›å€¼
+    DFITCSECFundsType                    totalMarket;              //æ€»å¸‚å€¼(æŸ¥è¯¢æ ‡å¿—ä¸º1æ—¶ä¼šè¿”å›å€¼)
 };
 
-//STOCK-¿Í»§ĞÅÏ¢²éÑ¯ÇëÇó
+//STOCK-å®¢æˆ·ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT  DFITCStockReqQryAccountField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
 };
 
-//STOCK-¿Í»§ĞÅÏ¢²éÑ¯ÏìÓ¦
+//STOCK-å®¢æˆ·ä¿¡æ¯æŸ¥è¯¢å“åº”
 struct APISTRUCT  DFITCStockRspQryAccountField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECPhoneIDType                  tel;                      //µç»°
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECAccountNameType              accountName;              //¿Í»§ĞÕÃû
-    DFITCSECAccountIdentityIDType        accountIdentityID;        //Ö¤¼ş±àºÅ
-    DFITCSECAccountIdentityTypeType      accountIdentityType;      //Ö¤¼şÀàĞÍ
-    DFITCSECBranchIDType                 branchID;                 //»ú¹¹±àÂë
-    DFITCSBranchTypeType                 branchType;               //»ú¹¹±êÖ¾
-    DFITCSECPhoneIDType                  mobile;                   //ÒÆ¶¯µç»°
-    DFITCSECEntrustTypeType              entrustType;              //Î¯ÍĞ·½Ê½
-    DFITCSECAccountStatusType            accountStatus;            //¿Í»§×´Ì¬
-    DFITCSECPasswdSyncFlagType           pwdSynFlag;               //ÃÜÂëÍ¬²½±êÖ¾
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECPhoneIDType                  tel;                      //ç”µè¯
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECAccountNameType              accountName;              //å®¢æˆ·å§“å
+    DFITCSECAccountIdentityIDType        accountIdentityID;        //è¯ä»¶ç¼–å·
+    DFITCSECAccountIdentityTypeType      accountIdentityType;      //è¯ä»¶ç±»å‹
+    DFITCSECBranchIDType                 branchID;                 //æœºæ„ç¼–ç 
+    DFITCSBranchTypeType                 branchType;               //æœºæ„æ ‡å¿—
+    DFITCSECPhoneIDType                  mobile;                   //ç§»åŠ¨ç”µè¯
+    DFITCSECEntrustTypeType              entrustType;              //å§”æ‰˜æ–¹å¼
+    DFITCSECAccountStatusType            accountStatus;            //å®¢æˆ·çŠ¶æ€
+    DFITCSECPasswdSyncFlagType           pwdSynFlag;               //å¯†ç åŒæ­¥æ ‡å¿—
 };
 
-//STOCK-¹É¶«ĞÅÏ¢²éÑ¯ÇëÇó
+//STOCK-è‚¡ä¸œä¿¡æ¯æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT  DFITCStockReqQryShareholderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (N)
 };
 
-//STOCK-¹É¶«ĞÅÏ¢²éÑ¯ÏìÓ¦
+//STOCK-è‚¡ä¸œä¿¡æ¯æŸ¥è¯¢å“åº”
 struct APISTRUCT  DFITCStockRspQryShareholderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                account;                  //¿Í»§ºÅ
-    DFITCSECShareholderIDType            shareholderID;            //¹É¶«ºÅ
-    DFITCSECShareholderSpecPropType      shareholderSpecProp;      //¹É¶«Ö¸¶¨ÊôĞÔ
-    DFITCSECTradePermissionsType         tradePermissions;         //½»Ò×È¨ÏŞ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù
-    DFITCSECShareholderStatusType        shareholderStatus;        //¹É¶«×´Ì¬
-    DFITCSECMainAccountFlagType          mainAccountFlag;          //Ö÷ÕË»§±êÖ¾
-    DFITCSECShareholderCtlPropType       shareholderCtlProp;       //¹É¶«¿ØÖÆÊôĞÔ
-    DFITCSECBranchIDType                 branchID;                 //»ú¹¹±àÂë
-    DFITCSECShareholderTypeType          shareholderType;          //¹É¶«Àà±ğ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                account;                  //å®¢æˆ·å·
+    DFITCSECShareholderIDType            shareholderID;            //è‚¡ä¸œå·
+    DFITCSECShareholderSpecPropType      shareholderSpecProp;      //è‚¡ä¸œæŒ‡å®šå±æ€§
+    DFITCSECTradePermissionsType         tradePermissions;         //äº¤æ˜“æƒé™
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€
+    DFITCSECShareholderStatusType        shareholderStatus;        //è‚¡ä¸œçŠ¶æ€
+    DFITCSECMainAccountFlagType          mainAccountFlag;          //ä¸»è´¦æˆ·æ ‡å¿—
+    DFITCSECShareholderCtlPropType       shareholderCtlProp;       //è‚¡ä¸œæ§åˆ¶å±æ€§
+    DFITCSECBranchIDType                 branchID;                 //æœºæ„ç¼–ç 
+    DFITCSECShareholderTypeType          shareholderType;          //è‚¡ä¸œç±»åˆ«
 };
 
-//STOCK-×Ê½ğµ÷×ªÇëÇó
+//STOCK-èµ„é‡‘è°ƒè½¬è¯·æ±‚
 struct APISTRUCT  DFITCStockReqTransferFundsField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ(Y)
-    DFITCSECMessageType                  summaryMsg;               //ÕªÒª(N)
-    DFITCSECFundsType                    operateFunds;             //·¢Éú½ğ¶î(Y)
-    DFITCSECFundsTransferFlagType        fundsTransFlag;           //×Ê½ğµ÷×ª±êÖ¾(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECCurrencyType                 currency;                 //å¸ç§(Y)
+    DFITCSECMessageType                  summaryMsg;               //æ‘˜è¦(N)
+    DFITCSECFundsType                    operateFunds;             //å‘ç”Ÿé‡‘é¢(Y)
+    DFITCSECFundsTransferFlagType        fundsTransFlag;           //èµ„é‡‘è°ƒè½¬æ ‡å¿—(Y)
 };
 
-//STOCK-×Ê½ğµ÷×ªÏìÓ¦
+//STOCK-èµ„é‡‘è°ƒè½¬å“åº”
 struct APISTRUCT  DFITCStockRspTransferFundsField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECSerialIDType                 serialID;                 //Á÷Ë®ºÅ
-    DFITCSECFundsType                    accountBanlance;          //ÕË»§Óà¶î
-    DFITCSECFundsType                    availableFunds;           //¿ÉÓÃ×Ê½ğ
-    DFITCSECFundsType                    t2AvailableFunds;         //T+2¿ÉÓÃ×Ê½ğ
-    DFITCSECFundsTransferFlagType        fundsTransFlag;           //×Ê½ğµ÷×ª±êÖ¾
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECSerialIDType                 serialID;                 //æµæ°´å·
+    DFITCSECFundsType                    accountBanlance;          //è´¦æˆ·ä½™é¢
+    DFITCSECFundsType                    availableFunds;           //å¯ç”¨èµ„é‡‘
+    DFITCSECFundsType                    t2AvailableFunds;         //T+2å¯ç”¨èµ„é‡‘
+    DFITCSECFundsTransferFlagType        fundsTransFlag;           //èµ„é‡‘è°ƒè½¬æ ‡å¿—
 };
 
-//STOCK-ÅúÁ¿Î¯ÍĞÇëÇó
+//STOCK-æ‰¹é‡å§”æ‰˜è¯·æ±‚
 struct APISTRUCT DFITCStockReqEntrustBatchOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECQuantityType                 entrustCount;             //Î¯ÍĞÊıÁ¿(Y)
-    DFITCSECEntrustBatchOrderDetailType  entrustDetail;            //Î¯ÍĞÏêÏ¸ĞÅÏ¢(Y)
-    DFITCSECEntrustBatchIDType           entrustBatchID;           //Î¯ÍĞÅú´ÎºÅ(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECQuantityType                 entrustCount;             //å§”æ‰˜æ•°é‡(Y)
+    DFITCSECEntrustBatchOrderDetailType  entrustDetail;            //å§”æ‰˜è¯¦ç»†ä¿¡æ¯(Y)
+    DFITCSECEntrustBatchIDType           entrustBatchID;           //å§”æ‰˜æ‰¹æ¬¡å·(N)
 };
 
-//STOCK-ÅúÁ¿Î¯ÍĞÏìÓ¦
+//STOCK-æ‰¹é‡å§”æ‰˜å“åº”
 struct APISTRUCT DFITCStockRspEntrustBatchOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ
-    DFITCSECOrderRangeID                 orderRangeID;             //Î¯ÍĞºÅ·¶Î§
-    DFITCSECEntrustBatchIDType           entrustBatchID;           //Î¯ÍĞÅú´ÎºÅ
-    DFITCSECQuantityType                 sucEntrustCount;          //³É¹¦Î¯ÍĞ±ÊÊı
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·
+    DFITCSECOrderRangeID                 orderRangeID;             //å§”æ‰˜å·èŒƒå›´
+    DFITCSECEntrustBatchIDType           entrustBatchID;           //å§”æ‰˜æ‰¹æ¬¡å·
+    DFITCSECQuantityType                 sucEntrustCount;          //æˆåŠŸå§”æ‰˜ç¬”æ•°
 };
 
-//STOCK-ÅúÁ¿³·µ¥ÇëÇó
+//STOCK-æ‰¹é‡æ’¤å•è¯·æ±‚
 struct APISTRUCT DFITCStockReqWithdrawBatchOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECOrderIDRangeType             orderRangeID;             //Î¯ÍĞºÅ·¶Î§(Y)
-    DFITCSECEntrustBatchIDType           entrustBatchID;           //Î¯ÍĞÅú´ÎºÅ(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECOrderIDRangeType             orderRangeID;             //å§”æ‰˜å·èŒƒå›´(Y)
+    DFITCSECEntrustBatchIDType           entrustBatchID;           //å§”æ‰˜æ‰¹æ¬¡å·(N)
 };
 
-//STOCK-ÅúÁ¿³·µ¥ÏìÓ¦
+//STOCK-æ‰¹é‡æ’¤å•å“åº”
 struct APISTRUCT DFITCStockRspWithdrawBatchOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECBatchDeclareResultType       result;                   //³·µ¥½á¹û
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECBatchDeclareResultType       result;                   //æ’¤å•ç»“æœ
 };
 
-//STOCK-¼ÆËã¿ÉÎ¯ÍĞÊıÁ¿ÇëÇó
+//STOCK-è®¡ç®—å¯å§”æ‰˜æ•°é‡è¯·æ±‚
 struct APISTRUCT DFITCStockReqCalcAbleEntrustQtyField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECPriceType                    entrustPrice;             //Î¯ÍĞ¼Û¸ñ(N)(ÏŞ¼Û¶©µ¥±ØĞëËÍÈëÊıÖµ)
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ(N)
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë(Y)
-    DFITCSECOrderTypeType                orderType;                //¶©µ¥ÀàĞÍ(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECPriceType                    entrustPrice;             //å§”æ‰˜ä»·æ ¼(N)(é™ä»·è®¢å•å¿…é¡»é€å…¥æ•°å€¼)
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«(N)
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç (Y)
+    DFITCSECOrderTypeType                orderType;                //è®¢å•ç±»å‹(Y)
 };
 
-//STOCK-¼ÆËã¿ÉÎ¯ÍĞÊıÁ¿ÏìÓ¦
+//STOCK-è®¡ç®—å¯å§”æ‰˜æ•°é‡å“åº”
 struct APISTRUCT DFITCStockRspCalcAbleEntrustQtyField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë
-    DFITCSECQuantityType                 ableEntrustQty;           //¿ÉÎ¯ÍĞÊıÁ¿
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç 
+    DFITCSECQuantityType                 ableEntrustQty;           //å¯å§”æ‰˜æ•°é‡
 };
 
-//STOCK-¼ÆËã¿ÉÂòÈëETF¹ÉÆ±ÀºÊıÇëÇó
+//STOCK-è®¡ç®—å¯ä¹°å…¥ETFè‚¡ç¥¨ç¯®æ•°è¯·æ±‚
 struct APISTRUCT DFITCStockReqCalcAblePurchaseETFQtyField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç (Y)
 };
 
-//STOCK-¼ÆËã¿ÉÂòÈëETF¹ÉÆ±ÀºÊıÏìÓ¦
+//STOCK-è®¡ç®—å¯ä¹°å…¥ETFè‚¡ç¥¨ç¯®æ•°å“åº”
 struct APISTRUCT DFITCStockRspCalcAblePurchaseETFQtyField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë
-    DFITCSECQuantityType                 ablePurchaseETFQty;       //¿ÉÎ¯ÍĞÊıÁ¿
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç 
+    DFITCSECQuantityType                 ablePurchaseETFQty;       //å¯å§”æ‰˜æ•°é‡
 };
 
-//STOCK-×Ê½ğ¶³½áÃ÷Ï¸²éÑ¯ÇëÇó
+//STOCK-èµ„é‡‘å†»ç»“æ˜ç»†æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCStockReqQryFreezeFundsDetailField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ(N)
-    DFITCSECFundsFreezeTypeType          fundsFreezeType;          //¶³½áÀà±ğ(N)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECSerialIDType                 serialID;                 //Á÷Ë®ºÅ(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECCurrencyType                 currency;                 //å¸ç§(N)
+    DFITCSECFundsFreezeTypeType          fundsFreezeType;          //å†»ç»“ç±»åˆ«(N)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECSerialIDType                 serialID;                 //æµæ°´å·(N)
 };
 
-//STOCK-×Ê½ğ¶³½áÃ÷Ï¸²éÑ¯ÏìÓ¦
+//STOCK-èµ„é‡‘å†»ç»“æ˜ç»†æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCStockRspQryFreezeFundsDetailField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECFundsFreezeTypeType          fundsFreezeType;          //¶³½áÀà±ğ
-    DFITCSECAccountNameType              accountName;              //¿Í»§ĞÕÃû
-    DFITCSECMessageType                  summaryMsg;               //ÕªÒª
-    DFITCSECSerialIDType                 serialID;                 //Á÷Ë®ºÅ
-    DFITCSECFundsType                    operatorFunds;            //·¢Éú½ğ¶î
-    DFITCSECTimeType                     operatorTime;             //·¢ÉúÊ±¼ä
-    DFITCSECBranchIDType                 branchID;                 //»ú¹¹´úÂë
-    DFITCSECDateType                     operatorDate;             //·¢ÉúÈÕÆÚ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECFundsFreezeTypeType          fundsFreezeType;          //å†»ç»“ç±»åˆ«
+    DFITCSECAccountNameType              accountName;              //å®¢æˆ·å§“å
+    DFITCSECMessageType                  summaryMsg;               //æ‘˜è¦
+    DFITCSECSerialIDType                 serialID;                 //æµæ°´å·
+    DFITCSECFundsType                    operatorFunds;            //å‘ç”Ÿé‡‘é¢
+    DFITCSECTimeType                     operatorTime;             //å‘ç”Ÿæ—¶é—´
+    DFITCSECBranchIDType                 branchID;                 //æœºæ„ä»£ç 
+    DFITCSECDateType                     operatorDate;             //å‘ç”Ÿæ—¥æœŸ
 };
 
-//STOCK-Ö¤È¯¶³½áÃ÷Ï¸²éÑ¯ÇëÇó
+//STOCK-è¯åˆ¸å†»ç»“æ˜ç»†æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCStockReqQryFreezeStockDetailField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECStockFreezeTypeType          stockFreezeType;          //¶³½áÀà±ğ(N)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(N)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë(N)
-    DFITCSECSerialIDType                 serialID;                 //Á÷Ë®ºÅ(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECStockFreezeTypeType          stockFreezeType;          //å†»ç»“ç±»åˆ«(N)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (N)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç (N)
+    DFITCSECSerialIDType                 serialID;                 //æµæ°´å·(N)
 };
 
-//STOCK-Ö¤È¯¶³½áÃ÷Ï¸²éÑ¯ÏìÓ¦
+//STOCK-è¯åˆ¸å†»ç»“æ˜ç»†æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCStockRspQryFreezeStockDetailField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECStockFreezeTypeType          stockFreezeType;          //¶³½áÀà±ğ
-    DFITCSECShareholderIDType            shareholderID;            //¹É¶«ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECAccountNameType              accountName;              //¿Í»§ĞÕÃû
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë
-    DFITCSECSecurityTypeType             securityType;             //Ö¤È¯Àà±ğ
-    DFITCSECSecurityNameType             securityName;             //Ö¤È¯Ãû³Æ
-    DFITCSECMessageType                  summaryMsg;               //ÕªÒª
-    DFITCSECSerialIDType                 serialID;                 //Á÷Ë®ºÅ
-    DFITCSECTimeType                     operatorTime;             //·¢ÉúÊ±¼ä
-    DFITCSECBranchIDType                 branchID;                 //ÓªÒµ²¿
-    DFITCSECDateType                     operatorDate;             //·¢ÉúÈÕÆÚ
-    DFITCSECQuantityType                 operatorQty;              //·¢ÉúÊıÁ¿
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECStockFreezeTypeType          stockFreezeType;          //å†»ç»“ç±»åˆ«
+    DFITCSECShareholderIDType            shareholderID;            //è‚¡ä¸œå·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECAccountNameType              accountName;              //å®¢æˆ·å§“å
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç 
+    DFITCSECSecurityTypeType             securityType;             //è¯åˆ¸ç±»åˆ«
+    DFITCSECSecurityNameType             securityName;             //è¯åˆ¸åç§°
+    DFITCSECMessageType                  summaryMsg;               //æ‘˜è¦
+    DFITCSECSerialIDType                 serialID;                 //æµæ°´å·
+    DFITCSECTimeType                     operatorTime;             //å‘ç”Ÿæ—¶é—´
+    DFITCSECBranchIDType                 branchID;                 //è¥ä¸šéƒ¨
+    DFITCSECDateType                     operatorDate;             //å‘ç”Ÿæ—¥æœŸ
+    DFITCSECQuantityType                 operatorQty;              //å‘ç”Ÿæ•°é‡
 };
 
-//STOCK-²éÑ¯×Ê½ğµ÷²¦Ã÷Ï¸ÇëÇó
+//STOCK-æŸ¥è¯¢èµ„é‡‘è°ƒæ‹¨æ˜ç»†è¯·æ±‚
 struct APISTRUCT DFITCStockReqQryTransferFundsDetailField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ(N)
-    DFITCSECTransFundsFreezeTypeType     fundsFreezeType;          //¶³½áÀà±ğ(N)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECSerialIDType                 serialID;                 //Á÷Ë®ºÅ(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECCurrencyType                 currency;                 //å¸ç§(N)
+    DFITCSECTransFundsFreezeTypeType     fundsFreezeType;          //å†»ç»“ç±»åˆ«(N)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECSerialIDType                 serialID;                 //æµæ°´å·(N)
 };
 
-//STOCK-×Ê½ğµ÷²¦Ã÷Ï¸²éÑ¯ÏìÓ¦
+//STOCK-èµ„é‡‘è°ƒæ‹¨æ˜ç»†æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCStockRspQryTransferFundsDetailField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECTransFundsFreezeTypeType     fundsFreezeType;          //¶³½áÀà±ğ
-    DFITCSECAccountNameType              accountName;              //¿Í»§ĞÕÃû
-    DFITCSECMessageType                  summaryMsg;               //ÕªÒª
-    DFITCSECSerialIDType                 serialID;                 //Á÷Ë®ºÅ
-    DFITCSECFundsType                    operatorFunds;            //·¢Éú½ğ¶î
-    DFITCSECTimeType                     operatorTime;             //·¢ÉúÊ±¼ä
-    DFITCSECBranchIDType                 branchID;                 //»ú¹¹´úÂë
-    DFITCSECDateType                     operatorDate;             //·¢ÉúÈÕÆÚ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECTransFundsFreezeTypeType     fundsFreezeType;          //å†»ç»“ç±»åˆ«
+    DFITCSECAccountNameType              accountName;              //å®¢æˆ·å§“å
+    DFITCSECMessageType                  summaryMsg;               //æ‘˜è¦
+    DFITCSECSerialIDType                 serialID;                 //æµæ°´å·
+    DFITCSECFundsType                    operatorFunds;            //å‘ç”Ÿé‡‘é¢
+    DFITCSECTimeType                     operatorTime;             //å‘ç”Ÿæ—¶é—´
+    DFITCSECBranchIDType                 branchID;                 //æœºæ„ä»£ç 
+    DFITCSECDateType                     operatorDate;             //å‘ç”Ÿæ—¥æœŸ
 };
 
-//STOCK-²éÑ¯¿Í»§Ö¤È¯µ÷²¦Ã÷Ï¸ÇëÇó
+//STOCK-æŸ¥è¯¢å®¢æˆ·è¯åˆ¸è°ƒæ‹¨æ˜ç»†è¯·æ±‚
 struct APISTRUCT DFITCStockReqQryTransferStockDetailField
 {
-    DFITCSECRequestIDType                requestID;                 //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                 //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;                //½»Ò×Ëù±àÂë(N)
-    DFITCSECStockFreezeTypeType          stockFreezeType;           //¶³½áÀà±ğ(N)
-    DFITCSECIncQryIndexType              incQryIndex;               //ÔöÁ¿²éÑ¯Ë÷ÒıÖµ(N)
-    DFITCSECSerialIDType                 serialID;                  //Á÷Ë®ºÅ(N)
+    DFITCSECRequestIDType                requestID;                 //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                 //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;                //äº¤æ˜“æ‰€ç¼–ç (N)
+    DFITCSECStockFreezeTypeType          stockFreezeType;           //å†»ç»“ç±»åˆ«(N)
+    DFITCSECIncQryIndexType              incQryIndex;               //å¢é‡æŸ¥è¯¢ç´¢å¼•å€¼(N)
+    DFITCSECSerialIDType                 serialID;                  //æµæ°´å·(N)
 };
 
-//STOCK-²éÑ¯¿Í»§Ö¤È¯µ÷²¦Ã÷Ï¸ÏìÓ¦
+//STOCK-æŸ¥è¯¢å®¢æˆ·è¯åˆ¸è°ƒæ‹¨æ˜ç»†å“åº”
 struct APISTRUCT DFITCStockRspQryTransferStockDetailField
 {
-    DFITCSECRequestIDType                requestID;                 //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                 //¿Í»§ºÅ
-    DFITCSECAccountNameType              accountName;               //¿Í»§Ãû³Æ
-    DFITCSECBranchIDType                 branchID;                  //»ú¹¹´úÂë
-    DFITCSECDateType                     operatorDate;              //·¢ÉúÈÕÆÚ
-    DFITCSECExchangeIDType               exchangeID;                //½»Ò×Ëù±àÂë
-    DFITCSECStockFreezeTypeType          stockFreezeType;           //¶³½áÀà±ğ
-    DFITCSECSecurityIDType               securityID;                //Ö¤„»´úÂë
-    DFITCSECSerialIDType                 serialID;                  //Á÷Ë®ºÅ
-    DFITCSECShareholderIDType            shareholderID;             //¹É¶«ºÅ
-    DFITCSECMessageType                  summaryMsg;                //ÕªÒª
-    DFITCSECTimeType                     operatorTime;              //·¢ÉúÊ±¼ä
-    DFITCSECQuantityType                 operatorQty;               //·¢ÉúÊıÁ¿
+    DFITCSECRequestIDType                requestID;                 //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                 //å®¢æˆ·å·
+    DFITCSECAccountNameType              accountName;               //å®¢æˆ·åç§°
+    DFITCSECBranchIDType                 branchID;                  //æœºæ„ä»£ç 
+    DFITCSECDateType                     operatorDate;              //å‘ç”Ÿæ—¥æœŸ
+    DFITCSECExchangeIDType               exchangeID;                //äº¤æ˜“æ‰€ç¼–ç 
+    DFITCSECStockFreezeTypeType          stockFreezeType;           //å†»ç»“ç±»åˆ«
+    DFITCSECSecurityIDType               securityID;                //è¯åŠµä»£ç 
+    DFITCSECSerialIDType                 serialID;                  //æµæ°´å·
+    DFITCSECShareholderIDType            shareholderID;             //è‚¡ä¸œå·
+    DFITCSECMessageType                  summaryMsg;                //æ‘˜è¦
+    DFITCSECTimeType                     operatorTime;              //å‘ç”Ÿæ—¶é—´
+    DFITCSECQuantityType                 operatorQty;               //å‘ç”Ÿæ•°é‡
 };
 
-//STOCK-Ö¤È¯ĞÅÏ¢²éÑ¯ÇëÇó
+//STOCK-è¯åˆ¸ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCStockReqQryStockField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(Y)
-    DFITCSECSecurityIDType               securityID;               //Ö¤„»´úÂë(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (Y)
+    DFITCSECSecurityIDType               securityID;               //è¯åŠµä»£ç (Y)
 };
 
-//STOCK-Ö¤È¯ĞÅÏ¢²éÑ¯ÏìÓ¦
+//STOCK-è¯åˆ¸ä¿¡æ¯æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCStockRspQryStockField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECStockTradeFlagType           stopFlag;                 //Í£ÅÆ±êÖ¾
-    DFITCSECPriceType                    latestPrice;              //×îĞÂ¼Û
-    DFITCSECPriceType                    preClosePrice;            //×òÊÕÅÌ¼Û
-    DFITCSECPriceType                    openPrice;                //¿ªÅÌ¼Û
-    DFITCSECLargeQuantityType            tradeQty;                 //³É½»ÊıÁ¿
-    DFITCSECFundsType                    turnover;                 //³É½»½ğ¶î
-    DFITCSECPriceType                    priceHigher;              //×î¸ß¼Û
-    DFITCSECPriceType                    priceLower;               //×îµÍ¼Û
-    DFITCSECPriceType                    bidPrice1;                //ÉêÂò¼ÛÒ»
-    DFITCSECQuantityType                 bidQty1;                  //ÉêÂòÁ¿Ò»
-    DFITCSECPriceType                    askPrice1;                //ÉêÂô¼ÛÒ»
-    DFITCSECQuantityType                 askQty1;                  //ÉêÂôÁ¿Ò»
-    DFITCSECPriceType                    bidPrice2;                //ÉêÂò¼Û¶ş
-    DFITCSECQuantityType                 bidQty2;                  //ÉêÂòÁ¿¶ş
-    DFITCSECPriceType                    askPrice2;                //ÉêÂô¼Û¶ş
-    DFITCSECQuantityType                 askQty2;                  //ÉêÂôÁ¿¶ş
-    DFITCSECPriceType                    bidPrice3;                //ÉêÂò¼ÛÈı
-    DFITCSECQuantityType                 bidQty3;                  //ÉêÂòÁ¿Èı
-    DFITCSECPriceType                    askPrice3;                //ÉêÂô¼ÛÈı
-    DFITCSECQuantityType                 askQty3;                  //ÉêÂôÁ¿Èı
-    DFITCSECPriceType                    bidPrice4;                //ÉêÂò¼ÛËÄ
-    DFITCSECQuantityType                 bidQty4;                  //ÉêÂòÁ¿ËÄ
-    DFITCSECPriceType                    askPrice4;                //ÉêÂô¼ÛËÄ
-    DFITCSECQuantityType                 askQty4;                  //ÉêÂôÁ¿ËÄ
-    DFITCSECPriceType                    bidPrice5;                //ÉêÂò¼ÛÎå
-    DFITCSECQuantityType                 bidQty5;                  //ÉêÂòÁ¿Îå
-    DFITCSECPriceType                    askPrice5;                //ÉêÂô¼ÛÎå
-    DFITCSECQuantityType                 askQty5;                  //ÉêÂôÁ¿Îå
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECSecurityIDType               securityID;               //Ö¤„»´úÂë
-    DFITCSECPriceType                    interestQuote;            //ÀûÏ¢±¨¼Û
-    DFITCSECPriceType                    securityFaceValue;        //Ö¤È¯ÃæÖµ
-    DFITCSECBidTradeFlagType             bidTradeFlag;             //¾º¼Û½»Ò×±êÖ¾
-    DFITCSECTradeUnitType                tradeUnit;                //½»Ò×µ¥Î»
-    DFITCSECBusinessLimitType            businessLimit;            //ÂòÂôÏŞÖÆ
-    DFITCSECSecurityTypeType             securityType;             //Ö¤È¯Àà±ğ
-    DFITCSECSecurityNameType             securityName;             //Ö¤È¯Ãû³Æ
-    DFITCSECPriceType                    upperLimitPrice;          //ÕÇÍ£°å¼Û
-    DFITCSECPriceType                    lowerLimitPrice;          //µøÍ£°å¼Û
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECOrderTypeLimitType           orderLimits;              //¶©µ¥ÀàĞÍÏŞÖÆ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECStockTradeFlagType           stopFlag;                 //åœç‰Œæ ‡å¿—
+    DFITCSECPriceType                    latestPrice;              //æœ€æ–°ä»·
+    DFITCSECPriceType                    preClosePrice;            //æ˜¨æ”¶ç›˜ä»·
+    DFITCSECPriceType                    openPrice;                //å¼€ç›˜ä»·
+    DFITCSECLargeQuantityType            tradeQty;                 //æˆäº¤æ•°é‡
+    DFITCSECFundsType                    turnover;                 //æˆäº¤é‡‘é¢
+    DFITCSECPriceType                    priceHigher;              //æœ€é«˜ä»·
+    DFITCSECPriceType                    priceLower;               //æœ€ä½ä»·
+    DFITCSECPriceType                    bidPrice1;                //ç”³ä¹°ä»·ä¸€
+    DFITCSECQuantityType                 bidQty1;                  //ç”³ä¹°é‡ä¸€
+    DFITCSECPriceType                    askPrice1;                //ç”³å–ä»·ä¸€
+    DFITCSECQuantityType                 askQty1;                  //ç”³å–é‡ä¸€
+    DFITCSECPriceType                    bidPrice2;                //ç”³ä¹°ä»·äºŒ
+    DFITCSECQuantityType                 bidQty2;                  //ç”³ä¹°é‡äºŒ
+    DFITCSECPriceType                    askPrice2;                //ç”³å–ä»·äºŒ
+    DFITCSECQuantityType                 askQty2;                  //ç”³å–é‡äºŒ
+    DFITCSECPriceType                    bidPrice3;                //ç”³ä¹°ä»·ä¸‰
+    DFITCSECQuantityType                 bidQty3;                  //ç”³ä¹°é‡ä¸‰
+    DFITCSECPriceType                    askPrice3;                //ç”³å–ä»·ä¸‰
+    DFITCSECQuantityType                 askQty3;                  //ç”³å–é‡ä¸‰
+    DFITCSECPriceType                    bidPrice4;                //ç”³ä¹°ä»·å››
+    DFITCSECQuantityType                 bidQty4;                  //ç”³ä¹°é‡å››
+    DFITCSECPriceType                    askPrice4;                //ç”³å–ä»·å››
+    DFITCSECQuantityType                 askQty4;                  //ç”³å–é‡å››
+    DFITCSECPriceType                    bidPrice5;                //ç”³ä¹°ä»·äº”
+    DFITCSECQuantityType                 bidQty5;                  //ç”³ä¹°é‡äº”
+    DFITCSECPriceType                    askPrice5;                //ç”³å–ä»·äº”
+    DFITCSECQuantityType                 askQty5;                  //ç”³å–é‡äº”
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECSecurityIDType               securityID;               //è¯åŠµä»£ç 
+    DFITCSECPriceType                    interestQuote;            //åˆ©æ¯æŠ¥ä»·
+    DFITCSECPriceType                    securityFaceValue;        //è¯åˆ¸é¢å€¼
+    DFITCSECBidTradeFlagType             bidTradeFlag;             //ç«ä»·äº¤æ˜“æ ‡å¿—
+    DFITCSECTradeUnitType                tradeUnit;                //äº¤æ˜“å•ä½
+    DFITCSECBusinessLimitType            businessLimit;            //ä¹°å–é™åˆ¶
+    DFITCSECSecurityTypeType             securityType;             //è¯åˆ¸ç±»åˆ«
+    DFITCSECSecurityNameType             securityName;             //è¯åˆ¸åç§°
+    DFITCSECPriceType                    upperLimitPrice;          //æ¶¨åœæ¿ä»·
+    DFITCSECPriceType                    lowerLimitPrice;          //è·Œåœæ¿ä»·
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECOrderTypeLimitType           orderLimits;              //è®¢å•ç±»å‹é™åˆ¶
 };
 
-//STOCK-²éÑ¯½»Ò×Ê±¼äÇëÇó
+//STOCK-æŸ¥è¯¢äº¤æ˜“æ—¶é—´è¯·æ±‚
 struct APISTRUCT DFITCStockReqQryTradeTimeField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
 };
 
-//STOCK-²éÑ¯½»Ò×Ê±¼äÏìÓ¦
+//STOCK-æŸ¥è¯¢äº¤æ˜“æ—¶é—´å“åº”
 struct APISTRUCT DFITCStockRspQryTradeTimeField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECDateType                     sysTradingDay;            //ÏµÍ³µ±Ç°ÈÕÆÚ
-    DFITCSECTimeType                     sysTime;                  //ÏµÍ³µ±Ç°Ê±¼ä
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECDateType                     sysTradingDay;            //ç³»ç»Ÿå½“å‰æ—¥æœŸ
+    DFITCSECTimeType                     sysTime;                  //ç³»ç»Ÿå½“å‰æ—¶é—´
 };
 
-//STOCK-Î¯ÍĞ»Ø±¨
+//STOCK-å§”æ‰˜å›æŠ¥
 struct APISTRUCT DFITCStockEntrustOrderRtnField
 {
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECSessionIDType                sessionID;                //»á»°±àºÅ
-    DFITCSECShareholderIDType            shareholderID;            //¹É¶«ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECSecurityIDType               securityID;               //Ö¤„»´úÂë
-    DFITCSECSecurityTypeType             securityType;             //Ö¤È¯Àà±ğ
-    DFITCSECQuantityType                 withdrawQty;              //³·µ¥ÊıÁ¿
-    DFITCSECWithdrawFlagType             withdrawFlag;             //³·Ïú±êÖ¾
-    DFITCSECFundsType                    freezeFunds;              //¶³½á×Ê½ğ
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ
-    DFITCSECDeclareResultType            declareResult;            //Éê±¨½á¹û
-    DFITCSECMessageType                  noteMsg;                  //½á¹ûËµÃ÷
-    DFITCSECQuantityType                 entrustQty;               //Î¯ÍĞÊıÁ¿
-    DFITCSECOrderConfirmFlagType         orderConfirmFlag;         //Î¯ÍĞÈ·ÈÏ±êÖ¾
-    DFITCSECTimeType                     entrustTime;              //Î¯ÍĞÊ±¼ä
-    DFITCSECPriceType                    entrustPrice;             //Î¯ÍĞ¼Û¸ñ
-    DFITCSECOrderTypeType                orderType;                //¶©µ¥ÀàĞÍ
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECSessionIDType                sessionID;                //ä¼šè¯ç¼–å·
+    DFITCSECShareholderIDType            shareholderID;            //è‚¡ä¸œå·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECSecurityIDType               securityID;               //è¯åŠµä»£ç 
+    DFITCSECSecurityTypeType             securityType;             //è¯åˆ¸ç±»åˆ«
+    DFITCSECQuantityType                 withdrawQty;              //æ’¤å•æ•°é‡
+    DFITCSECWithdrawFlagType             withdrawFlag;             //æ’¤é”€æ ‡å¿—
+    DFITCSECFundsType                    freezeFunds;              //å†»ç»“èµ„é‡‘
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«
+    DFITCSECDeclareResultType            declareResult;            //ç”³æŠ¥ç»“æœ
+    DFITCSECMessageType                  noteMsg;                  //ç»“æœè¯´æ˜
+    DFITCSECQuantityType                 entrustQty;               //å§”æ‰˜æ•°é‡
+    DFITCSECOrderConfirmFlagType         orderConfirmFlag;         //å§”æ‰˜ç¡®è®¤æ ‡å¿—
+    DFITCSECTimeType                     entrustTime;              //å§”æ‰˜æ—¶é—´
+    DFITCSECPriceType                    entrustPrice;             //å§”æ‰˜ä»·æ ¼
+    DFITCSECOrderTypeType                orderType;                //è®¢å•ç±»å‹
 };
 
-//STOCK-³É½»»Ø±¨
+//STOCK-æˆäº¤å›æŠ¥
 struct APISTRUCT DFITCStockTradeRtnField
 {
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECSessionIDType                sessionID;                //»á»°±àºÅ
-    DFITCSECShareholderIDType            shareholderID;            //¹É¶«ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECSecurityIDType               securityID;               //Ö¤„»´úÂë
-    DFITCSECSecurityTypeType             securityType;             //Ö¤È¯Àà±ğ
-    DFITCSECWithdrawFlagType             withdrawFlag;             //³·Ïú±êÖ¾
-    DFITCSECTradeIDType                  tradeID;                  //³É½»±àºÅ
-    DFITCSECTimeType                     tradeTime;                //³É½»Ê±¼ä
-    DFITCSECQuantityType                 withdrawQty;              //³·µ¥ÊıÁ¿
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ
-    DFITCSECFundsType                    clearFunds;               //ÇåËã×Ê½ğ
-    DFITCSECQuantityType                 totalTradeQty;            //Î¯ÍĞ×Ü³É½»ÊıÁ¿
-    DFITCSECFundsType                    totalTurnover;            //Î¯ÍĞ×Ü³É½»½ğ¶î
-    DFITCSECQuantityType                 tradeQty;                 //±¾´Î³É½»ÊıÁ¿
-    DFITCSECPriceType                    tradePrice;               //±¾´Î³É½»¼Û¸ñ
-    DFITCSECFundsType                    turnover;                 //±¾´Î³É½»½ğ¶î
-    DFITCSECQuantityType                 entrustQty;               //Î¯ÍĞÊıÁ¿
-    DFITCSECDeclareResultType            declareResult;            //Éê±¨½á¹û(Ô¤Áô×Ö¶Î)
-    DFITCSECMessageType                  noteMsg;                  //½á¹ûËµÃ÷(Ô¤Áô×Ö¶Î)
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECSessionIDType                sessionID;                //ä¼šè¯ç¼–å·
+    DFITCSECShareholderIDType            shareholderID;            //è‚¡ä¸œå·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECSecurityIDType               securityID;               //è¯åŠµä»£ç 
+    DFITCSECSecurityTypeType             securityType;             //è¯åˆ¸ç±»åˆ«
+    DFITCSECWithdrawFlagType             withdrawFlag;             //æ’¤é”€æ ‡å¿—
+    DFITCSECTradeIDType                  tradeID;                  //æˆäº¤ç¼–å·
+    DFITCSECTimeType                     tradeTime;                //æˆäº¤æ—¶é—´
+    DFITCSECQuantityType                 withdrawQty;              //æ’¤å•æ•°é‡
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«
+    DFITCSECFundsType                    clearFunds;               //æ¸…ç®—èµ„é‡‘
+    DFITCSECQuantityType                 totalTradeQty;            //å§”æ‰˜æ€»æˆäº¤æ•°é‡
+    DFITCSECFundsType                    totalTurnover;            //å§”æ‰˜æ€»æˆäº¤é‡‘é¢
+    DFITCSECQuantityType                 tradeQty;                 //æœ¬æ¬¡æˆäº¤æ•°é‡
+    DFITCSECPriceType                    tradePrice;               //æœ¬æ¬¡æˆäº¤ä»·æ ¼
+    DFITCSECFundsType                    turnover;                 //æœ¬æ¬¡æˆäº¤é‡‘é¢
+    DFITCSECQuantityType                 entrustQty;               //å§”æ‰˜æ•°é‡
+    DFITCSECDeclareResultType            declareResult;            //ç”³æŠ¥ç»“æœ(é¢„ç•™å­—æ®µ)
+    DFITCSECMessageType                  noteMsg;                  //ç»“æœè¯´æ˜(é¢„ç•™å­—æ®µ)
 };
 
-//STOCK-³·µ¥»Ø±¨
+//STOCK-æ’¤å•å›æŠ¥
 struct APISTRUCT DFITCStockWithdrawOrderRtnField
 {
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECSessionIDType                sessionID;                //»á»°±àºÅ
-    DFITCSECShareholderIDType            shareholderID;            //¹É¶«ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë
-    DFITCSECSecurityTypeType             securityType;             //Ö¤È¯Àà±ğ
-    DFITCSECQuantityType                 withdrawQty;              //³·µ¥ÊıÁ¿
-    DFITCSECQuantityType                 tradeQty;                 //³É½»ÊıÁ¿
-    DFITCSECWithdrawFlagType             withdrawFlag;             //³·Ïú±êÖ¾
-    DFITCSECFundsType                    freezeFunds;              //¶³½á×Ê½ğ
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ
-    DFITCSECQuantityType                 entrustQty;               //Î¯ÍĞÊıÁ¿
-    DFITCSECDeclareResultType            declareResult;            //Éê±¨½á¹û(Ô¤Áô×Ö¶Î)
-    DFITCSECMessageType                  noteMsg;                  //½á¹ûËµÃ÷(Ô¤Áô×Ö¶Î)
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECSessionIDType                sessionID;                //ä¼šè¯ç¼–å·
+    DFITCSECShareholderIDType            shareholderID;            //è‚¡ä¸œå·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç 
+    DFITCSECSecurityTypeType             securityType;             //è¯åˆ¸ç±»åˆ«
+    DFITCSECQuantityType                 withdrawQty;              //æ’¤å•æ•°é‡
+    DFITCSECQuantityType                 tradeQty;                 //æˆäº¤æ•°é‡
+    DFITCSECWithdrawFlagType             withdrawFlag;             //æ’¤é”€æ ‡å¿—
+    DFITCSECFundsType                    freezeFunds;              //å†»ç»“èµ„é‡‘
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«
+    DFITCSECQuantityType                 entrustQty;               //å§”æ‰˜æ•°é‡
+    DFITCSECDeclareResultType            declareResult;            //ç”³æŠ¥ç»“æœ(é¢„ç•™å­—æ®µ)
+    DFITCSECMessageType                  noteMsg;                  //ç»“æœè¯´æ˜(é¢„ç•™å­—æ®µ)
 };
 
-//SOP-Î¯ÍĞÇëÇó
+//SOP-å§”æ‰˜è¯·æ±‚
 struct APISTRUCT DFITCSOPReqEntrustOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(Y)
-    DFITCSECSecurityIDType               securityID;               //Ö¤„»´úÂë(Y)
-    DFITCSECSubAccountIDType             subAccountID;             //×ÓÕË»§±àÂë(N)(Ô¤Áô×Ö¶Î)
-    DFITCSECQuantityType                 entrustQty;               //Î¯ÍĞÊıÁ¿(Y)
-    DFITCSECPriceType                    entrustPrice;             //Î¯ÍĞ¼Û¸ñ(N)
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ(Y)
-    DFITCSECOpenCloseFlagType            openCloseFlag;            //¿ªÆ½±êÖ¾(Y)
-    DFITCSECCoveredFlagType              coveredFlag;              //±¸¶ÒÀàĞÍ(Y)
-    DFITCSECOrderTypeType                orderType;                //¶©µ¥ÀàĞÍ(Y)
-    DFITCSECOrderExpiryDateType          orderExpiryDate;          //¶©µ¥Ê±Ğ§ÏŞÖÆ(N)
-    DFITCSECOrderCategoryType            orderCategory;            //Î¯ÍĞµ¥Àà±ğ(Y)
-    DFITCSECSerialIDType                 serialID;                 //À©Õ¹Á÷Ë®ºÅ(N)(Ô¤Áô×Ö¶Î)
-    DFITCSECTDevIDType                   devID;                    //³§ÉÌID(N)
-    DFITCSECTDevDecInfoType              devDecInfo;               //ÓÃ»§×Ô¶¨Òå×Ö¶Î(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (Y)
+    DFITCSECSecurityIDType               securityID;               //è¯åŠµä»£ç (Y)
+    DFITCSECSubAccountIDType             subAccountID;             //å­è´¦æˆ·ç¼–ç (N)(é¢„ç•™å­—æ®µ)
+    DFITCSECQuantityType                 entrustQty;               //å§”æ‰˜æ•°é‡(Y)
+    DFITCSECPriceType                    entrustPrice;             //å§”æ‰˜ä»·æ ¼(N)
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«(Y)
+    DFITCSECOpenCloseFlagType            openCloseFlag;            //å¼€å¹³æ ‡å¿—(Y)
+    DFITCSECCoveredFlagType              coveredFlag;              //å¤‡å…‘ç±»å‹(Y)
+    DFITCSECOrderTypeType                orderType;                //è®¢å•ç±»å‹(Y)
+    DFITCSECOrderExpiryDateType          orderExpiryDate;          //è®¢å•æ—¶æ•ˆé™åˆ¶(N)
+    DFITCSECOrderCategoryType            orderCategory;            //å§”æ‰˜å•ç±»åˆ«(Y)
+    DFITCSECSerialIDType                 serialID;                 //æ‰©å±•æµæ°´å·(N)(é¢„ç•™å­—æ®µ)
+    DFITCSECTDevIDType                   devID;                    //å‚å•†ID(N)
+    DFITCSECTDevDecInfoType              devDecInfo;               //ç”¨æˆ·è‡ªå®šä¹‰å­—æ®µ(N)
 };
 
-//SOP-Î¯ÍĞÏìÓ¦
+//SOP-å§”æ‰˜å“åº”
 struct APISTRUCT DFITCSOPRspEntrustOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECTimeType                     entrustTime;              //Î¯ÍĞÊ±¼ä
-    DFITCSECFundsType                    freezeFunds;              //¶³½á×Ê½ğ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·
+    DFITCSECTimeType                     entrustTime;              //å§”æ‰˜æ—¶é—´
+    DFITCSECFundsType                    freezeFunds;              //å†»ç»“èµ„é‡‘
 };
 
-//SOP-Î¯ÍĞ»Ø±¨
+//SOP-å§”æ‰˜å›æŠ¥
 struct APISTRUCT DFITCSOPEntrustOrderRtnField
 {
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECSessionIDType                sessionID;                //»á»°±àºÅ
-    DFITCSECBranchIDType                 branchID;                 //»ú¹¹´úÂë
-    DFITCSECShareholderIDType            shareholderID;            //¹É¶«ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù
-    DFITCSECSecurityIDType               securityID;               //Ö¤„»´úÂë
-    DFITCSECWithdrawFlagType             withdrawFlag;             //³·Ïú±êÖ¾
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ
-    DFITCSECOpenCloseFlagType            openCloseFlag;            //¿ªÆ½±êÖ¾
-    DFITCSECPriceType                    entrustPrice;             //Î¯ÍĞ¼Û¸ñ
-    DFITCSECQuantityType                 entrustQty;               //Î¯ÍĞÊıÁ¿
-    DFITCSECTimeType                     entrustTime;              //Î¯ÍĞÊ±¼ä
-    DFITCSECCoveredFlagType              coveredFlag;              //±¸¶ÒÀàĞÍ
-    DFITCSECOrderTypeType                orderType;                //¶©µ¥ÀàĞÍ
-    DFITCSECOrderExpiryDateType          orderExpiryDate;          //¶©µ¥Ê±Ğ§ÏŞÖÆ
-    DFITCSECOrderCategoryType            orderCategory;            //Î¯ÍĞµ¥Àà±ğ
-    DFITCSECDeclareResultType            declareResult;            //Éê±¨½á¹û
-    DFITCSECMessageType                  noteMsg;                  //½á¹ûËµÃ÷
-    DFITCSECTDevIDType                   devID;                    //³§ÉÌID(N),ÏÂµ¥Ê±ÌîÈë¸Ã×Ö¶Î£¬²Å»á·µ»Ø
-    DFITCSECTDevDecInfoType              devDecInfo;               //ÓÃ»§×Ô¶¨Òå×Ö¶Î(N)£¬ÏÂµ¥Ê±ÌîÈë¸Ã×Ö¶Î£¬²Å»á·µ»Ø
-    DFITCSECExchangeGroupTypeType        groupType;                //(Ô¤Áô×Ö¶Î) ×éºÏÀàĞÍ(Y)
-    DFITCSECGroupCodeType                groupCode;                //(Ô¤Áô×Ö¶Î) ×éºÏ±àÂë(Y) ²ğ·ÖÎ¯ÍĞÊ±´«Èë¸Ã×Ö¶Î²Å»á·µ»Ø
-    DFITCSECSecurityIDType               securityOptionID1;        //(Ô¤Áô×Ö¶Î) ÆÚÈ¨´úÂë1ÍÈ(Y)
-    DFITCSECSecurityIDType               securityOptionID2;        //(Ô¤Áô×Ö¶Î) ÆÚÈ¨´úÂë2ÍÈ(Y)
-    DFITCSECSecurityIDType               securityOptionID3;        //(Ô¤Áô×Ö¶Î) ÆÚÈ¨´úÂë3ÍÈ(N)(Ô¤Áô×Ö¶Î)
-    DFITCSECSecurityIDType               securityOptionID4;        //(Ô¤Áô×Ö¶Î) ÆÚÈ¨´úÂë4ÍÈ(N)(Ô¤Áô×Ö¶Î)
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECSessionIDType                sessionID;                //ä¼šè¯ç¼–å·
+    DFITCSECBranchIDType                 branchID;                 //æœºæ„ä»£ç 
+    DFITCSECShareholderIDType            shareholderID;            //è‚¡ä¸œå·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€
+    DFITCSECSecurityIDType               securityID;               //è¯åŠµä»£ç 
+    DFITCSECWithdrawFlagType             withdrawFlag;             //æ’¤é”€æ ‡å¿—
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«
+    DFITCSECOpenCloseFlagType            openCloseFlag;            //å¼€å¹³æ ‡å¿—
+    DFITCSECPriceType                    entrustPrice;             //å§”æ‰˜ä»·æ ¼
+    DFITCSECQuantityType                 entrustQty;               //å§”æ‰˜æ•°é‡
+    DFITCSECTimeType                     entrustTime;              //å§”æ‰˜æ—¶é—´
+    DFITCSECCoveredFlagType              coveredFlag;              //å¤‡å…‘ç±»å‹
+    DFITCSECOrderTypeType                orderType;                //è®¢å•ç±»å‹
+    DFITCSECOrderExpiryDateType          orderExpiryDate;          //è®¢å•æ—¶æ•ˆé™åˆ¶
+    DFITCSECOrderCategoryType            orderCategory;            //å§”æ‰˜å•ç±»åˆ«
+    DFITCSECDeclareResultType            declareResult;            //ç”³æŠ¥ç»“æœ
+    DFITCSECMessageType                  noteMsg;                  //ç»“æœè¯´æ˜
+    DFITCSECTDevIDType                   devID;                    //å‚å•†ID(N),ä¸‹å•æ—¶å¡«å…¥è¯¥å­—æ®µï¼Œæ‰ä¼šè¿”å›
+    DFITCSECTDevDecInfoType              devDecInfo;               //ç”¨æˆ·è‡ªå®šä¹‰å­—æ®µ(N)ï¼Œä¸‹å•æ—¶å¡«å…¥è¯¥å­—æ®µï¼Œæ‰ä¼šè¿”å›
+    DFITCSECExchangeGroupTypeType        groupType;                //(é¢„ç•™å­—æ®µ) ç»„åˆç±»å‹(Y)
+    DFITCSECGroupCodeType                groupCode;                //(é¢„ç•™å­—æ®µ) ç»„åˆç¼–ç (Y) æ‹†åˆ†å§”æ‰˜æ—¶ä¼ å…¥è¯¥å­—æ®µæ‰ä¼šè¿”å›
+    DFITCSECSecurityIDType               securityOptionID1;        //(é¢„ç•™å­—æ®µ) æœŸæƒä»£ç 1è…¿(Y)
+    DFITCSECSecurityIDType               securityOptionID2;        //(é¢„ç•™å­—æ®µ) æœŸæƒä»£ç 2è…¿(Y)
+    DFITCSECSecurityIDType               securityOptionID3;        //(é¢„ç•™å­—æ®µ) æœŸæƒä»£ç 3è…¿(N)(é¢„ç•™å­—æ®µ)
+    DFITCSECSecurityIDType               securityOptionID4;        //(é¢„ç•™å­—æ®µ) æœŸæƒä»£ç 4è…¿(N)(é¢„ç•™å­—æ®µ)
 };
 
-//SOP-³É½»»Ø±¨
+//SOP-æˆäº¤å›æŠ¥
 struct APISTRUCT DFITCSOPTradeRtnField
 {
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECSessionIDType                sessionID;                //»á»°±àºÅ
-    DFITCSECShareholderIDType            shareholderID;            //¹É¶«ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù
-    DFITCSECSecurityIDType               securityID;               //Ö¤„»´úÂë
-    DFITCSECWithdrawFlagType             withdrawFlag;             //³·Ïú±êÖ¾
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ
-    DFITCSECOpenCloseFlagType            openCloseFlag;            //¿ªÆ½±êÖ¾
-    DFITCSECCoveredFlagType              coveredFlag;              //±¸¶Ò±êÖ¾
-    DFITCSECOrderCategoryType            orderCategory;            //Î¯ÍĞµ¥Àà±ğ
-    DFITCSECFundsType                    tradePrice;               //³É½»¼Û¸ñ
-    DFITCSECQuantityType                 tradeQty;                 //³É½»ÊıÁ¿
-    DFITCSECTradeIDType                  tradeID;                  //³É½»±àºÅ
-    DFITCSECSerialIDType                 rtnSerialID;              //»Ø±¨ĞòºÅ
-    DFITCSECDeclareOrderIDType           declareOrderID;           //Éê±¨Î¯ÍĞºÅ
-    DFITCSECDeclareResultType            declareResult;            //Éê±¨½á¹û
-    DFITCSECMessageType                  noteMsg;                  //½á¹ûËµÃ÷
-    DFITCSECTDevIDType                   devID;                    //³§ÉÌID(N),ÏÂµ¥Ê±ÌîÈë¸Ã×Ö¶Î£¬²Å»á·µ»Ø
-    DFITCSECTDevDecInfoType              devDecInfo;               //ÓÃ»§×Ô¶¨Òå×Ö¶Î(N),ÏÂµ¥Ê±ÌîÈë¸Ã×Ö¶Î£¬²Å»á·µ»Ø
-    DFITCSECTimeType                     tradeTime;                //³É½»Ê±¼ä
-    DFITCSECGroupCodeType                groupCode;                //×éºÏ±àÂë(×éºÏ³É½»ºó²ÅÍÆËÍ)
-    DFITCSECExchangeGroupTypeType        groupType;                //(Ô¤Áô×Ö¶Î) ×éºÏÀàĞÍ(Y)
-    DFITCSECSecurityIDType               securityOptionID1;        //(Ô¤Áô×Ö¶Î) ÆÚÈ¨´úÂë1ÍÈ(Y)
-    DFITCSECSecurityIDType               securityOptionID2;        //(Ô¤Áô×Ö¶Î) ÆÚÈ¨´úÂë2ÍÈ(Y)
-    DFITCSECSecurityIDType               securityOptionID3;        //(Ô¤Áô×Ö¶Î) ÆÚÈ¨´úÂë3ÍÈ(N)(Ô¤Áô×Ö¶Î)
-    DFITCSECSecurityIDType               securityOptionID4;        //(Ô¤Áô×Ö¶Î) ÆÚÈ¨´úÂë4ÍÈ(N)(Ô¤Áô×Ö¶Î)
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECSessionIDType                sessionID;                //ä¼šè¯ç¼–å·
+    DFITCSECShareholderIDType            shareholderID;            //è‚¡ä¸œå·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€
+    DFITCSECSecurityIDType               securityID;               //è¯åŠµä»£ç 
+    DFITCSECWithdrawFlagType             withdrawFlag;             //æ’¤é”€æ ‡å¿—
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«
+    DFITCSECOpenCloseFlagType            openCloseFlag;            //å¼€å¹³æ ‡å¿—
+    DFITCSECCoveredFlagType              coveredFlag;              //å¤‡å…‘æ ‡å¿—
+    DFITCSECOrderCategoryType            orderCategory;            //å§”æ‰˜å•ç±»åˆ«
+    DFITCSECFundsType                    tradePrice;               //æˆäº¤ä»·æ ¼
+    DFITCSECQuantityType                 tradeQty;                 //æˆäº¤æ•°é‡
+    DFITCSECTradeIDType                  tradeID;                  //æˆäº¤ç¼–å·
+    DFITCSECSerialIDType                 rtnSerialID;              //å›æŠ¥åºå·
+    DFITCSECDeclareOrderIDType           declareOrderID;           //ç”³æŠ¥å§”æ‰˜å·
+    DFITCSECDeclareResultType            declareResult;            //ç”³æŠ¥ç»“æœ
+    DFITCSECMessageType                  noteMsg;                  //ç»“æœè¯´æ˜
+    DFITCSECTDevIDType                   devID;                    //å‚å•†ID(N),ä¸‹å•æ—¶å¡«å…¥è¯¥å­—æ®µï¼Œæ‰ä¼šè¿”å›
+    DFITCSECTDevDecInfoType              devDecInfo;               //ç”¨æˆ·è‡ªå®šä¹‰å­—æ®µ(N),ä¸‹å•æ—¶å¡«å…¥è¯¥å­—æ®µï¼Œæ‰ä¼šè¿”å›
+    DFITCSECTimeType                     tradeTime;                //æˆäº¤æ—¶é—´
+    DFITCSECGroupCodeType                groupCode;                //ç»„åˆç¼–ç (ç»„åˆæˆäº¤åæ‰æ¨é€)
+    DFITCSECExchangeGroupTypeType        groupType;                //(é¢„ç•™å­—æ®µ) ç»„åˆç±»å‹(Y)
+    DFITCSECSecurityIDType               securityOptionID1;        //(é¢„ç•™å­—æ®µ) æœŸæƒä»£ç 1è…¿(Y)
+    DFITCSECSecurityIDType               securityOptionID2;        //(é¢„ç•™å­—æ®µ) æœŸæƒä»£ç 2è…¿(Y)
+    DFITCSECSecurityIDType               securityOptionID3;        //(é¢„ç•™å­—æ®µ) æœŸæƒä»£ç 3è…¿(N)(é¢„ç•™å­—æ®µ)
+    DFITCSECSecurityIDType               securityOptionID4;        //(é¢„ç•™å­—æ®µ) æœŸæƒä»£ç 4è…¿(N)(é¢„ç•™å­—æ®µ)
 };
 
-//SOP-³·µ¥»Ø±¨
+//SOP-æ’¤å•å›æŠ¥
 struct APISTRUCT DFITCSOPWithdrawOrderRtnField
 {
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECSessionIDType                sessionID;                //»á»°±àºÅ
-    DFITCSECShareholderIDType            shareholderID;            //¹É¶«ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECSecurityIDType               securityID;               //Ö¤„»´úÂë
-    DFITCSECWithdrawFlagType             withdrawFlag;             //³·Ïú±êÖ¾
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ
-    DFITCSECOpenCloseFlagType            openCloseFlag;            //¿ªÆ½±êÖ¾
-    DFITCSECQuantityType                 withdrawQty;              //³·µ¥ÊıÁ¿
-    DFITCSECQuantityType                 tradeQty;                 //³É½»ÊıÁ¿
-    DFITCSECDeclareResultType            declareResult;            //Éê±¨½á¹û
-    DFITCSECMessageType                  noteMsg;                  //½á¹ûËµÃ÷
-    DFITCSECFundsType                    wdUnFreezeFunds;          //³·µ¥½â¶³×Ê½ğ
-    DFITCSECTDevIDType                   devID;                    //³§ÉÌID(N),ÏÂµ¥Ê±ÌîÈë¸Ã×Ö¶Î£¬²Å»á·µ»Ø
-    DFITCSECTDevDecInfoType              devDecInfo;               //ÓÃ»§×Ô¶¨Òå×Ö¶Î(N),ÏÂµ¥Ê±ÌîÈë¸Ã×Ö¶Î£¬²Å»á·µ»Ø
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECSessionIDType                sessionID;                //ä¼šè¯ç¼–å·
+    DFITCSECShareholderIDType            shareholderID;            //è‚¡ä¸œå·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECSecurityIDType               securityID;               //è¯åŠµä»£ç 
+    DFITCSECWithdrawFlagType             withdrawFlag;             //æ’¤é”€æ ‡å¿—
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«
+    DFITCSECOpenCloseFlagType            openCloseFlag;            //å¼€å¹³æ ‡å¿—
+    DFITCSECQuantityType                 withdrawQty;              //æ’¤å•æ•°é‡
+    DFITCSECQuantityType                 tradeQty;                 //æˆäº¤æ•°é‡
+    DFITCSECDeclareResultType            declareResult;            //ç”³æŠ¥ç»“æœ
+    DFITCSECMessageType                  noteMsg;                  //ç»“æœè¯´æ˜
+    DFITCSECFundsType                    wdUnFreezeFunds;          //æ’¤å•è§£å†»èµ„é‡‘
+    DFITCSECTDevIDType                   devID;                    //å‚å•†ID(N),ä¸‹å•æ—¶å¡«å…¥è¯¥å­—æ®µï¼Œæ‰ä¼šè¿”å›
+    DFITCSECTDevDecInfoType              devDecInfo;               //ç”¨æˆ·è‡ªå®šä¹‰å­—æ®µ(N),ä¸‹å•æ—¶å¡«å…¥è¯¥å­—æ®µï¼Œæ‰ä¼šè¿”å›
 };
 
-//SOP-×öÊĞÉÌ±¨µ¥ÇëÇó
+//SOP-åšå¸‚å•†æŠ¥å•è¯·æ±‚
 struct APISTRUCT DFITCSOPReqQuoteEntrustOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(Y)(²»Ö§³ÖÉÏº£)
-    DFITCSECSecurityIDType               securityID;               //Ö¤„»´úÂë(Y)
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ(Y)(µ¥±ß±¨¼ÛĞèÒª£¬Ë«±ß±¨¼Û²»ĞèÒª)
-    DFITCSECQuantityType                 bidQty;                   //ÂòÎ¯ÍĞÊıÁ¿(N)
-    DFITCSECPriceType                    bidPrice;                 //ÂòÎ¯ÍĞ¼Û¸ñ(N)
-    DFITCSECOpenCloseFlagType            bidOpenCloseFlag;         //Âò¿ªÆ½±êÖ¾(N)
-    DFITCSECCoveredFlagType              bidCoveredFlag;           //Âò±¸¶Ò±êÖ¾(N)
-    DFITCSECQuantityType                 askQty;                   //ÂôÎ¯ÍĞÊıÁ¿(N)
-    DFITCSECPriceType                    askPrice;                 //ÂôÎ¯ÍĞ¼Û¸ñ(N)
-    DFITCSECOpenCloseFlagType            askOpenCloseFlag;         //Âô¿ªÆ½±êÖ¾(N)
-    DFITCSECCoveredFlagType              askCoveredFlag;           //Âô±¸¶Ò±êÖ¾(N)
-    DFITCSECOrderTypeType                orderType;                //¶©µ¥ÀàĞÍ(Y)(ÉÏº£ĞèÒª)
-    DFITCSECOrderExpiryDateType          orderExpiryDate;          //¶©µ¥Ê±Ğ§ÏŞÖÆ(N)(ÉÏº£ĞèÒª)
-    DFITCSECOrderCategoryType            orderCategory;            //Î¯ÍĞµ¥Àà±ğ(Y)(ÉÏº£ĞèÒª)
-    DFITCSECQuoteIDType                  quoteID;                  //Ñ¯¼Û±àºÅ(N)(ÉîÛÚĞèÒª)
-    DFITCSECTDevIDType                   devID;                    //³§ÉÌID(N)
-    DFITCSECTDevDecInfoType              devDecInfo;               //ÓÃ»§×Ô¶¨Òå×Ö¶Î(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (Y)(ä¸æ”¯æŒä¸Šæµ·)
+    DFITCSECSecurityIDType               securityID;               //è¯åŠµä»£ç (Y)
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«(Y)(å•è¾¹æŠ¥ä»·éœ€è¦ï¼ŒåŒè¾¹æŠ¥ä»·ä¸éœ€è¦)
+    DFITCSECQuantityType                 bidQty;                   //ä¹°å§”æ‰˜æ•°é‡(N)
+    DFITCSECPriceType                    bidPrice;                 //ä¹°å§”æ‰˜ä»·æ ¼(N)
+    DFITCSECOpenCloseFlagType            bidOpenCloseFlag;         //ä¹°å¼€å¹³æ ‡å¿—(N)
+    DFITCSECCoveredFlagType              bidCoveredFlag;           //ä¹°å¤‡å…‘æ ‡å¿—(N)
+    DFITCSECQuantityType                 askQty;                   //å–å§”æ‰˜æ•°é‡(N)
+    DFITCSECPriceType                    askPrice;                 //å–å§”æ‰˜ä»·æ ¼(N)
+    DFITCSECOpenCloseFlagType            askOpenCloseFlag;         //å–å¼€å¹³æ ‡å¿—(N)
+    DFITCSECCoveredFlagType              askCoveredFlag;           //å–å¤‡å…‘æ ‡å¿—(N)
+    DFITCSECOrderTypeType                orderType;                //è®¢å•ç±»å‹(Y)(ä¸Šæµ·éœ€è¦)
+    DFITCSECOrderExpiryDateType          orderExpiryDate;          //è®¢å•æ—¶æ•ˆé™åˆ¶(N)(ä¸Šæµ·éœ€è¦)
+    DFITCSECOrderCategoryType            orderCategory;            //å§”æ‰˜å•ç±»åˆ«(Y)(ä¸Šæµ·éœ€è¦)
+    DFITCSECQuoteIDType                  quoteID;                  //è¯¢ä»·ç¼–å·(N)(æ·±åœ³éœ€è¦)
+    DFITCSECTDevIDType                   devID;                    //å‚å•†ID(N)
+    DFITCSECTDevDecInfoType              devDecInfo;               //ç”¨æˆ·è‡ªå®šä¹‰å­—æ®µ(N)
 };
 
-//SOP-×öÊĞÉÌ±¨µ¥ÏìÓ¦
+//SOP-åšå¸‚å•†æŠ¥å•å“åº”
 struct APISTRUCT DFITCSOPRspQuoteEntrustOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECTimeType                     entrustTime;              //Î¯ÍĞÊ±¼ä
-    DFITCSECFundsType                    freezeFunds;              //¶³½á×Ê½ğ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·
+    DFITCSECTimeType                     entrustTime;              //å§”æ‰˜æ—¶é—´
+    DFITCSECFundsType                    freezeFunds;              //å†»ç»“èµ„é‡‘
 };
 
-//SOP-Ö¤È¯Ëø¶¨½âËøÎ¯ÍĞÇëÇó
+//SOP-è¯åˆ¸é”å®šè§£é”å§”æ‰˜è¯·æ±‚
 struct APISTRUCT DFITCSOPReqLockOUnLockStockField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(Y)
-    DFITCSECSubAccountIDType             subAccountID;             //×ÓÕË»§±àÂë (N)
-    DFITCSECSecurityIDType               securityID;               //ºÏÔ¼´úÂë(Y)
-    DFITCSECQuantityType                 entrustQty;               //Î¯ÍĞÊıÁ¿(Y)
-    DFITCSECOpenCloseFlagType            openCloseFlag;            //¿ªÆ½±êÖ¾(Y)
-    DFITCSECTDevIDType                   devID;                    //³§ÉÌID(N)
-    DFITCSECTDevDecInfoType              devDecInfo;               //ÓÃ»§×Ô¶¨Òå×Ö¶Î(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (Y)
+    DFITCSECSubAccountIDType             subAccountID;             //å­è´¦æˆ·ç¼–ç  (N)
+    DFITCSECSecurityIDType               securityID;               //åˆçº¦ä»£ç (Y)
+    DFITCSECQuantityType                 entrustQty;               //å§”æ‰˜æ•°é‡(Y)
+    DFITCSECOpenCloseFlagType            openCloseFlag;            //å¼€å¹³æ ‡å¿—(Y)
+    DFITCSECTDevIDType                   devID;                    //å‚å•†ID(N)
+    DFITCSECTDevDecInfoType              devDecInfo;               //ç”¨æˆ·è‡ªå®šä¹‰å­—æ®µ(N)
 };
 
-//SOP-Ö¤È¯Ëø¶¨½âËøÎ¯ÍĞÏìÓ¦
+//SOP-è¯åˆ¸é”å®šè§£é”å§”æ‰˜å“åº”
 struct APISTRUCT DFITCSOPRspLockOUnLockStockField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECTimeType                     entrustTime;              //Î¯ÍĞÊ±¼ä
-    DFITCSECFundsType                    freezeFunds;              //¶³½á×Ê½ğ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·
+    DFITCSECTimeType                     entrustTime;              //å§”æ‰˜æ—¶é—´
+    DFITCSECFundsType                    freezeFunds;              //å†»ç»“èµ„é‡‘
 };
 
-//SOP-·Ö±Ê³É½»²éÑ¯ÇëÇó
+//SOP-åˆ†ç¬”æˆäº¤æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCSOPReqQrySerialTradeField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(N)
-    DFITCSECSecurityIDType               securityID;               //Ö¤„»´úÂë(N)
-    DFITCSECSpdOrderIDType               spdOrderID;               //Î¯ÍĞºÅ(N)
-    DFITCSECIncQryIndexType              incQryIndex;              //ÔöÁ¿²éÑ¯Ë÷ÒıÖµ(N)(Ô¤Áô×Ö¶Î)
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ(N)
-    DFITCSECEntrustBatchIDType           entrustBatchID;           //Î¯ÍĞÅú´ÎºÅ(N)(Ô¤Áô×Ö¶Î)
-    DFITCSECTradeQryFlagType             tradeQryFlag;             //²éÑ¯±êÖ¾(N)(Ô¤Áô×Ö¶Î)
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ(N)
-    DFITCSECQuantityType                 rowIndex;                 //·ÖÒ³Ë÷ÒıÖµ(N)
-    DFITCSECQuantityType                 rowCount;                 //Ã¿Ò³²éÑ¯±ÊÊı(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (N)
+    DFITCSECSecurityIDType               securityID;               //è¯åŠµä»£ç (N)
+    DFITCSECSpdOrderIDType               spdOrderID;               //å§”æ‰˜å·(N)
+    DFITCSECIncQryIndexType              incQryIndex;              //å¢é‡æŸ¥è¯¢ç´¢å¼•å€¼(N)(é¢„ç•™å­—æ®µ)
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«(N)
+    DFITCSECEntrustBatchIDType           entrustBatchID;           //å§”æ‰˜æ‰¹æ¬¡å·(N)(é¢„ç•™å­—æ®µ)
+    DFITCSECTradeQryFlagType             tradeQryFlag;             //æŸ¥è¯¢æ ‡å¿—(N)(é¢„ç•™å­—æ®µ)
+    DFITCSECCurrencyType                 currency;                 //å¸ç§(N)
+    DFITCSECQuantityType                 rowIndex;                 //åˆ†é¡µç´¢å¼•å€¼(N)
+    DFITCSECQuantityType                 rowCount;                 //æ¯é¡µæŸ¥è¯¢ç¬”æ•°(N)
 };
 
-//SOP-·Ö±Ê³É½»²éÑ¯ÏìÓ¦
+//SOP-åˆ†ç¬”æˆäº¤æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCSOPRspQrySerialTradeField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECSerialIDType                 rtnSerialID;              //»Ø±¨ĞòºÅ
-    DFITCSECSecurityIDType               securityID;               //Ö¤„»´úÂë
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ
-    DFITCSECWithdrawFlagType             withdrawFlag;             //³·Ïú±êÖ¾
-    DFITCSECDeclareOrderIDType           declareOrderID;           //Éê±¨Î¯ÍĞºÅ
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECTradeIDType                  tradeID;                  //³É½»±àºÅ
-    DFITCSECTimeType                     tradeTime;                //³É½»Ê±¼ä
-    DFITCSECQuantityType                 tradeQty;                 //³É½»ÊıÁ¿
-    DFITCSECOpenCloseFlagType            openCloseFlag;            //¿ªÆ½±êÖ¾
-    DFITCSECCoveredFlagType              coveredFlag;              //±¸¶Ò±êÖ¾
-    DFITCSECSpdOrderIDType               spdOrderID;               //Î¯ÍĞºÅ
-    DFITCSECFundsType                    turnover;                 //³É½»½ğ¶î
-    DFITCSECPriceType                    tradePrice;               //³É½»¼Û¸ñ
-    DFITCSECFundsType                    clearFunds;               //ÇåËã×Ê½ğ
-    DFITCSECTimeType                     rotationTime;             //»Ø×ªÊ±¼ä
-    DFITCSECIncQryIndexType              incQryIndex;              //·ÖÒ³Ë÷ÒıÖµ
-    DFITCSECShareholderIDType            shareholderID;            //¹É¶«ºÅ
-    DFITCSECAccountIDType                capitalID;                //×Ê½ğÕËºÅ
-    DFITCSECTDevIDType                   devID;                    //³§ÉÌID(N),Î¯ÍĞÊ±´«Èë¸Ã×Ö¶Î²Å»á·µ»Ø
-    DFITCSECTDevDecInfoType              devDecInfo;               //ÓÃ»§×Ô¶¨Òå×Ö¶Î(N),Î¯ÍĞÊ±´«Èë¸Ã×Ö¶Î²Å»á·µ»Ø
-    DFITCSECExchangeGroupTypeType        groupType;                //(Ô¤Áô×Ö¶Î) ×éºÏÀàĞÍ(Y)
-    DFITCSECGroupCodeType                groupCode;                //(Ô¤Áô×Ö¶Î) ×éºÏ±àÂë(Y) ²ğ·ÖÎ¯ÍĞÊ±´«Èë¸Ã×Ö¶Î²Å»á·µ»Ø
-    DFITCSECSecurityIDType               securityOptionID1;        //(Ô¤Áô×Ö¶Î) ÆÚÈ¨´úÂë1ÍÈ(Y)
-    DFITCSECSecurityIDType               securityOptionID2;        //(Ô¤Áô×Ö¶Î) ÆÚÈ¨´úÂë2ÍÈ(Y)
-    DFITCSECSecurityIDType               securityOptionID3;        //(Ô¤Áô×Ö¶Î) ÆÚÈ¨´úÂë3ÍÈ(N)(Ô¤Áô×Ö¶Î)
-    DFITCSECSecurityIDType               securityOptionID4;        //(Ô¤Áô×Ö¶Î) ÆÚÈ¨´úÂë4ÍÈ(N)(Ô¤Áô×Ö¶Î)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECSerialIDType                 rtnSerialID;              //å›æŠ¥åºå·
+    DFITCSECSecurityIDType               securityID;               //è¯åŠµä»£ç 
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«
+    DFITCSECWithdrawFlagType             withdrawFlag;             //æ’¤é”€æ ‡å¿—
+    DFITCSECDeclareOrderIDType           declareOrderID;           //ç”³æŠ¥å§”æ‰˜å·
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECTradeIDType                  tradeID;                  //æˆäº¤ç¼–å·
+    DFITCSECTimeType                     tradeTime;                //æˆäº¤æ—¶é—´
+    DFITCSECQuantityType                 tradeQty;                 //æˆäº¤æ•°é‡
+    DFITCSECOpenCloseFlagType            openCloseFlag;            //å¼€å¹³æ ‡å¿—
+    DFITCSECCoveredFlagType              coveredFlag;              //å¤‡å…‘æ ‡å¿—
+    DFITCSECSpdOrderIDType               spdOrderID;               //å§”æ‰˜å·
+    DFITCSECFundsType                    turnover;                 //æˆäº¤é‡‘é¢
+    DFITCSECPriceType                    tradePrice;               //æˆäº¤ä»·æ ¼
+    DFITCSECFundsType                    clearFunds;               //æ¸…ç®—èµ„é‡‘
+    DFITCSECTimeType                     rotationTime;             //å›è½¬æ—¶é—´
+    DFITCSECIncQryIndexType              incQryIndex;              //åˆ†é¡µç´¢å¼•å€¼
+    DFITCSECShareholderIDType            shareholderID;            //è‚¡ä¸œå·
+    DFITCSECAccountIDType                capitalID;                //èµ„é‡‘è´¦å·
+    DFITCSECTDevIDType                   devID;                    //å‚å•†ID(N),å§”æ‰˜æ—¶ä¼ å…¥è¯¥å­—æ®µæ‰ä¼šè¿”å›
+    DFITCSECTDevDecInfoType              devDecInfo;               //ç”¨æˆ·è‡ªå®šä¹‰å­—æ®µ(N),å§”æ‰˜æ—¶ä¼ å…¥è¯¥å­—æ®µæ‰ä¼šè¿”å›
+    DFITCSECExchangeGroupTypeType        groupType;                //(é¢„ç•™å­—æ®µ) ç»„åˆç±»å‹(Y)
+    DFITCSECGroupCodeType                groupCode;                //(é¢„ç•™å­—æ®µ) ç»„åˆç¼–ç (Y) æ‹†åˆ†å§”æ‰˜æ—¶ä¼ å…¥è¯¥å­—æ®µæ‰ä¼šè¿”å›
+    DFITCSECSecurityIDType               securityOptionID1;        //(é¢„ç•™å­—æ®µ) æœŸæƒä»£ç 1è…¿(Y)
+    DFITCSECSecurityIDType               securityOptionID2;        //(é¢„ç•™å­—æ®µ) æœŸæƒä»£ç 2è…¿(Y)
+    DFITCSECSecurityIDType               securityOptionID3;        //(é¢„ç•™å­—æ®µ) æœŸæƒä»£ç 3è…¿(N)(é¢„ç•™å­—æ®µ)
+    DFITCSECSecurityIDType               securityOptionID4;        //(é¢„ç•™å­—æ®µ) æœŸæƒä»£ç 4è…¿(N)(é¢„ç•™å­—æ®µ)
 };
 
-//SOP-Î¯ÍĞ²éÑ¯ÇëÇó
+//SOP-å§”æ‰˜æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCSOPReqQryEntrustOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(N)
-    DFITCSECSecurityIDType               securityOptionID;         //ÆÚÈ¨´úÂë(N)
-    DFITCSECWithdrawFlagType             withdrawFlag;             //³·Ïú±êÖ¾(N)
-    DFITCSECSerialIDType                 exSerialID;               //À©Õ¹Á÷Ë®ºÅ(N)(Ô¤Áô×Ö¶Î)
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ(N)
-    DFITCSECSpdOrderIDType               spdOrderID;               //Î¯ÍĞºÅ(N)
-    DFITCSECEntrustQryFlagType           entrustQryFlag;           //²éÑ¯±êÖ¾(N)
-    DFITCSECQuantityType                 rowIndex;                 //·ÖÒ³Ë÷ÒıÖµ(N)
-    DFITCSECQuantityType                 rowCount;                 //Ã¿Ò³²éÑ¯±ÊÊı(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (N)
+    DFITCSECSecurityIDType               securityOptionID;         //æœŸæƒä»£ç (N)
+    DFITCSECWithdrawFlagType             withdrawFlag;             //æ’¤é”€æ ‡å¿—(N)
+    DFITCSECSerialIDType                 exSerialID;               //æ‰©å±•æµæ°´å·(N)(é¢„ç•™å­—æ®µ)
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«(N)
+    DFITCSECSpdOrderIDType               spdOrderID;               //å§”æ‰˜å·(N)
+    DFITCSECEntrustQryFlagType           entrustQryFlag;           //æŸ¥è¯¢æ ‡å¿—(N)
+    DFITCSECQuantityType                 rowIndex;                 //åˆ†é¡µç´¢å¼•å€¼(N)
+    DFITCSECQuantityType                 rowCount;                 //æ¯é¡µæŸ¥è¯¢ç¬”æ•°(N)
 };
 
-//SOP-Î¯ÍĞ²éÑ¯ÏìÓ¦
+//SOP-å§”æ‰˜æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCSOPRspQryEntrustOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECSpdOrderIDType               spdOrderID;               //Î¯ÍĞºÅ
-    DFITCSECDeclareOrderIDType           withdrawOrderID;          //³·ÏúÎ¯ÍĞºÅ
-    DFITCSECDeclareOrderIDType           declareOrderID;           //Éê±¨Î¯ÍĞºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECShareholderIDType            shareholderID;            //¹É¶«ºÅ
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ
-    DFITCSECWithdrawFlagType             withdrawFlag;             //³·Ïú±êÖ¾
-    DFITCSECSecurityIDType               securityOptionID;         //ÆÚÈ¨´úÂë
-    DFITCSECOptionTypeType               optType;                  //ÆÚÈ¨Àà±ğ
-    DFITCSECOpenCloseFlagType            openCloseFlag;            //¿ªÆ½±êÖ¾
-    DFITCSECCoveredFlagType              coveredFlag;              //±¸¶Ò±êÖ¾
-    DFITCSECQuantityType                 entrustQty;               //Î¯ÍĞÊıÁ¿
-    DFITCSECPriceType                    entrustPrice;             //Î¯ÍĞ¼Û¸ñ
-    DFITCSECDateType                     entrustDate;              //Î¯ÍĞÈÕÆÚ
-    DFITCSECTimeType                     entrustTime;              //Î¯ÍĞÊ±¼ä
-    DFITCSECShareholderIDType            offerShareholderID;       //±¨ÅÌ¹É¶«ºÅ
-    DFITCSECDateType                     declareDate;              //Éê±¨ÈÕÆÚ
-    DFITCSECTimeType                     declareTime;              //Éê±¨Ê±¼ä
-    DFITCSECSerialIDType                 declareSerialID;          //Éê±¨¼ÇÂ¼ºÅ
-    DFITCSECDeclareResultType            declareResult;            //Éê±¨½á¹û
-    DFITCSECMessageType                  noteMsg;                  //½á¹ûËµÃ÷
-    DFITCSECQuantityType                 withdrawQty;              //³·µ¥ÊıÁ¿
-    DFITCSECQuantityType                 tradeQty;                 //³É½»ÊıÁ¿
-    DFITCSECFundsType                    turnover;                 //³É½»½ğ¶î
-    DFITCSECPriceType                    tradePrice;               //³É½»¼Û¸ñ
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECFundsType                    freezeFunds;              //¶³½á×Ê½ğ
-    DFITCSECFundsType                    clearFunds;               //ÇåËã×Ê½ğ
-    DFITCSECEntrustTypeType              entrustType;              //Î¯ÍĞ·½Ê½
-    DFITCSECMacAddressType               macAddr;                  //MACµØÖ·
-    DFITCSECIPAddressType                ipAddr;                   //IPµØÖ·
-    DFITCSECEntrustBatchIDType           entrustBatchID;           //Î¯ÍĞÅú´ÎºÅ
-    DFITCSECOrderTypeType                orderType;                //Î¯ÍĞÀàĞÍ
-    DFITCSECIncQryIndexType              incQryIndex;              //ÔöÁ¿²éÑ¯Ë÷ÒıÖµ
-    DFITCSECAccountIDType                capitalID;                //×Ê½ğÕËºÅ
-    DFITCSECOrderExpiryDateType          orderExpiryDate;          //¶©µ¥Ê±Ğ§ÏŞÖÆ
-    DFITCSECTDevIDType                   devID;                    //³§ÉÌID(N),Î¯ÍĞÊ±´«Èë¸Ã×Ö¶Î²Å»á·µ»Ø
-    DFITCSECTDevDecInfoType              devDecInfo;               //ÓÃ»§×Ô¶¨Òå×Ö¶Î(N),Î¯ÍĞÊ±´«Èë¸Ã×Ö¶Î²Å»á·µ»Ø
-    DFITCSECExchangeGroupTypeType        groupType;                //×éºÏÀàĞÍ(Y)
-    DFITCSECGroupCodeType                groupCode;                //×éºÏ±àÂë(Y) ²ğ·ÖÎ¯ÍĞÊ±´«Èë¸Ã×Ö¶Î²Å»á·µ»Ø
-    DFITCSECSecurityIDType               securityOptionID1;        //ÆÚÈ¨´úÂë1ÍÈ(Y)
-    DFITCSECSecurityIDType               securityOptionID2;        //ÆÚÈ¨´úÂë2ÍÈ(Y)
-    DFITCSECSecurityIDType               securityOptionID3;        //ÆÚÈ¨´úÂë3ÍÈ(N)(Ô¤Áô×Ö¶Î)
-    DFITCSECSecurityIDType               securityOptionID4;        //ÆÚÈ¨´úÂë4ÍÈ(N)(Ô¤Áô×Ö¶Î)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECSpdOrderIDType               spdOrderID;               //å§”æ‰˜å·
+    DFITCSECDeclareOrderIDType           withdrawOrderID;          //æ’¤é”€å§”æ‰˜å·
+    DFITCSECDeclareOrderIDType           declareOrderID;           //ç”³æŠ¥å§”æ‰˜å·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECShareholderIDType            shareholderID;            //è‚¡ä¸œå·
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«
+    DFITCSECWithdrawFlagType             withdrawFlag;             //æ’¤é”€æ ‡å¿—
+    DFITCSECSecurityIDType               securityOptionID;         //æœŸæƒä»£ç 
+    DFITCSECOptionTypeType               optType;                  //æœŸæƒç±»åˆ«
+    DFITCSECOpenCloseFlagType            openCloseFlag;            //å¼€å¹³æ ‡å¿—
+    DFITCSECCoveredFlagType              coveredFlag;              //å¤‡å…‘æ ‡å¿—
+    DFITCSECQuantityType                 entrustQty;               //å§”æ‰˜æ•°é‡
+    DFITCSECPriceType                    entrustPrice;             //å§”æ‰˜ä»·æ ¼
+    DFITCSECDateType                     entrustDate;              //å§”æ‰˜æ—¥æœŸ
+    DFITCSECTimeType                     entrustTime;              //å§”æ‰˜æ—¶é—´
+    DFITCSECShareholderIDType            offerShareholderID;       //æŠ¥ç›˜è‚¡ä¸œå·
+    DFITCSECDateType                     declareDate;              //ç”³æŠ¥æ—¥æœŸ
+    DFITCSECTimeType                     declareTime;              //ç”³æŠ¥æ—¶é—´
+    DFITCSECSerialIDType                 declareSerialID;          //ç”³æŠ¥è®°å½•å·
+    DFITCSECDeclareResultType            declareResult;            //ç”³æŠ¥ç»“æœ
+    DFITCSECMessageType                  noteMsg;                  //ç»“æœè¯´æ˜
+    DFITCSECQuantityType                 withdrawQty;              //æ’¤å•æ•°é‡
+    DFITCSECQuantityType                 tradeQty;                 //æˆäº¤æ•°é‡
+    DFITCSECFundsType                    turnover;                 //æˆäº¤é‡‘é¢
+    DFITCSECPriceType                    tradePrice;               //æˆäº¤ä»·æ ¼
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECFundsType                    freezeFunds;              //å†»ç»“èµ„é‡‘
+    DFITCSECFundsType                    clearFunds;               //æ¸…ç®—èµ„é‡‘
+    DFITCSECEntrustTypeType              entrustType;              //å§”æ‰˜æ–¹å¼
+    DFITCSECMacAddressType               macAddr;                  //MACåœ°å€
+    DFITCSECIPAddressType                ipAddr;                   //IPåœ°å€
+    DFITCSECEntrustBatchIDType           entrustBatchID;           //å§”æ‰˜æ‰¹æ¬¡å·
+    DFITCSECOrderTypeType                orderType;                //å§”æ‰˜ç±»å‹
+    DFITCSECIncQryIndexType              incQryIndex;              //å¢é‡æŸ¥è¯¢ç´¢å¼•å€¼
+    DFITCSECAccountIDType                capitalID;                //èµ„é‡‘è´¦å·
+    DFITCSECOrderExpiryDateType          orderExpiryDate;          //è®¢å•æ—¶æ•ˆé™åˆ¶
+    DFITCSECTDevIDType                   devID;                    //å‚å•†ID(N),å§”æ‰˜æ—¶ä¼ å…¥è¯¥å­—æ®µæ‰ä¼šè¿”å›
+    DFITCSECTDevDecInfoType              devDecInfo;               //ç”¨æˆ·è‡ªå®šä¹‰å­—æ®µ(N),å§”æ‰˜æ—¶ä¼ å…¥è¯¥å­—æ®µæ‰ä¼šè¿”å›
+    DFITCSECExchangeGroupTypeType        groupType;                //ç»„åˆç±»å‹(Y)
+    DFITCSECGroupCodeType                groupCode;                //ç»„åˆç¼–ç (Y) æ‹†åˆ†å§”æ‰˜æ—¶ä¼ å…¥è¯¥å­—æ®µæ‰ä¼šè¿”å›
+    DFITCSECSecurityIDType               securityOptionID1;        //æœŸæƒä»£ç 1è…¿(Y)
+    DFITCSECSecurityIDType               securityOptionID2;        //æœŸæƒä»£ç 2è…¿(Y)
+    DFITCSECSecurityIDType               securityOptionID3;        //æœŸæƒä»£ç 3è…¿(N)(é¢„ç•™å­—æ®µ)
+    DFITCSECSecurityIDType               securityOptionID4;        //æœŸæƒä»£ç 4è…¿(N)(é¢„ç•™å­—æ®µ)
 };
 
-//SOP-³Ö²Ö²éÑ¯ÇëÇó
+//SOP-æŒä»“æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCSOPReqQryPositionField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(N)
-    DFITCSECSecurityIDType               securityOptionID;         //ÆÚÈ¨´úÂë(N)
-    DFITCSECQuantityType                 rowIndex;                 //·ÖÒ³Ë÷ÒıÖµ(N)
-    DFITCSECQuantityType                 rowCount;                 //Ã¿Ò³²éÑ¯±ÊÊı(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (N)
+    DFITCSECSecurityIDType               securityOptionID;         //æœŸæƒä»£ç (N)
+    DFITCSECQuantityType                 rowIndex;                 //åˆ†é¡µç´¢å¼•å€¼(N)
+    DFITCSECQuantityType                 rowCount;                 //æ¯é¡µæŸ¥è¯¢ç¬”æ•°(N)
 };
 
-//SOP-³Ö²Ö²éÑ¯ÏìÓ¦
+//SOP-æŒä»“æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCSOPRspQryPositionField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECSubAccountIDType             subAccountID;             //×ÓÕË»§±àÂë
-    DFITCSECSecurityIDType               securityOptionID;         //ÆÚÈ¨´úÂë
-    DFITCSECContractIDType               contractID;               //ÆÚÈ¨±àÂë
-    DFITCSECContractNameType             contractName;             //ÆÚÈ¨Ãû³Æ
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ
-    DFITCSECCoveredFlagType              coveredFlag;              //±¸¶Ò±êÖ¾
-    DFITCSECDateType                     executeDate;              //ĞĞÈ¨ÈÕÆÚ
-    DFITCSECQuantityType                 totalQty;                 //µ±Ç°ÊıÁ¿
-    DFITCSECQuantityType                 availableQty;             //¿ÉÓÃÊıÁ¿
-    DFITCSECFundsType                    latestPrice;              //×îĞÂ¼Û
-    DFITCSECFundsType                    optionMarket;             //ÆÚÈ¨ÊĞÖµ
-    DFITCSECQuantityType                 freezeQty;                //¶³½áÊıÁ¿
-    DFITCSECQuantityType                 executeQty;               //Ö´ĞĞÊıÁ¿
-    DFITCSECQuantityType                 openEntrustQty;           //¿ª²ÖÎ¯ÍĞÊıÁ¿
-    DFITCSECQuantityType                 openTradeQty;             //¿ª²Ö³É½»ÊıÁ¿
-    DFITCSECQuantityType                 prePosition;              //×ò³Ö²Ö
-    DFITCSECQuantityType                 closeEntrustQty;          //Æ½²ÖÎ¯ÍĞÊıÁ¿
-    DFITCSECQuantityType                 closeTradeQty;            //Æ½²Ö³É½»ÊıÁ¿
-    DFITCSECFundsType                    deposit;                  //±£Ö¤½ğ
-    DFITCSECFundsType                    openDeposit;              //±¾ÈÕ¿ª²Ö±£Ö¤½ğ
-    DFITCSECFundsType                    closeDeposit;             //±¾ÈÕÆ½²Ö±£Ö¤½ğ
-    DFITCSECFundsType                    exchangeDeposit;          //½»Ò×Ëù±£Ö¤½ğ
-    DFITCSECFundsType                    exchangeOpenDeposit;      //½»Ò×Ëù¿ª²Ö±£Ö¤½ğ
-    DFITCSECFundsType                    exchangeCloseDeposit;     //½»Ò×ËùÆ½²Ö±£Ö¤½ğ
-    DFITCSECFundsType                    openAvgPrice;             //¿ª²Ö¾ù¼Û
-    DFITCSECOptionTypeType               optType;                  //ÆÚÈ¨ÀàĞÍ
-    DFITCSECContractObjectTypeType       contractObjectType;       //±êµÄÀàĞÍ
-    DFITCSECContractUnitType             contractUnit;             //ºÏÔ¼µ¥Î»
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECFundsType                    totalTradeCost;           //ÀÛ¼Æ½»Ò×³É±¾(µ½×òÈÕÎ»ÖÃÀÛ¼Æ)
-    DFITCSECFundsType                    tradeCost;                //±¾ÈÕ½»Ò×³É±¾(ÊµÊ±¸üĞÂ)
-    DFITCSECFundsType                    realizeProfitLoss;        //ÊµÏÖÓ¯¿÷(Ô¤Áô×Ö¶Î)
-    DFITCSECFundsType                    profitLoss;               //Ó¯¿÷½ğ¶î(Ô¤Áô×Ö¶Î)
-    DFITCSECContractAdjustRemindType     adjustRemind;             //ºÏÔ¼µ÷ÕûÌáĞÑ±êÖ¾
-    DFITCSECContraceExpireRemindType     expireRemind;             //ºÏÔ¼¼´½«µ½ÆÚÌáĞÑ±êÖ¾
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECSubAccountIDType             subAccountID;             //å­è´¦æˆ·ç¼–ç 
+    DFITCSECSecurityIDType               securityOptionID;         //æœŸæƒä»£ç 
+    DFITCSECContractIDType               contractID;               //æœŸæƒç¼–ç 
+    DFITCSECContractNameType             contractName;             //æœŸæƒåç§°
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«
+    DFITCSECCoveredFlagType              coveredFlag;              //å¤‡å…‘æ ‡å¿—
+    DFITCSECDateType                     executeDate;              //è¡Œæƒæ—¥æœŸ
+    DFITCSECQuantityType                 totalQty;                 //å½“å‰æ•°é‡
+    DFITCSECQuantityType                 availableQty;             //å¯ç”¨æ•°é‡
+    DFITCSECFundsType                    latestPrice;              //æœ€æ–°ä»·
+    DFITCSECFundsType                    optionMarket;             //æœŸæƒå¸‚å€¼
+    DFITCSECQuantityType                 freezeQty;                //å†»ç»“æ•°é‡
+    DFITCSECQuantityType                 executeQty;               //æ‰§è¡Œæ•°é‡
+    DFITCSECQuantityType                 openEntrustQty;           //å¼€ä»“å§”æ‰˜æ•°é‡
+    DFITCSECQuantityType                 openTradeQty;             //å¼€ä»“æˆäº¤æ•°é‡
+    DFITCSECQuantityType                 prePosition;              //æ˜¨æŒä»“
+    DFITCSECQuantityType                 closeEntrustQty;          //å¹³ä»“å§”æ‰˜æ•°é‡
+    DFITCSECQuantityType                 closeTradeQty;            //å¹³ä»“æˆäº¤æ•°é‡
+    DFITCSECFundsType                    deposit;                  //ä¿è¯é‡‘
+    DFITCSECFundsType                    openDeposit;              //æœ¬æ—¥å¼€ä»“ä¿è¯é‡‘
+    DFITCSECFundsType                    closeDeposit;             //æœ¬æ—¥å¹³ä»“ä¿è¯é‡‘
+    DFITCSECFundsType                    exchangeDeposit;          //äº¤æ˜“æ‰€ä¿è¯é‡‘
+    DFITCSECFundsType                    exchangeOpenDeposit;      //äº¤æ˜“æ‰€å¼€ä»“ä¿è¯é‡‘
+    DFITCSECFundsType                    exchangeCloseDeposit;     //äº¤æ˜“æ‰€å¹³ä»“ä¿è¯é‡‘
+    DFITCSECFundsType                    openAvgPrice;             //å¼€ä»“å‡ä»·
+    DFITCSECOptionTypeType               optType;                  //æœŸæƒç±»å‹
+    DFITCSECContractObjectTypeType       contractObjectType;       //æ ‡çš„ç±»å‹
+    DFITCSECContractUnitType             contractUnit;             //åˆçº¦å•ä½
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECFundsType                    totalTradeCost;           //ç´¯è®¡äº¤æ˜“æˆæœ¬(åˆ°æ˜¨æ—¥ä½ç½®ç´¯è®¡)
+    DFITCSECFundsType                    tradeCost;                //æœ¬æ—¥äº¤æ˜“æˆæœ¬(å®æ—¶æ›´æ–°)
+    DFITCSECFundsType                    realizeProfitLoss;        //å®ç°ç›ˆäº(é¢„ç•™å­—æ®µ)
+    DFITCSECFundsType                    profitLoss;               //ç›ˆäºé‡‘é¢(é¢„ç•™å­—æ®µ)
+    DFITCSECContractAdjustRemindType     adjustRemind;             //åˆçº¦è°ƒæ•´æé†’æ ‡å¿—
+    DFITCSECContraceExpireRemindType     expireRemind;             //åˆçº¦å³å°†åˆ°æœŸæé†’æ ‡å¿—
 };
 
-//SOP-¿Í»§µ£±£³Ö²Ö²éÑ¯ÇëÇó
+//SOP-å®¢æˆ·æ‹…ä¿æŒä»“æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCSOPReqQryCollateralPositionField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(N)(½»Ò×Ëù¡¢Ö¤È¯´úÂëĞèÒªÍ¬Ê±´«Èë)
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë(N)(½»Ò×Ëù¡¢Ö¤È¯´úÂëĞèÒªÍ¬Ê±´«Èë)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (N)(äº¤æ˜“æ‰€ã€è¯åˆ¸ä»£ç éœ€è¦åŒæ—¶ä¼ å…¥)
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç (N)(äº¤æ˜“æ‰€ã€è¯åˆ¸ä»£ç éœ€è¦åŒæ—¶ä¼ å…¥)
 };
 
-//SOP-¿Í»§µ£±£³Ö²Ö²éÑ¯ÏìÓ¦
+//SOP-å®¢æˆ·æ‹…ä¿æŒä»“æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCSOPRspQryCollateralPositionField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë
-    DFITCSECSecurityNameType             securityName;             //Ö¤È¯Ãû³Æ
-    DFITCSECQuantityType                 availableQty;             //¿ÉÓÃÊıÁ¿
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç 
+    DFITCSECSecurityNameType             securityName;             //è¯åˆ¸åç§°
+    DFITCSECQuantityType                 availableQty;             //å¯ç”¨æ•°é‡
 };
 
-//SOP-¿Í»§×Ê½ğ²éÑ¯ÇëÇó
+//SOP-å®¢æˆ·èµ„é‡‘æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCSOPReqQryCapitalAccountField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ(N)(µ±Ç°Ö»Ö§³ÖÈËÃñ±Ò)
-    DFITCSECFundsQryFlagType             FundsQryFlag;             //²éÑ¯±êÖ¾(Ô¤Áô×Ö¶Î)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECCurrencyType                 currency;                 //å¸ç§(N)(å½“å‰åªæ”¯æŒäººæ°‘å¸)
+    DFITCSECFundsQryFlagType             FundsQryFlag;             //æŸ¥è¯¢æ ‡å¿—(é¢„ç•™å­—æ®µ)
 };
 
-//SOP-¿Í»§×Ê½ğ²éÑ¯ÏìÓ¦
+//SOP-å®¢æˆ·èµ„é‡‘æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCSOPRspQryCapitalAccountField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECBranchIDType                 branchID;                 //»ú¹¹±àÂë
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECFundsType                    accountBanlance;          //ÕË»§Óà¶î
-    DFITCSECFundsType                    availableFunds;           //¿ÉÓÃ×Ê½ğ
-    DFITCSECFundsType                    freezeFunds;              //¶³½á×Ê½ğ
-    DFITCSECFundsType                    anticipatedInterest;      //Ô¤¼ÆÀûÏ¢
-    DFITCSECFundsType                    usedDeposit;              //Õ¼ÓÃ±£Ö¤½ğ
-    DFITCSECAccountStatusType            accountStatus;            //¿Í»§×´Ì¬
-    DFITCSECFundsType                    totalFunds;               //×Ü×Ê½ğ
-    DFITCSECFundsType                    totalMarket;              //×ÜÊĞÖµ
-    DFITCSECFundsType                    cashAssets;               //ÏÖ½ğ×Ê²ú
-    DFITCSECFundsType                    execGuaranteeRatio;       //ÂÄÔ¼µ£±£±ÈÀı
-    DFITCSECFundsType                    buyLimits;                //ÂòÈë¶î¶È
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECBranchIDType                 branchID;                 //æœºæ„ç¼–ç 
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECFundsType                    accountBanlance;          //è´¦æˆ·ä½™é¢
+    DFITCSECFundsType                    availableFunds;           //å¯ç”¨èµ„é‡‘
+    DFITCSECFundsType                    freezeFunds;              //å†»ç»“èµ„é‡‘
+    DFITCSECFundsType                    anticipatedInterest;      //é¢„è®¡åˆ©æ¯
+    DFITCSECFundsType                    usedDeposit;              //å ç”¨ä¿è¯é‡‘
+    DFITCSECAccountStatusType            accountStatus;            //å®¢æˆ·çŠ¶æ€
+    DFITCSECFundsType                    totalFunds;               //æ€»èµ„é‡‘
+    DFITCSECFundsType                    totalMarket;              //æ€»å¸‚å€¼
+    DFITCSECFundsType                    cashAssets;               //ç°é‡‘èµ„äº§
+    DFITCSECFundsType                    execGuaranteeRatio;       //å±¥çº¦æ‹…ä¿æ¯”ä¾‹
+    DFITCSECFundsType                    buyLimits;                //ä¹°å…¥é¢åº¦
 };
 
-//SOP-¿Í»§ĞÅÏ¢²éÑ¯ÇëÇó
+//SOP-å®¢æˆ·ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT  DFITCSOPReqQryAccountField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
 };
 
-//SOP-¿Í»§ĞÅÏ¢²éÑ¯ÏìÓ¦
+//SOP-å®¢æˆ·ä¿¡æ¯æŸ¥è¯¢å“åº”
 struct APISTRUCT  DFITCSOPRspQryAccountField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECAccountNameType              accountName;              //¿Í»§ĞÕÃû
-    DFITCSECAccountNameType              accountFullName;          //¿Í»§È«Ãû
-    DFITCSECBranchIDType                 branchID;                 //»ú¹¹±àÂë
-    DFITCSECAccountIdentityTypeType      identityType;             //Ö¤¼şÀàĞÍ
-    DFITCSECAccountIdentityIDType        accountIdentityID;        //Ö¤¼ş±àºÅ
-    DFITCSECPhoneIDType                  tel;                      //¿Í»§µç»°
-    DFITCSECPhoneIDType                  mobile;                   //ÒÆ¶¯µç»°
-    DFITCSECAccountTypeType              accountType;              //Í¶×ÊÕß·ÖÀà
-    DFITCSECAccountPropType              accountProp;              //¿Í»§ÊôĞÔ
-    DFITCSECTradePermissionsType         tradePermissions;         //½»Ò×È¨ÏŞ(Ô¤Áô×Ö¶Î)
-    DFITCSECEntrustTypeType              entrustType;              //Î¯ÍĞ·½Ê½
-    DFITCSECAccountStatusType            accountStatus;            //¿Í»§×´Ì¬
-    DFITCSECPasswdSyncFlagType           pwdSynFlag;               //ÃÜÂëÍ¬²½±êÖ¾
-    DFITCSECAccountNodeIDType            accountNodeID;            //¿Í»§ËùÊô½Úµã±àºÅ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECAccountNameType              accountName;              //å®¢æˆ·å§“å
+    DFITCSECAccountNameType              accountFullName;          //å®¢æˆ·å…¨å
+    DFITCSECBranchIDType                 branchID;                 //æœºæ„ç¼–ç 
+    DFITCSECAccountIdentityTypeType      identityType;             //è¯ä»¶ç±»å‹
+    DFITCSECAccountIdentityIDType        accountIdentityID;        //è¯ä»¶ç¼–å·
+    DFITCSECPhoneIDType                  tel;                      //å®¢æˆ·ç”µè¯
+    DFITCSECPhoneIDType                  mobile;                   //ç§»åŠ¨ç”µè¯
+    DFITCSECAccountTypeType              accountType;              //æŠ•èµ„è€…åˆ†ç±»
+    DFITCSECAccountPropType              accountProp;              //å®¢æˆ·å±æ€§
+    DFITCSECTradePermissionsType         tradePermissions;         //äº¤æ˜“æƒé™(é¢„ç•™å­—æ®µ)
+    DFITCSECEntrustTypeType              entrustType;              //å§”æ‰˜æ–¹å¼
+    DFITCSECAccountStatusType            accountStatus;            //å®¢æˆ·çŠ¶æ€
+    DFITCSECPasswdSyncFlagType           pwdSynFlag;               //å¯†ç åŒæ­¥æ ‡å¿—
+    DFITCSECAccountNodeIDType            accountNodeID;            //å®¢æˆ·æ‰€å±èŠ‚ç‚¹ç¼–å·
 };
 
-//SOP-¿ÉÎ¯ÍĞÊıÁ¿²éÑ¯ÇëÇó
+//SOP-å¯å§”æ‰˜æ•°é‡æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCSOPReqCalcAbleEntrustQtyField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(Y)
-    DFITCSECSubAccountIDType             subAccountID;             //×ÓÕË»§±àÂë(N)
-    DFITCSECSecurityIDType               securityOptionID;         //ÆÚÈ¨´úÂë(Y)
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ(Y)
-    DFITCSECOpenCloseFlagType            openCloseFlag;            //¿ªÆ½±êÖ¾(Y)
-    DFITCSECCoveredFlagType              coveredFlag;              //±¸¶Ò±êÖ¾(N)
-    DFITCSECPriceType                    entrustPrice;             //Î¯ÍĞ¼Û¸ñ(N)
-    DFITCSECCheckUpLimitFlagType         checkUpLimit;             //ÊÇ·ñ¼ì²éÎ¯ÍĞÉÏÏŞ(N)
-    DFITCSECTDevIDType                   devID;                    //³§ÉÌID(N)
-    DFITCSECTDevDecInfoType              devDecInfo;               //ÓÃ»§×Ô¶¨Òå×Ö¶Î(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (Y)
+    DFITCSECSubAccountIDType             subAccountID;             //å­è´¦æˆ·ç¼–ç (N)
+    DFITCSECSecurityIDType               securityOptionID;         //æœŸæƒä»£ç (Y)
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«(Y)
+    DFITCSECOpenCloseFlagType            openCloseFlag;            //å¼€å¹³æ ‡å¿—(Y)
+    DFITCSECCoveredFlagType              coveredFlag;              //å¤‡å…‘æ ‡å¿—(N)
+    DFITCSECPriceType                    entrustPrice;             //å§”æ‰˜ä»·æ ¼(N)
+    DFITCSECCheckUpLimitFlagType         checkUpLimit;             //æ˜¯å¦æ£€æŸ¥å§”æ‰˜ä¸Šé™(N)
+    DFITCSECTDevIDType                   devID;                    //å‚å•†ID(N)
+    DFITCSECTDevDecInfoType              devDecInfo;               //ç”¨æˆ·è‡ªå®šä¹‰å­—æ®µ(N)
 };
 
-//SOP-¿ÉÎ¯ÍĞÊıÁ¿²éÑ¯ÏìÓ¦
+//SOP-å¯å§”æ‰˜æ•°é‡æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCSOPRspCalcAbleEntrustQtyField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECSecurityIDType               securityOptionID;         //ÆÚÈ¨´úÂë
-    DFITCSECQuantityType                 entrustQty;               //Î¯ÍĞÊıÁ¿
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECSecurityIDType               securityOptionID;         //æœŸæƒä»£ç 
+    DFITCSECQuantityType                 entrustQty;               //å§”æ‰˜æ•°é‡
 };
 
-//SOP-¹É¶«ĞÅÏ¢²éÑ¯ÇëÇó
+//SOP-è‚¡ä¸œä¿¡æ¯æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT  DFITCSOPReqQryShareholderField
 {
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(N)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (N)
 };
 
-//SOP-¹É¶«ĞÅÏ¢²éÑ¯ÏìÓ¦
+//SOP-è‚¡ä¸œä¿¡æ¯æŸ¥è¯¢å“åº”
 struct APISTRUCT  DFITCSOPRspQryShareholderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECBranchIDType                 branchID;                 //»ú¹¹±àÂë
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECShareholderIDType            shareholderID;            //¹É¶«ºÅ
-    DFITCSECTradePermissionsType         tradePermissions;         //½»Ò×È¨ÏŞ
-    DFITCSECShareholderSpecPropType      shareholderSpecProp;      //¹É¶«Ö¸¶¨ÊôĞÔ
-    DFITCSECShareholderCtlPropType       shareholderCtlProp;       //¹É¶«¿ØÖÆÊôĞÔ
-    DFITCSECShareholderStatusType        shareholderStatus;        //¹É¶«×´Ì¬
-    DFITCSECMainAccountFlagType          mainAccountFlag;          //Ö÷ÕË»§±êÖ¾
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECBranchIDType                 branchID;                 //æœºæ„ç¼–ç 
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECShareholderIDType            shareholderID;            //è‚¡ä¸œå·
+    DFITCSECTradePermissionsType         tradePermissions;         //äº¤æ˜“æƒé™
+    DFITCSECShareholderSpecPropType      shareholderSpecProp;      //è‚¡ä¸œæŒ‡å®šå±æ€§
+    DFITCSECShareholderCtlPropType       shareholderCtlProp;       //è‚¡ä¸œæ§åˆ¶å±æ€§
+    DFITCSECShareholderStatusType        shareholderStatus;        //è‚¡ä¸œçŠ¶æ€
+    DFITCSECMainAccountFlagType          mainAccountFlag;          //ä¸»è´¦æˆ·æ ‡å¿—
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
 };
 
-//SOP-¿Í»§¿ÉËø¶¨Ö¤È¯²éÑ¯ÇëÇó
+//SOP-å®¢æˆ·å¯é”å®šè¯åˆ¸æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCSOPReqQryAbleLockStockField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(Y)
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (Y)
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç (Y)
 };
 
-//SOP-¿Í»§¿ÉËø¶¨Ö¤È¯²éÑ¯ÏìÓ¦
+//SOP-å®¢æˆ·å¯é”å®šè¯åˆ¸æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCSOPRspQryAbleLockStockField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë
-    DFITCSECSecurityNameType             securityName;             //Ö¤È¯Ãû³Æ(Ô¤Áô×Ö¶Î)
-    DFITCSECQuantityType                 securityQty;              //³ÖÓĞÊıÁ¿(Ô¤Áô×Ö¶Î)
-    DFITCSECQuantityType                 position;                 //µ±Ç°ÊıÁ¿(Ô¤Áô×Ö¶Î)
-    DFITCSECPriceType                    avgPositionPrice;         //³Ö²Ö¾ù¼Û(Ô¤Áô×Ö¶Î)
-    DFITCSECFundsType                    dilutedCost;              //Ì¯±¡³É±¾¼Û(Ô¤Áô×Ö¶Î)
-    DFITCSECPriceType                    breakevenPrice;           //±£±¾¼Û(Ô¤Áô×Ö¶Î)
-    DFITCSECPriceType                    dilutedBreakevenPrice;    //Ì¯±¡±£±¾¼Û(Ô¤Áô×Ö¶Î)
-    DFITCSECQuantityType                 ableSellQty;              //¿ÉÂô³öÊıÁ¿
-    DFITCSECFundsType                    latestMarket;             //×îĞÂÊĞÖµ(Ô¤Áô×Ö¶Î)
-    DFITCSECPriceType                    latestPrice;              //×îĞÂ¼Û(Ô¤Áô×Ö¶Î)
-    DFITCSECFundsType                    floatProfitLoss;          //¸¡¶¯Ó¯¿÷(Ô¤Áô×Ö¶Î)
-    DFITCSECFundsType                    dilutedFloatProfitLoss;   //Ì¯±¡¸¡¶¯Ó¯¿÷(Ô¤Áô×Ö¶Î)
-    DFITCSECTradeUnitType                tradeUnit;                //½»Ò×µ¥Î»(Ô¤Áô×Ö¶Î)
-    DFITCSECQuantityType                 openBuyQty;               //½ñ¿ª²ÖÂòÈë³Ö²ÖÁ¿(Ô¤Áô×Ö¶Î)
-    DFITCSECQuantityType                 openSellQty;              //½ñ¿ª²ÖÂô³ö³Ö²ÖÁ¿(Ô¤Áô×Ö¶Î)
-    DFITCSECQuantityType                 buyUnSettleQty;           //ÂòÈëÎ´½»ÊÕ³Ö²ÖÁ¿(Ô¤Áô×Ö¶Î)
-    DFITCSECQuantityType                 sellUnSettleQty;          //Âô³öÎ´½»ÊÕ³Ö²ÖÁ¿(Ô¤Áô×Ö¶Î)
-    DFITCSECQuantityType                 openEntrustSellQty;       //½ñ¿ª²ÖÎ¯ÍĞÂô³öÁ¿(Ô¤Áô×Ö¶Î)
-    DFITCSECQuantityType                 ableLockQty;              //¿ÉËø¶¨ÊıÁ¿
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç 
+    DFITCSECSecurityNameType             securityName;             //è¯åˆ¸åç§°(é¢„ç•™å­—æ®µ)
+    DFITCSECQuantityType                 securityQty;              //æŒæœ‰æ•°é‡(é¢„ç•™å­—æ®µ)
+    DFITCSECQuantityType                 position;                 //å½“å‰æ•°é‡(é¢„ç•™å­—æ®µ)
+    DFITCSECPriceType                    avgPositionPrice;         //æŒä»“å‡ä»·(é¢„ç•™å­—æ®µ)
+    DFITCSECFundsType                    dilutedCost;              //æ‘Šè–„æˆæœ¬ä»·(é¢„ç•™å­—æ®µ)
+    DFITCSECPriceType                    breakevenPrice;           //ä¿æœ¬ä»·(é¢„ç•™å­—æ®µ)
+    DFITCSECPriceType                    dilutedBreakevenPrice;    //æ‘Šè–„ä¿æœ¬ä»·(é¢„ç•™å­—æ®µ)
+    DFITCSECQuantityType                 ableSellQty;              //å¯å–å‡ºæ•°é‡
+    DFITCSECFundsType                    latestMarket;             //æœ€æ–°å¸‚å€¼(é¢„ç•™å­—æ®µ)
+    DFITCSECPriceType                    latestPrice;              //æœ€æ–°ä»·(é¢„ç•™å­—æ®µ)
+    DFITCSECFundsType                    floatProfitLoss;          //æµ®åŠ¨ç›ˆäº(é¢„ç•™å­—æ®µ)
+    DFITCSECFundsType                    dilutedFloatProfitLoss;   //æ‘Šè–„æµ®åŠ¨ç›ˆäº(é¢„ç•™å­—æ®µ)
+    DFITCSECTradeUnitType                tradeUnit;                //äº¤æ˜“å•ä½(é¢„ç•™å­—æ®µ)
+    DFITCSECQuantityType                 openBuyQty;               //ä»Šå¼€ä»“ä¹°å…¥æŒä»“é‡(é¢„ç•™å­—æ®µ)
+    DFITCSECQuantityType                 openSellQty;              //ä»Šå¼€ä»“å–å‡ºæŒä»“é‡(é¢„ç•™å­—æ®µ)
+    DFITCSECQuantityType                 buyUnSettleQty;           //ä¹°å…¥æœªäº¤æ”¶æŒä»“é‡(é¢„ç•™å­—æ®µ)
+    DFITCSECQuantityType                 sellUnSettleQty;          //å–å‡ºæœªäº¤æ”¶æŒä»“é‡(é¢„ç•™å­—æ®µ)
+    DFITCSECQuantityType                 openEntrustSellQty;       //ä»Šå¼€ä»“å§”æ‰˜å–å‡ºé‡(é¢„ç•™å­—æ®µ)
+    DFITCSECQuantityType                 ableLockQty;              //å¯é”å®šæ•°é‡
 };
 
-//SOP-¿Í»§ĞĞÈ¨Ö¸ÅÉĞÅÏ¢²éÑ¯ÇëÇó
+//SOP-å®¢æˆ·è¡ŒæƒæŒ‡æ´¾ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCSOPReqQryExecAssiInfoField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECSecurityIDType               securityOptionID;         //ÆÚÈ¨´úÂë(N)
-    DFITCSECDateType                     tradeDate;                //²éÑ¯ÈÕÆÚ(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECSecurityIDType               securityOptionID;         //æœŸæƒä»£ç (N)
+    DFITCSECDateType                     tradeDate;                //æŸ¥è¯¢æ—¥æœŸ(N)
 };
 
-//SOP-¿Í»§ĞĞÈ¨Ö¸ÅÉĞÅÏ¢²éÑ¯ÏìÓ¦
+//SOP-å®¢æˆ·è¡ŒæƒæŒ‡æ´¾ä¿¡æ¯æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCSOPRspQryExecAssiInfoField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECDateType                     tradeDate;                //³É½»ÈÕÆÚ
-    DFITCSECBranchIDType                 branchID;                 //»ú¹¹´úÂë
-    DFITCSECShareholderIDType            shareholderID;            //¹É¶«ºÅ
-    DFITCSECSubAccountIDType             subAccountID;             //×ÓÕË»§
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECOptionTypeType               optType;                  //ÆÚÈ¨ÀàĞÍ
-    DFITCSECContractObjectTypeType       contractObjectType;       //±êµÄÀàĞÍ
-    DFITCSECCoveredFlagType              coveredFlag;              //±¸¶Ò±êÖ¾
-    DFITCSECSecurityIDType               securityOptionID;         //ÆÚÈ¨´úÂë
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ
-    DFITCSECSecurityIDType               securityID;               //±êµÄ´úÂë
-    DFITCSECSeatIDType                   seatID;                   //Ï¯Î»´úÂë
-    DFITCSECPriceType                    execPrice;                //ĞĞÈ¨¼Û¸ñ
-    DFITCSECQuantityType                 execQty;                  //ĞĞÈ¨ÊıÁ¿
-    DFITCSECQuantityType                 tradeQty;                 //³É½»ÊıÁ¿
-    DFITCSECFundsType                    clearFunds;               //ÇåËã½ğ¶î
-    DFITCSECFundsType                    settleFunds;              //½áËã½ğ¶î
-    DFITCSECFundsType                    commission;               //Ó¶½ğ
-    DFITCSECFundsType                    stampTax;                 //Ó¡»¨Ë°
-    DFITCSECFundsType                    transferFee;              //¹ı»§·Ñ
-    DFITCSECFundsType                    fee3;                     //·ÑÓÃ3
-    DFITCSECFundsType                    fee4;                     //·ÑÓÃ4
-    DFITCSECMessageType                  summaryMsg;               //ÕªÒª
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECDateType                     tradeDate;                //æˆäº¤æ—¥æœŸ
+    DFITCSECBranchIDType                 branchID;                 //æœºæ„ä»£ç 
+    DFITCSECShareholderIDType            shareholderID;            //è‚¡ä¸œå·
+    DFITCSECSubAccountIDType             subAccountID;             //å­è´¦æˆ·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECOptionTypeType               optType;                  //æœŸæƒç±»å‹
+    DFITCSECContractObjectTypeType       contractObjectType;       //æ ‡çš„ç±»å‹
+    DFITCSECCoveredFlagType              coveredFlag;              //å¤‡å…‘æ ‡å¿—
+    DFITCSECSecurityIDType               securityOptionID;         //æœŸæƒä»£ç 
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«
+    DFITCSECSecurityIDType               securityID;               //æ ‡çš„ä»£ç 
+    DFITCSECSeatIDType                   seatID;                   //å¸­ä½ä»£ç 
+    DFITCSECPriceType                    execPrice;                //è¡Œæƒä»·æ ¼
+    DFITCSECQuantityType                 execQty;                  //è¡Œæƒæ•°é‡
+    DFITCSECQuantityType                 tradeQty;                 //æˆäº¤æ•°é‡
+    DFITCSECFundsType                    clearFunds;               //æ¸…ç®—é‡‘é¢
+    DFITCSECFundsType                    settleFunds;              //ç»“ç®—é‡‘é¢
+    DFITCSECFundsType                    commission;               //ä½£é‡‘
+    DFITCSECFundsType                    stampTax;                 //å°èŠ±ç¨
+    DFITCSECFundsType                    transferFee;              //è¿‡æˆ·è´¹
+    DFITCSECFundsType                    fee3;                     //è´¹ç”¨3
+    DFITCSECFundsType                    fee4;                     //è´¹ç”¨4
+    DFITCSECMessageType                  summaryMsg;               //æ‘˜è¦
 };
 
-//SOP-ÆÚÈ¨ºÏÔ¼´úÂë²éÑ¯ÇëÇó
+//SOP-æœŸæƒåˆçº¦ä»£ç æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCSOPReqQryContactField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(N)
-    DFITCSECSecurityIDType               securityOptionID;         //ÆÚÈ¨´úÂë(N)
-    DFITCSECSecurityIDType               securityID;               //±êµÄ´úÂë(N)
-    DFITCSECContractObjectTypeType       contractObjectType;       //±êµÄÀàĞÍ(N)
-    DFITCSECOptionTypeType               optType;                  //ÆÚÈ¨ÀàĞÍ(N)
-    DFITCSECSecurityIDType               rowIndex;                 //·ÖÒ³Ë÷ÒıÖµ(Ô¤Áô×Ö¶Î)(N)
-    DFITCSECQuantityType                 rowCount;                 //Ã¿Ò³²éÑ¯±ÊÊı(Ô¤Áô×Ö¶Î)(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (N)
+    DFITCSECSecurityIDType               securityOptionID;         //æœŸæƒä»£ç (N)
+    DFITCSECSecurityIDType               securityID;               //æ ‡çš„ä»£ç (N)
+    DFITCSECContractObjectTypeType       contractObjectType;       //æ ‡çš„ç±»å‹(N)
+    DFITCSECOptionTypeType               optType;                  //æœŸæƒç±»å‹(N)
+    DFITCSECSecurityIDType               rowIndex;                 //åˆ†é¡µç´¢å¼•å€¼(é¢„ç•™å­—æ®µ)(N)
+    DFITCSECQuantityType                 rowCount;                 //æ¯é¡µæŸ¥è¯¢ç¬”æ•°(é¢„ç•™å­—æ®µ)(N)
 };
 
-//SOP-ÆÚÈ¨ºÏÔ¼´úÂë²éÑ¯ÏìÓ¦
+//SOP-æœŸæƒåˆçº¦ä»£ç æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCSOPRspQryContactField
 {
-    DFITCSECRequestIDType               requestID;                 //ÇëÇóID
-    DFITCSECAccountIDType               accountID;                 //¿Í»§ºÅ
-    DFITCSECExchangeIDType              exchangeID;                //½»Ò×Ëù
-    DFITCSECSecurityIDType              securityOptionID;          //ÆÚÈ¨½»Ò×´úÂë(10000031)
-    DFITCSECContractIDType              contractID;                //ÆÚÈ¨±êÊ¶´úÂë(600104C1406M01200)
-    DFITCSECContractNameType            contractName;              //ÆÚÈ¨Ãû³Æ(ÉÏÆû¼¯ÍÅ¹º6ÔÂ1200)
-    DFITCSECSecurityIDType              securityID;                //±êµÄ´úÂë(600104)
-    DFITCSECContractObjectTypeType      contractObjectType;        //±êµÄÀàĞÍ
-    DFITCSECExecuteTypeType             execType;                  //ĞĞÈ¨·½Ê½
-    DFITCSECDeliveryTypeType            deliType;                  //½»¸î·½Ê½(Ô¤Áô×Ö¶Î)
-    DFITCSECOptionTypeType              optType;                   //ÆÚÈ¨ÀàĞÍ
-    DFITCSECContractUnitType            contactUnit;               //ºÏÔ¼µ¥Î»
-    DFITCSECFundsType                   latestPrice;               //×îĞÂ¼Û
-    DFITCSECDateType                    beginTradingDay;           //¿ªÊ¼½»Ò×ÈÕ
-    DFITCSECDateType                    endTradingDay;             //×îºó½»Ò×ÈÕ
-    DFITCSECDateType                    execDate;                  //ĞĞÈ¨ÈÕÆÚ
-    DFITCSECDateType                    endDate;                   //µ½ÆÚÈÕ
-    DFITCSECQuantityType                positionUpLimit;           //³Ö²ÖÉÏÏŞ
-    DFITCSECFundsType                   priceUpLimit;              //ÕÇÍ£¼Û
-    DFITCSECFundsType                   priceDownLimit;            //µøÍ£¼Û
-    DFITCSECFundsType                   priceHigher;               //×î¸ß¼Û
-    DFITCSECFundsType                   priceLower;                //×îµÍ¼Û
-    DFITCSECQuantityType                entrustUpLimit;            //Î¯ÍĞÉÏÏŞ
-    DFITCSECQuantityType                entrustDownLimit;          //Î¯ÍĞÏÂÏŞ
-    DFITCSECQuantityType                entrustUpLimitMarketPri;   //ÊĞ¼ÛÎ¯ÍĞÉÏÏŞ(MP=Market Price)
-    DFITCSECQuantityType                entrustDownLimitMarketPri; //ÊĞ¼ÛÎ¯ÍĞÏÂÏŞ
-    DFITCSECOpenLimitsType              openLimit;                 //¿ª²ÖÏŞÖÆ
-    DFITCSECStockTradeFlagType          stockTradeFlag;            //Í£ÅÆ±êÖ¾
-    DFITCSECFundsType                   depositUnit;               //µ¥Î»±£Ö¤½ğ
-    DFITCSECFundsType                   depositRatioC;             //±£Ö¤½ğ±ÈÀı1
-    DFITCSECFundsType                   depositRatioE;             //±£Ö¤½ğ±ÈÀı2
-    DFITCSECPriceType                   preClosePrice;             //×òÊÕÅÌ¼Û
-    DFITCSECPriceType                   closePrice;                //½ñÊÕÅÌ¼Û
-    DFITCSECPriceType                   preSettlePrice;            //×ò½áËã¼Û
-    DFITCSECPriceType                   openPrice;                 //¿ªÅÌ¼Û
-    DFITCSECLargeQuantityType           tradeQty;                  //³É½»ÊıÁ¿
-    DFITCSECFundsType                   turnover;                  //³É½»½ğ¶î
-    DFITCSECPriceType                   settlePrice;               //½áËã¼Û(Ô¤Áô×Ö¶Î)
-    DFITCSECPriceType                   endCashSettlePrice;        //µ½ÆÚÏÖ½ğ½áËã¼Û
-    DFITCSECQuantityType                handQty;                   //ÕûÊÖÊı
-    DFITCSECQuantityType                unClosePositionQty;        //Î´Æ½²ÖºÏÔ¼
-    DFITCSECApproachExpireFlagType      approachExpireFlag;        //ÁÙ½üµ½ÆÚ±êÖ¾
-    DFITCSECTempAdjuestFlagType         tempAdjustFlag;            //ÁÙÊ±µ÷Õû±êÖ¾
-    DFITCSECStockListFlagType           stockListFlag;             //¹ÉÆ±¹ÒÅÆ±êÖ¾
-    DFITCSECFundsType                   execPrice;                 //ĞĞÈ¨¼Û¸ñ
-    DFITCSECFundsType                   bidPrice1;                 //ÉêÂò¼Û1
-    DFITCSECQuantityType                bidQty1;                   //ÉêÂòÁ¿1
-    DFITCSECFundsType                   bidPrice2;                 //ÉêÂò¼Û2
-    DFITCSECQuantityType                bidQty2;                   //ÉêÂòÁ¿2
-    DFITCSECFundsType                   bidPrice3;                 //ÉêÂò¼Û3
-    DFITCSECQuantityType                bidQty3;                   //ÉêÂòÁ¿3
-    DFITCSECFundsType                   bidPrice4;                 //ÉêÂò¼Û4
-    DFITCSECQuantityType                bidQty4;                   //ÉêÂòÁ¿4
-    DFITCSECFundsType                   bidPrice5;                 //ÉêÂò¼Û5
-    DFITCSECQuantityType                bidQty5;                   //ÉêÂòÁ¿5
-    DFITCSECFundsType                   askPrice1;                 //ÉêÂô¼Û1
-    DFITCSECQuantityType                askQty1;                   //ÉêÂôÁ¿1
-    DFITCSECFundsType                   askPrice2;                 //ÉêÂô¼Û2
-    DFITCSECQuantityType                askQty2;                   //ÉêÂôÁ¿2
-    DFITCSECFundsType                   askPrice3;                 //ÉêÂô¼Û3
-    DFITCSECQuantityType                askQty3;                   //ÉêÂôÁ¿3
-    DFITCSECFundsType                   askPrice4;                 //ÉêÂô¼Û4
-    DFITCSECQuantityType                askQty4;                   //ÉêÂôÁ¿4
-    DFITCSECFundsType                   askPrice5;                 //ÉêÂô¼Û5
-    DFITCSECQuantityType                askQty5;                   //ÉêÂôÁ¿5
-    DFITCSESecurityOptionIndexType      optionIndex;               //¹ÉÆ±ÆÚÈ¨Ë÷ÒıÖµ
-    DFITCSECMiniPriceChangeType         miniPriceChange;           //×îĞ¡±ä¶¯¼ÛÎ»
+    DFITCSECRequestIDType               requestID;                 //è¯·æ±‚ID
+    DFITCSECAccountIDType               accountID;                 //å®¢æˆ·å·
+    DFITCSECExchangeIDType              exchangeID;                //äº¤æ˜“æ‰€
+    DFITCSECSecurityIDType              securityOptionID;          //æœŸæƒäº¤æ˜“ä»£ç (10000031)
+    DFITCSECContractIDType              contractID;                //æœŸæƒæ ‡è¯†ä»£ç (600104C1406M01200)
+    DFITCSECContractNameType            contractName;              //æœŸæƒåç§°(ä¸Šæ±½é›†å›¢è´­6æœˆ1200)
+    DFITCSECSecurityIDType              securityID;                //æ ‡çš„ä»£ç (600104)
+    DFITCSECContractObjectTypeType      contractObjectType;        //æ ‡çš„ç±»å‹
+    DFITCSECExecuteTypeType             execType;                  //è¡Œæƒæ–¹å¼
+    DFITCSECDeliveryTypeType            deliType;                  //äº¤å‰²æ–¹å¼(é¢„ç•™å­—æ®µ)
+    DFITCSECOptionTypeType              optType;                   //æœŸæƒç±»å‹
+    DFITCSECContractUnitType            contactUnit;               //åˆçº¦å•ä½
+    DFITCSECFundsType                   latestPrice;               //æœ€æ–°ä»·
+    DFITCSECDateType                    beginTradingDay;           //å¼€å§‹äº¤æ˜“æ—¥
+    DFITCSECDateType                    endTradingDay;             //æœ€åäº¤æ˜“æ—¥
+    DFITCSECDateType                    execDate;                  //è¡Œæƒæ—¥æœŸ
+    DFITCSECDateType                    endDate;                   //åˆ°æœŸæ—¥
+    DFITCSECQuantityType                positionUpLimit;           //æŒä»“ä¸Šé™
+    DFITCSECFundsType                   priceUpLimit;              //æ¶¨åœä»·
+    DFITCSECFundsType                   priceDownLimit;            //è·Œåœä»·
+    DFITCSECFundsType                   priceHigher;               //æœ€é«˜ä»·
+    DFITCSECFundsType                   priceLower;                //æœ€ä½ä»·
+    DFITCSECQuantityType                entrustUpLimit;            //å§”æ‰˜ä¸Šé™
+    DFITCSECQuantityType                entrustDownLimit;          //å§”æ‰˜ä¸‹é™
+    DFITCSECQuantityType                entrustUpLimitMarketPri;   //å¸‚ä»·å§”æ‰˜ä¸Šé™(MP=Market Price)
+    DFITCSECQuantityType                entrustDownLimitMarketPri; //å¸‚ä»·å§”æ‰˜ä¸‹é™
+    DFITCSECOpenLimitsType              openLimit;                 //å¼€ä»“é™åˆ¶
+    DFITCSECStockTradeFlagType          stockTradeFlag;            //åœç‰Œæ ‡å¿—
+    DFITCSECFundsType                   depositUnit;               //å•ä½ä¿è¯é‡‘
+    DFITCSECFundsType                   depositRatioC;             //ä¿è¯é‡‘æ¯”ä¾‹1
+    DFITCSECFundsType                   depositRatioE;             //ä¿è¯é‡‘æ¯”ä¾‹2
+    DFITCSECPriceType                   preClosePrice;             //æ˜¨æ”¶ç›˜ä»·
+    DFITCSECPriceType                   closePrice;                //ä»Šæ”¶ç›˜ä»·
+    DFITCSECPriceType                   preSettlePrice;            //æ˜¨ç»“ç®—ä»·
+    DFITCSECPriceType                   openPrice;                 //å¼€ç›˜ä»·
+    DFITCSECLargeQuantityType           tradeQty;                  //æˆäº¤æ•°é‡
+    DFITCSECFundsType                   turnover;                  //æˆäº¤é‡‘é¢
+    DFITCSECPriceType                   settlePrice;               //ç»“ç®—ä»·(é¢„ç•™å­—æ®µ)
+    DFITCSECPriceType                   endCashSettlePrice;        //åˆ°æœŸç°é‡‘ç»“ç®—ä»·
+    DFITCSECQuantityType                handQty;                   //æ•´æ‰‹æ•°
+    DFITCSECQuantityType                unClosePositionQty;        //æœªå¹³ä»“åˆçº¦
+    DFITCSECApproachExpireFlagType      approachExpireFlag;        //ä¸´è¿‘åˆ°æœŸæ ‡å¿—
+    DFITCSECTempAdjuestFlagType         tempAdjustFlag;            //ä¸´æ—¶è°ƒæ•´æ ‡å¿—
+    DFITCSECStockListFlagType           stockListFlag;             //è‚¡ç¥¨æŒ‚ç‰Œæ ‡å¿—
+    DFITCSECFundsType                   execPrice;                 //è¡Œæƒä»·æ ¼
+    DFITCSECFundsType                   bidPrice1;                 //ç”³ä¹°ä»·1
+    DFITCSECQuantityType                bidQty1;                   //ç”³ä¹°é‡1
+    DFITCSECFundsType                   bidPrice2;                 //ç”³ä¹°ä»·2
+    DFITCSECQuantityType                bidQty2;                   //ç”³ä¹°é‡2
+    DFITCSECFundsType                   bidPrice3;                 //ç”³ä¹°ä»·3
+    DFITCSECQuantityType                bidQty3;                   //ç”³ä¹°é‡3
+    DFITCSECFundsType                   bidPrice4;                 //ç”³ä¹°ä»·4
+    DFITCSECQuantityType                bidQty4;                   //ç”³ä¹°é‡4
+    DFITCSECFundsType                   bidPrice5;                 //ç”³ä¹°ä»·5
+    DFITCSECQuantityType                bidQty5;                   //ç”³ä¹°é‡5
+    DFITCSECFundsType                   askPrice1;                 //ç”³å–ä»·1
+    DFITCSECQuantityType                askQty1;                   //ç”³å–é‡1
+    DFITCSECFundsType                   askPrice2;                 //ç”³å–ä»·2
+    DFITCSECQuantityType                askQty2;                   //ç”³å–é‡2
+    DFITCSECFundsType                   askPrice3;                 //ç”³å–ä»·3
+    DFITCSECQuantityType                askQty3;                   //ç”³å–é‡3
+    DFITCSECFundsType                   askPrice4;                 //ç”³å–ä»·4
+    DFITCSECQuantityType                askQty4;                   //ç”³å–é‡4
+    DFITCSECFundsType                   askPrice5;                 //ç”³å–ä»·5
+    DFITCSECQuantityType                askQty5;                   //ç”³å–é‡5
+    DFITCSESecurityOptionIndexType      optionIndex;               //è‚¡ç¥¨æœŸæƒç´¢å¼•å€¼
+    DFITCSECMiniPriceChangeType         miniPriceChange;           //æœ€å°å˜åŠ¨ä»·ä½
 };
 
-//SOP-ÆÚÈ¨±êµÄĞÅÏ¢²éÑ¯ÇëÇó
+//SOP-æœŸæƒæ ‡çš„ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCSOPReqQryContractObjectField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(N)
-    DFITCSECSecurityIDType               securityID;               //±êµÄ´úÂë(N)
-    DFITCSECContractObjectTypeType       securityObjectType;       //±êµÄÀàĞÍ(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (N)
+    DFITCSECSecurityIDType               securityID;               //æ ‡çš„ä»£ç (N)
+    DFITCSECContractObjectTypeType       securityObjectType;       //æ ‡çš„ç±»å‹(N)
 };
 
-//SOP-ÆÚÈ¨±êµÄĞÅÏ¢²éÑ¯ÏìÓ¦
+//SOP-æœŸæƒæ ‡çš„ä¿¡æ¯æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCSOPRspQryContractObjectField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECSecurityNameType             securityName;             //±êµÄÖ¤È¯Ãû³Æ
-    DFITCSECSecurityIDType               securityID;               //±êµÄ´úÂë
-    DFITCSECContractObjectTypeType       contractObjectType;       //±êµÄÀàĞÍ
-    DFITCSECContractObjectStatusType     contractObjectStatus;     //±êµÄÖ¤È¯×´Ì¬
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECSecurityNameType             securityName;             //æ ‡çš„è¯åˆ¸åç§°
+    DFITCSECSecurityIDType               securityID;               //æ ‡çš„ä»£ç 
+    DFITCSECContractObjectTypeType       contractObjectType;       //æ ‡çš„ç±»å‹
+    DFITCSECContractObjectStatusType     contractObjectStatus;     //æ ‡çš„è¯åˆ¸çŠ¶æ€
 };
 
-//SOP-Ö´ĞĞÎ¯ÍĞÇëÇó
+//SOP-æ‰§è¡Œå§”æ‰˜è¯·æ±‚
 struct APISTRUCT DFITCSOPReqExectueOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(Y)
-    DFITCSECSecurityIDType               securityOptionID;         //ÆÚÈ¨´úÂë(Y)
-    DFITCSECSubAccountIDType             subAccountID;             //×ÓÕË»§±àÂë(N)
-    DFITCSECQuantityType                 entrustQty;               //Î¯ÍĞÊıÁ¿(Y)
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ(Y)
-    DFITCSECOpenCloseFlagType            openCloseFlag;            //¿ªÆ½±êÖ¾(Y)
-    DFITCSECTDevIDType                   devID;                    //³§ÉÌID(N)
-    DFITCSECTDevDecInfoType              devDecInfo;               //ÓÃ»§×Ô¶¨Òå×Ö¶Î(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (Y)
+    DFITCSECSecurityIDType               securityOptionID;         //æœŸæƒä»£ç (Y)
+    DFITCSECSubAccountIDType             subAccountID;             //å­è´¦æˆ·ç¼–ç (N)
+    DFITCSECQuantityType                 entrustQty;               //å§”æ‰˜æ•°é‡(Y)
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«(Y)
+    DFITCSECOpenCloseFlagType            openCloseFlag;            //å¼€å¹³æ ‡å¿—(Y)
+    DFITCSECTDevIDType                   devID;                    //å‚å•†ID(N)
+    DFITCSECTDevDecInfoType              devDecInfo;               //ç”¨æˆ·è‡ªå®šä¹‰å­—æ®µ(N)
 };
 
-//SOP-Ö´ĞĞÎ¯ÍĞÏìÓ¦
+//SOP-æ‰§è¡Œå§”æ‰˜å“åº”
 struct APISTRUCT DFITCSOPRspExectueOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECTimeType                     entrustTime;              //Î¯ÍĞÊ±¼ä
-    DFITCSECFundsType                    freezeFunds;              //¶³½á×Ê½ğ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·
+    DFITCSECTimeType                     entrustTime;              //å§”æ‰˜æ—¶é—´
+    DFITCSECFundsType                    freezeFunds;              //å†»ç»“èµ„é‡‘
 };
 
-//SOP-²éÑ¯½»Ò×Ê±¼äÇëÇó
+//SOP-æŸ¥è¯¢äº¤æ˜“æ—¶é—´è¯·æ±‚
 struct APISTRUCT DFITCSOPReqQryTradeTimeField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
 };
 
-//SOP-²éÑ¯½»Ò×Ê±¼äÏìÓ¦
+//SOP-æŸ¥è¯¢äº¤æ˜“æ—¶é—´å“åº”
 struct APISTRUCT DFITCSOPRspQryTradeTimeField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECDateType                     sysTradingDay;            //ÏµÍ³µ±Ç°ÈÕÆÚ
-    DFITCSECTimeType                     sysTime;                  //ÏµÍ³µ±Ç°Ê±¼ä
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECDateType                     sysTradingDay;            //ç³»ç»Ÿå½“å‰æ—¥æœŸ
+    DFITCSECTimeType                     sysTime;                  //ç³»ç»Ÿå½“å‰æ—¶é—´
 };
 
-//SOP-»ñÈ¡ËùÓĞ½»Ò×Ëù²ÎÊıÇëÇó
+//SOP-è·å–æ‰€æœ‰äº¤æ˜“æ‰€å‚æ•°è¯·æ±‚
 struct APISTRUCT DFITCSOPReqQryExchangeInfoField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (N)
 };
 
-//SOP-»ñÈ¡ËùÓĞ½»Ò×Ëù²ÎÊıÏìÓ¦
+//SOP-è·å–æ‰€æœ‰äº¤æ˜“æ‰€å‚æ•°å“åº”
 struct APISTRUCT DFITCSOPRspQryExchangeInfoField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECExchangeNameType             exchangeName;             //½»Ò×Ëù¼ò³Æ
-    DFITCSECTimeType                     callauctionBegining;      //¼¯ºÏ¾º¼Û¿ªÊ¼Ê±¼ä
-    DFITCSECTimeType                     callauctionEnding;        //¼¯ºÏ¾º¼Û½áÊøÊ±¼ä
-    DFITCSECTimeType                     morningOpening;           //ÉÏÎç¿ªÊĞÊ±¼ä
-    DFITCSECTimeType                     morningClosing;           //ÉÏÎç±ÕÊĞÊ±¼ä
-    DFITCSECTimeType                     afternoonOpening;         //ÏÂÎç¿ªÊĞÊ±¼ä
-    DFITCSECTimeType                     afternoonClosing;         //ÏÂÎç±ÕÊĞÊ±¼ä
-    DFITCSECTimeType                     execOpening;              //ĞĞÈ¨¿ªÊ¼Ê±¼ä
-    DFITCSECTimeType                     execClosing;              //ĞĞÈ¨½áÊøÊ±¼ä
-    DFITCSECNightTradingFlagType         nightTradeFlag;           //Ò¹ÊĞ½»Ò×±êÖ¾
-    DFITCSECTimeType                     nightOpening;             //Ò¹ÊĞ¿ªÊ¼Ê±¼ä
-    DFITCSECTimeType                     nightClosing;             //Ò¹ÊĞ½áÊøÊ±¼ä
-    DFITCSECStockTradeFlagType           stockTradeStatus;         //½»Ò××´Ì¬
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECTradingDayFlagType           tradingDayFlag;           //½»Ò×ÈÕ±êÊ¶
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECExchangeNameType             exchangeName;             //äº¤æ˜“æ‰€ç®€ç§°
+    DFITCSECTimeType                     callauctionBegining;      //é›†åˆç«ä»·å¼€å§‹æ—¶é—´
+    DFITCSECTimeType                     callauctionEnding;        //é›†åˆç«ä»·ç»“æŸæ—¶é—´
+    DFITCSECTimeType                     morningOpening;           //ä¸Šåˆå¼€å¸‚æ—¶é—´
+    DFITCSECTimeType                     morningClosing;           //ä¸Šåˆé—­å¸‚æ—¶é—´
+    DFITCSECTimeType                     afternoonOpening;         //ä¸‹åˆå¼€å¸‚æ—¶é—´
+    DFITCSECTimeType                     afternoonClosing;         //ä¸‹åˆé—­å¸‚æ—¶é—´
+    DFITCSECTimeType                     execOpening;              //è¡Œæƒå¼€å§‹æ—¶é—´
+    DFITCSECTimeType                     execClosing;              //è¡Œæƒç»“æŸæ—¶é—´
+    DFITCSECNightTradingFlagType         nightTradeFlag;           //å¤œå¸‚äº¤æ˜“æ ‡å¿—
+    DFITCSECTimeType                     nightOpening;             //å¤œå¸‚å¼€å§‹æ—¶é—´
+    DFITCSECTimeType                     nightClosing;             //å¤œå¸‚ç»“æŸæ—¶é—´
+    DFITCSECStockTradeFlagType           stockTradeStatus;         //äº¤æ˜“çŠ¶æ€
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECTradingDayFlagType           tradingDayFlag;           //äº¤æ˜“æ—¥æ ‡è¯†
 };
 
-//SOP-²éÑ¯ÊÖĞø·Ñ²ÎÊıÇëÇó
+//SOP-æŸ¥è¯¢æ‰‹ç»­è´¹å‚æ•°è¯·æ±‚
 struct APISTRUCT DFITCSOPReqQryCommissionField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(N)
-    DFITCSECReferenceTypeType            refType;                  //²ÎÊıÀà±ğ(N)
-    DFITCSECContractObjectTypeType       contractObjectType;       //±êµÄÀàĞÍ(N)
-    DFITCSECSecurityIDType               securityID;               //·ÖÀà´úÂë(N)
-    DFITCSECOpenCloseFlagType            openCloseFlag;            //¿ªÆ½±êÖ¾(N)
-    DFITCSECLvelType                     level;                    //¼¶±ğ(Y)
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (N)
+    DFITCSECReferenceTypeType            refType;                  //å‚æ•°ç±»åˆ«(N)
+    DFITCSECContractObjectTypeType       contractObjectType;       //æ ‡çš„ç±»å‹(N)
+    DFITCSECSecurityIDType               securityID;               //åˆ†ç±»ä»£ç (N)
+    DFITCSECOpenCloseFlagType            openCloseFlag;            //å¼€å¹³æ ‡å¿—(N)
+    DFITCSECLvelType                     level;                    //çº§åˆ«(Y)
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«(N)
 };
 
-//SOP-²éÑ¯ÊÖĞø·Ñ²ÎÊıÏìÓ¦
+//SOP-æŸ¥è¯¢æ‰‹ç»­è´¹å‚æ•°å“åº”
 struct APISTRUCT DFITCSOPRspQryCommissionField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECReferenceTypeType            refType;                  //²ÎÊıÀà±ğ
-    DFITCSECContractObjectTypeType       contractObjectType;       //±êµÄÀàĞÍ
-    DFITCSECSecurityIDType               securityID;               //·ÖÀà´úÂë
-    DFITCSECOpenCloseFlagType            openCloseFlag;            //¿ªÆ½±êÖ¾
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ
-    DFITCSECLvelType                     level;                    //¼¶±ğ
-    DFITCSECFundsType                    costRatio1;               //·ÑÓÃ±ÈÀı1
-    DFITCSECFundsType                    unitCost1;                //µ¥Î»·ÑÓÃ1
-    DFITCSECFundsType                    costUpLimit1;             //·ÑÓÃÉÏÏŞ1
-    DFITCSECFundsType                    costDonwLimit1;           //·ÑÓÃÏÂÏŞ1
-    DFITCSECFundsType                    costRatio2;               //·ÑÓÃ±ÈÀı2
-    DFITCSECFundsType                    unitCost2;                //µ¥Î»·ÑÓÃ2
-    DFITCSECFundsType                    costUpLimit2;             //·ÑÓÃÉÏÏŞ2
-    DFITCSECFundsType                    costDonwLimit2;           //·ÑÓÃÏÂÏŞ2
-    DFITCSECFundsType                    costRatio3;               //·ÑÓÃ±ÈÀı3
-    DFITCSECFundsType                    unitCost3;                //µ¥Î»·ÑÓÃ3
-    DFITCSECFundsType                    costRatio4;               //·ÑÓÃ±ÈÀı4
-    DFITCSECFundsType                    unitCost4;                //µ¥Î»·ÑÓÃ4
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECReferenceTypeType            refType;                  //å‚æ•°ç±»åˆ«
+    DFITCSECContractObjectTypeType       contractObjectType;       //æ ‡çš„ç±»å‹
+    DFITCSECSecurityIDType               securityID;               //åˆ†ç±»ä»£ç 
+    DFITCSECOpenCloseFlagType            openCloseFlag;            //å¼€å¹³æ ‡å¿—
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«
+    DFITCSECLvelType                     level;                    //çº§åˆ«
+    DFITCSECFundsType                    costRatio1;               //è´¹ç”¨æ¯”ä¾‹1
+    DFITCSECFundsType                    unitCost1;                //å•ä½è´¹ç”¨1
+    DFITCSECFundsType                    costUpLimit1;             //è´¹ç”¨ä¸Šé™1
+    DFITCSECFundsType                    costDonwLimit1;           //è´¹ç”¨ä¸‹é™1
+    DFITCSECFundsType                    costRatio2;               //è´¹ç”¨æ¯”ä¾‹2
+    DFITCSECFundsType                    unitCost2;                //å•ä½è´¹ç”¨2
+    DFITCSECFundsType                    costUpLimit2;             //è´¹ç”¨ä¸Šé™2
+    DFITCSECFundsType                    costDonwLimit2;           //è´¹ç”¨ä¸‹é™2
+    DFITCSECFundsType                    costRatio3;               //è´¹ç”¨æ¯”ä¾‹3
+    DFITCSECFundsType                    unitCost3;                //å•ä½è´¹ç”¨3
+    DFITCSECFundsType                    costRatio4;               //è´¹ç”¨æ¯”ä¾‹4
+    DFITCSECFundsType                    unitCost4;                //å•ä½è´¹ç”¨4
 };
 
-//SOP-²éÑ¯±£Ö¤½ğÂÊ²ÎÊıÇëÇó
+//SOP-æŸ¥è¯¢ä¿è¯é‡‘ç‡å‚æ•°è¯·æ±‚
 struct APISTRUCT DFITCSOPReqQryDepositField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(N)
-    DFITCSECReferenceTypeType            refType;                  //²ÎÊıÀà±ğ(N)
-    DFITCSECContractObjectTypeType       securityObjectType;       //±êµÄÀàĞÍ(N)
-    DFITCSECSecurityIDType               securityID;               //·ÖÀà´úÂë(N)
-    DFITCSECLvelType                     level;                    //¼¶±ğ(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (N)
+    DFITCSECReferenceTypeType            refType;                  //å‚æ•°ç±»åˆ«(N)
+    DFITCSECContractObjectTypeType       securityObjectType;       //æ ‡çš„ç±»å‹(N)
+    DFITCSECSecurityIDType               securityID;               //åˆ†ç±»ä»£ç (N)
+    DFITCSECLvelType                     level;                    //çº§åˆ«(Y)
 };
 
-//SOP-²éÑ¯±£Ö¤½ğÂÊ²ÎÊıÏìÓ¦
+//SOP-æŸ¥è¯¢ä¿è¯é‡‘ç‡å‚æ•°å“åº”
 struct APISTRUCT DFITCSOPRspQryDepositField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECReferenceTypeType            refType;                  //²ÎÊıÀà±ğ
-    DFITCSECContractObjectTypeType       securityObjectType;       //±êµÄÀàĞÍ
-    DFITCSECSecurityIDType               securityID;               //·ÖÀà´úÂë
-    DFITCSECFundsType                    depositRateC;             //±£Ö¤½ğ±ÈÀı1
-    DFITCSECFundsType                    depositRateE;             //±£Ö¤½ğ±ÈÀı2
-    DFITCSECFundsType                    depositUnit;              //µ¥Î»±£Ö¤½ğ
-    DFITCSECCalcTypeType                 calcType;                 //¼ÆËã·½Ê½
-    DFITCSECLvelType                     level;                    //¼¶±ğ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECReferenceTypeType            refType;                  //å‚æ•°ç±»åˆ«
+    DFITCSECContractObjectTypeType       securityObjectType;       //æ ‡çš„ç±»å‹
+    DFITCSECSecurityIDType               securityID;               //åˆ†ç±»ä»£ç 
+    DFITCSECFundsType                    depositRateC;             //ä¿è¯é‡‘æ¯”ä¾‹1
+    DFITCSECFundsType                    depositRateE;             //ä¿è¯é‡‘æ¯”ä¾‹2
+    DFITCSECFundsType                    depositUnit;              //å•ä½ä¿è¯é‡‘
+    DFITCSECCalcTypeType                 calcType;                 //è®¡ç®—æ–¹å¼
+    DFITCSECLvelType                     level;                    //çº§åˆ«
 };
 
-//FASL-¿Í»§¿ÉÈÚ×ÊĞÅÏ¢ÇëÇó
+//FASL-å®¢æˆ·å¯èèµ„ä¿¡æ¯è¯·æ±‚
 struct APISTRUCT DFITCFASLReqAbleFinInfoField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
 };
 
-//FASL-¿Í»§¿ÉÈÚ×ÊĞÅÏ¢ÏìÓ¦
+//FASL-å®¢æˆ·å¯èèµ„ä¿¡æ¯å“åº”
 struct APISTRUCT DFITCFASLRspAbleFinInfoField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECFundsType                    accountBanlance;          //ÕË»§Óà¶î
-    DFITCSECFundsType                    ableFinFunds;             //¿ÉÈÚ×Ê×Ê½ğ
-    DFITCSECFundsType                    turnover;                 //³É½»½ğ¶î
-    DFITCSECFundsType                    entrustFreezeFunds;       //Î¯ÍĞ¶³½á½ğ¶î
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECFundsType                    accountBanlance;          //è´¦æˆ·ä½™é¢
+    DFITCSECFundsType                    ableFinFunds;             //å¯èèµ„èµ„é‡‘
+    DFITCSECFundsType                    turnover;                 //æˆäº¤é‡‘é¢
+    DFITCSECFundsType                    entrustFreezeFunds;       //å§”æ‰˜å†»ç»“é‡‘é¢
 };
 
-//STOCK-¿ÉÓÃĞĞÇéĞÅÏ¢²éÑ¯ÇëÇó
+//STOCK-å¯ç”¨è¡Œæƒ…ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCReqQuotQryField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (N)
 };
 
-//STOCK-¿ÉÓÃĞĞÇéĞÅÏ¢²éÑ¯ÏìÓ¦
+//STOCK-å¯ç”¨è¡Œæƒ…ä¿¡æ¯æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCRspQuotQryField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECSecurityIDType               securityID;               //Ö¤„»´úÂë
-    DFITCSECSecurityNameType             securityName;             //Ö¤È¯Ãû³Æ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECSecurityIDType               securityID;               //è¯åŠµä»£ç 
+    DFITCSECSecurityNameType             securityName;             //è¯åˆ¸åç§°
 };
 
-//FASL-¿Í»§¿ÉÈÚÈ¯ĞÅÏ¢ÇëÇó
+//FASL-å®¢æˆ·å¯èåˆ¸ä¿¡æ¯è¯·æ±‚
 struct APISTRUCT DFITCFASLReqAbleSloInfoField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
 };
 
-//FASL-¿Í»§¿ÉÈÚÈ¯ĞÅÏ¢ÏìÓ¦
+//FASL-å®¢æˆ·å¯èåˆ¸ä¿¡æ¯å“åº”
 struct APISTRUCT DFITCFASLRspAbleSloInfoField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECSecurityIDType               securityID;               //Ö¤„»´úÂë
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECQuantityType                 ableSloQty;               //¿ÉÈÚÈ¯ÊıÁ¿
-    DFITCSECSecurityNameType             securityName;             //Ö¤È¯Ãû³Æ
-    DFITCSECQuantityType                 entrustQty;               //Î¯ÍĞÊıÁ¿
-    DFITCSECQuantityType                 tradeQty;                 //³É½»ÊıÁ¿
-    DFITCSECTradeStatusType              status;                   //×´Ì¬
-    DFITCSECFundsType                    sloDepositRatio;          //ÈÚÈ¯±£Ö¤½ğ±ÈÀı
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECSecurityIDType               securityID;               //è¯åŠµä»£ç 
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECQuantityType                 ableSloQty;               //å¯èåˆ¸æ•°é‡
+    DFITCSECSecurityNameType             securityName;             //è¯åˆ¸åç§°
+    DFITCSECQuantityType                 entrustQty;               //å§”æ‰˜æ•°é‡
+    DFITCSECQuantityType                 tradeQty;                 //æˆäº¤æ•°é‡
+    DFITCSECTradeStatusType              status;                   //çŠ¶æ€
+    DFITCSECFundsType                    sloDepositRatio;          //èåˆ¸ä¿è¯é‡‘æ¯”ä¾‹
 };
 
-//FASL-µ£±£Îï»®×ªÇëÇó
+//FASL-æ‹…ä¿ç‰©åˆ’è½¬è¯·æ±‚
 struct APISTRUCT DFITCFASLReqTransferCollateralField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ(Y)
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(Y)
-    DFITCSECSecurityIDType               securityID;               //Ö¤„»´úÂë(Y)
-    DFITCSECQuantityType                 transferQty;              //»®×ªÊıÁ¿(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·(Y)
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (Y)
+    DFITCSECSecurityIDType               securityID;               //è¯åŠµä»£ç (Y)
+    DFITCSECQuantityType                 transferQty;              //åˆ’è½¬æ•°é‡(Y)
 };
 
-//FASL-µ£±£Îï»®×ªÏìÓ¦
+//FASL-æ‹…ä¿ç‰©åˆ’è½¬å“åº”
 struct APISTRUCT DFITCFASLRspTransferCollateralField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·
 };
 
-//FASL-Ö±½Ó»¹¿îÇëÇó
+//FASL-ç›´æ¥è¿˜æ¬¾è¯·æ±‚
 struct APISTRUCT DFITCFASLReqDirectRepaymentField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECContractNOType               contractNO;               //Ö¸¶¨ºÏÔ¼±àºÅ(N)
-    DFITCSECFundsType                    repayFunds;               //³¥»¹½ğ¶î(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECContractNOType               contractNO;               //æŒ‡å®šåˆçº¦ç¼–å·(N)
+    DFITCSECFundsType                    repayFunds;               //å¿è¿˜é‡‘é¢(Y)
 };
 
-//FASL-Ö±½Ó»¹¿îÏìÓ¦
+//FASL-ç›´æ¥è¿˜æ¬¾å“åº”
 struct APISTRUCT DFITCFASLRspDirectRepaymentField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECFundsType                    realRepayFunds;           //Êµ¼Ê»¹¿î½ğ¶î
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECFundsType                    realRepayFunds;           //å®é™…è¿˜æ¬¾é‡‘é¢
 };
 
-//FASL-»¹È¯»®×ªÇëÇó
+//FASL-è¿˜åˆ¸åˆ’è½¬è¯·æ±‚
 struct APISTRUCT DFITCFASLReqRepayStockTransferField
 {
-    DFITCSECRequestIDType                requestID;                 //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                 //¿Í»§ºÅ(Y)
-    DFITCSECLocalOrderIDType             localOrderID;              //±¾µØÎ¯ÍĞºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;                //½»Ò×Ëù´úÂë(Y)
-    DFITCSECQuantityType                 repayQty;                  //»¹È¯ÊıÁ¿(Y)
-    DFITCSECSecurityIDType               securityID;                //Ö¤„»´úÂë(Y)
-    DFITCSECContractNOType               contractNO;                //Ö¸¶¨ºÏÔ¼±àºÅ(N)
+    DFITCSECRequestIDType                requestID;                 //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                 //å®¢æˆ·å·(Y)
+    DFITCSECLocalOrderIDType             localOrderID;              //æœ¬åœ°å§”æ‰˜å·(Y)
+    DFITCSECExchangeIDType               exchangeID;                //äº¤æ˜“æ‰€ä»£ç (Y)
+    DFITCSECQuantityType                 repayQty;                  //è¿˜åˆ¸æ•°é‡(Y)
+    DFITCSECSecurityIDType               securityID;                //è¯åŠµä»£ç (Y)
+    DFITCSECContractNOType               contractNO;                //æŒ‡å®šåˆçº¦ç¼–å·(N)
 };
 
-//FASL-»¹È¯»®×ªÏìÓ¦
+//FASL-è¿˜åˆ¸åˆ’è½¬å“åº”
 struct APISTRUCT DFITCFASLRspRepayStockTransferField
 {
-    DFITCSECRequestIDType                requestID;                 //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                 //¿Í»§ºÅ
-    DFITCSECSpdOrderIDType               spdOrderID;                //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECLocalOrderIDType             localOrderID;              //±¾µØÎ¯ÍĞºÅ
+    DFITCSECRequestIDType                requestID;                 //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                 //å®¢æˆ·å·
+    DFITCSECSpdOrderIDType               spdOrderID;                //æŸœå°å§”æ‰˜å·
+    DFITCSECLocalOrderIDType             localOrderID;              //æœ¬åœ°å§”æ‰˜å·
 };
 
-//FASL-ĞÅÓÃ½»Ò×ÇëÇó
+//FASL-ä¿¡ç”¨äº¤æ˜“è¯·æ±‚
 struct APISTRUCT DFITCFASLReqEntrustCrdtOrderField
 {
-    DFITCSECRequestIDType                requestID;                 //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                 //¿Í»§ºÅ(Y)
-    DFITCSECLocalOrderIDType             localOrderID;              //±¾µØÎ¯ÍĞºÅ(Y)
-    DFITCSECEntrustDirectionType         entrustDirection;          //Î¯ÍĞÀà±ğ(Y)
-    DFITCSECExchangeIDType               exchangeID;                //½»Ò×Ëù´úÂë(Y)
-    DFITCSECContractNOType               contractNO;                //Ö¸¶¨ºÏÔ¼±àºÅ(N)
-    DFITCSECSecurityIDType               securityID;                //Ö¤„»´úÂë(Y)
-    DFITCSECOrderTypeType                orderType;                 //¶©µ¥ÀàĞÍ(Y)
-    DFITCSECQuantityType                 entrustQty;                //Î¯ÍĞÊıÁ¿(Y)
-    DFITCSECPriceType                    entrustPrice;              //Î¯ÍĞ¼Û¸ñ(Y)
+    DFITCSECRequestIDType                requestID;                 //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                 //å®¢æˆ·å·(Y)
+    DFITCSECLocalOrderIDType             localOrderID;              //æœ¬åœ°å§”æ‰˜å·(Y)
+    DFITCSECEntrustDirectionType         entrustDirection;          //å§”æ‰˜ç±»åˆ«(Y)
+    DFITCSECExchangeIDType               exchangeID;                //äº¤æ˜“æ‰€ä»£ç (Y)
+    DFITCSECContractNOType               contractNO;                //æŒ‡å®šåˆçº¦ç¼–å·(N)
+    DFITCSECSecurityIDType               securityID;                //è¯åŠµä»£ç (Y)
+    DFITCSECOrderTypeType                orderType;                 //è®¢å•ç±»å‹(Y)
+    DFITCSECQuantityType                 entrustQty;                //å§”æ‰˜æ•°é‡(Y)
+    DFITCSECPriceType                    entrustPrice;              //å§”æ‰˜ä»·æ ¼(Y)
 };
 
-//FASL-ĞÅÓÃ½»Ò×ÏìÓ¦
+//FASL-ä¿¡ç”¨äº¤æ˜“å“åº”
 struct APISTRUCT DFITCFASLRspEntrustCrdtOrderField
 {
-    DFITCSECRequestIDType                requestID;                 //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                 //¿Í»§ºÅ
-    DFITCSECSpdOrderIDType               spdOrderID;                //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECLocalOrderIDType             localOrderID;              //±¾µØÎ¯ÍĞºÅ
+    DFITCSECRequestIDType                requestID;                 //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                 //å®¢æˆ·å·
+    DFITCSECSpdOrderIDType               spdOrderID;                //æŸœå°å§”æ‰˜å·
+    DFITCSECLocalOrderIDType             localOrderID;              //æœ¬åœ°å§”æ‰˜å·
 };
 
 
-//FASL-ĞÅÓÃÎ¯ÍĞ³·µ¥ÇëÇó
+//FASL-ä¿¡ç”¨å§”æ‰˜æ’¤å•è¯·æ±‚
 struct APISTRUCT DFITCFASLReqWithdrawOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ(N)
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ(N)(¹ñÌ¨Î¯ÍĞºÅºÍ±¾µØÎ¯ÍĞºÅ¶şÑ¡Ò»)
-    DFITCSECSessionIDType                sessionID;                //»á»°±àºÅ(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·(N)
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·(N)(æŸœå°å§”æ‰˜å·å’Œæœ¬åœ°å§”æ‰˜å·äºŒé€‰ä¸€)
+    DFITCSECSessionIDType                sessionID;                //ä¼šè¯ç¼–å·(N)
 };
 
-//FASL-ĞÅÓÃÎ¯ÍĞ³·µ¥ÏìÓ¦
+//FASL-ä¿¡ç”¨å§”æ‰˜æ’¤å•å“åº”
 struct APISTRUCT DFITCFASLRspWithdrawOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·
 };
 
 
-//FASL-ÈÚ×ÊÈÚÈ¯½»Ò×ÇëÇó
+//FASL-èèµ„èåˆ¸äº¤æ˜“è¯·æ±‚
 struct APISTRUCT DFITCFASLReqEntrustOrderField
 {
-    DFITCSECRequestIDType                requestID;                 //ÇëÇóID(Y)
-    DFITCSECLocalOrderIDType             localOrderID;              //±¾µØÎ¯ÍĞºÅ(Y)
-    DFITCSECAccountIDType                accountID;                 //¿Í»§ºÅ(Y)
-    DFITCSECEntrustDirectionType         entrustDirection;          //Î¯ÍĞÀà±ğ(Y)
-    DFITCSECExchangeIDType               exchangeID;                //½»Ò×Ëù´úÂë(Y)
-    DFITCSECSecurityIDType               securityID;                //Ö¤„»´úÂë(Y)
-    DFITCSECOrderTypeType                orderType;                 //¶©µ¥ÀàĞÍ(Y)
-    DFITCSECQuantityType                 entrustQty;                //Î¯ÍĞÊıÁ¿(Y)
-    DFITCSECPriceType                    entrustPrice;              //Î¯ÍĞ¼Û¸ñ(Y)
-    DFITCSECPositionSourceType           positionSource;            //Í·´çÀ´Ô´(N)
+    DFITCSECRequestIDType                requestID;                 //è¯·æ±‚ID(Y)
+    DFITCSECLocalOrderIDType             localOrderID;              //æœ¬åœ°å§”æ‰˜å·(Y)
+    DFITCSECAccountIDType                accountID;                 //å®¢æˆ·å·(Y)
+    DFITCSECEntrustDirectionType         entrustDirection;          //å§”æ‰˜ç±»åˆ«(Y)
+    DFITCSECExchangeIDType               exchangeID;                //äº¤æ˜“æ‰€ä»£ç (Y)
+    DFITCSECSecurityIDType               securityID;                //è¯åŠµä»£ç (Y)
+    DFITCSECOrderTypeType                orderType;                 //è®¢å•ç±»å‹(Y)
+    DFITCSECQuantityType                 entrustQty;                //å§”æ‰˜æ•°é‡(Y)
+    DFITCSECPriceType                    entrustPrice;              //å§”æ‰˜ä»·æ ¼(Y)
+    DFITCSECPositionSourceType           positionSource;            //å¤´å¯¸æ¥æº(N)
 };
 
-//FASL-ÈÚ×ÊÈÚÈ¯½»Ò×ÏìÓ¦
+//FASL-èèµ„èåˆ¸äº¤æ˜“å“åº”
 struct APISTRUCT DFITCFASLRspEntrustOrderField
 {
-    DFITCSECRequestIDType                requestID;                 //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                 //¿Í»§ºÅ
-    DFITCSECLocalOrderIDType             localOrderID;              //±¾µØÎ¯ÍĞºÅ
-    DFITCSECSpdOrderIDType               spdOrderID;                //¹ñÌ¨Î¯ÍĞºÅ
+    DFITCSECRequestIDType                requestID;                 //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                 //å®¢æˆ·å·
+    DFITCSECLocalOrderIDType             localOrderID;              //æœ¬åœ°å§”æ‰˜å·
+    DFITCSECSpdOrderIDType               spdOrderID;                //æŸœå°å§”æ‰˜å·
 };
 
-//FASL-ĞÅÓÃ¿ÉÎ¯ÍĞÊıÁ¿²éÑ¯ÇëÇó
+//FASL-ä¿¡ç”¨å¯å§”æ‰˜æ•°é‡æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCFASLReqCalcAbleEntrustCrdtQtyField
 {
-    DFITCSECRequestIDType                requestID;                 //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                 //¿Í»§ºÅ(Y)
-    DFITCSECEntrustDirectionType         entrustDirection;          //Î¯ÍĞÀà±ğ(Y)
-    DFITCSECExchangeIDType               exchangeID;                //½»Ò×Ëù´úÂë(Y)
-    DFITCSECContractNOType               contractNO;                //Ö¸¶¨ºÏÔ¼±àºÅ(N)(Ô¤Áô×Ö¶Î)
-    DFITCSECSecurityIDType               securityID;                //Ö¤„»´úÂë(Y)
-    DFITCSECOrderTypeType                orderType;                 //¶©µ¥ÀàĞÍ(Y)
-    DFITCSECPriceType                    entrustPrice;              //Î¯ÍĞ¼Û¸ñ(Y)
-    DFITCSECPositionSourceType           positionSource;            //Í·´çÀ´Ô´(N)
+    DFITCSECRequestIDType                requestID;                 //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                 //å®¢æˆ·å·(Y)
+    DFITCSECEntrustDirectionType         entrustDirection;          //å§”æ‰˜ç±»åˆ«(Y)
+    DFITCSECExchangeIDType               exchangeID;                //äº¤æ˜“æ‰€ä»£ç (Y)
+    DFITCSECContractNOType               contractNO;                //æŒ‡å®šåˆçº¦ç¼–å·(N)(é¢„ç•™å­—æ®µ)
+    DFITCSECSecurityIDType               securityID;                //è¯åŠµä»£ç (Y)
+    DFITCSECOrderTypeType                orderType;                 //è®¢å•ç±»å‹(Y)
+    DFITCSECPriceType                    entrustPrice;              //å§”æ‰˜ä»·æ ¼(Y)
+    DFITCSECPositionSourceType           positionSource;            //å¤´å¯¸æ¥æº(N)
 };
 
-//FASL-ĞÅÓÃ¿ÉÎ¯ÍĞÊıÁ¿²éÑ¯ÏìÓ¦
+//FASL-ä¿¡ç”¨å¯å§”æ‰˜æ•°é‡æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCFASLRspCalcAbleEntrustCrdtQtyField
 {
-    DFITCSECRequestIDType                requestID;                 //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                 //¿Í»§ºÅ
-    DFITCSECQuantityType                 totalRepayQty;             //×ÜÓ¦»¹ÊıÁ¿
-    DFITCSECQuantityType                 entrustQty;                //Î¯ÍĞÊıÁ¿
+    DFITCSECRequestIDType                requestID;                 //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                 //å®¢æˆ·å·
+    DFITCSECQuantityType                 totalRepayQty;             //æ€»åº”è¿˜æ•°é‡
+    DFITCSECQuantityType                 entrustQty;                //å§”æ‰˜æ•°é‡
 };
 
-//FASL-²éÑ¯ĞÅÓÃ×Ê½ğÇëÇó
+//FASL-æŸ¥è¯¢ä¿¡ç”¨èµ„é‡‘è¯·æ±‚
 struct APISTRUCT DFITCFASLReqQryCrdtFundsField
 {
-    DFITCSECRequestIDType                requestID;                 //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                 //¿Í»§ºÅ(Y)
+    DFITCSECRequestIDType                requestID;                 //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                 //å®¢æˆ·å·(Y)
 };
 
-//FASL-²éÑ¯ĞÅÓÃ×Ê½ğÏìÓ¦
+//FASL-æŸ¥è¯¢ä¿¡ç”¨èµ„é‡‘å“åº”
 struct APISTRUCT DFITCFASLRspQryCrdtFundsField
 {
-    DFITCSECRequestIDType                requestID;                 //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                 //¿Í»§ºÅ
-    DFITCSECFundsType                    availableDeposit;          //¿ÉÓÃ±£Ö¤½ğ
-    DFITCSECFundsType                    maintGuaranteeRatio;       //Î¬³Öµ£±£±ÈÀı
-    DFITCSECFundsType                    antiMaintGuaranteeRatio;   //Ô¤¼ÆÎ¬³Öµ£±£±ÈÀı
-    DFITCSECFundsType                    accountBanlance;           //ÕË»§Óà¶î
-    DFITCSECFundsType                    availableFunds;            //¿ÉÓÃ×Ê½ğ
-    DFITCSECFundsType                    clearFunds;                //ÇåËã×Ê½ğ
-    DFITCSECFundsType                    stockMarket;               //Ö¤È¯ÊĞÖµ
-    DFITCSECFundsType                    guaranteeStockSubMarket;   //µ±Ììµ£±£Ö¤È¯Ìá½»ÊĞÖµ
-    DFITCSECFundsType                    guaranteeStockMarket;      //µ£±£Ö¤È¯ÊĞÖµ
-    DFITCSECFundsType                    tradeFinLiabilities;       //ÈÚ×Ê¸ºÕ®(ÒÑ³É½»)
-    DFITCSECFundsType                    tradeSloLiabilities;       //ÈÚÈ¯¸ºÕ®(ÒÑ³É½»)
-    DFITCSECFundsType                    orderFinLiabilities;       //ÈÚ×Ê¸ºÕ®(Î´³É½»)
-    DFITCSECFundsType                    orderSloLiabilities;       //ÈÚÈ¯¸ºÕ®(Î´³É½»)
-    DFITCSECFundsType                    sloOrderRepay;             //ÈÚÈ¯¹é»¹(Î´³É½»)
-    DFITCSECFundsType                    fundsBalance;              //×Ê½ğ²î¶î
-    DFITCSECFundsType                    closeFunds;                //Æ½²Ö½ğ¶î
-    DFITCSECFundsType                    activeCloseFunds;          //Ö÷¶¯Æ½²Ö½ğ¶î
-    DFITCSECFundsType                    ableWithdrawalAssetsStand; //¿ÉÌá×Ê²ú±ê×¼
-    DFITCSECFundsType                    withdrawalFunds;           //¿ÉÈ¡×Ê½ğ
-    DFITCSECFundsType                    totalAssets;               //×Ü×Ê²ú
-    DFITCSECFundsType                    unTransferStockMarket;     //Î´¹ı»§ÊĞÖµ
-    DFITCSECFundsType                    totalLiabilities;          //×Ü¸ºÕ®
-    DFITCSECFundsType                    netAssets;                 //¾»×Ê²ú
-    DFITCSECFundsType                    sellRepayFunds;            //±¾ÈÕÂô³ö»¹¿î½ğ¶î
-    DFITCSECFundsType                    anticipatedInterest;       //Ô¤¼ÆÀûÏ¢/·ÑÓÃ
-    DFITCSECFundsType                    finProfitLoss;             //ÈÚ×ÊÓ¯¿÷
-    DFITCSECFundsType                    sloProfitLoss;             //ÈÚÈ¯Ó¯¿÷
-    DFITCSECFundsType                    sloFunds;                  //ÈÚÈ¯½ğ¶î
-    DFITCSECFundsType                    finCost;                   //ÈÚ×Ê·ÑÓÃ
-    DFITCSECFundsType                    sloCost;                   //ÈÚÈ¯·ÑÓÃ
-    DFITCSECFundsType                    finCurMarket;              //ÈÚ×Êµ±Ç°ÊĞÖµ
-    DFITCSECFundsType                    finUsedDeposit;            //ÈÚ×ÊÕ¼ÓÃ±£Ö¤½ğ
-    DFITCSECFundsType                    sloUsedDeposit;            //ÈÚÈ¯Õ¼ÓÃ±£Ö¤½ğ
-    DFITCSECFundsType                    finAntiInterest;           //ÈÚ×ÊÔ¤¼ÆÀûÏ¢
-    DFITCSECFundsType                    sloAntiInterest;           //ÈÚÈ¯Ô¤¼ÆÀûÏ¢
-    DFITCSECFundsType                    shGuaranteeStockMarket;    //ÉÏº£µ£±£Ö¤È¯ÊĞÖµ
-    DFITCSECFundsType                    szGuaranteeStockMarket;    //ÉîÛÚµ£±£Ö¤È¯ÊĞÖµ
-    DFITCSECFundsType                    finFloatProfit;            //ÈÚ×Ê¸¡Ó¯ÕÛËã
-    DFITCSECFundsType                    finFloatLoss;              //ÈÚ×Ê¸¡¿÷
-    DFITCSECFundsType                    sloFloatProfit;            //ÈÚÈ¯¸¡Ó¯ÕÛËã
-    DFITCSECFundsType                    sloFloatLoss;              //ÈÚÈ¯¸¡¿÷
-    DFITCSECFundsType                    finRatio;                  //ÈÚ×ÊÀûÂÊ
-    DFITCSECFundsType                    sloRatio;                  //ÈÚÈ¯ÀûÂÊ
-    DFITCSECDateType                     contractEndDate;           //ºÏÍ¬µ½ÆÚÈÕ
-    DFITCSECFundsType                    finUsedLimits;             //ÈÚ×ÊÒÑÓÃ¶î¶È
-    DFITCSECFundsType                    sloUsedLimits;             //ÈÚÈ¯ÒÑÓÃ¶î¶È
-    DFITCSECFundsType                    finCreditLimits;           //ÈÚ×ÊÊÚĞÅ¶î¶È
-    DFITCSECFundsType                    sloCreditLimits;           //ÈÚÈ¯ÊÚĞÅ¶î¶È
-    DFITCSECFundsType                    ableBuyCollateralFunds;    //¿ÉÂòµ£±£Æ·×Ê½ğ
-    DFITCSECFundsType                    ableRepayFunds;            //¿É»¹¿î½ğ¶î
-    DFITCSECFundsType                    sloAvailableFunds;         //ÈÚÈ¯¿ÉÓÃ×Ê½ğ
-    DFITCSECFundsType                    cashAssets;                //ÏÖ½ğ×Ê²ú(ËùÓĞ×Ê²ú¡¢°üÀ¨ÈÚÈ¯Âô³ö)
-    DFITCSECFundsType                    totalStockMarket;          //ËùÓĞÖ¤È¯ÊĞÖµ(°üº¬ÈÚ×ÊÂòÈë¡¢·Çµ£±£Æ·)
-    DFITCSECFundsType                    finContractFunds;          //ÈÚ×ÊºÏÔ¼½ğ¶î(²»°üº¬·ÑÓÃ)
-    DFITCSECFundsType                    contractObjectMarket;      //±êµÄÖ¤È¯ÊĞÖµ
-    DFITCSECFundsType                    otherCharges;              //ÆäËû·ÑÓÃ
-    DFITCSECFundsType                    sloCurMarket;              //ÈÚÈ¯µ±Ç°ÊĞÖµ
+    DFITCSECRequestIDType                requestID;                 //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                 //å®¢æˆ·å·
+    DFITCSECFundsType                    availableDeposit;          //å¯ç”¨ä¿è¯é‡‘
+    DFITCSECFundsType                    maintGuaranteeRatio;       //ç»´æŒæ‹…ä¿æ¯”ä¾‹
+    DFITCSECFundsType                    antiMaintGuaranteeRatio;   //é¢„è®¡ç»´æŒæ‹…ä¿æ¯”ä¾‹
+    DFITCSECFundsType                    accountBanlance;           //è´¦æˆ·ä½™é¢
+    DFITCSECFundsType                    availableFunds;            //å¯ç”¨èµ„é‡‘
+    DFITCSECFundsType                    clearFunds;                //æ¸…ç®—èµ„é‡‘
+    DFITCSECFundsType                    stockMarket;               //è¯åˆ¸å¸‚å€¼
+    DFITCSECFundsType                    guaranteeStockSubMarket;   //å½“å¤©æ‹…ä¿è¯åˆ¸æäº¤å¸‚å€¼
+    DFITCSECFundsType                    guaranteeStockMarket;      //æ‹…ä¿è¯åˆ¸å¸‚å€¼
+    DFITCSECFundsType                    tradeFinLiabilities;       //èèµ„è´Ÿå€º(å·²æˆäº¤)
+    DFITCSECFundsType                    tradeSloLiabilities;       //èåˆ¸è´Ÿå€º(å·²æˆäº¤)
+    DFITCSECFundsType                    orderFinLiabilities;       //èèµ„è´Ÿå€º(æœªæˆäº¤)
+    DFITCSECFundsType                    orderSloLiabilities;       //èåˆ¸è´Ÿå€º(æœªæˆäº¤)
+    DFITCSECFundsType                    sloOrderRepay;             //èåˆ¸å½’è¿˜(æœªæˆäº¤)
+    DFITCSECFundsType                    fundsBalance;              //èµ„é‡‘å·®é¢
+    DFITCSECFundsType                    closeFunds;                //å¹³ä»“é‡‘é¢
+    DFITCSECFundsType                    activeCloseFunds;          //ä¸»åŠ¨å¹³ä»“é‡‘é¢
+    DFITCSECFundsType                    ableWithdrawalAssetsStand; //å¯æèµ„äº§æ ‡å‡†
+    DFITCSECFundsType                    withdrawalFunds;           //å¯å–èµ„é‡‘
+    DFITCSECFundsType                    totalAssets;               //æ€»èµ„äº§
+    DFITCSECFundsType                    unTransferStockMarket;     //æœªè¿‡æˆ·å¸‚å€¼
+    DFITCSECFundsType                    totalLiabilities;          //æ€»è´Ÿå€º
+    DFITCSECFundsType                    netAssets;                 //å‡€èµ„äº§
+    DFITCSECFundsType                    sellRepayFunds;            //æœ¬æ—¥å–å‡ºè¿˜æ¬¾é‡‘é¢
+    DFITCSECFundsType                    anticipatedInterest;       //é¢„è®¡åˆ©æ¯/è´¹ç”¨
+    DFITCSECFundsType                    finProfitLoss;             //èèµ„ç›ˆäº
+    DFITCSECFundsType                    sloProfitLoss;             //èåˆ¸ç›ˆäº
+    DFITCSECFundsType                    sloFunds;                  //èåˆ¸é‡‘é¢
+    DFITCSECFundsType                    finCost;                   //èèµ„è´¹ç”¨
+    DFITCSECFundsType                    sloCost;                   //èåˆ¸è´¹ç”¨
+    DFITCSECFundsType                    finCurMarket;              //èèµ„å½“å‰å¸‚å€¼
+    DFITCSECFundsType                    finUsedDeposit;            //èèµ„å ç”¨ä¿è¯é‡‘
+    DFITCSECFundsType                    sloUsedDeposit;            //èåˆ¸å ç”¨ä¿è¯é‡‘
+    DFITCSECFundsType                    finAntiInterest;           //èèµ„é¢„è®¡åˆ©æ¯
+    DFITCSECFundsType                    sloAntiInterest;           //èåˆ¸é¢„è®¡åˆ©æ¯
+    DFITCSECFundsType                    shGuaranteeStockMarket;    //ä¸Šæµ·æ‹…ä¿è¯åˆ¸å¸‚å€¼
+    DFITCSECFundsType                    szGuaranteeStockMarket;    //æ·±åœ³æ‹…ä¿è¯åˆ¸å¸‚å€¼
+    DFITCSECFundsType                    finFloatProfit;            //èèµ„æµ®ç›ˆæŠ˜ç®—
+    DFITCSECFundsType                    finFloatLoss;              //èèµ„æµ®äº
+    DFITCSECFundsType                    sloFloatProfit;            //èåˆ¸æµ®ç›ˆæŠ˜ç®—
+    DFITCSECFundsType                    sloFloatLoss;              //èåˆ¸æµ®äº
+    DFITCSECFundsType                    finRatio;                  //èèµ„åˆ©ç‡
+    DFITCSECFundsType                    sloRatio;                  //èåˆ¸åˆ©ç‡
+    DFITCSECDateType                     contractEndDate;           //åˆåŒåˆ°æœŸæ—¥
+    DFITCSECFundsType                    finUsedLimits;             //èèµ„å·²ç”¨é¢åº¦
+    DFITCSECFundsType                    sloUsedLimits;             //èåˆ¸å·²ç”¨é¢åº¦
+    DFITCSECFundsType                    finCreditLimits;           //èèµ„æˆä¿¡é¢åº¦
+    DFITCSECFundsType                    sloCreditLimits;           //èåˆ¸æˆä¿¡é¢åº¦
+    DFITCSECFundsType                    ableBuyCollateralFunds;    //å¯ä¹°æ‹…ä¿å“èµ„é‡‘
+    DFITCSECFundsType                    ableRepayFunds;            //å¯è¿˜æ¬¾é‡‘é¢
+    DFITCSECFundsType                    sloAvailableFunds;         //èåˆ¸å¯ç”¨èµ„é‡‘
+    DFITCSECFundsType                    cashAssets;                //ç°é‡‘èµ„äº§(æ‰€æœ‰èµ„äº§ã€åŒ…æ‹¬èåˆ¸å–å‡º)
+    DFITCSECFundsType                    totalStockMarket;          //æ‰€æœ‰è¯åˆ¸å¸‚å€¼(åŒ…å«èèµ„ä¹°å…¥ã€éæ‹…ä¿å“)
+    DFITCSECFundsType                    finContractFunds;          //èèµ„åˆçº¦é‡‘é¢(ä¸åŒ…å«è´¹ç”¨)
+    DFITCSECFundsType                    contractObjectMarket;      //æ ‡çš„è¯åˆ¸å¸‚å€¼
+    DFITCSECFundsType                    otherCharges;              //å…¶ä»–è´¹ç”¨
+    DFITCSECFundsType                    sloCurMarket;              //èåˆ¸å½“å‰å¸‚å€¼
 };
 
-//FASL-ĞÅÓÃºÏÔ¼ĞÅÏ¢ÇëÇó
+//FASL-ä¿¡ç”¨åˆçº¦ä¿¡æ¯è¯·æ±‚
 struct APISTRUCT DFITCFASLReqQryCrdtContractField
 {
-    DFITCSECRequestIDType                requestID;                 //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                 //¿Í»§ºÅ(Y)
-    DFITCSECDateType                     openBeginDate;             //¿ª²ÖÆğÊ¼ÈÕÆÚ(N)
-    DFITCSECDateType                     openEndDate;               //¿ª²Ö½áÊøÈÕÆÚ(N)
-    DFITCSECCrdtContractQryFlagType      crdtConQryFlag;            //²éÑ¯±êÖ¾(N)
-    DFITCSECSpdOrderIDType               spdOrderID;                //¹ñÌ¨Î¯ÍĞºÅ(N)
-    DFITCSECEntrustDirectionType         entrustDirection;          //Î¯ÍĞÀà±ğ(N)
-    DFITCSECExchangeIDType               exchangeID;                //½»Ò×Ëù´úÂë(N)
-    DFITCSECContractNOType               contractNO;                //Ö¸¶¨ºÏÔ¼±àºÅ(N)
-    DFITCSECSecurityIDType               securityID;                //Ö¤„»´úÂë(N)
-    DFITCSECSerialIDType                 conSerialID;               //ºÏÔ¼Á÷Ë®ºÅ(N)
+    DFITCSECRequestIDType                requestID;                 //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                 //å®¢æˆ·å·(Y)
+    DFITCSECDateType                     openBeginDate;             //å¼€ä»“èµ·å§‹æ—¥æœŸ(N)
+    DFITCSECDateType                     openEndDate;               //å¼€ä»“ç»“æŸæ—¥æœŸ(N)
+    DFITCSECCrdtContractQryFlagType      crdtConQryFlag;            //æŸ¥è¯¢æ ‡å¿—(N)
+    DFITCSECSpdOrderIDType               spdOrderID;                //æŸœå°å§”æ‰˜å·(N)
+    DFITCSECEntrustDirectionType         entrustDirection;          //å§”æ‰˜ç±»åˆ«(N)
+    DFITCSECExchangeIDType               exchangeID;                //äº¤æ˜“æ‰€ä»£ç (N)
+    DFITCSECContractNOType               contractNO;                //æŒ‡å®šåˆçº¦ç¼–å·(N)
+    DFITCSECSecurityIDType               securityID;                //è¯åŠµä»£ç (N)
+    DFITCSECSerialIDType                 conSerialID;               //åˆçº¦æµæ°´å·(N)
 };
 
-//FASL-ĞÅÓÃºÏÔ¼ĞÅÏ¢ÏìÓ¦
+//FASL-ä¿¡ç”¨åˆçº¦ä¿¡æ¯å“åº”
 struct APISTRUCT DFITCFASLRspQryCrdtContractField
 {
-    DFITCSECRequestIDType                requestID;                 //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                 //¿Í»§ºÅ
-    DFITCSECSerialIDType                 conSerialNO;               //ºÏÔ¼Á÷Ë®ºÅ
-    DFITCSECContractNOType               contractNO;                //Ö¸¶¨ºÏÔ¼±àºÅ
-    DFITCSECDateType                     operatorDate;              //·¢ÉúÈÕÆÚ
-    DFITCSECDateType                     endDate;                   //µ½ÆÚÈÕÆÚ
-    DFITCSECSpdOrderIDType               spdOrderID;                //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECEntrustDirectionType         entrustDirection;          //Î¯ÍĞÀà±ğ
-    DFITCSECExchangeIDType               exchangeID;                //½»Ò×Ëù´úÂë
-    DFITCSECSecurityIDType               securityID;                //Ö¤„»´úÂë
-    DFITCSECSecurityNameType             securityName;              //Ö¤È¯Ãû³Æ
-    DFITCSECCurrencyType                 currency;                  //±ÒÖÖ
-    DFITCSECQuantityType                 finQty;                    //ÈÚ×ÊÊıÁ¿
-    DFITCSECFundsType                    finFunds;                  //ÈÚ×Ê½ğ¶î
-    DFITCSECQuantityType                 sloQty;                    //ÈÚÈ¯ÊıÁ¿
-    DFITCSECFundsType                    sloFunds;                  //ÈÚÈ¯½ğ¶î
-    DFITCSECQuantityType                 finEntrustQty;             //µ±ÈÕÈÚ×ÊÎ¯ÍĞÊıÁ¿
-    DFITCSECFundsType                    finEntrustFunds;           //µ±ÈÕÈÚ×ÊÎ¯ÍĞ½ğ¶î
-    DFITCSECQuantityType                 sloEntrustQty;             //µ±ÈÕÈÚÈ¯Î¯ÍĞÊıÁ¿
-    DFITCSECFundsType                    sloEntrustFunds;           //µ±ÈÕÈÚÈ¯Î¯ÍĞ½ğ¶î
-    DFITCSECQuantityType                 finTradeQty;               //µ±ÈÕÈÚ×Ê³É½»ÊıÁ¿
-    DFITCSECFundsType                    finTradeFunds;             //µ±ÈÕÈÚ×Ê³É½»½ğ¶î
-    DFITCSECQuantityType                 sloTradeQty;               //µ±ÈÕÈÚÈ¯³É½»ÊıÁ¿
-    DFITCSECFundsType                    sloTradeFunds;             //µ±ÈÕÈÚÈ¯³É½»½ğ¶î
-    DFITCSECFundsType                    debtPrincipal;             //¸ºÕ®±¾½ğ
-    DFITCSECFundsType                    repayFunds;                //»¹¿î½ğ¶î
-    DFITCSECQuantityType                 debtQty;                   //¸ºÕ®ÊıÁ¿
-    DFITCSECQuantityType                 repayQty;                  //»¹„»ÊıÁ¿
-    DFITCSECFundsType                    sellStockRepayFunds;       //µ±ÈÕÂôÈ¯»¹¿î¶î
-    DFITCSECQuantityType                 buyStockForRepayEntrustQty;//µ±ÈÕÂòÈ¯»¹È¯Î¯ÍĞÊıÁ¿
-    DFITCSECQuantityType                 buyStockForRepayTradeQty;  //µ±ÈÕÂòÈ¯»¹È¯³É½»ÊıÁ¿
-    DFITCSECFundsType                    finCost;                   //ÈÚ×Ê·ÑÓÃ
-    DFITCSECFundsType                    sloCost;                   //ÈÚÈ¯·ÑÓÃ
-    DFITCSECFundsType                    totalInterest;             //×ÜÀûÏ¢
-    DFITCSECFundsType                    repaidInterest;            //ÒÑ¹é»¹ÀûÏ¢
-    DFITCSECCrdtContractStatusType       crdtConStatus;             //ºÏÔ¼×´Ì¬(Ô¤Áô×Ö¶Î)
-    DFITCSECFundsType                    leftInterest;              //Ê£ÓàÀûÏ¢
-    DFITCSECFundsType                    sloLeftFunds;              //ÈÚÈ¯Ê£Óà×Ê½ğ
-    DFITCSECFundsType                    buyStockFreezeFunds;       //ÂòÈ¯¶³½á½ğ¶î
-    DFITCSECFundsType                    buyStockClearFunds;        //ÂòÈ¯ÇåËã½ğ¶î
-    DFITCSECFundsType                    sloLeftAvaiFunds;          //ÈÚÈ¯Ê£Óà¿ÉÓÃ(ÂòÈ¯»¹È¯¿ÉÓÃ×Ê½ğ)
-    DFITCSECFundsType                    debtQtyEntrustMarket;      //¸ºÕ®ÊıÁ¿(Î¯ÍĞºó)ÊĞÖµ
-    DFITCSECFundsType                    debtQtyTradeMarket;        //¸ºÕ®ÊıÁ¿(³É½»ºó)ÊĞÖµ
-    DFITCSECFundsType                    debtFundsMarket;           //¸ºÕ®½ğ¶îÊĞÖµ
-    DFITCSECFundsType                    finProfitLoss;             //ÈÚ×ÊÓ¯¿÷
-    DFITCSECFundsType                    sloProfitLoss;             //ÈÚÈ¯Ó¯¿÷
-    DFITCSECQuantityType                 entrustQty;                //Î¯ÍĞÊıÁ¿
-    DFITCSECQuantityType                 conOpenQty;                //ºÏÔ¼¿ª²ÖÊıÁ¿
-    DFITCSECFundsType                    conOpenFunds;              //ºÏÔ¼¿ª²Ö½ğ¶î
-    DFITCSECFundsType                    conOpenCost;               //ºÏÔ¼¿ª²Ö·ÑÓÃ
-    DFITCSECQuantityType                 conInitQty;                //ÆÚ³õºÏÔ¼ÊıÁ¿
-    DFITCSECFundsType                    conInitFunds;              //ÆÚ³õºÏÔ¼½ğ¶î
-    DFITCSECFundsType                    conInitCost;               //ÆÚ³õºÏÔ¼·ÑÓÃ
-    DFITCSECFundsType                    unRepayConFunds;           //Î´»¹ºÏÔ¼½ğ¶î
-    DFITCSECQuantityType                 unRepayConQty;             //Î´»¹ºÏÔ¼ÊıÁ¿
-    DFITCSECFundsType                    unRepayConCost;            //Î´»¹ºÏÔ¼·ÑÓÃ
-    DFITCSECPositionNOType               positionNO;                //Í·´ç±àºÅ
+    DFITCSECRequestIDType                requestID;                 //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                 //å®¢æˆ·å·
+    DFITCSECSerialIDType                 conSerialNO;               //åˆçº¦æµæ°´å·
+    DFITCSECContractNOType               contractNO;                //æŒ‡å®šåˆçº¦ç¼–å·
+    DFITCSECDateType                     operatorDate;              //å‘ç”Ÿæ—¥æœŸ
+    DFITCSECDateType                     endDate;                   //åˆ°æœŸæ—¥æœŸ
+    DFITCSECSpdOrderIDType               spdOrderID;                //æŸœå°å§”æ‰˜å·
+    DFITCSECEntrustDirectionType         entrustDirection;          //å§”æ‰˜ç±»åˆ«
+    DFITCSECExchangeIDType               exchangeID;                //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECSecurityIDType               securityID;                //è¯åŠµä»£ç 
+    DFITCSECSecurityNameType             securityName;              //è¯åˆ¸åç§°
+    DFITCSECCurrencyType                 currency;                  //å¸ç§
+    DFITCSECQuantityType                 finQty;                    //èèµ„æ•°é‡
+    DFITCSECFundsType                    finFunds;                  //èèµ„é‡‘é¢
+    DFITCSECQuantityType                 sloQty;                    //èåˆ¸æ•°é‡
+    DFITCSECFundsType                    sloFunds;                  //èåˆ¸é‡‘é¢
+    DFITCSECQuantityType                 finEntrustQty;             //å½“æ—¥èèµ„å§”æ‰˜æ•°é‡
+    DFITCSECFundsType                    finEntrustFunds;           //å½“æ—¥èèµ„å§”æ‰˜é‡‘é¢
+    DFITCSECQuantityType                 sloEntrustQty;             //å½“æ—¥èåˆ¸å§”æ‰˜æ•°é‡
+    DFITCSECFundsType                    sloEntrustFunds;           //å½“æ—¥èåˆ¸å§”æ‰˜é‡‘é¢
+    DFITCSECQuantityType                 finTradeQty;               //å½“æ—¥èèµ„æˆäº¤æ•°é‡
+    DFITCSECFundsType                    finTradeFunds;             //å½“æ—¥èèµ„æˆäº¤é‡‘é¢
+    DFITCSECQuantityType                 sloTradeQty;               //å½“æ—¥èåˆ¸æˆäº¤æ•°é‡
+    DFITCSECFundsType                    sloTradeFunds;             //å½“æ—¥èåˆ¸æˆäº¤é‡‘é¢
+    DFITCSECFundsType                    debtPrincipal;             //è´Ÿå€ºæœ¬é‡‘
+    DFITCSECFundsType                    repayFunds;                //è¿˜æ¬¾é‡‘é¢
+    DFITCSECQuantityType                 debtQty;                   //è´Ÿå€ºæ•°é‡
+    DFITCSECQuantityType                 repayQty;                  //è¿˜åŠµæ•°é‡
+    DFITCSECFundsType                    sellStockRepayFunds;       //å½“æ—¥å–åˆ¸è¿˜æ¬¾é¢
+    DFITCSECQuantityType                 buyStockForRepayEntrustQty;//å½“æ—¥ä¹°åˆ¸è¿˜åˆ¸å§”æ‰˜æ•°é‡
+    DFITCSECQuantityType                 buyStockForRepayTradeQty;  //å½“æ—¥ä¹°åˆ¸è¿˜åˆ¸æˆäº¤æ•°é‡
+    DFITCSECFundsType                    finCost;                   //èèµ„è´¹ç”¨
+    DFITCSECFundsType                    sloCost;                   //èåˆ¸è´¹ç”¨
+    DFITCSECFundsType                    totalInterest;             //æ€»åˆ©æ¯
+    DFITCSECFundsType                    repaidInterest;            //å·²å½’è¿˜åˆ©æ¯
+    DFITCSECCrdtContractStatusType       crdtConStatus;             //åˆçº¦çŠ¶æ€(é¢„ç•™å­—æ®µ)
+    DFITCSECFundsType                    leftInterest;              //å‰©ä½™åˆ©æ¯
+    DFITCSECFundsType                    sloLeftFunds;              //èåˆ¸å‰©ä½™èµ„é‡‘
+    DFITCSECFundsType                    buyStockFreezeFunds;       //ä¹°åˆ¸å†»ç»“é‡‘é¢
+    DFITCSECFundsType                    buyStockClearFunds;        //ä¹°åˆ¸æ¸…ç®—é‡‘é¢
+    DFITCSECFundsType                    sloLeftAvaiFunds;          //èåˆ¸å‰©ä½™å¯ç”¨(ä¹°åˆ¸è¿˜åˆ¸å¯ç”¨èµ„é‡‘)
+    DFITCSECFundsType                    debtQtyEntrustMarket;      //è´Ÿå€ºæ•°é‡(å§”æ‰˜å)å¸‚å€¼
+    DFITCSECFundsType                    debtQtyTradeMarket;        //è´Ÿå€ºæ•°é‡(æˆäº¤å)å¸‚å€¼
+    DFITCSECFundsType                    debtFundsMarket;           //è´Ÿå€ºé‡‘é¢å¸‚å€¼
+    DFITCSECFundsType                    finProfitLoss;             //èèµ„ç›ˆäº
+    DFITCSECFundsType                    sloProfitLoss;             //èåˆ¸ç›ˆäº
+    DFITCSECQuantityType                 entrustQty;                //å§”æ‰˜æ•°é‡
+    DFITCSECQuantityType                 conOpenQty;                //åˆçº¦å¼€ä»“æ•°é‡
+    DFITCSECFundsType                    conOpenFunds;              //åˆçº¦å¼€ä»“é‡‘é¢
+    DFITCSECFundsType                    conOpenCost;               //åˆçº¦å¼€ä»“è´¹ç”¨
+    DFITCSECQuantityType                 conInitQty;                //æœŸåˆåˆçº¦æ•°é‡
+    DFITCSECFundsType                    conInitFunds;              //æœŸåˆåˆçº¦é‡‘é¢
+    DFITCSECFundsType                    conInitCost;               //æœŸåˆåˆçº¦è´¹ç”¨
+    DFITCSECFundsType                    unRepayConFunds;           //æœªè¿˜åˆçº¦é‡‘é¢
+    DFITCSECQuantityType                 unRepayConQty;             //æœªè¿˜åˆçº¦æ•°é‡
+    DFITCSECFundsType                    unRepayConCost;            //æœªè¿˜åˆçº¦è´¹ç”¨
+    DFITCSECPositionNOType               positionNO;                //å¤´å¯¸ç¼–å·
 };
 
-//FASL-ĞÅÓÃºÏÔ¼±ä¶¯ĞÅÏ¢²éÑ¯ÇëÇó
+//FASL-ä¿¡ç”¨åˆçº¦å˜åŠ¨ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCFASLReqQryCrdtConChangeInfoField
 {
-    DFITCSECRequestIDType                requestID;                 //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                 //¿Í»§ºÅ(Y)
-    DFITCSECWithdrawFlagType             withdrawFlag;              //³·Ïú±êÖ¾(N)
-    DFITCSECEntrustDirectionType         entrustDirection;          //Î¯ÍĞÀà±ğ(N)
-    DFITCSECExchangeIDType               exchangeID;                //½»Ò×Ëù´úÂë(N)
-    DFITCSECSecurityIDType               securityID;                //Ö¤„»´úÂë(N)
-    DFITCSECSerialIDType                 conSerialNO;               //ºÏÔ¼Á÷Ë®ºÅ(N)
+    DFITCSECRequestIDType                requestID;                 //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                 //å®¢æˆ·å·(Y)
+    DFITCSECWithdrawFlagType             withdrawFlag;              //æ’¤é”€æ ‡å¿—(N)
+    DFITCSECEntrustDirectionType         entrustDirection;          //å§”æ‰˜ç±»åˆ«(N)
+    DFITCSECExchangeIDType               exchangeID;                //äº¤æ˜“æ‰€ä»£ç (N)
+    DFITCSECSecurityIDType               securityID;                //è¯åŠµä»£ç (N)
+    DFITCSECSerialIDType                 conSerialNO;               //åˆçº¦æµæ°´å·(N)
 };
 
-//FASL-ĞÅÓÃºÏÔ¼±ä¶¯ĞÅÏ¢²éÑ¯ÏìÓ¦
+//FASL-ä¿¡ç”¨åˆçº¦å˜åŠ¨ä¿¡æ¯æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCFASLRspQryCrdtConChangeInfoField
 {
-    DFITCSECRequestIDType                requestID;                 //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                 //¿Í»§ºÅ
-    DFITCSECSerialIDType                 serialNO;                  //ºÏÔ¼Á÷Ë®ºÅ
-    DFITCSECContractNOType               conChangeNO;               //ºÏÔ¼±ä¶¯ĞòºÅ
-    DFITCSECWithdrawFlagType             withdrawFlag;              //³·Ïú±êÖ¾(Ô¤Áô×Ö¶Î)
-    DFITCSECSecurityIDType               securityID;                //Ö¤„»´úÂë
-    DFITCSECEntrustDirectionType         entrustDirection;          //Î¯ÍĞÀà±ğ
-    DFITCSECFundsType                    operatorFunds;             //·¢Éú½ğ¶î
-    DFITCSECTimeType                     operatorTime;              //·¢ÉúÊ±¼ä
-    DFITCSECQuantityType                 operatorQty;               //·¢ÉúÊıÁ¿
-    DFITCSECDateType                     operatorDate;              //·¢ÉúÈÕÆÚ
-    DFITCSECClearFlagType                clearFlag;                 //ÇåËã±êÖ¾
-    DFITCSECFundsType                    commission;                //ÊÖĞø·Ñ
-    DFITCSECFundsType                    operatorFunds2;            //·¢Éú½ğ¶î(Ô¤Áô×Ö¶Î)
-    DFITCSECFundsType                    postFunds;                 //ºó×Ê½ğ¶î
-    DFITCSECQuantityType                 postQty;                   //ºóÖ¤È¯¶î
-    DFITCSECExchangeIDType               exchangeID;                //½»Ò×Ëù´úÂë
-    DFITCSECFundsType                    operatorCost;              //·¢Éú·ÑÓÃ
-    DFITCSECFundsType                    postCost;                  //ºóÓà·ÑÓÃ
-    DFITCSECFundsType                    operatorInterest;          //·¢ÉúÀûÏ¢
-    DFITCSECFundsType                    postInterest;              //ºóÓàÀûÏ¢
-    DFITCSECMessageType                  changeNote;                //±ä¶¯ËµÃ÷
-    DFITCSECShareholderIDType            shareholderID;             //¹É¶«ºÅ
+    DFITCSECRequestIDType                requestID;                 //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                 //å®¢æˆ·å·
+    DFITCSECSerialIDType                 serialNO;                  //åˆçº¦æµæ°´å·
+    DFITCSECContractNOType               conChangeNO;               //åˆçº¦å˜åŠ¨åºå·
+    DFITCSECWithdrawFlagType             withdrawFlag;              //æ’¤é”€æ ‡å¿—(é¢„ç•™å­—æ®µ)
+    DFITCSECSecurityIDType               securityID;                //è¯åŠµä»£ç 
+    DFITCSECEntrustDirectionType         entrustDirection;          //å§”æ‰˜ç±»åˆ«
+    DFITCSECFundsType                    operatorFunds;             //å‘ç”Ÿé‡‘é¢
+    DFITCSECTimeType                     operatorTime;              //å‘ç”Ÿæ—¶é—´
+    DFITCSECQuantityType                 operatorQty;               //å‘ç”Ÿæ•°é‡
+    DFITCSECDateType                     operatorDate;              //å‘ç”Ÿæ—¥æœŸ
+    DFITCSECClearFlagType                clearFlag;                 //æ¸…ç®—æ ‡å¿—
+    DFITCSECFundsType                    commission;                //æ‰‹ç»­è´¹
+    DFITCSECFundsType                    operatorFunds2;            //å‘ç”Ÿé‡‘é¢(é¢„ç•™å­—æ®µ)
+    DFITCSECFundsType                    postFunds;                 //åèµ„é‡‘é¢
+    DFITCSECQuantityType                 postQty;                   //åè¯åˆ¸é¢
+    DFITCSECExchangeIDType               exchangeID;                //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECFundsType                    operatorCost;              //å‘ç”Ÿè´¹ç”¨
+    DFITCSECFundsType                    postCost;                  //åä½™è´¹ç”¨
+    DFITCSECFundsType                    operatorInterest;          //å‘ç”Ÿåˆ©æ¯
+    DFITCSECFundsType                    postInterest;              //åä½™åˆ©æ¯
+    DFITCSECMessageType                  changeNote;                //å˜åŠ¨è¯´æ˜
+    DFITCSECShareholderIDType            shareholderID;             //è‚¡ä¸œå·
 };
 
-//FASL-²éÑ¯ÏµÍ³Ê±¼äÇëÇó
+//FASL-æŸ¥è¯¢ç³»ç»Ÿæ—¶é—´è¯·æ±‚
 struct APISTRUCT DFITCFASLReqQryTradeTimeField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECSystemQryFlagType            flag;                     //¸ß¾«¶È·µ»Ø±êÖ¾(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECSystemQryFlagType            flag;                     //é«˜ç²¾åº¦è¿”å›æ ‡å¿—(N)
 };
 
-//FASL-²éÑ¯ÏµÍ³Ê±¼äÏìÓ¦
+//FASL-æŸ¥è¯¢ç³»ç»Ÿæ—¶é—´å“åº”
 struct APISTRUCT DFITCFASLRspQryTradeTimeField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECDateType                     sysTradingDay;            //ÏµÍ³µ±Ç°ÈÕÆÚ
-    DFITCSECTimeType                     sysTime;                  //ÏµÍ³µ±Ç°Ê±¼ä
-    DFITCSECWeekType                     sysWeek;                  //ÏµÍ³µ±Ç°ĞÇÆÚ(flagÎª1Ê±²Å·µ»Ø)
-    DFITCSECMillisecondType              sysMillisecond;           //ÏµÍ³µ±Ç°ºÁÃë(flagÎª1Ê±²Å·µ»Ø)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECDateType                     sysTradingDay;            //ç³»ç»Ÿå½“å‰æ—¥æœŸ
+    DFITCSECTimeType                     sysTime;                  //ç³»ç»Ÿå½“å‰æ—¶é—´
+    DFITCSECWeekType                     sysWeek;                  //ç³»ç»Ÿå½“å‰æ˜ŸæœŸ(flagä¸º1æ—¶æ‰è¿”å›)
+    DFITCSECMillisecondType              sysMillisecond;           //ç³»ç»Ÿå½“å‰æ¯«ç§’(flagä¸º1æ—¶æ‰è¿”å›)
 };
 
-//FASL-¿É×ªÈëµ£±£Ö¤È¯²éÑ¯
+//FASL-å¯è½¬å…¥æ‹…ä¿è¯åˆ¸æŸ¥è¯¢
 struct APISTRUCT DFITCFASLReqQryTransferredContractField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë(N)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç (N)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (N)
 };
 
-//FASL-¿É×ªÈëµ£±£Ö¤È¯²éÑ¯ÏìÓ¦
+//FASL-å¯è½¬å…¥æ‹…ä¿è¯åˆ¸æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCFASLRspQryTransferredContractField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECAccountIDType                capitalID;                //×Ê½ğÕËºÅ
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECQuantityType                 ableSellQty;              //¿ÉÂô³ö(×ª³ö)ÊıÁ¿
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECAccountIDType                capitalID;                //èµ„é‡‘è´¦å·
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç 
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECQuantityType                 ableSellQty;              //å¯å–å‡º(è½¬å‡º)æ•°é‡
 };
 
-//FASL-¿Í»§¿ÉÈ¡×Ê½ğµ÷³ö
+//FASL-å®¢æˆ·å¯å–èµ„é‡‘è°ƒå‡º
 struct APISTRUCT DFITCFASLReqDesirableFundsOutField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ(Y)
-    DFITCSECFundsType                    operateFunds;             //·¢Éú½ğ¶î(Y)
-    DFITCSECMessageType                  summaryMsg;               //ÕªÒª(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECCurrencyType                 currency;                 //å¸ç§(Y)
+    DFITCSECFundsType                    operateFunds;             //å‘ç”Ÿé‡‘é¢(Y)
+    DFITCSECMessageType                  summaryMsg;               //æ‘˜è¦(N)
 };
 
-//FASL-¿Í»§¿ÉÈ¡×Ê½ğµ÷³öÏìÓ¦
+//FASL-å®¢æˆ·å¯å–èµ„é‡‘è°ƒå‡ºå“åº”
 struct APISTRUCT DFITCFASLRspDesirableFundsOutField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECSerialIDType                 serialID;                 //Á÷Ë®ºÅ
-    DFITCSECFundsType                    accountBanlance;          //ÕË»§Óà¶î
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECSerialIDType                 serialID;                 //æµæ°´å·
+    DFITCSECFundsType                    accountBanlance;          //è´¦æˆ·ä½™é¢
 };
 
-//FASL-µ£±£Ö¤È¯²éÑ¯
+//FASL-æ‹…ä¿è¯åˆ¸æŸ¥è¯¢
 struct APISTRUCT DFITCFASLReqQryGuaranteedContractField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
 };
 
-//FASL-µ£±£Ö¤È¯²éÑ¯ÏìÓ¦
+//FASL-æ‹…ä¿è¯åˆ¸æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCFASLRspQryGuaranteedContractField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë
-    DFITCSECSecurityNameType             securityName;             //Ö¤È¯Ãû³Æ
-    DFITCSECFundsType                    exchangRate;              //ÕÛËãÂÊ
-    DFITCSECTradeStatusType              status;                   //×´Ì¬
-    DFITCSECAccountType                  accountType;              //ÀàĞÍ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç 
+    DFITCSECSecurityNameType             securityName;             //è¯åˆ¸åç§°
+    DFITCSECFundsType                    exchangRate;              //æŠ˜ç®—ç‡
+    DFITCSECTradeStatusType              status;                   //çŠ¶æ€
+    DFITCSECAccountType                  accountType;              //ç±»å‹
 };
 
-//FASL-±êµÄÖ¤È¯²éÑ¯
+//FASL-æ ‡çš„è¯åˆ¸æŸ¥è¯¢
 struct APISTRUCT DFITCFASLReqQryUnderlyingContractField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
 };
 
-//FASL-±êµÄÖ¤È¯²éÑ¯ÏìÓ¦
+//FASL-æ ‡çš„è¯åˆ¸æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCFASLRspQryUnderlyingContractField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë
-    DFITCSECSecurityNameType             securityName;             //Ö¤È¯Ãû³Æ
-    DFITCSECFundsType                    financeDepositRatio;      //ÈÚ×Ê±£Ö¤½ğ±ÈÀı
-    DFITCSECFundsType                    securityDepositRatio;     //ÈÚÈ¯±£Ö¤½ğ±ÈÀı
-    DFITCSECTradeStatusType              status;                   //×´Ì¬
-    DFITCSECAccountType                  accountType;              //ÀàĞÍ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç 
+    DFITCSECSecurityNameType             securityName;             //è¯åˆ¸åç§°
+    DFITCSECFundsType                    financeDepositRatio;      //èèµ„ä¿è¯é‡‘æ¯”ä¾‹
+    DFITCSECFundsType                    securityDepositRatio;     //èåˆ¸ä¿è¯é‡‘æ¯”ä¾‹
+    DFITCSECTradeStatusType              status;                   //çŠ¶æ€
+    DFITCSECAccountType                  accountType;              //ç±»å‹
 };
 
 
-//QUOTE-Ö¸¶¨µÄºÏÔ¼
+//QUOTE-æŒ‡å®šçš„åˆçº¦
 struct APISTRUCT DFITCSECSpecificInstrumentField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECSecurityIDType               securityID;               //ºÏÔ¼´úÂë
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECSecurityIDType               securityID;               //åˆçº¦ä»£ç 
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
 };
 
-//sop ÌØÓĞµÄ
+//sop ç‰¹æœ‰çš„
 struct APISTRUCT DFITCSOPSpecificDataField
 {
-    DFITCSECContractIDType               contractID;               //ÆÚÈ¨±êÊ¶´úÂë(601318C1412M03500)
-    DFITCSECFundsType                    execPrice;                //ĞĞÈ¨¼Û¸ñ
-    DFITCSECFundsType                    preSettlePrice;           //×ò½áËã¼Û
-    DFITCSECFundsType                    settlePrice;              //½áËã¼Û
-    DFITCSECLargeQuantityType            positionQty;              //³Ö²ÖÊıÁ¿
-    DFITCSECFundsType                    auctionPrice;             //¶¯Ì¬²Î¿¼¼Û¸ñ
-    DFITCSECTimeType                     latestEnquiryTime;        //Ô¤ÁôÊ±¼ä×Ö¶Î
+    DFITCSECContractIDType               contractID;               //æœŸæƒæ ‡è¯†ä»£ç (601318C1412M03500)
+    DFITCSECFundsType                    execPrice;                //è¡Œæƒä»·æ ¼
+    DFITCSECFundsType                    preSettlePrice;           //æ˜¨ç»“ç®—ä»·
+    DFITCSECFundsType                    settlePrice;              //ç»“ç®—ä»·
+    DFITCSECLargeQuantityType            positionQty;              //æŒä»“æ•°é‡
+    DFITCSECFundsType                    auctionPrice;             //åŠ¨æ€å‚è€ƒä»·æ ¼
+    DFITCSECTimeType                     latestEnquiryTime;        //é¢„ç•™æ—¶é—´å­—æ®µ
 };
 
-//stock ÌØÓĞµÄ
+//stock ç‰¹æœ‰çš„
 struct APISTRUCT DFITCStockSpecificDataField
 {
-    DFITCSECFundsType                    peRadio1;                 //ÊĞÓ¯ÂÊ1
-    DFITCSECFundsType                    peRadio2;                 //ÊĞÓ¯ÂÊ2
+    DFITCSECFundsType                    peRadio1;                 //å¸‚ç›ˆç‡1
+    DFITCSECFundsType                    peRadio2;                 //å¸‚ç›ˆç‡2
 };
 
-//¹²ÓĞ¾²Ì¬µÄ
+//å…±æœ‰é™æ€çš„
 struct APISTRUCT DFITCStaticDataField
 {
-    DFITCSECSecurityIDType               securityID;               //Ö¤È¯´úÂë
-    DFITCSECSecurityNameType             securityName;             //Ö¤È¯Ãû³Æ
-    DFITCSECDateType                     tradingDay;               //½»Ò×ÈÕ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECFundsType                    preClosePrice;            //×òÊÕÅÌ
-    DFITCSECFundsType                    openPrice;                //½ñ¿ªÅÌ
-    DFITCSECFundsType                    upperLimitPrice;          //ÕÇÍ£°å¼Û
-    DFITCSECFundsType                    lowerLimitPrice;          //µøÍ£°å¼Û
+    DFITCSECSecurityIDType               securityID;               //è¯åˆ¸ä»£ç 
+    DFITCSECSecurityNameType             securityName;             //è¯åˆ¸åç§°
+    DFITCSECDateType                     tradingDay;               //äº¤æ˜“æ—¥
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECFundsType                    preClosePrice;            //æ˜¨æ”¶ç›˜
+    DFITCSECFundsType                    openPrice;                //ä»Šå¼€ç›˜
+    DFITCSECFundsType                    upperLimitPrice;          //æ¶¨åœæ¿ä»·
+    DFITCSECFundsType                    lowerLimitPrice;          //è·Œåœæ¿ä»·
 
 };
 
-//¹²ÓĞ¶¯Ì¬µÄ
+//å…±æœ‰åŠ¨æ€çš„
 struct APISTRUCT DFITCSharedDataField
 {
-    DFITCSECFundsType                    latestPrice;              //×îĞÂ¼Û
-    DFITCSECFundsType                    turnover;                 //³É½»½ğ¶î
-    DFITCSECFundsType                    highestPrice;             //×î¸ß¼Û
-    DFITCSECFundsType                    lowestPrice;              //×îµÍ¼Û
-    DFITCSECLargeQuantityType            tradeQty;                 //³É½»ÊıÁ¿
-    DFITCSECTimeType                     updateTime;               //Ê±¼ä´Á
-    DFITCSECFundsType                    bidPrice1;                //ÉêÂò¼ÛÒ»
-    DFITCSECLargeQuantityType            bidQty1;                  //ÉêÂòÁ¿Ò»
-    DFITCSECFundsType                    askPrice1;                //ÉêÂô¼ÛÒ»
-    DFITCSECLargeQuantityType            askQty1;                  //ÉêÂôÁ¿Ò»
-    DFITCSECFundsType                    bidPrice2;                //ÉêÂò¼Û¶ş
-    DFITCSECLargeQuantityType            bidQty2;                  //ÉêÂòÁ¿¶ş
-    DFITCSECFundsType                    askPrice2;                //ÉêÂô¼Û¶ş
-    DFITCSECLargeQuantityType            askQty2;                  //ÉêÂôÁ¿¶ş
-    DFITCSECFundsType                    bidPrice3;                //ÉêÂò¼ÛÈı
-    DFITCSECLargeQuantityType            bidQty3;                  //ÉêÂòÁ¿Èı
-    DFITCSECFundsType                    askPrice3;                //ÉêÂô¼ÛÈı
-    DFITCSECLargeQuantityType            askQty3;                  //ÉêÂôÁ¿Èı
-    DFITCSECFundsType                    bidPrice4;                //ÉêÂò¼ÛËÄ
-    DFITCSECLargeQuantityType            bidQty4;                  //ÉêÂòÁ¿ËÄ
-    DFITCSECFundsType                    askPrice4;                //ÉêÂô¼ÛËÄ
-    DFITCSECLargeQuantityType            askQty4;                  //ÉêÂôÁ¿ËÄ
-    DFITCSECFundsType                    bidPrice5;                //ÉêÂò¼ÛÎå
-    DFITCSECLargeQuantityType            bidQty5;                  //ÉêÂòÁ¿Îå
-    DFITCSECFundsType                    askPrice5;                //ÉêÂô¼ÛÎå
-    DFITCSECLargeQuantityType            askQty5;                  //ÉêÂôÁ¿Îå
-    DFITCSECTradingPhaseCodeType         tradingPhaseCode;         //²úÆ·ÊµÊ±½×¶Î¼°±êÖ¾
+    DFITCSECFundsType                    latestPrice;              //æœ€æ–°ä»·
+    DFITCSECFundsType                    turnover;                 //æˆäº¤é‡‘é¢
+    DFITCSECFundsType                    highestPrice;             //æœ€é«˜ä»·
+    DFITCSECFundsType                    lowestPrice;              //æœ€ä½ä»·
+    DFITCSECLargeQuantityType            tradeQty;                 //æˆäº¤æ•°é‡
+    DFITCSECTimeType                     updateTime;               //æ—¶é—´æˆ³
+    DFITCSECFundsType                    bidPrice1;                //ç”³ä¹°ä»·ä¸€
+    DFITCSECLargeQuantityType            bidQty1;                  //ç”³ä¹°é‡ä¸€
+    DFITCSECFundsType                    askPrice1;                //ç”³å–ä»·ä¸€
+    DFITCSECLargeQuantityType            askQty1;                  //ç”³å–é‡ä¸€
+    DFITCSECFundsType                    bidPrice2;                //ç”³ä¹°ä»·äºŒ
+    DFITCSECLargeQuantityType            bidQty2;                  //ç”³ä¹°é‡äºŒ
+    DFITCSECFundsType                    askPrice2;                //ç”³å–ä»·äºŒ
+    DFITCSECLargeQuantityType            askQty2;                  //ç”³å–é‡äºŒ
+    DFITCSECFundsType                    bidPrice3;                //ç”³ä¹°ä»·ä¸‰
+    DFITCSECLargeQuantityType            bidQty3;                  //ç”³ä¹°é‡ä¸‰
+    DFITCSECFundsType                    askPrice3;                //ç”³å–ä»·ä¸‰
+    DFITCSECLargeQuantityType            askQty3;                  //ç”³å–é‡ä¸‰
+    DFITCSECFundsType                    bidPrice4;                //ç”³ä¹°ä»·å››
+    DFITCSECLargeQuantityType            bidQty4;                  //ç”³ä¹°é‡å››
+    DFITCSECFundsType                    askPrice4;                //ç”³å–ä»·å››
+    DFITCSECLargeQuantityType            askQty4;                  //ç”³å–é‡å››
+    DFITCSECFundsType                    bidPrice5;                //ç”³ä¹°ä»·äº”
+    DFITCSECLargeQuantityType            bidQty5;                  //ç”³ä¹°é‡äº”
+    DFITCSECFundsType                    askPrice5;                //ç”³å–ä»·äº”
+    DFITCSECLargeQuantityType            askQty5;                  //ç”³å–é‡äº”
+    DFITCSECTradingPhaseCodeType         tradingPhaseCode;         //äº§å“å®æ—¶é˜¶æ®µåŠæ ‡å¿—
 };
 
 struct APISTRUCT DFITCSOPDepthMarketDataField
 {
-    struct DFITCSOPSpecificDataField     specificDataField;        //ÌØÓĞµÄ
-    struct DFITCStaticDataField          staticDataField;          //¹²ÓĞµÄ¾²Ì¬
-    struct DFITCSharedDataField          sharedDataField;          //¹«ÓĞµÄ¶¯Ì¬ 
+    struct DFITCSOPSpecificDataField     specificDataField;        //ç‰¹æœ‰çš„
+    struct DFITCStaticDataField          staticDataField;          //å…±æœ‰çš„é™æ€
+    struct DFITCSharedDataField          sharedDataField;          //å…¬æœ‰çš„åŠ¨æ€ 
 };
 
 struct APISTRUCT DFITCStockDepthMarketDataField
 {
-    struct DFITCStockSpecificDataField   specificDataField;        //ÌØÓĞµÄ
-    struct DFITCStaticDataField          staticDataField;          //¹²ÓĞµÄ¾²Ì¬
-    struct DFITCSharedDataField          sharedDataField ;         //¹«ÓĞµÄ¶¯Ì¬ 
+    struct DFITCStockSpecificDataField   specificDataField;        //ç‰¹æœ‰çš„
+    struct DFITCStaticDataField          staticDataField;          //å…±æœ‰çš„é™æ€
+    struct DFITCSharedDataField          sharedDataField ;         //å…¬æœ‰çš„åŠ¨æ€ 
 };
 
-//STOCK-Ö¤È¯¾²Ì¬ĞÅÏ¢²éÑ¯ÇëÇó
+//STOCK-è¯åˆ¸é™æ€ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚
 struct APISTRUCT DFITCStockReqQryStockStaticField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (Y)
 };
 
-//STOCK-Ö¤È¯¾²Ì¬ĞÅÏ¢²éÑ¯ÏìÓ¦
+//STOCK-è¯åˆ¸é™æ€ä¿¡æ¯æŸ¥è¯¢å“åº”
 struct APISTRUCT DFITCStockRspQryStockStaticField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECStockTradeFlagType           stopFlag;                 //Í£ÅÆ±êÖ¾
-    DFITCSECPriceType                    preClosePrice;            //×òÊÕÅÌ¼Û
-    DFITCSECPriceType                    openPrice;                //½ñ¿ªÅÌ¼Û
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECSecurityIDType               securityID;               //Ö¤„»´úÂë
-    DFITCSECPriceType                    interestQuote;            //ÀûÏ¢±¨¼Û
-    DFITCSECPriceType                    securityFaceValue;        //Ö¤È¯ÃæÖµ
-    DFITCSECBidTradeFlagType             bidTradeFlag;             //¾º¼Û½»Ò×±êÖ¾
-    DFITCSECTradeUnitType                tradeUnit;                //½»Ò×µ¥Î»
-    DFITCSECBusinessLimitType            businessLimit;            //ÂòÂôÏŞÖÆ
-    DFITCSECSecurityTypeType             securityType;             //Ö¤È¯Àà±ğ
-    DFITCSECSecurityNameType             securityName;             //Ö¤È¯Ãû³Æ
-    DFITCSECPriceType                    upperLimitPrice;          //ÕÇÍ£°å¼Û
-    DFITCSECPriceType                    lowerLimitPrice;          //µøÍ£°å¼Û
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECOrderTypeLimitType           orderLimits;              //¶©µ¥ÀàĞÍÏŞÖÆ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECStockTradeFlagType           stopFlag;                 //åœç‰Œæ ‡å¿—
+    DFITCSECPriceType                    preClosePrice;            //æ˜¨æ”¶ç›˜ä»·
+    DFITCSECPriceType                    openPrice;                //ä»Šå¼€ç›˜ä»·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECSecurityIDType               securityID;               //è¯åŠµä»£ç 
+    DFITCSECPriceType                    interestQuote;            //åˆ©æ¯æŠ¥ä»·
+    DFITCSECPriceType                    securityFaceValue;        //è¯åˆ¸é¢å€¼
+    DFITCSECBidTradeFlagType             bidTradeFlag;             //ç«ä»·äº¤æ˜“æ ‡å¿—
+    DFITCSECTradeUnitType                tradeUnit;                //äº¤æ˜“å•ä½
+    DFITCSECBusinessLimitType            businessLimit;            //ä¹°å–é™åˆ¶
+    DFITCSECSecurityTypeType             securityType;             //è¯åˆ¸ç±»åˆ«
+    DFITCSECSecurityNameType             securityName;             //è¯åˆ¸åç§°
+    DFITCSECPriceType                    upperLimitPrice;          //æ¶¨åœæ¿ä»·
+    DFITCSECPriceType                    lowerLimitPrice;          //è·Œåœæ¿ä»·
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECOrderTypeLimitType           orderLimits;              //è®¢å•ç±»å‹é™åˆ¶
 };
 
-//SOP-½»Ò×Ëù³Ö²Ö×éºÏ²ğ·ÖÎ¯ÍĞÇëÇó
+//SOP-äº¤æ˜“æ‰€æŒä»“ç»„åˆæ‹†åˆ†å§”æ‰˜è¯·æ±‚
 struct APISTRUCT DFITCSOPReqGroupSplitField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(Y)
-    DFITCSECSecurityIDType               securityOptionID;         //ÆÚÈ¨´úÂë(Y)
-    DFITCSECSubAccountIDType             subAccountID;             //×ÓÕË»§±àÂë(N)(Ô¤Áô×Ö¶Î)
-    DFITCSECOpenCloseFlagType            openCloseFlag;            //¿ªÆ½±êÖ¾(Y)
-    DFITCSECExchangeGroupTypeType        groupType;                //×éºÏÀàĞÍ(Y)
-    DFITCSECGroupCodeType                groupCode;                //×éºÏ±àÂë(Y)
-    DFITCSECSecurityIDType               securityOptionID1;        //ÆÚÈ¨´úÂë1ÍÈ(Y)
-    DFITCSECSecurityIDType               securityOptionID2;        //ÆÚÈ¨´úÂë2ÍÈ(Y)
-    DFITCSECSecurityIDType               securityOptionID3;        //ÆÚÈ¨´úÂë3ÍÈ(N)(Ô¤Áô×Ö¶Î)
-    DFITCSECSecurityIDType               securityOptionID4;        //ÆÚÈ¨´úÂë4ÍÈ(N)(Ô¤Áô×Ö¶Î)
-    DFITCSECQuantityType                 entrustQty;               //Î¯ÍĞÊıÁ¿(Y)
-    DFITCSECTDevIDType                   devID;                    //³§ÉÌID(N)
-    DFITCSECTDevDecInfoType              devDecInfo;               //ÓÃ»§×Ô¶¨Òå×Ö¶Î(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (Y)
+    DFITCSECSecurityIDType               securityOptionID;         //æœŸæƒä»£ç (Y)
+    DFITCSECSubAccountIDType             subAccountID;             //å­è´¦æˆ·ç¼–ç (N)(é¢„ç•™å­—æ®µ)
+    DFITCSECOpenCloseFlagType            openCloseFlag;            //å¼€å¹³æ ‡å¿—(Y)
+    DFITCSECExchangeGroupTypeType        groupType;                //ç»„åˆç±»å‹(Y)
+    DFITCSECGroupCodeType                groupCode;                //ç»„åˆç¼–ç (Y)
+    DFITCSECSecurityIDType               securityOptionID1;        //æœŸæƒä»£ç 1è…¿(Y)
+    DFITCSECSecurityIDType               securityOptionID2;        //æœŸæƒä»£ç 2è…¿(Y)
+    DFITCSECSecurityIDType               securityOptionID3;        //æœŸæƒä»£ç 3è…¿(N)(é¢„ç•™å­—æ®µ)
+    DFITCSECSecurityIDType               securityOptionID4;        //æœŸæƒä»£ç 4è…¿(N)(é¢„ç•™å­—æ®µ)
+    DFITCSECQuantityType                 entrustQty;               //å§”æ‰˜æ•°é‡(Y)
+    DFITCSECTDevIDType                   devID;                    //å‚å•†ID(N)
+    DFITCSECTDevDecInfoType              devDecInfo;               //ç”¨æˆ·è‡ªå®šä¹‰å­—æ®µ(N)
 };
 
-//SOP-ÆÚÈ¨×éºÏĞĞÈ¨Î¯ÍĞÇëÇó
+//SOP-æœŸæƒç»„åˆè¡Œæƒå§”æ‰˜è¯·æ±‚
 struct APISTRUCT DFITCSOPReqGroupExectueOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ(Y)
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë(Y)
-    DFITCSECSecurityIDType               securityOptionID1;        //ÆÚÈ¨´úÂë1ÍÈ(Y)
-    DFITCSECSecurityIDType               securityOptionID2;        //ÆÚÈ¨´úÂë2ÍÈ(Y)
-    DFITCSECSubAccountIDType             subAccountID;             //×ÓÕË»§±àÂë(N)(Ô¤Áô×Ö¶Î)
-    DFITCSECQuantityType                 entrustQty;               //Î¯ÍĞÊıÁ¿(Y)
-    DFITCSECEntrustDirectionType         entrustDirection;         //Î¯ÍĞÀà±ğ(Y)
-    DFITCSECOpenCloseFlagType            openCloseFlag;            //¿ªÆ½±êÖ¾(Y)
-    DFITCSECOrderCategoryType            orderCategory;            //Î¯ÍĞµ¥Àà±ğ(Y)
-    DFITCSECTDevIDType                   devID;                    //³§ÉÌID(N)
-    DFITCSECTDevDecInfoType              devDecInfo;               //ÓÃ»§×Ô¶¨Òå×Ö¶Î(N)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·(Y)
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç (Y)
+    DFITCSECSecurityIDType               securityOptionID1;        //æœŸæƒä»£ç 1è…¿(Y)
+    DFITCSECSecurityIDType               securityOptionID2;        //æœŸæƒä»£ç 2è…¿(Y)
+    DFITCSECSubAccountIDType             subAccountID;             //å­è´¦æˆ·ç¼–ç (N)(é¢„ç•™å­—æ®µ)
+    DFITCSECQuantityType                 entrustQty;               //å§”æ‰˜æ•°é‡(Y)
+    DFITCSECEntrustDirectionType         entrustDirection;         //å§”æ‰˜ç±»åˆ«(Y)
+    DFITCSECOpenCloseFlagType            openCloseFlag;            //å¼€å¹³æ ‡å¿—(Y)
+    DFITCSECOrderCategoryType            orderCategory;            //å§”æ‰˜å•ç±»åˆ«(Y)
+    DFITCSECTDevIDType                   devID;                    //å‚å•†ID(N)
+    DFITCSECTDevDecInfoType              devDecInfo;               //ç”¨æˆ·è‡ªå®šä¹‰å­—æ®µ(N)
 };
 
-//SOP-ÆÚÈ¨×éºÏĞĞÈ¨Î¯ÍĞÏìÓ¦
+//SOP-æœŸæƒç»„åˆè¡Œæƒå§”æ‰˜å“åº”
 struct APISTRUCT DFITCSOPRspGroupExectueOrderField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECLocalOrderIDType             localOrderID;             //±¾µØÎ¯ÍĞºÅ
-    DFITCSECSpdOrderIDType               spdOrderID;               //¹ñÌ¨Î¯ÍĞºÅ
-    DFITCSECTimeType                     entrustTime;              //Î¯ÍĞÊ±¼ä
-    DFITCSECFundsType                    freezeFunds;              //¶³½á×Ê½ğ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECLocalOrderIDType             localOrderID;             //æœ¬åœ°å§”æ‰˜å·
+    DFITCSECSpdOrderIDType               spdOrderID;               //æŸœå°å§”æ‰˜å·
+    DFITCSECTimeType                     entrustTime;              //å§”æ‰˜æ—¶é—´
+    DFITCSECFundsType                    freezeFunds;              //å†»ç»“èµ„é‡‘
 };
 
-//SOP-²éÑ¯¿Í»§×éºÏ³Ö²ÖÃ÷Ï¸ÇëÇó
+//SOP-æŸ¥è¯¢å®¢æˆ·ç»„åˆæŒä»“æ˜ç»†è¯·æ±‚
 struct APISTRUCT DFITCSOPReqQryGroupPositionField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID(Y)
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ(Y)
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID(Y)
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·(Y)
 };
 
-//SOP-²éÑ¯¿Í»§×éºÏ³Ö²ÖÃ÷Ï¸ÏìÓ¦
+//SOP-æŸ¥è¯¢å®¢æˆ·ç»„åˆæŒä»“æ˜ç»†å“åº”
 struct APISTRUCT DFITCSOPRspQryGroupPositionField
 {
-    DFITCSECRequestIDType                requestID;                //ÇëÇóID
-    DFITCSECAccountIDType                accountID;                //¿Í»§ºÅ
-    DFITCSECExchangeIDType               exchangeID;               //½»Ò×Ëù´úÂë
-    DFITCSECShareholderIDType            shareholderID;            //¹É¶«ºÅ
-    DFITCSECSubAccountIDType             subAccountID;             //×ÓÕË»§±àÂë
-    DFITCSECCurrencyType                 currency;                 //±ÒÖÖ
-    DFITCSECAccountIDType                capitalID;                //×Ê½ğÕËºÅ
-    DFITCSECExchangeGroupTypeType        groupType;                //×éºÏÀàĞÍ
-    DFITCSECGroupCodeType                groupCode;                //×éºÏ±àÂë
-    DFITCSECQuantityType                 groupQty;                 //×éºÏÊıÁ¿
-    DFITCSECQuantityType                 enableSplitQty;           //¿É²ğ·ÖÊıÁ¿
-    DFITCSECQuantityType                 splitEntrustQty;          //²ğ·ÖÎ¯ÍĞÊıÁ¿
-    DFITCSECQuantityType                 splitTradeQty;            //²ğ·Ö³É½»ÊıÁ¿
-    DFITCSECFundsType                    groupDeposit;             //×éºÏ±£Ö¤½ğ
-    DFITCSECSecurityIDType               securityOptionID1;        //ÆÚÈ¨´úÂë1ÍÈ
-    DFITCSECSecurityIDType               securityOptionID2;        //ÆÚÈ¨´úÂë2ÍÈ
-    DFITCSECSecurityIDType               securityOptionID3;        //ÆÚÈ¨´úÂë3ÍÈ
-    DFITCSECSecurityIDType               securityOptionID4;        //ÆÚÈ¨´úÂë4ÍÈ
+    DFITCSECRequestIDType                requestID;                //è¯·æ±‚ID
+    DFITCSECAccountIDType                accountID;                //å®¢æˆ·å·
+    DFITCSECExchangeIDType               exchangeID;               //äº¤æ˜“æ‰€ä»£ç 
+    DFITCSECShareholderIDType            shareholderID;            //è‚¡ä¸œå·
+    DFITCSECSubAccountIDType             subAccountID;             //å­è´¦æˆ·ç¼–ç 
+    DFITCSECCurrencyType                 currency;                 //å¸ç§
+    DFITCSECAccountIDType                capitalID;                //èµ„é‡‘è´¦å·
+    DFITCSECExchangeGroupTypeType        groupType;                //ç»„åˆç±»å‹
+    DFITCSECGroupCodeType                groupCode;                //ç»„åˆç¼–ç 
+    DFITCSECQuantityType                 groupQty;                 //ç»„åˆæ•°é‡
+    DFITCSECQuantityType                 enableSplitQty;           //å¯æ‹†åˆ†æ•°é‡
+    DFITCSECQuantityType                 splitEntrustQty;          //æ‹†åˆ†å§”æ‰˜æ•°é‡
+    DFITCSECQuantityType                 splitTradeQty;            //æ‹†åˆ†æˆäº¤æ•°é‡
+    DFITCSECFundsType                    groupDeposit;             //ç»„åˆä¿è¯é‡‘
+    DFITCSECSecurityIDType               securityOptionID1;        //æœŸæƒä»£ç 1è…¿
+    DFITCSECSecurityIDType               securityOptionID2;        //æœŸæƒä»£ç 2è…¿
+    DFITCSECSecurityIDType               securityOptionID3;        //æœŸæƒä»£ç 3è…¿
+    DFITCSECSecurityIDType               securityOptionID4;        //æœŸæƒä»£ç 4è…¿
 };
 
-//ÖÕ¶ËĞÅÏ¢
+//ç»ˆç«¯ä¿¡æ¯
 struct APISTRUCT DFITCTerminalInfoField
 {
-    DFITCSECSystemInfo                   systemInfo;               //²É¼¯ĞÅÏ¢
-    DFITCSECSecretkeyVer                 secretkeyVer;             //ÃØÔ¿°æ±¾
+    DFITCSECSystemInfo                   systemInfo;               //é‡‡é›†ä¿¡æ¯
+    DFITCSECSecretkeyVer                 secretkeyVer;             //ç§˜é’¥ç‰ˆæœ¬
     DFITCSECAppID                        appID;                    //AppID
-    DFITCSECExceptionFlag                exceptionFlag;            //Òì³£±êÊ¶
-    DFITCSECClientPublicIP               clientPublicIP;           //¿Í»§ÖÕ¶Ë¹«ÍøIPµØÖ·
-    DFITCSECClientPublicPort             clientPublicPort;         //¿Í»§ÖÕ¶Ë¹«Íø¶Ë¿ÚºÅ
-    DFITCSECClientLoginTime              clientLoginTime;          //¿Í»§ÖÕ¶ËµÇÂ¼Ê±¼ä
-    DFITCSECSystemInfoIntegrity          systemInfo_integrity;     //²É¼¯ĞÅÏ¢ÍêÕûĞÔ
+    DFITCSECExceptionFlag                exceptionFlag;            //å¼‚å¸¸æ ‡è¯†
+    DFITCSECClientPublicIP               clientPublicIP;           //å®¢æˆ·ç»ˆç«¯å…¬ç½‘IPåœ°å€
+    DFITCSECClientPublicPort             clientPublicPort;         //å®¢æˆ·ç»ˆç«¯å…¬ç½‘ç«¯å£å·
+    DFITCSECClientLoginTime              clientLoginTime;          //å®¢æˆ·ç»ˆç«¯ç™»å½•æ—¶é—´
+    DFITCSECSystemInfoIntegrity          systemInfo_integrity;     //é‡‡é›†ä¿¡æ¯å®Œæ•´æ€§
 };
 
 #endif

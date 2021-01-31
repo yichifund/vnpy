@@ -1,4 +1,4 @@
-//ÏµÍ³
+//ç³»ç»Ÿ
 #ifdef WIN32
 #include "stdafx.h"
 #endif
@@ -12,7 +12,7 @@ using namespace pybind11;
 using namespace nhtd;
 
 
-//³£Á¿
+//å¸¸é‡
 #define ONFRONTCONNECTED 0
 #define ONFRONTDISCONNECTED 1
 #define ONHEARTBEATWARNING 2
@@ -60,17 +60,17 @@ using namespace nhtd;
 
 
 ///-------------------------------------------------------------------------------------
-///C++ SPIµÄ»Øµ÷º¯Êı·½·¨ÊµÏÖ
+///C++ SPIçš„å›è°ƒå‡½æ•°æ–¹æ³•å®ç°
 ///-------------------------------------------------------------------------------------
 
-//APIµÄ¼Ì³ĞÊµÏÖ
+//APIçš„ç»§æ‰¿å®ç°
 class StockTdApi : public CNhStockTraderSpi
 {
 private:
-	CNhStockTraderApi* api;				//API¶ÔÏó
-	thread task_thread;					//¹¤×÷Ïß³ÌÖ¸Õë£¨ÏòpythonÖĞÍÆËÍÊı¾İ£©
-	TaskQueue task_queue;			    //ÈÎÎñ¶ÓÁĞ
-	bool active = false;				//¹¤×÷×´Ì¬
+	CNhStockTraderApi* api;				//APIå¯¹è±¡
+	thread task_thread;					//å·¥ä½œçº¿ç¨‹æŒ‡é’ˆï¼ˆå‘pythonä¸­æ¨é€æ•°æ®ï¼‰
+	TaskQueue task_queue;			    //ä»»åŠ¡é˜Ÿåˆ—
+	bool active = false;				//å·¥ä½œçŠ¶æ€
 
 public:
 	StockTdApi()
@@ -86,154 +86,154 @@ public:
 	};
 
 	//-------------------------------------------------------------------------------------
-	//API»Øµ÷º¯Êı
+	//APIå›è°ƒå‡½æ•°
 	//-------------------------------------------------------------------------------------
 
-	///µ±¿Í»§¶ËÓë½»Ò×ºóÌ¨½¨Á¢ÆğÍ¨ĞÅÁ¬½ÓÊ±£¨»¹Î´µÇÂ¼Ç°£©£¬¸Ã·½·¨±»µ÷ÓÃ¡£
+	///å½“å®¢æˆ·ç«¯ä¸äº¤æ˜“åå°å»ºç«‹èµ·é€šä¿¡è¿æ¥æ—¶ï¼ˆè¿˜æœªç™»å½•å‰ï¼‰ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚
 	virtual void OnFrontConnected();
 
-	///µ±¿Í»§¶ËÓë½»Ò×ºóÌ¨Í¨ĞÅÁ¬½Ó¶Ï¿ªÊ±£¬¸Ã·½·¨±»µ÷ÓÃ¡£µ±·¢ÉúÕâ¸öÇé¿öºó£¬API»á×Ô¶¯ÖØĞÂÁ¬½Ó£¬¿Í»§¶Ë¿É²»×ö´¦Àí¡£
-	///@param nReason ´íÎóÔ­Òò
-	///        0x1001 ÍøÂç¶ÁÊ§°Ü
-	///        0x1002 ÍøÂçĞ´Ê§°Ü
-	///        0x2001 ½ÓÊÕĞÄÌø³¬Ê±
-	///        0x2002 ·¢ËÍĞÄÌøÊ§°Ü
-	///        0x2003 ÊÕµ½´íÎó±¨ÎÄ
+	///å½“å®¢æˆ·ç«¯ä¸äº¤æ˜“åå°é€šä¿¡è¿æ¥æ–­å¼€æ—¶ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚å½“å‘ç”Ÿè¿™ä¸ªæƒ…å†µåï¼ŒAPIä¼šè‡ªåŠ¨é‡æ–°è¿æ¥ï¼Œå®¢æˆ·ç«¯å¯ä¸åšå¤„ç†ã€‚
+	///@param nReason é”™è¯¯åŸå› 
+	///        0x1001 ç½‘ç»œè¯»å¤±è´¥
+	///        0x1002 ç½‘ç»œå†™å¤±è´¥
+	///        0x2001 æ¥æ”¶å¿ƒè·³è¶…æ—¶
+	///        0x2002 å‘é€å¿ƒè·³å¤±è´¥
+	///        0x2003 æ”¶åˆ°é”™è¯¯æŠ¥æ–‡
 	virtual void OnFrontDisconnected(int nReason);
 
-	///ĞÄÌø³¬Ê±¾¯¸æ¡£µ±³¤Ê±¼äÎ´ÊÕµ½±¨ÎÄÊ±£¬¸Ã·½·¨±»µ÷ÓÃ¡£
-	///@param nTimeLapse ¾àÀëÉÏ´Î½ÓÊÕ±¨ÎÄµÄÊ±¼ä
+	///å¿ƒè·³è¶…æ—¶è­¦å‘Šã€‚å½“é•¿æ—¶é—´æœªæ”¶åˆ°æŠ¥æ–‡æ—¶ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚
+	///@param nTimeLapse è·ç¦»ä¸Šæ¬¡æ¥æ”¶æŠ¥æ–‡çš„æ—¶é—´
 	virtual void OnHeartBeatWarning(int nTimeLapse);
 
-	///±¨ÎÄ»Øµ÷¿ªÊ¼Í¨Öª¡£µ±APIÊÕµ½Ò»¸ö±¨ÎÄºó£¬Ê×ÏÈµ÷ÓÃ±¾·½·¨£¬È»ºóÊÇ¸÷Êı¾İÓòµÄ»Øµ÷£¬×îºóÊÇ±¨ÎÄ»Øµ÷½áÊøÍ¨Öª¡£
-	///@param nTopicID Ö÷Ìâ´úÂë£¨ÈçË½ÓĞÁ÷¡¢¹«¹²Á÷¡¢ĞĞÇéÁ÷µÈ£©
-	///@param nSequenceNo ±¨ÎÄĞòºÅ
+	///æŠ¥æ–‡å›è°ƒå¼€å§‹é€šçŸ¥ã€‚å½“APIæ”¶åˆ°ä¸€ä¸ªæŠ¥æ–‡åï¼Œé¦–å…ˆè°ƒç”¨æœ¬æ–¹æ³•ï¼Œç„¶åæ˜¯å„æ•°æ®åŸŸçš„å›è°ƒï¼Œæœ€åæ˜¯æŠ¥æ–‡å›è°ƒç»“æŸé€šçŸ¥ã€‚
+	///@param nTopicID ä¸»é¢˜ä»£ç ï¼ˆå¦‚ç§æœ‰æµã€å…¬å…±æµã€è¡Œæƒ…æµç­‰ï¼‰
+	///@param nSequenceNo æŠ¥æ–‡åºå·
 	virtual void OnPackageStart(int nTopicID, int nSequenceNo);
 
-	///±¨ÎÄ»Øµ÷½áÊøÍ¨Öª¡£µ±APIÊÕµ½Ò»¸ö±¨ÎÄºó£¬Ê×ÏÈµ÷ÓÃ±¨ÎÄ»Øµ÷¿ªÊ¼Í¨Öª£¬È»ºóÊÇ¸÷Êı¾İÓòµÄ»Øµ÷£¬×îºóµ÷ÓÃ±¾·½·¨¡£
-	///@param nTopicID Ö÷Ìâ´úÂë£¨ÈçË½ÓĞÁ÷¡¢¹«¹²Á÷¡¢ĞĞÇéÁ÷µÈ£©
-	///@param nSequenceNo ±¨ÎÄĞòºÅ
+	///æŠ¥æ–‡å›è°ƒç»“æŸé€šçŸ¥ã€‚å½“APIæ”¶åˆ°ä¸€ä¸ªæŠ¥æ–‡åï¼Œé¦–å…ˆè°ƒç”¨æŠ¥æ–‡å›è°ƒå¼€å§‹é€šçŸ¥ï¼Œç„¶åæ˜¯å„æ•°æ®åŸŸçš„å›è°ƒï¼Œæœ€åè°ƒç”¨æœ¬æ–¹æ³•ã€‚
+	///@param nTopicID ä¸»é¢˜ä»£ç ï¼ˆå¦‚ç§æœ‰æµã€å…¬å…±æµã€è¡Œæƒ…æµç­‰ï¼‰
+	///@param nSequenceNo æŠ¥æ–‡åºå·
 	virtual void OnPackageEnd(int nTopicID, int nSequenceNo);
 
-	///¶©ÔÄÖ÷ÌâÓ¦´ğ
+	///è®¢é˜…ä¸»é¢˜åº”ç­”
 	virtual void OnRspSubscribeTopic(CStockFtdcDisseminationField *pDissemination, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///ÓÃ»§µÇÂ¼Ó¦´ğ
+	///ç”¨æˆ·ç™»å½•åº”ç­”
 	virtual void OnRspUserLogin(CStockFtdcRspUserLoginField *pRspUserLogin, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///ÓÃ»§ÍË³öÓ¦´ğ
+	///ç”¨æˆ·é€€å‡ºåº”ç­”
 	virtual void OnRspUserLogout(CStockFtdcRspUserLogoutField *pRspUserLogout, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///ÓÃ»§ÃÜÂëĞŞ¸ÄÓ¦´ğ
+	///ç”¨æˆ·å¯†ç ä¿®æ”¹åº”ç­”
 	virtual void OnRspUserPasswordUpdate(CStockFtdcUserPasswordUpdateField *pUserPasswordUpdate, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///¹ÉÆ±±¨µ¥Ó¦´ğ
+	///è‚¡ç¥¨æŠ¥å•åº”ç­”
 	virtual void OnRspStockInsert(CStockFtdcStockInsertRspField *pStockInsert, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///¹ÉÆ±³·µ¥Ó¦´ğ
+	///è‚¡ç¥¨æ’¤å•åº”ç­”
 	virtual void OnRspStockCancel(CStockFtdcStockCancelRspField *pStockCancel, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///ÆÚÈ¨±¨µ¥Ó¦´ğ
+	///æœŸæƒæŠ¥å•åº”ç­”
 	virtual void OnRspOptionsInsert(CStockFtdcOptionsInsertRspField *pOptionsInsert, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///ÆÚÈ¨³·µ¥Ó¦´ğ
+	///æœŸæƒæ’¤å•åº”ç­”
 	virtual void OnRspOptionsCancel(CStockFtdcOptionsCancelRspField *pOptionsCancel, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///ÆÚÈ¨±¨¼ÛÓ¦´ğ
+	///æœŸæƒæŠ¥ä»·åº”ç­”
 	virtual void OnRspQuoteInsert(CStockFtdcQuoteInsertRspField *pQuoteInsert, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///ÆÚÈ¨³·Ïú±¨¼ÛÓ¦´ğ
+	///æœŸæƒæ’¤é”€æŠ¥ä»·åº”ç­”
 	virtual void OnRspForQuote(CStockFtdcForQuoteRspField *pForQuote, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///Ñ¯¼ÛÓ¦´ğ
+	///è¯¢ä»·åº”ç­”
 	virtual void OnRspQuoteCancel(CStockFtdcQuoteCancelRspField *pQuoteCancel, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///Ö¤È¯Ëø¶¨Ó¦´ğ
+	///è¯åˆ¸é”å®šåº”ç­”
 	virtual void OnRspStockLock(CStockFtdcStockLockRspField *pStockLock, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///ĞĞÈ¨Ó¦´ğ
+	///è¡Œæƒåº”ç­”
 	virtual void OnRspExercise(CStockFtdcExerciseRspField *pExercise, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///³·ÏúĞĞÈ¨Ó¦´ğ
+	///æ’¤é”€è¡Œæƒåº”ç­”
 	virtual void OnRspExerciseCancel(CStockFtdcExerciseCancelRspField *pExercise, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///»áÔ±×Ê½ğ²éÑ¯Ó¦´ğ
+	///ä¼šå‘˜èµ„é‡‘æŸ¥è¯¢åº”ç­”
 	virtual void OnRspQryPartAccount(CStockFtdcRspPartAccountField *pRspPartAccount, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///¹ÉÆ±±¨µ¥²éÑ¯Ó¦´ğ
+	///è‚¡ç¥¨æŠ¥å•æŸ¥è¯¢åº”ç­”
 	virtual void OnRspQryStockOrder(CStockFtdcRspQryStockOrderField *pOrder, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///ÆÚÈ¨±¨µ¥²éÑ¯Ó¦´ğ
+	///æœŸæƒæŠ¥å•æŸ¥è¯¢åº”ç­”
 	virtual void OnRspQryOptionsOrder(CStockFtdcRspQryOptionsOrderField *pOrder, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///±¨¼Û²éÑ¯Ó¦´ğ
+	///æŠ¥ä»·æŸ¥è¯¢åº”ç­”
 	virtual void OnRspQryQuoteOrder(CStockFtdcRspQryQuoteOrderField *pQuote, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///¹ÉÆ±³É½»²éÑ¯Ó¦´ğ
+	///è‚¡ç¥¨æˆäº¤æŸ¥è¯¢åº”ç­”
 	virtual void OnRspQryStockTrade(CStockFtdcStockTradeField *pTrade, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///ÆÚÈ¨³É½»²éÑ¯Ó¦´ğ
+	///æœŸæƒæˆäº¤æŸ¥è¯¢åº”ç­”
 	virtual void OnRspQryOptionsTrade(CStockFtdcOptionsTradeField *pTrade, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///³Ö²Ö²éÑ¯Ó¦´ğ
+	///æŒä»“æŸ¥è¯¢åº”ç­”
 	virtual void OnRspQryPosition(CStockFtdcRspPositionField *pPosition, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///Ö÷Ìâ²éÑ¯Ó¦´ğ
+	///ä¸»é¢˜æŸ¥è¯¢åº”ç­”
 	virtual void OnRspQryTopic(CStockFtdcDisseminationField *pDissemination, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	//¹ÉÆ±²éÑ¯Ó¦´ğ
+	//è‚¡ç¥¨æŸ¥è¯¢åº”ç­”
 	virtual void OnRspQryStock(CStockFtdcRspQryStockField *pStock, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	//ÆÚÈ¨²éÑ¯Ó¦´ğ
+	//æœŸæƒæŸ¥è¯¢åº”ç­”
 	virtual void OnRspQryOptions(CStockFtdcRspQryOptionsField *pOptions, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///ÆÚÈ¨Î¯ÍĞ»Ø±¨
+	///æœŸæƒå§”æ‰˜å›æŠ¥
 	virtual void OnRtnOptionsOrder(CStockFtdcOptionsOrderField *pOrder);
 
-	///¹ÉÆ±Î¯ÍĞ»Ø±¨
+	///è‚¡ç¥¨å§”æ‰˜å›æŠ¥
 	virtual void OnRtnStockOrder(CStockFtdcStockOrderField *pOrder);
 
-	///±¨¼Û»Ø±¨
+	///æŠ¥ä»·å›æŠ¥
 	virtual void OnRtnQuoteOrder(CStockFtdcQuoteOrderField *pQuote);
 
-	///ÆÚÈ¨³É½»»Ø±¨
+	///æœŸæƒæˆäº¤å›æŠ¥
 	virtual void OnRtnOptionsTrade(CStockFtdcOptionsTradeField *pTrade);
 
-	///¹ÉÆ±³É½»»Ø±¨
+	///è‚¡ç¥¨æˆäº¤å›æŠ¥
 	virtual void OnRtnStockTrade(CStockFtdcStockTradeField *pTrade);
 
-	///ĞĞÈ¨»Ø±¨
+	///è¡Œæƒå›æŠ¥
 	virtual void OnRtnExercise(CStockFtdcExerciseRtnField *pExercise);
 
-	///²éÑ¯·ÑÂÊĞÅÏ¢Ó¦´ğ
+	///æŸ¥è¯¢è´¹ç‡ä¿¡æ¯åº”ç­”
 	virtual void OnRspQryRate(CStockFtdcRspQryRateField *pRate, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///»áÔ±¿Í»§²éÑ¯Ó¦´ğ
+	///ä¼šå‘˜å®¢æˆ·æŸ¥è¯¢åº”ç­”
 	virtual void OnRspQryClient(CStockFtdcRspClientField *pRspClient, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///¿Í»§±£Ö¤½ğ²éÑ¯Ó¦´ğ
+	///å®¢æˆ·ä¿è¯é‡‘æŸ¥è¯¢åº”ç­”
 	virtual void OnRspQryClientMargin(CStockFtdcRspQryClientMarginField *pRspMargin, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///²éÑ¯ĞĞÈ¨Ó¦´ğ
+	///æŸ¥è¯¢è¡Œæƒåº”ç­”
 	virtual void OnRspQryExercise(CStockFtdcExerciseRtnField *pExercise, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///³öÈë½ğÍ¨Öª
+	///å‡ºå…¥é‡‘é€šçŸ¥
 	virtual void OnRtnWithdrawDeposit(CStockFtdcWithdrawDepositRtnField *pWithdrawDeposit);
 
-	///¿Í»§ÉêÇë×éºÏÇëÇó
+	///å®¢æˆ·ç”³è¯·ç»„åˆè¯·æ±‚
 	virtual void OnRspMarginCombAction(CStockFtdcMarginCombActionRspField *pMarginCombAction, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///¿Í»§ÉêÇë×éºÏÍ¨Öª
+	///å®¢æˆ·ç”³è¯·ç»„åˆé€šçŸ¥
 	virtual void OnRtnMarginCombAction(CStockFtdcMarginCombActionRtnField *pMarginCombAction);
 
-	///ÉÏÆÚËù×éºÏ³Ö²Ö²éÑ¯Ó¦´ğ
+	///ä¸ŠæœŸæ‰€ç»„åˆæŒä»“æŸ¥è¯¢åº”ç­”
 	virtual void OnRspQrySseCombPosition(CStockFtdcCombPositionRspField *pPosi, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///×éºÏĞĞÈ¨Ó¦´ğ
+	///ç»„åˆè¡Œæƒåº”ç­”
 	virtual void OnRspCombExercise(CStockFtdcCombExerciseRspField *pExercise, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
 	//-------------------------------------------------------------------------------------
-	//task£ºÈÎÎñ
+	//taskï¼šä»»åŠ¡
 	//-------------------------------------------------------------------------------------
 
 	void processTask();
@@ -323,11 +323,11 @@ public:
 	void processRspCombExercise(Task *task);
 
 	//-------------------------------------------------------------------------------------
-	//data£º»Øµ÷º¯ÊıµÄÊı¾İ×Öµä
-	//error£º»Øµ÷º¯ÊıµÄ´íÎó×Öµä
-	//id£ºÇëÇóid
-	//last£ºÊÇ·ñÎª×îºó·µ»Ø
-	//i£ºÕûÊı
+	//dataï¼šå›è°ƒå‡½æ•°çš„æ•°æ®å­—å…¸
+	//errorï¼šå›è°ƒå‡½æ•°çš„é”™è¯¯å­—å…¸
+	//idï¼šè¯·æ±‚id
+	//lastï¼šæ˜¯å¦ä¸ºæœ€åè¿”å›
+	//iï¼šæ•´æ•°
 	//-------------------------------------------------------------------------------------
 
 	virtual void onFrontConnected() {};
@@ -415,7 +415,7 @@ public:
 	virtual void onRspCombExercise(const dict &data, const dict &error, int reqid, bool last) {};
 
 	//-------------------------------------------------------------------------------------
-	//req:Ö÷¶¯º¯ÊıµÄÇëÇó×Öµä
+	//req:ä¸»åŠ¨å‡½æ•°çš„è¯·æ±‚å­—å…¸
 	//-------------------------------------------------------------------------------------
 
 	void createStockTdApi(string flowPath);

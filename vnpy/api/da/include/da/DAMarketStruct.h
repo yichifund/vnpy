@@ -1,4 +1,4 @@
-/////////////////////////////////////////////////////////////////////////
+ï»¿/////////////////////////////////////////////////////////////////////////
 /// DriectAccess Trade Engine
 /// Copyright (C) Shanghai DirectAccess Technology Co., Ltd.
 /// Last Modify 2019/3/18
@@ -10,140 +10,140 @@
 
 #include "DADataType.h"
 
-// ´íÎóÃèÊö
+// é”™è¯¯æè¿°
 struct CMarketRspInfoField
 {
-	TDAIntType			ErrorID;						// ´íÎóÂë
-	TDAStringType		ErrorMsg;						// ´íÎóÃèÊö
+    TDAIntType			ErrorID;						// é”™è¯¯ç 
+    TDAStringType		ErrorMsg;						// é”™è¯¯æè¿°
 };
 
-// ÓÃ»§µÇÂ¼ÇëÇó
+// ç”¨æˆ·ç™»å½•è¯·æ±‚
 struct CMarketReqUserLoginField
 {
-	TDAStringType		UserId;							// ÓÃ»§±êÊ¶
-	TDAStringType		UserPwd;						// ÓÃ»§ÃÜÂë
-	TDAStringType		UserType;						// ÓÃ»§ÀàĞÍ
-	TDAStringType		MacAddress;						// MACµØÖ·
-	TDAStringType		ComputerName;					// ¼ÆËã»úÃû
-	TDAStringType		SoftwareName;					// Èí¼şÃû³Æ
-	TDAStringType		SoftwareVersion;				// Èí¼ş°æ±¾ºÅ
-	TDAStringType		AuthorCode;						// ÊÚÈ¨Âë
-	TDAStringType		ErrorDescription;				// ´íÎóĞÅÏ¢
+    TDAStringType		UserId;							// ç”¨æˆ·æ ‡è¯†
+    TDAStringType		UserPwd;						// ç”¨æˆ·å¯†ç 
+    TDAStringType		UserType;						// ç”¨æˆ·ç±»å‹
+    TDAStringType		MacAddress;						// MACåœ°å€
+    TDAStringType		ComputerName;					// è®¡ç®—æœºå
+    TDAStringType		SoftwareName;					// è½¯ä»¶åç§°
+    TDAStringType		SoftwareVersion;				// è½¯ä»¶ç‰ˆæœ¬å·
+    TDAStringType		AuthorCode;						// æˆæƒç 
+    TDAStringType		ErrorDescription;				// é”™è¯¯ä¿¡æ¯
 };
 
-// ÓÃ»§µÇÂ¼·µ»Ø
+// ç”¨æˆ·ç™»å½•è¿”å›
 struct CMarketRspUserLoginField
 {
-	TDAStringType		UserName;						// ÓÃ»§Ãû    
-	TDAStringType		UserPwd;						// µÇÂ¼ÃÜÂë             
-	TDAStringType		UserType;						// ÓÃ»§ÀàĞÍ             
+    TDAStringType		UserName;						// ç”¨æˆ·å    
+    TDAStringType		UserPwd;						// ç™»å½•å¯†ç              
+    TDAStringType		UserType;						// ç”¨æˆ·ç±»å‹             
 };
 
-// ÓÃ»§µÇ³öÇëÇó
+// ç”¨æˆ·ç™»å‡ºè¯·æ±‚
 struct CMarketReqUserLogoutField
 {
-	TDAStringType		BrokerID;						// ¾­¼Í¹«Ë¾´úÂë
-	TDAStringType		UserId;							// ÓÃ»§´úÂë
-	TDAStringType		ErrorDescription;				// ´íÎóĞÅÏ¢
+    TDAStringType		BrokerID;						// ç»çºªå…¬å¸ä»£ç 
+    TDAStringType		UserId;							// ç”¨æˆ·ä»£ç 
+    TDAStringType		ErrorDescription;				// é”™è¯¯ä¿¡æ¯
 };
 
-// ¶©ÔÄĞĞÇéÇëÇó
+// è®¢é˜…è¡Œæƒ…è¯·æ±‚
 struct CMarketReqMarketDataField
 {
-	TDACharType			MarketType;						// ½ğÈÚÀàĞÍ
-	TDACharType			SubscMode;						// ĞĞÇéÖÖÀà
-	TDAIntType			MarketCount;					// µ¥´Î×î´ó¶©ÔÄÊı	
-	TDAStringType		MarketTrcode[MAX_SUB_COUNT];	// µ¥´Î×î´ó¶©ÔÄºÏÔ¼
-	TDAStringType		ErrorDescription;				// ´íÎóĞÅÏ¢
+    TDACharType			MarketType;						// é‡‘èç±»å‹
+    TDACharType			SubscMode;						// è¡Œæƒ…ç§ç±»
+    TDAIntType			MarketCount;					// å•æ¬¡æœ€å¤§è®¢é˜…æ•°	
+    TDAStringType		MarketTrcode[MAX_SUB_COUNT];	// å•æ¬¡æœ€å¤§è®¢é˜…åˆçº¦
+    TDAStringType		ErrorDescription;				// é”™è¯¯ä¿¡æ¯
 };
 
-// ·µ»ØĞĞÇéÊı¾İ
+// è¿”å›è¡Œæƒ…æ•°æ®
 struct CMarketRspMarketDataField
 {
-	TDAStringType		ExchangeCode;					// ½»Ò×Ëù´úÂë
-	TDAStringType		TreatyCode;						// ºÏÔ¼´úÂë
-	TDAStringType		BuyPrice;   					// Âò¼Û
-	TDAStringType		BuyNumber;   					// ÂòÁ¿
-	TDAStringType		SalePrice;   					// Âô¼Û
-	TDAStringType		SaleNumber;   					// ÂôÁ¿
-	TDAStringType		CurrPrice;   					// ×îĞÂ¼Û
-	TDAStringType		CurrNumber;   					// ×îĞÂÁ¿
-	TDAStringType		High;   						// µ±Ìì×î¸ß¼Û
-	TDAStringType		Low;   							// µ±Ìì×îµÍ¼Û
-	TDAStringType		Open;   						// ¿ªÅÌ¼Û
-	TDAStringType		IntradaySettlePrice;   			// µ±ÈÕÅÌÖĞ½áËã¼Û(¹ÉÆ±£ºÊÕÅÌ¼Û)
-	TDAStringType		Close;   						// µ±Ìì½áËã¼Û
-	TDAStringType		Time;   						// ĞĞÇéÊ±¼ä
-	TDAStringType		FilledNum;   					// ³É½»Á¿
-	TDAStringType		HoldNum;   						// ³Ö²ÖÁ¿
-	TDAStringType		BuyPrice2; 						// Âò¼Û2
-	TDAStringType		BuyPrice3;  					// Âò¼Û3
-	TDAStringType		BuyPrice4;  					// Âò¼Û4
-	TDAStringType		BuyPrice5;  					// Âò¼Û5
-	TDAStringType		BuyNumber2;  					// ÂòÁ¿2
-	TDAStringType		BuyNumber3;  					// ÂòÁ¿3
-	TDAStringType		BuyNumber4;  					// ÂòÁ¿4
-	TDAStringType		BuyNumber5;  					// ÂòÁ¿5
-	TDAStringType		SalePrice2;  					// Âô¼Û2
-	TDAStringType		SalePrice3;  					// Âô¼Û3
-	TDAStringType		SalePrice4;  					// Âô¼Û4
-	TDAStringType		SalePrice5;  					// Âô¼Û5
-	TDAStringType		SaleNumber2; 					// ÂôÁ¿2
-	TDAStringType		SaleNumber3;  					// ÂôÁ¿3
-	TDAStringType		SaleNumber4;  					// ÂôÁ¿4
-	TDAStringType		SaleNumber5;  					// ÂôÁ¿5
-	TDAStringType		HideBuyPrice; 					// Òş²ØÂò¼Û
-	TDAStringType		HideBuyNumber; 					// Òş²ØÂòÁ¿
-	TDAStringType		HideSalePrice; 					// Òş²ØÂô¼Û
-	TDAStringType		HideSaleNumber;					// Òş²ØÂôÁ¿
-	TDAStringType		LimitDownPrice; 				// µøÍ£¼Û
-	TDAStringType		LimitUpPrice;  					// ÕÇÍ£¼Û
-	TDAStringType		TradeDay;   					// ½»Ò×ÈÕ
-	TDAStringType		BuyPrice6;						// Âò¼Û6
-	TDAStringType		BuyPrice7;						// Âò¼Û7
-	TDAStringType		BuyPrice8;						// Âò¼Û8
-	TDAStringType		BuyPrice9;						// Âò¼Û9
-	TDAStringType		BuyPrice10;						// Âò¼Û10
-	TDAStringType		BuyNumber6;						// ÂòÁ¿6
-	TDAStringType		BuyNumber7;						// ÂòÁ¿7
-	TDAStringType		BuyNumber8;						// ÂòÁ¿8
-	TDAStringType		BuyNumber9;						// ÂòÁ¿9
-	TDAStringType		BuyNumber10;					// ÂòÁ¿10
-	TDAStringType		SalePrice6;						// Âô¼Û6
-	TDAStringType		SalePrice7;						// Âô¼Û7
-	TDAStringType		SalePrice8;						// Âô¼Û8
-	TDAStringType		SalePrice9;						// Âô¼Û9
-	TDAStringType		SalePrice10;					// Âô¼Û10
-	TDAStringType		SaleNumber6;					// ÂôÁ¿6
-	TDAStringType		SaleNumber7;					// ÂôÁ¿7
-	TDAStringType		SaleNumber8;					// ÂôÁ¿8
-	TDAStringType		SaleNumber9;					// ÂôÁ¿9
-	TDAStringType		SaleNumber10;					// ÂôÁ¿10
-	TDAStringType		TradeFlag;						// ¸Û½»Ëù¹ÉÆ±ĞĞÇé£º³É½»ÀàĞÍ
-	TDAStringType		DataTimestamp;					// ½»Ò×ËùÊı¾İÊ±¼ä´Á
-	TDAStringType		DataSourceId;					// Êı¾İÀ´Ô´
-	TDAStringType		CanSellVol;						// ¿ÉÂô¿Õ¹ÉÊı£¨ÃÀ¹ÉĞĞÇéÓÃ£©
-	TDAStringType		QuoteType;  					// ĞĞÇéÇø·Ö
-	TDAStringType		AggressorSide;  				// Ö÷¶¯Âò»òÖ÷¶¯Âô
-	TDAStringType		PreSettlementPrice;  			// ×ò½áËã£¨¹ÉÆ±£º×òÊÕÅÌ¼Û£©
+    TDAStringType		ExchangeCode;					// äº¤æ˜“æ‰€ä»£ç 
+    TDAStringType		TreatyCode;						// åˆçº¦ä»£ç 
+    TDAStringType		BuyPrice;   					// ä¹°ä»·
+    TDAStringType		BuyNumber;   					// ä¹°é‡
+    TDAStringType		SalePrice;   					// å–ä»·
+    TDAStringType		SaleNumber;   					// å–é‡
+    TDAStringType		CurrPrice;   					// æœ€æ–°ä»·
+    TDAStringType		CurrNumber;   					// æœ€æ–°é‡
+    TDAStringType		High;   						// å½“å¤©æœ€é«˜ä»·
+    TDAStringType		Low;   							// å½“å¤©æœ€ä½ä»·
+    TDAStringType		Open;   						// å¼€ç›˜ä»·
+    TDAStringType		IntradaySettlePrice;   			// å½“æ—¥ç›˜ä¸­ç»“ç®—ä»·(è‚¡ç¥¨ï¼šæ”¶ç›˜ä»·)
+    TDAStringType		Close;   						// å½“å¤©ç»“ç®—ä»·
+    TDAStringType		Time;   						// è¡Œæƒ…æ—¶é—´
+    TDAStringType		FilledNum;   					// æˆäº¤é‡
+    TDAStringType		HoldNum;   						// æŒä»“é‡
+    TDAStringType		BuyPrice2; 						// ä¹°ä»·2
+    TDAStringType		BuyPrice3;  					// ä¹°ä»·3
+    TDAStringType		BuyPrice4;  					// ä¹°ä»·4
+    TDAStringType		BuyPrice5;  					// ä¹°ä»·5
+    TDAStringType		BuyNumber2;  					// ä¹°é‡2
+    TDAStringType		BuyNumber3;  					// ä¹°é‡3
+    TDAStringType		BuyNumber4;  					// ä¹°é‡4
+    TDAStringType		BuyNumber5;  					// ä¹°é‡5
+    TDAStringType		SalePrice2;  					// å–ä»·2
+    TDAStringType		SalePrice3;  					// å–ä»·3
+    TDAStringType		SalePrice4;  					// å–ä»·4
+    TDAStringType		SalePrice5;  					// å–ä»·5
+    TDAStringType		SaleNumber2; 					// å–é‡2
+    TDAStringType		SaleNumber3;  					// å–é‡3
+    TDAStringType		SaleNumber4;  					// å–é‡4
+    TDAStringType		SaleNumber5;  					// å–é‡5
+    TDAStringType		HideBuyPrice; 					// éšè—ä¹°ä»·
+    TDAStringType		HideBuyNumber; 					// éšè—ä¹°é‡
+    TDAStringType		HideSalePrice; 					// éšè—å–ä»·
+    TDAStringType		HideSaleNumber;					// éšè—å–é‡
+    TDAStringType		LimitDownPrice; 				// è·Œåœä»·
+    TDAStringType		LimitUpPrice;  					// æ¶¨åœä»·
+    TDAStringType		TradeDay;   					// äº¤æ˜“æ—¥
+    TDAStringType		BuyPrice6;						// ä¹°ä»·6
+    TDAStringType		BuyPrice7;						// ä¹°ä»·7
+    TDAStringType		BuyPrice8;						// ä¹°ä»·8
+    TDAStringType		BuyPrice9;						// ä¹°ä»·9
+    TDAStringType		BuyPrice10;						// ä¹°ä»·10
+    TDAStringType		BuyNumber6;						// ä¹°é‡6
+    TDAStringType		BuyNumber7;						// ä¹°é‡7
+    TDAStringType		BuyNumber8;						// ä¹°é‡8
+    TDAStringType		BuyNumber9;						// ä¹°é‡9
+    TDAStringType		BuyNumber10;					// ä¹°é‡10
+    TDAStringType		SalePrice6;						// å–ä»·6
+    TDAStringType		SalePrice7;						// å–ä»·7
+    TDAStringType		SalePrice8;						// å–ä»·8
+    TDAStringType		SalePrice9;						// å–ä»·9
+    TDAStringType		SalePrice10;					// å–ä»·10
+    TDAStringType		SaleNumber6;					// å–é‡6
+    TDAStringType		SaleNumber7;					// å–é‡7
+    TDAStringType		SaleNumber8;					// å–é‡8
+    TDAStringType		SaleNumber9;					// å–é‡9
+    TDAStringType		SaleNumber10;					// å–é‡10
+    TDAStringType		TradeFlag;						// æ¸¯äº¤æ‰€è‚¡ç¥¨è¡Œæƒ…ï¼šæˆäº¤ç±»å‹
+    TDAStringType		DataTimestamp;					// äº¤æ˜“æ‰€æ•°æ®æ—¶é—´æˆ³
+    TDAStringType		DataSourceId;					// æ•°æ®æ¥æº
+    TDAStringType		CanSellVol;						// å¯å–ç©ºè‚¡æ•°ï¼ˆç¾è‚¡è¡Œæƒ…ç”¨ï¼‰
+    TDAStringType		QuoteType;  					// è¡Œæƒ…åŒºåˆ†
+    TDAStringType		AggressorSide;  				// ä¸»åŠ¨ä¹°æˆ–ä¸»åŠ¨å–
+    TDAStringType		PreSettlementPrice;  			// æ˜¨ç»“ç®—ï¼ˆè‚¡ç¥¨ï¼šæ˜¨æ”¶ç›˜ä»·ï¼‰
 };
 
-// ¶©ÔÄ¾­¼ÃÉÌÇëÇó
+// è®¢é˜…ç»æµå•†è¯·æ±‚
 struct CMarketReqBrokerDataField
 {
-	TDAStringType		ContCode;						// ºÏÔ¼´úÂë
-	TDAStringType		ErrorDescription;				// ´íÎóĞÅÏ¢
+    TDAStringType		ContCode;						// åˆçº¦ä»£ç 
+    TDAStringType		ErrorDescription;				// é”™è¯¯ä¿¡æ¯
 };
 
-// ·µ»Ø¾­¼ÃÉÌÊı¾İ
+// è¿”å›ç»æµå•†æ•°æ®
 struct CMarketRspBrokerDataField
 {
-	TDABrokerType		BrokerData;						// ¾­¼ÃÉÌÊı¾İ
+    TDABrokerType		BrokerData;						// ç»æµå•†æ•°æ®
 };
 
-// ÍÆËÍ½»Ò×ÈÕ½á¹¹Ìå
+// æ¨é€äº¤æ˜“æ—¥ç»“æ„ä½“
 struct CMarketRspTradeDateField
 {
-	TDAStringType		TradeDate;						// ½»Ò×ÈÕÆÚ
-	TDAStringType		TradeProduct;					// ½»Ò×²úÆ·
+    TDAStringType		TradeDate;						// äº¤æ˜“æ—¥æœŸ
+    TDAStringType		TradeProduct;					// äº¤æ˜“äº§å“
 };

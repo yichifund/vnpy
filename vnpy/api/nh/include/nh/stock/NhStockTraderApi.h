@@ -23,308 +23,308 @@ namespace nhtd
 	class CNhStockTraderSpi
 	{
 	public:
-		///µ±¿Í»§¶ËÓë½»Ò×ºóÌ¨½¨Á¢ÆğÍ¨ĞÅÁ¬½ÓÊ±£¨»¹Î´µÇÂ¼Ç°£©£¬¸Ã·½·¨±»µ÷ÓÃ¡£
+		///å½“å®¢æˆ·ç«¯ä¸äº¤æ˜“åå°å»ºç«‹èµ·é€šä¿¡è¿æ¥æ—¶ï¼ˆè¿˜æœªç™»å½•å‰ï¼‰ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚
 		virtual void OnFrontConnected() {};
 
-		///µ±¿Í»§¶ËÓë½»Ò×ºóÌ¨Í¨ĞÅÁ¬½Ó¶Ï¿ªÊ±£¬¸Ã·½·¨±»µ÷ÓÃ¡£µ±·¢ÉúÕâ¸öÇé¿öºó£¬API»á×Ô¶¯ÖØĞÂÁ¬½Ó£¬¿Í»§¶Ë¿É²»×ö´¦Àí¡£
-		///@param nReason ´íÎóÔ­Òò
-		///        0x1001 ÍøÂç¶ÁÊ§°Ü
-		///        0x1002 ÍøÂçĞ´Ê§°Ü
-		///        0x2001 ½ÓÊÕĞÄÌø³¬Ê±
-		///        0x2002 ·¢ËÍĞÄÌøÊ§°Ü
-		///        0x2003 ÊÕµ½´íÎó±¨ÎÄ
+		///å½“å®¢æˆ·ç«¯ä¸äº¤æ˜“åå°é€šä¿¡è¿æ¥æ–­å¼€æ—¶ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚å½“å‘ç”Ÿè¿™ä¸ªæƒ…å†µåï¼ŒAPIä¼šè‡ªåŠ¨é‡æ–°è¿æ¥ï¼Œå®¢æˆ·ç«¯å¯ä¸åšå¤„ç†ã€‚
+		///@param nReason é”™è¯¯åŸå› 
+		///        0x1001 ç½‘ç»œè¯»å¤±è´¥
+		///        0x1002 ç½‘ç»œå†™å¤±è´¥
+		///        0x2001 æ¥æ”¶å¿ƒè·³è¶…æ—¶
+		///        0x2002 å‘é€å¿ƒè·³å¤±è´¥
+		///        0x2003 æ”¶åˆ°é”™è¯¯æŠ¥æ–‡
 		virtual void OnFrontDisconnected(int nReason) {};
 
-		///ĞÄÌø³¬Ê±¾¯¸æ¡£µ±³¤Ê±¼äÎ´ÊÕµ½±¨ÎÄÊ±£¬¸Ã·½·¨±»µ÷ÓÃ¡£
-		///@param nTimeLapse ¾àÀëÉÏ´Î½ÓÊÕ±¨ÎÄµÄÊ±¼ä
+		///å¿ƒè·³è¶…æ—¶è­¦å‘Šã€‚å½“é•¿æ—¶é—´æœªæ”¶åˆ°æŠ¥æ–‡æ—¶ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚
+		///@param nTimeLapse è·ç¦»ä¸Šæ¬¡æ¥æ”¶æŠ¥æ–‡çš„æ—¶é—´
 		virtual void OnHeartBeatWarning(int nTimeLapse) {};
 
-		///±¨ÎÄ»Øµ÷¿ªÊ¼Í¨Öª¡£µ±APIÊÕµ½Ò»¸ö±¨ÎÄºó£¬Ê×ÏÈµ÷ÓÃ±¾·½·¨£¬È»ºóÊÇ¸÷Êı¾İÓòµÄ»Øµ÷£¬×îºóÊÇ±¨ÎÄ»Øµ÷½áÊøÍ¨Öª¡£
-		///@param nTopicID Ö÷Ìâ´úÂë£¨ÈçË½ÓĞÁ÷¡¢¹«¹²Á÷¡¢ĞĞÇéÁ÷µÈ£©
-		///@param nSequenceNo ±¨ÎÄĞòºÅ
+		///æŠ¥æ–‡å›è°ƒå¼€å§‹é€šçŸ¥ã€‚å½“APIæ”¶åˆ°ä¸€ä¸ªæŠ¥æ–‡åï¼Œé¦–å…ˆè°ƒç”¨æœ¬æ–¹æ³•ï¼Œç„¶åæ˜¯å„æ•°æ®åŸŸçš„å›è°ƒï¼Œæœ€åæ˜¯æŠ¥æ–‡å›è°ƒç»“æŸé€šçŸ¥ã€‚
+		///@param nTopicID ä¸»é¢˜ä»£ç ï¼ˆå¦‚ç§æœ‰æµã€å…¬å…±æµã€è¡Œæƒ…æµç­‰ï¼‰
+		///@param nSequenceNo æŠ¥æ–‡åºå·
 		virtual void OnPackageStart(int nTopicID, int nSequenceNo) {};
 
-		///±¨ÎÄ»Øµ÷½áÊøÍ¨Öª¡£µ±APIÊÕµ½Ò»¸ö±¨ÎÄºó£¬Ê×ÏÈµ÷ÓÃ±¨ÎÄ»Øµ÷¿ªÊ¼Í¨Öª£¬È»ºóÊÇ¸÷Êı¾İÓòµÄ»Øµ÷£¬×îºóµ÷ÓÃ±¾·½·¨¡£
-		///@param nTopicID Ö÷Ìâ´úÂë£¨ÈçË½ÓĞÁ÷¡¢¹«¹²Á÷¡¢ĞĞÇéÁ÷µÈ£©
-		///@param nSequenceNo ±¨ÎÄĞòºÅ
+		///æŠ¥æ–‡å›è°ƒç»“æŸé€šçŸ¥ã€‚å½“APIæ”¶åˆ°ä¸€ä¸ªæŠ¥æ–‡åï¼Œé¦–å…ˆè°ƒç”¨æŠ¥æ–‡å›è°ƒå¼€å§‹é€šçŸ¥ï¼Œç„¶åæ˜¯å„æ•°æ®åŸŸçš„å›è°ƒï¼Œæœ€åè°ƒç”¨æœ¬æ–¹æ³•ã€‚
+		///@param nTopicID ä¸»é¢˜ä»£ç ï¼ˆå¦‚ç§æœ‰æµã€å…¬å…±æµã€è¡Œæƒ…æµç­‰ï¼‰
+		///@param nSequenceNo æŠ¥æ–‡åºå·
 		virtual void OnPackageEnd(int nTopicID, int nSequenceNo) {};
 
-		///¶©ÔÄÖ÷ÌâÓ¦´ğ
+		///è®¢é˜…ä¸»é¢˜åº”ç­”
 		virtual void OnRspSubscribeTopic(CStockFtdcDisseminationField *pDissemination, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///ÓÃ»§µÇÂ¼Ó¦´ğ
+		///ç”¨æˆ·ç™»å½•åº”ç­”
 		virtual void OnRspUserLogin(CStockFtdcRspUserLoginField *pRspUserLogin, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///ÓÃ»§ÍË³öÓ¦´ğ
+		///ç”¨æˆ·é€€å‡ºåº”ç­”
 		virtual void OnRspUserLogout(CStockFtdcRspUserLogoutField *pRspUserLogout, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///ÓÃ»§ÃÜÂëĞŞ¸ÄÓ¦´ğ
+		///ç”¨æˆ·å¯†ç ä¿®æ”¹åº”ç­”
 		virtual void OnRspUserPasswordUpdate(CStockFtdcUserPasswordUpdateField *pUserPasswordUpdate, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///¹ÉÆ±±¨µ¥Ó¦´ğ
+		///è‚¡ç¥¨æŠ¥å•åº”ç­”
 		virtual void OnRspStockInsert(CStockFtdcStockInsertRspField *pStockInsert, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///¹ÉÆ±³·µ¥Ó¦´ğ
+		///è‚¡ç¥¨æ’¤å•åº”ç­”
 		virtual void OnRspStockCancel(CStockFtdcStockCancelRspField *pStockCancel, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///ÆÚÈ¨±¨µ¥Ó¦´ğ
+		///æœŸæƒæŠ¥å•åº”ç­”
 		virtual void OnRspOptionsInsert(CStockFtdcOptionsInsertRspField *pOptionsInsert, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///ÆÚÈ¨³·µ¥Ó¦´ğ
+		///æœŸæƒæ’¤å•åº”ç­”
 		virtual void OnRspOptionsCancel(CStockFtdcOptionsCancelRspField *pOptionsCancel, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///ÆÚÈ¨±¨¼ÛÓ¦´ğ
+		///æœŸæƒæŠ¥ä»·åº”ç­”
 		virtual void OnRspQuoteInsert(CStockFtdcQuoteInsertRspField *pQuoteInsert, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///ÆÚÈ¨³·Ïú±¨¼ÛÓ¦´ğ
+		///æœŸæƒæ’¤é”€æŠ¥ä»·åº”ç­”
 		virtual void OnRspForQuote(CStockFtdcForQuoteRspField *pForQuote, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///Ñ¯¼ÛÓ¦´ğ
+		///è¯¢ä»·åº”ç­”
 		virtual void OnRspQuoteCancel(CStockFtdcQuoteCancelRspField *pQuoteCancel, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///Ö¤È¯Ëø¶¨Ó¦´ğ
+		///è¯åˆ¸é”å®šåº”ç­”
 		virtual void OnRspStockLock(CStockFtdcStockLockRspField *pStockLock, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///ĞĞÈ¨Ó¦´ğ
+		///è¡Œæƒåº”ç­”
 		virtual void OnRspExercise(CStockFtdcExerciseRspField *pExercise, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///³·ÏúĞĞÈ¨Ó¦´ğ
+		///æ’¤é”€è¡Œæƒåº”ç­”
 		virtual void OnRspExerciseCancel(CStockFtdcExerciseCancelRspField *pExercise, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///»áÔ±×Ê½ğ²éÑ¯Ó¦´ğ
+		///ä¼šå‘˜èµ„é‡‘æŸ¥è¯¢åº”ç­”
 		virtual void OnRspQryPartAccount(CStockFtdcRspPartAccountField *pRspPartAccount, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///¹ÉÆ±±¨µ¥²éÑ¯Ó¦´ğ
+		///è‚¡ç¥¨æŠ¥å•æŸ¥è¯¢åº”ç­”
 		virtual void OnRspQryStockOrder(CStockFtdcRspQryStockOrderField *pOrder, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///ÆÚÈ¨±¨µ¥²éÑ¯Ó¦´ğ
+		///æœŸæƒæŠ¥å•æŸ¥è¯¢åº”ç­”
 		virtual void OnRspQryOptionsOrder(CStockFtdcRspQryOptionsOrderField *pOrder, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///±¨¼Û²éÑ¯Ó¦´ğ
+		///æŠ¥ä»·æŸ¥è¯¢åº”ç­”
 		virtual void OnRspQryQuoteOrder(CStockFtdcRspQryQuoteOrderField *pQuote, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///¹ÉÆ±³É½»²éÑ¯Ó¦´ğ
+		///è‚¡ç¥¨æˆäº¤æŸ¥è¯¢åº”ç­”
 		virtual void OnRspQryStockTrade(CStockFtdcStockTradeField *pTrade, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///ÆÚÈ¨³É½»²éÑ¯Ó¦´ğ
+		///æœŸæƒæˆäº¤æŸ¥è¯¢åº”ç­”
 		virtual void OnRspQryOptionsTrade(CStockFtdcOptionsTradeField *pTrade, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///³Ö²Ö²éÑ¯Ó¦´ğ
+		///æŒä»“æŸ¥è¯¢åº”ç­”
 		virtual void OnRspQryPosition(CStockFtdcRspPositionField *pPosition, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///Ö÷Ìâ²éÑ¯Ó¦´ğ
+		///ä¸»é¢˜æŸ¥è¯¢åº”ç­”
 		virtual void OnRspQryTopic(CStockFtdcDisseminationField *pDissemination, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		//¹ÉÆ±²éÑ¯Ó¦´ğ
+		//è‚¡ç¥¨æŸ¥è¯¢åº”ç­”
 		virtual void OnRspQryStock(CStockFtdcRspQryStockField *pStock, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		//ÆÚÈ¨²éÑ¯Ó¦´ğ
+		//æœŸæƒæŸ¥è¯¢åº”ç­”
 		virtual void OnRspQryOptions(CStockFtdcRspQryOptionsField *pOptions, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///ÆÚÈ¨Î¯ÍĞ»Ø±¨
+		///æœŸæƒå§”æ‰˜å›æŠ¥
 		virtual void OnRtnOptionsOrder(CStockFtdcOptionsOrderField *pOrder) {};
 
-		///¹ÉÆ±Î¯ÍĞ»Ø±¨
+		///è‚¡ç¥¨å§”æ‰˜å›æŠ¥
 		virtual void OnRtnStockOrder(CStockFtdcStockOrderField *pOrder) {};
 
-		///±¨¼Û»Ø±¨
+		///æŠ¥ä»·å›æŠ¥
 		virtual void OnRtnQuoteOrder(CStockFtdcQuoteOrderField *pQuote) {};
 
-		///ÆÚÈ¨³É½»»Ø±¨
+		///æœŸæƒæˆäº¤å›æŠ¥
 		virtual void OnRtnOptionsTrade(CStockFtdcOptionsTradeField *pTrade) {};
 
-		///¹ÉÆ±³É½»»Ø±¨
+		///è‚¡ç¥¨æˆäº¤å›æŠ¥
 		virtual void OnRtnStockTrade(CStockFtdcStockTradeField *pTrade) {};
 
-		///ĞĞÈ¨»Ø±¨
+		///è¡Œæƒå›æŠ¥
 		virtual void OnRtnExercise(CStockFtdcExerciseRtnField *pExercise) {};
 
-		///²éÑ¯·ÑÂÊĞÅÏ¢Ó¦´ğ
+		///æŸ¥è¯¢è´¹ç‡ä¿¡æ¯åº”ç­”
 		virtual void OnRspQryRate(CStockFtdcRspQryRateField *pRate, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///»áÔ±¿Í»§²éÑ¯Ó¦´ğ
+		///ä¼šå‘˜å®¢æˆ·æŸ¥è¯¢åº”ç­”
 		virtual void OnRspQryClient(CStockFtdcRspClientField *pRspClient, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///¿Í»§±£Ö¤½ğ²éÑ¯Ó¦´ğ
+		///å®¢æˆ·ä¿è¯é‡‘æŸ¥è¯¢åº”ç­”
 		virtual void OnRspQryClientMargin(CStockFtdcRspQryClientMarginField *pRspMargin, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///²éÑ¯ĞĞÈ¨Ó¦´ğ
+		///æŸ¥è¯¢è¡Œæƒåº”ç­”
 		virtual void OnRspQryExercise(CStockFtdcExerciseRtnField *pExercise, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-		///³öÈë½ğÍ¨Öª
+		///å‡ºå…¥é‡‘é€šçŸ¥
 		virtual void OnRtnWithdrawDeposit(CStockFtdcWithdrawDepositRtnField *pWithdrawDeposit) {};
 
-		///¿Í»§ÉêÇë×éºÏÇëÇó
+		///å®¢æˆ·ç”³è¯·ç»„åˆè¯·æ±‚
 		virtual void OnRspMarginCombAction(CStockFtdcMarginCombActionRspField *pMarginCombAction, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 		
-		///¿Í»§ÉêÇë×éºÏÍ¨Öª
+		///å®¢æˆ·ç”³è¯·ç»„åˆé€šçŸ¥
 		virtual void OnRtnMarginCombAction(CStockFtdcMarginCombActionRtnField *pMarginCombAction) {};
 
-		///ÉÏÆÚËù×éºÏ³Ö²Ö²éÑ¯Ó¦´ğ
+		///ä¸ŠæœŸæ‰€ç»„åˆæŒä»“æŸ¥è¯¢åº”ç­”
 		virtual void OnRspQrySseCombPosition(CStockFtdcCombPositionRspField *pPosi, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 		
-		///×éºÏĞĞÈ¨Ó¦´ğ
+		///ç»„åˆè¡Œæƒåº”ç­”
 		virtual void OnRspCombExercise(CStockFtdcCombExerciseRspField *pExercise, CStockFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 	};
 
 	class TRADER_API_EXPORT CNhStockTraderApi
 	{
 	public:
-		///´´½¨TraderApi
-	///@param pszFlowPath ´æÖü¶©ÔÄĞÅÏ¢ÎÄ¼şµÄÄ¿Â¼£¬Ä¬ÈÏÎª²»Ğ´ÈÕ
-	///@return ´´½¨³öµÄUserApi
+		///åˆ›å»ºTraderApi
+	///@param pszFlowPath å­˜è´®è®¢é˜…ä¿¡æ¯æ–‡ä»¶çš„ç›®å½•ï¼Œé»˜è®¤ä¸ºä¸å†™æ—¥
+	///@return åˆ›å»ºå‡ºçš„UserApi
 		static CNhStockTraderApi *CreateFtdcTraderApi(const char *pszFlowPath = "");
 
-		///»ñÈ¡ÏµÍ³°æ±¾ºÅ
-		///@param nMajorVersion Ö÷°æ±¾ºÅ
-		///@param nMinorVersion ×Ó°æ±¾ºÅ
-		///@return ÏµÍ³±êÊ¶×Ö·û´®
+		///è·å–ç³»ç»Ÿç‰ˆæœ¬å·
+		///@param nMajorVersion ä¸»ç‰ˆæœ¬å·
+		///@param nMinorVersion å­ç‰ˆæœ¬å·
+		///@return ç³»ç»Ÿæ ‡è¯†å­—ç¬¦ä¸²
 		static const char *GetVersion(int &nMajorVersion, int &nMinorVersion);
 
-		///É¾³ı½Ó¿Ú¶ÔÏó±¾Éí
-		///@remark ²»ÔÙÊ¹ÓÃ±¾½Ó¿Ú¶ÔÏóÊ±,µ÷ÓÃ¸Ãº¯ÊıÉ¾³ı½Ó¿Ú¶ÔÏó
+		///åˆ é™¤æ¥å£å¯¹è±¡æœ¬èº«
+		///@remark ä¸å†ä½¿ç”¨æœ¬æ¥å£å¯¹è±¡æ—¶,è°ƒç”¨è¯¥å‡½æ•°åˆ é™¤æ¥å£å¯¹è±¡
 		virtual void Release() = 0;
 
-		///³õÊ¼»¯
-		///@param localIp£ºÈç¹ûÍ¨¹ıtcpdirectÀ´·¢ËÍ½ÓÊÕÊı¾İ£¬ÔòÎª·¢ËÍ½ÓÊÕÊı¾İµÄÍø¿¨ip¡£
-		///@param netWorkCard£ºÈç¹ûÍ¨¹ıtcpdirectÀ´·¢ËÍ½ÓÊÕÊı¾İ£¬ÔòÎª·¢ËÍ½ÓÊÕÊı¾İµÄÍø¿¨Ãû³Æ
-		///@remark ³õÊ¼»¯ÔËĞĞ»·¾³,Ö»ÓĞµ÷ÓÃºó,½Ó¿Ú²Å¿ªÊ¼¹¤×÷
+		///åˆå§‹åŒ–
+		///@param localIpï¼šå¦‚æœé€šè¿‡tcpdirectæ¥å‘é€æ¥æ”¶æ•°æ®ï¼Œåˆ™ä¸ºå‘é€æ¥æ”¶æ•°æ®çš„ç½‘å¡ipã€‚
+		///@param netWorkCardï¼šå¦‚æœé€šè¿‡tcpdirectæ¥å‘é€æ¥æ”¶æ•°æ®ï¼Œåˆ™ä¸ºå‘é€æ¥æ”¶æ•°æ®çš„ç½‘å¡åç§°
+		///@remark åˆå§‹åŒ–è¿è¡Œç¯å¢ƒ,åªæœ‰è°ƒç”¨å,æ¥å£æ‰å¼€å§‹å·¥ä½œ
 		virtual void Init(const char *localIp = "", const char *netWorkCard = "") = 0;
 
-		///»ñÈ¡µ±Ç°½»Ò×ÈÕ
-		///@retrun »ñÈ¡µ½µÄ½»Ò×ÈÕ
-		///@remark Ö»ÓĞµÇÂ¼³É¹¦ºó,²ÅÄÜµÃµ½ÕıÈ·µÄ½»Ò×ÈÕ
+		///è·å–å½“å‰äº¤æ˜“æ—¥
+		///@retrun è·å–åˆ°çš„äº¤æ˜“æ—¥
+		///@remark åªæœ‰ç™»å½•æˆåŠŸå,æ‰èƒ½å¾—åˆ°æ­£ç¡®çš„äº¤æ˜“æ—¥
 		virtual const char *GetTradingDay() = 0;
 
-		///×¢²áÇ°ÖÃ»úÍøÂçµØÖ·
-		///@param pszFrontAddress£ºÇ°ÖÃ»úÍøÂçµØÖ·¡£
-		///@remark ÍøÂçµØÖ·µÄ¸ñÊ½Îª£º¡°protocol://ipaddress:port¡±£¬Èç£º¡±tcp://127.0.0.1:17001¡±¡£
-		///@remark ¡°tcp¡±´ú±í´«ÊäĞ­Òé£¬¡°127.0.0.1¡±´ú±í·şÎñÆ÷µØÖ·¡£¡±17001¡±´ú±í·şÎñÆ÷¶Ë¿ÚºÅ¡£
+		///æ³¨å†Œå‰ç½®æœºç½‘ç»œåœ°å€
+		///@param pszFrontAddressï¼šå‰ç½®æœºç½‘ç»œåœ°å€ã€‚
+		///@remark ç½‘ç»œåœ°å€çš„æ ¼å¼ä¸ºï¼šâ€œprotocol://ipaddress:portâ€ï¼Œå¦‚ï¼šâ€tcp://127.0.0.1:17001â€ã€‚
+		///@remark â€œtcpâ€ä»£è¡¨ä¼ è¾“åè®®ï¼Œâ€œ127.0.0.1â€ä»£è¡¨æœåŠ¡å™¨åœ°å€ã€‚â€17001â€ä»£è¡¨æœåŠ¡å™¨ç«¯å£å·ã€‚
 		virtual void RegisterFront(char *pszFrontAddress) = 0;
 
-		///×¢²á»Øµ÷½Ó¿Ú
-		///@param pSpi ÅÉÉú×Ô»Øµ÷½Ó¿ÚÀàµÄÊµÀı
+		///æ³¨å†Œå›è°ƒæ¥å£
+		///@param pSpi æ´¾ç”Ÿè‡ªå›è°ƒæ¥å£ç±»çš„å®ä¾‹
 		virtual void RegisterSpi(CNhStockTraderSpi *pSpi) = 0;
 
-		///¶©ÔÄË½ÓĞÁ÷¡£
-		///@param nResumeType Ë½ÓĞÁ÷ÖØ´«·½Ê½
-		///        TERT_RESTART:´Ó±¾½»Ò×ÈÕ¿ªÊ¼ÖØ´«
-		///        TERT_RESUME:´ÓÉÏ´ÎÊÕµ½µÄĞø´«
-		///        TERT_QUICK:Ö»´«ËÍµÇÂ¼ºóË½ÓĞÁ÷µÄÄÚÈİ
-		///@remark ¸Ã·½·¨ÒªÔÚInit·½·¨Ç°µ÷ÓÃ¡£Èô²»µ÷ÓÃÔò²»»áÊÕµ½Ë½ÓĞÁ÷µÄÊı¾İ¡£
+		///è®¢é˜…ç§æœ‰æµã€‚
+		///@param nResumeType ç§æœ‰æµé‡ä¼ æ–¹å¼
+		///        TERT_RESTART:ä»æœ¬äº¤æ˜“æ—¥å¼€å§‹é‡ä¼ 
+		///        TERT_RESUME:ä»ä¸Šæ¬¡æ”¶åˆ°çš„ç»­ä¼ 
+		///        TERT_QUICK:åªä¼ é€ç™»å½•åç§æœ‰æµçš„å†…å®¹
+		///@remark è¯¥æ–¹æ³•è¦åœ¨Initæ–¹æ³•å‰è°ƒç”¨ã€‚è‹¥ä¸è°ƒç”¨åˆ™ä¸ä¼šæ”¶åˆ°ç§æœ‰æµçš„æ•°æ®ã€‚
 		virtual void SubscribePrivateTopic(SZSE_TE_RESUME_TYPE nResumeType) = 0;
 
-		///¶©ÔÄ¹«¹²Á÷¡£
-		///@param nResumeType ¹«¹²Á÷ÖØ´«·½Ê½
-		///        TERT_RESTART:´Ó±¾½»Ò×ÈÕ¿ªÊ¼ÖØ´«
-		///        TERT_RESUME:´ÓÉÏ´ÎÊÕµ½µÄĞø´«
-		///        TERT_QUICK:Ö»´«ËÍµÇÂ¼ºó¹«¹²Á÷µÄÄÚÈİ
-		///@remark ¸Ã·½·¨ÒªÔÚInit·½·¨Ç°µ÷ÓÃ¡£Èô²»µ÷ÓÃÔò²»»áÊÕµ½¹«¹²Á÷µÄÊı¾İ¡£
+		///è®¢é˜…å…¬å…±æµã€‚
+		///@param nResumeType å…¬å…±æµé‡ä¼ æ–¹å¼
+		///        TERT_RESTART:ä»æœ¬äº¤æ˜“æ—¥å¼€å§‹é‡ä¼ 
+		///        TERT_RESUME:ä»ä¸Šæ¬¡æ”¶åˆ°çš„ç»­ä¼ 
+		///        TERT_QUICK:åªä¼ é€ç™»å½•åå…¬å…±æµçš„å†…å®¹
+		///@remark è¯¥æ–¹æ³•è¦åœ¨Initæ–¹æ³•å‰è°ƒç”¨ã€‚è‹¥ä¸è°ƒç”¨åˆ™ä¸ä¼šæ”¶åˆ°å…¬å…±æµçš„æ•°æ®ã€‚
 		virtual void SubscribePublicTopic(SZSE_TE_RESUME_TYPE nResumeType) = 0;
 
-		///¶©ÔÄ½»Ò×Ô±Á÷¡£
-		///@param nResumeType ½»Ò×Ô±Á÷ÖØ´«·½Ê½
-		///        TERT_RESTART:´Ó±¾½»Ò×ÈÕ¿ªÊ¼ÖØ´«
-		///        TERT_RESUME:´ÓÉÏ´ÎÊÕµ½µÄĞø´«
-		///        TERT_QUICK:Ö»´«ËÍµÇÂ¼ºó½»Ò×Ô±Á÷µÄÄÚÈİ
-		///@remark ¸Ã·½·¨ÒªÔÚInit·½·¨Ç°µ÷ÓÃ¡£Èô²»µ÷ÓÃÔò²»»áÊÕµ½½»Ò×Ô±Á÷µÄÊı¾İ¡£
+		///è®¢é˜…äº¤æ˜“å‘˜æµã€‚
+		///@param nResumeType äº¤æ˜“å‘˜æµé‡ä¼ æ–¹å¼
+		///        TERT_RESTART:ä»æœ¬äº¤æ˜“æ—¥å¼€å§‹é‡ä¼ 
+		///        TERT_RESUME:ä»ä¸Šæ¬¡æ”¶åˆ°çš„ç»­ä¼ 
+		///        TERT_QUICK:åªä¼ é€ç™»å½•åäº¤æ˜“å‘˜æµçš„å†…å®¹
+		///@remark è¯¥æ–¹æ³•è¦åœ¨Initæ–¹æ³•å‰è°ƒç”¨ã€‚è‹¥ä¸è°ƒç”¨åˆ™ä¸ä¼šæ”¶åˆ°äº¤æ˜“å‘˜æµçš„æ•°æ®ã€‚
 		virtual void SubscribeUserTopic(SZSE_TE_RESUME_TYPE nResumeType) = 0;
 
-		///ÉèÖÃĞÄÌø³¬Ê±Ê±¼ä¡£
-		///@param timeout ĞÄÌø³¬Ê±Ê±¼ä(Ãë)
+		///è®¾ç½®å¿ƒè·³è¶…æ—¶æ—¶é—´ã€‚
+		///@param timeout å¿ƒè·³è¶…æ—¶æ—¶é—´(ç§’)
 		virtual void SetHeartbeatTimeout(unsigned int timeout) = 0;
 
-		///¶©ÔÄÖ÷ÌâÇëÇó
+		///è®¢é˜…ä¸»é¢˜è¯·æ±‚
 		virtual int ReqSubscribeTopic(CStockFtdcDisseminationField *pDissemination, int nRequestID) = 0;
 
-		///ÓÃ»§µÇÂ¼ÇëÇó
+		///ç”¨æˆ·ç™»å½•è¯·æ±‚
 		virtual int ReqUserLogin(CStockFtdcReqUserLoginField *pReqUserLogin, int nRequestID) = 0;
 
-		///ÓÃ»§ÍË³öÇëÇó
+		///ç”¨æˆ·é€€å‡ºè¯·æ±‚
 		virtual int ReqUserLogout(CStockFtdcReqUserLogoutField *pReqUserLogout, int nRequestID) = 0;
 
-		///ÓÃ»§ÃÜÂëĞŞ¸ÄÇëÇó
+		///ç”¨æˆ·å¯†ç ä¿®æ”¹è¯·æ±‚
 		virtual int ReqUserPasswordUpdate(CStockFtdcUserPasswordUpdateField *pUserPasswordUpdate, int nRequestID) = 0;
 
-		///¹ÉÆ±±¨µ¥ÇëÇó
+		///è‚¡ç¥¨æŠ¥å•è¯·æ±‚
 		virtual int ReqStockInsert(CStockFtdcStockInsertReqField *pStockInsert, int nRequestID) = 0;
 
-		///¹ÉÆ±³·µ¥ÇëÇó
+		///è‚¡ç¥¨æ’¤å•è¯·æ±‚
 		virtual int ReqStockCancel(CStockFtdcStockCancelReqField *pStockCancel, int nRequestID) = 0;
 
-		///Ö¤È¯Ëø¶¨ÇëÇó
+		///è¯åˆ¸é”å®šè¯·æ±‚
 		virtual int ReqStockLock(CStockFtdcStockLockReqField *pStockLock, int nRequestID) = 0;
 
-		///ÆÚÈ¨±¨µ¥ÇëÇó
+		///æœŸæƒæŠ¥å•è¯·æ±‚
 		virtual int ReqOptionsInsert(CStockFtdcOptionsInsertReqField *pOptionsInsert, int nRequestID) = 0;
 
-		///ÆÚÈ¨³·µ¥ÇëÇó
+		///æœŸæƒæ’¤å•è¯·æ±‚
 		virtual int ReqOptionsCancel(CStockFtdcOptionsCancelReqField *pOptionsCancel, int nRequestID) = 0;
 
-		///ÆÚÈ¨±¨¼ÛÇëÇó
+		///æœŸæƒæŠ¥ä»·è¯·æ±‚
 		virtual int ReqQuoteInsert(CStockFtdcQuoteInsertReqField *pQuoteInsert, int nRequestID) = 0;
 
-		///ÆÚÈ¨³·Ïú±¨¼ÛÇëÇó
+		///æœŸæƒæ’¤é”€æŠ¥ä»·è¯·æ±‚
 		virtual int ReqQuoteCancel(CStockFtdcQuoteCancelReqField *pQuoteCancel, int nRequestID) = 0;
 
-		///Ñ¯¼ÛÇëÇó
+		///è¯¢ä»·è¯·æ±‚
 		virtual int ReqForQuote(CStockFtdcForQuoteReqField *pForQuote, int nRequestID) = 0;
 
-		///ĞĞÈ¨ÇëÇó
+		///è¡Œæƒè¯·æ±‚
 		virtual int ReqExercise(CStockFtdcExerciseReqField *pExercise, int nRequestID) = 0;
 
-		///³·ÏúĞĞÈ¨ÇëÇó
+		///æ’¤é”€è¡Œæƒè¯·æ±‚
 		virtual int ReqExerciseCancel(CStockFtdcExerciseCancelReqField *pExerciseCancel, int nRequestID) = 0;
 
-		///×Ê½ğ²éÑ¯ÇëÇó
+		///èµ„é‡‘æŸ¥è¯¢è¯·æ±‚
 		virtual int ReqQryPartAccount(CStockFtdcQryPartAccountField *pQryPartAccount, int nRequestID) = 0;
 
-		///¹ÉÆ±±¨µ¥²éÑ¯ÇëÇó
+		///è‚¡ç¥¨æŠ¥å•æŸ¥è¯¢è¯·æ±‚
 		virtual int ReqQryStockOrder(CStockFtdcQryStockOrderField *pQryOrder, int nRequestID) = 0;
 
-		///ÆÚÈ¨±¨µ¥²éÑ¯ÇëÇó
+		///æœŸæƒæŠ¥å•æŸ¥è¯¢è¯·æ±‚
 		virtual int ReqQryOptionsOrder(CStockFtdcQryOptionsOrderField *pQryOrder, int nRequestID) = 0;
 
-		///±¨¼Û²éÑ¯ÇëÇó
+		///æŠ¥ä»·æŸ¥è¯¢è¯·æ±‚
 		virtual int ReqQryQuoteOrder(CStockFtdcQryQuoteOrderField *pQryQuote, int nRequestID) = 0;
 
-		///¹ÉÆ±³É½»²éÑ¯ÇëÇó
+		///è‚¡ç¥¨æˆäº¤æŸ¥è¯¢è¯·æ±‚
 		virtual int ReqQryStockTrade(CStockFtdcQryStockTradeField *pQryTrade, int nRequestID) = 0;
 
-		///ÆÚÈ¨³É½»²éÑ¯ÇëÇó
+		///æœŸæƒæˆäº¤æŸ¥è¯¢è¯·æ±‚
 		virtual int ReqQryOptionsTrade(CStockFtdcQryOptionsTradeField *pQryTrade, int nRequestID) = 0;
 
-		///³Ö²Ö²éÑ¯ÇëÇó
+		///æŒä»“æŸ¥è¯¢è¯·æ±‚
 		virtual int ReqQryPosition(CStockFtdcQryPositionField *pQryPosition, int nRequestID) = 0;
 
-		///Ö÷Ìâ²éÑ¯ÇëÇó
+		///ä¸»é¢˜æŸ¥è¯¢è¯·æ±‚
 		virtual int ReqQryTopic(CStockFtdcDisseminationField *pDissemination, int nRequestID) = 0;
 
-		//¹ÉÆ±²éÑ¯ÇëÇó
+		//è‚¡ç¥¨æŸ¥è¯¢è¯·æ±‚
 		virtual int ReqQryStock(CStockFtdcQryStockField *pStock, int nRequestID) = 0;
 
-		//ÆÚÈ¨²éÑ¯ÇëÇó
+		//æœŸæƒæŸ¥è¯¢è¯·æ±‚
 		virtual int ReqQryOptions(CStockFtdcQryOptionsField *pOptions, int nRequestID) = 0;
 
-		///²éÑ¯·ÑÂÊĞÅÏ¢Ó¦´ğ
+		///æŸ¥è¯¢è´¹ç‡ä¿¡æ¯åº”ç­”
 		virtual int ReqQryRate(CStockFtdcQryRateField *pRate, int nRequestID) = 0;
 
-		///»áÔ±¿Í»§²éÑ¯ÇëÇó
+		///ä¼šå‘˜å®¢æˆ·æŸ¥è¯¢è¯·æ±‚
 		virtual int ReqQryClient(int nRequestID) = 0;
 
-		///²éÑ¯±£Ö¤½ğ¼ÆËã²ÎÊıÇëÇó
+		///æŸ¥è¯¢ä¿è¯é‡‘è®¡ç®—å‚æ•°è¯·æ±‚
 		virtual int ReqQryClientMargin(CStockFtdcQryClientMarginField *pRate, int nRequestID) = 0;
 
-		//ĞĞÈ¨²éÑ¯ÇëÇó
+		//è¡ŒæƒæŸ¥è¯¢è¯·æ±‚
 		virtual int ReqQryExercise(CStockFtdcQryExerciseField *pExercise, int nRequestID) = 0;
 
-		///¿Í»§ÉêÇë×éºÏÇëÇó
+		///å®¢æˆ·ç”³è¯·ç»„åˆè¯·æ±‚
 		virtual int ReqMarginCombAction(CStockFtdcMarginCombActionField *pMarginCombAction, int nRequestID) = 0;
 
-		///ÉÏ½»Ëù×éºÏ³Ö²Ö²éÑ¯ÇëÇó
+		///ä¸Šäº¤æ‰€ç»„åˆæŒä»“æŸ¥è¯¢è¯·æ±‚
 		virtual int ReqQrySseCombPosition(CStockFtdcCombPositionField *pPosi, int nRequestID) = 0;
 
-		///×éºÏĞĞÈ¨ÇëÇó
+		///ç»„åˆè¡Œæƒè¯·æ±‚
 		virtual int ReqCombExercise(CStockFtdcCombExerciseReqField *pExercise, int nRequestID) = 0;
 	protected:
 		~CNhStockTraderApi(){};

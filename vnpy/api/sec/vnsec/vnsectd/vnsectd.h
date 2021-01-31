@@ -1,4 +1,4 @@
-//ÏµÍ³
+ï»¿//ç³»ç»Ÿ
 #ifdef WIN32
 #include "pch.h"
 #endif
@@ -10,7 +10,7 @@
 using namespace pybind11;
 using namespace std;
 
-//³£Á¿
+//å¸¸é‡
 
 #define ONFRONTCONNECTED 0
 #define ONFRONTDISCONNECTED 1
@@ -108,1187 +108,1187 @@ using namespace std;
 #define ONFASLWITHDRAWORDERRTN 93
 
 ///-------------------------------------------------------------------------------------
-///C++ SPIµÄ»Øµ÷º¯Êı·½·¨ÊµÏÖ
+///C++ SPIçš„å›è°ƒå‡½æ•°æ–¹æ³•å®ç°
 ///-------------------------------------------------------------------------------------
 
-//APIµÄ¼Ì³ĞÊµÏÖ
+//APIçš„ç»§æ‰¿å®ç°
 
 class TdApi : public DFITCSECTraderSpi
 {
 private:
-	DFITCSECTraderApi* api;            //API¶ÔÏó
-	thread task_thread;                    //¹¤×÷Ïß³ÌÖ¸Õë£¨ÏòpythonÖĞÍÆËÍÊı¾İ£©
-	TaskQueue task_queue;                //ÈÎÎñ¶ÓÁĞ
-	bool active = false;                //¹¤×÷×´Ì¬
+    DFITCSECTraderApi* api;            //APIå¯¹è±¡
+    thread task_thread;                    //å·¥ä½œçº¿ç¨‹æŒ‡é’ˆï¼ˆå‘pythonä¸­æ¨é€æ•°æ®ï¼‰
+    TaskQueue task_queue;                //ä»»åŠ¡é˜Ÿåˆ—
+    bool active = false;                //å·¥ä½œçŠ¶æ€
 public:
-	TdApi()
-	{
-	};
-
-	~TdApi()
-	{
-		if (this->active)
-		{
-			this->exit();
-		}
-	};
-	//-------------------------------------------------------------------------------------
-	//API»Øµ÷º¯Êı
-	//-------------------------------------------------------------------------------------
-
-	/**
-	 * SEC-ÍøÂçÁ¬½ÓÕı³£ÏìÓ¦
-	 */
-	virtual void OnFrontConnected();
-	/**
-	 * SEC-ÍøÂçÁ¬½Ó²»Õı³£ÏìÓ¦
-	 */
-	virtual void OnFrontDisconnected(int nReason);
-	/**
-	 * SEC-ÏûÏ¢Í¨Öª
-	 */
-	virtual void OnRtnNotice(DFITCSECRspNoticeField *pNotice);
-	/**
-	* ERR-´íÎóÓ¦´ğ
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹µØÖ·
-	*/
-	virtual void OnRspError(DFITCSECRspInfoField *pRspInfo);
-	/**
-	* STOCK-µÇÂ¼ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§µÇÂ¼ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷µÇÂ¼ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷µÇÂ¼ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspStockUserLogin(DFITCSECRspUserLoginField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* STOCK-µÇ³öÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§µÇ³öÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷µÇ³öÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷µÇ³öÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspStockUserLogout(DFITCSECRspUserLogoutField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* STOCK-ÃÜÂë¸üĞÂÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§ÃÜÂë¸üĞÂÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷ÃÜÂë¸üĞÂÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷ÃÜÂë¸üĞÂÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspStockUserPasswordUpdate(DFITCSECRspPasswordUpdateField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* STOCK-Î¯ÍĞ±¨µ¥ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§Î¯ÍĞ±¨µ¥ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷±¨µ¥ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷Î¯ÍĞ±¨µ¥ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspStockEntrustOrder(DFITCStockRspEntrustOrderField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* STOCK-Î¯ÍĞ³·µ¥ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§Î¯ÍĞ³·µ¥ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷³·µ¥ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷Î¯ÍĞ³·µ¥ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspStockWithdrawOrder(DFITCSECRspWithdrawOrderField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* STOCK-Î¯ÍĞ²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§Î¯ÍĞ²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷Î¯ÍĞ²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspStockQryEntrustOrder(DFITCStockRspQryEntrustOrderField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* STOCK-ÊµÊ±³É½»²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§ÊµÊ±³É½»²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷ÊµÊ±³É½»²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷ÊµÊ±³É½»²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspStockQryRealTimeTrade(DFITCStockRspQryRealTimeTradeField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* STOCK-·Ö±Ê³É½»²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§·Ö±Ê³É½»²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷·Ö±Ê³É½»²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷·Ö±Ê³É½»²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspStockQrySerialTrade(DFITCStockRspQrySerialTradeField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* STOCK-³Ö²Ö²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§³Ö²Ö²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷³Ö²Ö²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷³Ö²Ö²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspStockQryPosition(DFITCStockRspQryPositionField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* STOCK-×Ê½ğÕËºÅ²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§×Ê½ğÕËºÅ²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷×Ê½ğÕËºÅ²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷×Ê½ğÕËºÅ²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspStockQryCapitalAccountInfo(DFITCStockRspQryCapitalAccountField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* STOCK-½»Ò×ÕËºÅ²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§½»Ò×ÕËºÅ²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷½»Ò×ÕËºÅ²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷½»Ò×ÕËºÅ²éÑ¯ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspStockQryAccountInfo(DFITCStockRspQryAccountField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* STOCK-¹É¶«ºÅ²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§¹É¶«ºÅ²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷¹É¶«ºÅ²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷¹É¶«ºÅ²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspStockQryShareholderInfo(DFITCStockRspQryShareholderField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* STOCK-×Ê½ğµ÷²¦ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§×Ê½ğµ÷²¦ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷¹É×Ê½ğµ÷²¦ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷×Ê½ğµ÷²¦ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspStockTransferFunds(DFITCStockRspTransferFundsField *pData, DFITCSECRspInfoField *pRspInfo);
-	/*
-	* STOCK-ÅúÁ¿Î¯ÍĞÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§ÅúÁ¿Î¯ÍĞÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷ÅúÁ¿Î¯ÍĞÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷ÅúÁ¿Î¯ÍĞÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspStockEntrustBatchOrder(DFITCStockRspEntrustBatchOrderField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* STOCK-ÅúÁ¿³·µ¥ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§ÅúÁ¿³·µ¥ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷ÅúÁ¿³·µ¥ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷ÅúÁ¿³·µ¥ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspStockWithdrawBatchOrder(DFITCStockRspWithdrawBatchOrderField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* STOCK-¼ÆËã¿ÉÎ¯ÍĞÊıÁ¿ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§¼ÆËã¿ÉÎ¯ÍĞÊıÁ¿ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷¼ÆËã¿ÉÎ¯ÍĞÊıÁ¿ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷¼ÆËã¿ÉÎ¯ÍĞÊıÁ¿ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspStockCalcAbleEntrustQty(DFITCStockRspCalcAbleEntrustQtyField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* STOCK-¼ÆËãÉê¹ºETFÊıÁ¿ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§¼ÆËãÉê¹ºETFÊıÁ¿ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷¼ÆËãÉê¹ºETFÊıÁ¿ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷¼ÆËãÉê¹ºETFÊıÁ¿ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspStockCalcAblePurchaseETFQty(DFITCStockRspCalcAblePurchaseETFQtyField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* STOCK-¶³½á×Ê½ğÃ÷Ï¸²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§¶³½á×Ê½ğÃ÷Ï¸²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷¶³½á×Ê½ğÃ÷Ï¸²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷¶³½á×Ê½ğÃ÷Ï¸²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspStockQryFreezeFundsDetail(DFITCStockRspQryFreezeFundsDetailField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* STOCK-¶³½áÖ¤È¯Ã÷Ï¸²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§¶³½áÖ¤È¯Ã÷Ï¸²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷¶³½áÖ¤È¯Ã÷Ï¸²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷¶³½áÖ¤È¯Ã÷Ï¸²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspStockQryFreezeStockDetail(DFITCStockRspQryFreezeStockDetailField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* STOCK-µ÷²¦Ö¤È¯Ã÷Ï¸²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§µ÷²¦Ö¤È¯Ã÷Ï¸²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷µ÷²¦Ö¤È¯Ã÷Ï¸²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷µ÷²¦Ö¤È¯Ã÷Ï¸²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspStockQryTransferStockDetail(DFITCStockRspQryTransferStockDetailField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* STOCK-µ÷²¦×Ê½ğÃ÷Ï¸²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§µ÷²¦×Ê½ğÃ÷Ï¸²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷µ÷²¦×Ê½ğÃ÷Ï¸²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷µ÷²¦×Ê½ğÃ÷Ï¸²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspStockQryTransferFundsDetail(DFITCStockRspQryTransferFundsDetailField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* STOCK-Ö¤È¯ĞÅÏ¢²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§Ö¤È¯ĞÅÏ¢²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷Ö¤È¯ĞÅÏ¢²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷Ö¤È¯ĞÅÏ¢²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspStockQryStockInfo(DFITCStockRspQryStockField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* STOCK-Ö¤È¯¾²Ì¬ĞÅÏ¢²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§Ö¤È¯¾²Ì¬ĞÅÏ¢²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷Ö¤È¯¾²Ì¬ĞÅÏ¢²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷Ö¤È¯¾²Ì¬ĞÅÏ¢²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspStockQryStockStaticInfo(DFITCStockRspQryStockStaticField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* STOCK-½»Ò×Ê±¼ä²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§½»Ò×Ê±¼ä²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹ÌåµÄµØÖ·,±íÃ÷½»Ò×Ê±¼ä²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢½á¹¹ÌåµÄµØÖ·£¬±íÃ÷½»Ò×Ê±¼ä²éÑ¯ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspStockQryTradeTime(DFITCStockRspQryTradeTimeField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* STOCK-Î¯ÍĞ»Ø±¨ÏìÓ¦
-	* @param pData:·µ»ØÎ¯ÍĞ»Ø±¨½á¹¹ÌåµÄµØÖ·
-	*/
-	virtual void OnStockEntrustOrderRtn(DFITCStockEntrustOrderRtnField * pData);
-	/**
-	* STOCK-³É½»»Ø±¨ÏìÓ¦
-	* @param pData:·µ»Ø³É½»»Ø±¨½á¹¹ÌåµÄµØÖ·
-	*/
-	virtual void OnStockTradeRtn(DFITCStockTradeRtnField * pData);
-	/**
-	* STOCK-³·µ¥»Ø±¨ÏìÓ¦
-	* @param pData:·µ»Ø³·µ¥»Ø±¨½á¹¹ÌåµÄµØÖ·
-	*/
-	virtual void OnStockWithdrawOrderRtn(DFITCStockWithdrawOrderRtnField * pData);
-
-	/**
-	* SOP-µÇÂ¼ÏìÓ¦
-	* @param pRspUserLogin:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§µÇÂ¼ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷µÇÂ¼ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷µÇÂ¼ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspSOPUserLogin(DFITCSECRspUserLoginField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	 * SOP-µÇ³öÏìÓ¦
-	 * @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§µÇ³öÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷µÇ³öÇëÇó³É¹¦
-	 * @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷µÇ³öÇëÇóÊ§°Ü
-	 */
-	virtual void OnRspSOPUserLogout(DFITCSECRspUserLogoutField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* SOP-ÓÃ»§¿ÚÁî¸üĞÂÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§¿ÚÁî¸üĞÂÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷ÓÃ»§¿ÚÁî¸üĞÂÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷ÓÃ»§¿ÚÁî¸üĞÂÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspSOPUserPasswordUpdate(DFITCSECRspPasswordUpdateField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* SOP-±¨µ¥ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§±¨µ¥ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷±¨µ¥ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷±¨µ¥ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspSOPEntrustOrder(DFITCSOPRspEntrustOrderField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* SOP-×öÊĞÉÌ±¨µ¥ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§±¨¼ÛÎ¯ÍĞÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷×öÊĞÉÌ±¨µ¥ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷×öÊĞÉÌ±¨µ¥ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspSOPQuoteEntrustOrder(DFITCSOPRspQuoteEntrustOrderField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* SOP-×éºÏ²ğ·ÖÎ¯ÍĞÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§×éºÏ²ğ·ÖÎ¯ÍĞÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷×éºÏ²ğ·ÖÎ¯ÍĞÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷×éºÏ²ğ·ÖÎ¯ÍĞÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspSOPGroupSplit(DFITCSOPRspEntrustOrderField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	 * SOP-ÆÚÈ¨×éºÏĞĞÈ¨Î¯ÍĞÏìÓ¦
-	 * @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§ÆÚÈ¨×éºÏĞĞÈ¨Î¯ÍĞÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷ÆÚÈ¨×éºÏĞĞÈ¨Î¯ÍĞÇëÇó³É¹¦
-	 * @return pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷ÆÚÈ¨×éºÏĞĞÈ¨Î¯ÍĞÇëÇóÊ§°Ü£¬¾ßÌå´íÎóÇë¶ÔÕÕerror.xml
-	 */
-	virtual void OnRspSOPGroupExectueOrder(DFITCSOPRspGroupExectueOrderField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* SOP-²éÑ¯¿Í»§×éºÏ³Ö²ÖÃ÷Ï¸ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§²éÑ¯¿Í»§×éºÏ³Ö²ÖÃ÷Ï¸ÏìÓ¦½á¹¹µØÖ·,±íÃ÷²éÑ¯¿Í»§×éºÏ³Ö²ÖÃ÷Ï¸ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷²éÑ¯¿Í»§×éºÏ³Ö²ÖÃ÷Ï¸ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspSOPQryGroupPosition(DFITCSOPRspQryGroupPositionField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* SOP-Ö¤È¯Ëø¶¨½âËøÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§Ö¤È¯Ëø¶¨½âËøÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷Ö¤È¯Ëø¶¨½âËøÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷Ö¤È¯Ëø¶¨½âËøÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspSOPLockOUnLockStock(DFITCSOPRspLockOUnLockStockField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* SOP-³·µ¥ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§³·µ¥ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷³·µ¥ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷³·µ¥ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspSOPWithdrawOrder(DFITCSECRspWithdrawOrderField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* SOP-Î¯ÍĞ²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§Î¯ÍĞ²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷Î¯ÍĞ²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷Î¯ÍĞ²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspSOPQryEntrustOrder(DFITCSOPRspQryEntrustOrderField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* SOP-·Ö±Ê³É½»²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§·Ö±Ê³É½»²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷·Ö±Ê³É½»²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷·Ö±Ê³É½»²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspSOPQrySerialTrade(DFITCSOPRspQrySerialTradeField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* SOP-³Ö²Ö²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§³Ö²Ö²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷³Ö²Ö²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷³Ö²Ö²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspSOPQryPosition(DFITCSOPRspQryPositionField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* SOP-¿Í»§µ£±£³Ö²Ö²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§¿Í»§µ£±£³Ö²Ö²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§µ£±£³Ö²Ö²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§µ£±£³Ö²Ö²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspSOPQryCollateralPosition(DFITCSOPRspQryCollateralPositionField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* SOP-¿Í»§×Ê½ğ²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§¿Í»§×Ê½ğ²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§¿Í»§×Ê½ğ²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§¿Í»§×Ê½ğ²éÑ¯ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspSOPQryCapitalAccountInfo(DFITCSOPRspQryCapitalAccountField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* SOP-¿Í»§ĞÅÏ¢²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§¿Í»§ĞÅÏ¢²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§¿Í»§ĞÅÏ¢²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§¿Í»§ĞÅÏ¢²éÑ¯ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspSOPQryAccountInfo(DFITCSOPRspQryAccountField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* SOP-¹É¶«ĞÅÏ¢²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§¹É¶«ĞÅÏ¢²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§¹É¶«ĞÅÏ¢²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§¹É¶«ĞÅÏ¢²éÑ¯ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspSOPQryShareholderInfo(DFITCSOPRspQryShareholderField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* SOP-¿ÉÎ¯ÍĞÊıÁ¿²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§¿ÉÎ¯ÍĞÊıÁ¿²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§¿ÉÎ¯ÍĞÊıÁ¿²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§¿ÉÎ¯ÍĞÊıÁ¿²éÑ¯ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspSOPCalcAbleEntrustQty(DFITCSOPRspCalcAbleEntrustQtyField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* SOP-¿Í»§¿ÉËø¶¨Ö¤È¯²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§¿Í»§¿ÉËø¶¨Ö¤È¯²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§¿Í»§¿ÉËø¶¨Ö¤È¯²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§¿Í»§¿ÉËø¶¨Ö¤È¯²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspSOPQryAbleLockStock(DFITCSOPRspQryAbleLockStockField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* SOP-ÆÚÈ¨ºÏÔ¼´úÂë²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§ÆÚÈ¨ºÏÔ¼´úÂë²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§ÆÚÈ¨ºÏÔ¼´úÂë²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§ÆÚÈ¨ºÏÔ¼´úÂë²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspSOPQryContactInfo(DFITCSOPRspQryContactField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* SOP-Ö´ĞĞÎ¯ÍĞÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§Ö´ĞĞÎ¯ÍĞÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§Ö´ĞĞÎ¯ÍĞÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§Ö´ĞĞÎ¯ÍĞÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspSOPExectueOrder(DFITCSOPRspExectueOrderField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* SOP-¿Í»§ĞĞÈ¨Ö¸ÅÉĞÅÏ¢²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§¿Í»§ĞĞÈ¨Ö¸ÅÉĞÅÏ¢²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§¿Í»§ĞĞÈ¨Ö¸ÅÉĞÅÏ¢²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§¿Í»§ĞĞÈ¨Ö¸ÅÉĞÅÏ¢²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspSOPQryExecAssiInfo(DFITCSOPRspQryExecAssiInfoField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* SOP-²éÑ¯½»Ò×Ê±¼äÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§²éÑ¯½»Ò×Ê±¼äÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§²éÑ¯½»Ò×Ê±¼äÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§²éÑ¯½»Ò×Ê±¼äÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspSOPQryTradeTime(DFITCSOPRspQryTradeTimeField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* SOP-»ñÈ¡ËùÓĞ½»Ò×Ëù²ÎÊıÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§»ñÈ¡ËùÓĞ½»Ò×Ëù²ÎÊıÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§»ñÈ¡ËùÓĞ½»Ò×Ëù²ÎÊıÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§»ñÈ¡ËùÓĞ½»Ò×Ëù²ÎÊıÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspSOPQryExchangeInfo(DFITCSOPRspQryExchangeInfoField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* SOP-²éÑ¯ÊÖĞø·Ñ²ÎÊıÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§²éÑ¯ÊÖĞø·Ñ²ÎÊıÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§²éÑ¯ÊÖĞø·Ñ²ÎÊıÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§²éÑ¯ÊÖĞø·Ñ²ÎÊıÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspSOPQryCommission(DFITCSOPRspQryCommissionField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* SOP-²éÑ¯±£Ö¤½ğÂÊ²ÎÊıÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§²éÑ¯±£Ö¤½ğÂÊ²ÎÊıÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§²éÑ¯±£Ö¤½ğÂÊ²ÎÊıÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§²éÑ¯±£Ö¤½ğÂÊ²ÎÊıÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspSOPQryDeposit(DFITCSOPRspQryDepositField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* SOP-ÆÚÈ¨±êµÄĞÅÏ¢²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§ÆÚÈ¨±êµÄĞÅÏ¢²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§ÆÚÈ¨±êµÄĞÅÏ¢²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§ÆÚÈ¨±êµÄĞÅÏ¢²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspSOPQryContractObjectInfo(DFITCSOPRspQryContractObjectField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* SOP-Î¯ÍĞ»Ø±¨ÏìÓ¦
-	* @param pData:·µ»ØÎ¯ÍĞ»Ø±¨½á¹¹ÌåµÄµØÖ·
-	*/
-	virtual void OnSOPEntrustOrderRtn(DFITCSOPEntrustOrderRtnField * pData);
-	/**
-	* SOP-³É½»»Ø±¨ÏìÓ¦
-	* @param pData:·µ»Ø³É½»»Ø±¨½á¹¹ÌåµÄµØÖ·
-	*/
-	virtual void OnSOPTradeRtn(DFITCSOPTradeRtnField * pData);
-	/**
-	* SOP-³·µ¥»Ø±¨ÏìÓ¦
-	* @param pData:·µ»Ø³·µ¥»Ø±¨½á¹¹ÌåµÄµØÖ·
-	*/
-	virtual void OnSOPWithdrawOrderRtn(DFITCSOPWithdrawOrderRtnField * pData);
-
-	/**
-	* FASL-µÇÂ¼ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§ÈÚ×ÊÈÚÈ¯µÇÂ¼ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§ÈÚ×ÊÈÚÈ¯µÇÂ¼ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§ÈÚ×ÊÈÚÈ¯µÇÂ¼ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspFASLUserLogin(DFITCSECRspUserLoginField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* FASL-µÇ³öÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§ÈÚ×ÊÈÚÈ¯µÇ³öÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§ÈÚ×ÊÈÚÈ¯µÇ³öÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§ÈÚ×ÊÈÚÈ¯µÇ³öÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspFASLUserLogout(DFITCSECRspUserLogoutField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* FASL-¿Í»§¿ÉÈÚ×ÊĞÅÏ¢ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§¿Í»§¿ÉÈÚ×ÊĞÅÏ¢ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§¿Í»§¿ÉÈÚ×ÊĞÅÏ¢ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§¿Í»§¿ÉÈÚ×ÊĞÅÏ¢ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspFASLQryAbleFinInfo(DFITCFASLRspAbleFinInfoField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* FASL-¿Í»§¿ÉÈÚÈ¯ĞÅÏ¢ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§¿Í»§¿ÉÈÚÈ¯ĞÅÏ¢ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§¿Í»§¿ÉÈÚÈ¯ĞÅÏ¢ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§¿Í»§¿ÉÈÚÈ¯ĞÅÏ¢ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspFASLQryAbleSloInfo(DFITCFASLRspAbleSloInfoField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* FASL-µ£±£Îï»®×ªÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§µ£±£Îï»®×ªÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§µ£±£Îï»®×ªÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§µ£±£Îï»®×ªÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspFASLTransferCollateral(DFITCFASLRspTransferCollateralField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* FASL-Ö±½Ó»¹¿îÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§Ö±½Ó»¹¿îÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§Ö±½Ó»¹¿îÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§Ö±½Ó»¹¿îÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspFASLDirectRepayment(DFITCFASLRspDirectRepaymentField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* FASL-»¹È¯»®×ªÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§»¹È¯»®×ªÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§»¹È¯»®×ªÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§»¹È¯»®×ªÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspFASLRepayStockTransfer(DFITCFASLRspRepayStockTransferField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* FASL-ĞÅÓÃ½»Ò×ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§ĞÅÓÃ½»Ò×ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§ĞÅÓÃ½»Ò×ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§ĞÅÓÃ½»Ò×ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspFASLEntrustCrdtOrder(DFITCFASLRspEntrustCrdtOrderField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* FASL-ÈÚ×ÊÈÚÈ¯½»Ò×ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§ÈÚ×ÊÈÚÈ¯½»Ò×ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§ÈÚ×ÊÈÚÈ¯½»Ò×ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§ÈÚ×ÊÈÚÈ¯½»Ò×ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspFASLEntrustOrder(DFITCFASLRspEntrustOrderField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* FASL-ĞÅÓÃ¿ÉÎ¯ÍĞÊıÁ¿²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§ĞÅÓÃ¿ÉÎ¯ÍĞÊıÁ¿²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§ĞÅÓÃ¿ÉÎ¯ÍĞÊıÁ¿²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§ĞÅÓÃ¿ÉÎ¯ÍĞÊıÁ¿²éÑ¯ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspFASLCalcAbleEntrustCrdtQty(DFITCFASLRspCalcAbleEntrustCrdtQtyField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* FASL-²éÑ¯ĞÅÓÃ×Ê½ğÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§²éÑ¯ĞÅÓÃ×Ê½ğÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§²éÑ¯ĞÅÓÃ×Ê½ğÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§²éÑ¯ĞÅÓÃ×Ê½ğÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspFASLQryCrdtFunds(DFITCFASLRspQryCrdtFundsField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* FASL-ĞÅÓÃºÏÔ¼ĞÅÏ¢ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§ĞÅÓÃºÏÔ¼ĞÅÏ¢ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§ĞÅÓÃºÏÔ¼ĞÅÏ¢ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§ĞÅÓÃºÏÔ¼ĞÅÏ¢ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspFASLQryCrdtContract(DFITCFASLRspQryCrdtContractField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLat);
-	/**
-	* FASL-ĞÅÓÃºÏÔ¼±ä¶¯ĞÅÏ¢²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§ĞÅÓÃºÏÔ¼±ä¶¯ĞÅÏ¢²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§ĞÅÓÃºÏÔ¼±ä¶¯ĞÅÏ¢²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§ĞÅÓÃºÏÔ¼±ä¶¯ĞÅÏ¢²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspFASLQryCrdtConChangeInfo(DFITCFASLRspQryCrdtConChangeInfoField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* FASL-×Ê½ğµ÷×ªÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§×Ê½ğµ÷×ªÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§×Ê½ğµ÷×ªÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§×Ê½ğµ÷×ªÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspFASLTransferFunds(DFITCStockRspTransferFundsField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* FASL-¿Í»§ĞÅÏ¢²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§¿Í»§ĞÅÏ¢²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§¿Í»§ĞÅÏ¢²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§¿Í»§ĞÅÏ¢²éÑ¯ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspFASLQryAccountInfo(DFITCStockRspQryAccountField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* FASL-¿Í»§×Ê½ğ²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§¿Í»§×Ê½ğ²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§¿Í»§×Ê½ğ²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§¿Í»§×Ê½ğ²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspFASLQryCapitalAccountInfo(DFITCStockRspQryCapitalAccountField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* FASL-¹É¶«ĞÅÏ¢²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§¹É¶«ĞÅÏ¢²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§¹É¶«ĞÅÏ¢²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§¹É¶«ĞÅÏ¢²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspFASLQryShareholderInfo(DFITCStockRspQryShareholderField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* FASL-³Ö²Ö²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§³Ö²Ö²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§³Ö²Ö²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§³Ö²Ö²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspFASLQryPosition(DFITCStockRspQryPositionField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* FASL-Î¯ÍĞ²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§Î¯ÍĞ²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§Î¯ÍĞ²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§Î¯ÍĞ²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspFASLQryEntrustOrder(DFITCStockRspQryEntrustOrderField * pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* FASL-·Ö±Ê³É½»²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§·Ö±Ê³É½»²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§·Ö±Ê³É½»²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§·Ö±Ê³É½»²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspFASLQrySerialTrade(DFITCStockRspQrySerialTradeField * pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* FASL-ÊµÊ±³É½»²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§ÊµÊ±³É½»²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§ÊµÊ±³É½»²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§ÊµÊ±³É½»²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspFASLQryRealTimeTrade(DFITCStockRspQryRealTimeTradeField * pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* FASL-×Ê½ğ¶³½áÃ÷Ï¸²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§×Ê½ğ¶³½áÃ÷Ï¸²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§×Ê½ğ¶³½áÃ÷Ï¸²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§×Ê½ğ¶³½áÃ÷Ï¸²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspFASLQryFreezeFundsDetail(DFITCStockRspQryFreezeFundsDetailField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* FASL-Ö¤È¯¶³½áÃ÷Ï¸²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§Ö¤È¯¶³½áÃ÷Ï¸²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§Ö¤È¯¶³½áÃ÷Ï¸²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§Ö¤È¯¶³½áÃ÷Ï¸²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspFASLQryFreezeStockDetail(DFITCStockRspQryFreezeStockDetailField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* FASL-×Ê½ğµ÷²¦Ã÷Ï¸²éÑ¯ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§×Ê½ğµ÷²¦Ã÷Ï¸²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§×Ê½ğµ÷²¦Ã÷Ï¸²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§×Ê½ğµ÷²¦Ã÷Ï¸²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspFASLQryTransferFundsDetail(DFITCStockRspQryTransferFundsDetailField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* FASL-³·µ¥ÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§³·µ¥ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷³·µ¥ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷³·µ¥ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspFASLWithdrawOrder(DFITCFASLRspWithdrawOrderField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* FASL-µ±Ç°ÏµÍ³Ê±¼ä²éÑ¯ÇëÇóÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»ØÓÃ»§ÏµÍ³Ê±¼ä²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷ÏµÍ³Ê±¼ä²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷ÏµÍ³Ê±¼ä²éÑ¯ÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspFASLQrySystemTime(DFITCFASLRspQryTradeTimeField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* FASL-¿É×ªÈëµ£±£Ö¤È¯²éÑ¯ÇëÇóÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»Ø¿É×ªÈëµ£±£Ö¤È¯²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿É×ªÈëµ£±£Ö¤È¯²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿É×ªÈëµ£±£Ö¤È¯²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspFASLQryTransferredContract(DFITCFASLRspQryTransferredContractField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* FASL-¿Í»§¿ÉÈ¡×Ê½ğµ÷³öÇëÇóÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»Ø¿Í»§¿ÉÈ¡×Ê½ğµ÷³öÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷¿Í»§¿ÉÈ¡×Ê½ğµ÷³öÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷¿Í»§¿ÉÈ¡×Ê½ğµ÷³öÇëÇóÊ§°Ü
-	*/
-	virtual void OnRspFASLDesirableFundsOut(DFITCFASLRspDesirableFundsOutField *pData, DFITCSECRspInfoField *pRspInfo);
-	/**
-	* FASL-µ£±£Ö¤È¯²éÑ¯ÇëÇóÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»Øµ£±£Ö¤È¯²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷µ£±£Ö¤È¯²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷µ£±£Ö¤È¯²éÑ¯ÇëÇóÊ§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspFASLQryGuaranteedContract(DFITCFASLRspQryGuaranteedContractField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* FASL-±êµÄÖ¤È¯²éÑ¯ÇëÇóÏìÓ¦
-	* @param pData:Ö¸ÕëÈô·Ç¿Õ,·µ»Ø±êµÄÖ¤È¯²éÑ¯ÏìÓ¦ĞÅÏ¢½á¹¹µØÖ·,±íÃ÷±êµÄÖ¤È¯²éÑ¯ÇëÇó³É¹¦
-	* @param pRspInfo:Ö¸ÕëÈô·Ç¿Õ£¬·µ»Ø´íÎóĞÅÏ¢µØÖ·£¬±íÃ÷±êµÄÖ¤È¯²éÑ¯Ê§°Ü
-	* @param bIsLast:·µ»ØÖµ±íÃ÷ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦ĞÅÏ¢(0-·ñ,1-ÊÇ)
-	*/
-	virtual void OnRspFASLQryUnderlyingContract(DFITCFASLRspQryUnderlyingContractField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
-	/**
-	* FASL-Î¯ÍĞ»Ø±¨ÏìÓ¦
-	* @param pData:·µ»ØÎ¯ÍĞ»Ø±¨½á¹¹ÌåµÄµØÖ·
-	*/
-	virtual void OnFASLEntrustOrderRtn(DFITCStockEntrustOrderRtnField *pData);
-	/**
-	* FASL-³É½»»Ø±¨ÏìÓ¦
-	* @param pData:·µ»Ø³É½»»Ø±¨½á¹¹ÌåµÄµØÖ·
-	*/
-	virtual void OnFASLTradeRtn(DFITCStockTradeRtnField *pData);
-	/**
-	* FASL-³·µ¥»Ø±¨ÏìÓ¦
-	* @param pData:·µ»Ø³·µ¥»Ø±¨½á¹¹ÌåµÄµØÖ·
-	*/
-	virtual void OnFASLWithdrawOrderRtn(DFITCStockWithdrawOrderRtnField *pData);
-
-	//-------------------------------------------------------------------------------------
-	//task£ºÈÎÎñ
-	//-------------------------------------------------------------------------------------
-	void processTask();
-
-	void processFrontConnected(Task *task);
-
-	void processFrontDisconnected(Task *task);
-
-	void processRtnNotice(Task *task);
-
-	void processRspError(Task *task);
-
-	void processRspStockUserLogin(Task *task);
-
-	void processRspStockUserLogout(Task *task);
-
-	void processRspStockUserPasswordUpdate(Task *task);
-
-	void processRspStockEntrustOrder(Task *task);
-
-	void processRspStockWithdrawOrder(Task *task);
-
-	void processRspStockQryEntrustOrder(Task *task);
-
-	void processRspStockQryRealTimeTrade(Task *task);
-
-	void processRspStockQrySerialTrade(Task *task);
-
-	void processRspStockQryPosition(Task *task);
-
-	void processRspStockQryCapitalAccountInfo(Task *task);
-
-	void processRspStockQryAccountInfo(Task *task);
-
-	void processRspStockQryShareholderInfo(Task *task);
-
-	void processRspStockTransferFunds(Task *task);
-
-	void processRspStockEntrustBatchOrder(Task *task);
-
-	void processRspStockWithdrawBatchOrder(Task *task);
-
-	void processRspStockCalcAbleEntrustQty(Task *task);
-
-	void processRspStockCalcAblePurchaseETFQty(Task *task);
-
-	void processRspStockQryFreezeFundsDetail(Task *task);
-
-	void processRspStockQryFreezeStockDetail(Task *task);
-
-	void processRspStockQryTransferStockDetail(Task *task);
-
-	void processRspStockQryTransferFundsDetail(Task *task);
-
-	void processRspStockQryStockInfo(Task *task);
-
-	void processRspStockQryStockStaticInfo(Task *task);
-
-	void processRspStockQryTradeTime(Task *task);
-
-	void processStockEntrustOrderRtn(Task *task);
-
-	void processStockTradeRtn(Task *task);
-
-	void processStockWithdrawOrderRtn(Task *task);
-
-	void processRspSOPUserLogin(Task *task);
-
-	void processRspSOPUserLogout(Task *task);
-
-	void processRspSOPUserPasswordUpdate(Task *task);
-
-	void processRspSOPEntrustOrder(Task *task);
-
-	void processRspSOPQuoteEntrustOrder(Task *task);
-
-	void processRspSOPGroupSplit(Task *task);
-
-	void processRspSOPGroupExectueOrder(Task *task);
-
-	void processRspSOPQryGroupPosition(Task *task);
-
-	void processRspSOPLockOUnLockStock(Task *task);
-
-	void processRspSOPWithdrawOrder(Task *task);
-
-	void processRspSOPQryEntrustOrder(Task *task);
-
-	void processRspSOPQrySerialTrade(Task *task);
-
-	void processRspSOPQryPosition(Task *task);
-
-	void processRspSOPQryCollateralPosition(Task *task);
-
-	void processRspSOPQryCapitalAccountInfo(Task *task);
-
-	void processRspSOPQryAccountInfo(Task *task);
-
-	void processRspSOPQryShareholderInfo(Task *task);
-
-	void processRspSOPCalcAbleEntrustQty(Task *task);
-
-	void processRspSOPQryAbleLockStock(Task *task);
-
-	void processRspSOPQryContactInfo(Task *task);
-
-	void processRspSOPExectueOrder(Task *task);
-
-	void processRspSOPQryExecAssiInfo(Task *task);
-
-	void processRspSOPQryTradeTime(Task *task);
-
-	void processRspSOPQryExchangeInfo(Task *task);
-
-	void processRspSOPQryCommission(Task *task);
-
-	void processRspSOPQryDeposit(Task *task);
-
-	void processRspSOPQryContractObjectInfo(Task *task);
-
-	void processSOPEntrustOrderRtn(Task *task);
-
-	void processSOPTradeRtn(Task *task);
-
-	void processSOPWithdrawOrderRtn(Task *task);
-
-	void processRspFASLUserLogin(Task *task);
-
-	void processRspFASLUserLogout(Task *task);
-
-	void processRspFASLQryAbleFinInfo(Task *task);
-
-	void processRspFASLQryAbleSloInfo(Task *task);
-
-	void processRspFASLTransferCollateral(Task *task);
-
-	void processRspFASLDirectRepayment(Task *task);
-
-	void processRspFASLRepayStockTransfer(Task *task);
-
-	void processRspFASLEntrustCrdtOrder(Task *task);
-
-	void processRspFASLEntrustOrder(Task *task);
-
-	void processRspFASLCalcAbleEntrustCrdtQty(Task *task);
-
-	void processRspFASLQryCrdtFunds(Task *task);
-
-	void processRspFASLQryCrdtContract(Task *task);
-
-	void processRspFASLQryCrdtConChangeInfo(Task *task);
-
-	void processRspFASLTransferFunds(Task *task);
-
-	void processRspFASLQryAccountInfo(Task *task);
-
-	void processRspFASLQryCapitalAccountInfo(Task *task);
-
-	void processRspFASLQryShareholderInfo(Task *task);
-
-	void processRspFASLQryPosition(Task *task);
-
-	void processRspFASLQryEntrustOrder(Task *task);
-
-	void processRspFASLQrySerialTrade(Task *task);
-
-	void processRspFASLQryRealTimeTrade(Task *task);
-
-	void processRspFASLQryFreezeFundsDetail(Task *task);
-
-	void processRspFASLQryFreezeStockDetail(Task *task);
-
-	void processRspFASLQryTransferFundsDetail(Task *task);
-
-	void processRspFASLWithdrawOrder(Task *task);
-
-	void processRspFASLQrySystemTime(Task *task);
-
-	void processRspFASLQryTransferredContract(Task *task);
-
-	void processRspFASLDesirableFundsOut(Task *task);
-
-	void processRspFASLQryGuaranteedContract(Task *task);
-
-	void processRspFASLQryUnderlyingContract(Task *task);
-
-	void processFASLEntrustOrderRtn(Task *task);
-
-	void processFASLTradeRtn(Task *task);
-
-	void processFASLWithdrawOrderRtn(Task *task);
-
-	//-------------------------------------------------------------------------------------
-	//data£º»Øµ÷º¯ÊıµÄÊı¾İ×Öµä
-	//error£º»Øµ÷º¯ÊıµÄ´íÎó×Öµä
-	//id£ºÇëÇóid
-	//last£ºÊÇ·ñÎª×îºó·µ»Ø
-	//i£ºÕûÊı
-	//-------------------------------------------------------------------------------------
-
-	virtual void onFrontConnected() {};
-
-	virtual void onFrontDisconnected(int reqid) {};
-
-	virtual void onRtnNotice(const dict &data) {};
-
-	virtual void onRspError(const dict &data) {};
-
-	virtual void onRspStockUserLogin(const dict &data, const dict &error) {};
-
-	virtual void onRspStockUserLogout(const dict &data, const dict &error) {};
-
-	virtual void onRspStockUserPasswordUpdate(const dict &data, const dict &error) {};
-
-	virtual void onRspStockEntrustOrder(const dict &data, const dict &error) {};
-
-	virtual void onRspStockWithdrawOrder(const dict &data, const dict &error) {};
-
-	virtual void onRspStockQryEntrustOrder(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspStockQryRealTimeTrade(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspStockQrySerialTrade(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspStockQryPosition(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspStockQryCapitalAccountInfo(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspStockQryAccountInfo(const dict &data, const dict &error) {};
-
-	virtual void onRspStockQryShareholderInfo(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspStockTransferFunds(const dict &data, const dict &error) {};
-
-	virtual void onRspStockEntrustBatchOrder(const dict &data, const dict &error) {};
-
-	virtual void onRspStockWithdrawBatchOrder(const dict &data, const dict &error) {};
-
-	virtual void onRspStockCalcAbleEntrustQty(const dict &data, const dict &error) {};
-
-	virtual void onRspStockCalcAblePurchaseETFQty(const dict &data, const dict &error) {};
-
-	virtual void onRspStockQryFreezeFundsDetail(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspStockQryFreezeStockDetail(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspStockQryTransferStockDetail(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspStockQryTransferFundsDetail(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspStockQryStockInfo(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspStockQryStockStaticInfo(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspStockQryTradeTime(const dict &data, const dict &error) {};
-
-	virtual void onStockEntrustOrderRtn(const dict &data) {};
-
-	virtual void onStockTradeRtn(const dict &data) {};
-
-	virtual void onStockWithdrawOrderRtn(const dict &data) {};
-
-	virtual void onRspSOPUserLogin(const dict &data, const dict &error) {};
-
-	virtual void onRspSOPUserLogout(const dict &data, const dict &error) {};
-
-	virtual void onRspSOPUserPasswordUpdate(const dict &data, const dict &error) {};
-
-	virtual void onRspSOPEntrustOrder(const dict &data, const dict &error) {};
-
-	virtual void onRspSOPQuoteEntrustOrder(const dict &data, const dict &error) {};
-
-	virtual void onRspSOPGroupSplit(const dict &data, const dict &error) {};
-
-	virtual void onRspSOPGroupExectueOrder(const dict &data, const dict &error) {};
-
-	virtual void onRspSOPQryGroupPosition(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspSOPLockOUnLockStock(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspSOPWithdrawOrder(const dict &data, const dict &error) {};
-
-	virtual void onRspSOPQryEntrustOrder(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspSOPQrySerialTrade(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspSOPQryPosition(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspSOPQryCollateralPosition(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspSOPQryCapitalAccountInfo(const dict &data, const dict &error) {};
-
-	virtual void onRspSOPQryAccountInfo(const dict &data, const dict &error) {};
-
-	virtual void onRspSOPQryShareholderInfo(const dict &data, const dict &error) {};
-
-	virtual void onRspSOPCalcAbleEntrustQty(const dict &data, const dict &error) {};
-
-	virtual void onRspSOPQryAbleLockStock(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspSOPQryContactInfo(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspSOPExectueOrder(const dict &data, const dict &error) {};
-
-	virtual void onRspSOPQryExecAssiInfo(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspSOPQryTradeTime(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspSOPQryExchangeInfo(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspSOPQryCommission(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspSOPQryDeposit(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspSOPQryContractObjectInfo(const dict &data, const dict &error, bool last) {};
-
-	virtual void onSOPEntrustOrderRtn(const dict &data) {};
-
-	virtual void onSOPTradeRtn(const dict &data) {};
-
-	virtual void onSOPWithdrawOrderRtn(const dict &data) {};
-
-	virtual void onRspFASLUserLogin(const dict &data, const dict &error) {};
-
-	virtual void onRspFASLUserLogout(const dict &data, const dict &error) {};
-
-	virtual void onRspFASLQryAbleFinInfo(const dict &data, const dict &error) {};
-
-	virtual void onRspFASLQryAbleSloInfo(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspFASLTransferCollateral(const dict &data, const dict &error) {};
-
-	virtual void onRspFASLDirectRepayment(const dict &data, const dict &error) {};
-
-	virtual void onRspFASLRepayStockTransfer(const dict &data, const dict &error) {};
-
-	virtual void onRspFASLEntrustCrdtOrder(const dict &data, const dict &error) {};
-
-	virtual void onRspFASLEntrustOrder(const dict &data, const dict &error) {};
-
-	virtual void onRspFASLCalcAbleEntrustCrdtQty(const dict &data, const dict &error) {};
-
-	virtual void onRspFASLQryCrdtFunds(const dict &data, const dict &error) {};
-
-	virtual void onRspFASLQryCrdtContract(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspFASLQryCrdtConChangeInfo(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspFASLTransferFunds(const dict &data, const dict &error) {};
-
-	virtual void onRspFASLQryAccountInfo(const dict &data, const dict &error) {};
-
-	virtual void onRspFASLQryCapitalAccountInfo(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspFASLQryShareholderInfo(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspFASLQryPosition(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspFASLQryEntrustOrder(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspFASLQrySerialTrade(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspFASLQryRealTimeTrade(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspFASLQryFreezeFundsDetail(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspFASLQryFreezeStockDetail(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspFASLQryTransferFundsDetail(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspFASLWithdrawOrder(const dict &data, const dict &error) {};
-
-	virtual void onRspFASLQrySystemTime(const dict &data, const dict &error) {};
-
-	virtual void onRspFASLQryTransferredContract(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspFASLDesirableFundsOut(const dict &data, const dict &error) {};
-
-	virtual void onRspFASLQryGuaranteedContract(const dict &data, const dict &error, bool last) {};
-
-	virtual void onRspFASLQryUnderlyingContract(const dict &data, const dict &error, bool last) {};
-
-	virtual void onFASLEntrustOrderRtn(const dict &data) {};
-
-	virtual void onFASLTradeRtn(const dict &data) {};
-
-	virtual void onFASLWithdrawOrderRtn(const dict &data) {};
-
-	//-------------------------------------------------------------------------------------
-	//req:Ö÷¶¯º¯ÊıµÄÇëÇó×Öµä
-	//-------------------------------------------------------------------------------------
-
-	void createDFITCSECTraderApi(string pszFlowPath);
-
-	void release();
-
-	int init(string protocol);
-
-	int exit();
-
-	int subscribePrivateTopic(int nResumeType);
-	int reqStockUserLogin(const dict &req);
-
-	int reqStockUserLogout(const dict &req);
-
-	int reqStockUserPasswordUpdate(const dict &req);
-
-	int reqStockEntrustOrder(const dict &req);
-
-	int reqStockWithdrawOrder(const dict &req);
-
-	int reqStockQryEntrustOrder(const dict &req);
-
-	int reqStockQryRealTimeTrade(const dict &req);
-
-	int reqStockQrySerialTrade(const dict &req);
-
-	int reqStockQryPosition(const dict &req);
-
-	int reqStockQryCapitalAccountInfo(const dict &req);
+    TdApi()
+    {
+    };
+
+    ~TdApi()
+    {
+        if (this->active)
+        {
+            this->exit();
+        }
+    };
+    //-------------------------------------------------------------------------------------
+    //APIå›è°ƒå‡½æ•°
+    //-------------------------------------------------------------------------------------
+
+    /**
+     * SEC-ç½‘ç»œè¿æ¥æ­£å¸¸å“åº”
+     */
+    virtual void OnFrontConnected();
+    /**
+     * SEC-ç½‘ç»œè¿æ¥ä¸æ­£å¸¸å“åº”
+     */
+    virtual void OnFrontDisconnected(int nReason);
+    /**
+     * SEC-æ¶ˆæ¯é€šçŸ¥
+     */
+    virtual void OnRtnNotice(DFITCSECRspNoticeField *pNotice);
+    /**
+    * ERR-é”™è¯¯åº”ç­”
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„åœ°å€
+    */
+    virtual void OnRspError(DFITCSECRspInfoField *pRspInfo);
+    /**
+    * STOCK-ç™»å½•å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·ç™»å½•å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜ç™»å½•è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜ç™»å½•è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspStockUserLogin(DFITCSECRspUserLoginField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * STOCK-ç™»å‡ºå“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·ç™»å‡ºå“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜ç™»å‡ºè¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜ç™»å‡ºè¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspStockUserLogout(DFITCSECRspUserLogoutField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * STOCK-å¯†ç æ›´æ–°å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å¯†ç æ›´æ–°å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜å¯†ç æ›´æ–°è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜å¯†ç æ›´æ–°è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspStockUserPasswordUpdate(DFITCSECRspPasswordUpdateField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * STOCK-å§”æ‰˜æŠ¥å•å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å§”æ‰˜æŠ¥å•å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜æŠ¥å•è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜å§”æ‰˜æŠ¥å•è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspStockEntrustOrder(DFITCStockRspEntrustOrderField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * STOCK-å§”æ‰˜æ’¤å•å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å§”æ‰˜æ’¤å•å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜æ’¤å•è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜å§”æ‰˜æ’¤å•è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspStockWithdrawOrder(DFITCSECRspWithdrawOrderField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * STOCK-å§”æ‰˜æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å§”æ‰˜æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜å§”æ‰˜æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspStockQryEntrustOrder(DFITCStockRspQryEntrustOrderField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * STOCK-å®æ—¶æˆäº¤æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å®æ—¶æˆäº¤æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜å®æ—¶æˆäº¤æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜å®æ—¶æˆäº¤æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspStockQryRealTimeTrade(DFITCStockRspQryRealTimeTradeField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * STOCK-åˆ†ç¬”æˆäº¤æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·åˆ†ç¬”æˆäº¤æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜åˆ†ç¬”æˆäº¤æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜åˆ†ç¬”æˆäº¤æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspStockQrySerialTrade(DFITCStockRspQrySerialTradeField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * STOCK-æŒä»“æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æŒä»“æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜æŒä»“æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜æŒä»“æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspStockQryPosition(DFITCStockRspQryPositionField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * STOCK-èµ„é‡‘è´¦å·æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·èµ„é‡‘è´¦å·æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜èµ„é‡‘è´¦å·æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜èµ„é‡‘è´¦å·æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspStockQryCapitalAccountInfo(DFITCStockRspQryCapitalAccountField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * STOCK-äº¤æ˜“è´¦å·æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·äº¤æ˜“è´¦å·æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜äº¤æ˜“è´¦å·æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜äº¤æ˜“è´¦å·æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspStockQryAccountInfo(DFITCStockRspQryAccountField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * STOCK-è‚¡ä¸œå·æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·è‚¡ä¸œå·æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜è‚¡ä¸œå·æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜è‚¡ä¸œå·æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspStockQryShareholderInfo(DFITCStockRspQryShareholderField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * STOCK-èµ„é‡‘è°ƒæ‹¨å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·èµ„é‡‘è°ƒæ‹¨å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜è‚¡èµ„é‡‘è°ƒæ‹¨è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜èµ„é‡‘è°ƒæ‹¨è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspStockTransferFunds(DFITCStockRspTransferFundsField *pData, DFITCSECRspInfoField *pRspInfo);
+    /*
+    * STOCK-æ‰¹é‡å§”æ‰˜å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æ‰¹é‡å§”æ‰˜å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜æ‰¹é‡å§”æ‰˜è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜æ‰¹é‡å§”æ‰˜è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspStockEntrustBatchOrder(DFITCStockRspEntrustBatchOrderField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * STOCK-æ‰¹é‡æ’¤å•å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æ‰¹é‡æ’¤å•å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜æ‰¹é‡æ’¤å•è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜æ‰¹é‡æ’¤å•è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspStockWithdrawBatchOrder(DFITCStockRspWithdrawBatchOrderField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * STOCK-è®¡ç®—å¯å§”æ‰˜æ•°é‡å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·è®¡ç®—å¯å§”æ‰˜æ•°é‡å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜è®¡ç®—å¯å§”æ‰˜æ•°é‡è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜è®¡ç®—å¯å§”æ‰˜æ•°é‡è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspStockCalcAbleEntrustQty(DFITCStockRspCalcAbleEntrustQtyField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * STOCK-è®¡ç®—ç”³è´­ETFæ•°é‡å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·è®¡ç®—ç”³è´­ETFæ•°é‡å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜è®¡ç®—ç”³è´­ETFæ•°é‡è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜è®¡ç®—ç”³è´­ETFæ•°é‡è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspStockCalcAblePurchaseETFQty(DFITCStockRspCalcAblePurchaseETFQtyField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * STOCK-å†»ç»“èµ„é‡‘æ˜ç»†æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å†»ç»“èµ„é‡‘æ˜ç»†æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜å†»ç»“èµ„é‡‘æ˜ç»†æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜å†»ç»“èµ„é‡‘æ˜ç»†æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspStockQryFreezeFundsDetail(DFITCStockRspQryFreezeFundsDetailField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * STOCK-å†»ç»“è¯åˆ¸æ˜ç»†æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å†»ç»“è¯åˆ¸æ˜ç»†æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜å†»ç»“è¯åˆ¸æ˜ç»†æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜å†»ç»“è¯åˆ¸æ˜ç»†æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspStockQryFreezeStockDetail(DFITCStockRspQryFreezeStockDetailField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * STOCK-è°ƒæ‹¨è¯åˆ¸æ˜ç»†æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·è°ƒæ‹¨è¯åˆ¸æ˜ç»†æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜è°ƒæ‹¨è¯åˆ¸æ˜ç»†æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜è°ƒæ‹¨è¯åˆ¸æ˜ç»†æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspStockQryTransferStockDetail(DFITCStockRspQryTransferStockDetailField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * STOCK-è°ƒæ‹¨èµ„é‡‘æ˜ç»†æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·è°ƒæ‹¨èµ„é‡‘æ˜ç»†æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜è°ƒæ‹¨èµ„é‡‘æ˜ç»†æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜è°ƒæ‹¨èµ„é‡‘æ˜ç»†æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspStockQryTransferFundsDetail(DFITCStockRspQryTransferFundsDetailField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * STOCK-è¯åˆ¸ä¿¡æ¯æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·è¯åˆ¸ä¿¡æ¯æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜è¯åˆ¸ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜è¯åˆ¸ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspStockQryStockInfo(DFITCStockRspQryStockField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * STOCK-è¯åˆ¸é™æ€ä¿¡æ¯æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·è¯åˆ¸é™æ€ä¿¡æ¯æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜è¯åˆ¸é™æ€ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜è¯åˆ¸é™æ€ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspStockQryStockStaticInfo(DFITCStockRspQryStockStaticField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * STOCK-äº¤æ˜“æ—¶é—´æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·äº¤æ˜“æ—¶é—´æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€,è¡¨æ˜äº¤æ˜“æ—¶é—´æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯ç»“æ„ä½“çš„åœ°å€ï¼Œè¡¨æ˜äº¤æ˜“æ—¶é—´æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspStockQryTradeTime(DFITCStockRspQryTradeTimeField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * STOCK-å§”æ‰˜å›æŠ¥å“åº”
+    * @param pData:è¿”å›å§”æ‰˜å›æŠ¥ç»“æ„ä½“çš„åœ°å€
+    */
+    virtual void OnStockEntrustOrderRtn(DFITCStockEntrustOrderRtnField * pData);
+    /**
+    * STOCK-æˆäº¤å›æŠ¥å“åº”
+    * @param pData:è¿”å›æˆäº¤å›æŠ¥ç»“æ„ä½“çš„åœ°å€
+    */
+    virtual void OnStockTradeRtn(DFITCStockTradeRtnField * pData);
+    /**
+    * STOCK-æ’¤å•å›æŠ¥å“åº”
+    * @param pData:è¿”å›æ’¤å•å›æŠ¥ç»“æ„ä½“çš„åœ°å€
+    */
+    virtual void OnStockWithdrawOrderRtn(DFITCStockWithdrawOrderRtnField * pData);
+
+    /**
+    * SOP-ç™»å½•å“åº”
+    * @param pRspUserLogin:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·ç™»å½•å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜ç™»å½•è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜ç™»å½•è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspSOPUserLogin(DFITCSECRspUserLoginField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+     * SOP-ç™»å‡ºå“åº”
+     * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·ç™»å‡ºå“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜ç™»å‡ºè¯·æ±‚æˆåŠŸ
+     * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜ç™»å‡ºè¯·æ±‚å¤±è´¥
+     */
+    virtual void OnRspSOPUserLogout(DFITCSECRspUserLogoutField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * SOP-ç”¨æˆ·å£ä»¤æ›´æ–°å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å£ä»¤æ›´æ–°å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜ç”¨æˆ·å£ä»¤æ›´æ–°è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜ç”¨æˆ·å£ä»¤æ›´æ–°è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspSOPUserPasswordUpdate(DFITCSECRspPasswordUpdateField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * SOP-æŠ¥å•å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æŠ¥å•å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜æŠ¥å•è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜æŠ¥å•è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspSOPEntrustOrder(DFITCSOPRspEntrustOrderField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * SOP-åšå¸‚å•†æŠ¥å•å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æŠ¥ä»·å§”æ‰˜å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜åšå¸‚å•†æŠ¥å•è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜åšå¸‚å•†æŠ¥å•è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspSOPQuoteEntrustOrder(DFITCSOPRspQuoteEntrustOrderField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * SOP-ç»„åˆæ‹†åˆ†å§”æ‰˜å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·ç»„åˆæ‹†åˆ†å§”æ‰˜å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜ç»„åˆæ‹†åˆ†å§”æ‰˜è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜ç»„åˆæ‹†åˆ†å§”æ‰˜è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspSOPGroupSplit(DFITCSOPRspEntrustOrderField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+     * SOP-æœŸæƒç»„åˆè¡Œæƒå§”æ‰˜å“åº”
+     * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æœŸæƒç»„åˆè¡Œæƒå§”æ‰˜å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜æœŸæƒç»„åˆè¡Œæƒå§”æ‰˜è¯·æ±‚æˆåŠŸ
+     * @return pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜æœŸæƒç»„åˆè¡Œæƒå§”æ‰˜è¯·æ±‚å¤±è´¥ï¼Œå…·ä½“é”™è¯¯è¯·å¯¹ç…§error.xml
+     */
+    virtual void OnRspSOPGroupExectueOrder(DFITCSOPRspGroupExectueOrderField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * SOP-æŸ¥è¯¢å®¢æˆ·ç»„åˆæŒä»“æ˜ç»†å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æŸ¥è¯¢å®¢æˆ·ç»„åˆæŒä»“æ˜ç»†å“åº”ç»“æ„åœ°å€,è¡¨æ˜æŸ¥è¯¢å®¢æˆ·ç»„åˆæŒä»“æ˜ç»†è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜æŸ¥è¯¢å®¢æˆ·ç»„åˆæŒä»“æ˜ç»†è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspSOPQryGroupPosition(DFITCSOPRspQryGroupPositionField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * SOP-è¯åˆ¸é”å®šè§£é”å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·è¯åˆ¸é”å®šè§£é”å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜è¯åˆ¸é”å®šè§£é”è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜è¯åˆ¸é”å®šè§£é”è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspSOPLockOUnLockStock(DFITCSOPRspLockOUnLockStockField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * SOP-æ’¤å•å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æ’¤å•å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜æ’¤å•è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜æ’¤å•è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspSOPWithdrawOrder(DFITCSECRspWithdrawOrderField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * SOP-å§”æ‰˜æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å§”æ‰˜æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å§”æ‰˜æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å§”æ‰˜æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspSOPQryEntrustOrder(DFITCSOPRspQryEntrustOrderField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * SOP-åˆ†ç¬”æˆäº¤æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·åˆ†ç¬”æˆäº¤æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜åˆ†ç¬”æˆäº¤æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜åˆ†ç¬”æˆäº¤æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspSOPQrySerialTrade(DFITCSOPRspQrySerialTradeField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * SOP-æŒä»“æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æŒä»“æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜æŒä»“æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜æŒä»“æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspSOPQryPosition(DFITCSOPRspQryPositionField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * SOP-å®¢æˆ·æ‹…ä¿æŒä»“æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å®¢æˆ·æ‹…ä¿æŒä»“æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·æ‹…ä¿æŒä»“æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·æ‹…ä¿æŒä»“æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspSOPQryCollateralPosition(DFITCSOPRspQryCollateralPositionField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * SOP-å®¢æˆ·èµ„é‡‘æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å®¢æˆ·èµ„é‡‘æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·å®¢æˆ·èµ„é‡‘æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·å®¢æˆ·èµ„é‡‘æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspSOPQryCapitalAccountInfo(DFITCSOPRspQryCapitalAccountField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * SOP-å®¢æˆ·ä¿¡æ¯æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å®¢æˆ·ä¿¡æ¯æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·å®¢æˆ·ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·å®¢æˆ·ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspSOPQryAccountInfo(DFITCSOPRspQryAccountField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * SOP-è‚¡ä¸œä¿¡æ¯æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·è‚¡ä¸œä¿¡æ¯æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·è‚¡ä¸œä¿¡æ¯æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·è‚¡ä¸œä¿¡æ¯æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspSOPQryShareholderInfo(DFITCSOPRspQryShareholderField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * SOP-å¯å§”æ‰˜æ•°é‡æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å¯å§”æ‰˜æ•°é‡æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·å¯å§”æ‰˜æ•°é‡æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·å¯å§”æ‰˜æ•°é‡æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspSOPCalcAbleEntrustQty(DFITCSOPRspCalcAbleEntrustQtyField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * SOP-å®¢æˆ·å¯é”å®šè¯åˆ¸æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å®¢æˆ·å¯é”å®šè¯åˆ¸æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·å®¢æˆ·å¯é”å®šè¯åˆ¸æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·å®¢æˆ·å¯é”å®šè¯åˆ¸æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspSOPQryAbleLockStock(DFITCSOPRspQryAbleLockStockField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * SOP-æœŸæƒåˆçº¦ä»£ç æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æœŸæƒåˆçº¦ä»£ç æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·æœŸæƒåˆçº¦ä»£ç æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·æœŸæƒåˆçº¦ä»£ç æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspSOPQryContactInfo(DFITCSOPRspQryContactField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * SOP-æ‰§è¡Œå§”æ‰˜å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æ‰§è¡Œå§”æ‰˜å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·æ‰§è¡Œå§”æ‰˜è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·æ‰§è¡Œå§”æ‰˜è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspSOPExectueOrder(DFITCSOPRspExectueOrderField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * SOP-å®¢æˆ·è¡ŒæƒæŒ‡æ´¾ä¿¡æ¯æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å®¢æˆ·è¡ŒæƒæŒ‡æ´¾ä¿¡æ¯æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·å®¢æˆ·è¡ŒæƒæŒ‡æ´¾ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·å®¢æˆ·è¡ŒæƒæŒ‡æ´¾ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspSOPQryExecAssiInfo(DFITCSOPRspQryExecAssiInfoField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * SOP-æŸ¥è¯¢äº¤æ˜“æ—¶é—´å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æŸ¥è¯¢äº¤æ˜“æ—¶é—´å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·æŸ¥è¯¢äº¤æ˜“æ—¶é—´è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·æŸ¥è¯¢äº¤æ˜“æ—¶é—´è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspSOPQryTradeTime(DFITCSOPRspQryTradeTimeField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * SOP-è·å–æ‰€æœ‰äº¤æ˜“æ‰€å‚æ•°å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·è·å–æ‰€æœ‰äº¤æ˜“æ‰€å‚æ•°å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·è·å–æ‰€æœ‰äº¤æ˜“æ‰€å‚æ•°è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·è·å–æ‰€æœ‰äº¤æ˜“æ‰€å‚æ•°è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspSOPQryExchangeInfo(DFITCSOPRspQryExchangeInfoField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * SOP-æŸ¥è¯¢æ‰‹ç»­è´¹å‚æ•°å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æŸ¥è¯¢æ‰‹ç»­è´¹å‚æ•°å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·æŸ¥è¯¢æ‰‹ç»­è´¹å‚æ•°è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·æŸ¥è¯¢æ‰‹ç»­è´¹å‚æ•°è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspSOPQryCommission(DFITCSOPRspQryCommissionField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * SOP-æŸ¥è¯¢ä¿è¯é‡‘ç‡å‚æ•°å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æŸ¥è¯¢ä¿è¯é‡‘ç‡å‚æ•°å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·æŸ¥è¯¢ä¿è¯é‡‘ç‡å‚æ•°è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·æŸ¥è¯¢ä¿è¯é‡‘ç‡å‚æ•°è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspSOPQryDeposit(DFITCSOPRspQryDepositField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * SOP-æœŸæƒæ ‡çš„ä¿¡æ¯æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æœŸæƒæ ‡çš„ä¿¡æ¯æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·æœŸæƒæ ‡çš„ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·æœŸæƒæ ‡çš„ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspSOPQryContractObjectInfo(DFITCSOPRspQryContractObjectField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * SOP-å§”æ‰˜å›æŠ¥å“åº”
+    * @param pData:è¿”å›å§”æ‰˜å›æŠ¥ç»“æ„ä½“çš„åœ°å€
+    */
+    virtual void OnSOPEntrustOrderRtn(DFITCSOPEntrustOrderRtnField * pData);
+    /**
+    * SOP-æˆäº¤å›æŠ¥å“åº”
+    * @param pData:è¿”å›æˆäº¤å›æŠ¥ç»“æ„ä½“çš„åœ°å€
+    */
+    virtual void OnSOPTradeRtn(DFITCSOPTradeRtnField * pData);
+    /**
+    * SOP-æ’¤å•å›æŠ¥å“åº”
+    * @param pData:è¿”å›æ’¤å•å›æŠ¥ç»“æ„ä½“çš„åœ°å€
+    */
+    virtual void OnSOPWithdrawOrderRtn(DFITCSOPWithdrawOrderRtnField * pData);
+
+    /**
+    * FASL-ç™»å½•å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·èèµ„èåˆ¸ç™»å½•å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·èèµ„èåˆ¸ç™»å½•è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·èèµ„èåˆ¸ç™»å½•è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspFASLUserLogin(DFITCSECRspUserLoginField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * FASL-ç™»å‡ºå“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·èèµ„èåˆ¸ç™»å‡ºå“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·èèµ„èåˆ¸ç™»å‡ºè¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·èèµ„èåˆ¸ç™»å‡ºè¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspFASLUserLogout(DFITCSECRspUserLogoutField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * FASL-å®¢æˆ·å¯èèµ„ä¿¡æ¯å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å®¢æˆ·å¯èèµ„ä¿¡æ¯å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·å®¢æˆ·å¯èèµ„ä¿¡æ¯è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·å®¢æˆ·å¯èèµ„ä¿¡æ¯è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspFASLQryAbleFinInfo(DFITCFASLRspAbleFinInfoField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * FASL-å®¢æˆ·å¯èåˆ¸ä¿¡æ¯å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å®¢æˆ·å¯èåˆ¸ä¿¡æ¯å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·å®¢æˆ·å¯èåˆ¸ä¿¡æ¯è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·å®¢æˆ·å¯èåˆ¸ä¿¡æ¯è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspFASLQryAbleSloInfo(DFITCFASLRspAbleSloInfoField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * FASL-æ‹…ä¿ç‰©åˆ’è½¬å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æ‹…ä¿ç‰©åˆ’è½¬å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·æ‹…ä¿ç‰©åˆ’è½¬è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·æ‹…ä¿ç‰©åˆ’è½¬è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspFASLTransferCollateral(DFITCFASLRspTransferCollateralField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * FASL-ç›´æ¥è¿˜æ¬¾å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·ç›´æ¥è¿˜æ¬¾å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·ç›´æ¥è¿˜æ¬¾è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·ç›´æ¥è¿˜æ¬¾è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspFASLDirectRepayment(DFITCFASLRspDirectRepaymentField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * FASL-è¿˜åˆ¸åˆ’è½¬å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·è¿˜åˆ¸åˆ’è½¬å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·è¿˜åˆ¸åˆ’è½¬è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·è¿˜åˆ¸åˆ’è½¬è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspFASLRepayStockTransfer(DFITCFASLRspRepayStockTransferField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * FASL-ä¿¡ç”¨äº¤æ˜“å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·ä¿¡ç”¨äº¤æ˜“å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·ä¿¡ç”¨äº¤æ˜“è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·ä¿¡ç”¨äº¤æ˜“è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspFASLEntrustCrdtOrder(DFITCFASLRspEntrustCrdtOrderField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * FASL-èèµ„èåˆ¸äº¤æ˜“å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·èèµ„èåˆ¸äº¤æ˜“å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·èèµ„èåˆ¸äº¤æ˜“è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·èèµ„èåˆ¸äº¤æ˜“è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspFASLEntrustOrder(DFITCFASLRspEntrustOrderField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * FASL-ä¿¡ç”¨å¯å§”æ‰˜æ•°é‡æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·ä¿¡ç”¨å¯å§”æ‰˜æ•°é‡æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·ä¿¡ç”¨å¯å§”æ‰˜æ•°é‡æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·ä¿¡ç”¨å¯å§”æ‰˜æ•°é‡æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspFASLCalcAbleEntrustCrdtQty(DFITCFASLRspCalcAbleEntrustCrdtQtyField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * FASL-æŸ¥è¯¢ä¿¡ç”¨èµ„é‡‘å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æŸ¥è¯¢ä¿¡ç”¨èµ„é‡‘å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·æŸ¥è¯¢ä¿¡ç”¨èµ„é‡‘è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·æŸ¥è¯¢ä¿¡ç”¨èµ„é‡‘è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspFASLQryCrdtFunds(DFITCFASLRspQryCrdtFundsField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * FASL-ä¿¡ç”¨åˆçº¦ä¿¡æ¯å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·ä¿¡ç”¨åˆçº¦ä¿¡æ¯å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·ä¿¡ç”¨åˆçº¦ä¿¡æ¯è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·ä¿¡ç”¨åˆçº¦ä¿¡æ¯è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspFASLQryCrdtContract(DFITCFASLRspQryCrdtContractField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLat);
+    /**
+    * FASL-ä¿¡ç”¨åˆçº¦å˜åŠ¨ä¿¡æ¯æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·ä¿¡ç”¨åˆçº¦å˜åŠ¨ä¿¡æ¯æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·ä¿¡ç”¨åˆçº¦å˜åŠ¨ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·ä¿¡ç”¨åˆçº¦å˜åŠ¨ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspFASLQryCrdtConChangeInfo(DFITCFASLRspQryCrdtConChangeInfoField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * FASL-èµ„é‡‘è°ƒè½¬å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·èµ„é‡‘è°ƒè½¬å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·èµ„é‡‘è°ƒè½¬è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·èµ„é‡‘è°ƒè½¬è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspFASLTransferFunds(DFITCStockRspTransferFundsField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * FASL-å®¢æˆ·ä¿¡æ¯æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å®¢æˆ·ä¿¡æ¯æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·å®¢æˆ·ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·å®¢æˆ·ä¿¡æ¯æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspFASLQryAccountInfo(DFITCStockRspQryAccountField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * FASL-å®¢æˆ·èµ„é‡‘æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å®¢æˆ·èµ„é‡‘æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·å®¢æˆ·èµ„é‡‘æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·å®¢æˆ·èµ„é‡‘æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspFASLQryCapitalAccountInfo(DFITCStockRspQryCapitalAccountField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * FASL-è‚¡ä¸œä¿¡æ¯æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·è‚¡ä¸œä¿¡æ¯æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·è‚¡ä¸œä¿¡æ¯æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·è‚¡ä¸œä¿¡æ¯æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspFASLQryShareholderInfo(DFITCStockRspQryShareholderField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * FASL-æŒä»“æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æŒä»“æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·æŒä»“æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·æŒä»“æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspFASLQryPosition(DFITCStockRspQryPositionField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * FASL-å§”æ‰˜æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å§”æ‰˜æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·å§”æ‰˜æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·å§”æ‰˜æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspFASLQryEntrustOrder(DFITCStockRspQryEntrustOrderField * pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * FASL-åˆ†ç¬”æˆäº¤æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·åˆ†ç¬”æˆäº¤æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·åˆ†ç¬”æˆäº¤æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·åˆ†ç¬”æˆäº¤æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspFASLQrySerialTrade(DFITCStockRspQrySerialTradeField * pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * FASL-å®æ—¶æˆäº¤æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·å®æ—¶æˆäº¤æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·å®æ—¶æˆäº¤æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·å®æ—¶æˆäº¤æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspFASLQryRealTimeTrade(DFITCStockRspQryRealTimeTradeField * pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * FASL-èµ„é‡‘å†»ç»“æ˜ç»†æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·èµ„é‡‘å†»ç»“æ˜ç»†æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·èµ„é‡‘å†»ç»“æ˜ç»†æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·èµ„é‡‘å†»ç»“æ˜ç»†æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspFASLQryFreezeFundsDetail(DFITCStockRspQryFreezeFundsDetailField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * FASL-è¯åˆ¸å†»ç»“æ˜ç»†æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·è¯åˆ¸å†»ç»“æ˜ç»†æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·è¯åˆ¸å†»ç»“æ˜ç»†æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·è¯åˆ¸å†»ç»“æ˜ç»†æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspFASLQryFreezeStockDetail(DFITCStockRspQryFreezeStockDetailField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * FASL-èµ„é‡‘è°ƒæ‹¨æ˜ç»†æŸ¥è¯¢å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·èµ„é‡‘è°ƒæ‹¨æ˜ç»†æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·èµ„é‡‘è°ƒæ‹¨æ˜ç»†æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·èµ„é‡‘è°ƒæ‹¨æ˜ç»†æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspFASLQryTransferFundsDetail(DFITCStockRspQryTransferFundsDetailField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * FASL-æ’¤å•å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·æ’¤å•å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜æ’¤å•è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜æ’¤å•è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspFASLWithdrawOrder(DFITCFASLRspWithdrawOrderField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * FASL-å½“å‰ç³»ç»Ÿæ—¶é—´æŸ¥è¯¢è¯·æ±‚å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›ç”¨æˆ·ç³»ç»Ÿæ—¶é—´æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜ç³»ç»Ÿæ—¶é—´æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜ç³»ç»Ÿæ—¶é—´æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspFASLQrySystemTime(DFITCFASLRspQryTradeTimeField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * FASL-å¯è½¬å…¥æ‹…ä¿è¯åˆ¸æŸ¥è¯¢è¯·æ±‚å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›å¯è½¬å…¥æ‹…ä¿è¯åˆ¸æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å¯è½¬å…¥æ‹…ä¿è¯åˆ¸æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å¯è½¬å…¥æ‹…ä¿è¯åˆ¸æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspFASLQryTransferredContract(DFITCFASLRspQryTransferredContractField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * FASL-å®¢æˆ·å¯å–èµ„é‡‘è°ƒå‡ºè¯·æ±‚å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›å®¢æˆ·å¯å–èµ„é‡‘è°ƒå‡ºå“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜å®¢æˆ·å¯å–èµ„é‡‘è°ƒå‡ºè¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜å®¢æˆ·å¯å–èµ„é‡‘è°ƒå‡ºè¯·æ±‚å¤±è´¥
+    */
+    virtual void OnRspFASLDesirableFundsOut(DFITCFASLRspDesirableFundsOutField *pData, DFITCSECRspInfoField *pRspInfo);
+    /**
+    * FASL-æ‹…ä¿è¯åˆ¸æŸ¥è¯¢è¯·æ±‚å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›æ‹…ä¿è¯åˆ¸æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜æ‹…ä¿è¯åˆ¸æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜æ‹…ä¿è¯åˆ¸æŸ¥è¯¢è¯·æ±‚å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspFASLQryGuaranteedContract(DFITCFASLRspQryGuaranteedContractField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * FASL-æ ‡çš„è¯åˆ¸æŸ¥è¯¢è¯·æ±‚å“åº”
+    * @param pData:æŒ‡é’ˆè‹¥éç©º,è¿”å›æ ‡çš„è¯åˆ¸æŸ¥è¯¢å“åº”ä¿¡æ¯ç»“æ„åœ°å€,è¡¨æ˜æ ‡çš„è¯åˆ¸æŸ¥è¯¢è¯·æ±‚æˆåŠŸ
+    * @param pRspInfo:æŒ‡é’ˆè‹¥éç©ºï¼Œè¿”å›é”™è¯¯ä¿¡æ¯åœ°å€ï¼Œè¡¨æ˜æ ‡çš„è¯åˆ¸æŸ¥è¯¢å¤±è´¥
+    * @param bIsLast:è¿”å›å€¼è¡¨æ˜æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”ä¿¡æ¯(0-å¦,1-æ˜¯)
+    */
+    virtual void OnRspFASLQryUnderlyingContract(DFITCFASLRspQryUnderlyingContractField *pData, DFITCSECRspInfoField *pRspInfo, bool bIsLast);
+    /**
+    * FASL-å§”æ‰˜å›æŠ¥å“åº”
+    * @param pData:è¿”å›å§”æ‰˜å›æŠ¥ç»“æ„ä½“çš„åœ°å€
+    */
+    virtual void OnFASLEntrustOrderRtn(DFITCStockEntrustOrderRtnField *pData);
+    /**
+    * FASL-æˆäº¤å›æŠ¥å“åº”
+    * @param pData:è¿”å›æˆäº¤å›æŠ¥ç»“æ„ä½“çš„åœ°å€
+    */
+    virtual void OnFASLTradeRtn(DFITCStockTradeRtnField *pData);
+    /**
+    * FASL-æ’¤å•å›æŠ¥å“åº”
+    * @param pData:è¿”å›æ’¤å•å›æŠ¥ç»“æ„ä½“çš„åœ°å€
+    */
+    virtual void OnFASLWithdrawOrderRtn(DFITCStockWithdrawOrderRtnField *pData);
+
+    //-------------------------------------------------------------------------------------
+    //taskï¼šä»»åŠ¡
+    //-------------------------------------------------------------------------------------
+    void processTask();
+
+    void processFrontConnected(Task *task);
+
+    void processFrontDisconnected(Task *task);
+
+    void processRtnNotice(Task *task);
+
+    void processRspError(Task *task);
+
+    void processRspStockUserLogin(Task *task);
+
+    void processRspStockUserLogout(Task *task);
+
+    void processRspStockUserPasswordUpdate(Task *task);
+
+    void processRspStockEntrustOrder(Task *task);
+
+    void processRspStockWithdrawOrder(Task *task);
+
+    void processRspStockQryEntrustOrder(Task *task);
+
+    void processRspStockQryRealTimeTrade(Task *task);
+
+    void processRspStockQrySerialTrade(Task *task);
+
+    void processRspStockQryPosition(Task *task);
+
+    void processRspStockQryCapitalAccountInfo(Task *task);
+
+    void processRspStockQryAccountInfo(Task *task);
+
+    void processRspStockQryShareholderInfo(Task *task);
+
+    void processRspStockTransferFunds(Task *task);
+
+    void processRspStockEntrustBatchOrder(Task *task);
+
+    void processRspStockWithdrawBatchOrder(Task *task);
+
+    void processRspStockCalcAbleEntrustQty(Task *task);
+
+    void processRspStockCalcAblePurchaseETFQty(Task *task);
+
+    void processRspStockQryFreezeFundsDetail(Task *task);
+
+    void processRspStockQryFreezeStockDetail(Task *task);
+
+    void processRspStockQryTransferStockDetail(Task *task);
+
+    void processRspStockQryTransferFundsDetail(Task *task);
+
+    void processRspStockQryStockInfo(Task *task);
+
+    void processRspStockQryStockStaticInfo(Task *task);
+
+    void processRspStockQryTradeTime(Task *task);
+
+    void processStockEntrustOrderRtn(Task *task);
+
+    void processStockTradeRtn(Task *task);
+
+    void processStockWithdrawOrderRtn(Task *task);
+
+    void processRspSOPUserLogin(Task *task);
+
+    void processRspSOPUserLogout(Task *task);
+
+    void processRspSOPUserPasswordUpdate(Task *task);
+
+    void processRspSOPEntrustOrder(Task *task);
+
+    void processRspSOPQuoteEntrustOrder(Task *task);
+
+    void processRspSOPGroupSplit(Task *task);
+
+    void processRspSOPGroupExectueOrder(Task *task);
+
+    void processRspSOPQryGroupPosition(Task *task);
+
+    void processRspSOPLockOUnLockStock(Task *task);
+
+    void processRspSOPWithdrawOrder(Task *task);
+
+    void processRspSOPQryEntrustOrder(Task *task);
+
+    void processRspSOPQrySerialTrade(Task *task);
+
+    void processRspSOPQryPosition(Task *task);
+
+    void processRspSOPQryCollateralPosition(Task *task);
+
+    void processRspSOPQryCapitalAccountInfo(Task *task);
+
+    void processRspSOPQryAccountInfo(Task *task);
+
+    void processRspSOPQryShareholderInfo(Task *task);
+
+    void processRspSOPCalcAbleEntrustQty(Task *task);
+
+    void processRspSOPQryAbleLockStock(Task *task);
+
+    void processRspSOPQryContactInfo(Task *task);
+
+    void processRspSOPExectueOrder(Task *task);
+
+    void processRspSOPQryExecAssiInfo(Task *task);
+
+    void processRspSOPQryTradeTime(Task *task);
+
+    void processRspSOPQryExchangeInfo(Task *task);
+
+    void processRspSOPQryCommission(Task *task);
+
+    void processRspSOPQryDeposit(Task *task);
+
+    void processRspSOPQryContractObjectInfo(Task *task);
+
+    void processSOPEntrustOrderRtn(Task *task);
+
+    void processSOPTradeRtn(Task *task);
+
+    void processSOPWithdrawOrderRtn(Task *task);
+
+    void processRspFASLUserLogin(Task *task);
+
+    void processRspFASLUserLogout(Task *task);
+
+    void processRspFASLQryAbleFinInfo(Task *task);
+
+    void processRspFASLQryAbleSloInfo(Task *task);
+
+    void processRspFASLTransferCollateral(Task *task);
+
+    void processRspFASLDirectRepayment(Task *task);
+
+    void processRspFASLRepayStockTransfer(Task *task);
+
+    void processRspFASLEntrustCrdtOrder(Task *task);
+
+    void processRspFASLEntrustOrder(Task *task);
+
+    void processRspFASLCalcAbleEntrustCrdtQty(Task *task);
+
+    void processRspFASLQryCrdtFunds(Task *task);
+
+    void processRspFASLQryCrdtContract(Task *task);
+
+    void processRspFASLQryCrdtConChangeInfo(Task *task);
+
+    void processRspFASLTransferFunds(Task *task);
+
+    void processRspFASLQryAccountInfo(Task *task);
+
+    void processRspFASLQryCapitalAccountInfo(Task *task);
+
+    void processRspFASLQryShareholderInfo(Task *task);
+
+    void processRspFASLQryPosition(Task *task);
+
+    void processRspFASLQryEntrustOrder(Task *task);
+
+    void processRspFASLQrySerialTrade(Task *task);
+
+    void processRspFASLQryRealTimeTrade(Task *task);
+
+    void processRspFASLQryFreezeFundsDetail(Task *task);
+
+    void processRspFASLQryFreezeStockDetail(Task *task);
+
+    void processRspFASLQryTransferFundsDetail(Task *task);
+
+    void processRspFASLWithdrawOrder(Task *task);
+
+    void processRspFASLQrySystemTime(Task *task);
+
+    void processRspFASLQryTransferredContract(Task *task);
+
+    void processRspFASLDesirableFundsOut(Task *task);
+
+    void processRspFASLQryGuaranteedContract(Task *task);
+
+    void processRspFASLQryUnderlyingContract(Task *task);
+
+    void processFASLEntrustOrderRtn(Task *task);
+
+    void processFASLTradeRtn(Task *task);
+
+    void processFASLWithdrawOrderRtn(Task *task);
+
+    //-------------------------------------------------------------------------------------
+    //dataï¼šå›è°ƒå‡½æ•°çš„æ•°æ®å­—å…¸
+    //errorï¼šå›è°ƒå‡½æ•°çš„é”™è¯¯å­—å…¸
+    //idï¼šè¯·æ±‚id
+    //lastï¼šæ˜¯å¦ä¸ºæœ€åè¿”å›
+    //iï¼šæ•´æ•°
+    //-------------------------------------------------------------------------------------
+
+    virtual void onFrontConnected() {};
+
+    virtual void onFrontDisconnected(int reqid) {};
+
+    virtual void onRtnNotice(const dict &data) {};
+
+    virtual void onRspError(const dict &data) {};
+
+    virtual void onRspStockUserLogin(const dict &data, const dict &error) {};
+
+    virtual void onRspStockUserLogout(const dict &data, const dict &error) {};
+
+    virtual void onRspStockUserPasswordUpdate(const dict &data, const dict &error) {};
+
+    virtual void onRspStockEntrustOrder(const dict &data, const dict &error) {};
+
+    virtual void onRspStockWithdrawOrder(const dict &data, const dict &error) {};
+
+    virtual void onRspStockQryEntrustOrder(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspStockQryRealTimeTrade(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspStockQrySerialTrade(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspStockQryPosition(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspStockQryCapitalAccountInfo(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspStockQryAccountInfo(const dict &data, const dict &error) {};
+
+    virtual void onRspStockQryShareholderInfo(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspStockTransferFunds(const dict &data, const dict &error) {};
+
+    virtual void onRspStockEntrustBatchOrder(const dict &data, const dict &error) {};
+
+    virtual void onRspStockWithdrawBatchOrder(const dict &data, const dict &error) {};
+
+    virtual void onRspStockCalcAbleEntrustQty(const dict &data, const dict &error) {};
+
+    virtual void onRspStockCalcAblePurchaseETFQty(const dict &data, const dict &error) {};
+
+    virtual void onRspStockQryFreezeFundsDetail(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspStockQryFreezeStockDetail(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspStockQryTransferStockDetail(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspStockQryTransferFundsDetail(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspStockQryStockInfo(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspStockQryStockStaticInfo(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspStockQryTradeTime(const dict &data, const dict &error) {};
+
+    virtual void onStockEntrustOrderRtn(const dict &data) {};
+
+    virtual void onStockTradeRtn(const dict &data) {};
+
+    virtual void onStockWithdrawOrderRtn(const dict &data) {};
+
+    virtual void onRspSOPUserLogin(const dict &data, const dict &error) {};
+
+    virtual void onRspSOPUserLogout(const dict &data, const dict &error) {};
+
+    virtual void onRspSOPUserPasswordUpdate(const dict &data, const dict &error) {};
+
+    virtual void onRspSOPEntrustOrder(const dict &data, const dict &error) {};
+
+    virtual void onRspSOPQuoteEntrustOrder(const dict &data, const dict &error) {};
+
+    virtual void onRspSOPGroupSplit(const dict &data, const dict &error) {};
+
+    virtual void onRspSOPGroupExectueOrder(const dict &data, const dict &error) {};
+
+    virtual void onRspSOPQryGroupPosition(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspSOPLockOUnLockStock(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspSOPWithdrawOrder(const dict &data, const dict &error) {};
+
+    virtual void onRspSOPQryEntrustOrder(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspSOPQrySerialTrade(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspSOPQryPosition(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspSOPQryCollateralPosition(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspSOPQryCapitalAccountInfo(const dict &data, const dict &error) {};
+
+    virtual void onRspSOPQryAccountInfo(const dict &data, const dict &error) {};
+
+    virtual void onRspSOPQryShareholderInfo(const dict &data, const dict &error) {};
+
+    virtual void onRspSOPCalcAbleEntrustQty(const dict &data, const dict &error) {};
+
+    virtual void onRspSOPQryAbleLockStock(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspSOPQryContactInfo(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspSOPExectueOrder(const dict &data, const dict &error) {};
+
+    virtual void onRspSOPQryExecAssiInfo(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspSOPQryTradeTime(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspSOPQryExchangeInfo(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspSOPQryCommission(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspSOPQryDeposit(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspSOPQryContractObjectInfo(const dict &data, const dict &error, bool last) {};
+
+    virtual void onSOPEntrustOrderRtn(const dict &data) {};
+
+    virtual void onSOPTradeRtn(const dict &data) {};
+
+    virtual void onSOPWithdrawOrderRtn(const dict &data) {};
+
+    virtual void onRspFASLUserLogin(const dict &data, const dict &error) {};
+
+    virtual void onRspFASLUserLogout(const dict &data, const dict &error) {};
+
+    virtual void onRspFASLQryAbleFinInfo(const dict &data, const dict &error) {};
+
+    virtual void onRspFASLQryAbleSloInfo(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspFASLTransferCollateral(const dict &data, const dict &error) {};
+
+    virtual void onRspFASLDirectRepayment(const dict &data, const dict &error) {};
+
+    virtual void onRspFASLRepayStockTransfer(const dict &data, const dict &error) {};
+
+    virtual void onRspFASLEntrustCrdtOrder(const dict &data, const dict &error) {};
+
+    virtual void onRspFASLEntrustOrder(const dict &data, const dict &error) {};
+
+    virtual void onRspFASLCalcAbleEntrustCrdtQty(const dict &data, const dict &error) {};
+
+    virtual void onRspFASLQryCrdtFunds(const dict &data, const dict &error) {};
+
+    virtual void onRspFASLQryCrdtContract(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspFASLQryCrdtConChangeInfo(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspFASLTransferFunds(const dict &data, const dict &error) {};
+
+    virtual void onRspFASLQryAccountInfo(const dict &data, const dict &error) {};
+
+    virtual void onRspFASLQryCapitalAccountInfo(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspFASLQryShareholderInfo(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspFASLQryPosition(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspFASLQryEntrustOrder(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspFASLQrySerialTrade(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspFASLQryRealTimeTrade(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspFASLQryFreezeFundsDetail(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspFASLQryFreezeStockDetail(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspFASLQryTransferFundsDetail(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspFASLWithdrawOrder(const dict &data, const dict &error) {};
+
+    virtual void onRspFASLQrySystemTime(const dict &data, const dict &error) {};
+
+    virtual void onRspFASLQryTransferredContract(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspFASLDesirableFundsOut(const dict &data, const dict &error) {};
+
+    virtual void onRspFASLQryGuaranteedContract(const dict &data, const dict &error, bool last) {};
+
+    virtual void onRspFASLQryUnderlyingContract(const dict &data, const dict &error, bool last) {};
+
+    virtual void onFASLEntrustOrderRtn(const dict &data) {};
+
+    virtual void onFASLTradeRtn(const dict &data) {};
+
+    virtual void onFASLWithdrawOrderRtn(const dict &data) {};
+
+    //-------------------------------------------------------------------------------------
+    //req:ä¸»åŠ¨å‡½æ•°çš„è¯·æ±‚å­—å…¸
+    //-------------------------------------------------------------------------------------
+
+    void createDFITCSECTraderApi(string pszFlowPath);
+
+    void release();
+
+    int init(string protocol);
+
+    int exit();
+
+    int subscribePrivateTopic(int nResumeType);
+    int reqStockUserLogin(const dict &req);
+
+    int reqStockUserLogout(const dict &req);
+
+    int reqStockUserPasswordUpdate(const dict &req);
+
+    int reqStockEntrustOrder(const dict &req);
+
+    int reqStockWithdrawOrder(const dict &req);
+
+    int reqStockQryEntrustOrder(const dict &req);
+
+    int reqStockQryRealTimeTrade(const dict &req);
+
+    int reqStockQrySerialTrade(const dict &req);
+
+    int reqStockQryPosition(const dict &req);
+
+    int reqStockQryCapitalAccountInfo(const dict &req);
 
-	int reqStockQryAccountInfo(const dict &req);
+    int reqStockQryAccountInfo(const dict &req);
 
-	int reqStockQryShareholderInfo(const dict &req);
+    int reqStockQryShareholderInfo(const dict &req);
 
-	int reqStockTransferFunds(const dict &req);
+    int reqStockTransferFunds(const dict &req);
 
-	int reqStockEntrustBatchOrder(const dict &req);
+    int reqStockEntrustBatchOrder(const dict &req);
 
-	int reqStockWithdrawBatchOrder(const dict &req);
+    int reqStockWithdrawBatchOrder(const dict &req);
 
-	int reqStockCalcAbleEntrustQty(const dict &req);
+    int reqStockCalcAbleEntrustQty(const dict &req);
 
-	int reqStockCalcAblePurchaseETFQty(const dict &req);
+    int reqStockCalcAblePurchaseETFQty(const dict &req);
 
-	int reqStockQryFreezeFundsDetail(const dict &req);
+    int reqStockQryFreezeFundsDetail(const dict &req);
 
-	int reqStockQryFreezeStockDetail(const dict &req);
+    int reqStockQryFreezeStockDetail(const dict &req);
 
-	int reqStockQryTransferFundsDetail(const dict &req);
+    int reqStockQryTransferFundsDetail(const dict &req);
 
-	int reqStockQryTransferStockDetail(const dict &req);
+    int reqStockQryTransferStockDetail(const dict &req);
 
-	int reqStockQryStockInfo(const dict &req);
+    int reqStockQryStockInfo(const dict &req);
 
-	int reqStockQryStockStaticInfo(const dict &req);
+    int reqStockQryStockStaticInfo(const dict &req);
 
-	int reqStockQryTradeTime(const dict &req);
+    int reqStockQryTradeTime(const dict &req);
 
-	int reqSOPUserLogin(const dict &req);
+    int reqSOPUserLogin(const dict &req);
 
-	int reqSOPUserLogout(const dict &req);
+    int reqSOPUserLogout(const dict &req);
 
-	int reqSOPUserPasswordUpdate(const dict &req);
+    int reqSOPUserPasswordUpdate(const dict &req);
 
-	int reqSOPEntrustOrder(const dict &req);
+    int reqSOPEntrustOrder(const dict &req);
 
-	int reqSOPQuoteEntrustOrder(const dict &req);
+    int reqSOPQuoteEntrustOrder(const dict &req);
 
-	int reqSOPGroupSplit(const dict &req);
+    int reqSOPGroupSplit(const dict &req);
 
-	int reqSOPGroupExectueOrder(const dict &req);
+    int reqSOPGroupExectueOrder(const dict &req);
 
-	int reqSOPQryGroupPosition(const dict &req);
+    int reqSOPQryGroupPosition(const dict &req);
 
-	int reqSOPLockOUnLockStock(const dict &req);
+    int reqSOPLockOUnLockStock(const dict &req);
 
-	int reqSOPWithdrawOrder(const dict &req);
+    int reqSOPWithdrawOrder(const dict &req);
 
-	int reqSOPQryEntrustOrder(const dict &req);
+    int reqSOPQryEntrustOrder(const dict &req);
 
-	int reqSOPQrySerialTrade(const dict &req);
+    int reqSOPQrySerialTrade(const dict &req);
 
-	int reqSOPQryPosition(const dict &req);
+    int reqSOPQryPosition(const dict &req);
 
-	int reqSOPQryCollateralPosition(const dict &req);
+    int reqSOPQryCollateralPosition(const dict &req);
 
-	int reqSOPQryCapitalAccountInfo(const dict &req);
+    int reqSOPQryCapitalAccountInfo(const dict &req);
 
-	int reqSOPQryAccountInfo(const dict &req);
+    int reqSOPQryAccountInfo(const dict &req);
 
-	int reqSOPQryShareholderInfo(const dict &req);
+    int reqSOPQryShareholderInfo(const dict &req);
 
-	int reqSOPCalcAbleEntrustQty(const dict &req);
+    int reqSOPCalcAbleEntrustQty(const dict &req);
 
-	int reqSOPQryAbleLockStock(const dict &req);
+    int reqSOPQryAbleLockStock(const dict &req);
 
-	int reqSOPQryContactInfo(const dict &req);
+    int reqSOPQryContactInfo(const dict &req);
 
-	int reqSOPExectueOrder(const dict &req);
+    int reqSOPExectueOrder(const dict &req);
 
-	int reqSOPQryExecAssiInfo(const dict &req);
+    int reqSOPQryExecAssiInfo(const dict &req);
 
-	int reqSOPQryTradeTime(const dict &req);
+    int reqSOPQryTradeTime(const dict &req);
 
-	int reqSOPQryExchangeInfo(const dict &req);
+    int reqSOPQryExchangeInfo(const dict &req);
 
-	int reqSOPQryCommission(const dict &req);
+    int reqSOPQryCommission(const dict &req);
 
-	int reqSOPQryDeposit(const dict &req);
+    int reqSOPQryDeposit(const dict &req);
 
-	int reqSOPQryContractObjectInfo(const dict &req);
+    int reqSOPQryContractObjectInfo(const dict &req);
 
-	int reqFASLUserLogin(const dict &req);
+    int reqFASLUserLogin(const dict &req);
 
-	int reqFASLUserLogout(const dict &req);
+    int reqFASLUserLogout(const dict &req);
 
-	int reqFASLQryAbleFinInfo(const dict &req);
+    int reqFASLQryAbleFinInfo(const dict &req);
 
-	int reqFASLQryAbleSloInfo(const dict &req);
+    int reqFASLQryAbleSloInfo(const dict &req);
 
-	int reqFASLTransferCollateral(const dict &req);
+    int reqFASLTransferCollateral(const dict &req);
 
-	int reqFASLDirectRepayment(const dict &req);
+    int reqFASLDirectRepayment(const dict &req);
 
-	int reqFASLRepayStockTransfer(const dict &req);
+    int reqFASLRepayStockTransfer(const dict &req);
 
-	int reqFASLEntrustCrdtOrder(const dict &req);
+    int reqFASLEntrustCrdtOrder(const dict &req);
 
-	int reqFASLEntrsuctOrder(const dict &req);
+    int reqFASLEntrsuctOrder(const dict &req);
 
-	int reqFASLWithdrawOrder(const dict &req);
+    int reqFASLWithdrawOrder(const dict &req);
 
-	int reqFASLCalcAbleEntrustCrdtQty(const dict &req);
+    int reqFASLCalcAbleEntrustCrdtQty(const dict &req);
 
-	int reqFASLQryCrdtFunds(const dict &req);
+    int reqFASLQryCrdtFunds(const dict &req);
 
-	int reqFASLQryCrdtContract(const dict &req);
+    int reqFASLQryCrdtContract(const dict &req);
 
-	int reqFASLQryCrdtConChangeInfo(const dict &req);
+    int reqFASLQryCrdtConChangeInfo(const dict &req);
 
-	int reqFASLTransferFunds(const dict &req);
+    int reqFASLTransferFunds(const dict &req);
 
-	int reqFASLQryAccountInfo(const dict &req);
+    int reqFASLQryAccountInfo(const dict &req);
 
-	int reqFASLQryCapitalAccountInfo(const dict &req);
+    int reqFASLQryCapitalAccountInfo(const dict &req);
 
-	int reqFASLQryShareholderInfo(const dict &req);
+    int reqFASLQryShareholderInfo(const dict &req);
 
-	int reqFASLQryPosition(const dict &req);
+    int reqFASLQryPosition(const dict &req);
 
-	int reqFASLQryEntrustOrder(const dict &req);
+    int reqFASLQryEntrustOrder(const dict &req);
 
-	int reqFASLQrySerialTrade(const dict &req);
+    int reqFASLQrySerialTrade(const dict &req);
 
-	int reqFASLQryRealTimeTrade(const dict &req);
+    int reqFASLQryRealTimeTrade(const dict &req);
 
-	int reqFASLQryFreezeFundsDetail(const dict &req);
+    int reqFASLQryFreezeFundsDetail(const dict &req);
 
-	int reqFASLQryFreezeStockDetail(const dict &req);
+    int reqFASLQryFreezeStockDetail(const dict &req);
 
-	int reqFASLQryTransferFundsDetail(const dict &req);
+    int reqFASLQryTransferFundsDetail(const dict &req);
 
-	int reqFASLQrySystemTime(const dict &req);
+    int reqFASLQrySystemTime(const dict &req);
 
-	int reqFASLQryTransferredContract(const dict &req);
+    int reqFASLQryTransferredContract(const dict &req);
 
-	int reqFASLDesirableFundsOut(const dict &req);
+    int reqFASLDesirableFundsOut(const dict &req);
 
-	int reqFASLQryGuaranteedContract(const dict &req);
+    int reqFASLQryGuaranteedContract(const dict &req);
 
-	int reqFASLQryUnderlyingContract(const dict &req);
+    int reqFASLQryUnderlyingContract(const dict &req);
 
 };

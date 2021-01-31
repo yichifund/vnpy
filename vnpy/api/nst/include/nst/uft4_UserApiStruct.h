@@ -1,4 +1,4 @@
-#ifndef _UFT4_APIDATASTRUCT_H_
+ï»¿#ifndef _UFT4_APIDATASTRUCT_H_
 #define _UFT4_APIDATASTRUCT_H_
 
 #include "os_common.h"
@@ -7,117 +7,117 @@
 
 typedef enum tagExchange_Type
 {
-	EXCHANGE_CFFEX = 0,	//ÖĞ½ğËù
-	EXCHANGE_SHFE,		//1ÉÏÆÚËù
-	EXCHANGE_DCE,		//2´óÉÌËù
-	EXCHANGE_SSEOPT,	//3ÉÏÖ¤ÆÚÈ¨
-	EXCHANGE_CZCE,		//4
-	EXCHANGE_SZSE,		//5ÉîÛÚÖ¤È¯
-	EXCHANGE_SSE,		//6ÉÏº£Ö¤È¯
-	EXCHANGE_UNKNOWN,
+    EXCHANGE_CFFEX = 0,	//ä¸­é‡‘æ‰€
+    EXCHANGE_SHFE,		//1ä¸ŠæœŸæ‰€
+    EXCHANGE_DCE,		//2å¤§å•†æ‰€
+    EXCHANGE_SSEOPT,	//3ä¸Šè¯æœŸæƒ
+    EXCHANGE_CZCE,		//4
+    EXCHANGE_SZSE,		//5æ·±åœ³è¯åˆ¸
+    EXCHANGE_SSE,		//6ä¸Šæµ·è¯åˆ¸
+    EXCHANGE_UNKNOWN,
 }E_EXCHANGE_TYPE;
 
 typedef struct tagUftFtdcInputOrderField
 {
-	///±¨µ¥±àºÅ
-	T_UFT_FtdcOrderSysIDType	OrderSysID;
-	///»áÔ±´úÂë
-	T_UFT_FtdcParticipantIDType	ParticipantID;
-	///¿Í»§´úÂë
-	T_UFT_FtdcClientIDType	ClientID;
-	///½»Ò×ÓÃ»§´úÂë
-	T_UFT_FtdcUserIDType	UserID;
-	///ºÏÔ¼´úÂë
-	T_UFT_FtdcInstrumentIDType	InstrumentID;
-	///±¨µ¥¼Û¸ñÌõ¼ş
-	T_UFT_FtdcOrderPriceTypeType	OrderPriceType;
-	///ÂòÂô·½Ïò
-	T_UFT_FtdcDirectionType	Direction;
-	///×éºÏ¿ªÆ½±êÖ¾
-	T_UFT_FtdcCombOffsetFlagType	CombOffsetFlag;
-	///×éºÏÍ¶»úÌ×±£±êÖ¾
-	T_UFT_FtdcCombHedgeFlagType	CombHedgeFlag;
-	///¼Û¸ñ
-	T_UFT_FtdcPriceType	LimitPrice;
-	///ÊıÁ¿
-	T_UFT_FtdcVolumeType	VolumeTotalOriginal;
-	///ÓĞĞ§ÆÚÀàĞÍ
-	T_UFT_FtdcTimeConditionType	TimeCondition;
-	///GTDÈÕÆÚ
-	T_UFT_FtdcDateType	GTDDate;
-	///³É½»Á¿ÀàĞÍ
-	T_UFT_FtdcVolumeConditionType	VolumeCondition;
-	///×îĞ¡³É½»Á¿
-	T_UFT_FtdcVolumeType	MinVolume;
-	///´¥·¢Ìõ¼ş
-	T_UFT_FtdcContingentConditionType	ContingentCondition;
-	///Ö¹Ëğ¼Û
-	T_UFT_FtdcPriceType	StopPrice;
-	///Ç¿Æ½Ô­Òò
-	T_UFT_FtdcForceCloseReasonType	ForceCloseReason;
-	///±¾µØ±¨µ¥±àºÅ
-	T_UFT_FtdcOrderLocalIDType	OrderLocalID;
-	///×Ô¶¯¹ÒÆğ±êÖ¾
-	T_UFT_FtdcBoolType	IsAutoSuspend;
-	///ÒµÎñµ¥Ôª
-	T_UFT_FtdcBusinessUnitType	BusinessUnit;
+    ///æŠ¥å•ç¼–å·
+    T_UFT_FtdcOrderSysIDType	OrderSysID;
+    ///ä¼šå‘˜ä»£ç 
+    T_UFT_FtdcParticipantIDType	ParticipantID;
+    ///å®¢æˆ·ä»£ç 
+    T_UFT_FtdcClientIDType	ClientID;
+    ///äº¤æ˜“ç”¨æˆ·ä»£ç 
+    T_UFT_FtdcUserIDType	UserID;
+    ///åˆçº¦ä»£ç 
+    T_UFT_FtdcInstrumentIDType	InstrumentID;
+    ///æŠ¥å•ä»·æ ¼æ¡ä»¶
+    T_UFT_FtdcOrderPriceTypeType	OrderPriceType;
+    ///ä¹°å–æ–¹å‘
+    T_UFT_FtdcDirectionType	Direction;
+    ///ç»„åˆå¼€å¹³æ ‡å¿—
+    T_UFT_FtdcCombOffsetFlagType	CombOffsetFlag;
+    ///ç»„åˆæŠ•æœºå¥—ä¿æ ‡å¿—
+    T_UFT_FtdcCombHedgeFlagType	CombHedgeFlag;
+    ///ä»·æ ¼
+    T_UFT_FtdcPriceType	LimitPrice;
+    ///æ•°é‡
+    T_UFT_FtdcVolumeType	VolumeTotalOriginal;
+    ///æœ‰æ•ˆæœŸç±»å‹
+    T_UFT_FtdcTimeConditionType	TimeCondition;
+    ///GTDæ—¥æœŸ
+    T_UFT_FtdcDateType	GTDDate;
+    ///æˆäº¤é‡ç±»å‹
+    T_UFT_FtdcVolumeConditionType	VolumeCondition;
+    ///æœ€å°æˆäº¤é‡
+    T_UFT_FtdcVolumeType	MinVolume;
+    ///è§¦å‘æ¡ä»¶
+    T_UFT_FtdcContingentConditionType	ContingentCondition;
+    ///æ­¢æŸä»·
+    T_UFT_FtdcPriceType	StopPrice;
+    ///å¼ºå¹³åŸå› 
+    T_UFT_FtdcForceCloseReasonType	ForceCloseReason;
+    ///æœ¬åœ°æŠ¥å•ç¼–å·
+    T_UFT_FtdcOrderLocalIDType	OrderLocalID;
+    ///è‡ªåŠ¨æŒ‚èµ·æ ‡å¿—
+    T_UFT_FtdcBoolType	IsAutoSuspend;
+    ///ä¸šåŠ¡å•å…ƒ
+    T_UFT_FtdcBusinessUnitType	BusinessUnit;
 
 }CUftFtdcInputOrderField;
 
 
 
 
-// ¿Í»§³Ö²Ö±í
+// å®¢æˆ·æŒä»“è¡¨
 typedef struct tagUftQryInvestorPositionField
 {
-	char		futu_code[7];		//	ºÏÔ¼´úÂë	HsFuturesCode;Í¨¹ıCFutuCode.Get»ñÈ¡
-	char		entrust_bs;			//	ÂòÂô·½Ïò	HsType£º¡®0¡¯Âò£»¡®1¡¯Âô
-	int32_t		OldEnableAmount;	//	ÀÏ²Ö¿ÉÓÃÊıÁ¿	HsQuantity
-	int32_t		OldCurrentAmount;	//	ÀÏ²Ö³Ö²ÖÊıÁ¿	HsQuantity
-	int32_t		TodayEnableAmount;//	µ±ÈÕ¿ÉÓÃÊıÁ¿	HsQuantity
-	int32_t		TodayCurrentAmount;//	µ±ÈÕ³Ö²ÖÊıÁ¿	HsQuantity
-	T_UFT_FtdcMoneyType	OldOpenBalance;	//	ÀÏ²Ö³Ö²Ö³É½»¶î	HsAmount
-	T_UFT_FtdcMoneyType	TodayOpenBalance;	//	½ñ²Ö³Ö²Ö³É½»¶î	HsAmount
-	T_UFT_FtdcMoneyType	HoldMargin;		//	³Ö²Ö±£Ö¤½ğ	HsAmount
+    char		futu_code[7];		//	åˆçº¦ä»£ç 	HsFuturesCode;é€šè¿‡CFutuCode.Getè·å–
+    char		entrust_bs;			//	ä¹°å–æ–¹å‘	HsTypeï¼šâ€˜0â€™ä¹°ï¼›â€˜1â€™å–
+    int32_t		OldEnableAmount;	//	è€ä»“å¯ç”¨æ•°é‡	HsQuantity
+    int32_t		OldCurrentAmount;	//	è€ä»“æŒä»“æ•°é‡	HsQuantity
+    int32_t		TodayEnableAmount;//	å½“æ—¥å¯ç”¨æ•°é‡	HsQuantity
+    int32_t		TodayCurrentAmount;//	å½“æ—¥æŒä»“æ•°é‡	HsQuantity
+    T_UFT_FtdcMoneyType	OldOpenBalance;	//	è€ä»“æŒä»“æˆäº¤é¢	HsAmount
+    T_UFT_FtdcMoneyType	TodayOpenBalance;	//	ä»Šä»“æŒä»“æˆäº¤é¢	HsAmount
+    T_UFT_FtdcMoneyType	HoldMargin;		//	æŒä»“ä¿è¯é‡‘	HsAmount
 } QryInvestorPositionField;
 
-// ±¨µ¥Â¼ÈëÇëÇó
+// æŠ¥å•å½•å…¥è¯·æ±‚
 typedef struct tagUftReqOrderInsertField
 {
-	CUftFtdcInputOrderField	Order;
-	int64_t						OrderRef;		//µÚÈı·½±êÊ¶
-	uint8_t                     MaginCheck;//ÓÃÓÚÊÇ·ñ½øĞĞ´ó±ßÓÅ»İ¡®0¡¯²»¼ì²éÊÇ·ñÓÅ»İ£¬¡®1¡¯¼ì²é
+    CUftFtdcInputOrderField	Order;
+    int64_t						OrderRef;		//ç¬¬ä¸‰æ–¹æ ‡è¯†
+    uint8_t                     MaginCheck;//ç”¨äºæ˜¯å¦è¿›è¡Œå¤§è¾¹ä¼˜æƒ â€˜0â€™ä¸æ£€æŸ¥æ˜¯å¦ä¼˜æƒ ï¼Œâ€˜1â€™æ£€æŸ¥
 } CUftReqOrderInsertField;
 
 
-//±¨µ¥¹ñÌ¨ÏìÓ¦
+//æŠ¥å•æŸœå°å“åº”
 typedef struct tagUftAnsOrderInsertField
 {
-	int64_t						OrderRef;		//µÚÈı·½±êÊ¶
-	uint32_t					OrderIndex;		//±¨µ¥±àºÅ
-	uint32_t					ProcessTime;	// Î¯ÍĞ´¦ÀíÊ±¼ä
-	uint32_t					TotalTime;		// ·¢ËÍÓ¦´ğÊ±¼ä
-	uint32_t					ExchangeTime;	// ½»Ò×ËùÊ±¼ä
-	uint32_t					SenderID;
-	uint32_t					LocalTimeDelay; //±¾µØÍøÂçÑÓÊ±
-	char                        StockCode[8];
-	char						Direction;
-	char						EntrustType;
-	double						Price;
-	int32_t						Amount;
+    int64_t						OrderRef;		//ç¬¬ä¸‰æ–¹æ ‡è¯†
+    uint32_t					OrderIndex;		//æŠ¥å•ç¼–å·
+    uint32_t					ProcessTime;	// å§”æ‰˜å¤„ç†æ—¶é—´
+    uint32_t					TotalTime;		// å‘é€åº”ç­”æ—¶é—´
+    uint32_t					ExchangeTime;	// äº¤æ˜“æ‰€æ—¶é—´
+    uint32_t					SenderID;
+    uint32_t					LocalTimeDelay; //æœ¬åœ°ç½‘ç»œå»¶æ—¶
+    char                        StockCode[8];
+    char						Direction;
+    char						EntrustType;
+    double						Price;
+    int32_t						Amount;
 } CUftAnsOrderInsertField;
 
-//±¨µ¥½»Ò×ËùÏìÓ¦
+//æŠ¥å•äº¤æ˜“æ‰€å“åº”
 typedef struct tagUftRspnOrderInsertField
 {
-	int64_t						OrderRef;		//µÚÈı·½±êÊ¶
-	uint32_t					OrderIndex;     //·µ»ØÔ­±¨µ¥µÄOrderIndex
-	uint32_t					ProcessTime;	// Î¯ÍĞ´¦ÀíÊ±¼ä
-	uint32_t					TotalTime;		// ·¢ËÍÓ¦´ğÊ±¼ä
-	uint32_t					ExchangeTime;	// ½»Ò×ËùÊ±¼ä
-	T_UFT_FtdcOrderSysIDType	OrderSysID;		//½»Ò×Ëù±¨µ¥±àºÅ
-	char						OrderStatus;	//±¨µ¥×´Ì¬
-	
+    int64_t						OrderRef;		//ç¬¬ä¸‰æ–¹æ ‡è¯†
+    uint32_t					OrderIndex;     //è¿”å›åŸæŠ¥å•çš„OrderIndex
+    uint32_t					ProcessTime;	// å§”æ‰˜å¤„ç†æ—¶é—´
+    uint32_t					TotalTime;		// å‘é€åº”ç­”æ—¶é—´
+    uint32_t					ExchangeTime;	// äº¤æ˜“æ‰€æ—¶é—´
+    T_UFT_FtdcOrderSysIDType	OrderSysID;		//äº¤æ˜“æ‰€æŠ¥å•ç¼–å·
+    char						OrderStatus;	//æŠ¥å•çŠ¶æ€
+    
 } CUftRspnOrderInsertField;//API EXPOSURE
 
 
@@ -125,248 +125,248 @@ typedef struct tagUftRspnOrderInsertField
 
 typedef struct tagUftAnsOrderActionField
 {
-	int64_t						OrderRef;		//µÚÈı·½±êÊ¶
-	uint32_t					OrderIndex;
-	T_UFT_FtdcOrderSysIDType	OrderSysID;		//±¨µ¥±àºÅ
-	T_UFT_FtdcOrderLocalIDType	OrderLocalID;	//±¾µØ±¨µ¥±àºÅ
-	uint32_t					SenderID;
+    int64_t						OrderRef;		//ç¬¬ä¸‰æ–¹æ ‡è¯†
+    uint32_t					OrderIndex;
+    T_UFT_FtdcOrderSysIDType	OrderSysID;		//æŠ¥å•ç¼–å·
+    T_UFT_FtdcOrderLocalIDType	OrderLocalID;	//æœ¬åœ°æŠ¥å•ç¼–å·
+    uint32_t					SenderID;
 } CUftAnsOrderActionField;
 
 
 
-//³·µ¥²Ù×÷
+//æ’¤å•æ“ä½œ
 typedef struct tagUftRspnOrderActionField
 {
-	T_UFT_FtdcOrderSysIDType		OrderSysID;		//±¨µ¥±àºÅ
-	T_UFT_FtdcOrderLocalIDType	OrderLocalID;	//±¾µØ±¨µ¥±àºÅ
-	int64_t						OrderRef;		//µÚÈı·½±êÊ¶
-	uint32_t					OrderIndex;	
+    T_UFT_FtdcOrderSysIDType		OrderSysID;		//æŠ¥å•ç¼–å·
+    T_UFT_FtdcOrderLocalIDType	OrderLocalID;	//æœ¬åœ°æŠ¥å•ç¼–å·
+    int64_t						OrderRef;		//ç¬¬ä¸‰æ–¹æ ‡è¯†
+    uint32_t					OrderIndex;	
 } CUftRspnOrderActionField;
 
 
 
-//±¨µ¥»Ø±¨
+//æŠ¥å•å›æŠ¥
 typedef struct tagUftRtnnOrderField
 {
-	int64_t						OrderRef;		//µÚÈı·½±êÊ¶
-	uint32_t					OrderIndex;     //±¨µ¥±àºÅ
-	uint32_t					ProcessTime;	// Î¯ÍĞ´¦ÀíÊ±¼ä
-	uint32_t					TotalTime;		// ·¢ËÍÓ¦´ğÊ±¼ä
-	uint32_t					ExchangeTime;	// ½»Ò×ËùÊ±¼ä
-	T_UFT_FtdcOrderSysIDType	OrderSysID;		//½»Ò×Ëù±¨µ¥±àºÅ
-	T_UFT_FtdcVolumeType		VolumeTotal;	//Ê£ÓàÊıÁ¿
-	T_UFT_FtdcOrderStatusType	OrderStatus;	//±¨µ¥×´Ì¬
-	char                        StockCode[8];
-	char						EntrustType;
-	char						Direction;
-	double						Price;
-	int32_t						Amount;
+    int64_t						OrderRef;		//ç¬¬ä¸‰æ–¹æ ‡è¯†
+    uint32_t					OrderIndex;     //æŠ¥å•ç¼–å·
+    uint32_t					ProcessTime;	// å§”æ‰˜å¤„ç†æ—¶é—´
+    uint32_t					TotalTime;		// å‘é€åº”ç­”æ—¶é—´
+    uint32_t					ExchangeTime;	// äº¤æ˜“æ‰€æ—¶é—´
+    T_UFT_FtdcOrderSysIDType	OrderSysID;		//äº¤æ˜“æ‰€æŠ¥å•ç¼–å·
+    T_UFT_FtdcVolumeType		VolumeTotal;	//å‰©ä½™æ•°é‡
+    T_UFT_FtdcOrderStatusType	OrderStatus;	//æŠ¥å•çŠ¶æ€
+    char                        StockCode[8];
+    char						EntrustType;
+    char						Direction;
+    double						Price;
+    int32_t						Amount;
 } CUftRtnnOrderField;
 
 
 
-//³É½»»Ø±¨
+//æˆäº¤å›æŠ¥
 typedef struct tagUftRtnnTradeField
 {
-	T_UFT_FtdcPriceType				BusinessPrice;		// ³É½»¼Û¸ñ	HsFutuPrice
-	int32_t							BusinessTime;		// ³É½»Ê±¼ä	HsTime
-	int32_t							BusinessAmount;		// ³É½»ÊıÁ¿	HsQuantity
-	double							fare;				// ÊÖĞø·Ñ
-	int64_t							OrderRef;			//µÚÈı·½±êÊ¶
-	uint32_t						OrderIndex;			// ±¨µ¥±¾µØ±êÊ¶
-	T_UFT_FtdcTradeIDType			BusinessId;		// ³É½»±àºÅ	
-	T_UFT_FtdcOrderSysIDType 		OrderSysID;			// ±¨µ¥±àºÅ£¬char[13], ÕâÀïÎ´¶ÔÆë
-	int8_t							session_id;		//»á»°ID
-	char						    Direction;          //ÂòÂô±êÖ¾
-	char						    OffsetFlag;         //¿ªÆ½±êÖ¾
-	char						    HedgeFlag;			//Í¶»úÌ×±£±êÖ¾
-	int8_t            			    reserve[5];			//Õ¼Î»
-	char							InstrumentID[17];     //ºÏÔ¼ºÅ	
-	char							StockCode[9];
+    T_UFT_FtdcPriceType				BusinessPrice;		// æˆäº¤ä»·æ ¼	HsFutuPrice
+    int32_t							BusinessTime;		// æˆäº¤æ—¶é—´	HsTime
+    int32_t							BusinessAmount;		// æˆäº¤æ•°é‡	HsQuantity
+    double							fare;				// æ‰‹ç»­è´¹
+    int64_t							OrderRef;			//ç¬¬ä¸‰æ–¹æ ‡è¯†
+    uint32_t						OrderIndex;			// æŠ¥å•æœ¬åœ°æ ‡è¯†
+    T_UFT_FtdcTradeIDType			BusinessId;		// æˆäº¤ç¼–å·	
+    T_UFT_FtdcOrderSysIDType 		OrderSysID;			// æŠ¥å•ç¼–å·ï¼Œchar[13], è¿™é‡Œæœªå¯¹é½
+    int8_t							session_id;		//ä¼šè¯ID
+    char						    Direction;          //ä¹°å–æ ‡å¿—
+    char						    OffsetFlag;         //å¼€å¹³æ ‡å¿—
+    char						    HedgeFlag;			//æŠ•æœºå¥—ä¿æ ‡å¿—
+    int8_t            			    reserve[5];			//å ä½
+    char							InstrumentID[17];     //åˆçº¦å·	
+    char							StockCode[9];
 } CUftRtnnTradeField;
 
 
-//×Ê½ğ²éÑ¯Ó¦´ğ
+//èµ„é‡‘æŸ¥è¯¢åº”ç­”
 typedef struct tagUftAnsQueryFundField
 {
-	T_UFT_FtdcMoneyType			EnabledBalance;	//¿ÉÓÃ×Ê½ğ
-	T_UFT_FtdcMoneyType			Deposit;		//µ±ÈÕÈë½ğ
-	T_UFT_FtdcMoneyType			BeginBalance;	// ³õÊ¼È¨Òæ
-	T_UFT_FtdcMoneyType			Margin;			// ±£Ö¤½ğ
-	T_UFT_FtdcMoneyType			Profit;			//Æ½²ÖÓ¯¿÷
-	double						TotalFare;		//ÊÖĞø·Ñ
-	double						CurrBalance;	// µ±Ç°È¨Òæ
-	double						floating_gain_loss; //³Ö²ÖÓ¯¿÷
-	double						FrozenBalance;	// ¶³½á×Ê½ğ
-	uint32_t					SenderID;
-	double						EnablePurQuota;	// ¿ÉÓÃÏŞ¹º¶î¶È
+    T_UFT_FtdcMoneyType			EnabledBalance;	//å¯ç”¨èµ„é‡‘
+    T_UFT_FtdcMoneyType			Deposit;		//å½“æ—¥å…¥é‡‘
+    T_UFT_FtdcMoneyType			BeginBalance;	// åˆå§‹æƒç›Š
+    T_UFT_FtdcMoneyType			Margin;			// ä¿è¯é‡‘
+    T_UFT_FtdcMoneyType			Profit;			//å¹³ä»“ç›ˆäº
+    double						TotalFare;		//æ‰‹ç»­è´¹
+    double						CurrBalance;	// å½“å‰æƒç›Š
+    double						floating_gain_loss; //æŒä»“ç›ˆäº
+    double						FrozenBalance;	// å†»ç»“èµ„é‡‘
+    uint32_t					SenderID;
+    double						EnablePurQuota;	// å¯ç”¨é™è´­é¢åº¦
 } CUftAnsQueryFundField;
 
 
-//Î¯ÍĞ²éÑ¯
+//å§”æ‰˜æŸ¥è¯¢
 typedef struct tagUftReqQueryOrderField
 {
-	T_UFT_FtdcInstrumentIDType	InstrumentID;	//ºÏÔ¼´úÂë£»InstrumentID[0]Îª'\0'±íÊ¾²éËùÓĞ
-	int32_t						BeginTime;		//Î¯ÍĞÆğÊ¼Ê±¼ä£»Îª0±íÊ¾²»ÏŞÖÆ
-	int32_t						EndTime;		//Î¯ÍĞÖÕÖ¹Ê±¼ä£»Îª0»òĞ¡ÓÚBeginTime±íÊ¾²»ÏŞÖÆ
-	T_UFT_FtdcOrderSysIDType		OrderSysID;		//½»Ò×Ëù±¨µ¥±àºÅ£»ÎªOrderSysID[0]Îª'\0'±íÊ¾²»ÏŞÖÆ
-	uint32_t					OrderIndex;		//±¾µØ±¨µ¥Ë÷Òı£»Îª0xFFFFFFFF±íÊ¾²»ÏŞÖÆ
-	uint32_t					EntrustSenderID;//¿Í»§¶Ë±¨µ¥±àºÅ£»Îª0xFFFFFFFF±íÊ¾²»ÏŞÖÆ
-	int64_t						OrderRef;		//¿Í»§¶ËµÚÈı·½±êÊ¶£»Îª-1±íÊ¾²»ÏŞÖÆ
-	uint32_t					Position;		//¶¨Î»´®£¬ÓÃÓÚÖ¸¶¨·ÖÒ³»ñÈ¡¸Ã¼ÇÂ¼ºÅ¼°Ö®ºóµÄ¼ÇÂ¼£»Ê×´ÎÊäÈë0£»ºóĞøÊ¹ÓÃÓ¦´ğÖĞµÄPositionÖµ
-	uint8_t						all_session_data;//Îª1±íÊ¾»ñÈ¡ËùÓĞ»á»°µÄÊı¾İ		
+    T_UFT_FtdcInstrumentIDType	InstrumentID;	//åˆçº¦ä»£ç ï¼›InstrumentID[0]ä¸º'\0'è¡¨ç¤ºæŸ¥æ‰€æœ‰
+    int32_t						BeginTime;		//å§”æ‰˜èµ·å§‹æ—¶é—´ï¼›ä¸º0è¡¨ç¤ºä¸é™åˆ¶
+    int32_t						EndTime;		//å§”æ‰˜ç»ˆæ­¢æ—¶é—´ï¼›ä¸º0æˆ–å°äºBeginTimeè¡¨ç¤ºä¸é™åˆ¶
+    T_UFT_FtdcOrderSysIDType		OrderSysID;		//äº¤æ˜“æ‰€æŠ¥å•ç¼–å·ï¼›ä¸ºOrderSysID[0]ä¸º'\0'è¡¨ç¤ºä¸é™åˆ¶
+    uint32_t					OrderIndex;		//æœ¬åœ°æŠ¥å•ç´¢å¼•ï¼›ä¸º0xFFFFFFFFè¡¨ç¤ºä¸é™åˆ¶
+    uint32_t					EntrustSenderID;//å®¢æˆ·ç«¯æŠ¥å•ç¼–å·ï¼›ä¸º0xFFFFFFFFè¡¨ç¤ºä¸é™åˆ¶
+    int64_t						OrderRef;		//å®¢æˆ·ç«¯ç¬¬ä¸‰æ–¹æ ‡è¯†ï¼›ä¸º-1è¡¨ç¤ºä¸é™åˆ¶
+    uint32_t					Position;		//å®šä½ä¸²ï¼Œç”¨äºæŒ‡å®šåˆ†é¡µè·å–è¯¥è®°å½•å·åŠä¹‹åçš„è®°å½•ï¼›é¦–æ¬¡è¾“å…¥0ï¼›åç»­ä½¿ç”¨åº”ç­”ä¸­çš„Positionå€¼
+    uint8_t						all_session_data;//ä¸º1è¡¨ç¤ºè·å–æ‰€æœ‰ä¼šè¯çš„æ•°æ®		
 
 } CUftReqQueryOrderField;
 
-//Î¯ÍĞ²éÑ¯Ó¦´ğ
+//å§”æ‰˜æŸ¥è¯¢åº”ç­”
 typedef struct tagUftAnsQueryOrderField
 {
-	
-	CUftFtdcInputOrderField	    Order;
-	int64_t						OrderRef;		//µÚÈı·½±êÊ¶
-	char						MaginCheck;		// ÊÇ·ñ½øĞĞ´ó±ßÓÅ»İ¡®0¡¯²»¼ì²éÊÇ·ñÓÅ»İ£¬¡®1¡¯¼ì²é
-	int32_t						VolumeTotal;	//Î¯ÍĞÊ£ÓàÊıÁ¿
-	char						OrderStatus;	// ¶©µ¥×´Ì¬£º´ı±¨£¬ÒÑ±¨£¬²¿³É£¬³É½»£¬·Ïµ¥
-	int8_t						session_id;		//»á»°ID
-	int8_t            			reserve;		//Õ¼Î»
-	int32_t						OrderTime;		// Î¯ÍĞÊ±¼ä
-	uint32_t					SenderID;
-	int32_t						ErrorID;
-	uint32_t					OrderIndex;
-	//Ö¤È¯NST
-	char						StockCode[8];   //¹ÉÆ±´úÂë£¬ÎŞ\0½áÊø·û£¬²»×ãÒÔ¿Õ¸ñ²¹Æë
-	char						Direction;      //ÂòÂô±êÖ¾1Âò£»2Âô
-	char						EntrustType;    //Î¯ÍĞÀàĞÍ'0'ÏŞ¼ÛÎ¯ÍĞ£»'1'±¾·½×îÓÅ£»'2'¶ÔÊÖ·½×îÓÅÊ£Óà×ªÏŞ¼Û£»'3'ÊĞ¼ÛÁ¢¼´³É½»Ê£Óà³·Ïú£»'4'ÊĞ¼ÛÈ«¶î³É½»»ò³·Ïú£»'5'ÊĞ¼Û×îÓÅÎåµµÈ«¶î³É½»Ê£Óà³·Ïú
-	char						CashMargin;		//ĞÅÓÃ±êÊ¶1=Cash£¬ÆÕÍ¨½»Ò×£»2=Open £¬ÈÚ×ÊÈ¯¿ª²Ö£»3=Close £¬ÈÚ×ÊÈ¯Æ½²Ö
-	int8_t						TGWNo;			//½»Ò×ËùÍø¹Ø±àºÅ£¬0ÂÖÁ÷£¬1~nÖ¸¶¨·¶Î§ÎªÖ¸¶¨Íø¹Ø±¨µ¥
-	double						Price;			//Î¯ÍĞ¼Û¸ñN13(4)
-	double						Amount;			//Î¯ÍĞÊıÁ¿N15(2)
-	char						OrderSysID[17]; //½»Ò×Ëù¶©µ¥±àºÅ
-	char						ClOrdID[11];	//±¾µØµ¥ºÅ ÎŞ\0½áÊø·û
+    
+    CUftFtdcInputOrderField	    Order;
+    int64_t						OrderRef;		//ç¬¬ä¸‰æ–¹æ ‡è¯†
+    char						MaginCheck;		// æ˜¯å¦è¿›è¡Œå¤§è¾¹ä¼˜æƒ â€˜0â€™ä¸æ£€æŸ¥æ˜¯å¦ä¼˜æƒ ï¼Œâ€˜1â€™æ£€æŸ¥
+    int32_t						VolumeTotal;	//å§”æ‰˜å‰©ä½™æ•°é‡
+    char						OrderStatus;	// è®¢å•çŠ¶æ€ï¼šå¾…æŠ¥ï¼Œå·²æŠ¥ï¼Œéƒ¨æˆï¼Œæˆäº¤ï¼ŒåºŸå•
+    int8_t						session_id;		//ä¼šè¯ID
+    int8_t            			reserve;		//å ä½
+    int32_t						OrderTime;		// å§”æ‰˜æ—¶é—´
+    uint32_t					SenderID;
+    int32_t						ErrorID;
+    uint32_t					OrderIndex;
+    //è¯åˆ¸NST
+    char						StockCode[8];   //è‚¡ç¥¨ä»£ç ï¼Œæ— \0ç»“æŸç¬¦ï¼Œä¸è¶³ä»¥ç©ºæ ¼è¡¥é½
+    char						Direction;      //ä¹°å–æ ‡å¿—1ä¹°ï¼›2å–
+    char						EntrustType;    //å§”æ‰˜ç±»å‹'0'é™ä»·å§”æ‰˜ï¼›'1'æœ¬æ–¹æœ€ä¼˜ï¼›'2'å¯¹æ‰‹æ–¹æœ€ä¼˜å‰©ä½™è½¬é™ä»·ï¼›'3'å¸‚ä»·ç«‹å³æˆäº¤å‰©ä½™æ’¤é”€ï¼›'4'å¸‚ä»·å…¨é¢æˆäº¤æˆ–æ’¤é”€ï¼›'5'å¸‚ä»·æœ€ä¼˜äº”æ¡£å…¨é¢æˆäº¤å‰©ä½™æ’¤é”€
+    char						CashMargin;		//ä¿¡ç”¨æ ‡è¯†1=Cashï¼Œæ™®é€šäº¤æ˜“ï¼›2=Open ï¼Œèèµ„åˆ¸å¼€ä»“ï¼›3=Close ï¼Œèèµ„åˆ¸å¹³ä»“
+    int8_t						TGWNo;			//äº¤æ˜“æ‰€ç½‘å…³ç¼–å·ï¼Œ0è½®æµï¼Œ1~næŒ‡å®šèŒƒå›´ä¸ºæŒ‡å®šç½‘å…³æŠ¥å•
+    double						Price;			//å§”æ‰˜ä»·æ ¼N13(4)
+    double						Amount;			//å§”æ‰˜æ•°é‡N15(2)
+    char						OrderSysID[17]; //äº¤æ˜“æ‰€è®¢å•ç¼–å·
+    char						ClOrdID[11];	//æœ¬åœ°å•å· æ— \0ç»“æŸç¬¦
 } CUftAnsQueryOrderField;
 
-//³É½»²éÑ¯
+//æˆäº¤æŸ¥è¯¢
 typedef struct tagUftReqQueryTradeField
 {
-	T_UFT_FtdcInstrumentIDType	InstrumentID;	//ºÏÔ¼´úÂë£»InstrumentID[0]Îª'\0'±íÊ¾²éËùÓĞ
-	int32_t						BeginTime;		//³É½»ÆğÊ¼Ê±¼ä£»Îª0±íÊ¾²»ÏŞÖÆ
-	int32_t						EndTime;		//³É½»ÖÕÖ¹Ê±¼ä£»Îª0»òĞ¡ÓÚBeginTime±íÊ¾²»ÏŞÖÆ
-	T_UFT_FtdcOrderSysIDType		OrderSysID;		//½»Ò×Ëù±¨µ¥±àºÅ£»ÎªOrderSysID[0]Îª'\0'±íÊ¾²»ÏŞÖÆ
-	uint32_t					OrderIndex;		//±¾µØ±¨µ¥Ë÷Òı£»Îª0xFFFFFFFF±íÊ¾²»ÏŞÖÆ
-	int64_t						OrderRef;		//¿Í»§¶ËµÚÈı·½±êÊ¶£»Îª-1±íÊ¾²»ÏŞÖÆ
-	uint32_t					Position;		//¶¨Î»´®£¬ÓÃÓÚÖ¸¶¨·ÖÒ³»ñÈ¡¸Ã¼ÇÂ¼ºÅ¼°Ö®ºóµÄ¼ÇÂ¼£»Ê×´ÎÊäÈë0£»ºóĞøÊ¹ÓÃÓ¦´ğÖĞµÄPositionÖµ
-	uint8_t						all_session_data;//Îª1±íÊ¾»ñÈ¡ËùÓĞ»á»°µÄÊı¾İ		
+    T_UFT_FtdcInstrumentIDType	InstrumentID;	//åˆçº¦ä»£ç ï¼›InstrumentID[0]ä¸º'\0'è¡¨ç¤ºæŸ¥æ‰€æœ‰
+    int32_t						BeginTime;		//æˆäº¤èµ·å§‹æ—¶é—´ï¼›ä¸º0è¡¨ç¤ºä¸é™åˆ¶
+    int32_t						EndTime;		//æˆäº¤ç»ˆæ­¢æ—¶é—´ï¼›ä¸º0æˆ–å°äºBeginTimeè¡¨ç¤ºä¸é™åˆ¶
+    T_UFT_FtdcOrderSysIDType		OrderSysID;		//äº¤æ˜“æ‰€æŠ¥å•ç¼–å·ï¼›ä¸ºOrderSysID[0]ä¸º'\0'è¡¨ç¤ºä¸é™åˆ¶
+    uint32_t					OrderIndex;		//æœ¬åœ°æŠ¥å•ç´¢å¼•ï¼›ä¸º0xFFFFFFFFè¡¨ç¤ºä¸é™åˆ¶
+    int64_t						OrderRef;		//å®¢æˆ·ç«¯ç¬¬ä¸‰æ–¹æ ‡è¯†ï¼›ä¸º-1è¡¨ç¤ºä¸é™åˆ¶
+    uint32_t					Position;		//å®šä½ä¸²ï¼Œç”¨äºæŒ‡å®šåˆ†é¡µè·å–è¯¥è®°å½•å·åŠä¹‹åçš„è®°å½•ï¼›é¦–æ¬¡è¾“å…¥0ï¼›åç»­ä½¿ç”¨åº”ç­”ä¸­çš„Positionå€¼
+    uint8_t						all_session_data;//ä¸º1è¡¨ç¤ºè·å–æ‰€æœ‰ä¼šè¯çš„æ•°æ®		
 
 } CUftReqQueryTradeField;
 
-//³É½»²éÑ¯Ó¦´ğ
+//æˆäº¤æŸ¥è¯¢åº”ç­”
 typedef struct tagUftAnsQueryTradeField
 {
-	T_UFT_FtdcPriceType				BusinessPrice;		// ³É½»¼Û¸ñ	HsFutuPrice
-	int32_t							BusinessTime;		// ³É½»Ê±¼ä	HsTime
-	int32_t							BusinessAmount;		// ³É½»ÊıÁ¿	HsQuantity
-	double							fare;				// ÊÖĞø·Ñ	
-	int64_t							OrderRef;			//µÚÈı·½±êÊ¶
-	uint32_t						OrderIndex;			// ±¨µ¥±¾µØ±êÊ¶
-	T_UFT_FtdcTradeIDType			BusinessId;		// ³É½»±àºÅ	HsChar32
-	T_UFT_FtdcOrderSysIDType		OrderSysID;			// ±¨µ¥±àºÅ£¬char[16], ÕâÀïÎ´¶ÔÆë
-	int8_t							session_id;			//»á»°ID
-	char							Direction;          //ÂòÂô±êÖ¾
-	char							OffsetFlag;         //¿ªÆ½±êÖ¾
-	char					 		InstrumentID[17];	  //ºÏÔ¼ºÅ	
-	char							StockCode[8];       //¹ÉÆ±´úÂë£¬ÎŞ\0½áÊø·û
+    T_UFT_FtdcPriceType				BusinessPrice;		// æˆäº¤ä»·æ ¼	HsFutuPrice
+    int32_t							BusinessTime;		// æˆäº¤æ—¶é—´	HsTime
+    int32_t							BusinessAmount;		// æˆäº¤æ•°é‡	HsQuantity
+    double							fare;				// æ‰‹ç»­è´¹	
+    int64_t							OrderRef;			//ç¬¬ä¸‰æ–¹æ ‡è¯†
+    uint32_t						OrderIndex;			// æŠ¥å•æœ¬åœ°æ ‡è¯†
+    T_UFT_FtdcTradeIDType			BusinessId;		// æˆäº¤ç¼–å·	HsChar32
+    T_UFT_FtdcOrderSysIDType		OrderSysID;			// æŠ¥å•ç¼–å·ï¼Œchar[16], è¿™é‡Œæœªå¯¹é½
+    int8_t							session_id;			//ä¼šè¯ID
+    char							Direction;          //ä¹°å–æ ‡å¿—
+    char							OffsetFlag;         //å¼€å¹³æ ‡å¿—
+    char					 		InstrumentID[17];	  //åˆçº¦å·	
+    char							StockCode[8];       //è‚¡ç¥¨ä»£ç ï¼Œæ— \0ç»“æŸç¬¦
 
 } CUftAnsQueryTradeField;
 
-//³Ö²Ö²éÑ¯
+//æŒä»“æŸ¥è¯¢
 typedef struct tagUftReqQueryPositionField
 {
-	T_UFT_FtdcInstrumentIDType	InstrumentID;	//ºÏÔ¼´úÂë£»InstrumentID[0]Îª'\0'±íÊ¾²éËùÓĞ
+    T_UFT_FtdcInstrumentIDType	InstrumentID;	//åˆçº¦ä»£ç ï¼›InstrumentID[0]ä¸º'\0'è¡¨ç¤ºæŸ¥æ‰€æœ‰
 } CUftReqQueryPositionField;
 
-//³Ö²Ö²éÑ¯Ó¦´ğ
+//æŒä»“æŸ¥è¯¢åº”ç­”
 typedef struct tagUftAnsQueryPositionField
 {
-	//char		futu_code[7];		//	ºÏÔ¼´úÂë	HsFuturesCode;Í¨¹ıCFutuCode.Get»ñÈ¡
-	//char		futu_code[9];		//	
-	char		futu_code[16];		//Ö§³ÖÍ­ÆÚÈ¨£¬ºÏÔ¼³¤¶È´Ó9Î»À©Õ¹³É16È«
-	char		entrust_bs;			//	ÂòÂô·½Ïò	HsType£º¡®0¡¯Âò£»¡®1¡¯Âô
-	T_UFT_FtdcHedgeFlagType HedgeFlag;	//Í¶»úÌ×±£±êÖ¾	
+    //char		futu_code[7];		//	åˆçº¦ä»£ç 	HsFuturesCode;é€šè¿‡CFutuCode.Getè·å–
+    //char		futu_code[9];		//	
+    char		futu_code[16];		//æ”¯æŒé“œæœŸæƒï¼Œåˆçº¦é•¿åº¦ä»9ä½æ‰©å±•æˆ16å…¨
+    char		entrust_bs;			//	ä¹°å–æ–¹å‘	HsTypeï¼šâ€˜0â€™ä¹°ï¼›â€˜1â€™å–
+    T_UFT_FtdcHedgeFlagType HedgeFlag;	//æŠ•æœºå¥—ä¿æ ‡å¿—	
 //	char		reserve[7];
-	char		reserve[6];
-	int32_t		OldEnableAmount;	//	ÀÏ²Ö¿ÉÓÃÊıÁ¿	HsQuantity
-	int32_t		OldCurrentAmount;	//	ÀÏ²Ö³Ö²ÖÊıÁ¿	HsQuantity
-	int32_t		TodayEnableAmount;//	µ±ÈÕ¿ÉÓÃÊıÁ¿	HsQuantity
-	int32_t		TodayCurrentAmount;//	µ±ÈÕ³Ö²ÖÊıÁ¿	HsQuantity
-	T_UFT_FtdcMoneyType	OldOpenBalance;	//	ÀÏ²Ö³Ö²Ö³É½»¶î	HsAmount
-	T_UFT_FtdcMoneyType	TodayOpenBalance;	//	½ñ²Ö³Ö²Ö³É½»¶î	HsAmount
-	T_UFT_FtdcMoneyType	HoldMargin;		//	³Ö²Ö±£Ö¤½ğ	HsAmount
-	char		StockCode[8];		//¹ÉÆ±´úÂë£¬ÎŞ\0½áÊø·û£¬²»×ãÒÔ¿Õ¸ñ²¹Æë
-	int64_t		EnableAmount;		//	¿ÉÓÃÊıÁ¿	HsQuantity 4
-	int64_t		CurrentAmount;		//	³Ö²ÖÊıÁ¿	HsQuantity 4
+    char		reserve[6];
+    int32_t		OldEnableAmount;	//	è€ä»“å¯ç”¨æ•°é‡	HsQuantity
+    int32_t		OldCurrentAmount;	//	è€ä»“æŒä»“æ•°é‡	HsQuantity
+    int32_t		TodayEnableAmount;//	å½“æ—¥å¯ç”¨æ•°é‡	HsQuantity
+    int32_t		TodayCurrentAmount;//	å½“æ—¥æŒä»“æ•°é‡	HsQuantity
+    T_UFT_FtdcMoneyType	OldOpenBalance;	//	è€ä»“æŒä»“æˆäº¤é¢	HsAmount
+    T_UFT_FtdcMoneyType	TodayOpenBalance;	//	ä»Šä»“æŒä»“æˆäº¤é¢	HsAmount
+    T_UFT_FtdcMoneyType	HoldMargin;		//	æŒä»“ä¿è¯é‡‘	HsAmount
+    char		StockCode[8];		//è‚¡ç¥¨ä»£ç ï¼Œæ— \0ç»“æŸç¬¦ï¼Œä¸è¶³ä»¥ç©ºæ ¼è¡¥é½
+    int64_t		EnableAmount;		//	å¯ç”¨æ•°é‡	HsQuantity 4
+    int64_t		CurrentAmount;		//	æŒä»“æ•°é‡	HsQuantity 4
 } CUftAnsQueryPositionField;
 
 
 
 
 
-// ´íÎóÓ¦´ğ£¬280×Ö½Ú
+// é”™è¯¯åº”ç­”ï¼Œ280å­—èŠ‚
 typedef struct tagUftRspErrorField
 {
-	int32_t			ErrorNo;
-	uint32_t		OrderIndex;			// ±¨µ¥±¾µØ±êÊ¶
-	int64_t			OrderRef;			//µÚÈı·½±êÊ¶
-	char			ErrorMsg[256];
-	uint32_t		SendID;
-	
+    int32_t			ErrorNo;
+    uint32_t		OrderIndex;			// æŠ¥å•æœ¬åœ°æ ‡è¯†
+    int64_t			OrderRef;			//ç¬¬ä¸‰æ–¹æ ‡è¯†
+    char			ErrorMsg[256];
+    uint32_t		SendID;
+    
 
 } CUftRspErrorField;
 
 
 
-//ºÏÔ¼×´Ì¬
+//åˆçº¦çŠ¶æ€
 typedef struct tagUftRtnInstrumentStatusField
 {
-	///½áËã×é´úÂë
-	T_UFT_FtdcSettlementGroupIDType	SettlementGroupID;
-	///ºÏÔ¼´úÂë
-	T_UFT_FtdcInstrumentIDType	InstrumentID;
-	///ºÏÔ¼½»Ò××´Ì¬
-	T_UFT_FtdcInstrumentStatusType	Status;
-	///½»Ò×½×¶Î±àºÅ
-	T_UFT_FtdcTradingSegmentSNType	TradingSegmentSN;
-	///½øÈë±¾×´Ì¬Ê±¼ä
-	T_UFT_FtdcTimeType	EnterTime;
-	///½øÈë±¾×´Ì¬Ô­Òò
-	T_UFT_FtdcInstStatusEnterReasonType	EnterReason;
-	///½øÈë±¾×´Ì¬ÈÕÆÚ
+    ///ç»“ç®—ç»„ä»£ç 
+    T_UFT_FtdcSettlementGroupIDType	SettlementGroupID;
+    ///åˆçº¦ä»£ç 
+    T_UFT_FtdcInstrumentIDType	InstrumentID;
+    ///åˆçº¦äº¤æ˜“çŠ¶æ€
+    T_UFT_FtdcInstrumentStatusType	Status;
+    ///äº¤æ˜“é˜¶æ®µç¼–å·
+    T_UFT_FtdcTradingSegmentSNType	TradingSegmentSN;
+    ///è¿›å…¥æœ¬çŠ¶æ€æ—¶é—´
+    T_UFT_FtdcTimeType	EnterTime;
+    ///è¿›å…¥æœ¬çŠ¶æ€åŸå› 
+    T_UFT_FtdcInstStatusEnterReasonType	EnterReason;
+    ///è¿›å…¥æœ¬çŠ¶æ€æ—¥æœŸ
 
-	//T_UFT_FtdcDateType	EnterDate;
-    //Ö¤È¯NST
-	uint16_t					PlatformID;
-	uint16_t					PlatformState;
+    //T_UFT_FtdcDateType	EnterDate;
+    //è¯åˆ¸NST
+    uint16_t					PlatformID;
+    uint16_t					PlatformState;
 }CUftRtnInstrumentStatusField;
 
 
 
 typedef struct tagUftRspTest
 {
-	int32_t TimeDelay;
-	
+    int32_t TimeDelay;
+    
 }CUftRspTest;
 
 typedef struct tagUftRspUserLoginField
 {													   
-	T_UFT_ORDERREF_TYPE MaxOrderRef;
-	T_UFT_TRADEDATE_TYPE TradeDate;
+    T_UFT_ORDERREF_TYPE MaxOrderRef;
+    T_UFT_TRADEDATE_TYPE TradeDate;
 }CUftRspUserLoginField;
 
 typedef struct tagUftRspInfoField
 {
-	///´íÎó´úÂë
-	T_UFT_ErrorIDType	ErrorID;
-	///´íÎóĞÅÏ¢
-	T_UFT_ErrorMsgType	ErrorMsg;
+    ///é”™è¯¯ä»£ç 
+    T_UFT_ErrorIDType	ErrorID;
+    ///é”™è¯¯ä¿¡æ¯
+    T_UFT_ErrorMsgType	ErrorMsg;
 }CUftRspInfoField;
 
 #endif

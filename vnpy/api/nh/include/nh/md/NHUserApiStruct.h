@@ -1,9 +1,9 @@
 /*************************
-*ÕªÒª£ºÄÏ»ªÆÚ»õ½»Ò×ÏµÍ³
-*ÎÄ¼ş£ºNhUserApiStruct.h
-*      ¶¨ÒåÁË¿Í»§¶Ë½Ó¿ÚÊı¾İ½á¹¹
-*×÷Õß£ºÄÏ»ªÆÚ»õÈí¼ş²¿
-*Ê±¼ä£º20100220
+*æ‘˜è¦ï¼šå—åæœŸè´§äº¤æ˜“ç³»ç»Ÿ
+*æ–‡ä»¶ï¼šNhUserApiStruct.h
+*      å®šä¹‰äº†å®¢æˆ·ç«¯æ¥å£æ•°æ®ç»“æ„
+*ä½œè€…ï¼šå—åæœŸè´§è½¯ä»¶éƒ¨
+*æ—¶é—´ï¼š20100220
 **************************/
 
 #ifndef __NH_USERAPI_STRUCT_H__
@@ -16,306 +16,306 @@
 using namespace std;
 
 
-struct STKMarketData_t //¼´Ê±Êı¾İ½á¹¹
+struct STKMarketData_t //å³æ—¶æ•°æ®ç»“æ„
 {
-	TDateType trading_day;							//½»Ò×ÈÕ£¬ÄÚÅÌÓĞÊı¾İ¡¢ÍâÅÌÎŞ
-	TTimeType update_time;							//×îºó¸üĞÂÊ±¼ä
-	TMillisecType	update_millisec;					//×îºóĞŞ¸ÄºÁÃë
-	TSequenceIDType	update_sequence;					//½ñÈÕ¸üĞÂĞòºÅ
+	TDateType trading_day;							//äº¤æ˜“æ—¥ï¼Œå†…ç›˜æœ‰æ•°æ®ã€å¤–ç›˜æ— 
+	TTimeType update_time;							//æœ€åæ›´æ–°æ—¶é—´
+	TMillisecType	update_millisec;					//æœ€åä¿®æ”¹æ¯«ç§’
+	TSequenceIDType	update_sequence;					//ä»Šæ—¥æ›´æ–°åºå·
 
-	TContractNoType instrument_id;					//ºÏÔ¼´úÂë
-	TExchangeNoType exchange_id;						//½»Ò×Ëù´úÂë
-	TContractNoType exchange_inst_id;					//ºÏÔ¼ÔÚ½»Ò×ËùµÄ´úÂë
-	TContractTradeStateType instrument_status;			//ºÏÔ¼½»Ò××´Ì¬
+	TContractNoType instrument_id;					//åˆçº¦ä»£ç 
+	TExchangeNoType exchange_id;						//äº¤æ˜“æ‰€ä»£ç 
+	TContractNoType exchange_inst_id;					//åˆçº¦åœ¨äº¤æ˜“æ‰€çš„ä»£ç 
+	TContractTradeStateType instrument_status;			//åˆçº¦äº¤æ˜“çŠ¶æ€
 
-	TPriceType last_price;							//×îĞÂ¼Û
-	TVolumeType volume;								//³É½»Á¿£¬ÆÚ»õÈ«ÊÇÕûÊı£¬¹ÉÆ±ÓĞĞ¡Êı
-	TVolumeType last_volume;							//×îĞÂ³É½»Á¿
-	TMoneyType turnover;								//³É½»½ğ¶î
-	TVolumeType open_interest;						//³Ö²ÖÁ¿
-	TPriceType open_price;							//½ñÈÕ¿ªÅÌ¼Û
-	TPriceType highest_price;						//µ±ÈÕ×î¸ß¼Û
-	TPriceType lowest_price;							//µ±ÈÕ×îµÍ¼Û
-	TPriceType close_price;							//½ñÈÕÊÕÅÌ¼Û
-	TPriceType settlement_price;						//½ñÈÕ½áËã¼Û
-	TPriceType average_price;						//½ñÈÕ¾ù¼Û
+	TPriceType last_price;							//æœ€æ–°ä»·
+	TVolumeType volume;								//æˆäº¤é‡ï¼ŒæœŸè´§å…¨æ˜¯æ•´æ•°ï¼Œè‚¡ç¥¨æœ‰å°æ•°
+	TVolumeType last_volume;							//æœ€æ–°æˆäº¤é‡
+	TMoneyType turnover;								//æˆäº¤é‡‘é¢
+	TVolumeType open_interest;						//æŒä»“é‡
+	TPriceType open_price;							//ä»Šæ—¥å¼€ç›˜ä»·
+	TPriceType highest_price;						//å½“æ—¥æœ€é«˜ä»·
+	TPriceType lowest_price;							//å½“æ—¥æœ€ä½ä»·
+	TPriceType close_price;							//ä»Šæ—¥æ”¶ç›˜ä»·
+	TPriceType settlement_price;						//ä»Šæ—¥ç»“ç®—ä»·
+	TPriceType average_price;						//ä»Šæ—¥å‡ä»·
 
-	TPriceType change_price;							//ÕÇµø
-	TRangeType change_markup;						//ÕÇµø·ù
-	TRangeType change_swing;							//Õñ·ù
+	TPriceType change_price;							//æ¶¨è·Œ
+	TRangeType change_markup;						//æ¶¨è·Œå¹…
+	TRangeType change_swing;							//æŒ¯å¹…
 
-	TPriceType upper_limit_price;						//ÕÇÍ£°å¼Û
-	TPriceType lower_limit_price;						//µøÍ£°å¼Û
+	TPriceType upper_limit_price;						//æ¶¨åœæ¿ä»·
+	TPriceType lower_limit_price;						//è·Œåœæ¿ä»·
 
-	TPriceType pre_settlement_price;					//×òÈÕ½áËã¼Û
-	TPriceType pre_close_price;						//×òÈÕÊÕÅÌ¼Û
-	TVolumeType pre_open_interest;					//×òÈÕ³Ö²ÖÁ¿
+	TPriceType pre_settlement_price;					//æ˜¨æ—¥ç»“ç®—ä»·
+	TPriceType pre_close_price;						//æ˜¨æ—¥æ”¶ç›˜ä»·
+	TVolumeType pre_open_interest;					//æ˜¨æ—¥æŒä»“é‡
 
-	TDeltaType pre_delta;							//×òĞéÊµ¶È
-	TDeltaType curr_delta;							//½ñĞéÊµ¶È
+	TDeltaType pre_delta;							//æ˜¨è™šå®åº¦
+	TDeltaType curr_delta;							//ä»Šè™šå®åº¦
 
-	TPriceType	best_ask_price;							//×îÓÅÂô¼Û
-	TVolumeType	best_ask_volume;					//×îÓÅÂôÁ¿
-	TPriceType	best_bid_price;							//×îÓÅÂò¼Û
-	TVolumeType	best_bid_volume;				//×îÓÅÂòÁ¿
+	TPriceType	best_ask_price;							//æœ€ä¼˜å–ä»·
+	TVolumeType	best_ask_volume;					//æœ€ä¼˜å–é‡
+	TPriceType	best_bid_price;							//æœ€ä¼˜ä¹°ä»·
+	TVolumeType	best_bid_volume;				//æœ€ä¼˜ä¹°é‡
 
-	TPriceType	ask_price1;								//ÉêÂô¼Û1
-	TVolumeType	ask_volume1;						//ÉêÂôÁ¿1
-	TPriceType	bid_price1;								//ÉêÂò¼Û1
-	TVolumeType	bid_volume1;						//ÉêÂòÁ¿1
-	TPriceType	ask_price2;								//ÉêÂô¼Û2
-	TVolumeType	ask_volume2;						//ÉêÂôÁ¿2
-	TPriceType	bid_price2;								//ÉêÂò¼Û2
-	TVolumeType	bid_volume2;						//ÉêÂòÁ¿2
-	TPriceType	ask_price3;								//ÉêÂô¼Û3
-	TVolumeType	ask_volume3;						//ÉêÂôÁ¿3
-	TPriceType	bid_price3;								//ÉêÂò¼Û3
-	TVolumeType	bid_volume3;						//ÉêÂòÁ¿3
-	TPriceType	ask_price4;								//ÉêÂô¼Û4
-	TVolumeType	ask_volume4;						//ÉêÂôÁ¿4
-	TPriceType	bid_price4;								//ÉêÂò¼Û4
-	TVolumeType	bid_volume4;						//ÉêÂòÁ¿4
-	TPriceType	ask_price5;								//ÉêÂô¼Û5
-	TVolumeType	ask_volume5;						//ÉêÂôÁ¿5
-	TPriceType	bid_price5;								//ÉêÂò¼Û5
-	TVolumeType	bid_volume5;						//ÉêÂòÁ¿5
-	TPriceType	ask_price6;								//ÉêÂô¼Û6
-	TVolumeType	ask_volume6;						//ÉêÂôÁ¿6
-	TPriceType	bid_price6;								//ÉêÂò¼Û6
-	TVolumeType	bid_volume6;						//ÉêÂòÁ¿6
-	TPriceType	ask_price7;								//ÉêÂô¼Û7
-	TVolumeType	ask_volume7;						//ÉêÂôÁ¿7
-	TPriceType	bid_price7;								//ÉêÂò¼Û7
-	TVolumeType	bid_volume7;						//ÉêÂòÁ¿7
-	TPriceType	ask_price8;								//ÉêÂô¼Û8
-	TVolumeType	ask_volume8;						//ÉêÂôÁ¿8
-	TPriceType	bid_price8;								//ÉêÂò¼Û8
-	TVolumeType	bid_volume8;						//ÉêÂòÁ¿8
-	TPriceType	ask_price9;								//ÉêÂô¼Û9
-	TVolumeType	ask_volume9;						//ÉêÂôÁ¿9
-	TPriceType	bid_price9;								//ÉêÂò¼Û9
-	TVolumeType	bid_volume9;						//ÉêÂòÁ¿9
-	TPriceType	ask_price10;								//ÉêÂô¼Û10
-	TVolumeType	ask_volume10;						//ÉêÂôÁ¿10
-	TPriceType	bid_price10;								//ÉêÂò¼Û10
-	TVolumeType	bid_volume10;						//ÉêÂòÁ¿10
-	TMdSourceType	md_source;						//ĞĞÇéÀ´Ô´
+	TPriceType	ask_price1;								//ç”³å–ä»·1
+	TVolumeType	ask_volume1;						//ç”³å–é‡1
+	TPriceType	bid_price1;								//ç”³ä¹°ä»·1
+	TVolumeType	bid_volume1;						//ç”³ä¹°é‡1
+	TPriceType	ask_price2;								//ç”³å–ä»·2
+	TVolumeType	ask_volume2;						//ç”³å–é‡2
+	TPriceType	bid_price2;								//ç”³ä¹°ä»·2
+	TVolumeType	bid_volume2;						//ç”³ä¹°é‡2
+	TPriceType	ask_price3;								//ç”³å–ä»·3
+	TVolumeType	ask_volume3;						//ç”³å–é‡3
+	TPriceType	bid_price3;								//ç”³ä¹°ä»·3
+	TVolumeType	bid_volume3;						//ç”³ä¹°é‡3
+	TPriceType	ask_price4;								//ç”³å–ä»·4
+	TVolumeType	ask_volume4;						//ç”³å–é‡4
+	TPriceType	bid_price4;								//ç”³ä¹°ä»·4
+	TVolumeType	bid_volume4;						//ç”³ä¹°é‡4
+	TPriceType	ask_price5;								//ç”³å–ä»·5
+	TVolumeType	ask_volume5;						//ç”³å–é‡5
+	TPriceType	bid_price5;								//ç”³ä¹°ä»·5
+	TVolumeType	bid_volume5;						//ç”³ä¹°é‡5
+	TPriceType	ask_price6;								//ç”³å–ä»·6
+	TVolumeType	ask_volume6;						//ç”³å–é‡6
+	TPriceType	bid_price6;								//ç”³ä¹°ä»·6
+	TVolumeType	bid_volume6;						//ç”³ä¹°é‡6
+	TPriceType	ask_price7;								//ç”³å–ä»·7
+	TVolumeType	ask_volume7;						//ç”³å–é‡7
+	TPriceType	bid_price7;								//ç”³ä¹°ä»·7
+	TVolumeType	bid_volume7;						//ç”³ä¹°é‡7
+	TPriceType	ask_price8;								//ç”³å–ä»·8
+	TVolumeType	ask_volume8;						//ç”³å–é‡8
+	TPriceType	bid_price8;								//ç”³ä¹°ä»·8
+	TVolumeType	bid_volume8;						//ç”³ä¹°é‡8
+	TPriceType	ask_price9;								//ç”³å–ä»·9
+	TVolumeType	ask_volume9;						//ç”³å–é‡9
+	TPriceType	bid_price9;								//ç”³ä¹°ä»·9
+	TVolumeType	bid_volume9;						//ç”³ä¹°é‡9
+	TPriceType	ask_price10;								//ç”³å–ä»·10
+	TVolumeType	ask_volume10;						//ç”³å–é‡10
+	TPriceType	bid_price10;								//ç”³ä¹°ä»·10
+	TVolumeType	bid_volume10;						//ç”³ä¹°é‡10
+	TMdSourceType	md_source;						//è¡Œæƒ…æ¥æº
 };
 
 
-//´íÎóÏûÏ¢½á¹¹
+//é”™è¯¯æ¶ˆæ¯ç»“æ„
 typedef struct ERRORMSGINFO
 {
-	TErrorCodeType error_code;			//´íÎó´úÂë
-	TErrorMessageType error_message;		//´íÎóÏûÏ¢
-	/*Èç¹û¸Ã´íÎóÊÇÓÉ·şÎñÆ÷ÏûÏ¢ÒıÆğµÄ£¬ÔòÒÔÏÂ×Ö¶Î¶ÔÓ¦·şÎñÆ÷·µ»ØÏûÏ¢*/
-	TRspCodeType response_code;			//ÏìÓ¦´úÂë, 0Îª³É¹¦£¬¸ºÊıÎª¸÷Àà´íÎó£¬1Îª×îºóÒ»Ìõ
-	TRspStringType response_string;		//ÏìÓ¦ÎÄ±¾ĞÅÏ¢
-	TServerIDType utp_server_id;			    //´¦ÀíÇëÇóµÄUTP·şÎñÆ÷ĞÅÏ¢
-	TServerIDType oms_server_id;			//´¦ÀíÇëÇóµÄOMS·şÎñÆ÷ĞÅÏ¢
+	TErrorCodeType error_code;			//é”™è¯¯ä»£ç 
+	TErrorMessageType error_message;		//é”™è¯¯æ¶ˆæ¯
+	/*å¦‚æœè¯¥é”™è¯¯æ˜¯ç”±æœåŠ¡å™¨æ¶ˆæ¯å¼•èµ·çš„ï¼Œåˆ™ä»¥ä¸‹å­—æ®µå¯¹åº”æœåŠ¡å™¨è¿”å›æ¶ˆæ¯*/
+	TRspCodeType response_code;			//å“åº”ä»£ç , 0ä¸ºæˆåŠŸï¼Œè´Ÿæ•°ä¸ºå„ç±»é”™è¯¯ï¼Œ1ä¸ºæœ€åä¸€æ¡
+	TRspStringType response_string;		//å“åº”æ–‡æœ¬ä¿¡æ¯
+	TServerIDType utp_server_id;			    //å¤„ç†è¯·æ±‚çš„UTPæœåŠ¡å™¨ä¿¡æ¯
+	TServerIDType oms_server_id;			//å¤„ç†è¯·æ±‚çš„OMSæœåŠ¡å™¨ä¿¡æ¯
 }ERRORMSGINFO_t;
 
-//µÇÂ¼ÄÏ»ªÍ³Ò»½»Ò×Æ½Ì¨UTPÇëÇó½á¹¹
+//ç™»å½•å—åç»Ÿä¸€äº¤æ˜“å¹³å°UTPè¯·æ±‚ç»“æ„
 typedef struct ReqUtpLoginField
 {
-	TDevelopCodeType developer_code;				//¿ª·¢Õß±àÂë(±ØÌî)
-	TDevelopLicenseType developer_license;			//¿ª·¢ÕßÊÚÈ¨(±ØÌî)
-	TUserIDType user_id;							//µÇÂ¼ÓÃ»§(±ØÌî)
-	TPassWordType user_password;					//µÇÂ¼¾²Ì¬ÃÜÂë£¬Ê¹ÓÃ¾²Ì¬publickey¼ÓÃÜ
-	TOneTimePassWordType user_one_time_password;	//¶¯Ì¬¿ÚÁî
-	TCAInfoType	user_ca_info;						//caÑéÖ¤ĞÅÏ¢
+	TDevelopCodeType developer_code;				//å¼€å‘è€…ç¼–ç (å¿…å¡«)
+	TDevelopLicenseType developer_license;			//å¼€å‘è€…æˆæƒ(å¿…å¡«)
+	TUserIDType user_id;							//ç™»å½•ç”¨æˆ·(å¿…å¡«)
+	TPassWordType user_password;					//ç™»å½•é™æ€å¯†ç ï¼Œä½¿ç”¨é™æ€publickeyåŠ å¯†
+	TOneTimePassWordType user_one_time_password;	//åŠ¨æ€å£ä»¤
+	TCAInfoType	user_ca_info;						//caéªŒè¯ä¿¡æ¯
 }ReqUtpLoginField_t;
 
-//µÇÂ¼ÄÏ»ªÍ³Ò»½»Ò×Æ½Ì¨UTPÓ¦´ğ½á¹¹
+//ç™»å½•å—åç»Ÿä¸€äº¤æ˜“å¹³å°UTPåº”ç­”ç»“æ„
 typedef struct RspUtpLoginField 
 {
-	TRspCodeType response_code;				//ÏìÓ¦´úÂë, 0Îª³É¹¦£¬-1¾²Ì¬¿ÚÁî´íÎó£¬-2¶¯Ì¬¿ÚÁî´íÎó£¬-3caÑéÖ¤´íÎó£¬-4±ØĞëÊÇOTPµÇÂ¼£¬-5±ØĞëÊÇCAµÇÂ¼£¬-6»Øµ÷ÏûÏ¢Q²»´æÔÚ£¬-7·şÎñÆ÷¹ÊÕÏ£¬-8°ó¶¨Ê§°Ü
-	TRspStringType response_string;			//ÏìÓ¦ĞÅÏ¢
-	TPublicKeyType session_public_key;		//·şÎñÆ÷·ÖÅäµÄ»á»°¼ÓÃÜ¹«Ô¿£¬½»Ò×ÃÜÂëĞÅÏ¢ĞèÒª¼ÓÃÜºó´«Êä
-	TServerCDKeyType utp_checking_server_id;	//ÑéÖ¤·şÎñÆ÷Ê¶±ğÂë
-	TLongTimeType	utp_checking_server_time;	//ÑéÖ¤·şÎñÆ÷Ê±¼ä£¬long¸ñÊ½
-	TIpType last_login_ip_address;		//ÉÏ´ÎµÇÂ¼À´Ô´IP
-	TLongTimeType last_login_time;			//ÉÏ´ÎµÇÂ¼Ê±¼ä
-	TIsEncryptType session_encrypted;			//ÊÇ·ñ¼ÓÃÜ´«ÊäÍ¨µÀ
+	TRspCodeType response_code;				//å“åº”ä»£ç , 0ä¸ºæˆåŠŸï¼Œ-1é™æ€å£ä»¤é”™è¯¯ï¼Œ-2åŠ¨æ€å£ä»¤é”™è¯¯ï¼Œ-3caéªŒè¯é”™è¯¯ï¼Œ-4å¿…é¡»æ˜¯OTPç™»å½•ï¼Œ-5å¿…é¡»æ˜¯CAç™»å½•ï¼Œ-6å›è°ƒæ¶ˆæ¯Qä¸å­˜åœ¨ï¼Œ-7æœåŠ¡å™¨æ•…éšœï¼Œ-8ç»‘å®šå¤±è´¥
+	TRspStringType response_string;			//å“åº”ä¿¡æ¯
+	TPublicKeyType session_public_key;		//æœåŠ¡å™¨åˆ†é…çš„ä¼šè¯åŠ å¯†å…¬é’¥ï¼Œäº¤æ˜“å¯†ç ä¿¡æ¯éœ€è¦åŠ å¯†åä¼ è¾“
+	TServerCDKeyType utp_checking_server_id;	//éªŒè¯æœåŠ¡å™¨è¯†åˆ«ç 
+	TLongTimeType	utp_checking_server_time;	//éªŒè¯æœåŠ¡å™¨æ—¶é—´ï¼Œlongæ ¼å¼
+	TIpType last_login_ip_address;		//ä¸Šæ¬¡ç™»å½•æ¥æºIP
+	TLongTimeType last_login_time;			//ä¸Šæ¬¡ç™»å½•æ—¶é—´
+	TIsEncryptType session_encrypted;			//æ˜¯å¦åŠ å¯†ä¼ è¾“é€šé“
 }RspUtpLoginField_t;
 
 
-//µÇ³öÄÏ»ªÍ³Ò»½»Ò×Æ½Ì¨UTPÓ¦´ğ½á¹¹
+//ç™»å‡ºå—åç»Ÿä¸€äº¤æ˜“å¹³å°UTPåº”ç­”ç»“æ„
 typedef struct RspUtpLogoutField
 {
-	TRspCodeType response_code;		//ÏìÓ¦´úÂë, 0Îª³É¹¦£¬¸ºÊıÎª¸÷Àà´íÎó£¬1Îª×îºóÒ»Ìõ
-	TRspStringType response_string;	//ÏìÓ¦ÎÄ±¾ĞÅÏ¢
-	TServerIDType utp_server_id;		//´¦ÀíÇëÇóµÄUTP·şÎñÆ÷ĞÅÏ¢
+	TRspCodeType response_code;		//å“åº”ä»£ç , 0ä¸ºæˆåŠŸï¼Œè´Ÿæ•°ä¸ºå„ç±»é”™è¯¯ï¼Œ1ä¸ºæœ€åä¸€æ¡
+	TRspStringType response_string;	//å“åº”æ–‡æœ¬ä¿¡æ¯
+	TServerIDType utp_server_id;		//å¤„ç†è¯·æ±‚çš„UTPæœåŠ¡å™¨ä¿¡æ¯
 }RspUtpLogoutField_t;
 
 
-/* ¶©ÔÄĞĞÇéÊı¾İÇëÇó½á¹¹
-	*	routing_key:¶©ÔÄ¹æÔò,¾ßÌå¹æÔòÈçÏÂ£º
-	*			 ½»Ò×Ëù.Æ·ÖÖ´úÂë.ºÏÔ¼´úÂë
-	*			 ½»Ò×Ëù´úÂëÎª£ºB:ÉÏÆÚËù;G:ÖĞ½ğËù;D:´óÉÌËù;C:Ö£ÉÌËù
-	*						 Èç£ºG.IF.1203:ÎªÖĞ½ğËù12Äê3ÔÂ¹ÉÖ¸ÆÚ»õĞĞÇéÊı¾İ
-	*			 ÉÌÆ·´úÂëÎª¸ÃÆÚ»õ¶ÔÓ¦µÄÆÚ»õºÏÔ¼´úÂë£¬´óĞ¡Ğ´Ãô¸Ğ£¬ÆäÖĞ£º
-	*						ÉÏÆÚËùºÍ´óÉÌËùÆ·ÖÖ´úÂëĞèĞ¡Ğ´;
-	*						ÖĞ½ğËùºÍÖ£ÉÌËùÆ·ÖÖ´úÂëĞè´óĞ´
-	*			Èç¹ûÓÃ»§Ê¡ÂÔÄ³Ò»²¿·Ö£¬ÔòÏµÍ³Ä¬ÈÏ¶©ÔÄÈ«²¿£¬
-	*						 Èç£ºG.IF.Ôò¶©ÔÄÖĞ½ğËùÆ·ÖÖ´úÂëÎªIFµÄËùÓĞ¹ÉÖ¸ÆÚ»õĞĞÇéÊı¾İ
-	*						 Èç£ºB.Ôò¶©ÔÄÉÏÆÚËùËùÓĞĞĞÇéÊı¾İ
-	*			Èç¹ûÓÃ»§Í¨¹ıÊ¡ÂÔµÄ·½Ê½À´¶©ÔÄÄ³Ò»¸ö²¿·ÖÈ«²¿ºÏÔ¼£¬Ôò±ØĞëÒÔ"."½áÊø£¬ÇÒ½»Ò×Ëù²»ÄÜÊ¡ÂÔ¡£
-	*			¼´£¬ÓÃ»§²»ÄÜÍ¨¹ı"."À´¶©ÔÄËùÓĞ½»Ò×ËùµÄºÏÔ¼Êı¾İ¡£
+/* è®¢é˜…è¡Œæƒ…æ•°æ®è¯·æ±‚ç»“æ„
+	*	routing_key:è®¢é˜…è§„åˆ™,å…·ä½“è§„åˆ™å¦‚ä¸‹ï¼š
+	*			 äº¤æ˜“æ‰€.å“ç§ä»£ç .åˆçº¦ä»£ç 
+	*			 äº¤æ˜“æ‰€ä»£ç ä¸ºï¼šB:ä¸ŠæœŸæ‰€;G:ä¸­é‡‘æ‰€;D:å¤§å•†æ‰€;C:éƒ‘å•†æ‰€
+	*						 å¦‚ï¼šG.IF.1203:ä¸ºä¸­é‡‘æ‰€12å¹´3æœˆè‚¡æŒ‡æœŸè´§è¡Œæƒ…æ•°æ®
+	*			 å•†å“ä»£ç ä¸ºè¯¥æœŸè´§å¯¹åº”çš„æœŸè´§åˆçº¦ä»£ç ï¼Œå¤§å°å†™æ•æ„Ÿï¼Œå…¶ä¸­ï¼š
+	*						ä¸ŠæœŸæ‰€å’Œå¤§å•†æ‰€å“ç§ä»£ç éœ€å°å†™;
+	*						ä¸­é‡‘æ‰€å’Œéƒ‘å•†æ‰€å“ç§ä»£ç éœ€å¤§å†™
+	*			å¦‚æœç”¨æˆ·çœç•¥æŸä¸€éƒ¨åˆ†ï¼Œåˆ™ç³»ç»Ÿé»˜è®¤è®¢é˜…å…¨éƒ¨ï¼Œ
+	*						 å¦‚ï¼šG.IF.åˆ™è®¢é˜…ä¸­é‡‘æ‰€å“ç§ä»£ç ä¸ºIFçš„æ‰€æœ‰è‚¡æŒ‡æœŸè´§è¡Œæƒ…æ•°æ®
+	*						 å¦‚ï¼šB.åˆ™è®¢é˜…ä¸ŠæœŸæ‰€æ‰€æœ‰è¡Œæƒ…æ•°æ®
+	*			å¦‚æœç”¨æˆ·é€šè¿‡çœç•¥çš„æ–¹å¼æ¥è®¢é˜…æŸä¸€ä¸ªéƒ¨åˆ†å…¨éƒ¨åˆçº¦ï¼Œåˆ™å¿…é¡»ä»¥"."ç»“æŸï¼Œä¸”äº¤æ˜“æ‰€ä¸èƒ½çœç•¥ã€‚
+	*			å³ï¼Œç”¨æˆ·ä¸èƒ½é€šè¿‡"."æ¥è®¢é˜…æ‰€æœ‰äº¤æ˜“æ‰€çš„åˆçº¦æ•°æ®ã€‚
 	*/
 typedef struct ReqSubscribeField
 {
-	TRouteKeyType  routing_key;		//¶©ÔÄ¹æÔò£¬Ã¿´Î×î¶à¶©ÔÄ100Ìõ
+	TRouteKeyType  routing_key;		//è®¢é˜…è§„åˆ™ï¼Œæ¯æ¬¡æœ€å¤šè®¢é˜…100æ¡
 }ReqSubscribeField_t;
 
-//¶©ÔÄĞĞÇéÊı¾İÓ¦´ğ½á¹¹
+//è®¢é˜…è¡Œæƒ…æ•°æ®åº”ç­”ç»“æ„
 typedef struct RspSubscribeField 
 {
-	TRspCodeType	response_code;	//ÏìÓ¦´úÂë, 0Îª³É¹¦£¬¸ºÊıÎª¸÷Àà´íÎó
-	TRspStringType	response_string;	//³É¹¦¶©ÔÄµÄÏûÏ¢
+	TRspCodeType	response_code;	//å“åº”ä»£ç , 0ä¸ºæˆåŠŸï¼Œè´Ÿæ•°ä¸ºå„ç±»é”™è¯¯
+	TRspStringType	response_string;	//æˆåŠŸè®¢é˜…çš„æ¶ˆæ¯
 	TServerIDType	utp_server_id;
-	TRouteKeyType	routing_key;		//¶©ÔÄ³É¹¦µÄĞÅÏ¢
+	TRouteKeyType	routing_key;		//è®¢é˜…æˆåŠŸçš„ä¿¡æ¯
 }RspSubscribeField_t;
 
-//È¡Ïû¶©ÔÄĞĞÇéÊı¾İÇëÇó½á¹¹
+//å–æ¶ˆè®¢é˜…è¡Œæƒ…æ•°æ®è¯·æ±‚ç»“æ„
 typedef struct ReqUnSubscribeField
 {
-	TRouteKeyType  routing_key;			//¶©ÔÄ¹æÔò£¬Ã¿´Î×î¶àÈ¡Ïû100Ìõ
+	TRouteKeyType  routing_key;			//è®¢é˜…è§„åˆ™ï¼Œæ¯æ¬¡æœ€å¤šå–æ¶ˆ100æ¡
 }ReqUnSubscribeField_t;
 
-//È¡Ïû¶©ÔÄĞĞÇéÊı¾İÓ¦´ğ½á¹¹
+//å–æ¶ˆè®¢é˜…è¡Œæƒ…æ•°æ®åº”ç­”ç»“æ„
 typedef struct RspUnSubscribeField 
 {
-	TRspCodeType	response_code;		//ÏìÓ¦´úÂë, 0Îª³É¹¦£¬¸ºÊıÎª¸÷Àà´íÎó
-	TRspStringType	response_string;		//ÏìÓ¦ÎÄ±¾ĞÅÏ¢
+	TRspCodeType	response_code;		//å“åº”ä»£ç , 0ä¸ºæˆåŠŸï¼Œè´Ÿæ•°ä¸ºå„ç±»é”™è¯¯
+	TRspStringType	response_string;		//å“åº”æ–‡æœ¬ä¿¡æ¯
 	TServerIDType	utp_server_id;
-	TRouteKeyType	routing_key;			//È¡Ïû³É¹¦µÄ¶©ÔÄĞÅÏ¢
+	TRouteKeyType	routing_key;			//å–æ¶ˆæˆåŠŸçš„è®¢é˜…ä¿¡æ¯
 }RspUnSubscribeField_t;
 
-//ÓÃ»§ÑéÖ¤Êı¾İÇëÇó½á¹¹
+//ç”¨æˆ·éªŒè¯æ•°æ®è¯·æ±‚ç»“æ„
 typedef struct ReqAuthUserPassworField
 {
-	TUserIDType user_id;							//ÓÃ»§Ãû
-	TPassWordType password;				//ÃÜÂë
-	TSaveIntType save_int;						//±£Áô×Ö¶Î
-	TSaveDoubleType save_double;		//±£Áô×Ö¶Î
-	TSaveStringType save_string;			//±£Áô×Ö¶Î
+	TUserIDType user_id;							//ç”¨æˆ·å
+	TPassWordType password;				//å¯†ç 
+	TSaveIntType save_int;						//ä¿ç•™å­—æ®µ
+	TSaveDoubleType save_double;		//ä¿ç•™å­—æ®µ
+	TSaveStringType save_string;			//ä¿ç•™å­—æ®µ
 }ReqAuthUserPassworField_t;
 
-//ÓÃ»§ÑéÖ¤Êı¾İÓ¦´ğ½á¹¹
+//ç”¨æˆ·éªŒè¯æ•°æ®åº”ç­”ç»“æ„
 typedef struct RspAuthUserPassworField 
 {
-	TRspCodeType response_code;		//ÏìÓ¦´úÂë, 0Îª³É¹¦£¬¸ºÊıÎª¸÷Àà´íÎó
-	TRspStringType response_string;	//ÏìÓ¦ÎÄ±¾ĞÅÏ¢
+	TRspCodeType response_code;		//å“åº”ä»£ç , 0ä¸ºæˆåŠŸï¼Œè´Ÿæ•°ä¸ºå„ç±»é”™è¯¯
+	TRspStringType response_string;	//å“åº”æ–‡æœ¬ä¿¡æ¯
 }RspAuthUserPassworField_t;
 
-//±¨µ¥Êı¾İ
+//æŠ¥å•æ•°æ®
 typedef struct ReqOrderInsertData 
 {
-	TClientNoType client_id;							//¿Í»§ºÅ
-	TCommodityNoType commodity_id;		//ÉÌÆ·´úÂë
-	TContractNoType instrument_id;				//ºÏÔ¼´úÂë
-	TOrderTypeType order_type;					//Î¯ÍĞÀàĞÍ
-	TOrderModeType order_mode;				//Î¯ÍĞÄ£Ê½
-	TOrderWayType order_way;					//Î¯ÍĞ·½Ê½
-	TDateType valid_datetime;						//ÓĞĞ§ÈÕÆÚ(GTDÇé¿öÏÂÊ¹ÓÃ)
-	TIsRiskOrderType is_riskorder;				//·çÏÕ±¨µ¥
-	TDirectType direct;									//ÂòÈëÂô³ö
-	TOffsetType offset;									//¿ª²ÖÆ½²Ö:N:ÎŞ,O:¿ª²Ö,C:Æ½²Ö,T:Æ½½ñ,
-	THedgeType hedge;									//Í¶»ú±£Öµ:N:ÎŞ,T:Í¶»ú,B:±£Öµ
-	TPriceType order_price;							//Î¯ÍĞ¼Û¸ñ
-	TPriceType trigger_price;							//´¥·¢¼Û¸ñ
-	TVolumeType order_vol;						//Î¯ÍĞÊıÁ¿
-	TVolumeType min_matchvol;				//×îĞ¡³É½»Á¿
-	TSaveIntType save_int;								//¿Í»§±£Áô×Ö¶Î1
-	TSaveDoubleType save_double;				//¿Í»§±£Áô×Ö¶Î2
-	TSaveStringType save_string;					//¿Í»§±£Áô×Ö¶Î3
+	TClientNoType client_id;							//å®¢æˆ·å·
+	TCommodityNoType commodity_id;		//å•†å“ä»£ç 
+	TContractNoType instrument_id;				//åˆçº¦ä»£ç 
+	TOrderTypeType order_type;					//å§”æ‰˜ç±»å‹
+	TOrderModeType order_mode;				//å§”æ‰˜æ¨¡å¼
+	TOrderWayType order_way;					//å§”æ‰˜æ–¹å¼
+	TDateType valid_datetime;						//æœ‰æ•ˆæ—¥æœŸ(GTDæƒ…å†µä¸‹ä½¿ç”¨)
+	TIsRiskOrderType is_riskorder;				//é£é™©æŠ¥å•
+	TDirectType direct;									//ä¹°å…¥å–å‡º
+	TOffsetType offset;									//å¼€ä»“å¹³ä»“:N:æ— ,O:å¼€ä»“,C:å¹³ä»“,T:å¹³ä»Š,
+	THedgeType hedge;									//æŠ•æœºä¿å€¼:N:æ— ,T:æŠ•æœº,B:ä¿å€¼
+	TPriceType order_price;							//å§”æ‰˜ä»·æ ¼
+	TPriceType trigger_price;							//è§¦å‘ä»·æ ¼
+	TVolumeType order_vol;						//å§”æ‰˜æ•°é‡
+	TVolumeType min_matchvol;				//æœ€å°æˆäº¤é‡
+	TSaveIntType save_int;								//å®¢æˆ·ä¿ç•™å­—æ®µ1
+	TSaveDoubleType save_double;				//å®¢æˆ·ä¿ç•™å­—æ®µ2
+	TSaveStringType save_string;					//å®¢æˆ·ä¿ç•™å­—æ®µ3
 }ReqOrderInsertData_t;
 
-//±¨µ¥ÇëÇó
+//æŠ¥å•è¯·æ±‚
 typedef struct ReqOrderInsertField 
 {
-	TServerIDType oms_server_id;			//OMS±àÂë
-	TExchangeNoType exchange_id;			//½»Ò×Ëù´úÂë
-	ReqOrderInsertData req_data;				    //±¨µ¥Êı¾İ
+	TServerIDType oms_server_id;			//OMSç¼–ç 
+	TExchangeNoType exchange_id;			//äº¤æ˜“æ‰€ä»£ç 
+	ReqOrderInsertData req_data;				    //æŠ¥å•æ•°æ®
 }ReqOrderInsertField_t;
 
-//±¨µ¥Ó¦´ğ
+//æŠ¥å•åº”ç­”
 typedef struct RspOrderInsertField 
 {
-	TRspCodeType response_code;			//ÏìÓ¦´úÂë, 0Îª³É¹¦£¬1Îª×îºóÒ»Ìõ
-	TRspStringType response_string;		//ÏìÓ¦ÎÄ±¾ĞÅÏ¢
-	TServerIDType utp_server_id;				//´¦ÀíÇëÇóµÄUTP·şÎñÆ÷ĞÅÏ¢
-	TServerIDType oms_server_id;			//´¦ÀíÇëÇóµÄOMS·şÎñÆ÷ĞÅÏ¢
-	TStreamIdType order_stream_id;		//Î¯ÍĞÁ÷ºÅ
-	TOrderIdType order_id;						//Î¯ÍĞºÅ
-	TLocalNoType local_id;							//±¾µØºÅ
-	TClientNoType trade_id;							//½»Ò×ÕËºÅ
-	TClientNoType insert_id;						//ÏÂµ¥ÈË
-	TDateTimeType insert_datetime;		//ÏÂµ¥Ê±¼ä
-	TOrderStateType order_state;				//Î¯ÍĞ×´Ì¬
-	ReqOrderInsertData req_data;					//±¨µ¥Êı¾İ
+	TRspCodeType response_code;			//å“åº”ä»£ç , 0ä¸ºæˆåŠŸï¼Œ1ä¸ºæœ€åä¸€æ¡
+	TRspStringType response_string;		//å“åº”æ–‡æœ¬ä¿¡æ¯
+	TServerIDType utp_server_id;				//å¤„ç†è¯·æ±‚çš„UTPæœåŠ¡å™¨ä¿¡æ¯
+	TServerIDType oms_server_id;			//å¤„ç†è¯·æ±‚çš„OMSæœåŠ¡å™¨ä¿¡æ¯
+	TStreamIdType order_stream_id;		//å§”æ‰˜æµå·
+	TOrderIdType order_id;						//å§”æ‰˜å·
+	TLocalNoType local_id;							//æœ¬åœ°å·
+	TClientNoType trade_id;							//äº¤æ˜“è´¦å·
+	TClientNoType insert_id;						//ä¸‹å•äºº
+	TDateTimeType insert_datetime;		//ä¸‹å•æ—¶é—´
+	TOrderStateType order_state;				//å§”æ‰˜çŠ¶æ€
+	ReqOrderInsertData req_data;					//æŠ¥å•æ•°æ®
 }RspOrderInsertField_t;
 
-//²éÑ¯½»Ò×ËùÇëÇó½á¹¹
+//æŸ¥è¯¢äº¤æ˜“æ‰€è¯·æ±‚ç»“æ„
 typedef struct ReqQryExchangeField
 {
-	TServerIDType oms_server_id;		//OMS±àÂë
+	TServerIDType oms_server_id;		//OMSç¼–ç 
 }ReqQryExchangeField_t;
 
-//²éÑ¯½»Ò×ËùÓ¦´ğ½á¹¹
+//æŸ¥è¯¢äº¤æ˜“æ‰€åº”ç­”ç»“æ„
 typedef struct RspQryExchangeField 
 {
-	TRspCodeType response_code;			//ÏìÓ¦´úÂë, 0Îª³É¹¦£¬¸ºÊıÎª¸÷Àà´íÎó
-	TRspStringType response_string;		//ÏìÓ¦ÎÄ±¾ĞÅÏ¢
-	TServerIDType utp_server_id;			//´¦ÀíÇëÇóµÄUTP·şÎñÆ÷ĞÅÏ¢
-	TServerIDType oms_server_id;			//´¦ÀíÇëÇóµÄOMS·şÎñÆ÷ĞÅÏ¢
-	TExchangeNoType exchange_id;			//½»Ò×Ëù´úÂë
-	TExchangeNameType exchange_name;		//½»Ò×ËùÃû³Æ
-	TExchangeStateType exchange_status;	//½»Ò×Ëù×´Ì¬
+	TRspCodeType response_code;			//å“åº”ä»£ç , 0ä¸ºæˆåŠŸï¼Œè´Ÿæ•°ä¸ºå„ç±»é”™è¯¯
+	TRspStringType response_string;		//å“åº”æ–‡æœ¬ä¿¡æ¯
+	TServerIDType utp_server_id;			//å¤„ç†è¯·æ±‚çš„UTPæœåŠ¡å™¨ä¿¡æ¯
+	TServerIDType oms_server_id;			//å¤„ç†è¯·æ±‚çš„OMSæœåŠ¡å™¨ä¿¡æ¯
+	TExchangeNoType exchange_id;			//äº¤æ˜“æ‰€ä»£ç 
+	TExchangeNameType exchange_name;		//äº¤æ˜“æ‰€åç§°
+	TExchangeStateType exchange_status;	//äº¤æ˜“æ‰€çŠ¶æ€
 }RspQryExchangeField_t;
 
-//²éÑ¯ºÏÔ¼ÇëÇó½á¹¹
+//æŸ¥è¯¢åˆçº¦è¯·æ±‚ç»“æ„
 typedef struct ReqQryInstrumentField 
 {
-	TServerIDType oms_server_id;		//OMS±àÂë
-	TExchangeNoType exchange_id;		//½»Ò×Ëù´úÂë
-	TCommodityNoType product_id;		//ÉÌÆ·´úÂë
-	TContractNoType instrument_id;	//ºÏÔ¼´úÂë
-	TCommodityTypeType product_class;	//ÉÌÆ·ÀàĞÍ:(Ä¬ÈÏÎªF:COMMODITY_TYPE_FUTURE)
+	TServerIDType oms_server_id;		//OMSç¼–ç 
+	TExchangeNoType exchange_id;		//äº¤æ˜“æ‰€ä»£ç 
+	TCommodityNoType product_id;		//å•†å“ä»£ç 
+	TContractNoType instrument_id;	//åˆçº¦ä»£ç 
+	TCommodityTypeType product_class;	//å•†å“ç±»å‹:(é»˜è®¤ä¸ºF:COMMODITY_TYPE_FUTURE)
 }ReqQryInstrumentField_t;
 
-//²éÑ¯ºÏÔ¼Ó¦´ğ½á¹¹
+//æŸ¥è¯¢åˆçº¦åº”ç­”ç»“æ„
 typedef struct RspQryInstrumentField 
 {
-	TRspCodeType response_code;		//ÏìÓ¦´úÂë, 0Îª³É¹¦£¬¸ºÊıÎª¸÷Àà´íÎó
-	TRspStringType response_string;	//ÏìÓ¦ÎÄ±¾ĞÅÏ¢
-	TServerIDType utp_server_id;			//´¦ÀíÇëÇóµÄUTP·şÎñÆ÷ĞÅÏ¢
-	TServerIDType oms_server_id;			//´¦ÀíÇëÇóµÄOMS·şÎñÆ÷ĞÅÏ¢
-	TCommodityNoType product_id;			//ÉÌÆ·´úÂë
-	TCommodityNameType product_name;			//ÉÌÆ·Ãû³Æ
-	TExchangeNoType exchange_id;			//½»Ò×Ëù´úÂë
-	TCommodityTypeType product_class;			//ÉÌÆ·ÀàĞÍ
-	TContractNoType instrument_id;			//ºÏÔ¼´úÂë
-	TContractNameType instrument_name;		//ºÏÔ¼Ãû³Æ
-	TContractTypeType instrument_class;		//ºÏÔ¼Àà±ğ
-	TContractStateType instrument_status;		//ºÏÔ¼×´Ì¬
-	TYearType	delivery_year;			//½»¸îÄê·İ
-	TMonthType	delivery_month;			//½»¸îÔÂ·İ
-	TProductDotType volume_multiple;		//ºÏÔ¼³ËÊı
-	TUpperTickType price_tick;			//×îĞ¡±ä¶¯¼ÛÎ»
-	TLowerTickType price_tick_dividend;	//×îĞ¡±ä¶¯¼ÛÎ»·ÖÄ¸£¬Ò»°ãÎª1£¬·ÖÊı±¨¼ÛÊ±²»Îª1
-	TVolumeType max_marketorder_volume;	//ÊĞ¼Ûµ¥×î´óÏÂµ¥Á¿
-	TVolumeType min_marketorder_volume;	//ÊĞ¼Ûµ¥×îĞ¡ÏÂµ¥Á¿
-	TVolumeType max_limitorder_volume;	//ÏŞ¼Ûµ¥×î´óÏÂµ¥Á¿
-	TVolumeType min_limitorder_volume;	//ÏŞ¼Ûµ¥×îĞ¡ÏÂµ¥Á¿
-	TDateType create_date;			//´´½¨ÈÕ
-	TDateType open_date;				//ÉÏÊĞÈÕ
-	TDateType expire_date;			//µ½ÆÚÈÕ
-	TDateType last_trading_date;		//×îºó½»Ò×ÈÕ
-	TDateType start_delivery_date;	//¿ªÊ¼½»¸îÈÕ
-	TDateType end_delivery_date;		//½áÊø½»¸îÈÕ
-	TDateType first_notice_date;		//Ê×´ÎÍ¨ÖªÈÕ
+	TRspCodeType response_code;		//å“åº”ä»£ç , 0ä¸ºæˆåŠŸï¼Œè´Ÿæ•°ä¸ºå„ç±»é”™è¯¯
+	TRspStringType response_string;	//å“åº”æ–‡æœ¬ä¿¡æ¯
+	TServerIDType utp_server_id;			//å¤„ç†è¯·æ±‚çš„UTPæœåŠ¡å™¨ä¿¡æ¯
+	TServerIDType oms_server_id;			//å¤„ç†è¯·æ±‚çš„OMSæœåŠ¡å™¨ä¿¡æ¯
+	TCommodityNoType product_id;			//å•†å“ä»£ç 
+	TCommodityNameType product_name;			//å•†å“åç§°
+	TExchangeNoType exchange_id;			//äº¤æ˜“æ‰€ä»£ç 
+	TCommodityTypeType product_class;			//å•†å“ç±»å‹
+	TContractNoType instrument_id;			//åˆçº¦ä»£ç 
+	TContractNameType instrument_name;		//åˆçº¦åç§°
+	TContractTypeType instrument_class;		//åˆçº¦ç±»åˆ«
+	TContractStateType instrument_status;		//åˆçº¦çŠ¶æ€
+	TYearType	delivery_year;			//äº¤å‰²å¹´ä»½
+	TMonthType	delivery_month;			//äº¤å‰²æœˆä»½
+	TProductDotType volume_multiple;		//åˆçº¦ä¹˜æ•°
+	TUpperTickType price_tick;			//æœ€å°å˜åŠ¨ä»·ä½
+	TLowerTickType price_tick_dividend;	//æœ€å°å˜åŠ¨ä»·ä½åˆ†æ¯ï¼Œä¸€èˆ¬ä¸º1ï¼Œåˆ†æ•°æŠ¥ä»·æ—¶ä¸ä¸º1
+	TVolumeType max_marketorder_volume;	//å¸‚ä»·å•æœ€å¤§ä¸‹å•é‡
+	TVolumeType min_marketorder_volume;	//å¸‚ä»·å•æœ€å°ä¸‹å•é‡
+	TVolumeType max_limitorder_volume;	//é™ä»·å•æœ€å¤§ä¸‹å•é‡
+	TVolumeType min_limitorder_volume;	//é™ä»·å•æœ€å°ä¸‹å•é‡
+	TDateType create_date;			//åˆ›å»ºæ—¥
+	TDateType open_date;				//ä¸Šå¸‚æ—¥
+	TDateType expire_date;			//åˆ°æœŸæ—¥
+	TDateType last_trading_date;		//æœ€åäº¤æ˜“æ—¥
+	TDateType start_delivery_date;	//å¼€å§‹äº¤å‰²æ—¥
+	TDateType end_delivery_date;		//ç»“æŸäº¤å‰²æ—¥
+	TDateType first_notice_date;		//é¦–æ¬¡é€šçŸ¥æ—¥
 }RspQryInstrumentField_t;
 
 #endif

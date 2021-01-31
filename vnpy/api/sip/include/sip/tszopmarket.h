@@ -1,293 +1,293 @@
-#ifndef _T_SZOP_MARKET_
+ï»¿#ifndef _T_SZOP_MARKET_
 #define _T_SZOP_MARKET_
 
 #include "tdef.h"
 //////////////////////////////////////////////////////////////////////////
-//Éî½»ËùÆÚÈ¨ĞĞÇé
+//æ·±äº¤æ‰€æœŸæƒè¡Œæƒ…
 //////////////////////////////////////////////////////////////////////////
 
-#define  SZOP        11                 //Éî½»ËùÆÚÈ¨
+#define  SZOP        11                 //æ·±äº¤æ‰€æœŸæƒ
 
-#define ID_SZOP_BASEINFO      1     //ÆÚÈ¨»ù´¡ĞÅÏ¢
-#define ID_SZOP_MARKETDATA    2     //ÆÚÈ¨¿ìÕÕĞĞÇé
+#define ID_SZOP_BASEINFO      1     //æœŸæƒåŸºç¡€ä¿¡æ¯
+#define ID_SZOP_MARKETDATA    2     //æœŸæƒå¿«ç…§è¡Œæƒ…
 #pragma pack(push,1)
 //////////////////////////////////////////////////////////////////////////
-//Éî½»ËùËùÓĞÖ¤È¯´úÂë¹²ÓĞ  securities_YYYYMMDD.xml
+//æ·±äº¤æ‰€æ‰€æœ‰è¯åˆ¸ä»£ç å…±æœ‰  securities_YYYYMMDD.xml
 
 typedef struct t_StockParams
 {
-	char    sIndustryClassification[4];// ĞĞÒµÖÖÀà    C4 
-	T_I32   nPreviousYearProfitPerShare;//	ÉÏÄêÃ¿¹ÉÀûÈó 		N10(4)
-	T_I32   nCurrentYearProfitPerShare;//	±¾ÄêÃ¿¹ÉÀûÈó  		N10(4)
-	char    cOfferingFlag;//	ÊÇ·ñ´¦ÓÚÒªÔ¼ÊÕ 	¹ºÆÚ 	C1  Y=ÊÇ 		N=·ñ
+    char    sIndustryClassification[4];// è¡Œä¸šç§ç±»    C4 
+    T_I32   nPreviousYearProfitPerShare;//	ä¸Šå¹´æ¯è‚¡åˆ©æ¶¦ 		N10(4)
+    T_I32   nCurrentYearProfitPerShare;//	æœ¬å¹´æ¯è‚¡åˆ©æ¶¦  		N10(4)
+    char    cOfferingFlag;//	æ˜¯å¦å¤„äºè¦çº¦æ”¶ 	è´­æœŸ 	C1  Y=æ˜¯ 		N=å¦
 }T_STOCKPARAMS;
 
-//»ù½ğÌØÓĞ×Ö¶Î Ïà¹ØÖ¤È¯Àà±ğ´úÂë£¨14¡¢15¡¢16¡¢17¡¢18¡¢19¡¢20¡¢23¡¢24¡¢25¡¢26£©
+//åŸºé‡‘ç‰¹æœ‰å­—æ®µ ç›¸å…³è¯åˆ¸ç±»åˆ«ä»£ç ï¼ˆ14ã€15ã€16ã€17ã€18ã€19ã€20ã€23ã€24ã€25ã€26ï¼‰
 typedef struct t_FundParams
 {
-	T_I64   i64NAV;  //T-1 ÈÕ»ù½ğ¾»Öµ N13(4) 
+    T_I64   i64NAV;  //T-1 æ—¥åŸºé‡‘å‡€å€¼ N13(4) 
 }T_FUNDPARAMS;
 
-//Õ®È¯ÌØÓĞ×Ö¶Î BondParams Ïà¹ØÖ¤È¯Àà±ğ´úÂë£¨5¡¢6¡¢7¡¢8¡¢9¡¢10¡¢11¡¢34¡¢35£©
+//å€ºåˆ¸ç‰¹æœ‰å­—æ®µ BondParams ç›¸å…³è¯åˆ¸ç±»åˆ«ä»£ç ï¼ˆ5ã€6ã€7ã€8ã€9ã€10ã€11ã€34ã€35ï¼‰
 typedef struct t_BondParams
 {
-	T_I64   i64CouponRate;//    Æ±ÃæÄêÀûÂÊ    N8(4) 
-	T_I64   i64IssuePrice;//	ÌùÏÖ·¢ĞĞ¼Û  IssuePrice  N13(4) 
-	T_I64   i64Interest;//	Ã¿°ÙÔªÓ¦¼ÆÀûÏ¢    N12(8) 
-	T_I32	nInterestAccrualDate;//·¢ĞĞÆğÏ¢ÈÕ»ò±¾ 	´Î¸¶Ï¢ÆğÏ¢ÈÕ 		N8
-	T_I32   nMaturityDate; //	µ½ÆÚÈÕ    N8 		
-	char    cOfferingFlag;//·ñ´¦ÓÚ×ª¹É»ØÊÛÆÚ 		C1  Y=ÊÇ 		N=·ñ
+    T_I64   i64CouponRate;//    ç¥¨é¢å¹´åˆ©ç‡    N8(4) 
+    T_I64   i64IssuePrice;//	è´´ç°å‘è¡Œä»·  IssuePrice  N13(4) 
+    T_I64   i64Interest;//	æ¯ç™¾å…ƒåº”è®¡åˆ©æ¯    N12(8) 
+    T_I32	nInterestAccrualDate;//å‘è¡Œèµ·æ¯æ—¥æˆ–æœ¬ 	æ¬¡ä»˜æ¯èµ·æ¯æ—¥ 		N8
+    T_I32   nMaturityDate; //	åˆ°æœŸæ—¥    N8 		
+    char    cOfferingFlag;//å¦å¤„äºè½¬è‚¡å›å”®æœŸ 		C1  Y=æ˜¯ 		N=å¦
 }T_BONDPARAMS;
 
-// È¨Ö¤ÌØÓĞ×Ö¶Î WarrantParams Ïà¹ØÖ¤È¯Àà±ğ´úÂë£¨28£©
+// æƒè¯ç‰¹æœ‰å­—æ®µ WarrantParams ç›¸å…³è¯åˆ¸ç±»åˆ«ä»£ç ï¼ˆ28ï¼‰
 typedef struct t_WarrantParams
 {
-	T_I64   i64ExercisePrice; // ĞĞÈ¨¼Û 		N13(4) 
-	T_I64   i64ExerciseRatio; // ĞĞÈ¨±ÈÀı       N10(4) 
-	T_I32	nExerciseBeginDate;//  ĞĞÈ¨ÆğÊ¼ÈÕ   N8 
-	T_I32   nExerciseEndDate; //	ĞĞÈ¨½ØÖ¹ÈÕ  N8 
-	char    cCallOrPut;//	ÈÏ¹º»òÈÏ¹Á 	C1  C = Call 	P = Put
-	char    cDeliveryType;//	½»¸î·½Ê½		C1   S = Ö¤È¯½áËã C = ÏÖ½ğ½áËã 
-	T_I64   i64ClearingPrice;//	½áËã¼Û¸ñ 	  N13(4) 
-	char    cExerciseType;//	ĞĞÈ¨·½Ê½   	C1  A = ÃÀÊ½ E = Å·Ê½ 	B = °ÙÄ½´óÊ½
-	T_I32	nLastTradeDay;//×îºó½»Ò×ÈÕ 		  N8 
+    T_I64   i64ExercisePrice; // è¡Œæƒä»· 		N13(4) 
+    T_I64   i64ExerciseRatio; // è¡Œæƒæ¯”ä¾‹       N10(4) 
+    T_I32	nExerciseBeginDate;//  è¡Œæƒèµ·å§‹æ—¥   N8 
+    T_I32   nExerciseEndDate; //	è¡Œæƒæˆªæ­¢æ—¥  N8 
+    char    cCallOrPut;//	è®¤è´­æˆ–è®¤æ²½ 	C1  C = Call 	P = Put
+    char    cDeliveryType;//	äº¤å‰²æ–¹å¼		C1   S = è¯åˆ¸ç»“ç®— C = ç°é‡‘ç»“ç®— 
+    T_I64   i64ClearingPrice;//	ç»“ç®—ä»·æ ¼ 	  N13(4) 
+    char    cExerciseType;//	è¡Œæƒæ–¹å¼   	C1  A = ç¾å¼ E = æ¬§å¼ 	B = ç™¾æ…•å¤§å¼
+    T_I32	nLastTradeDay;//æœ€åäº¤æ˜“æ—¥ 		  N8 
 }T_WARRANTPARAMS;
 
-// ÖÊÑºÊ½»Ø¹º½»Ò×´úÂëÌØÓĞ×Ö¶Î RepoParams 	Ïà¹ØÖ¤È¯Àà±ğ´úÂë(12)
+// è´¨æŠ¼å¼å›è´­äº¤æ˜“ä»£ç ç‰¹æœ‰å­—æ®µ RepoParams 	ç›¸å…³è¯åˆ¸ç±»åˆ«ä»£ç (12)
 typedef struct t_RepoParams
 {
-	T_I32   nExpirationDays;//¹º»ØÆÚÏŞ  N4
+    T_I32   nExpirationDays;//è´­å›æœŸé™  N4
 }T_REPOPARAMS;
 
 
 //////////////////////////////////////////////////////////////////////////
-//ÆÚÈ¨ÌØÓĞ×Ö¶Î  Ïà¹ØÖ¤È¯Àà±ğ´úÂë£¨29¡¢30)
+//æœŸæƒç‰¹æœ‰å­—æ®µ  ç›¸å…³è¯åˆ¸ç±»åˆ«ä»£ç ï¼ˆ29ã€30)
 typedef struct t_OptionParams
 {
-	char          cCallOrPut;  //ÈÏ¹º»òÈÏ¹Á C1 C=Call P=Put
-	T_U16         usListType;  //¹ÒÅÆÀàĞÍ N2  1=Æ·ÖÖĞÂ¹Ò 2=µ½ÆÚ¼Ó¹Ò 3=µ÷Õû¼Ó¹Ò	4=²¨¶¯¼Ó¹Ò
-	T_I32         nDeliveryDay; //½»¸îÈÕÆÚ  N8
-	T_I32         nDeliveryMonth; //½»¸îÔÂ·İ  N6  YYYYMM
-	char          cDeliveryType; //½»¸î·½Ê½ C1  S=Ö¤È¯½áËã C=ÏÖ½ğ½áËã
-	T_I32         nExerciseBeginDate;//ĞĞÈ¨ÆğÊ¼ÈÕÆÚ N8
-	T_I32         nExerciseEndDate;//ĞĞÈ¨½áÊøÈÕÆÚ N8
-	T_I64         i64ExercisePrice;//ĞĞÈ¨¼Û N13(4)
-	char          cExerciseType;//ĞĞÈ¨·½Ê½ C1 A=ÃÀÊ½ E=Å·Ê½ B=°ÙÄ½´óÊ½
-	T_I32         nLastTradeDay;//×îºó½»Ò×ÈÕ N8
-	T_U16         usAdjustTimes;//µ÷Õû´ÎÊı N2
-	T_I64         i64ContractUnit;//ºÏÔ¼µ¥Î» N15(2)
-	T_I64         i64PrevClearingPrice;//×òÈÕ½áËã¼Û N13(4)
-	T_I64         i64ContractPosition;//ºÏÔ¼³Ö²ÖÁ¿  N18(2)
+    char          cCallOrPut;  //è®¤è´­æˆ–è®¤æ²½ C1 C=Call P=Put
+    T_U16         usListType;  //æŒ‚ç‰Œç±»å‹ N2  1=å“ç§æ–°æŒ‚ 2=åˆ°æœŸåŠ æŒ‚ 3=è°ƒæ•´åŠ æŒ‚	4=æ³¢åŠ¨åŠ æŒ‚
+    T_I32         nDeliveryDay; //äº¤å‰²æ—¥æœŸ  N8
+    T_I32         nDeliveryMonth; //äº¤å‰²æœˆä»½  N6  YYYYMM
+    char          cDeliveryType; //äº¤å‰²æ–¹å¼ C1  S=è¯åˆ¸ç»“ç®— C=ç°é‡‘ç»“ç®—
+    T_I32         nExerciseBeginDate;//è¡Œæƒèµ·å§‹æ—¥æœŸ N8
+    T_I32         nExerciseEndDate;//è¡Œæƒç»“æŸæ—¥æœŸ N8
+    T_I64         i64ExercisePrice;//è¡Œæƒä»· N13(4)
+    char          cExerciseType;//è¡Œæƒæ–¹å¼ C1 A=ç¾å¼ E=æ¬§å¼ B=ç™¾æ…•å¤§å¼
+    T_I32         nLastTradeDay;//æœ€åäº¤æ˜“æ—¥ N8
+    T_U16         usAdjustTimes;//è°ƒæ•´æ¬¡æ•° N2
+    T_I64         i64ContractUnit;//åˆçº¦å•ä½ N15(2)
+    T_I64         i64PrevClearingPrice;//æ˜¨æ—¥ç»“ç®—ä»· N13(4)
+    T_I64         i64ContractPosition;//åˆçº¦æŒä»“é‡  N18(2)
 }T_OPTIONPARAMS,*POPTIONPARAMS;
 
-//ÓÅÑ¡¹ÉÌØÓĞ×Ö¶Î Ïà¹ØÖ¤È¯Àà±ğ´úÂë£¨33£©
+//ä¼˜é€‰è‚¡ç‰¹æœ‰å­—æ®µ ç›¸å…³è¯åˆ¸ç±»åˆ«ä»£ç ï¼ˆ33ï¼‰
 typedef struct t_PreferredStockParams
 {
-	char      cOfferingFlag;   //ÊÇ·ñ´¦ÓÚ×ª¹É»ØÊÛÆÚ C1 Y=ÊÇ N=·ñ
+    char      cOfferingFlag;   //æ˜¯å¦å¤„äºè½¬è‚¡å›å”®æœŸ C1 Y=æ˜¯ N=å¦
 }T_PREFERREDSTOCKPARAMS;
 typedef struct t_BaseInfo
 {
-	char    sSecurityID[8];         //Ö¤È¯´úÂë SecurityID C8
-	char    sSecurityIDSource[4];   //Ö¤È¯´úÂëÔ´ 4=ISIN 102=ÉîÛÚÖ¤È¯½»Ò×Ëù C4
-	char    sSymbol[40];            //Ö¤È¯¼ò³Æ C40
-	char    sEnglishName[40];       //Ó¢ÎÄ¼ò³Æ ¶ÔÓÚÆÚÈ¨ÌîĞ´ºÏÔ¼´úÂë C40
-	char    sISIN[12];              //ISIN´úÂë C12
+    char    sSecurityID[8];         //è¯åˆ¸ä»£ç  SecurityID C8
+    char    sSecurityIDSource[4];   //è¯åˆ¸ä»£ç æº 4=ISIN 102=æ·±åœ³è¯åˆ¸äº¤æ˜“æ‰€ C4
+    char    sSymbol[40];            //è¯åˆ¸ç®€ç§° C40
+    char    sEnglishName[40];       //è‹±æ–‡ç®€ç§° å¯¹äºæœŸæƒå¡«å†™åˆçº¦ä»£ç  C40
+    char    sISIN[12];              //ISINä»£ç  C12
 
-	char    sUnderlyingSecurityID[8];//»ù´¡Ö¤È¯´úÂë C8
-	char    sUnderlyingSecurityIDSource[4];   //»ù´¡Ö¤È¯´úÂëÔ´ 102=ÉîÛÚÖ¤È¯½»Ò×Ëù C4
-	T_U32   uListDate;              //ÉÏÊĞÈÕÆÚ N8
-	T_U16   usSecurityType;         //Ö¤È¯Àà±ğ N4
-    char    sCurrency[4];           //»õ±Ò´úÂë C4   CNY=ÈËÃñ±Ò HKD=¸Û±Ò
-	T_I64   i64QtyUnit;             //ÊıÁ¿µ¥Î» Î¯ÍĞÊıÁ¿×Ö¶Î±ØĞëÎª¸ÃÖ¤È¯ÊıÁ¿µ¥Î»µÄÕûÊı±¶ N15(2) ´Ë´¦ÕûĞÍ´¦Àí£¬·Å´ó10000±¶
-	char    cDayTrading;            //ÊÇ·ñÖ§³Öµ±ÈÕ»Ø×ª½»Ò× Y=Ö§³Ö N=²»Ö§³Ö C1
-	T_I64   i64PrevClosePx;         //×òÈÕÊÕÅÌ¼Û N13(4)
-	T_U16   usSecurityStatus[20];    //Ö¤È¯×´Ì¬´úÂë:
-	    //1-Í£ÅÆ
-		//2-³ıÈ¨
-		//3-³ıÏ¢
-		//4-ST
-		//5-*ST
-		//6-ÉÏÊĞÊ×ÈÕ
-		//7-¹«Ë¾ÔÙÈÚ×Ê
-		//8-»Ö¸´ÉÏÊĞÊ×ÈÕ
-		//9-ÍøÂçÍ¶Æ±
-		//10-ÍËÊĞÕûÀíÆÚ
-		//12-Ôö·¢¹É·İÉÏÊĞ
-		//13-ºÏÔ¼µ÷Õû
-		//14-ÔİÍ£ÉÏÊĞºóĞ­Òé×ªÈÃ
-	T_I64   i64OutstandingShare;    //×Ü·¢ĞĞÁ¿  N18(2)
-	T_I64   i64PublicFloatShareQuantity; //Á÷Í¨¹ÉÊı N18(2)
-	T_I64   i64ParValue;//ÃæÖµ N13(4)
-	char    cGageFlag;//ÊÇ·ñ¿É×÷ÎªÈÚ×ÊÈÚÈ¯¿É³äµÖ±£Ö¤½ğÖ¤È¯ C1  Y=ÊÇ N=·ñ
-	T_I32   nGageRatio;//¿É³äµÖ±£Ö¤½ğÕÛËãÂÊ N5(2)
-	char    cCrdBuyUnderlying;//ÊÇ·ñÎªÈÚ×Ê±êµÄ C1 Y=ÊÇ N=·ñ
-	char    cCrdSellUnderlying;//ÊÇ·ñÎªÈÚÈ¯±êµÄC1 Y=ÊÇ N=·ñ
-	T_I32   nPriceCheckMode;  //Ìá¼Û¼ì²é·½Ê½ N2 0=²»¼ì²é 	1=²»µÍÓÚ×î½ü³É½»¼Û 	2=²»µÍÓÚ×òÊÕ¼Û 	3=²»µÍÓÚ×î¸ß½ĞÂò 4=²»µÍÓÚ×îµÍ½ĞÂô
-	char    cPledgeFlag;//ÊÇ·ñ¿ÉÖÊÑºÈë¿â C1 Y=ÊÇ N=·ñ
-	T_I64   i64ContractMultiplier;//¶Ô»Ø¹º±ê×¼È¯ÕÛËãÂÊ N6(5)
-	char    sRegularShare[8];//¶ÔÓ¦»Ø¹º±ê×¼È¯ C8
-	char    cQualificationFlag;//ÊÇ·ñĞèÒª¶Ô¸ÃÖ¤È¯×÷Í¶×ÊÕßÊÊµ±ĞÔ¹ÜÀí		Y=ÊÇ 		N=·ñ
-	union T_EXTENDFIELD //¸ù¾İÖ¤È¯Àà±ğ´úÂë usSecurityType È·¶¨Æä½á¹¹ ²Î¼ûÒÔÏÂ±í3-2µÄ×Öµä¶¨Òå
-	{
-		T_STOCKPARAMS stockParams;    //¹ÉÆ±ÌØÓĞ×Ö¶Î StockParams Ïà¹ØÖ¤È¯Àà±ğ´úÂë¶ÔÓ¦£¨1¡¢2¡¢3¡¢4£©
-		T_FUNDPARAMS  fundParams;     //»ù½ğÌØÓĞ×Ö¶Î Ïà¹ØÖ¤È¯Àà±ğ´úÂë£¨14¡¢15¡¢16¡¢17¡¢18¡¢19¡¢20¡¢23¡¢24¡¢25¡¢26£©
-		T_BONDPARAMS  bondParams;     //Õ®È¯ÌØÓĞ×Ö¶Î BondParams Ïà¹ØÖ¤È¯Àà±ğ´úÂë£¨5¡¢6¡¢7¡¢8¡¢9¡¢10¡¢11¡¢34¡¢35£©
-		T_WARRANTPARAMS warrantParams;// È¨Ö¤ÌØÓĞ×Ö¶Î WarrantParams Ïà¹ØÖ¤È¯Àà±ğ´úÂë£¨28£©
-		T_REPOPARAMS repoParams;      // ÖÊÑºÊ½»Ø¹º½»Ò×´úÂëÌØÓĞ×Ö¶Î RepoParams 	Ïà¹ØÖ¤È¯Àà±ğ´úÂë(12)
-		T_OPTIONPARAMS optionParmas;  //ÆÚÈ¨ÌØÓĞ×Ö¶Î  Ïà¹ØÖ¤È¯Àà±ğ´úÂë£¨29¡¢30)
-		T_PREFERREDSTOCKPARAMS preferedStockParams; //ÓÅÑ¡¹ÉÌØÓĞ×Ö¶Î Ïà¹ØÖ¤È¯Àà±ğ´úÂë£¨33£©
-	}tExtendParmas;
-	  
+    char    sUnderlyingSecurityID[8];//åŸºç¡€è¯åˆ¸ä»£ç  C8
+    char    sUnderlyingSecurityIDSource[4];   //åŸºç¡€è¯åˆ¸ä»£ç æº 102=æ·±åœ³è¯åˆ¸äº¤æ˜“æ‰€ C4
+    T_U32   uListDate;              //ä¸Šå¸‚æ—¥æœŸ N8
+    T_U16   usSecurityType;         //è¯åˆ¸ç±»åˆ« N4
+    char    sCurrency[4];           //è´§å¸ä»£ç  C4   CNY=äººæ°‘å¸ HKD=æ¸¯å¸
+    T_I64   i64QtyUnit;             //æ•°é‡å•ä½ å§”æ‰˜æ•°é‡å­—æ®µå¿…é¡»ä¸ºè¯¥è¯åˆ¸æ•°é‡å•ä½çš„æ•´æ•°å€ N15(2) æ­¤å¤„æ•´å‹å¤„ç†ï¼Œæ”¾å¤§10000å€
+    char    cDayTrading;            //æ˜¯å¦æ”¯æŒå½“æ—¥å›è½¬äº¤æ˜“ Y=æ”¯æŒ N=ä¸æ”¯æŒ C1
+    T_I64   i64PrevClosePx;         //æ˜¨æ—¥æ”¶ç›˜ä»· N13(4)
+    T_U16   usSecurityStatus[20];    //è¯åˆ¸çŠ¶æ€ä»£ç :
+        //1-åœç‰Œ
+        //2-é™¤æƒ
+        //3-é™¤æ¯
+        //4-ST
+        //5-*ST
+        //6-ä¸Šå¸‚é¦–æ—¥
+        //7-å…¬å¸å†èèµ„
+        //8-æ¢å¤ä¸Šå¸‚é¦–æ—¥
+        //9-ç½‘ç»œæŠ•ç¥¨
+        //10-é€€å¸‚æ•´ç†æœŸ
+        //12-å¢å‘è‚¡ä»½ä¸Šå¸‚
+        //13-åˆçº¦è°ƒæ•´
+        //14-æš‚åœä¸Šå¸‚ååè®®è½¬è®©
+    T_I64   i64OutstandingShare;    //æ€»å‘è¡Œé‡  N18(2)
+    T_I64   i64PublicFloatShareQuantity; //æµé€šè‚¡æ•° N18(2)
+    T_I64   i64ParValue;//é¢å€¼ N13(4)
+    char    cGageFlag;//æ˜¯å¦å¯ä½œä¸ºèèµ„èåˆ¸å¯å……æŠµä¿è¯é‡‘è¯åˆ¸ C1  Y=æ˜¯ N=å¦
+    T_I32   nGageRatio;//å¯å……æŠµä¿è¯é‡‘æŠ˜ç®—ç‡ N5(2)
+    char    cCrdBuyUnderlying;//æ˜¯å¦ä¸ºèèµ„æ ‡çš„ C1 Y=æ˜¯ N=å¦
+    char    cCrdSellUnderlying;//æ˜¯å¦ä¸ºèåˆ¸æ ‡çš„C1 Y=æ˜¯ N=å¦
+    T_I32   nPriceCheckMode;  //æä»·æ£€æŸ¥æ–¹å¼ N2 0=ä¸æ£€æŸ¥ 	1=ä¸ä½äºæœ€è¿‘æˆäº¤ä»· 	2=ä¸ä½äºæ˜¨æ”¶ä»· 	3=ä¸ä½äºæœ€é«˜å«ä¹° 4=ä¸ä½äºæœ€ä½å«å–
+    char    cPledgeFlag;//æ˜¯å¦å¯è´¨æŠ¼å…¥åº“ C1 Y=æ˜¯ N=å¦
+    T_I64   i64ContractMultiplier;//å¯¹å›è´­æ ‡å‡†åˆ¸æŠ˜ç®—ç‡ N6(5)
+    char    sRegularShare[8];//å¯¹åº”å›è´­æ ‡å‡†åˆ¸ C8
+    char    cQualificationFlag;//æ˜¯å¦éœ€è¦å¯¹è¯¥è¯åˆ¸ä½œæŠ•èµ„è€…é€‚å½“æ€§ç®¡ç†		Y=æ˜¯ 		N=å¦
+    union T_EXTENDFIELD //æ ¹æ®è¯åˆ¸ç±»åˆ«ä»£ç  usSecurityType ç¡®å®šå…¶ç»“æ„ å‚è§ä»¥ä¸‹è¡¨3-2çš„å­—å…¸å®šä¹‰
+    {
+        T_STOCKPARAMS stockParams;    //è‚¡ç¥¨ç‰¹æœ‰å­—æ®µ StockParams ç›¸å…³è¯åˆ¸ç±»åˆ«ä»£ç å¯¹åº”ï¼ˆ1ã€2ã€3ã€4ï¼‰
+        T_FUNDPARAMS  fundParams;     //åŸºé‡‘ç‰¹æœ‰å­—æ®µ ç›¸å…³è¯åˆ¸ç±»åˆ«ä»£ç ï¼ˆ14ã€15ã€16ã€17ã€18ã€19ã€20ã€23ã€24ã€25ã€26ï¼‰
+        T_BONDPARAMS  bondParams;     //å€ºåˆ¸ç‰¹æœ‰å­—æ®µ BondParams ç›¸å…³è¯åˆ¸ç±»åˆ«ä»£ç ï¼ˆ5ã€6ã€7ã€8ã€9ã€10ã€11ã€34ã€35ï¼‰
+        T_WARRANTPARAMS warrantParams;// æƒè¯ç‰¹æœ‰å­—æ®µ WarrantParams ç›¸å…³è¯åˆ¸ç±»åˆ«ä»£ç ï¼ˆ28ï¼‰
+        T_REPOPARAMS repoParams;      // è´¨æŠ¼å¼å›è´­äº¤æ˜“ä»£ç ç‰¹æœ‰å­—æ®µ RepoParams 	ç›¸å…³è¯åˆ¸ç±»åˆ«ä»£ç (12)
+        T_OPTIONPARAMS optionParmas;  //æœŸæƒç‰¹æœ‰å­—æ®µ  ç›¸å…³è¯åˆ¸ç±»åˆ«ä»£ç ï¼ˆ29ã€30)
+        T_PREFERREDSTOCKPARAMS preferedStockParams; //ä¼˜é€‰è‚¡ç‰¹æœ‰å­—æ®µ ç›¸å…³è¯åˆ¸ç±»åˆ«ä»£ç ï¼ˆ33ï¼‰
+    }tExtendParmas;
+      
 }T_BASEINFO,*PBASEINFO;
- /* ±í 3-2 Ö¤È¯Àà±ğ¶¨Òå
-		Àà±ğÃû³Æ  Àà±ğ´úÂë
-		Ö÷°å A ¹É  1
-		ÖĞĞ¡°å¹ÉÆ±  2
-		´´Òµ°å¹ÉÆ±  3
-		Ö÷°å B ¹É  4
-		¹úÕ® £¨º¬µØ·½Õ®£© 5
-		ÆóÒµÕ®  6
-		¹«Ë¾Õ®  7
-		¿É×ªÕ®  8
-		Ë½Ä¼Õ®  9
-		¿É½»»»Ë½Ä¼Õ®  10
-		Ö¤È¯¹«Ë¾´Î¼¶Õ®  11
-		ÖÊÑºÊ½»Ø¹º  12
-		×Ê²úÖ§³ÖÖ¤È¯  13
-		±¾ÊĞ³¡¹ÉÆ± ETF  14
-		¿çÊĞ³¡¹ÉÆ± ETF  15
-		¿ç¾³ ETF  16
-		±¾ÊĞ³¡ÊµÎïÕ®È¯ETF	17
-		ÏÖ½ğÕ®È¯ ETF  18
-		»Æ½ğ ETF  19
-		»õ±Ò ETF  20
-		¸Ü¸Ë ETF  21£¨Ô¤Áô£©
-		ÉÌÆ·ÆÚ»õ ETF  22£¨Ô¤Áô£©
-		±ê×¼ LOF  23
-		·Ö¼¶×Ó»ù½ğ  24
-		·â±ÕÊ½»ù½ğ  25
-		½öÉêÊê»ù½ğ  26
-		È¨Ö¤  28
-		¸ö¹ÉÆÚÈ¨  29
-		ETF ÆÚÈ¨  30
-		ÓÅÏÈ¹É  33
-		Ö¤È¯¹«Ë¾¶ÌÆÚÕ®  34
-		¿É½»»»¹«Ë¾Õ®  35*/
+ /* è¡¨ 3-2 è¯åˆ¸ç±»åˆ«å®šä¹‰
+        ç±»åˆ«åç§°  ç±»åˆ«ä»£ç 
+        ä¸»æ¿ A è‚¡  1
+        ä¸­å°æ¿è‚¡ç¥¨  2
+        åˆ›ä¸šæ¿è‚¡ç¥¨  3
+        ä¸»æ¿ B è‚¡  4
+        å›½å€º ï¼ˆå«åœ°æ–¹å€ºï¼‰ 5
+        ä¼ä¸šå€º  6
+        å…¬å¸å€º  7
+        å¯è½¬å€º  8
+        ç§å‹Ÿå€º  9
+        å¯äº¤æ¢ç§å‹Ÿå€º  10
+        è¯åˆ¸å…¬å¸æ¬¡çº§å€º  11
+        è´¨æŠ¼å¼å›è´­  12
+        èµ„äº§æ”¯æŒè¯åˆ¸  13
+        æœ¬å¸‚åœºè‚¡ç¥¨ ETF  14
+        è·¨å¸‚åœºè‚¡ç¥¨ ETF  15
+        è·¨å¢ƒ ETF  16
+        æœ¬å¸‚åœºå®ç‰©å€ºåˆ¸ETF	17
+        ç°é‡‘å€ºåˆ¸ ETF  18
+        é»„é‡‘ ETF  19
+        è´§å¸ ETF  20
+        æ æ† ETF  21ï¼ˆé¢„ç•™ï¼‰
+        å•†å“æœŸè´§ ETF  22ï¼ˆé¢„ç•™ï¼‰
+        æ ‡å‡† LOF  23
+        åˆ†çº§å­åŸºé‡‘  24
+        å°é—­å¼åŸºé‡‘  25
+        ä»…ç”³èµåŸºé‡‘  26
+        æƒè¯  28
+        ä¸ªè‚¡æœŸæƒ  29
+        ETF æœŸæƒ  30
+        ä¼˜å…ˆè‚¡  33
+        è¯åˆ¸å…¬å¸çŸ­æœŸå€º  34
+        å¯äº¤æ¢å…¬å¸å€º  35*/
 
 
 
-//ÏÖ»õ ¼¯ÖĞ¾º¼Û½»Ò×ÒµÎñ²Î¿¼ĞÅÏ¢£¨ cashauctionpramas) cashauctionparams_YYYYMMDD.xml
+//ç°è´§ é›†ä¸­ç«ä»·äº¤æ˜“ä¸šåŠ¡å‚è€ƒä¿¡æ¯ï¼ˆ cashauctionpramas) cashauctionparams_YYYYMMDD.xml
 typedef struct t_CashAuctionParams
 {
-	char    sSecurityID[8];         //Ö¤È¯´úÂë C8
-	char    sSecurityIDSource[4];      //102 = ÉîÛÚÖ¤È¯½»Ò×Ëù C4
-	T_I64   i64BuyQtyUpperLimit;    //ÂòÊıÁ¿ÉÏÏŞ N15(2)  ÂòÎ¯ÍĞÊıÁ¿µÄÉÏÏŞ
-	T_I64   i64SellQtyUpperLimit;   //	ÂôÊıÁ¿ÉÏÏŞ	N15(2)  ÂôÎ¯ÍĞÊıÁ¿µÄÉÏÏŞ
-	T_I64   i64BuyQtyUnit;//	ÂòÊıÁ¿µ¥Î» 		N15(2)  Ã¿±ÊÂòÎ¯ÍĞµÄÎ¯ÍĞÊıÁ¿±ØĞëÊÇÂòÊıÁ¿µ¥Î»µÄÕûÊı±¶
-	T_I64   i64SellQtyUnit; //	ÂôÊıÁ¿µ¥Î»	N15(2)  Ã¿±ÊÂôÎ¯ÍĞµÄÎ¯ÍĞÊıÁ¿±ØĞëÊÇÂôÊıÁ¿µ¥Î»µÄÕûÊı±¶
-	T_I64   i64PriceTick;  //	¼Û¸ñµµÎ» 	N13(4)
-	struct  T_PriceLimitSetting //¾º¼ÛÏŞ¼Û²ÎÊı
-	{
-		char  cType;// ²ÎÊıÀàĞÍ Type C1  O=¿ªÅÌ¼¯ºÏ¾º¼Û T=Á¬Ğø¾º¼Û 	C=ÊÕÅÌ¼¯ºÏ¾º¼Û
-		char  cHasPriceLimit;//·ñÓĞÕÇµø ÏŞÖÆ C1 Y=ÊÇ	N=·ñ
-		char  cReferPriceType;//  »ù×¼¼ÛÀàĞÍ C1 1=×òÊÕ¼Û
-		char  cLimitType;  //	ÕÇµøÏŞÖÆÀàĞÍ C1  1=·ù¶È£¨°Ù·Ö±È£© 		2=¼Û¸ñ£¨¾ø¶ÔÖµ£©
-		T_I64 i64LimitUpRate;//    ÉÏÕÇ·ù¶È	N10(3)
-		T_I64 i64LimitDownRate; // ÏÂµø·ù¶È N10(3)
-		T_I64 i64LimitUpAbsolute;//  ÉÏÕÇÏŞ¼Û 			N10(4)
-		T_I64 i64LimitDownAbsolute;//	  ÏÂµøÏŞ¼Û		N10(4)
-		char  cHasAuctionLimit;//  ÊÇ·ñÓĞÓĞĞ§¾º¼Û·¶Î§ÏŞÖÆ 	C1 	Y=ÊÇ 	N=·ñ
-		char  cAuctionLimitType;// ÓĞĞ§·¶Î§ÏŞÖÆÀàĞÍ		C1  1=·ù¶È£¨°Ù·Ö±È£©2=¼Û¸ñ£¨¾ø¶ÔÖµ£©
-		T_I64 i64AuctionUpDownRate;//ÓĞĞ§·¶Î§ÕÇµø·ù¶È	N10(3)
-		T_I64 i64AuctionUpDownAbsolute;//	ÓĞĞ§·¶Î§ÕÇµø¼Û¸ñ 	N10(4)
-	}tPriceLimitElement[5];
-	char  cMarketMakerFlag;//×öÊĞÉÌ±êÖ¾ C1  ±êÊ¶ÊÇ·ñÓĞ×öÊĞÉÌ Y=ÊÇ	N=·ñ
+    char    sSecurityID[8];         //è¯åˆ¸ä»£ç  C8
+    char    sSecurityIDSource[4];      //102 = æ·±åœ³è¯åˆ¸äº¤æ˜“æ‰€ C4
+    T_I64   i64BuyQtyUpperLimit;    //ä¹°æ•°é‡ä¸Šé™ N15(2)  ä¹°å§”æ‰˜æ•°é‡çš„ä¸Šé™
+    T_I64   i64SellQtyUpperLimit;   //	å–æ•°é‡ä¸Šé™	N15(2)  å–å§”æ‰˜æ•°é‡çš„ä¸Šé™
+    T_I64   i64BuyQtyUnit;//	ä¹°æ•°é‡å•ä½ 		N15(2)  æ¯ç¬”ä¹°å§”æ‰˜çš„å§”æ‰˜æ•°é‡å¿…é¡»æ˜¯ä¹°æ•°é‡å•ä½çš„æ•´æ•°å€
+    T_I64   i64SellQtyUnit; //	å–æ•°é‡å•ä½	N15(2)  æ¯ç¬”å–å§”æ‰˜çš„å§”æ‰˜æ•°é‡å¿…é¡»æ˜¯å–æ•°é‡å•ä½çš„æ•´æ•°å€
+    T_I64   i64PriceTick;  //	ä»·æ ¼æ¡£ä½ 	N13(4)
+    struct  T_PriceLimitSetting //ç«ä»·é™ä»·å‚æ•°
+    {
+        char  cType;// å‚æ•°ç±»å‹ Type C1  O=å¼€ç›˜é›†åˆç«ä»· T=è¿ç»­ç«ä»· 	C=æ”¶ç›˜é›†åˆç«ä»·
+        char  cHasPriceLimit;//å¦æœ‰æ¶¨è·Œ é™åˆ¶ C1 Y=æ˜¯	N=å¦
+        char  cReferPriceType;//  åŸºå‡†ä»·ç±»å‹ C1 1=æ˜¨æ”¶ä»·
+        char  cLimitType;  //	æ¶¨è·Œé™åˆ¶ç±»å‹ C1  1=å¹…åº¦ï¼ˆç™¾åˆ†æ¯”ï¼‰ 		2=ä»·æ ¼ï¼ˆç»å¯¹å€¼ï¼‰
+        T_I64 i64LimitUpRate;//    ä¸Šæ¶¨å¹…åº¦	N10(3)
+        T_I64 i64LimitDownRate; // ä¸‹è·Œå¹…åº¦ N10(3)
+        T_I64 i64LimitUpAbsolute;//  ä¸Šæ¶¨é™ä»· 			N10(4)
+        T_I64 i64LimitDownAbsolute;//	  ä¸‹è·Œé™ä»·		N10(4)
+        char  cHasAuctionLimit;//  æ˜¯å¦æœ‰æœ‰æ•ˆç«ä»·èŒƒå›´é™åˆ¶ 	C1 	Y=æ˜¯ 	N=å¦
+        char  cAuctionLimitType;// æœ‰æ•ˆèŒƒå›´é™åˆ¶ç±»å‹		C1  1=å¹…åº¦ï¼ˆç™¾åˆ†æ¯”ï¼‰2=ä»·æ ¼ï¼ˆç»å¯¹å€¼ï¼‰
+        T_I64 i64AuctionUpDownRate;//æœ‰æ•ˆèŒƒå›´æ¶¨è·Œå¹…åº¦	N10(3)
+        T_I64 i64AuctionUpDownAbsolute;//	æœ‰æ•ˆèŒƒå›´æ¶¨è·Œä»·æ ¼ 	N10(4)
+    }tPriceLimitElement[5];
+    char  cMarketMakerFlag;//åšå¸‚å•†æ ‡å¿— C1  æ ‡è¯†æ˜¯å¦æœ‰åšå¸‚å•† Y=æ˜¯	N=å¦
 }T_CASHAUCTIONPARAMS;
 
 
-//ÑÜÉúÆ·²Î¿¼ĞÅÏ¢£¬Ä¿Ç°½ö°üº¬ÆÚÈ¨  derivativeauctionparams_YYYYMMDD.xml
+//è¡ç”Ÿå“å‚è€ƒä¿¡æ¯ï¼Œç›®å‰ä»…åŒ…å«æœŸæƒ  derivativeauctionparams_YYYYMMDD.xml
 
 typedef struct t_DerivativeParams
 {
-	char    sSecurityID[8];         //Ö¤È¯´úÂë C8
-	char    sSecurityIDSource;      //102 = ÉîÛÚÖ¤È¯½»Ò×Ëù C4
-	T_I64   i64BuyQtyUpperLimit;    //ÏŞ¼ÛÂòÎ¯ÍĞÊıÁ¿ÉÏÏŞ N15(2)
-	T_I64   i64SellQtyUpperLimit;   //ÏŞ¼ÛÂôÎ¯ÍĞÊıÁ¿ÉÏÏŞ N15(2)
-	T_I64   i64MarketOrderBuyQtyUpperLimit;//  ÊĞ¼ÛÂòÊıÁ¿ÉÏÏŞ N15(2)  ÊĞ¼ÛÂòÎ¯ÍĞÊıÁ¿µÄÉÏÏŞ
-	T_I64   i64MarketOrderSellQtyUpperLimit;//	ÊĞ¼ÛÂôÊıÁ¿ÉÏÏŞ N15(2)  ÊĞ¼ÛÂôÎ¯ÍĞÊıÁ¿µÄÉÏÏŞ
-	T_I64   i64QuoteOrderBuyQtyUpperLimit;//	±¨¼ÛÂòÊıÁ¿ÉÏÏŞ N15(2)  ±¨¼ÛÂòÎ¯ÍĞÊıÁ¿µÄÉÏÏŞ
-	T_I64   i64QuoteOrderSellQtyUpperLimit; //	±¨¼ÛÂôÊıÁ¿ÉÏÏŞ 	N15(2)  ±¨¼ÛÂôÎ¯ÍĞÊıÁ¿µÄÉÏÏŞ
-	T_I64   i64BuyQtyUnit;          //ÂòÊıÁ¿µ¥Î» N15(2)
-	T_I64   i64SellQtyUnit;        //ÂôÊıÁ¿µ¥Î» N15(2)
-	T_I64   i64PriceTick;          //¼Û¸ñµµÎ» N13(4)
-	T_I64   i64PriceUpperLimit;     //ÕÇÍ£¼Û N13(4)
-	T_I64   i64PriceLowerLimit;     //µøÍ£¼Û N13(4)
-	T_I64   i64LastSellMargin;     //×òÂô¿ªÃ¿ÕÅ±£Ö¤½ğ N18(4)
-	T_I64   i64SellMargin;         //½ñÂô¿ªÃ¿ÕÅ±£Ö¤½ğ N18(4)
-	T_I32   nMarginRatioParam1;   //±£Ö¤½ğ±ÈÀı¼ÆËã²ÎÊıÒ» N4(2)
-	T_I32   nMarginRatioParam2;   //±£Ö¤½ğ±ÈÀı¼ÆËã²ÎÊıÒ» N4(2)
-	char    cMarketMakerFlag;     //×öÊĞÉÌ±êÖ¾  C1 Y=ÊÇ N=·ñ
+    char    sSecurityID[8];         //è¯åˆ¸ä»£ç  C8
+    char    sSecurityIDSource;      //102 = æ·±åœ³è¯åˆ¸äº¤æ˜“æ‰€ C4
+    T_I64   i64BuyQtyUpperLimit;    //é™ä»·ä¹°å§”æ‰˜æ•°é‡ä¸Šé™ N15(2)
+    T_I64   i64SellQtyUpperLimit;   //é™ä»·å–å§”æ‰˜æ•°é‡ä¸Šé™ N15(2)
+    T_I64   i64MarketOrderBuyQtyUpperLimit;//  å¸‚ä»·ä¹°æ•°é‡ä¸Šé™ N15(2)  å¸‚ä»·ä¹°å§”æ‰˜æ•°é‡çš„ä¸Šé™
+    T_I64   i64MarketOrderSellQtyUpperLimit;//	å¸‚ä»·å–æ•°é‡ä¸Šé™ N15(2)  å¸‚ä»·å–å§”æ‰˜æ•°é‡çš„ä¸Šé™
+    T_I64   i64QuoteOrderBuyQtyUpperLimit;//	æŠ¥ä»·ä¹°æ•°é‡ä¸Šé™ N15(2)  æŠ¥ä»·ä¹°å§”æ‰˜æ•°é‡çš„ä¸Šé™
+    T_I64   i64QuoteOrderSellQtyUpperLimit; //	æŠ¥ä»·å–æ•°é‡ä¸Šé™ 	N15(2)  æŠ¥ä»·å–å§”æ‰˜æ•°é‡çš„ä¸Šé™
+    T_I64   i64BuyQtyUnit;          //ä¹°æ•°é‡å•ä½ N15(2)
+    T_I64   i64SellQtyUnit;        //å–æ•°é‡å•ä½ N15(2)
+    T_I64   i64PriceTick;          //ä»·æ ¼æ¡£ä½ N13(4)
+    T_I64   i64PriceUpperLimit;     //æ¶¨åœä»· N13(4)
+    T_I64   i64PriceLowerLimit;     //è·Œåœä»· N13(4)
+    T_I64   i64LastSellMargin;     //æ˜¨å–å¼€æ¯å¼ ä¿è¯é‡‘ N18(4)
+    T_I64   i64SellMargin;         //ä»Šå–å¼€æ¯å¼ ä¿è¯é‡‘ N18(4)
+    T_I32   nMarginRatioParam1;   //ä¿è¯é‡‘æ¯”ä¾‹è®¡ç®—å‚æ•°ä¸€ N4(2)
+    T_I32   nMarginRatioParam2;   //ä¿è¯é‡‘æ¯”ä¾‹è®¡ç®—å‚æ•°ä¸€ N4(2)
+    char    cMarketMakerFlag;     //åšå¸‚å•†æ ‡å¿—  C1 Y=æ˜¯ N=å¦
 }T_DERIVATIVEPARAMS,*PDERIVATIVEPARAMS;
 
 typedef struct t_SZ_BaseInfo 
 {
-	T_BASEINFO          tBase;      //»ù´¡ĞÅÏ¢
-	T_CASHAUCTIONPARAMS tCashParams;      //ÏÖ»õ ¼¯ÖĞ¾º¼Û½»Ò×ÒµÎñ²Î¿¼ĞÅÏ¢
+    T_BASEINFO          tBase;      //åŸºç¡€ä¿¡æ¯
+    T_CASHAUCTIONPARAMS tCashParams;      //ç°è´§ é›†ä¸­ç«ä»·äº¤æ˜“ä¸šåŠ¡å‚è€ƒä¿¡æ¯
 }T_SZ_BASEINFO,*PSZ_BASEINFO;
 
 typedef struct t_SZOP_BaseInfo
 {
-	T_BASEINFO          tBase;      //»ù´¡ĞÅÏ¢
-	T_DERIVATIVEPARAMS  tDeParmas;  //ÑÜÉúÆ·ĞÅÏ¢
+    T_BASEINFO          tBase;      //åŸºç¡€ä¿¡æ¯
+    T_DERIVATIVEPARAMS  tDeParmas;  //è¡ç”Ÿå“ä¿¡æ¯
 
 }T_SZOP_BASEINFO,*PSZOP_BASEINFO;  //ID_SZOP_BASEINFO
 
-//Ö¸Êı ĞÅÏ¢ indexinfo_YYYYMMDD.xml  
+//æŒ‡æ•° ä¿¡æ¯ indexinfo_YYYYMMDD.xml  
 typedef struct t_IndexInfo
 {
-	char    sSecurityID[8];         //Ö¸Êı´úÂë C8
-	char    sSecurityIDSource[4];      //102 = ÉîÛÚÖ¤È¯½»Ò×Ëù C4          
-	char    sSymbol[40];            //Ö¸Êı¼ò³Æ C40
-	char    sEnglishName[40];       //Ó¢ÎÄ¼ò³Æ 
-	char    sCurrency[4];           //¼ÆËã±ÒÖÖ  Currency C4  ±ÒÖÖ CNY = ÈËÃñ±Ò	HKD = ¸Û±Ò
-	T_I64   i64PrevCloseIdx;       //×òÊÕÖ¸ÊıµãÎ»  PrevCloseIdx  N18(5)
-			
+    char    sSecurityID[8];         //æŒ‡æ•°ä»£ç  C8
+    char    sSecurityIDSource[4];      //102 = æ·±åœ³è¯åˆ¸äº¤æ˜“æ‰€ C4          
+    char    sSymbol[40];            //æŒ‡æ•°ç®€ç§° C40
+    char    sEnglishName[40];       //è‹±æ–‡ç®€ç§° 
+    char    sCurrency[4];           //è®¡ç®—å¸ç§  Currency C4  å¸ç§ CNY = äººæ°‘å¸	HKD = æ¸¯å¸
+    T_I64   i64PrevCloseIdx;       //æ˜¨æ”¶æŒ‡æ•°ç‚¹ä½  PrevCloseIdx  N18(5)
+            
 }T_INDEXINFO;
 
 typedef struct t_SZOP_MarketData
 {
-	T_I32       nTime; //Êı¾İÉú³ÉÊ±¼ä HHMMSSmmm¸ñÊ½
-	T_U16       usChannelNo; //ÆµµÀ´úÂë
-	char        sMDStreamID[3] ;//ĞĞÇéÀà±ğ
-	char        sSecrityID[8];//Ö¤È¯´úÂë
-	char        sSecurityIDSource[4];//Ö¤È¯´úÂëÔ´ 101=ÉîÛÚÖ¤È¯½»Ò×Ëù
-	char        sTradingPhaseCode[8];//²úÆ·Ëù´¦µÄ½»Ò×½×¶Î´úÂë µÚ0Î»£ºS=Æô¶¯£¨¿ªÊĞÇ°£© O=¿ªÅÌ¼¯ºÏ¾º¼Û T=Á¬Ğø¾º¼Û B=ĞİÊĞ C=ÊÕÅÌ¼¯ºÏ¾º¼Û E=ÒÑ±ÕÊĞ H=ÁÙÊ±Í£ÅÆ A=ÅÌºó½»Ò× µÚ1Î»£º0=Õı³£×´Ì¬ 1=È«ÌìÍ£ÅÆ
-	T_I64       i64PrevClosePx;//×òÊÕ¼Û
-	T_I64       i64NumTrades; //³É½»±ÊÊı
-	T_I64       i64TotalVolumeTrade;//³É½»×ÜÁ¿
-	T_I64       i64TotalValueTrade;//³É½»×Ü½ğ¶î
+    T_I32       nTime; //æ•°æ®ç”Ÿæˆæ—¶é—´ HHMMSSmmmæ ¼å¼
+    T_U16       usChannelNo; //é¢‘é“ä»£ç 
+    char        sMDStreamID[3] ;//è¡Œæƒ…ç±»åˆ«
+    char        sSecrityID[8];//è¯åˆ¸ä»£ç 
+    char        sSecurityIDSource[4];//è¯åˆ¸ä»£ç æº 101=æ·±åœ³è¯åˆ¸äº¤æ˜“æ‰€
+    char        sTradingPhaseCode[8];//äº§å“æ‰€å¤„çš„äº¤æ˜“é˜¶æ®µä»£ç  ç¬¬0ä½ï¼šS=å¯åŠ¨ï¼ˆå¼€å¸‚å‰ï¼‰ O=å¼€ç›˜é›†åˆç«ä»· T=è¿ç»­ç«ä»· B=ä¼‘å¸‚ C=æ”¶ç›˜é›†åˆç«ä»· E=å·²é—­å¸‚ H=ä¸´æ—¶åœç‰Œ A=ç›˜åäº¤æ˜“ ç¬¬1ä½ï¼š0=æ­£å¸¸çŠ¶æ€ 1=å…¨å¤©åœç‰Œ
+    T_I64       i64PrevClosePx;//æ˜¨æ”¶ä»·
+    T_I64       i64NumTrades; //æˆäº¤ç¬”æ•°
+    T_I64       i64TotalVolumeTrade;//æˆäº¤æ€»é‡
+    T_I64       i64TotalValueTrade;//æˆäº¤æ€»é‡‘é¢
 
-	T_I64       i64LastPrice;//×î½ü¼Û
-	T_I64       i64OpenPrice;//¿ªÅÌ¼Û
-	T_I64       i64HighPrice;//×î¸ß¼Û
-	T_I64       i64LowPrice;//×îµÍ¼Û
-	T_I64       i64BuyAvgPrice;//x3=ÂòÈë»ã×Ü£¨×ÜÁ¿¼°¼ÓÈ¨Æ½¾ù¼Û£©
-	T_I64       i64BuyVolumeTrade;//x3=ÂòÈë»ã×Ü£¨×ÜÁ¿¼°¼ÓÈ¨Æ½¾ù¼Û£©
-	T_I64       i64SellAvgPrice;//x4=Âô³ö»ã×Ü£¨×ÜÁ¿¼°¼ÓÈ¨Æ½¾ù¼Û£©
-	T_I64       i64SellVolumeTrade;//x4=Âô³ö»ã×Ü£¨×ÜÁ¿¼°¼ÓÈ¨Æ½¾ù¼Û£©
-	T_I64       i64OfferPrice[10];//ÂôÎ¯ÍĞ¼Û¸ñ
-	T_I64       i64OfferQty[10]; //ÂôÎ¯ÍĞÁ¿
-	T_I64       i64BidPrice[10];//ÂòÎ¯ÍĞ¼Û¸ñ
-	T_I64       i64BidQty[10];//ÂòÎ¯ÍĞÁ¿
-	T_I64       i64PriceUpperLimit;        //ÕÇÍ£¼Û 999999999.9999 ±íÊ¾ÎŞÕÇÍ£¼Û¸ñÏŞÖÆ
-	T_I64       i64PriceLowerLimit;        //µøÍ£¼Û ¶ÔÓÚ¼Û¸ñ¿ÉÒÔÎª¸ºÊıµÄÒµÎñ£¬-999999999.9999 ±íÊ¾ÎŞµøÍ£¼Û¸ñÏŞÖÆ£»¶ÔÓÚ¼Û¸ñ²»¿ÉÒÔÎª¸ºÊıµÄÒµÎñ£¬ÔòÌîĞ´¼Û¸ñµµÎ»£¬±íÊ¾ÎŞµøÍ£¼Û¸ñÏŞÖÆ£¬±ÈÈç¶ÔÓÚ¹ÉÆ±ÏÖ»õ¼¯ÖĞ¾º¼ÛÒµÎñÌîĞ´ 0.01
-	T_I64       i64ContractPosition; //ºÏÔ¼³Ö²ÖÁ¿
+    T_I64       i64LastPrice;//æœ€è¿‘ä»·
+    T_I64       i64OpenPrice;//å¼€ç›˜ä»·
+    T_I64       i64HighPrice;//æœ€é«˜ä»·
+    T_I64       i64LowPrice;//æœ€ä½ä»·
+    T_I64       i64BuyAvgPrice;//x3=ä¹°å…¥æ±‡æ€»ï¼ˆæ€»é‡åŠåŠ æƒå¹³å‡ä»·ï¼‰
+    T_I64       i64BuyVolumeTrade;//x3=ä¹°å…¥æ±‡æ€»ï¼ˆæ€»é‡åŠåŠ æƒå¹³å‡ä»·ï¼‰
+    T_I64       i64SellAvgPrice;//x4=å–å‡ºæ±‡æ€»ï¼ˆæ€»é‡åŠåŠ æƒå¹³å‡ä»·ï¼‰
+    T_I64       i64SellVolumeTrade;//x4=å–å‡ºæ±‡æ€»ï¼ˆæ€»é‡åŠåŠ æƒå¹³å‡ä»·ï¼‰
+    T_I64       i64OfferPrice[10];//å–å§”æ‰˜ä»·æ ¼
+    T_I64       i64OfferQty[10]; //å–å§”æ‰˜é‡
+    T_I64       i64BidPrice[10];//ä¹°å§”æ‰˜ä»·æ ¼
+    T_I64       i64BidQty[10];//ä¹°å§”æ‰˜é‡
+    T_I64       i64PriceUpperLimit;        //æ¶¨åœä»· 999999999.9999 è¡¨ç¤ºæ— æ¶¨åœä»·æ ¼é™åˆ¶
+    T_I64       i64PriceLowerLimit;        //è·Œåœä»· å¯¹äºä»·æ ¼å¯ä»¥ä¸ºè´Ÿæ•°çš„ä¸šåŠ¡ï¼Œ-999999999.9999 è¡¨ç¤ºæ— è·Œåœä»·æ ¼é™åˆ¶ï¼›å¯¹äºä»·æ ¼ä¸å¯ä»¥ä¸ºè´Ÿæ•°çš„ä¸šåŠ¡ï¼Œåˆ™å¡«å†™ä»·æ ¼æ¡£ä½ï¼Œè¡¨ç¤ºæ— è·Œåœä»·æ ¼é™åˆ¶ï¼Œæ¯”å¦‚å¯¹äºè‚¡ç¥¨ç°è´§é›†ä¸­ç«ä»·ä¸šåŠ¡å¡«å†™ 0.01
+    T_I64       i64ContractPosition; //åˆçº¦æŒä»“é‡
 
 
-	//ĞĞÇéÌõÄ¿Àà±ğ 0=ÂòÈë 1=Âô³ö 2=×î½ü¼Û 4=¿ªÅÌ¼Û 7=×î¸ß¼Û 8=×îµÍ¼Û
-	//x1= ÉıµøÒ» x2=Éıµø¶ş x3=ÂòÈë»ã×Ü£¨×ÜÁ¿¼°¼ÓÈ¨Æ½¾ù¼Û£©x4=Âô³ö»ã×Ü£¨×ÜÁ¿¼°¼ÓÈ¨Æ½¾ù¼Û£©
-	//x5=¹ÉÆ±ÊĞÓ¯ÂÊÒ» x6=¹ÉÆ±ÊĞÓ¯ÂÊ¶ş x7=»ù½ğT-1ÈÕ¾»Öµ x8=»ù½ğÊµÊ±²Î¿¼¾»Öµ(°üÀ¨ETFµÄIOPV)
-	//x9=È¨Ö¤Òç¼ÛÂÊ xe=ÕÇÍ£¼Û xf=µøÍ£¼Û xg=ºÏÔ¼³Ö²ÖÁ¿
+    //è¡Œæƒ…æ¡ç›®ç±»åˆ« 0=ä¹°å…¥ 1=å–å‡º 2=æœ€è¿‘ä»· 4=å¼€ç›˜ä»· 7=æœ€é«˜ä»· 8=æœ€ä½ä»·
+    //x1= å‡è·Œä¸€ x2=å‡è·ŒäºŒ x3=ä¹°å…¥æ±‡æ€»ï¼ˆæ€»é‡åŠåŠ æƒå¹³å‡ä»·ï¼‰x4=å–å‡ºæ±‡æ€»ï¼ˆæ€»é‡åŠåŠ æƒå¹³å‡ä»·ï¼‰
+    //x5=è‚¡ç¥¨å¸‚ç›ˆç‡ä¸€ x6=è‚¡ç¥¨å¸‚ç›ˆç‡äºŒ x7=åŸºé‡‘T-1æ—¥å‡€å€¼ x8=åŸºé‡‘å®æ—¶å‚è€ƒå‡€å€¼(åŒ…æ‹¬ETFçš„IOPV)
+    //x9=æƒè¯æº¢ä»·ç‡ xe=æ¶¨åœä»· xf=è·Œåœä»· xg=åˆçº¦æŒä»“é‡
 }T_SZOP_MARKETDATA,*PSZOP_MARKETDATA;
 
 #pragma pack(pop)

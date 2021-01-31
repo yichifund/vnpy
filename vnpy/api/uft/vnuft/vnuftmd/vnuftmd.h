@@ -1,4 +1,4 @@
-//ÏµÍ³
+ï»¿//ç³»ç»Ÿ
 #ifdef WIN32
 #include "pch.h"
 #endif
@@ -10,7 +10,7 @@
 
 using namespace pybind11;
 
-//³£Á¿
+//å¸¸é‡
 #define ONFRONTCONNECTED 0
 #define ONFRONTDISCONNECTED 1
 #define ONRSPDEPTHMARKETDATASUBSCRIBE 2
@@ -20,103 +20,103 @@ using namespace pybind11;
 
 
 ///-------------------------------------------------------------------------------------
-///C++ SPIµÄ»Øµ÷º¯Êı·½·¨ÊµÏÖ
+///C++ SPIçš„å›è°ƒå‡½æ•°æ–¹æ³•å®ç°
 ///-------------------------------------------------------------------------------------
 
-//APIµÄ¼Ì³ĞÊµÏÖ
+//APIçš„ç»§æ‰¿å®ç°
 class MdApi : public CHSMdSpi
 {
 private:
-	CHSMdApi* api;				//API¶ÔÏó
-	thread task_thread;					//¹¤×÷Ïß³ÌÖ¸Õë£¨ÏòpythonÖĞÍÆËÍÊı¾İ£©
-	TaskQueue task_queue;			    //ÈÎÎñ¶ÓÁĞ
-	bool active = false;				//¹¤×÷×´Ì¬
+    CHSMdApi* api;				//APIå¯¹è±¡
+    thread task_thread;					//å·¥ä½œçº¿ç¨‹æŒ‡é’ˆï¼ˆå‘pythonä¸­æ¨é€æ•°æ®ï¼‰
+    TaskQueue task_queue;			    //ä»»åŠ¡é˜Ÿåˆ—
+    bool active = false;				//å·¥ä½œçŠ¶æ€
 
 public:
-	MdApi()
-	{
-	};
+    MdApi()
+    {
+    };
 
-	~MdApi()
-	{
-		if (this->active)
-		{
-			this->exit();
-		}
-	};
+    ~MdApi()
+    {
+        if (this->active)
+        {
+            this->exit();
+        }
+    };
 
-	//-------------------------------------------------------------------------------------
-	//API»Øµ÷º¯Êı
-	//-------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------
+    //APIå›è°ƒå‡½æ•°
+    //-------------------------------------------------------------------------------------
 
-	///µ±¿Í»§¶ËÓë½»Ò×ºóÌ¨½¨Á¢ÆğÍ¨ĞÅÁ¬½ÓÊ±£¨»¹Î´µÇÂ¼Ç°£©£¬¸Ã·½·¨±»µ÷ÓÃ¡£
-	virtual void OnFrontConnected();
+    ///å½“å®¢æˆ·ç«¯ä¸äº¤æ˜“åå°å»ºç«‹èµ·é€šä¿¡è¿æ¥æ—¶ï¼ˆè¿˜æœªç™»å½•å‰ï¼‰ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚
+    virtual void OnFrontConnected();
 
-	/// Description:µ±¿Í»§¶ËÓë½»Ò×ºóÌ¨Í¨ĞÅÁ¬½ÓÒì³£Ê±£¬¸Ã·½·¨±»µ÷ÓÃ¡£
-	/// Others     :Í¨¹ıGetApiErrorMsg(nResult)»ñÈ¡ÏêÏ¸´íÎóĞÅÏ¢¡£
-	virtual void OnFrontDisconnected(int nResult);
+    /// Description:å½“å®¢æˆ·ç«¯ä¸äº¤æ˜“åå°é€šä¿¡è¿æ¥å¼‚å¸¸æ—¶ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚
+    /// Others     :é€šè¿‡GetApiErrorMsg(nResult)è·å–è¯¦ç»†é”™è¯¯ä¿¡æ¯ã€‚
+    virtual void OnFrontDisconnected(int nResult);
 
-	/// Description: ¶©ÔÄ-ĞĞÇéÓ¦´ğ
-	virtual void OnRspDepthMarketDataSubscribe(CHSRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
+    /// Description: è®¢é˜…-è¡Œæƒ…åº”ç­”
+    virtual void OnRspDepthMarketDataSubscribe(CHSRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	/// Description: ¶©ÔÄÈ¡Ïû-ĞĞÇéÓ¦´ğ
-	virtual void OnRspDepthMarketDataCancel(CHSRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
+    /// Description: è®¢é˜…å–æ¶ˆ-è¡Œæƒ…åº”ç­”
+    virtual void OnRspDepthMarketDataCancel(CHSRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	/// Description: Ö÷ÍÆ-ĞĞÇé
-	virtual void OnRtnDepthMarketData(CHSDepthMarketDataField *pDepthMarketData);
+    /// Description: ä¸»æ¨-è¡Œæƒ…
+    virtual void OnRtnDepthMarketData(CHSDepthMarketDataField *pDepthMarketData);
 
-	//-------------------------------------------------------------------------------------
-	//task£ºÈÎÎñ
-	//-------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------
+    //taskï¼šä»»åŠ¡
+    //-------------------------------------------------------------------------------------
 
-	void processTask();
+    void processTask();
 
-	void processFrontConnected(Task *task);
+    void processFrontConnected(Task *task);
 
-	void processFrontDisconnected(Task *task);
+    void processFrontDisconnected(Task *task);
 
-	void processRspDepthMarketDataSubscribe(Task *task);
+    void processRspDepthMarketDataSubscribe(Task *task);
 
-	void processRspDepthMarketDataCancel(Task *task);
+    void processRspDepthMarketDataCancel(Task *task);
 
-	void processRtnDepthMarketData(Task *task);
+    void processRtnDepthMarketData(Task *task);
 
-	//-------------------------------------------------------------------------------------
-	//data£º»Øµ÷º¯ÊıµÄÊı¾İ×Öµä
-	//error£º»Øµ÷º¯ÊıµÄ´íÎó×Öµä
-	//id£ºÇëÇóid
-	//last£ºÊÇ·ñÎª×îºó·µ»Ø
-	//i£ºÕûÊı
-	//-------------------------------------------------------------------------------------
-	virtual void onFrontConnected() {};
+    //-------------------------------------------------------------------------------------
+    //dataï¼šå›è°ƒå‡½æ•°çš„æ•°æ®å­—å…¸
+    //errorï¼šå›è°ƒå‡½æ•°çš„é”™è¯¯å­—å…¸
+    //idï¼šè¯·æ±‚id
+    //lastï¼šæ˜¯å¦ä¸ºæœ€åè¿”å›
+    //iï¼šæ•´æ•°
+    //-------------------------------------------------------------------------------------
+    virtual void onFrontConnected() {};
 
-	virtual void onFrontDisconnected(int reqid) {};
+    virtual void onFrontDisconnected(int reqid) {};
 
-	virtual void onRspDepthMarketDataSubscribe(const dict &error, int reqid, bool last) {};
+    virtual void onRspDepthMarketDataSubscribe(const dict &error, int reqid, bool last) {};
 
-	virtual void onRspDepthMarketDataCancel(const dict &error, int reqid, bool last) {};
+    virtual void onRspDepthMarketDataCancel(const dict &error, int reqid, bool last) {};
 
-	virtual void onRtnDepthMarketData(const dict &data) {};
+    virtual void onRtnDepthMarketData(const dict &data) {};
 
-	//-------------------------------------------------------------------------------------
-	//req:Ö÷¶¯º¯ÊıµÄÇëÇó×Öµä
-	//-------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------
+    //req:ä¸»åŠ¨å‡½æ•°çš„è¯·æ±‚å­—å…¸
+    //-------------------------------------------------------------------------------------
 
-	void newMdApi(string pszFlowPath);
+    void newMdApi(string pszFlowPath);
 
-	int init(string pszLicFile, string pszSafeLevel, string pszPwd, string pszSslFile, string pszSslPwd);
+    int init(string pszLicFile, string pszSafeLevel, string pszPwd, string pszSslFile, string pszSslPwd);
 
-	int join(); 
+    int join(); 
 
-	int exit();
+    int exit();
 
-	int registerFront(string pszFrontAddress);
+    int registerFront(string pszFrontAddress);
 
-	int registerFensServer(string pszFensAddress, string pszAccountID);
+    int registerFensServer(string pszFensAddress, string pszAccountID);
 
-	int reqDepthMarketDataSubscribe(const dict &req, int reqid);
+    int reqDepthMarketDataSubscribe(const dict &req, int reqid);
 
-	int reqDepthMarketDataCancel(const dict &req, int reqid);
+    int reqDepthMarketDataCancel(const dict &req, int reqid);
 
-	string getApiErrorMsg(int nErrorCode);
+    string getApiErrorMsg(int nErrorCode);
 };

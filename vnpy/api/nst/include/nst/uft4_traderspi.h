@@ -1,4 +1,4 @@
-#ifndef _UFT4_TRADESPI_H
+ï»¿#ifndef _UFT4_TRADESPI_H
 #define _UFT4_TRADESPI_H
 
 #include "uft4_UserApiStruct.h"
@@ -26,59 +26,59 @@
 class CUft4_TraderSpi
 {
 public:
-	virtual void OnFrontConnected(){}
-	virtual void OnRspUserLogin(CUftRspUserLoginField* pRspUserLogin, CUftRspInfoField* pRspInfo ){}
+    virtual void OnFrontConnected(){}
+    virtual void OnRspUserLogin(CUftRspUserLoginField* pRspUserLogin, CUftRspInfoField* pRspInfo ){}
 
-	//¹ñÌ¨±¨µ¥Â¼ÈëÏìÓ¦
-	virtual void OnAnsOrderInsert(CUftAnsOrderInsertField *pOrderRsp, CUftRspErrorField* pError){}
+    //æŸœå°æŠ¥å•å½•å…¥å“åº”
+    virtual void OnAnsOrderInsert(CUftAnsOrderInsertField *pOrderRsp, CUftRspErrorField* pError){}
 
-	//½»Ò×Ëù±¨µ¥Â¼ÈëÏìÓ¦
-	virtual void OnRspOrderInsert(CUftRspnOrderInsertField *pOrderRsp, CUftRspErrorField* pError){}
+    //äº¤æ˜“æ‰€æŠ¥å•å½•å…¥å“åº”
+    virtual void OnRspOrderInsert(CUftRspnOrderInsertField *pOrderRsp, CUftRspErrorField* pError){}
 
-	//¹ñÌ¨±¨µ¥²Ù×÷ÇëÇóÏìÓ¦
-	virtual void OnAnsOrderAction(CUftAnsOrderActionField *pOrderAction, CUftRspErrorField* pError){}
+    //æŸœå°æŠ¥å•æ“ä½œè¯·æ±‚å“åº”
+    virtual void OnAnsOrderAction(CUftAnsOrderActionField *pOrderAction, CUftRspErrorField* pError){}
 
-	//½»Ò×Ëù±¨µ¥²Ù×÷ÇëÇóÏìÓ¦
-	virtual void OnRspOrderAction(CUftRspnOrderActionField *pOrderAction, CUftRspErrorField* pError){}
-
-
-	//±¨µ¥»Ø±¨
-	virtual void OnOrderRtn(CUftRtnnOrderField* pOrder){}
-
-	//³É½»»Ø±¨
-	virtual void OnTradeRtn(CUftRtnnTradeField* pOrder){}
-
-	//²éÑ¯×Ê½ğ»Ø±¨
-	virtual void OnRspTradingAccount(CUftAnsQueryFundField *pRspFund){}
-
-	virtual void OnRspError(CUftRspErrorField* pError){}
+    //äº¤æ˜“æ‰€æŠ¥å•æ“ä½œè¯·æ±‚å“åº”
+    virtual void OnRspOrderAction(CUftRspnOrderActionField *pOrderAction, CUftRspErrorField* pError){}
 
 
-	///ÇëÇó²éÑ¯±¨µ¥ÏìÓ¦
-	virtual void OnRspQryOrder(CUftAnsQueryOrderField *pEntrust, bool bIsLast) {};
+    //æŠ¥å•å›æŠ¥
+    virtual void OnOrderRtn(CUftRtnnOrderField* pOrder){}
 
-	///ÇëÇó²éÑ¯³É½»ÏìÓ¦
-	virtual void OnRspQryTrade(CUftAnsQueryTradeField *pTrade, bool bIsLast) {};
+    //æˆäº¤å›æŠ¥
+    virtual void OnTradeRtn(CUftRtnnTradeField* pOrder){}
 
-	///ÇëÇó²éÑ¯Í¶×ÊÕß³Ö²ÖÏìÓ¦
-	virtual void OnRspQryInvestorPosition(CUftAnsQueryPositionField *pInvestorPosition, bool bIsLast) {};
+    //æŸ¥è¯¢èµ„é‡‘å›æŠ¥
+    virtual void OnRspTradingAccount(CUftAnsQueryFundField *pRspFund){}
+
+    virtual void OnRspError(CUftRspErrorField* pError){}
+
+
+    ///è¯·æ±‚æŸ¥è¯¢æŠ¥å•å“åº”
+    virtual void OnRspQryOrder(CUftAnsQueryOrderField *pEntrust, bool bIsLast) {};
+
+    ///è¯·æ±‚æŸ¥è¯¢æˆäº¤å“åº”
+    virtual void OnRspQryTrade(CUftAnsQueryTradeField *pTrade, bool bIsLast) {};
+
+    ///è¯·æ±‚æŸ¥è¯¢æŠ•èµ„è€…æŒä»“å“åº”
+    virtual void OnRspQryInvestorPosition(CUftAnsQueryPositionField *pInvestorPosition, bool bIsLast) {};
 
 
 
-	///ĞŞ¸ÄÃÜÂëÏìÓ¦
-	virtual void OnRspQryChangePwd() {};
+    ///ä¿®æ”¹å¯†ç å“åº”
+    virtual void OnRspQryChangePwd() {};
 
-	virtual void OnRspLogout(const char* szMsg) {};
+    virtual void OnRspLogout(const char* szMsg) {};
 
-	virtual void OnRtnInstrumentStatus(CUftRtnInstrumentStatusField *pInstStatus){};
+    virtual void OnRtnInstrumentStatus(CUftRtnInstrumentStatusField *pInstStatus){};
 
-	virtual void OnRspTest(CUftRspTest *pTest){};
+    virtual void OnRspTest(CUftRspTest *pTest){};
 
-	///±¨µ¥Â¼Èë´íÎó»Ø±¨
-	virtual void OnErrRtnOrderInsert(CUftRspErrorField* pError) {};
+    ///æŠ¥å•å½•å…¥é”™è¯¯å›æŠ¥
+    virtual void OnErrRtnOrderInsert(CUftRspErrorField* pError) {};
 
-	///±¨µ¥²Ù×÷´íÎó»Ø±¨
-	virtual void OnErrRtnOrderAction(CUftRspErrorField* pError) {};
+    ///æŠ¥å•æ“ä½œé”™è¯¯å›æŠ¥
+    virtual void OnErrRtnOrderAction(CUftRspErrorField* pError) {};
 
 };
 
@@ -86,155 +86,155 @@ class CUft4_TraderApi
 {
 public:
 #ifndef OS_WIN
-	//nCnnModeÓë·şÎñ¶ËÍ¨ĞÅ·½Ê½: 0, udp·½Ê½; 1, tcp·½Ê½
-	static CUft4_TraderApi *CreateUft4Shfe_TraderApi(int nCnnMode = 0);
+    //nCnnModeä¸æœåŠ¡ç«¯é€šä¿¡æ–¹å¼: 0, udpæ–¹å¼; 1, tcpæ–¹å¼
+    static CUft4_TraderApi *CreateUft4Shfe_TraderApi(int nCnnMode = 0);
 
-	static const char* GetApiVersion();
+    static const char* GetApiVersion();
 #endif
-	///É¾³ı½Ó¿Ú¶ÔÏó±¾Éí
-	///@remark ²»ÔÙÊ¹ÓÃ±¾½Ó¿Ú¶ÔÏóÊ±,µ÷ÓÃ¸Ãº¯ÊıÉ¾³ı½Ó¿Ú¶ÔÏó
-	virtual void Release() = 0;
+    ///åˆ é™¤æ¥å£å¯¹è±¡æœ¬èº«
+    ///@remark ä¸å†ä½¿ç”¨æœ¬æ¥å£å¯¹è±¡æ—¶,è°ƒç”¨è¯¥å‡½æ•°åˆ é™¤æ¥å£å¯¹è±¡
+    virtual void Release() = 0;
 
-	///API°óºË²Ù×÷,	Ö§³Ö½ÓÊÕ»Ø±¨ºÍ½ÓÊÕÖ÷ÍÆÏß³Ì°ó¶¨CPU
-	///´Ëº¯Êı±ØĞëÔÚInitÖ®Ç°µ÷ÓÃ
-	///window°æ²»Ö§³Ö
-	virtual void TasksetCPU(int nBindingRspCpuId, int nBindingRtnCpuId) = 0;
+    ///APIç»‘æ ¸æ“ä½œ,	æ”¯æŒæ¥æ”¶å›æŠ¥å’Œæ¥æ”¶ä¸»æ¨çº¿ç¨‹ç»‘å®šCPU
+    ///æ­¤å‡½æ•°å¿…é¡»åœ¨Initä¹‹å‰è°ƒç”¨
+    ///windowç‰ˆä¸æ”¯æŒ
+    virtual void TasksetCPU(int nBindingRspCpuId, int nBindingRtnCpuId) = 0;
 
-	///³õÊ¼»¯
-	///@remark ³õÊ¼»¯ÔËĞĞ»·¾³,Ö»ÓĞµ÷ÓÃºó,½Ó¿Ú²Å¿ªÊ¼¹¤×÷
-	/*
-	*	@param szAccount£ºÖ¤È¯ÕËºÅ
-	*	@param szPwd£ºÃÜÂë
-	*	@param nReConnTimeout£º³¬Ê±ÖØÁ¬Ê±¼ä
-	*	@param nTimeStampFlag£ºÊ±¼ä´Á
-	*	@param szAccount£ºĞÄÌø¼ä¸ôÎ¢Ãî
-	*	@param eExType£ºÊĞ³¡
-		·µ»ØÖµ
-		  0, OK
-		 -1,sockÍ¨Ñ¶´íÎó
-		 -2,ÕËºÅ¸ñÊ½´íÎó
-		 -3,¿Í»§¶Ë½»Ò×Ä£Ê½Óë·şÎñ¶Ë²»Æ¥Åä´íÎó
-		 -4,·şÎñ¶Ë·µ»Ø´íÎó
-	*/
-	virtual int Init(const char* szAccount, const char* szPwd, int nReConnTimeout = 0, int nTimeStampFlag = 0, int nHeartBtFreq=100,E_EXCHANGE_TYPE eExType = EXCHANGE_CFFEX, int nNoBlock = 0) = 0;
+    ///åˆå§‹åŒ–
+    ///@remark åˆå§‹åŒ–è¿è¡Œç¯å¢ƒ,åªæœ‰è°ƒç”¨å,æ¥å£æ‰å¼€å§‹å·¥ä½œ
+    /*
+    *	@param szAccountï¼šè¯åˆ¸è´¦å·
+    *	@param szPwdï¼šå¯†ç 
+    *	@param nReConnTimeoutï¼šè¶…æ—¶é‡è¿æ—¶é—´
+    *	@param nTimeStampFlagï¼šæ—¶é—´æˆ³
+    *	@param szAccountï¼šå¿ƒè·³é—´éš”å¾®å¦™
+    *	@param eExTypeï¼šå¸‚åœº
+        è¿”å›å€¼
+          0, OK
+         -1,socké€šè®¯é”™è¯¯
+         -2,è´¦å·æ ¼å¼é”™è¯¯
+         -3,å®¢æˆ·ç«¯äº¤æ˜“æ¨¡å¼ä¸æœåŠ¡ç«¯ä¸åŒ¹é…é”™è¯¯
+         -4,æœåŠ¡ç«¯è¿”å›é”™è¯¯
+    */
+    virtual int Init(const char* szAccount, const char* szPwd, int nReConnTimeout = 0, int nTimeStampFlag = 0, int nHeartBtFreq=100,E_EXCHANGE_TYPE eExType = EXCHANGE_CFFEX, int nNoBlock = 0) = 0;
 
-	///µÈ´ı½Ó¿ÚÏß³Ì½áÊøÔËĞĞ
-	///@return Ïß³ÌÍË³ö´úÂë
-	virtual int Join() = 0;
+    ///ç­‰å¾…æ¥å£çº¿ç¨‹ç»“æŸè¿è¡Œ
+    ///@return çº¿ç¨‹é€€å‡ºä»£ç 
+    virtual int Join() = 0;
 
-	/*
-	*	@param 	pszFrontAddress ·şÎñÆ÷µØÖ·
-	*	@param 	nPort ·şÎñÆ÷¶Ë¿Ú
-	*	@param 	pszLocalAddr ±¾»úµØÖ·
-	*	@param 	nReqPort ÇëÇó¶Ë¿Ú
-	*	@param 	nRspPort Ó¦´ğ¶Ë¿Ú
-	*	@param 	nLocalNotifyPort Ö÷ÍÆ¶Ë¿Ú
-	*/
-	virtual void RegisterFront(const char *pszFrontAddress, uint16_t nPort, const char* pszLocalAddr, uint16_t nReqPort, uint16_t nRspPort, uint16_t nLocalNotifyPort) = 0;
-	virtual void RegisterSpi(CUft4_TraderSpi *pSpi) = 0;
+    /*
+    *	@param 	pszFrontAddress æœåŠ¡å™¨åœ°å€
+    *	@param 	nPort æœåŠ¡å™¨ç«¯å£
+    *	@param 	pszLocalAddr æœ¬æœºåœ°å€
+    *	@param 	nReqPort è¯·æ±‚ç«¯å£
+    *	@param 	nRspPort åº”ç­”ç«¯å£
+    *	@param 	nLocalNotifyPort ä¸»æ¨ç«¯å£
+    */
+    virtual void RegisterFront(const char *pszFrontAddress, uint16_t nPort, const char* pszLocalAddr, uint16_t nReqPort, uint16_t nRspPort, uint16_t nLocalNotifyPort) = 0;
+    virtual void RegisterSpi(CUft4_TraderSpi *pSpi) = 0;
 
-	///ÓÃ»§µÇÂ¼ÇëÇó
-	/*
-		·µ»ØÖµ
-			-1,Ê§°Ü
-			0,³É¹¦
-	*/
-	virtual int ReqUserLogin() = 0;
-	///ÓÃ»§µÇ³öÇëÇó
-	/*
-		·µ»ØÖµ
-			-1,Ê§°Ü
-			0,³É¹¦
-	*/
-	virtual int ReqUserLogout() = 0;
+    ///ç”¨æˆ·ç™»å½•è¯·æ±‚
+    /*
+        è¿”å›å€¼
+            -1,å¤±è´¥
+            0,æˆåŠŸ
+    */
+    virtual int ReqUserLogin() = 0;
+    ///ç”¨æˆ·ç™»å‡ºè¯·æ±‚
+    /*
+        è¿”å›å€¼
+            -1,å¤±è´¥
+            0,æˆåŠŸ
+    */
+    virtual int ReqUserLogout() = 0;
 
-	///±¨µ¥Â¼ÈëÇëÇó
-	/*
-	//  Ö¤È¯NST±¨µ¥ËùĞèÈë²Î begin
-	*	@param 	szCode Ö¤È¯´úÂë
-	*	@param 	bs ÂòÂô·½Ïò
-	*	@param 	dbPrice ¼Û¸ñ
-	*	@param 	nVolume ÊıÁ¿
-	*	@param 	cOrderPriceType Î¯ÍĞÀà±ğ
-	*	@param 	nSeatId Ï¯Î»ID£¬ Ä¬ÈÏÎª0
-	//  Ö¤È¯NST±¨µ¥ËùĞèÈë²Î end
-		·µ»ØÖµ,-1,Ê§°Ü
-				´óÓÚ0, ±¾µØsendid
-	*/
-	virtual int ReqOrderInsert(
-		const char *szCode, 
-		T_UFT_FtdcOrderBs bs,
-		char kp, 
-		double dbPrice, 
-		int nVolume,
-		int64_t nOrderRef,
-		T_UFT_FtdcTimeConditionType cTimeCondtion = UFT_FTDC_TC_GFD,
-		T_UFT_FtdcVolumeConditionType cVolumeCondition = UFT_FTDC_VC_AV,
-		T_UFT_FtdcVolumeType	nMinVolume = 1,
-		char cMargincheck = '1',
-		T_UFT_FtdcOrderPriceTypeType cOrderPriceType = UFT_FTDC_OPT_LimitPrice,
-		T_UFT_FtdcHedgeFlagType cHedgeFlagType = UFT_FTDC_HF_Speculation,
-		uint8_t nSeatId = 0) = 0;
+    ///æŠ¥å•å½•å…¥è¯·æ±‚
+    /*
+    //  è¯åˆ¸NSTæŠ¥å•æ‰€éœ€å…¥å‚ begin
+    *	@param 	szCode è¯åˆ¸ä»£ç 
+    *	@param 	bs ä¹°å–æ–¹å‘
+    *	@param 	dbPrice ä»·æ ¼
+    *	@param 	nVolume æ•°é‡
+    *	@param 	cOrderPriceType å§”æ‰˜ç±»åˆ«
+    *	@param 	nSeatId å¸­ä½IDï¼Œ é»˜è®¤ä¸º0
+    //  è¯åˆ¸NSTæŠ¥å•æ‰€éœ€å…¥å‚ end
+        è¿”å›å€¼,-1,å¤±è´¥
+                å¤§äº0, æœ¬åœ°sendid
+    */
+    virtual int ReqOrderInsert(
+        const char *szCode, 
+        T_UFT_FtdcOrderBs bs,
+        char kp, 
+        double dbPrice, 
+        int nVolume,
+        int64_t nOrderRef,
+        T_UFT_FtdcTimeConditionType cTimeCondtion = UFT_FTDC_TC_GFD,
+        T_UFT_FtdcVolumeConditionType cVolumeCondition = UFT_FTDC_VC_AV,
+        T_UFT_FtdcVolumeType	nMinVolume = 1,
+        char cMargincheck = '1',
+        T_UFT_FtdcOrderPriceTypeType cOrderPriceType = UFT_FTDC_OPT_LimitPrice,
+        T_UFT_FtdcHedgeFlagType cHedgeFlagType = UFT_FTDC_HF_Speculation,
+        uint8_t nSeatId = 0) = 0;
 
-	///±¨µ¥²Ù×÷ÇëÇó
-	/*
-		·µ»ØÖµ,-1,Ê§°Ü
-				´óÓÚ0,±¾µØsendid
-	*/
-	virtual int ReqOrderAction(int nOrderIndex, int64_t nOrderRef) = 0;
-	///
-	/*
-		·µ»ØÖµ,-1,Ê§°Ü
-				´óÓÚ0,±¾µØsendid
-	*/
+    ///æŠ¥å•æ“ä½œè¯·æ±‚
+    /*
+        è¿”å›å€¼,-1,å¤±è´¥
+                å¤§äº0,æœ¬åœ°sendid
+    */
+    virtual int ReqOrderAction(int nOrderIndex, int64_t nOrderRef) = 0;
+    ///
+    /*
+        è¿”å›å€¼,-1,å¤±è´¥
+                å¤§äº0,æœ¬åœ°sendid
+    */
 
-	///»áÔ±×Ê½ğ²éÑ¯ÇëÇó
-	/*
-		·µ»ØÖµ,-1,Ê§°Ü
-				´óÓÚ0,±¾µØsendid
-	*/
-	virtual int ReqTradingAccount()=0;
+    ///ä¼šå‘˜èµ„é‡‘æŸ¥è¯¢è¯·æ±‚
+    /*
+        è¿”å›å€¼,-1,å¤±è´¥
+                å¤§äº0,æœ¬åœ°sendid
+    */
+    virtual int ReqTradingAccount()=0;
 
-	///ÇëÇó²éÑ¯±¨µ¥
-	/*
-	*	@param 	szInstrumentID Ö¤È¯´úÂë
-	*	@param 	nStartTime ¿ªÊ¼Ê±¼ä
-	*	@param 	nEndTime ½áÊøÊ±¼ä
-		·µ»ØÖµ,-1,Ê§°Ü
-				´óÓÚ0,±¾µØsendid
-	*/
-	virtual int ReqQryOrder(const char* szInstrumentID, int32_t nStartTime, int32_t nEndTime, const char* szOrderSysID, int64_t nOrderRef,  uint32_t nOrderIndex, bool bAllSession = false) = 0;
-	
-	///ÇëÇó²éÑ¯³É½»
-	/*
-		·µ»ØÖµ,-1,Ê§°Ü
-				´óÓÚ0,±¾µØsendid
-	*/
-	virtual int ReqQryTrade(const char* szInstrumentID, int32_t nStartTime, int32_t nEndTime, const char* szOrderSysID, uint32_t nOrderIndex,int64_t nOrderRef, bool bAllSession = false) = 0;
+    ///è¯·æ±‚æŸ¥è¯¢æŠ¥å•
+    /*
+    *	@param 	szInstrumentID è¯åˆ¸ä»£ç 
+    *	@param 	nStartTime å¼€å§‹æ—¶é—´
+    *	@param 	nEndTime ç»“æŸæ—¶é—´
+        è¿”å›å€¼,-1,å¤±è´¥
+                å¤§äº0,æœ¬åœ°sendid
+    */
+    virtual int ReqQryOrder(const char* szInstrumentID, int32_t nStartTime, int32_t nEndTime, const char* szOrderSysID, int64_t nOrderRef,  uint32_t nOrderIndex, bool bAllSession = false) = 0;
+    
+    ///è¯·æ±‚æŸ¥è¯¢æˆäº¤
+    /*
+        è¿”å›å€¼,-1,å¤±è´¥
+                å¤§äº0,æœ¬åœ°sendid
+    */
+    virtual int ReqQryTrade(const char* szInstrumentID, int32_t nStartTime, int32_t nEndTime, const char* szOrderSysID, uint32_t nOrderIndex,int64_t nOrderRef, bool bAllSession = false) = 0;
 
-	///ÇëÇó²éÑ¯Í¶×ÊÕß³Ö²Ö
-	/*
-		·µ»ØÖµ,-1,Ê§°Ü
-				´óÓÚ0,±¾µØsendid
-	*/
-	virtual int ReqQryInvestorPosition(const char* szInstrumentID) = 0;
+    ///è¯·æ±‚æŸ¥è¯¢æŠ•èµ„è€…æŒä»“
+    /*
+        è¿”å›å€¼,-1,å¤±è´¥
+                å¤§äº0,æœ¬åœ°sendid
+    */
+    virtual int ReqQryInvestorPosition(const char* szInstrumentID) = 0;
 
 
-	///ĞŞ¸ÄÃÜÂëÇëÇó
-	/*
-		·µ»ØÖµ,-1,Ê§°Ü
-				´óÓÚ0,±¾µØsendid
-	*/
-	virtual int ReqChangePwd(const char* szNewPwd, const char* szOldPwd) = 0;
+    ///ä¿®æ”¹å¯†ç è¯·æ±‚
+    /*
+        è¿”å›å€¼,-1,å¤±è´¥
+                å¤§äº0,æœ¬åœ°sendid
+    */
+    virtual int ReqChangePwd(const char* szNewPwd, const char* szOldPwd) = 0;
 
-	//Í¨Ñ¶²âÊÔ
-	/*
-		·µ»ØÖµ,-1,Ê§°Ü
-				´óÓÚ0,±¾µØsendid
-	*/
-	virtual int ReqQryTest() = 0;
-	virtual uint64_t GetToken() = 0;
-	virtual int GetReqPort() = 0;
+    //é€šè®¯æµ‹è¯•
+    /*
+        è¿”å›å€¼,-1,å¤±è´¥
+                å¤§äº0,æœ¬åœ°sendid
+    */
+    virtual int ReqQryTest() = 0;
+    virtual uint64_t GetToken() = 0;
+    virtual int GetReqPort() = 0;
 };
 #ifdef OS_WIN
 #ifdef __cplusplus
@@ -242,9 +242,9 @@ extern "C"
 {
 #endif
 
-	TRADE_API_EXPORT CUft4_TraderApi* FUNCTION_CALL_MODE CreateUft4Shfe_TraderApi(int nCnnMode = 0);
+    TRADE_API_EXPORT CUft4_TraderApi* FUNCTION_CALL_MODE CreateUft4Shfe_TraderApi(int nCnnMode = 0);
 
-	TRADE_API_EXPORT const char* FUNCTION_CALL_MODE GetApiVersion();
+    TRADE_API_EXPORT const char* FUNCTION_CALL_MODE GetApiVersion();
 
 #ifdef __cplusplus
 }

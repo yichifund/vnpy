@@ -1,11 +1,11 @@
-//ÏµÍ³
+ï»¿//ç³»ç»Ÿ
 #ifdef WIN32
 #include "pch.h"
 #endif
 
 #include "vnsip.h"
 #include "pybind11/pybind11.h"
-#include "isipuix.h"
+#include "sip/isipuix.h"
 
 
 using namespace pybind11;
@@ -14,16 +14,16 @@ using namespace api;
 
 
 ///-------------------------------------------------------------------------------------
-///C++ SPIµÄ»Øµ÷º¯Êı·½·¨ÊµÏÖ
+///C++ SPIçš„å›è°ƒå‡½æ•°æ–¹æ³•å®ç°
 ///-------------------------------------------------------------------------------------
 
-//APIµÄ¼Ì³ĞÊµÏÖ
+//APIçš„ç»§æ‰¿å®ç°
 class MdApi : public CSipMdSpi
 {
 private:
-	ISIPUIX_EXPORT CSipMdApi* api;      //API¶ÔÏó
-    bool active = false;                //¹¤×÷×´Ì¬
-	bool logging = false;
+    ISIPUIX_EXPORT CSipMdApi* api;      //APIå¯¹è±¡
+    bool active = false;                //å·¥ä½œçŠ¶æ€
+    bool logging = false;
 
 public:
     MdApi()
@@ -39,202 +39,202 @@ public:
     };
 
     //-------------------------------------------------------------------------------------
-    //API»Øµ÷º¯Êı
+    //APIå›è°ƒå‡½æ•°
     //-------------------------------------------------------------------------------------
 
-	virtual void OnLog(int32_t level, const char *source, const char *slog);
-	/*!
-	\brief µÇÂ¼³É¹¦ºó»Øµ÷£¬¿ÉÔÚÀïÃæ¶©ÔÄ
-	\param chn Í¨µÀºÅ,Ò»¸öÍ¨µÀÊ±Îª0,ÆäËûÎª1¿ªÊ¼¡£
-	*/
+    virtual void OnLog(int32_t level, const char *source, const char *slog);
+    /*!
+    \brief ç™»å½•æˆåŠŸåå›è°ƒï¼Œå¯åœ¨é‡Œé¢è®¢é˜…
+    \param chn é€šé“å·,ä¸€ä¸ªé€šé“æ—¶ä¸º0,å…¶ä»–ä¸º1å¼€å§‹ã€‚
+    */
 
-	/*!
-	\brief ¶Ï¿ªÊ±»Øµ÷
-	\param chn Í¨µÀºÅ¡£
-	*/
-	virtual void OnDisconnect(int32_t chn);
+    /*!
+    \brief æ–­å¼€æ—¶å›è°ƒ
+    \param chn é€šé“å·ã€‚
+    */
+    virtual void OnDisconnect(int32_t chn);
 
-	/*
-	\brief ĞĞÇé¶©ÔÄ»Øµ÷
-	\param errmsg ´æ´¢´íÎóÂëerrcodeÓë´íÎóĞÅÏ¢errstrµÄ½á¹¹Ìå£¬errcodeÖµÎª0´ú±í³É¹¦£¬ÆäÓàÖµÎª´íÎóÂë£¬´íÎóĞÅÏ¢»á´æ´¢ÔÚerrstr×Ö·û´®ÖĞ
-	\param errmsg ½á¹¹ÌåÖĞµÄchannel¡¢mktypeÓëdatatypeÔòÊÇÓÃÓÚÊ¶±ğÖ¤È¯´úÂëcodes¶©ÔÄÊ§°ÜµÄ¶ÔÓ¦Í¨µÀ¡¢ÊĞ³¡ÀàĞÍÓëÊı¾İÀàĞÍ¡£
-	*/
-	virtual void OnSubscribe(ErrMsg *errmsg);
+    /*
+    \brief è¡Œæƒ…è®¢é˜…å›è°ƒ
+    \param errmsg å­˜å‚¨é”™è¯¯ç errcodeä¸é”™è¯¯ä¿¡æ¯errstrçš„ç»“æ„ä½“ï¼Œerrcodeå€¼ä¸º0ä»£è¡¨æˆåŠŸï¼Œå…¶ä½™å€¼ä¸ºé”™è¯¯ç ï¼Œé”™è¯¯ä¿¡æ¯ä¼šå­˜å‚¨åœ¨errstrå­—ç¬¦ä¸²ä¸­
+    \param errmsg ç»“æ„ä½“ä¸­çš„channelã€mktypeä¸datatypeåˆ™æ˜¯ç”¨äºè¯†åˆ«è¯åˆ¸ä»£ç codesè®¢é˜…å¤±è´¥çš„å¯¹åº”é€šé“ã€å¸‚åœºç±»å‹ä¸æ•°æ®ç±»å‹ã€‚
+    */
+    virtual void OnSubscribe(ErrMsg *errmsg);
 
-	/*
-	\brief ĞĞÇéÍË¶©»Øµ÷
-	\param errmsg ´æ´¢´íÎóÂëerrcodeÓë´íÎóĞÅÏ¢errstrµÄ½á¹¹Ìå£¬errcodeÖµÎª0´ú±í³É¹¦£¬ÆäÓàÖµÎª´íÎóÂë£¬´íÎóĞÅÏ¢»á´æ´¢ÔÚerrstr×Ö·û´®ÖĞ
-	\param errmsg ½á¹¹ÌåÖĞµÄchannel¡¢mktypeÓëdatatypeÔòÊÇÓÃÓÚÊ¶±ğÖ¤È¯´úÂëcodesÍË¶©Ê§°ÜµÄ¶ÔÓ¦Í¨µÀ¡¢ÊĞ³¡ÀàĞÍÓëÊı¾İÀàĞÍ¡£
-	*/
-	virtual void OnUnSubscribe(ErrMsg *errmsg);
+    /*
+    \brief è¡Œæƒ…é€€è®¢å›è°ƒ
+    \param errmsg å­˜å‚¨é”™è¯¯ç errcodeä¸é”™è¯¯ä¿¡æ¯errstrçš„ç»“æ„ä½“ï¼Œerrcodeå€¼ä¸º0ä»£è¡¨æˆåŠŸï¼Œå…¶ä½™å€¼ä¸ºé”™è¯¯ç ï¼Œé”™è¯¯ä¿¡æ¯ä¼šå­˜å‚¨åœ¨errstrå­—ç¬¦ä¸²ä¸­
+    \param errmsg ç»“æ„ä½“ä¸­çš„channelã€mktypeä¸datatypeåˆ™æ˜¯ç”¨äºè¯†åˆ«è¯åˆ¸ä»£ç codesé€€è®¢å¤±è´¥çš„å¯¹åº”é€šé“ã€å¸‚åœºç±»å‹ä¸æ•°æ®ç±»å‹ã€‚
+    */
+    virtual void OnUnSubscribe(ErrMsg *errmsg);
 
-	/*!
-	\brief L2ĞĞÇéÊı¾İ»Øµ÷
-	\param mktype ´ú±í¶©ÔÄµÄÊĞ³¡ÀàĞÍ
-	\param code ¶©ÔÄµÄÖ¤È¯´úÂë
-	\param dataL2 L2ĞĞÇé½á¹¹Ìå
-	*/
-	virtual void OnDepthMarketData(MKtype mk_type, char *code, Stock_MarketData *dataL2);
+    /*!
+    \brief L2è¡Œæƒ…æ•°æ®å›è°ƒ
+    \param mktype ä»£è¡¨è®¢é˜…çš„å¸‚åœºç±»å‹
+    \param code è®¢é˜…çš„è¯åˆ¸ä»£ç 
+    \param dataL2 L2è¡Œæƒ…ç»“æ„ä½“
+    */
+    virtual void OnDepthMarketData(MKtype mk_type, char *code, Stock_MarketData *dataL2);
 
-	/*!
-	\brief L1ĞĞÇéÊı¾İ»Øµ÷
-	\param mktype ´ú±í¶©ÔÄµÄÊĞ³¡ÀàĞÍ
-	\param code ¶©ÔÄµÄÖ¤È¯´úÂë
-	\param dataL1 L1ĞĞÇé½á¹¹Ìå
-	*/
-	virtual void OnMarketData(MKtype mk_type, char *code, StockMarketDataL1 *dataL1);
+    /*!
+    \brief L1è¡Œæƒ…æ•°æ®å›è°ƒ
+    \param mktype ä»£è¡¨è®¢é˜…çš„å¸‚åœºç±»å‹
+    \param code è®¢é˜…çš„è¯åˆ¸ä»£ç 
+    \param dataL1 L1è¡Œæƒ…ç»“æ„ä½“
+    */
+    virtual void OnMarketData(MKtype mk_type, char *code, StockMarketDataL1 *dataL1);
 
-	/*!
-	\brief Ö¸ÊıĞĞÇé»Øµ÷
-	\param mktype ´ú±í¶©ÔÄµÄÊĞ³¡ÀàĞÍ
-	\param code ¶©ÔÄµÄÖ¤È¯´úÂë
-	\param stockindex Ö¸ÊıĞĞÇé½á¹¹Ìå
-	*/
-	virtual void OnIndexData(MKtype mk_type, char *code, Stock_IndexData *stockindex);
-
-
-	/*!
-	\brief Î¯ÍĞ¶ÓÁĞĞĞÇéÊı¾İ»Øµ÷
-	\param mktype ´ú±í¶©ÔÄµÄÊĞ³¡ÀàĞÍ
-	\param code ¶©ÔÄµÄÖ¤È¯´úÂë
-	\param orderqueue Î¯ÍĞ¶ÓÁĞĞĞÇéÊı¾İ½á¹¹Ìå
-	*/
-	virtual void OnOrderQueue(MKtype mk_type, char *code, StockOrderQueue *orderqueue);
-
-	/*!
-	\brief ÉÏ½»ËùÖğ±Ê³É½»ĞĞÇéÊı¾İ»Øµ÷
-	\param code ¶©ÔÄµÄÖ¤È¯´úÂë
-	\param steptrade ÉÏ½»ËùÖğ±ÊĞĞÇéÊı¾İ½á¹¹Ìå
-	*/
-	virtual void OnSHTrade(char *code, t_SH_StockStepTrade *steptrade);
-
-	/*!
-	\brief Éî½»ËùÖğ±Ê³É½»ĞĞÇéÊı¾İ»Øµ÷
-	\param code ¶©ÔÄµÄÖ¤È¯´úÂë
-	\param steptrade Éî½»ËùÖğ±ÊĞĞÇéÊı¾İ½á¹¹Ìå
-	*/
-	virtual void OnSZTrade(char *code, T_SZ_STEPTRADE *steptrade);
-
-	/*!
-	\brief Éî½»ËùÖğ±ÊÎ¯ÍĞĞĞÇéÊı¾İ»Øµ÷
-	\param code ¶©ÔÄµÄÖ¤È¯´úÂë
-	\param steptrade Éî½»ËùÖğ±ÊĞĞÇéÊı¾İ½á¹¹Ìå
-	*/
-	virtual void OnSZOrder(char *code, T_SZ_STEPORDER *steporder);
-
-	/*!
-	\brief ÉÏ½»Ëù»ù´¡ĞÅÏ¢»Øµ÷
-	\param code ¶©ÔÄµÄÖ¤È¯´úÂë
-	\param baseinfodata ÉÏ½»Ëù»ù´¡ĞÅÏ¢Êı¾İ½á¹¹Ìå
-	*/
-	virtual void OnSHBaseInfo(char *code, T_SH_BaseInfo *baseinfodata);
-
-	virtual void OnSZBaseInfo(char *code, t_SZ_BaseInfo *baseinfodata) ;
-
-	/*!
-	\brief ·ÖÖÓKÏß»Øµ÷
-	\param mktype ´ú±í¶©ÔÄµÄÊĞ³¡ÀàĞÍ
-	\param code ¶©ÔÄµÄÖ¤È¯´úÂë
-	\param kline ·ÖÖÓKÏßÊı¾İ½á¹¹Ìå
-	*/
-	virtual void OnKline(MKtype mk_type, char *code, T_Kline *kline);
+    /*!
+    \brief æŒ‡æ•°è¡Œæƒ…å›è°ƒ
+    \param mktype ä»£è¡¨è®¢é˜…çš„å¸‚åœºç±»å‹
+    \param code è®¢é˜…çš„è¯åˆ¸ä»£ç 
+    \param stockindex æŒ‡æ•°è¡Œæƒ…ç»“æ„ä½“
+    */
+    virtual void OnIndexData(MKtype mk_type, char *code, Stock_IndexData *stockindex);
 
 
-	/*!
-	\brief ETFÀ©Õ¹ĞĞÇéÊı¾İ»Øµ÷
-	\param mktype ´ú±í¶©ÔÄµÄÊĞ³¡ÀàĞÍ
-	\param code ¶©ÔÄµÄÖ¤È¯´úÂë
-	\param etfextdata ETFÀ©Õ¹ĞĞÇéÊı¾İ½á¹¹Ìå
-	*/
-	virtual void OnEtfExtData(MKtype mk_type, char *code, T_ETFEXTENDS *etfextdata);
+    /*!
+    \brief å§”æ‰˜é˜Ÿåˆ—è¡Œæƒ…æ•°æ®å›è°ƒ
+    \param mktype ä»£è¡¨è®¢é˜…çš„å¸‚åœºç±»å‹
+    \param code è®¢é˜…çš„è¯åˆ¸ä»£ç 
+    \param orderqueue å§”æ‰˜é˜Ÿåˆ—è¡Œæƒ…æ•°æ®ç»“æ„ä½“
+    */
+    virtual void OnOrderQueue(MKtype mk_type, char *code, StockOrderQueue *orderqueue);
+
+    /*!
+    \brief ä¸Šäº¤æ‰€é€ç¬”æˆäº¤è¡Œæƒ…æ•°æ®å›è°ƒ
+    \param code è®¢é˜…çš„è¯åˆ¸ä»£ç 
+    \param steptrade ä¸Šäº¤æ‰€é€ç¬”è¡Œæƒ…æ•°æ®ç»“æ„ä½“
+    */
+    virtual void OnSHTrade(char *code, t_SH_StockStepTrade *steptrade);
+
+    /*!
+    \brief æ·±äº¤æ‰€é€ç¬”æˆäº¤è¡Œæƒ…æ•°æ®å›è°ƒ
+    \param code è®¢é˜…çš„è¯åˆ¸ä»£ç 
+    \param steptrade æ·±äº¤æ‰€é€ç¬”è¡Œæƒ…æ•°æ®ç»“æ„ä½“
+    */
+    virtual void OnSZTrade(char *code, T_SZ_STEPTRADE *steptrade);
+
+    /*!
+    \brief æ·±äº¤æ‰€é€ç¬”å§”æ‰˜è¡Œæƒ…æ•°æ®å›è°ƒ
+    \param code è®¢é˜…çš„è¯åˆ¸ä»£ç 
+    \param steptrade æ·±äº¤æ‰€é€ç¬”è¡Œæƒ…æ•°æ®ç»“æ„ä½“
+    */
+    virtual void OnSZOrder(char *code, T_SZ_STEPORDER *steporder);
+
+    /*!
+    \brief ä¸Šäº¤æ‰€åŸºç¡€ä¿¡æ¯å›è°ƒ
+    \param code è®¢é˜…çš„è¯åˆ¸ä»£ç 
+    \param baseinfodata ä¸Šäº¤æ‰€åŸºç¡€ä¿¡æ¯æ•°æ®ç»“æ„ä½“
+    */
+    virtual void OnSHBaseInfo(char *code, T_SH_BaseInfo *baseinfodata);
+
+    virtual void OnSZBaseInfo(char *code, t_SZ_BaseInfo *baseinfodata) ;
+
+    /*!
+    \brief åˆ†é’ŸKçº¿å›è°ƒ
+    \param mktype ä»£è¡¨è®¢é˜…çš„å¸‚åœºç±»å‹
+    \param code è®¢é˜…çš„è¯åˆ¸ä»£ç 
+    \param kline åˆ†é’ŸKçº¿æ•°æ®ç»“æ„ä½“
+    */
+    virtual void OnKline(MKtype mk_type, char *code, T_Kline *kline);
+
+
+    /*!
+    \brief ETFæ‰©å±•è¡Œæƒ…æ•°æ®å›è°ƒ
+    \param mktype ä»£è¡¨è®¢é˜…çš„å¸‚åœºç±»å‹
+    \param code è®¢é˜…çš„è¯åˆ¸ä»£ç 
+    \param etfextdata ETFæ‰©å±•è¡Œæƒ…æ•°æ®ç»“æ„ä½“
+    */
+    virtual void OnEtfExtData(MKtype mk_type, char *code, T_ETFEXTENDS *etfextdata);
     //-------------------------------------------------------------------------------------
-    //data£º»Øµ÷º¯ÊıµÄÊı¾İ×Öµä
-    //error£º»Øµ÷º¯ÊıµÄ´íÎó×Öµä
-    //id£ºÇëÇóid
-    //last£ºÊÇ·ñÎª×îºó·µ»Ø
-    //i£ºÕûÊı
+    //dataï¼šå›è°ƒå‡½æ•°çš„æ•°æ®å­—å…¸
+    //errorï¼šå›è°ƒå‡½æ•°çš„é”™è¯¯å­—å…¸
+    //idï¼šè¯·æ±‚id
+    //lastï¼šæ˜¯å¦ä¸ºæœ€åè¿”å›
+    //iï¼šæ•´æ•°
     //-------------------------------------------------------------------------------------
-	virtual void onLog(int level, string source, string slog) {};
+    virtual void onLog(int level, string source, string slog) {};
 
-	virtual void onDisconnect(int chn) {};
+    virtual void onDisconnect(int chn) {};
 
-	virtual void onSubscribe(const dict &error) {};
+    virtual void onSubscribe(const dict &error) {};
 
-	virtual void onUnSubscribe(const dict &error) {};
+    virtual void onUnSubscribe(const dict &error) {};
 
-	virtual void onDepthMarketData(int mk_type, string code, const dict &data) {};
+    virtual void onDepthMarketData(int mk_type, string code, const dict &data) {};
 
-	virtual void onMarketData(int mk_type, string code, const dict &data) {};
+    virtual void onMarketData(int mk_type, string code, const dict &data) {};
 
-	virtual void onIndexData(int mk_type, string code, const dict &data) {};
+    virtual void onIndexData(int mk_type, string code, const dict &data) {};
 
-	virtual void onOrderQueue(int mk_type, string code, const dict &data) {};
+    virtual void onOrderQueue(int mk_type, string code, const dict &data) {};
 
-	virtual void onSHTrade(string code, const dict &data) {};
+    virtual void onSHTrade(string code, const dict &data) {};
 
-	virtual void onSZTrade(string code, const dict &data) {};
+    virtual void onSZTrade(string code, const dict &data) {};
 
-	virtual void onSZOrder(string code, const dict &data) {};
+    virtual void onSZOrder(string code, const dict &data) {};
 
-	virtual void onSHBaseInfo(string code, const dict &data) {};
+    virtual void onSHBaseInfo(string code, const dict &data) {};
 
-	virtual void onSZBaseInfo(string code, const dict &data) {};
+    virtual void onSZBaseInfo(string code, const dict &data) {};
 
-	virtual void onKline(int mk_type, string code, const dict &data) {};
+    virtual void onKline(int mk_type, string code, const dict &data) {};
 
-	virtual void onEtfExtData(int mk_type, string code, const dict &data) {};
+    virtual void onEtfExtData(int mk_type, string code, const dict &data) {};
 
 
     //-------------------------------------------------------------------------------------
-    //req:Ö÷¶¯º¯ÊıµÄÇëÇó×Öµä
+    //req:ä¸»åŠ¨å‡½æ•°çš„è¯·æ±‚å­—å…¸
     //-------------------------------------------------------------------------------------
-	int createMdApi(string sjson, bool logging);
+    int createMdApi(string sjson, bool logging);
 
-	int login();
+    int login();
 
-	int stop();
+    int stop();
 
-	void release();
+    void release();
 
-	int exit();
+    int exit();
 
-	int subscribeDepthMarketData(int mk_type, string code);
+    int subscribeDepthMarketData(int mk_type, string code);
 
-	int subscribeMarketData(int mk_type, string code);
+    int subscribeMarketData(int mk_type, string code);
 
-	int subscribeIndexData(int mk_type, string code);
+    int subscribeIndexData(int mk_type, string code);
 
-	int unSubscribeDepthMarketData(int mk_type, string code);
+    int unSubscribeDepthMarketData(int mk_type, string code);
 
-	int unSubscribeMarketData(int mk_type, string code);
+    int unSubscribeMarketData(int mk_type, string code);
 
-	int unSubscribeIndexData(int mk_type, string code);
+    int unSubscribeIndexData(int mk_type, string code);
 
-	int subscribeOrderQueue(int mk_type, string code);
+    int subscribeOrderQueue(int mk_type, string code);
 
-	int unSubscribeOrderQueue(int mk_type, string code);
+    int unSubscribeOrderQueue(int mk_type, string code);
 
-	int subscribeStepTrade(int mk_type, string code);
+    int subscribeStepTrade(int mk_type, string code);
 
-	int unSubscribeStepTrade(int mk_type, string code);
+    int unSubscribeStepTrade(int mk_type, string code);
 
-	int subscribeStepOrder(int mk_type, string code);
+    int subscribeStepOrder(int mk_type, string code);
 
-	int unSubscribeStepOrder(int mk_type, string code);
+    int unSubscribeStepOrder(int mk_type, string code);
 
-	int subscribeBaseInfo(int mk_type);
+    int subscribeBaseInfo(int mk_type);
 
-	int unSubscribeBaseInfo(int mk_type, string code);
+    int unSubscribeBaseInfo(int mk_type, string code);
 
-	int subscribeKline(int mk_type, string code);
+    int subscribeKline(int mk_type, string code);
 
-	int unSubscribeKline(int mk_type, string code);
+    int unSubscribeKline(int mk_type, string code);
 
-	int subscribeFutures(int mk_type, string code);
+    int subscribeFutures(int mk_type, string code);
 
-	int unSubscribeFutures(int mk_type, string code);
+    int unSubscribeFutures(int mk_type, string code);
 
-	int subscribeEtfExt(int mk_type, string code);
+    int subscribeEtfExt(int mk_type, string code);
 
-	int unSubscribeEtfExt(int mk_type, string code);
+    int unSubscribeEtfExt(int mk_type, string code);
 };

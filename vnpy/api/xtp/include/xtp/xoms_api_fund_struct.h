@@ -1,4 +1,4 @@
-/////////////////////////////////////////////////////////////////////////
+﻿/////////////////////////////////////////////////////////////////////////
 ///@author 中泰证券股份有限公司
 ///@file xoms_api_fund_struct.h
 ///@brief 定义资金划拨相关结构体类型
@@ -22,14 +22,14 @@ struct XTPFundTransferReq
 {
     ///资金内转编号，无需用户填写，类似于xtp_id
     uint64_t	serial_id;
-	///资金账户代码
-	char        fund_account[XTP_ACCOUNT_NAME_LEN];
-	///资金账户密码
-	char	    password[XTP_ACCOUNT_PASSWORD_LEN];
-	///金额
-	double	    amount;
-	///内转类型
-	XTP_FUND_TRANSFER_TYPE	transfer_type;
+    ///资金账户代码
+    char        fund_account[XTP_ACCOUNT_NAME_LEN];
+    ///资金账户密码
+    char	    password[XTP_ACCOUNT_PASSWORD_LEN];
+    ///金额
+    double	    amount;
+    ///内转类型
+    XTP_FUND_TRANSFER_TYPE	transfer_type;
 
 };
 

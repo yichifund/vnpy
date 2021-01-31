@@ -1,4 +1,4 @@
-KS_SPOT = "00"
+﻿KS_SPOT = "00"
 KS_DEFER = "10"
 KS_FUTURES = "11"
 KS_FORWARD = "01"

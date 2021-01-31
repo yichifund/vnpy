@@ -1,4 +1,4 @@
-//ÏµÍ³
+ï»¿//ç³»ç»Ÿ
 #ifdef WIN32
 #include "pch.h"
 #endif
@@ -11,7 +11,7 @@
 using namespace pybind11;
 using namespace Quant360;
 
-//³£Á¿
+//å¸¸é‡
 #define ONBUSINESSREJECT 0
 #define ONORDERINSERT 1
 #define ONORDERREPORT 2
@@ -50,17 +50,17 @@ using namespace Quant360;
 #define ONCONNECTED 35
 #define ONDISCONNECTED 36
 ///-------------------------------------------------------------------------------------
-///C++ SPIµÄ»Øµ÷º¯Êı·½·¨ÊµÏÖ
+///C++ SPIçš„å›è°ƒå‡½æ•°æ–¹æ³•å®ç°
 ///-------------------------------------------------------------------------------------
 
-//APIµÄ¼Ì³ĞÊµÏÖ
+//APIçš„ç»§æ‰¿å®ç°
 class TdApi : public OesClientSpi
 {
 private:
-	OesClientApi* api;            //API¶ÔÏó
-    thread task_thread;                    //¹¤×÷Ïß³ÌÖ¸Õë£¨ÏòpythonÖĞÍÆËÍÊı¾İ£©
-    TaskQueue task_queue;                //ÈÎÎñ¶ÓÁĞ
-    bool active = false;                //¹¤×÷×´Ì¬
+    OesClientApi* api;            //APIå¯¹è±¡
+    thread task_thread;                    //å·¥ä½œçº¿ç¨‹æŒ‡é’ˆï¼ˆå‘pythonä¸­æ¨é€æ•°æ®ï¼‰
+    TaskQueue task_queue;                //ä»»åŠ¡é˜Ÿåˆ—
+    bool active = false;                //å·¥ä½œçŠ¶æ€
 
 public:
     TdApi()
@@ -76,340 +76,340 @@ public:
     };
 
     //-------------------------------------------------------------------------------------
-    //API»Øµ÷º¯Êı
+    //APIå›è°ƒå‡½æ•°
     //-------------------------------------------------------------------------------------
 
 
 
 
-	/* Á¬½Ó»òÖØĞÂÁ¬½ÓÍê³ÉºóµÄ»Øµ÷º¯Êı */
-	virtual int32       OnConnected(eOesApiChannelTypeT channelType, OesApiSessionInfoT *pSessionInfo, OesApiSubscribeInfoT *pSubscribeInfo = NULL);
-	/* Á¬½Ó¶Ï¿ªºóµÄ»Øµ÷º¯Êı */
-	virtual int32       OnDisconnected(eOesApiChannelTypeT channelType, OesApiSessionInfoT *pSessionInfo);
+    /* è¿æ¥æˆ–é‡æ–°è¿æ¥å®Œæˆåçš„å›è°ƒå‡½æ•° */
+    virtual int32       OnConnected(eOesApiChannelTypeT channelType, OesApiSessionInfoT *pSessionInfo, OesApiSubscribeInfoT *pSubscribeInfo = NULL);
+    /* è¿æ¥æ–­å¼€åçš„å›è°ƒå‡½æ•° */
+    virtual int32       OnDisconnected(eOesApiChannelTypeT channelType, OesApiSessionInfoT *pSessionInfo);
 
-	/* Î¯ÍĞ¾Ü¾ø»Ø±¨ */
-	virtual void        OnBusinessReject(const OesRptMsgHeadT *pRptMsgHead, const OesOrdRejectT *pOrderReject);
-	/* Î¯ÍĞÒÑÊÕ»Ø±¨ */
-	virtual void        OnOrderInsert(const OesRptMsgHeadT *pRptMsgHead, const OesOrdCnfmT *pOrderInsert);
-	/* Î¯ÍĞÈ·ÈÏ»Ø±¨ */
-	virtual void        OnOrderReport(const OesRptMsgHeadT *pRptMsgHead, const OesOrdCnfmT *pOrderReport);
-	/* ³É½»È·ÈÏ»Ø±¨ */
-	virtual void        OnTradeReport(const OesRptMsgHeadT *pRptMsgHead, const OesTrdCnfmT *pTradeReport);
-	/* ×Ê½ğ±ä¶¯Í¨Öª */
-	virtual void        OnCashAssetVariation(const OesCashAssetReportT *pCashAssetRpt);
-	/* ¹ÉÆ±³Ö²Ö±ä¶¯Í¨Öª */
-	virtual void        OnStockHoldingVariation(const OesStkHoldingReportT *pStkHoldingRpt);
-	/* ÆÚÈ¨³Ö²Ö±ä¶¯Í¨Öª (ÊÊÓÃÓÚÆÚÈ¨ÒµÎñ) */
-	virtual void        OnOptionHoldingVariation(const OesOptHoldingReportT *pOptHoldingRpt);
-	/* ÆÚÈ¨±êµÄ³Ö²Ö±ä¶¯Í¨Öª (ÊÊÓÃÓÚÆÚÈ¨ÒµÎñ) */
-	virtual void        OnOptionUnderlyingHoldingVariation(const OesOptUnderlyingHoldingReportT *pUnderlyingHoldingRpt);
-	/* ÆÚÈ¨½áËãµ¥È·ÈÏ»Ø±¨ (ÊÊÓÃÓÚÆÚÈ¨ÒµÎñ) */
-	virtual void        OnSettlementConfirmedRpt(const OesRptMsgHeadT *pRptMsgHead, const OesOptSettlementConfirmReportT *pCnfmSettlementRpt);
-	/* ³öÈë½ğÎ¯ÍĞ¾Ü¾ø»Ø±¨ */
-	virtual void        OnFundTrsfReject(const OesRptMsgHeadT *pRptMsgHead, const OesFundTrsfRejectT *pFundTrsfReject);
-	/* ³öÈë½ğÎ¯ÍĞÖ´ĞĞ»Ø±¨ */
-	virtual void        OnFundTrsfReport(const OesRptMsgHeadT *pRptMsgHead, const OesFundTrsfReportT *pFundTrsfReport);
-	/* ÊĞ³¡×´Ì¬ĞÅÏ¢Í¨Öª */
-	virtual void        OnMarketState(const OesMarketStateItemT *pMarketStateItem);
-	/* Í¨ÖªÏûÏ¢»Ø±¨ */
-	virtual void        OnNotifyReport(const OesNotifyInfoReportT *pNotifyInfoRpt);
-	/* »Ø±¨Í¬²½ÇëÇóµÄÏìÓ¦ */
-	virtual void        OnReportSynchronizationRsp(const OesReportSynchronizationRspT *pReportSynchronization);
+    /* å§”æ‰˜æ‹’ç»å›æŠ¥ */
+    virtual void        OnBusinessReject(const OesRptMsgHeadT *pRptMsgHead, const OesOrdRejectT *pOrderReject);
+    /* å§”æ‰˜å·²æ”¶å›æŠ¥ */
+    virtual void        OnOrderInsert(const OesRptMsgHeadT *pRptMsgHead, const OesOrdCnfmT *pOrderInsert);
+    /* å§”æ‰˜ç¡®è®¤å›æŠ¥ */
+    virtual void        OnOrderReport(const OesRptMsgHeadT *pRptMsgHead, const OesOrdCnfmT *pOrderReport);
+    /* æˆäº¤ç¡®è®¤å›æŠ¥ */
+    virtual void        OnTradeReport(const OesRptMsgHeadT *pRptMsgHead, const OesTrdCnfmT *pTradeReport);
+    /* èµ„é‡‘å˜åŠ¨é€šçŸ¥ */
+    virtual void        OnCashAssetVariation(const OesCashAssetReportT *pCashAssetRpt);
+    /* è‚¡ç¥¨æŒä»“å˜åŠ¨é€šçŸ¥ */
+    virtual void        OnStockHoldingVariation(const OesStkHoldingReportT *pStkHoldingRpt);
+    /* æœŸæƒæŒä»“å˜åŠ¨é€šçŸ¥ (é€‚ç”¨äºæœŸæƒä¸šåŠ¡) */
+    virtual void        OnOptionHoldingVariation(const OesOptHoldingReportT *pOptHoldingRpt);
+    /* æœŸæƒæ ‡çš„æŒä»“å˜åŠ¨é€šçŸ¥ (é€‚ç”¨äºæœŸæƒä¸šåŠ¡) */
+    virtual void        OnOptionUnderlyingHoldingVariation(const OesOptUnderlyingHoldingReportT *pUnderlyingHoldingRpt);
+    /* æœŸæƒç»“ç®—å•ç¡®è®¤å›æŠ¥ (é€‚ç”¨äºæœŸæƒä¸šåŠ¡) */
+    virtual void        OnSettlementConfirmedRpt(const OesRptMsgHeadT *pRptMsgHead, const OesOptSettlementConfirmReportT *pCnfmSettlementRpt);
+    /* å‡ºå…¥é‡‘å§”æ‰˜æ‹’ç»å›æŠ¥ */
+    virtual void        OnFundTrsfReject(const OesRptMsgHeadT *pRptMsgHead, const OesFundTrsfRejectT *pFundTrsfReject);
+    /* å‡ºå…¥é‡‘å§”æ‰˜æ‰§è¡Œå›æŠ¥ */
+    virtual void        OnFundTrsfReport(const OesRptMsgHeadT *pRptMsgHead, const OesFundTrsfReportT *pFundTrsfReport);
+    /* å¸‚åœºçŠ¶æ€ä¿¡æ¯é€šçŸ¥ */
+    virtual void        OnMarketState(const OesMarketStateItemT *pMarketStateItem);
+    /* é€šçŸ¥æ¶ˆæ¯å›æŠ¥ */
+    virtual void        OnNotifyReport(const OesNotifyInfoReportT *pNotifyInfoRpt);
+    /* å›æŠ¥åŒæ­¥è¯·æ±‚çš„å“åº” */
+    virtual void        OnReportSynchronizationRsp(const OesReportSynchronizationRspT *pReportSynchronization);
 
-	/* ²éÑ¯Î¯ÍĞĞÅÏ¢»Øµ÷ */
-	virtual void        OnQueryOrder(const OesOrdItemT *pOrder, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯³É½»ĞÅÏ¢»Øµ÷ */
-	virtual void        OnQueryTrade(const OesTrdItemT *pTrade, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯×Ê½ğĞÅÏ¢»Øµ÷ */
-	virtual void        OnQueryCashAsset(const OesCashAssetItemT *pCashAsset, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯¹ÉÆ±³Ö²ÖĞÅÏ¢»Øµ÷ */
-	virtual void        OnQueryStkHolding(const OesStkHoldingItemT *pStkHolding, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯ÅäºÅ¡¢ÖĞÇ©ĞÅÏ¢»Øµ÷ */
-	virtual void        OnQueryLotWinning(const OesLotWinningItemT *pLotWinning, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯¿Í»§ĞÅÏ¢»Øµ÷ */
-	virtual void        OnQueryCustInfo(const OesCustItemT *pCust, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯¹É¶«ÕË»§ĞÅÏ¢»Øµ÷ */
-	virtual void        OnQueryInvAcct(const OesInvAcctItemT *pInvAcct, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯Ó¶½ğĞÅÏ¢»Øµ÷ */
-	virtual void        OnQueryCommissionRate(const OesCommissionRateItemT *pCommissionRate, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯³öÈë½ğÁ÷Ë®ĞÅÏ¢»Øµ÷ */
-	virtual void        OnQueryFundTransferSerial(const OesFundTransferSerialItemT *pFundTrsf, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯Ö¤È¯·¢ĞĞĞÅÏ¢»Øµ÷ */
-	virtual void        OnQueryIssue(const OesIssueItemT *pIssue, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯Ö¤È¯ĞÅÏ¢»Øµ÷ */
-	virtual void        OnQueryStock(const OesStockItemT *pStock, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯ETF²úÆ·ĞÅÏ¢»Øµ÷ */
-	virtual void        OnQueryEtf(const OesEtfItemT *pEtf, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯ETF³É·Ö¹ÉĞÅÏ¢»Øµ÷ */
-	virtual void        OnQueryEtfComponent(const OesEtfComponentItemT *pEtfComponent, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯ÊĞ³¡×´Ì¬ĞÅÏ¢»Øµ÷ */
-	virtual void        OnQueryMarketState(const OesMarketStateItemT *pMarketState, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯ÆÚÈ¨²úÆ·ĞÅÏ¢»Øµ÷ (ÊÊÓÃÓÚÆÚÈ¨ÒµÎñ) */
-	virtual void        OnQueryOption(const OesOptionItemT *pOption, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯ÆÚÈ¨³Ö²ÖĞÅÏ¢»Øµ÷ (ÊÊÓÃÓÚÆÚÈ¨ÒµÎñ) */
-	virtual void        OnQueryOptHolding(const OesOptHoldingItemT *pOptHolding, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯ÆÚÈ¨±êµÄ³Ö²ÖĞÅÏ¢»Øµ÷ (ÊÊÓÃÓÚÆÚÈ¨ÒµÎñ) */
-	virtual void        OnQueryOptUnderlyingHolding(const OesOptUnderlyingHoldingItemT *pUnderlyingHld, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯ÆÚÈ¨ÏŞ²Ö¶î¶ÈĞÅÏ¢»Øµ÷ (ÊÊÓÃÓÚÆÚÈ¨ÒµÎñ) */
-	virtual void        OnQueryOptPositionLimit(const OesOptPositionLimitItemT *pPositionLimit, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯ÆÚÈ¨ÏŞ¹º¶î¶ÈĞÅÏ¢»Øµ÷ (ÊÊÓÃÓÚÆÚÈ¨ÒµÎñ) */
-	virtual void        OnQueryOptPurchaseLimit(const OesOptPurchaseLimitItemT *pPurchaseLimit, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯ÆÚÈ¨ĞĞÈ¨Ö¸ÅÉĞÅÏ¢»Øµ÷ (ÊÊÓÃÓÚÆÚÈ¨ÒµÎñ) */
-	virtual void        OnQueryOptExerciseAssign(const OesOptExerciseAssignItemT *pExerciseAssign, const OesQryCursorT *pCursor, int32 requestId);
-	/* ²éÑ¯Í¨ÖªÏûÏ¢»Øµ÷ */
-	virtual void        OnQueryNotifyInfo(const OesNotifyInfoItemT *pNotifyInfo, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢å§”æ‰˜ä¿¡æ¯å›è°ƒ */
+    virtual void        OnQueryOrder(const OesOrdItemT *pOrder, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢æˆäº¤ä¿¡æ¯å›è°ƒ */
+    virtual void        OnQueryTrade(const OesTrdItemT *pTrade, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢èµ„é‡‘ä¿¡æ¯å›è°ƒ */
+    virtual void        OnQueryCashAsset(const OesCashAssetItemT *pCashAsset, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢è‚¡ç¥¨æŒä»“ä¿¡æ¯å›è°ƒ */
+    virtual void        OnQueryStkHolding(const OesStkHoldingItemT *pStkHolding, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢é…å·ã€ä¸­ç­¾ä¿¡æ¯å›è°ƒ */
+    virtual void        OnQueryLotWinning(const OesLotWinningItemT *pLotWinning, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢å®¢æˆ·ä¿¡æ¯å›è°ƒ */
+    virtual void        OnQueryCustInfo(const OesCustItemT *pCust, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢è‚¡ä¸œè´¦æˆ·ä¿¡æ¯å›è°ƒ */
+    virtual void        OnQueryInvAcct(const OesInvAcctItemT *pInvAcct, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢ä½£é‡‘ä¿¡æ¯å›è°ƒ */
+    virtual void        OnQueryCommissionRate(const OesCommissionRateItemT *pCommissionRate, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢å‡ºå…¥é‡‘æµæ°´ä¿¡æ¯å›è°ƒ */
+    virtual void        OnQueryFundTransferSerial(const OesFundTransferSerialItemT *pFundTrsf, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢è¯åˆ¸å‘è¡Œä¿¡æ¯å›è°ƒ */
+    virtual void        OnQueryIssue(const OesIssueItemT *pIssue, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢è¯åˆ¸ä¿¡æ¯å›è°ƒ */
+    virtual void        OnQueryStock(const OesStockItemT *pStock, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢ETFäº§å“ä¿¡æ¯å›è°ƒ */
+    virtual void        OnQueryEtf(const OesEtfItemT *pEtf, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢ETFæˆåˆ†è‚¡ä¿¡æ¯å›è°ƒ */
+    virtual void        OnQueryEtfComponent(const OesEtfComponentItemT *pEtfComponent, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢å¸‚åœºçŠ¶æ€ä¿¡æ¯å›è°ƒ */
+    virtual void        OnQueryMarketState(const OesMarketStateItemT *pMarketState, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢æœŸæƒäº§å“ä¿¡æ¯å›è°ƒ (é€‚ç”¨äºæœŸæƒä¸šåŠ¡) */
+    virtual void        OnQueryOption(const OesOptionItemT *pOption, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢æœŸæƒæŒä»“ä¿¡æ¯å›è°ƒ (é€‚ç”¨äºæœŸæƒä¸šåŠ¡) */
+    virtual void        OnQueryOptHolding(const OesOptHoldingItemT *pOptHolding, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢æœŸæƒæ ‡çš„æŒä»“ä¿¡æ¯å›è°ƒ (é€‚ç”¨äºæœŸæƒä¸šåŠ¡) */
+    virtual void        OnQueryOptUnderlyingHolding(const OesOptUnderlyingHoldingItemT *pUnderlyingHld, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢æœŸæƒé™ä»“é¢åº¦ä¿¡æ¯å›è°ƒ (é€‚ç”¨äºæœŸæƒä¸šåŠ¡) */
+    virtual void        OnQueryOptPositionLimit(const OesOptPositionLimitItemT *pPositionLimit, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢æœŸæƒé™è´­é¢åº¦ä¿¡æ¯å›è°ƒ (é€‚ç”¨äºæœŸæƒä¸šåŠ¡) */
+    virtual void        OnQueryOptPurchaseLimit(const OesOptPurchaseLimitItemT *pPurchaseLimit, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢æœŸæƒè¡ŒæƒæŒ‡æ´¾ä¿¡æ¯å›è°ƒ (é€‚ç”¨äºæœŸæƒä¸šåŠ¡) */
+    virtual void        OnQueryOptExerciseAssign(const OesOptExerciseAssignItemT *pExerciseAssign, const OesQryCursorT *pCursor, int32 requestId);
+    /* æŸ¥è¯¢é€šçŸ¥æ¶ˆæ¯å›è°ƒ */
+    virtual void        OnQueryNotifyInfo(const OesNotifyInfoItemT *pNotifyInfo, const OesQryCursorT *pCursor, int32 requestId);
 
 
 
     //-------------------------------------------------------------------------------------
-    //task£ºÈÎÎñ
+    //taskï¼šä»»åŠ¡
     //-------------------------------------------------------------------------------------
     void processTask();
 
-	int32 processConnected(Task *task);
+    int32 processConnected(Task *task);
 
-	int32 processDisconnected(Task *task);
+    int32 processDisconnected(Task *task);
 
-	void processBusinessReject(Task *task);
+    void processBusinessReject(Task *task);
 
-	void processOrderInsert(Task *task);
+    void processOrderInsert(Task *task);
 
-	void processOrderReport(Task *task);
+    void processOrderReport(Task *task);
 
-	void processTradeReport(Task *task);
+    void processTradeReport(Task *task);
 
-	void processCashAssetVariation(Task *task);
+    void processCashAssetVariation(Task *task);
 
-	void processStockHoldingVariation(Task *task);
+    void processStockHoldingVariation(Task *task);
 
-	void processOptionHoldingVariation(Task *task);
+    void processOptionHoldingVariation(Task *task);
 
-	void processOptionUnderlyingHoldingVariation(Task *task);
+    void processOptionUnderlyingHoldingVariation(Task *task);
 
-	void processSettlementConfirmedRpt(Task *task);
+    void processSettlementConfirmedRpt(Task *task);
 
-	void processFundTrsfReject(Task *task);
+    void processFundTrsfReject(Task *task);
 
-	void processFundTrsfReport(Task *task);
+    void processFundTrsfReport(Task *task);
 
-	void processMarketState(Task *task);
+    void processMarketState(Task *task);
 
-	void processNotifyReport(Task *task);
+    void processNotifyReport(Task *task);
 
-	void processReportSynchronizationRsp(Task *task);
+    void processReportSynchronizationRsp(Task *task);
 
-	void processQueryOrder(Task *task);
+    void processQueryOrder(Task *task);
 
-	void processQueryTrade(Task *task);
+    void processQueryTrade(Task *task);
 
-	void processQueryCashAsset(Task *task);
+    void processQueryCashAsset(Task *task);
 
-	void processQueryStkHolding(Task *task);
+    void processQueryStkHolding(Task *task);
 
-	void processQueryLotWinning(Task *task);
+    void processQueryLotWinning(Task *task);
 
-	void processQueryCustInfo(Task *task);
+    void processQueryCustInfo(Task *task);
 
-	void processQueryInvAcct(Task *task);
+    void processQueryInvAcct(Task *task);
 
-	void processQueryCommissionRate(Task *task);
+    void processQueryCommissionRate(Task *task);
 
-	void processQueryFundTransferSerial(Task *task);
+    void processQueryFundTransferSerial(Task *task);
 
-	void processQueryIssue(Task *task);
+    void processQueryIssue(Task *task);
 
-	void processQueryStock(Task *task);
+    void processQueryStock(Task *task);
 
-	void processQueryEtf(Task *task);
+    void processQueryEtf(Task *task);
 
-	void processQueryEtfComponent(Task *task);
+    void processQueryEtfComponent(Task *task);
 
-	void processQueryMarketState(Task *task);
+    void processQueryMarketState(Task *task);
 
-	void processQueryOption(Task *task);
+    void processQueryOption(Task *task);
 
-	void processQueryOptHolding(Task *task);
+    void processQueryOptHolding(Task *task);
 
-	void processQueryOptUnderlyingHolding(Task *task);
+    void processQueryOptUnderlyingHolding(Task *task);
 
-	void processQueryOptPositionLimit(Task *task);
+    void processQueryOptPositionLimit(Task *task);
 
-	void processQueryOptPurchaseLimit(Task *task);
+    void processQueryOptPurchaseLimit(Task *task);
 
-	void processQueryOptExerciseAssign(Task *task);
+    void processQueryOptExerciseAssign(Task *task);
 
-	void processQueryNotifyInfo(Task *task);
+    void processQueryNotifyInfo(Task *task);
 
 
 
     //-------------------------------------------------------------------------------------
-    //data£º»Øµ÷º¯ÊıµÄÊı¾İ×Öµä
-    //error£º»Øµ÷º¯ÊıµÄ´íÎó×Öµä
-    //id£ºÇëÇóid
-    //last£ºÊÇ·ñÎª×îºó·µ»Ø
-    //i£ºÕûÊı
+    //dataï¼šå›è°ƒå‡½æ•°çš„æ•°æ®å­—å…¸
+    //errorï¼šå›è°ƒå‡½æ•°çš„é”™è¯¯å­—å…¸
+    //idï¼šè¯·æ±‚id
+    //lastï¼šæ˜¯å¦ä¸ºæœ€åè¿”å›
+    //iï¼šæ•´æ•°
     //-------------------------------------------------------------------------------------
     
 
-	virtual void onConnected(int channelType, const dict &data) {};
+    virtual void onConnected(int channelType, const dict &data) {};
 
-	virtual void onDisconnected(int channelType, const dict &data) {};
+    virtual void onDisconnected(int channelType, const dict &data) {};
 
-	virtual void onBusinessReject(const dict &error, const dict &data) {};
+    virtual void onBusinessReject(const dict &error, const dict &data) {};
 
-	virtual void onOrderInsert(const dict &error, const dict &data) {};
+    virtual void onOrderInsert(const dict &error, const dict &data) {};
 
-	virtual void onOrderReport(const dict &error, const dict &data) {};
+    virtual void onOrderReport(const dict &error, const dict &data) {};
 
-	virtual void onTradeReport(const dict &error, const dict &data) {};
+    virtual void onTradeReport(const dict &error, const dict &data) {};
 
-	virtual void onCashAssetVariation(const dict &data) {};
+    virtual void onCashAssetVariation(const dict &data) {};
 
-	virtual void onStockHoldingVariation(const dict &data) {};
+    virtual void onStockHoldingVariation(const dict &data) {};
 
-	virtual void onOptionHoldingVariation(const dict &data) {};
+    virtual void onOptionHoldingVariation(const dict &data) {};
 
-	virtual void onOptionUnderlyingHoldingVariation(const dict &data) {};
+    virtual void onOptionUnderlyingHoldingVariation(const dict &data) {};
 
-	virtual void onSettlementConfirmedRpt(const dict &error, const dict &data) {};
+    virtual void onSettlementConfirmedRpt(const dict &error, const dict &data) {};
 
-	virtual void onFundTrsfReject(const dict &error, const dict &data) {};
+    virtual void onFundTrsfReject(const dict &error, const dict &data) {};
 
-	virtual void onFundTrsfReport(const dict &error, const dict &data) {};
+    virtual void onFundTrsfReport(const dict &error, const dict &data) {};
 
-	virtual void onMarketState(const dict &data) {};
+    virtual void onMarketState(const dict &data) {};
 
-	virtual void onNotifyReport(const dict &data) {};
+    virtual void onNotifyReport(const dict &data) {};
 
-	virtual void onReportSynchronizationRsp(const dict &data) {};
+    virtual void onReportSynchronizationRsp(const dict &data) {};
 
-	virtual void onQueryOrder(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryOrder(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryTrade(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryTrade(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryCashAsset(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryCashAsset(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryStkHolding(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryStkHolding(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryLotWinning(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryLotWinning(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryCustInfo(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryCustInfo(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryInvAcct(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryInvAcct(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryCommissionRate(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryCommissionRate(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryFundTransferSerial(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryFundTransferSerial(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryIssue(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryIssue(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryStock(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryStock(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryEtf(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryEtf(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryEtfComponent(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryEtfComponent(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryMarketState(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryMarketState(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryOption(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryOption(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryOptHolding(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryOptHolding(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryOptUnderlyingHolding(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryOptUnderlyingHolding(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryOptPositionLimit(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryOptPositionLimit(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryOptPurchaseLimit(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryOptPurchaseLimit(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryOptExerciseAssign(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryOptExerciseAssign(const dict &data, const dict &error, int reqid) {};
 
-	virtual void onQueryNotifyInfo(const dict &data, const dict &error, int reqid) {};
+    virtual void onQueryNotifyInfo(const dict &data, const dict &error, int reqid) {};
 
 
 
     //-------------------------------------------------------------------------------------
-    //req:Ö÷¶¯º¯ÊıµÄÇëÇó×Öµä
+    //req:ä¸»åŠ¨å‡½æ•°çš„è¯·æ±‚å­—å…¸
     //-------------------------------------------------------------------------------------
 
-	bool createTdApi(string pCfgFile, string pUsername, string pPassword);
+    bool createTdApi(string pCfgFile, string pUsername, string pPassword);
 
-	//bool loadCfg(string pCfgFile);
+    //bool loadCfg(string pCfgFile);
 
-	bool setCustomizedIpAndMac(string pIpStr, string pMacStr);
+    bool setCustomizedIpAndMac(string pIpStr, string pMacStr);
 
-	bool setCustomizedIp(string pIpStr);
+    bool setCustomizedIp(string pIpStr);
 
-	bool setCustomizedMac(string pMacStr);
+    bool setCustomizedMac(string pMacStr);
 
-	bool setCustomizedDriverId(string pDriverStr);
+    bool setCustomizedDriverId(string pDriverStr);
 
-	//void setThreadUsername(string pUsername);
+    //void setThreadUsername(string pUsername);
 
-	//void setThreadPassword(string pPassword);
+    //void setThreadPassword(string pPassword);
 
-	void setThreadEnvId(int clEnvId);
+    void setThreadEnvId(int clEnvId);
 
-	void setThreadSubscribeEnvId(int subscribeEnvId);
+    void setThreadSubscribeEnvId(int subscribeEnvId);
 
-	bool init();
+    bool init();
 
     int exit();
 
-	int sendOrder(const dict &req);
+    int sendOrder(const dict &req);
 
-	int sendCancelOrder(const dict &req);
+    int sendCancelOrder(const dict &req);
 
-	int sendOptSettlementConfirm(const dict &req);
+    int sendOptSettlementConfirm(const dict &req);
 
-	int getTradingDay();
+    int getTradingDay();
 
-	int getClientOverview(const dict &req);
+    int getClientOverview(const dict &req);
 
-	int queryOrder(const dict &req, int reqid);
+    int queryOrder(const dict &req, int reqid);
 
-	int queryTrade(const dict &req, int reqid);
+    int queryTrade(const dict &req, int reqid);
 
-	int queryCashAsset(const dict &req, int reqid);
+    int queryCashAsset(const dict &req, int reqid);
 
-	int queryStkHolding(const dict &req, int reqid);
+    int queryStkHolding(const dict &req, int reqid);
 
-	int queryLotWinning(const dict &req, int reqid);
+    int queryLotWinning(const dict &req, int reqid);
 
-	int queryCustInfo(const dict &req, int reqid);
+    int queryCustInfo(const dict &req, int reqid);
 
-	int queryInvAcct(const dict &req, int reqid);
+    int queryInvAcct(const dict &req, int reqid);
 
-	int queryCommissionRate(const dict &req, int reqid);
+    int queryCommissionRate(const dict &req, int reqid);
 
-	int queryFundTransferSerial(const dict &req, int reqid);
+    int queryFundTransferSerial(const dict &req, int reqid);
 
-	int queryIssue(const dict &req, int reqid);
+    int queryIssue(const dict &req, int reqid);
 
-	int queryStock(const dict &req, int reqid);
+    int queryStock(const dict &req, int reqid);
 
-	int queryEtf(const dict &req, int reqid);
+    int queryEtf(const dict &req, int reqid);
 
-	int queryEtfComponent(const dict &req, int reqid);
+    int queryEtfComponent(const dict &req, int reqid);
 
-	int queryMarketState(const dict &req, int reqid);
+    int queryMarketState(const dict &req, int reqid);
 
-	int queryCounterCash(string pCashAcctId, const dict &req, int reqid);
+    int queryCounterCash(string pCashAcctId, const dict &req, int reqid);
 
-	int queryOption(const dict &req, int reqid);
+    int queryOption(const dict &req, int reqid);
 
-	int queryOptHolding(const dict &req, int reqid);
+    int queryOptHolding(const dict &req, int reqid);
 
-	int queryOptUnderlyingHolding(const dict &req, int reqid);
+    int queryOptUnderlyingHolding(const dict &req, int reqid);
 
-	int queryOptPositionLimit(const dict &req, int reqid);
+    int queryOptPositionLimit(const dict &req, int reqid);
 
-	int queryOptPurchaseLimit(const dict &req, int reqid);
+    int queryOptPurchaseLimit(const dict &req, int reqid);
 
-	int queryOptExerciseAssign(const dict &req, int reqid);
+    int queryOptExerciseAssign(const dict &req, int reqid);
 
-	int queryOptSettlementStatement(string pCustId, string pSettleBuf, int bufSize, int reqid);
+    int queryOptSettlementStatement(string pCustId, string pSettleBuf, int bufSize, int reqid);
 
-	int queryNotifyInfo(const dict &req, int reqid);
+    int queryNotifyInfo(const dict &req, int reqid);
 
 
 };

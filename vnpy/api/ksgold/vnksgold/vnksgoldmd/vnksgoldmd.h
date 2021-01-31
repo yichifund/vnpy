@@ -1,4 +1,4 @@
-//ÏµÍ³
+ï»¿//ç³»ç»Ÿ
 #ifdef WIN32
 #include "stdafx.h"
 #endif
@@ -11,7 +11,7 @@
 using namespace pybind11;
 using namespace KSGoldTradeAPI;
 
-//³£Á¿
+//å¸¸é‡
 #define ONFRONTCONNECTED 0
 #define ONFRONTDISCONNECTED 1
 #define ONRSPUSERLOGIN 2
@@ -24,135 +24,135 @@ using namespace KSGoldTradeAPI;
 
 
 ///-------------------------------------------------------------------------------------
-///C++ SPIµÄ»Øµ÷º¯Êı·½·¨ÊµÏÖ
+///C++ SPIçš„å›è°ƒå‡½æ•°æ–¹æ³•å®ç°
 ///-------------------------------------------------------------------------------------
 
-//APIµÄ¼Ì³ĞÊµÏÖ
+//APIçš„ç»§æ‰¿å®ç°
 class MdApi : public CKSGoldQuoSpi
 {
 private:
-	CKSGoldQuotApi* api;				//API¶ÔÏó
-	thread task_thread;					//¹¤×÷Ïß³ÌÖ¸Õë£¨ÏòpythonÖĞÍÆËÍÊı¾İ£©
-	TaskQueue task_queue;			    //ÈÎÎñ¶ÓÁĞ
-	bool active = false;				//¹¤×÷×´Ì¬
+    CKSGoldQuotApi* api;				//APIå¯¹è±¡
+    thread task_thread;					//å·¥ä½œçº¿ç¨‹æŒ‡é’ˆï¼ˆå‘pythonä¸­æ¨é€æ•°æ®ï¼‰
+    TaskQueue task_queue;			    //ä»»åŠ¡é˜Ÿåˆ—
+    bool active = false;				//å·¥ä½œçŠ¶æ€
 
 public:
-	MdApi()
-	{
-	};
+    MdApi()
+    {
+    };
 
-	~MdApi()
-	{
-		if (this->active)
-		{
-			this->exit();
-		}
-	};
+    ~MdApi()
+    {
+        if (this->active)
+        {
+            this->exit();
+        }
+    };
 
-	//-------------------------------------------------------------------------------------
-	//API»Øµ÷º¯Êı
-	//-------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------
+    //APIå›è°ƒå‡½æ•°
+    //-------------------------------------------------------------------------------------
 
-	///µ±¿Í»§¶ËÓë½»Ò×ºóÌ¨½¨Á¢ÆğÍ¨ĞÅÁ¬½ÓÊ±£¬¸Ã·½·¨±»µ÷ÓÃ¡£
-	///³öÏÖ¶ÏÏßÖØÁ¬Ê±£¬Ò²»áµ÷ÓÃ´Ë·½·¨
-	///@param nResult ·µ»Ø½á¹û
-	///        0x1001 ½¨Á¢Á¬½Ó
-	///        0x1002 ¶ÏÏßÖØÁ¬³É¹¦
-	virtual void OnFrontConnected(int nResult);
+    ///å½“å®¢æˆ·ç«¯ä¸äº¤æ˜“åå°å»ºç«‹èµ·é€šä¿¡è¿æ¥æ—¶ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚
+    ///å‡ºç°æ–­çº¿é‡è¿æ—¶ï¼Œä¹Ÿä¼šè°ƒç”¨æ­¤æ–¹æ³•
+    ///@param nResult è¿”å›ç»“æœ
+    ///        0x1001 å»ºç«‹è¿æ¥
+    ///        0x1002 æ–­çº¿é‡è¿æˆåŠŸ
+    virtual void OnFrontConnected(int nResult);
 
-	///µ±¿Í»§¶ËÓë½»Ò×ºóÌ¨Í¨ĞÅÁ¬½Ó¶Ï¿ªÊ±£¬¸Ã·½·¨±»µ÷ÓÃ¡£µ±·¢ÉúÕâ¸öÇé¿öºó£¬API»á×Ô¶¯ÖØĞÂÁ¬½Ó£¬¿Í»§¶Ë¿É²»×ö´¦Àí¡£
-	///@param nReason ´íÎóÔ­Òò
-	///        0x1001 ÍøÂç¶ÁÊ§°Ü
-	///        0x1002 ÍøÂçĞ´Ê§°Ü
-	///        0x2001 ½ÓÊÕĞÄÌø³¬Ê±
-	///        0x2002 ·¢ËÍĞÄÌøÊ§°Ü
-	///        0x2003 ÊÕµ½´íÎó±¨ÎÄ
-	virtual void OnFrontDisconnected(int nReason);
+    ///å½“å®¢æˆ·ç«¯ä¸äº¤æ˜“åå°é€šä¿¡è¿æ¥æ–­å¼€æ—¶ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚å½“å‘ç”Ÿè¿™ä¸ªæƒ…å†µåï¼ŒAPIä¼šè‡ªåŠ¨é‡æ–°è¿æ¥ï¼Œå®¢æˆ·ç«¯å¯ä¸åšå¤„ç†ã€‚
+    ///@param nReason é”™è¯¯åŸå› 
+    ///        0x1001 ç½‘ç»œè¯»å¤±è´¥
+    ///        0x1002 ç½‘ç»œå†™å¤±è´¥
+    ///        0x2001 æ¥æ”¶å¿ƒè·³è¶…æ—¶
+    ///        0x2002 å‘é€å¿ƒè·³å¤±è´¥
+    ///        0x2003 æ”¶åˆ°é”™è¯¯æŠ¥æ–‡
+    virtual void OnFrontDisconnected(int nReason);
 
-	///µÇÂ¼ÇëÇóÏìÓ¦
-	virtual void OnRspUserLogin(CThostFtdcRspUserLoginField *pRspUserLogin, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
+    ///ç™»å½•è¯·æ±‚å“åº”
+    virtual void OnRspUserLogin(CThostFtdcRspUserLoginField *pRspUserLogin, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///µÇ³öÇëÇóÏìÓ¦
-	virtual void OnRspUserLogout(CThostFtdcUserLogoutField *pUserLogout, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
+    ///ç™»å‡ºè¯·æ±‚å“åº”
+    virtual void OnRspUserLogout(CThostFtdcUserLogoutField *pUserLogout, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///´íÎóÓ¦´ğ
-	virtual void OnRspError(CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
+    ///é”™è¯¯åº”ç­”
+    virtual void OnRspError(CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///¶©ÔÄĞĞÇéÓ¦´ğ
-	virtual void OnRspSubMarketData(CThostFtdcSpecificInstrumentField *pSpecificInstrument, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
+    ///è®¢é˜…è¡Œæƒ…åº”ç­”
+    virtual void OnRspSubMarketData(CThostFtdcSpecificInstrumentField *pSpecificInstrument, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///È¡Ïû¶©ÔÄĞĞÇéÓ¦´ğ
-	virtual void OnRspUnSubMarketData(CThostFtdcSpecificInstrumentField *pSpecificInstrument, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
+    ///å–æ¶ˆè®¢é˜…è¡Œæƒ…åº”ç­”
+    virtual void OnRspUnSubMarketData(CThostFtdcSpecificInstrumentField *pSpecificInstrument, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 
-	///Éî¶ÈĞĞÇéÍ¨Öª
-	virtual void OnRtnDepthMarketData(CThostFtdcDepthMarketDataField *pDepthMarketData);
+    ///æ·±åº¦è¡Œæƒ…é€šçŸ¥
+    virtual void OnRtnDepthMarketData(CThostFtdcDepthMarketDataField *pDepthMarketData);
 
 
-	//-------------------------------------------------------------------------------------
-	//task£ºÈÎÎñ
-	//-------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------
+    //taskï¼šä»»åŠ¡
+    //-------------------------------------------------------------------------------------
 
-	void processTask();
+    void processTask();
 
-	void processFrontConnected(Task *task);
+    void processFrontConnected(Task *task);
 
-	void processFrontDisconnected(Task *task);
+    void processFrontDisconnected(Task *task);
 
-	void processRspUserLogin(Task *task);
+    void processRspUserLogin(Task *task);
 
-	void processRspUserLogout(Task *task);
+    void processRspUserLogout(Task *task);
 
-	void processRspError(Task *task);
+    void processRspError(Task *task);
 
-	void processRspSubMarketData(Task *task);
+    void processRspSubMarketData(Task *task);
 
-	void processRspUnSubMarketData(Task *task);
+    void processRspUnSubMarketData(Task *task);
 
-	void processRtnDepthMarketData(Task *task);
-	//-------------------------------------------------------------------------------------
-	//data£º»Øµ÷º¯ÊıµÄÊı¾İ×Öµä
-	//error£º»Øµ÷º¯ÊıµÄ´íÎó×Öµä
-	//id£ºÇëÇóid
-	//last£ºÊÇ·ñÎª×îºó·µ»Ø
-	//i£ºÕûÊı
-	//-------------------------------------------------------------------------------------
-	virtual void onFrontConnected(int nResult) {};
+    void processRtnDepthMarketData(Task *task);
+    //-------------------------------------------------------------------------------------
+    //dataï¼šå›è°ƒå‡½æ•°çš„æ•°æ®å­—å…¸
+    //errorï¼šå›è°ƒå‡½æ•°çš„é”™è¯¯å­—å…¸
+    //idï¼šè¯·æ±‚id
+    //lastï¼šæ˜¯å¦ä¸ºæœ€åè¿”å›
+    //iï¼šæ•´æ•°
+    //-------------------------------------------------------------------------------------
+    virtual void onFrontConnected(int nResult) {};
 
-	virtual void onFrontDisconnected(int nResult) {};
+    virtual void onFrontDisconnected(int nResult) {};
 
-	virtual void onRspUserLogin(const dict &data, const dict &error, int reqid, bool last) {};
+    virtual void onRspUserLogin(const dict &data, const dict &error, int reqid, bool last) {};
 
-	virtual void onRspUserLogout(const dict &data, const dict &error, int reqid, bool last) {};
+    virtual void onRspUserLogout(const dict &data, const dict &error, int reqid, bool last) {};
 
-	virtual void onRspError(const dict &error, int reqid, bool last) {};
+    virtual void onRspError(const dict &error, int reqid, bool last) {};
 
-	virtual void onRspSubMarketData(const dict &data, const dict &error, int reqid, bool last) {};
+    virtual void onRspSubMarketData(const dict &data, const dict &error, int reqid, bool last) {};
 
-	virtual void onRspUnSubMarketData(const dict &data, const dict &error, int reqid, bool last) {};
+    virtual void onRspUnSubMarketData(const dict &data, const dict &error, int reqid, bool last) {};
 
-	virtual void onRtnDepthMarketData(const dict &data) {};
+    virtual void onRtnDepthMarketData(const dict &data) {};
 
-	//-------------------------------------------------------------------------------------
-	//req:Ö÷¶¯º¯ÊıµÄÇëÇó×Öµä
-	//-------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------
+    //req:ä¸»åŠ¨å‡½æ•°çš„è¯·æ±‚å­—å…¸
+    //-------------------------------------------------------------------------------------
 
-	void release();
+    void release();
 
-	bool init();
+    bool init();
 
-	int exit();
+    int exit();
 
-	int join();
+    int join();
 
-	void registerFront(string pszFrontAddress);
+    void registerFront(string pszFrontAddress);
 
-	void createGoldQutoApi(string pszFlowPath = " ");
+    void createGoldQutoApi(string pszFlowPath = " ");
 
-	int subscribeMarketData(string ppInstrumentID, int reqid);
+    int subscribeMarketData(string ppInstrumentID, int reqid);
 
-	int unSubscribeMarketData(string ppInstrumentID, int reqid);
+    int unSubscribeMarketData(string ppInstrumentID, int reqid);
 
-	int reqUserLogin(const dict &req, int reqid);
+    int reqUserLogin(const dict &req, int reqid);
 
-	int reqUserLogout(const dict &req, int reqid);
+    int reqUserLogout(const dict &req, int reqid);
 };

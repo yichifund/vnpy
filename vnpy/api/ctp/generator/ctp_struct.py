@@ -1,4 +1,4 @@
-CThostFtdcDisseminationField = {
+﻿CThostFtdcDisseminationField = {
     "SequenceSeries": "int",
     "SequenceNo": "int",
 }

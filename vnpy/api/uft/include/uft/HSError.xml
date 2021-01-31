@@ -1,225 +1,225 @@
-<?xml version="1.0" encoding="gb2312"?>
+ï»¿<?xml version="1.0" encoding="utf-8"?>
 <errors>
-    <error id="PSW_ERR" value="1000" prompt="ÃÜÂë´íÎó"/>
-    <error id="IN_PARAM_ERR" value="1001" prompt="ÊäÈë²ÎÊý´íÎó"/>
-    <error id="SYS_UPGRADE" value="1002" prompt="ÏµÍ³Éý¼¶ÖÐ £¬ÇëÁÂ½â"/>
-    <error id="BUSINESS_DEAL_ERR" value="1003" prompt="ÒµÎñ´¦ÀíÊ§°Ü"/>
-    <error id="INVALID_IPADDRESS" value="1004" prompt="Ã»ÓÐÓÐÐ§µÄIPµØÖ·"/>
-    <error id="NEW_PWD_LENGTH_LESS" value="1005" prompt="ÐÂÃÜÂë³¤¶È²»×ã"/>
-    <error id="LICENSEINFO_NOT_EXISTS" value="1006" prompt="Ðí¿ÉÖ¤ÐÅÏ¢¼ÇÂ¼²»´æÔÚ"/>
-    <error id="SYS_LIMIT_FUNC_CURRTIME_TRADE" value="1007" prompt="ÏµÍ³ÏÞÖÆ´Ë¹¦ÄÜµ±Ç°Ê±¼ä½øÐÐÒµÎñ´¦Àí"/>
-    <error id="SYS_STATUS_NO_RUN" value="1008" prompt="¸Ã¹¦ÄÜ½ûÖ¹ÔÚÄ¿Ç°ÏµÍ³×´Ì¬ÏÂÔËÐÐ"/>
-    <error id="SYS_NO_INIT" value="1009" prompt="ÏµÍ³Î´³õÊ¼»¯"/>
-    <error id="QUERY_PWD_INSUFFICIENT_RIGHTS" value="1010" prompt="·þÎñÃÜÂëµÇÂ¼²»ÄÜ²Ù×÷½»Ò×ÀàºÍ×Ê½ðÀàÒµÎñ"/>
-    <error id="FUNDPWD_INSUFFICIENT_RIGHTS" value="1011" prompt="×Ê½ðÃÜÂëµÇÂ¼²»ÄÜ²Ù×÷½»Ò×ÀàÒµÎñ"/>
-    <error id="PWD_OVERLENGTH" value="1012" prompt="ÃÜÂë³¬¹ýÖ¸¶¨³¤¶È"/>
-    <error id="LOGIN_STATIONLIMIT_ERR" value="1013" prompt="½ûÖ¹µÇÂ¼£¬µ±ÈÕµÇÂ¼Õ¾µã¸öÊýÒÑ³¬¹ýÏµÍ³×î´óÏÞ¶¨Öµ"/>
-    <error id="LOGIN_STATIONLOCK_ERR" value="1014" prompt="½ûÖ¹µÇÂ¼£¬¿Í»§Ö¸¶¨°ó¶¨Õ¾µãµÇÂ¼±»Ëø¶¨"/>
-    <error id="OPSTATION_LOCKED" value="1015" prompt="¸ÃÕ¾µãµÇÂ¼ÃÜÂë´íÎó´ÎÊý³¬ÏÞ£¬ÒÑ±»Ëø¶¨"/>
-    <error id="SYS_FUNC_NOT_EXISTS" value="1016" prompt="ÏµÍ³¹¦ÄÜ¼ÇÂ¼²»´æÔÚ"/>
-    <error id="AUTHACCT_LOCKED" value="1017" prompt="ÈÏÖ¤ÕË»§±»Ëø¶¨´íÎó"/>
-    <error id="EXCH_PWD_ERR" value="1018" prompt="¿Í»§½»Ò×ÃÜÂë´íÎó"/>
-    <error id="QUERY_PWD_ERR" value="1019" prompt="¿Í»§·þÎñÃÜÂë´íÎó"/>
-    <error id="INVALID_UKEY_NO_LOGIN" value="1020" prompt="UKEYÖ¤ÊéÁÙÊ±Ê§Ð§£¬²»ÄÜÊ¹ÓÃUKEYÖ¤ÊéµÇÂ¼"/>
-    <error id="UKEY_STATUS_ABNORMAL" value="1021" prompt="UKEYÖ¤Êé×´Ì¬²»Õý³£"/>
-    <error id="UKEY_BIND_NO_MATCH" value="1022" prompt="UKEYÖ¤Êé°ó¶¨¹ØÏµ²»Æ¥Åä"/>
-    <error id="NO_UKEY_NO_LOGIN" value="1023" prompt="ÓÃ»§Î´¿ªÍ¨UKEYÊý×ÖÖ¤Êé£¬²»ÄÜÊ¹ÓÃUKEYÊý×ÖÖ¤ÊéµÇÂ¼"/>
-    <error id="LOGIN_IS_OVERDUE" value="1024" prompt="µÇÂ¼ÒÑ¹ýÆÚ£¬ÇëÖØÐÂµÇÂ¼"/>
-    <error id="LOGIN_RESTRICT" value="1025" prompt="µÇÂ¼ÊÜÏÞ£¬Ö»ÔÊÐí½øÐÐ²éÑ¯²Ù×÷"/>
-    <error id="INIT_PWD_NO_OPER" value="1026" prompt="³õÊ¼ÃÜÂë²»ÄÜ×ö³ýÁËµÇÂ½¡¢¸ÄÃÜºÍ²éÑ¯ÒÔÍâµÄÆäËûÒµÎñ"/>
-    <error id="PWD_NO_REPEAT_KIND" value="1027" prompt="ÃÜÂë²»ÄÜÉèÖÃÎªÖØ¸´ÀàÐÍ£¬ÇëÖØÐÂÑ¡ÔñÃÜÂë"/>
-    <error id="PWD_NO_ORDER_CODE" value="1028" prompt="ÃÜÂë²»ÄÜÎªË³ÐòÀàÐÍ£¬ÇëÖØÐÂÑ¡ÔñÃÜÂë"/>
-    <error id="PWD_NO_DESC_CODE" value="1029" prompt="ÃÜÂë²»ÄÜÎªµ¹ÐòÀàÐÍ£¬ÇëÖØÐÂÑ¡ÔñÃÜÂë"/>
-    <error id="PWD_NO_ID" value="1030" prompt="ÃÜÂë²»ÄÜº¬¿Í»§Ö¤¼þÄÚÈÝ£¬ÇëÖØÐÂÑ¡ÔñÃÜÂë"/>
-    <error id="PWD_NO_PHONE" value="1031" prompt="ÃÜÂë²»ÄÜº¬¿Í»§µç»°ÐÅÏ¢£¬ÇëÖØÐÂÑ¡ÔñÃÜÂë"/>
-    <error id="PWD_NO_OPER_CODE" value="1032" prompt="ÃÜÂë²»ÄÜº¬²Ù×÷Ô±ºÅÐÅÏ¢£¬ÇëÖØÐÂÑ¡ÔñÃÜÂë"/>
-    <error id="FORBIT_SET_PWD" value="1033" prompt="½ûÖ¹ÉèÖÃÎª¸ÃÃÜÂë£¬ÇëÖØÐÂÑ¡ÔñÃÜÂë"/>
-    <error id="PWD_DIFLEN_SMALL" value="1034" prompt="ÃÜÂë°üº¬µÄ²»Í¬Êý×Ö¸öÊýÓ¦´óÓÚ×îÐ¡Öµ£¬ÇëÖØÐÂÑ¡ÔñÃÜÂë"/>
-    <error id="PWD_FORBIT_ORDNUMLEN" value="1035" prompt="ÃÜÂë°üº¬Á¬ÐøµÝÔö¡¢µÝ¼õ»òÖØ¸´µÄÊý×Ö¸öÊýÐèÐ¡ÓÚÖ¸¶¨Öµ,ÇëÖØÐÂÑ¡ÔñÃÜÂë"/>
-    <error id="PWD_NO_FUNDACCOUNT" value="1036" prompt="ÃÜÂë²»ÄÜº¬×Ê²úÕËºÅÄÚÈÝ£¬ÇëÖØÐÂÑ¡ÔñÃÜÂë"/>
-    <error id="PWD_DATATYPE_NUM_SMALL" value="1037" prompt="ÃÜÂëÖÐ°üº¬Êý×Ö¡¢´óÐ¡Ð´×ÖÄ¸¼°ÌØÊâ×Ö·ûÖÖÀàÊý²»ÄÜÐ¡ÓÚÏÞÖÆÃÜÂëÖµ£¬ÇëÖØÐÂÑ¡ÔñÃÜÂë"/>
-    <error id="EXT_FUNDMENTAL_PERMIT" value="1038" prompt="ÏµÍ³µ±Ç°Ö»ÔÊÐíÊ¹ÓÃ»ù±¾½»Ò×¹¦ÄÜ"/>
-    <error id="CLIENT_FORBID_ORDER" value="1039" prompt="¿Í»§²»ÔÊÐíÒÔ´ËÖÖÎ¯ÍÐ·½Ê½½øÐÐÒµÎñ´¦Àí"/>
-    <error id="CLIENT_EXCHANGED" value="1040" prompt="¿Í»§ÒÑ±»ÖÃ»»¸øÆäËüÈ¯ÉÌ"/>
-    <error id="CLIENT_ABNORMAL" value="1041" prompt="¿Í»§×´Ì¬²»Õý³£"/>
-    <error id="FUNDACCOUNT_FROZEN" value="1042" prompt="×Ê²úÕË»§ÒÑ¶³½á"/>
-    <error id="FUNDACCOUNT_LOSS" value="1043" prompt="×Ê²úÕË»§ÒÑ¹ÒÊ§"/>
-    <error id="FUNDACCOUNT_CANCEL" value="1044" prompt="×Ê²úÕË»§ÒÑÏú»§"/>
-    <error id="FUNDACCT_SLEEPED" value="1045" prompt="×Ê²úÕË»§ÒÑÐÝÃß"/>
-    <error id="FUNDACCOUNT_ABNORMAL" value="1046" prompt="×Ê²úÕË»§×´Ì¬²»Õý³£"/>
-    <error id="CLIENT_FORBID_DRAW" value="1047" prompt="¿Í»§½ûÖ¹È¡¿î"/>
-    <error id="CLIENT_FORBID_DEPOSIT" value="1048" prompt="¿Í»§½ûÖ¹´æ¿î"/>
-    <error id="PPB_RIGHT_UNQUALIFIED" value="1049" prompt="ÇëÏÈ¿ªÍ¨ÒµÎñÈ¨ÏÞ"/>
-    <error id="BANKDIRECTION_INVALID" value="1050" prompt="ÖÜ±ßÒøÐÐ×ªÕË²»Ö§³Ö¸Ã×ªÕË"/>
-    <error id="BANKFUNCTION_UNDEFINED" value="1051" prompt="ÖÜ±ßÒøÐÐ×ªÕË²»Ö§³Ö´Ë¹¦ÄÜºÅ"/>
-    <error id="PARAM_NO_IN" value="1052" prompt="ÊäÈë²ÎÊýÖÐ´æÔÚ±ØÊä×Ö¶ÎÎª¿Õ"/>
-    <error id="CANUSEFUND_NOTENOUGH" value="1053" prompt="¿ÉÓÃ×Ê½ð²»×ã"/>
-    <error id="FUND_CANDRAW_NOENOUGH" value="1054" prompt="¿ÉÈ¡×Ê½ð²»×ã"/>
-    <error id="CANDRAWCASH_NOENOUGH" value="1055" prompt="¿ÉÈ¡ÏÖ½ð²»×ã"/>
-    <error id="FUND_CANTRANS_NOENOUGH" value="1056" prompt="¿É»®²¦×Ê½ð²»×ã"/>
-    <error id="ONE_DOWNLIMIT_VIOLATED" value="1057" prompt="½ð¶î²»ÄÜµÍÓÚµ¥±ÊÏÂÏÞ"/>
-    <error id="BANKEXCH_BUSINESS_UNKNOWN" value="1058" prompt="²»Ö§³ÖÒµÎñ"/>
-    <error id="BANKOPENFLAG_CLOSE" value="1059" prompt="¸ÃÒøÐÐ²»¿ªÍ¨´Ë¹¦ÄÜ»òÒÑ¹Ø±Õ"/>
-    <error id="BANKEXCH_NOTEXCHDATE_NOTRANS" value="1060" prompt="ÏµÍ³·Ç½»Ò×ÈÕ£¬½ûÖ¹×ªÕË"/>
-    <error id="BANK_BUSINESS_CLOSE" value="1061" prompt="¸ÃÒøÐÐÎ´¿ªÍ¨»òÎ´ÆôÓÃ´ËÒµÎñ"/>
-    <error id="BANKEXCH_SOURCEFLAG_NOOPEN" value="1062" prompt="´Ë·¢Æð·½Î´¿ªÍ¨"/>
-    <error id="FUND_BALANCE_MUSTPOSITIVE" value="1063" prompt="½ð¶î±ØÐëÎªÕý"/>
-    <error id="CLINET_NOCURRENCYID" value="1064" prompt="¿Í»§ÎÞ´Ë±ÒÖÖ"/>
-    <error id="OTHER_BANKTRANS_BANNED" value="1065" prompt="¿Í»§Îª´æ¹Ü¿Í»§²»ÔÊÐÐ¿ªÍ¨ÆäËüÒøÐÐ×ªÕË"/>
-    <error id="BANKEXCH_BKTRUST_OTHERBANKLIMIT" value="1066" prompt="¿Í»§Îª´æ¹Ü¿Í»§²»ÔÊÐÐÆäËüÒøÐÐ×ªÕË"/>
-    <error id="BANK_STATUS_ERR" value="1067" prompt="ÒøÐÐÕË»§×´Ì¬´í"/>
-    <error id="BANKEXCH_PREACCOUNT_CANNOTTRANS" value="1068" prompt="´æ¹ÜÔ¤Ö¸¶¨¿Í»§²»ÔÊÐíÒøÐÐ×ªÕË´æÈ¡"/>
-    <error id="ID_NOT_MATCH" value="1069" prompt="Ö¤¼þºÅÂë²»·û"/>
-    <error id="ID_KIND_NOT_MATCH" value="1070" prompt="Ö¤¼þÀàÐÍ²»·û"/>
-    <error id="NAME_NOT_MATCH" value="1071" prompt="ÐÕÃû²»·û"/>
-    <error id="BANKEXCH_INBALANCE_LIMIT" value="1072" prompt="×ªÈë½ð¶î³¬³öÏÞÖÆ"/>
-    <error id="BANKEXCH_OUTBALANCE_LIMIT" value="1073" prompt="×ª³ö½ð¶î³¬³öÏÞÖÆ"/>
-    <error id="BANKEXCH_OUTTIMES_LIMIT" value="1074" prompt="×ª³ö´ÎÊý³¬³öÏÞÖÆ"/>
-    <error id="BANKEXCH_OUTLOWERLIMIT" value="1075" prompt="ÕË»§Óà¶î²»ÄÜµÍÓÚ±£µ×½ð¶î"/>
-    <error id="BANKEXCH_BALANCE_BANKLIMIT" value="1076" prompt="×ªÕË½ð¶î³¬³öÒøÐÐ½Ó¿ÚÏÞÖÆ"/>
-    <error id="BANKEXCH_PRECONTRACT_UNCERTAIN" value="1077" prompt="Ô¤Ô¼È¡¿îÁ÷Ë®Î´ÉúÐ§"/>
-    <error id="BANKEXCH_PRECONTRACT_NOMATCH" value="1078" prompt="Ô¤Ô¼Á÷Ë®ÐÅÏ¢²»·û"/>
-    <error id="BANKEXCH_PRECONTRACT_HAVEDRAW" value="1079" prompt="Ô¤Ô¼Á÷Ë®ÒÑÈ¡¿î"/>
-    <error id="BANKEXCH_PRECONTRACT_ERROR" value="1080" prompt="Ô¤Ô¼È¡¿îÁ÷Ë®ºÅ²»ÕýÈ·"/>
-    <error id="FUND_PRECONTRACT_NEED" value="1081" prompt="³¬³ö×î´óÖ§È¡½ð¶î£¬ÇëÔ¤Ô¼ºóÔÙ²Ù×÷"/>
-    <error id="BANKEXCH_REPEATTIMELIMIT" value="1082" prompt="²»ÄÜÔÚÉè¶¨µÄÊ±¼äÄÚÖØ¸´·¢ËÍÎ¯ÍÐÇëÇó"/>
-    <error id="BANK_LIMIT_FUNC_CURRTIME" value="1083" prompt="´ËÊ±¼ä¶ÎÄÚÏÞÖÆ½øÐÐÒøÖ¤ÒµÎñ´¦Àí"/>
-    <error id="BANK_REST" value="1084" prompt="ÒøÐÐ·Ç¹¤×÷Ê±¼ä"/>
-    <error id="FETCHFORBID_EXIST_OPENACCT" value="1085" prompt="µ±Ìì´ø×Ê½ð¿ª»§µ±Ìì½ûÖ¹×ªÈ¡×Ê½ð"/>
-    <error id="BANKEXCH_BALANCEQUERY_NOPERMIT" value="1086" prompt="²»ÔÊÐí²éÑ¯ÒøÐÐÓà¶î"/>
-    <error id="CONTRACTCODE_NOT_EXISTS" value="1087" prompt="ºÏÔ¼²»´æÔÚ"/>
-    <error id="NOTALLOW_OFFSET_TODAY" value="1088" prompt="·ÇÉÏº£¡¢ÄÜÔ´½ûÖ¹Æ½½ñ²Ö"/>
-    <error id="CONTRACT_STOP_NO" value="1089" prompt="ºÏÔ¼Í£ÅÆ"/>
-    <error id="CONTRACT_PRICE_UNIT" value="1090" prompt="ºÏÔ¼½»Ò×µ¥Î»´íÎó"/>
-    <error id="CONTRACT_REPORT_UNIT" value="1091" prompt="ºÏÔ¼Éê±¨µ¥Î»´íÎó"/>
-    <error id="INVALID_AMOUNT_PER_HAND" value="1092" prompt="ÎÞÐ§Ã¿ÊÖ¶ÖÊý"/>
-    <error id="FORBID_OPEN" value="1093" prompt="½ûÖ¹¿ª²Ö"/>
-    <error id="FORBID_OFFSET" value="1094" prompt="½ûÖ¹Æ½²Ö"/>
-    <error id="FORBID_OFFSET_TODAY" value="1095" prompt="½ûÖ¹Æ½½ñ²Ö"/>
-    <error id="NOTFOUND_EXCHANGE_RATE" value="1096" prompt="Ã»ÓÐÕÒµ½ºÏÔ¼¶ÔÓ¦µÄ¼´ÆÚ»ãÂÊ"/>
-    <error id="PUBLIC_MAINACCOUNT_NOT_EXTSTS" value="1097" prompt="ÆÚ»õÖ÷ÕË»§²»´æÔÚ¸Ã½»Ò×±àÂë"/>
-    <error id="EXCHANGEACCOUNTID_NOT_EXTSTS" value="1098" prompt="½»Ò×Ëù´úÂëÏÂÖ¸¶¨ÀàÐÍµÄ½»Ò×±àÂë²»´æÔÚ"/>
-    <error id="FUTUACCOUNT_STATUS_ABNORMAL" value="1099" prompt="ÆÚ»õÕË»§×´Ì¬Òì³£"/>
-    <error id="OUTOF_PRICE_BOUND" value="1100" prompt="³¬¹ýÕÇµøÍ£·¶Î§"/>
-    <error id="NO_CURRENCYID" value="1101" prompt="ÎÞ´Ë±ÒÖÖ"/>
-    <error id="DEFAULT_PASSWORD_LIMIT" value="1102" prompt="³õÊ¼ÃÜÂë²»ÄÜ½»Ò×"/>
-    <error id="EXCHANGEID_ILLEGAL" value="1103" prompt="½»Ò×Ëù´úÂë·Ç·¨"/>
-    <error id="INVALID_COMB_CONTRACT" value="1104" prompt="ÎÞÐ§µÄ×éºÏºÏÔ¼"/>
-    <error id="EXCHANGE_INIDATE" value="1105" prompt="½»Ò×³õÊ¼»¯Ê±¼äÓëÏµÍ³³õÊ¼»¯Ê±¼ä²»·û"/>
-    <error id="EXCHANG_STOP_FORBID_AMBITUS_WITHDRAW" value="1106" prompt="¸Ã½»Ò×Ëù±»ÉèÖÃ³ÉÍ£Ö¹×´Ì¬£¬µ±Ç°½ûÖ¹ÖÜ±ßÏÂµ¥"/>
-    <error id="NO_ALLOW_TRADE" value="1107" prompt="µ±Ç°Ê±¶Î²»ÔÊÐí½»Ò×"/>
-    <error id="ORDER_EXERCISE_AFTERHOURS" value="1108" prompt="Î´ÉèÖÃÅÌºóÐÐÈ¨Ê±¼ä"/>
-    <error id="NOALLOW_WITHDRAW" value="1109" prompt="²»ÔÊÐí³·µ¥"/>
-    <error id="FORBID_COMMON_ARBIORDER" value="1110" prompt="ÆÕÍ¨ºÏÔ¼½ûÖ¹Ì×Àû"/>
-    <error id="ORDERCOMMAND_ERR" value="1111" prompt="±¨µ¥Ö¸ÁîÓÐÎó"/>
-    <error id="OUTOF_ORDER_AMOUNT" value="1112" prompt="±¨µ¥ÊýÁ¿³¬³ö·¶Î§"/>
-    <error id="NO_WEAVE_TYPE" value="1113" prompt="×éºÏÀàÐÍ·Ç·¨"/>
-    <error id="FORBID_ARBIENTRUST_HEDGE" value="1114" prompt="×éºÏÀàÐÍ½ûÖ¹Ì×±£"/>
-    <error id="FORBID_ORDER_BS" value="1115" prompt="¿Í»§ÂòÂô·½ÏòÊÜÏÞ"/>
-    <error id="BILL_FLAG_CONFIRM" value="1116" prompt="ÕËµ¥Î´È·ÈÏ"/>
-    <error id="CODECLASS_RANGE" value="1117" prompt="¿Í»§×Ê²úÕËºÅÎÞ¸ÃºÏÔ¼µÄ½»Ò×È¨ÏÞ"/>
-    <error id="NOALLOW_TRADE" value="1118" prompt="ÎÞ´Ë²úÆ·Àà±ð½»Ò×È¨ÏÞ"/>
-    <error id="PRICE_ERR" value="1119" prompt="¼Û¸ñ´íÎó"/>
-    <error id="ORDER_TODAYOPEN_LIMITAMOUNT" value="1120" prompt="µ±ÈÕ¿ª²ÖÊýÁ¿³¬³öÏÞ²ÖÊýÁ¿"/>
-    <error id="ORDER_CHECK_SELF_MATCH" value="1121" prompt="µ±Ç°±¨µ¥´æÔÚ¿É×Ô³É½»³¡¾°"/>
-    <error id="CHECK_MINPRICEDIFF_LOST" value="1122" prompt="Ð£Ñé×îÐ¡¼Û²îÊ§°Ü"/>
-    <error id="ARBITCODE_NOT_MATCH_ENTRUSTPROP" value="1123" prompt="×éºÏÀàÐÍºÍÌ×ÀûºÏÔ¼´úÂë²»Æ¥Åä"/>
-    <error id="NOT_FUTURIGHT" value="1124" prompt="ºÏÔ¼´úÂë·ÇÆÚÈ¨²úÆ·"/>
-    <error id="OPT_UNDERLYING_CODE_NOTCONSISTENT" value="1125" prompt="Á½ÍÈÆÚÈ¨ºÏÔ¼µÄ±êµÄºÏÔ¼ÏàÍ¬"/>
-    <error id="OPT_FOPTTYPE_CALL" value="1126" prompt="ÆÚÈ¨×éºÏÀàÐÍ£¬µÚÒ»ÍÈ±ØÐëÊÇ¿´ÕÇÆÚÈ¨"/>
-    <error id="OPT_SECONED_LEG_BEARISH" value="1127" prompt="ÆÚÈ¨×éºÏÀàÐÍ£¬µÚ¶þÍÈ±ØÐëÊÇ¿´µøÆÚÈ¨"/>
-    <error id="OPT_BOTHLEGS_MUST_SAMEPRICE" value="1128" prompt="Á½ÍÈÖ´ÐÐ¼Û±ØÐëÏàÍ¬"/>
-    <error id="OPT_BOTHLEGS_MUST_DIFFPRICE" value="1129" prompt="¿´ÕÇÆÚÈ¨Ö´ÐÐ¼Û±ØÐë´óÓÚ¿´µøÆÚÈ¨Ö´ÐÐ¼Û"/>
-    <error id="NO_IN_WITHDRAW" value="1130" prompt="³·µ¥ºÅ·Ç·¨"/>
-    <error id="NOT_FOUND_BY_CONFIRM_NO" value="1131" prompt="ÕÒ²»µ½Î¯ÍÐºÅ¶ÔÓ¦µÄÎ¯ÍÐ¼ÇÂ¼"/>
-    <error id="INOPERABLE_QUOTEDERIVE" value="1132" prompt="²»ÄÜ²Ù×÷ÑÜÉú±¨µ¥"/>
-    <error id="CANNOT_WITHDRAW" value="1133" prompt="¸Ã±¨µ¥²»¿É³·"/>
-    <error id="OLD_ORDER_FUND_ACCOUNT_MISMACTH" value="1134" prompt="´ý³·±¨µ¥·Çµ±Ç°¿Í»§ËùÏÂ"/>
-    <error id="OFCOUNTEROP_FORBID_RIM_WITHDRAW" value="1135" prompt="ÖÜ±ß²»ÔÊÐí³·Ïú¹ñÌ¨µÄÎ¯ÍÐ"/>
-    <error id="FORBID_AMBITUS_WITHDRAW_TO_PATCH" value="1136" prompt="±¨µ¥²¹µ¥²»ÔÊÐíÖÜ±ß³·µ¥"/>
-    <error id="FORBID_AMBITUS_WITHDRAW_TO_FORCE" value="1137" prompt="Ç¿Æ½±¨µ¥²»ÔÊÐíÖÜ±ß³·µ¥"/>
-    <error id="ORDER_STATUS_FORBID_WITHDRAW" value="1138" prompt="´ý³·µ¥Î¯ÍÐµÄµ±Ç°Î¯ÍÐ×´Ì¬²»ÔÊÐí±»³·µ¥"/>
-    <error id="FORBID_EXERCISE_WITHDRAW_NOW" value="1139" prompt="µ±Ç°Ê±¶Î²»ÔÊÐíÐÐÈ¨³·µ¥"/>
-    <error id="PARKEDORDER_NOT_SUPPORT" value="1140" prompt="²»Ö§³ÖÎ´±¨Ô¤Âñµ¥"/>
-    <error id="BRIGHTS_TYPE_INVAILD" value="1141" prompt="Âò·½È¨ÀûÉêÇëÀàÐÍÓÐÎó"/>
-    <error id="CLOSE_TYPE_ERR" value="1142" prompt="Æ½²ÖÀàÐÍ´íÎó"/>
-    <error id="EXPIREDATE_INVAILD" value="1143" prompt="ÆÚÈ¨ºÏÔ¼ÒÑ¹ý×îºó½»Ò×ÈÕ"/>
-    <error id="EUROPEAN_EXERCISEDATE_INVAILD" value="1144" prompt="Å·Ê½ÆÚÈ¨ÐÐÈ¨ÈÕÎª×îºó½»Ò×ÈÕ"/>
-    <error id="CZCE_GIVEUPDATE_INVAILD" value="1145" prompt="Ö£ÖÝÆÚÈ¨·Ç×îºó½»Ò×ÈÕ²»ÄÜ·ÅÆúÐÐÈ¨"/>
-    <error id="CFFEX_APPLICATION_INVAILD" value="1146" prompt="ÖÐ½ðËù²»ÐèÒªÌáÖ´ÐÐÉêÇë"/>
-    <error id="LESS_ENABLE_HOLD" value="1147" prompt="¿ÉÓÃ³Ö²Ö²»×ã"/>
-    <error id="INVALID_ORDER_BALANCE" value="1148" prompt="ÎÞÐ§Î¯ÍÐ±£Ö¤½ð"/>
-    <error id="INVALID_ORDER_PREMIUM" value="1149" prompt="ÎÞÐ§Î¯ÍÐÈ¨Àû½ð"/>
-    <error id="NONDUEDATE_PROHIBIT_EXERCISE_CANCLE" value="1150" prompt="·Çµ½ÆÚÈÕÅÌºó½ûÖ¹ÐÐÈ¨"/>
-    <error id="OFBAN_NOT_CONTINUOUS_TRADING" value="1151" prompt="½»Ò×Ëù×´Ì¬·ÇÁ¬Ðø½»Ò××´Ì¬½ûÖ¹ÏÂµ¥"/>
-    <error id="NO_FUTURIGHT_BUSINESS" value="1152" prompt="Ã»ÓÐ¿ªÍ¨ÆÚÈ¨ÒµÎñ"/>
-    <error id="CONFIG_VALUE_ERR" value="1153" prompt="ÅäÖÃ¿ª¹Ø²»´æÔÚ"/>
-    <error id="SUB_ERR" value="1154" prompt="¶©ÔÄÊ§°Ü"/>
-    <error id="UNSUB_ERR" value="1155" prompt="ÍË¶©Ê§°Ü"/>
-    <error id="FASTAPI_NO_OPEN" value="1156" prompt="¼«ËÙAPIÏà¹Ø¹¦ÄÜÎ´¿ªÆô"/>
-    <error id="OPT_TRADEDATE_INVALID" value="1157" prompt="ÆÚÈ¨½»Ò×ÈÕÆÚ²»ÔÚÓÐÐ§ÆÚÄÚ"/>
-    <error id="OPT_EXERCISEDATE_INVALID" value="1158" prompt="ÆÚÈ¨ÐÐÈ¨ÈÕÆÚ²»ÔÚÓÐÐ§ÆÚÄÚ"/>
-    <error id="OPT_MARGIN_NOTENOUGH" value="1159" prompt="ÆÚÈ¨¿ÉÓÃ±£Ö¤½ð²»×ã"/>
-    <error id="USER_EXCHSTATUSSTOP" value="1160" prompt="Ö¤È¯½»Ò××´Ì¬Í£Ö¹"/>
-    <error id="CURRTIMENOALLOW_TRADE" value="1161" prompt="µ±Ç°Ê±¼ä²»ÔÊÐí´ËÀàÖ¤È¯½»Ò×"/>
-    <error id="ORDER_TIME_ERR" value="1162" prompt="µ±Ç°Ê±¼ä²»ÔÊÐí±¨µ¥"/>
-    <error id="NOT_USE_THIS_APP_TYPE" value="1163" prompt="¸ÃºÏÔ¼²»ÔÊÐíÊ¹ÓÃ´ËÍ¶×ÊÕß¶ËÓ¦ÓÃÀà±ð±¨µ¥"/>
-    <error id="MARKET_PRICE_NO_CAL_AMOUNT" value="1164" prompt="ÊÐ¼ÛÎª0£¬ÎÞ·¨¼ÆËã¿ÉÂòÊýÁ¿"/>
-    <error id="SUSPENSION_ORDER_NOTALLOWED" value="1165" prompt="µ±Ç°Ê±¼ä²»ÔÊÐíÍ£ÅÆ±¨µ¥"/>
-    <error id="ENTRUSTPROP_STOCKTYPE_NOTMATCH" value="1166" prompt="Î¯ÍÐÊôÐÔÖ¤È¯Àà±ð²»·û"/>
-    <error id="STKTATUS_ENTRUST_FORBID" value="1167" prompt="¸ÃÖ¤È¯×´Ì¬²»ÔÊÐíÎ¯ÍÐ"/>
-    <error id="OPT_VERTICAL_NOT_COMB" value="1168" prompt="ºÏÔ¼²»ÄÜ½øÐÐ´¹Ö±¼Û²î²ßÂÔµÄ×éºÏ"/>
-    <error id="OPT_ZBD_NOT_SPLIT" value="1169" prompt="ÈÏ¹ºÆÚÈ¨ÆÕÍ¨Âô¿ª×ª±¸¶Ò²ßÂÔ²»Ö§³Ö²ð·Ö"/>
-    <error id="OPT_OPTCOMBID_MUST_NULL" value="1170" prompt="×éºÏÊ±×éºÏ±àÂë±ØÐëÎª¿Õ"/>
-    <error id="OPT_COMB_CHECKLIMIT_ERR" value="1171" prompt="ÆÚÈ¨ºÏÔ¼×éºÏ²ßÂÔÏÞÖÆÐ£ÑéÊ§°Ü"/>
-    <error id="OPT_VERTSPLIT_CHECKDATE_ERR" value="1172" prompt="ºÏÔ¼´¹Ö±¼Û²î²ßÂÔ½â³ýÈÕÆÚÐ£ÑéÊ§°Ü"/>
-    <error id="OPT_ZXJ_NOT_COMB" value="1173" prompt="±¸¶Ò¿ª²Ö×ª±£Ö¤½ð¿ª²Ö²»Ö§³Ö×éºÏ"/>
-    <error id="OPT_PUT_ZXJ_FORBID_ORDER" value="1174" prompt="Ò»¼¶Í¶×ÊÕß²»ÔÊÐí±¸¶Ò¿ª²Ö×ª±£Ö¤½ð¿ª²Ö"/>
-    <error id="OPT_COMB_ORDER_AMOUNT_INVALID" value="1175" prompt="×éºÏ²ð·Ö±¨µ¥ÊýÁ¿²»ºÏ·¨"/>
-    <error id="LOGIN_UNBINDSTATION_ERR" value="1176" prompt="¿Í»§ÒÑ°ó¶¨Ö¸¶¨Õ¾µã£¬Î´½øÐÐ°ó¶¨µÄÕ¾µã²»ÄÜµÇÂ¼"/>
-    <error id="LOGIN_PWDWRONGLIM_ERR" value="1177" prompt="½ûÖ¹µÇÂ¼£¬Í¨¹ýÖ¸¶¨°ó¶¨Õ¾µãµÇÂ¼µÄÃÜÂë´íÎó´ÎÊý³¬¹ýÏµÍ³×î´óÏÞ¶¨Öµ"/>
-    <error id="ERR_USER_OPTEXCHSTATUSSTOP" value="1178" prompt="ÆÚÈ¨½»Ò××´Ì¬Í£Ö¹"/>
-    <error id="ERR_USER_OPTEXCHNOINIT" value="1179" prompt="ÆÚÈ¨½»Ò×Î´³õÊ¼»¯"/>
-    <error id="PWD_MODI_NOTALLOW" value="1180" prompt="ÖÜ±ß²»ÔÊÐíÐÞ¸Ä½»Ò×ÃÜÂë"/>
-    <error id="ORDER_PRICE_MUST_GREAT_ZERO" value="1181" prompt="±¨µ¥¼Û¸ñÒª´óÓÚ0"/>
-    <error id="NOT_ALLOW_WITHDARW_AGAIN" value="1182" prompt="²»ÔÊÐíÖØ¸´³·µ¥"/>
-    <error id="OVER_RIGHT_HOLD_QUOTA" value="1183" prompt="³¬³öÈ¨Àû²Ö³Ö²ÖÏÞ¶î"/>
-    <error id="OVER_TOTAL_HOLD_QUOTA" value="1184" prompt="³¬³ö×Ü³Ö²ÖÏÞ¶î"/>
-    <error id="OVER_PUR_QUOTA" value="1185" prompt="³¬³ö×î´óÂòÈë¶î¶È"/>
-    <error id="OPT_STOCKCODE_CHECK_FAIL" value="1186" prompt="³É·ÝºÏÔ¼±êµÄÐÅÏ¢Ð£Ñé´íÎó"/>
-    <error id="OPT_OPTHOLDTYPE_NOT_MATCH" value="1187" prompt="³É·ÝºÏÔ¼³Ö²ÖÀà±ðÓë×éºÏ²ßÂÔÐÅÏ¢²»Ò»ÖÂ"/>
-    <error id="OPT_ENDDATE_CHECK_FAIL" value="1188" prompt="³É·ÝºÏÔ¼µ½ÆÚÈÕÐ£Ñé´íÎó"/>
-    <error id="OPT_EXERCISEPRICE_CHECK_FAIL" value="1189" prompt="³É·ÝºÏÔ¼ÐÐÈ¨¼Û¼ìÑé´íÎó"/>
-    <error id="OPT_AMOUNTPERHAND_CHECK_FAIL" value="1190" prompt="³É·ÝºÏÔ¼ºÏÔ¼µ¥Î»Ð£Ñé´íÎó"/>
-    <error id="OPT_COMPONENTCOUNT_NOT_MATCH" value="1191" prompt="³É·ÝºÏÔ¼ÊýÁ¿Óë×éºÏ²ßÂÔÐÅÏ¢²»Ò»ÖÂ"/>
-    <error id="OPT_OPTIONTYPE_NOT_MATCH" value="1192" prompt="³É·ÝºÏÔ¼ÖÖÀàÓë×éºÏ²ßÂÔÐÅÏ¢²»Ò»ÖÂ"/>
-    <error id="OPTIONNOTALLOW_OPEN" value="1193" prompt="¸ÃÆÚÈ¨²»ÔÊÐí¿ª²ÖÒµÎñ"/>
-    <error id="OPTLEVELNOTALLOW_TRADE" value="1194" prompt="¸ÃÍ¶×ÊÕß·Ö¼¶²»ÔÊÐí´ËÒµÎñ"/>
-    <error id="BLACKLIST_TRADE_NOTALLOWED" value="1195" prompt="ºÚÃûµ¥²»ÔÊÐí×ö½»Ò×"/>
-    <error id="SHORT_FOR_UNLOCK" value="1196" prompt="¿É½âËø¹É·ÝÊýÁ¿²»×ã"/>
-    <error id="ASSET_RTE_QUOTA_NOTENOUGH" value="1197" prompt="¿Í»§T+0¹ÉÆ±Âô³ö¿ÉÈ¡¶î¶È²»×ã"/>
-    <error id="NOALLOW_MARKET_ORDER" value="1198" prompt="¿Í»§±ØÐëÓÐÊÐ¼ÛÎ¯ÍÐÈ¨ÏÞ²ÅÄÜÔÊÐíÊÐ¼ÛÎ¯ÍÐ"/>
-    <error id="EXIST_OPT_RESTRICTION" value="1199" prompt="¿Í»§´æÔÚÆÚÈ¨ÏÞÖÆ¿ØÖÆ£¬²»ÔÊÐíÎ¯ÍÐ"/>
-    <error id="BFARE_OVER_ERROR" value="1200" prompt="Âô³ö¿É»ñµÃ×Ê½ðÐ¡ÓÚÔ¤¼Æ·ÑÓÃ,¿ÉÄÜ»á·¢ÉúÍ¸Ö§,²»ÔÊÐíÎ¯ÍÐ"/>
-    <error id="PWD_TYPE_MISMATCH" value="1201" prompt="ÃÜÂëÀàÐÍ´íÎó"/>
-    <error id="OPTEXERCISEENTRUST_NOTALLOW_COVEREDFLAG" value="1202" prompt="ÆÚÈ¨ÐÐÈ¨±¨µ¥²»ÔÊÐí´øÉÏ±¸¶Ò±êÖ¾"/>
-    <error id="ORDER_AMOUNT_ERR" value="1203" prompt="±¨µ¥ÊýÁ¿²Ù³ö·¶Î§"/>
-    <error id="NO_ACCOUNT" value="1204" prompt="ÎÞ´ËÕËºÅ"/>
-    <error id="SYS_INIT_TIME" value="1205" prompt="ÏµÍ³³õÊ¼»¯Ê±¼ä·Çµ±ÈÕ"/>
-    <error id="CHECK_UNIT_LOST" value="1206" prompt="Ð£ÑéÎ¯ÍÐÂòÈëµ¥Î»,Âô³öµ¥Î»Ê§°Ü"/>
-    <error id="OVER_TOTAL_OGE_TIMES" value="1207" prompt="Ñ¯¼Û´ÎÊý³¬¹ýÉÏÏÞ"/>
-    <error id="BANK_NOT_INIT" value="1208" prompt="ÒøÐÐÎ´³õÊ¼»¯"/>
-    <error id="BANK_STATUS_STOP" value="1209" prompt="ÒøÐÐ×´Ì¬Í£Ö¹"/>
-    <error id="HAVE_RESTRICTION" value="1210" prompt="ÓÐ¹É¶«ÏÞÖÆ"/>
-    <error id="STOCK_CANUSEAMT_NOTENOUGH" value="1211" prompt="Ö¤È¯¿ÉÓÃÊýÁ¿²»×ã"/>
-    <error id="STOCKHOLDERCTRL_FROZEN" value="1212" prompt="Ö¤È¯ÕË»§ÒÑ¶³½á"/>
-    <error id="STOCKHOLDERCTRL_LOSS" value="1213" prompt="Ö¤È¯ÕË»§ÒÑ¹ÒÊ§"/>
-    <error id="STOCKHOLDERCTRL_ABNORMAL" value="1214" prompt="Ö¤È¯ÕË»§×´Ì¬²»Õý³£"/>
-    <error id="FUNDTRUNSTEE_NOTEXIST_FORBID" value="1215" prompt="×Ê½ðÕË»§Î´¿ªÍ¨ÒøÑÜ×ªÕË£¬²»ÔÊÐíÆÚÈ¨½»Ò×"/>
-    <error id="ENTRUSTAMOUNT_OVERFLOW" value="1216" prompt="×î¸ß±¨µ¥ÊýÁ¿£¬×îµÍ±¨µ¥ÊýÁ¿ºÏ·¨ÐÔÐ£ÑéÊ§°Ü"/>
-    <error id="NOT_BIND_ADDRESS" value="1217" prompt="·Ç°ó¶¨µØÖ·½ûÖ¹µÇÂ¼"/>
-    <error id="ADDRESS_LOCK_ERROR" value="1218" prompt="¸ÃµØÖ·ÒÑ¾­±»Ëø¶¨²»ÄÜµÇÂ¼"/>
-    <error id="ADDRESS_SUM_LIMIT" value="1219" prompt="ÕËºÅµÇÂ¼µØÖ·¸öÊý³¬¹ýÏÞÖÆ"/>
-    <error id="BATCHOPERATION_NOTALLOWED" value="1220" prompt="µ±Ç°Ê±¼ä²»ÔÊÐíÅúÁ¿²Ù×÷"/>
-    <error id="LOCK_NOTENOUGH" value="1221" prompt="¿ÉËø¶¨¹É·ÝÊýÁ¿²»×ã"/>
+    <error id="PSW_ERR" value="1000" prompt="å¯†ç é”™è¯¯"/>
+    <error id="IN_PARAM_ERR" value="1001" prompt="è¾“å…¥å‚æ•°é”™è¯¯"/>
+    <error id="SYS_UPGRADE" value="1002" prompt="ç³»ç»Ÿå‡çº§ä¸­ ï¼Œè¯·è°…è§£"/>
+    <error id="BUSINESS_DEAL_ERR" value="1003" prompt="ä¸šåŠ¡å¤„ç†å¤±è´¥"/>
+    <error id="INVALID_IPADDRESS" value="1004" prompt="æ²¡æœ‰æœ‰æ•ˆçš„IPåœ°å€"/>
+    <error id="NEW_PWD_LENGTH_LESS" value="1005" prompt="æ–°å¯†ç é•¿åº¦ä¸è¶³"/>
+    <error id="LICENSEINFO_NOT_EXISTS" value="1006" prompt="è®¸å¯è¯ä¿¡æ¯è®°å½•ä¸å­˜åœ¨"/>
+    <error id="SYS_LIMIT_FUNC_CURRTIME_TRADE" value="1007" prompt="ç³»ç»Ÿé™åˆ¶æ­¤åŠŸèƒ½å½“å‰æ—¶é—´è¿›è¡Œä¸šåŠ¡å¤„ç†"/>
+    <error id="SYS_STATUS_NO_RUN" value="1008" prompt="è¯¥åŠŸèƒ½ç¦æ­¢åœ¨ç›®å‰ç³»ç»ŸçŠ¶æ€ä¸‹è¿è¡Œ"/>
+    <error id="SYS_NO_INIT" value="1009" prompt="ç³»ç»Ÿæœªåˆå§‹åŒ–"/>
+    <error id="QUERY_PWD_INSUFFICIENT_RIGHTS" value="1010" prompt="æœåŠ¡å¯†ç ç™»å½•ä¸èƒ½æ“ä½œäº¤æ˜“ç±»å’Œèµ„é‡‘ç±»ä¸šåŠ¡"/>
+    <error id="FUNDPWD_INSUFFICIENT_RIGHTS" value="1011" prompt="èµ„é‡‘å¯†ç ç™»å½•ä¸èƒ½æ“ä½œäº¤æ˜“ç±»ä¸šåŠ¡"/>
+    <error id="PWD_OVERLENGTH" value="1012" prompt="å¯†ç è¶…è¿‡æŒ‡å®šé•¿åº¦"/>
+    <error id="LOGIN_STATIONLIMIT_ERR" value="1013" prompt="ç¦æ­¢ç™»å½•ï¼Œå½“æ—¥ç™»å½•ç«™ç‚¹ä¸ªæ•°å·²è¶…è¿‡ç³»ç»Ÿæœ€å¤§é™å®šå€¼"/>
+    <error id="LOGIN_STATIONLOCK_ERR" value="1014" prompt="ç¦æ­¢ç™»å½•ï¼Œå®¢æˆ·æŒ‡å®šç»‘å®šç«™ç‚¹ç™»å½•è¢«é”å®š"/>
+    <error id="OPSTATION_LOCKED" value="1015" prompt="è¯¥ç«™ç‚¹ç™»å½•å¯†ç é”™è¯¯æ¬¡æ•°è¶…é™ï¼Œå·²è¢«é”å®š"/>
+    <error id="SYS_FUNC_NOT_EXISTS" value="1016" prompt="ç³»ç»ŸåŠŸèƒ½è®°å½•ä¸å­˜åœ¨"/>
+    <error id="AUTHACCT_LOCKED" value="1017" prompt="è®¤è¯è´¦æˆ·è¢«é”å®šé”™è¯¯"/>
+    <error id="EXCH_PWD_ERR" value="1018" prompt="å®¢æˆ·äº¤æ˜“å¯†ç é”™è¯¯"/>
+    <error id="QUERY_PWD_ERR" value="1019" prompt="å®¢æˆ·æœåŠ¡å¯†ç é”™è¯¯"/>
+    <error id="INVALID_UKEY_NO_LOGIN" value="1020" prompt="UKEYè¯ä¹¦ä¸´æ—¶å¤±æ•ˆï¼Œä¸èƒ½ä½¿ç”¨UKEYè¯ä¹¦ç™»å½•"/>
+    <error id="UKEY_STATUS_ABNORMAL" value="1021" prompt="UKEYè¯ä¹¦çŠ¶æ€ä¸æ­£å¸¸"/>
+    <error id="UKEY_BIND_NO_MATCH" value="1022" prompt="UKEYè¯ä¹¦ç»‘å®šå…³ç³»ä¸åŒ¹é…"/>
+    <error id="NO_UKEY_NO_LOGIN" value="1023" prompt="ç”¨æˆ·æœªå¼€é€šUKEYæ•°å­—è¯ä¹¦ï¼Œä¸èƒ½ä½¿ç”¨UKEYæ•°å­—è¯ä¹¦ç™»å½•"/>
+    <error id="LOGIN_IS_OVERDUE" value="1024" prompt="ç™»å½•å·²è¿‡æœŸï¼Œè¯·é‡æ–°ç™»å½•"/>
+    <error id="LOGIN_RESTRICT" value="1025" prompt="ç™»å½•å—é™ï¼Œåªå…è®¸è¿›è¡ŒæŸ¥è¯¢æ“ä½œ"/>
+    <error id="INIT_PWD_NO_OPER" value="1026" prompt="åˆå§‹å¯†ç ä¸èƒ½åšé™¤äº†ç™»é™†ã€æ”¹å¯†å’ŒæŸ¥è¯¢ä»¥å¤–çš„å…¶ä»–ä¸šåŠ¡"/>
+    <error id="PWD_NO_REPEAT_KIND" value="1027" prompt="å¯†ç ä¸èƒ½è®¾ç½®ä¸ºé‡å¤ç±»åž‹ï¼Œè¯·é‡æ–°é€‰æ‹©å¯†ç "/>
+    <error id="PWD_NO_ORDER_CODE" value="1028" prompt="å¯†ç ä¸èƒ½ä¸ºé¡ºåºç±»åž‹ï¼Œè¯·é‡æ–°é€‰æ‹©å¯†ç "/>
+    <error id="PWD_NO_DESC_CODE" value="1029" prompt="å¯†ç ä¸èƒ½ä¸ºå€’åºç±»åž‹ï¼Œè¯·é‡æ–°é€‰æ‹©å¯†ç "/>
+    <error id="PWD_NO_ID" value="1030" prompt="å¯†ç ä¸èƒ½å«å®¢æˆ·è¯ä»¶å†…å®¹ï¼Œè¯·é‡æ–°é€‰æ‹©å¯†ç "/>
+    <error id="PWD_NO_PHONE" value="1031" prompt="å¯†ç ä¸èƒ½å«å®¢æˆ·ç”µè¯ä¿¡æ¯ï¼Œè¯·é‡æ–°é€‰æ‹©å¯†ç "/>
+    <error id="PWD_NO_OPER_CODE" value="1032" prompt="å¯†ç ä¸èƒ½å«æ“ä½œå‘˜å·ä¿¡æ¯ï¼Œè¯·é‡æ–°é€‰æ‹©å¯†ç "/>
+    <error id="FORBIT_SET_PWD" value="1033" prompt="ç¦æ­¢è®¾ç½®ä¸ºè¯¥å¯†ç ï¼Œè¯·é‡æ–°é€‰æ‹©å¯†ç "/>
+    <error id="PWD_DIFLEN_SMALL" value="1034" prompt="å¯†ç åŒ…å«çš„ä¸åŒæ•°å­—ä¸ªæ•°åº”å¤§äºŽæœ€å°å€¼ï¼Œè¯·é‡æ–°é€‰æ‹©å¯†ç "/>
+    <error id="PWD_FORBIT_ORDNUMLEN" value="1035" prompt="å¯†ç åŒ…å«è¿žç»­é€’å¢žã€é€’å‡æˆ–é‡å¤çš„æ•°å­—ä¸ªæ•°éœ€å°äºŽæŒ‡å®šå€¼,è¯·é‡æ–°é€‰æ‹©å¯†ç "/>
+    <error id="PWD_NO_FUNDACCOUNT" value="1036" prompt="å¯†ç ä¸èƒ½å«èµ„äº§è´¦å·å†…å®¹ï¼Œè¯·é‡æ–°é€‰æ‹©å¯†ç "/>
+    <error id="PWD_DATATYPE_NUM_SMALL" value="1037" prompt="å¯†ç ä¸­åŒ…å«æ•°å­—ã€å¤§å°å†™å­—æ¯åŠç‰¹æ®Šå­—ç¬¦ç§ç±»æ•°ä¸èƒ½å°äºŽé™åˆ¶å¯†ç å€¼ï¼Œè¯·é‡æ–°é€‰æ‹©å¯†ç "/>
+    <error id="EXT_FUNDMENTAL_PERMIT" value="1038" prompt="ç³»ç»Ÿå½“å‰åªå…è®¸ä½¿ç”¨åŸºæœ¬äº¤æ˜“åŠŸèƒ½"/>
+    <error id="CLIENT_FORBID_ORDER" value="1039" prompt="å®¢æˆ·ä¸å…è®¸ä»¥æ­¤ç§å§”æ‰˜æ–¹å¼è¿›è¡Œä¸šåŠ¡å¤„ç†"/>
+    <error id="CLIENT_EXCHANGED" value="1040" prompt="å®¢æˆ·å·²è¢«ç½®æ¢ç»™å…¶å®ƒåˆ¸å•†"/>
+    <error id="CLIENT_ABNORMAL" value="1041" prompt="å®¢æˆ·çŠ¶æ€ä¸æ­£å¸¸"/>
+    <error id="FUNDACCOUNT_FROZEN" value="1042" prompt="èµ„äº§è´¦æˆ·å·²å†»ç»“"/>
+    <error id="FUNDACCOUNT_LOSS" value="1043" prompt="èµ„äº§è´¦æˆ·å·²æŒ‚å¤±"/>
+    <error id="FUNDACCOUNT_CANCEL" value="1044" prompt="èµ„äº§è´¦æˆ·å·²é”€æˆ·"/>
+    <error id="FUNDACCT_SLEEPED" value="1045" prompt="èµ„äº§è´¦æˆ·å·²ä¼‘çœ "/>
+    <error id="FUNDACCOUNT_ABNORMAL" value="1046" prompt="èµ„äº§è´¦æˆ·çŠ¶æ€ä¸æ­£å¸¸"/>
+    <error id="CLIENT_FORBID_DRAW" value="1047" prompt="å®¢æˆ·ç¦æ­¢å–æ¬¾"/>
+    <error id="CLIENT_FORBID_DEPOSIT" value="1048" prompt="å®¢æˆ·ç¦æ­¢å­˜æ¬¾"/>
+    <error id="PPB_RIGHT_UNQUALIFIED" value="1049" prompt="è¯·å…ˆå¼€é€šä¸šåŠ¡æƒé™"/>
+    <error id="BANKDIRECTION_INVALID" value="1050" prompt="å‘¨è¾¹é“¶è¡Œè½¬è´¦ä¸æ”¯æŒè¯¥è½¬è´¦"/>
+    <error id="BANKFUNCTION_UNDEFINED" value="1051" prompt="å‘¨è¾¹é“¶è¡Œè½¬è´¦ä¸æ”¯æŒæ­¤åŠŸèƒ½å·"/>
+    <error id="PARAM_NO_IN" value="1052" prompt="è¾“å…¥å‚æ•°ä¸­å­˜åœ¨å¿…è¾“å­—æ®µä¸ºç©º"/>
+    <error id="CANUSEFUND_NOTENOUGH" value="1053" prompt="å¯ç”¨èµ„é‡‘ä¸è¶³"/>
+    <error id="FUND_CANDRAW_NOENOUGH" value="1054" prompt="å¯å–èµ„é‡‘ä¸è¶³"/>
+    <error id="CANDRAWCASH_NOENOUGH" value="1055" prompt="å¯å–çŽ°é‡‘ä¸è¶³"/>
+    <error id="FUND_CANTRANS_NOENOUGH" value="1056" prompt="å¯åˆ’æ‹¨èµ„é‡‘ä¸è¶³"/>
+    <error id="ONE_DOWNLIMIT_VIOLATED" value="1057" prompt="é‡‘é¢ä¸èƒ½ä½ŽäºŽå•ç¬”ä¸‹é™"/>
+    <error id="BANKEXCH_BUSINESS_UNKNOWN" value="1058" prompt="ä¸æ”¯æŒä¸šåŠ¡"/>
+    <error id="BANKOPENFLAG_CLOSE" value="1059" prompt="è¯¥é“¶è¡Œä¸å¼€é€šæ­¤åŠŸèƒ½æˆ–å·²å…³é—­"/>
+    <error id="BANKEXCH_NOTEXCHDATE_NOTRANS" value="1060" prompt="ç³»ç»Ÿéžäº¤æ˜“æ—¥ï¼Œç¦æ­¢è½¬è´¦"/>
+    <error id="BANK_BUSINESS_CLOSE" value="1061" prompt="è¯¥é“¶è¡Œæœªå¼€é€šæˆ–æœªå¯ç”¨æ­¤ä¸šåŠ¡"/>
+    <error id="BANKEXCH_SOURCEFLAG_NOOPEN" value="1062" prompt="æ­¤å‘èµ·æ–¹æœªå¼€é€š"/>
+    <error id="FUND_BALANCE_MUSTPOSITIVE" value="1063" prompt="é‡‘é¢å¿…é¡»ä¸ºæ­£"/>
+    <error id="CLINET_NOCURRENCYID" value="1064" prompt="å®¢æˆ·æ— æ­¤å¸ç§"/>
+    <error id="OTHER_BANKTRANS_BANNED" value="1065" prompt="å®¢æˆ·ä¸ºå­˜ç®¡å®¢æˆ·ä¸å…è¡Œå¼€é€šå…¶å®ƒé“¶è¡Œè½¬è´¦"/>
+    <error id="BANKEXCH_BKTRUST_OTHERBANKLIMIT" value="1066" prompt="å®¢æˆ·ä¸ºå­˜ç®¡å®¢æˆ·ä¸å…è¡Œå…¶å®ƒé“¶è¡Œè½¬è´¦"/>
+    <error id="BANK_STATUS_ERR" value="1067" prompt="é“¶è¡Œè´¦æˆ·çŠ¶æ€é”™"/>
+    <error id="BANKEXCH_PREACCOUNT_CANNOTTRANS" value="1068" prompt="å­˜ç®¡é¢„æŒ‡å®šå®¢æˆ·ä¸å…è®¸é“¶è¡Œè½¬è´¦å­˜å–"/>
+    <error id="ID_NOT_MATCH" value="1069" prompt="è¯ä»¶å·ç ä¸ç¬¦"/>
+    <error id="ID_KIND_NOT_MATCH" value="1070" prompt="è¯ä»¶ç±»åž‹ä¸ç¬¦"/>
+    <error id="NAME_NOT_MATCH" value="1071" prompt="å§“åä¸ç¬¦"/>
+    <error id="BANKEXCH_INBALANCE_LIMIT" value="1072" prompt="è½¬å…¥é‡‘é¢è¶…å‡ºé™åˆ¶"/>
+    <error id="BANKEXCH_OUTBALANCE_LIMIT" value="1073" prompt="è½¬å‡ºé‡‘é¢è¶…å‡ºé™åˆ¶"/>
+    <error id="BANKEXCH_OUTTIMES_LIMIT" value="1074" prompt="è½¬å‡ºæ¬¡æ•°è¶…å‡ºé™åˆ¶"/>
+    <error id="BANKEXCH_OUTLOWERLIMIT" value="1075" prompt="è´¦æˆ·ä½™é¢ä¸èƒ½ä½ŽäºŽä¿åº•é‡‘é¢"/>
+    <error id="BANKEXCH_BALANCE_BANKLIMIT" value="1076" prompt="è½¬è´¦é‡‘é¢è¶…å‡ºé“¶è¡ŒæŽ¥å£é™åˆ¶"/>
+    <error id="BANKEXCH_PRECONTRACT_UNCERTAIN" value="1077" prompt="é¢„çº¦å–æ¬¾æµæ°´æœªç”Ÿæ•ˆ"/>
+    <error id="BANKEXCH_PRECONTRACT_NOMATCH" value="1078" prompt="é¢„çº¦æµæ°´ä¿¡æ¯ä¸ç¬¦"/>
+    <error id="BANKEXCH_PRECONTRACT_HAVEDRAW" value="1079" prompt="é¢„çº¦æµæ°´å·²å–æ¬¾"/>
+    <error id="BANKEXCH_PRECONTRACT_ERROR" value="1080" prompt="é¢„çº¦å–æ¬¾æµæ°´å·ä¸æ­£ç¡®"/>
+    <error id="FUND_PRECONTRACT_NEED" value="1081" prompt="è¶…å‡ºæœ€å¤§æ”¯å–é‡‘é¢ï¼Œè¯·é¢„çº¦åŽå†æ“ä½œ"/>
+    <error id="BANKEXCH_REPEATTIMELIMIT" value="1082" prompt="ä¸èƒ½åœ¨è®¾å®šçš„æ—¶é—´å†…é‡å¤å‘é€å§”æ‰˜è¯·æ±‚"/>
+    <error id="BANK_LIMIT_FUNC_CURRTIME" value="1083" prompt="æ­¤æ—¶é—´æ®µå†…é™åˆ¶è¿›è¡Œé“¶è¯ä¸šåŠ¡å¤„ç†"/>
+    <error id="BANK_REST" value="1084" prompt="é“¶è¡Œéžå·¥ä½œæ—¶é—´"/>
+    <error id="FETCHFORBID_EXIST_OPENACCT" value="1085" prompt="å½“å¤©å¸¦èµ„é‡‘å¼€æˆ·å½“å¤©ç¦æ­¢è½¬å–èµ„é‡‘"/>
+    <error id="BANKEXCH_BALANCEQUERY_NOPERMIT" value="1086" prompt="ä¸å…è®¸æŸ¥è¯¢é“¶è¡Œä½™é¢"/>
+    <error id="CONTRACTCODE_NOT_EXISTS" value="1087" prompt="åˆçº¦ä¸å­˜åœ¨"/>
+    <error id="NOTALLOW_OFFSET_TODAY" value="1088" prompt="éžä¸Šæµ·ã€èƒ½æºç¦æ­¢å¹³ä»Šä»“"/>
+    <error id="CONTRACT_STOP_NO" value="1089" prompt="åˆçº¦åœç‰Œ"/>
+    <error id="CONTRACT_PRICE_UNIT" value="1090" prompt="åˆçº¦äº¤æ˜“å•ä½é”™è¯¯"/>
+    <error id="CONTRACT_REPORT_UNIT" value="1091" prompt="åˆçº¦ç”³æŠ¥å•ä½é”™è¯¯"/>
+    <error id="INVALID_AMOUNT_PER_HAND" value="1092" prompt="æ— æ•ˆæ¯æ‰‹å¨æ•°"/>
+    <error id="FORBID_OPEN" value="1093" prompt="ç¦æ­¢å¼€ä»“"/>
+    <error id="FORBID_OFFSET" value="1094" prompt="ç¦æ­¢å¹³ä»“"/>
+    <error id="FORBID_OFFSET_TODAY" value="1095" prompt="ç¦æ­¢å¹³ä»Šä»“"/>
+    <error id="NOTFOUND_EXCHANGE_RATE" value="1096" prompt="æ²¡æœ‰æ‰¾åˆ°åˆçº¦å¯¹åº”çš„å³æœŸæ±‡çŽ‡"/>
+    <error id="PUBLIC_MAINACCOUNT_NOT_EXTSTS" value="1097" prompt="æœŸè´§ä¸»è´¦æˆ·ä¸å­˜åœ¨è¯¥äº¤æ˜“ç¼–ç "/>
+    <error id="EXCHANGEACCOUNTID_NOT_EXTSTS" value="1098" prompt="äº¤æ˜“æ‰€ä»£ç ä¸‹æŒ‡å®šç±»åž‹çš„äº¤æ˜“ç¼–ç ä¸å­˜åœ¨"/>
+    <error id="FUTUACCOUNT_STATUS_ABNORMAL" value="1099" prompt="æœŸè´§è´¦æˆ·çŠ¶æ€å¼‚å¸¸"/>
+    <error id="OUTOF_PRICE_BOUND" value="1100" prompt="è¶…è¿‡æ¶¨è·ŒåœèŒƒå›´"/>
+    <error id="NO_CURRENCYID" value="1101" prompt="æ— æ­¤å¸ç§"/>
+    <error id="DEFAULT_PASSWORD_LIMIT" value="1102" prompt="åˆå§‹å¯†ç ä¸èƒ½äº¤æ˜“"/>
+    <error id="EXCHANGEID_ILLEGAL" value="1103" prompt="äº¤æ˜“æ‰€ä»£ç éžæ³•"/>
+    <error id="INVALID_COMB_CONTRACT" value="1104" prompt="æ— æ•ˆçš„ç»„åˆåˆçº¦"/>
+    <error id="EXCHANGE_INIDATE" value="1105" prompt="äº¤æ˜“åˆå§‹åŒ–æ—¶é—´ä¸Žç³»ç»Ÿåˆå§‹åŒ–æ—¶é—´ä¸ç¬¦"/>
+    <error id="EXCHANG_STOP_FORBID_AMBITUS_WITHDRAW" value="1106" prompt="è¯¥äº¤æ˜“æ‰€è¢«è®¾ç½®æˆåœæ­¢çŠ¶æ€ï¼Œå½“å‰ç¦æ­¢å‘¨è¾¹ä¸‹å•"/>
+    <error id="NO_ALLOW_TRADE" value="1107" prompt="å½“å‰æ—¶æ®µä¸å…è®¸äº¤æ˜“"/>
+    <error id="ORDER_EXERCISE_AFTERHOURS" value="1108" prompt="æœªè®¾ç½®ç›˜åŽè¡Œæƒæ—¶é—´"/>
+    <error id="NOALLOW_WITHDRAW" value="1109" prompt="ä¸å…è®¸æ’¤å•"/>
+    <error id="FORBID_COMMON_ARBIORDER" value="1110" prompt="æ™®é€šåˆçº¦ç¦æ­¢å¥—åˆ©"/>
+    <error id="ORDERCOMMAND_ERR" value="1111" prompt="æŠ¥å•æŒ‡ä»¤æœ‰è¯¯"/>
+    <error id="OUTOF_ORDER_AMOUNT" value="1112" prompt="æŠ¥å•æ•°é‡è¶…å‡ºèŒƒå›´"/>
+    <error id="NO_WEAVE_TYPE" value="1113" prompt="ç»„åˆç±»åž‹éžæ³•"/>
+    <error id="FORBID_ARBIENTRUST_HEDGE" value="1114" prompt="ç»„åˆç±»åž‹ç¦æ­¢å¥—ä¿"/>
+    <error id="FORBID_ORDER_BS" value="1115" prompt="å®¢æˆ·ä¹°å–æ–¹å‘å—é™"/>
+    <error id="BILL_FLAG_CONFIRM" value="1116" prompt="è´¦å•æœªç¡®è®¤"/>
+    <error id="CODECLASS_RANGE" value="1117" prompt="å®¢æˆ·èµ„äº§è´¦å·æ— è¯¥åˆçº¦çš„äº¤æ˜“æƒé™"/>
+    <error id="NOALLOW_TRADE" value="1118" prompt="æ— æ­¤äº§å“ç±»åˆ«äº¤æ˜“æƒé™"/>
+    <error id="PRICE_ERR" value="1119" prompt="ä»·æ ¼é”™è¯¯"/>
+    <error id="ORDER_TODAYOPEN_LIMITAMOUNT" value="1120" prompt="å½“æ—¥å¼€ä»“æ•°é‡è¶…å‡ºé™ä»“æ•°é‡"/>
+    <error id="ORDER_CHECK_SELF_MATCH" value="1121" prompt="å½“å‰æŠ¥å•å­˜åœ¨å¯è‡ªæˆäº¤åœºæ™¯"/>
+    <error id="CHECK_MINPRICEDIFF_LOST" value="1122" prompt="æ ¡éªŒæœ€å°ä»·å·®å¤±è´¥"/>
+    <error id="ARBITCODE_NOT_MATCH_ENTRUSTPROP" value="1123" prompt="ç»„åˆç±»åž‹å’Œå¥—åˆ©åˆçº¦ä»£ç ä¸åŒ¹é…"/>
+    <error id="NOT_FUTURIGHT" value="1124" prompt="åˆçº¦ä»£ç éžæœŸæƒäº§å“"/>
+    <error id="OPT_UNDERLYING_CODE_NOTCONSISTENT" value="1125" prompt="ä¸¤è…¿æœŸæƒåˆçº¦çš„æ ‡çš„åˆçº¦ç›¸åŒ"/>
+    <error id="OPT_FOPTTYPE_CALL" value="1126" prompt="æœŸæƒç»„åˆç±»åž‹ï¼Œç¬¬ä¸€è…¿å¿…é¡»æ˜¯çœ‹æ¶¨æœŸæƒ"/>
+    <error id="OPT_SECONED_LEG_BEARISH" value="1127" prompt="æœŸæƒç»„åˆç±»åž‹ï¼Œç¬¬äºŒè…¿å¿…é¡»æ˜¯çœ‹è·ŒæœŸæƒ"/>
+    <error id="OPT_BOTHLEGS_MUST_SAMEPRICE" value="1128" prompt="ä¸¤è…¿æ‰§è¡Œä»·å¿…é¡»ç›¸åŒ"/>
+    <error id="OPT_BOTHLEGS_MUST_DIFFPRICE" value="1129" prompt="çœ‹æ¶¨æœŸæƒæ‰§è¡Œä»·å¿…é¡»å¤§äºŽçœ‹è·ŒæœŸæƒæ‰§è¡Œä»·"/>
+    <error id="NO_IN_WITHDRAW" value="1130" prompt="æ’¤å•å·éžæ³•"/>
+    <error id="NOT_FOUND_BY_CONFIRM_NO" value="1131" prompt="æ‰¾ä¸åˆ°å§”æ‰˜å·å¯¹åº”çš„å§”æ‰˜è®°å½•"/>
+    <error id="INOPERABLE_QUOTEDERIVE" value="1132" prompt="ä¸èƒ½æ“ä½œè¡ç”ŸæŠ¥å•"/>
+    <error id="CANNOT_WITHDRAW" value="1133" prompt="è¯¥æŠ¥å•ä¸å¯æ’¤"/>
+    <error id="OLD_ORDER_FUND_ACCOUNT_MISMACTH" value="1134" prompt="å¾…æ’¤æŠ¥å•éžå½“å‰å®¢æˆ·æ‰€ä¸‹"/>
+    <error id="OFCOUNTEROP_FORBID_RIM_WITHDRAW" value="1135" prompt="å‘¨è¾¹ä¸å…è®¸æ’¤é”€æŸœå°çš„å§”æ‰˜"/>
+    <error id="FORBID_AMBITUS_WITHDRAW_TO_PATCH" value="1136" prompt="æŠ¥å•è¡¥å•ä¸å…è®¸å‘¨è¾¹æ’¤å•"/>
+    <error id="FORBID_AMBITUS_WITHDRAW_TO_FORCE" value="1137" prompt="å¼ºå¹³æŠ¥å•ä¸å…è®¸å‘¨è¾¹æ’¤å•"/>
+    <error id="ORDER_STATUS_FORBID_WITHDRAW" value="1138" prompt="å¾…æ’¤å•å§”æ‰˜çš„å½“å‰å§”æ‰˜çŠ¶æ€ä¸å…è®¸è¢«æ’¤å•"/>
+    <error id="FORBID_EXERCISE_WITHDRAW_NOW" value="1139" prompt="å½“å‰æ—¶æ®µä¸å…è®¸è¡Œæƒæ’¤å•"/>
+    <error id="PARKEDORDER_NOT_SUPPORT" value="1140" prompt="ä¸æ”¯æŒæœªæŠ¥é¢„åŸ‹å•"/>
+    <error id="BRIGHTS_TYPE_INVAILD" value="1141" prompt="ä¹°æ–¹æƒåˆ©ç”³è¯·ç±»åž‹æœ‰è¯¯"/>
+    <error id="CLOSE_TYPE_ERR" value="1142" prompt="å¹³ä»“ç±»åž‹é”™è¯¯"/>
+    <error id="EXPIREDATE_INVAILD" value="1143" prompt="æœŸæƒåˆçº¦å·²è¿‡æœ€åŽäº¤æ˜“æ—¥"/>
+    <error id="EUROPEAN_EXERCISEDATE_INVAILD" value="1144" prompt="æ¬§å¼æœŸæƒè¡Œæƒæ—¥ä¸ºæœ€åŽäº¤æ˜“æ—¥"/>
+    <error id="CZCE_GIVEUPDATE_INVAILD" value="1145" prompt="éƒ‘å·žæœŸæƒéžæœ€åŽäº¤æ˜“æ—¥ä¸èƒ½æ”¾å¼ƒè¡Œæƒ"/>
+    <error id="CFFEX_APPLICATION_INVAILD" value="1146" prompt="ä¸­é‡‘æ‰€ä¸éœ€è¦ææ‰§è¡Œç”³è¯·"/>
+    <error id="LESS_ENABLE_HOLD" value="1147" prompt="å¯ç”¨æŒä»“ä¸è¶³"/>
+    <error id="INVALID_ORDER_BALANCE" value="1148" prompt="æ— æ•ˆå§”æ‰˜ä¿è¯é‡‘"/>
+    <error id="INVALID_ORDER_PREMIUM" value="1149" prompt="æ— æ•ˆå§”æ‰˜æƒåˆ©é‡‘"/>
+    <error id="NONDUEDATE_PROHIBIT_EXERCISE_CANCLE" value="1150" prompt="éžåˆ°æœŸæ—¥ç›˜åŽç¦æ­¢è¡Œæƒ"/>
+    <error id="OFBAN_NOT_CONTINUOUS_TRADING" value="1151" prompt="äº¤æ˜“æ‰€çŠ¶æ€éžè¿žç»­äº¤æ˜“çŠ¶æ€ç¦æ­¢ä¸‹å•"/>
+    <error id="NO_FUTURIGHT_BUSINESS" value="1152" prompt="æ²¡æœ‰å¼€é€šæœŸæƒä¸šåŠ¡"/>
+    <error id="CONFIG_VALUE_ERR" value="1153" prompt="é…ç½®å¼€å…³ä¸å­˜åœ¨"/>
+    <error id="SUB_ERR" value="1154" prompt="è®¢é˜…å¤±è´¥"/>
+    <error id="UNSUB_ERR" value="1155" prompt="é€€è®¢å¤±è´¥"/>
+    <error id="FASTAPI_NO_OPEN" value="1156" prompt="æžé€ŸAPIç›¸å…³åŠŸèƒ½æœªå¼€å¯"/>
+    <error id="OPT_TRADEDATE_INVALID" value="1157" prompt="æœŸæƒäº¤æ˜“æ—¥æœŸä¸åœ¨æœ‰æ•ˆæœŸå†…"/>
+    <error id="OPT_EXERCISEDATE_INVALID" value="1158" prompt="æœŸæƒè¡Œæƒæ—¥æœŸä¸åœ¨æœ‰æ•ˆæœŸå†…"/>
+    <error id="OPT_MARGIN_NOTENOUGH" value="1159" prompt="æœŸæƒå¯ç”¨ä¿è¯é‡‘ä¸è¶³"/>
+    <error id="USER_EXCHSTATUSSTOP" value="1160" prompt="è¯åˆ¸äº¤æ˜“çŠ¶æ€åœæ­¢"/>
+    <error id="CURRTIMENOALLOW_TRADE" value="1161" prompt="å½“å‰æ—¶é—´ä¸å…è®¸æ­¤ç±»è¯åˆ¸äº¤æ˜“"/>
+    <error id="ORDER_TIME_ERR" value="1162" prompt="å½“å‰æ—¶é—´ä¸å…è®¸æŠ¥å•"/>
+    <error id="NOT_USE_THIS_APP_TYPE" value="1163" prompt="è¯¥åˆçº¦ä¸å…è®¸ä½¿ç”¨æ­¤æŠ•èµ„è€…ç«¯åº”ç”¨ç±»åˆ«æŠ¥å•"/>
+    <error id="MARKET_PRICE_NO_CAL_AMOUNT" value="1164" prompt="å¸‚ä»·ä¸º0ï¼Œæ— æ³•è®¡ç®—å¯ä¹°æ•°é‡"/>
+    <error id="SUSPENSION_ORDER_NOTALLOWED" value="1165" prompt="å½“å‰æ—¶é—´ä¸å…è®¸åœç‰ŒæŠ¥å•"/>
+    <error id="ENTRUSTPROP_STOCKTYPE_NOTMATCH" value="1166" prompt="å§”æ‰˜å±žæ€§è¯åˆ¸ç±»åˆ«ä¸ç¬¦"/>
+    <error id="STKTATUS_ENTRUST_FORBID" value="1167" prompt="è¯¥è¯åˆ¸çŠ¶æ€ä¸å…è®¸å§”æ‰˜"/>
+    <error id="OPT_VERTICAL_NOT_COMB" value="1168" prompt="åˆçº¦ä¸èƒ½è¿›è¡Œåž‚ç›´ä»·å·®ç­–ç•¥çš„ç»„åˆ"/>
+    <error id="OPT_ZBD_NOT_SPLIT" value="1169" prompt="è®¤è´­æœŸæƒæ™®é€šå–å¼€è½¬å¤‡å…‘ç­–ç•¥ä¸æ”¯æŒæ‹†åˆ†"/>
+    <error id="OPT_OPTCOMBID_MUST_NULL" value="1170" prompt="ç»„åˆæ—¶ç»„åˆç¼–ç å¿…é¡»ä¸ºç©º"/>
+    <error id="OPT_COMB_CHECKLIMIT_ERR" value="1171" prompt="æœŸæƒåˆçº¦ç»„åˆç­–ç•¥é™åˆ¶æ ¡éªŒå¤±è´¥"/>
+    <error id="OPT_VERTSPLIT_CHECKDATE_ERR" value="1172" prompt="åˆçº¦åž‚ç›´ä»·å·®ç­–ç•¥è§£é™¤æ—¥æœŸæ ¡éªŒå¤±è´¥"/>
+    <error id="OPT_ZXJ_NOT_COMB" value="1173" prompt="å¤‡å…‘å¼€ä»“è½¬ä¿è¯é‡‘å¼€ä»“ä¸æ”¯æŒç»„åˆ"/>
+    <error id="OPT_PUT_ZXJ_FORBID_ORDER" value="1174" prompt="ä¸€çº§æŠ•èµ„è€…ä¸å…è®¸å¤‡å…‘å¼€ä»“è½¬ä¿è¯é‡‘å¼€ä»“"/>
+    <error id="OPT_COMB_ORDER_AMOUNT_INVALID" value="1175" prompt="ç»„åˆæ‹†åˆ†æŠ¥å•æ•°é‡ä¸åˆæ³•"/>
+    <error id="LOGIN_UNBINDSTATION_ERR" value="1176" prompt="å®¢æˆ·å·²ç»‘å®šæŒ‡å®šç«™ç‚¹ï¼Œæœªè¿›è¡Œç»‘å®šçš„ç«™ç‚¹ä¸èƒ½ç™»å½•"/>
+    <error id="LOGIN_PWDWRONGLIM_ERR" value="1177" prompt="ç¦æ­¢ç™»å½•ï¼Œé€šè¿‡æŒ‡å®šç»‘å®šç«™ç‚¹ç™»å½•çš„å¯†ç é”™è¯¯æ¬¡æ•°è¶…è¿‡ç³»ç»Ÿæœ€å¤§é™å®šå€¼"/>
+    <error id="ERR_USER_OPTEXCHSTATUSSTOP" value="1178" prompt="æœŸæƒäº¤æ˜“çŠ¶æ€åœæ­¢"/>
+    <error id="ERR_USER_OPTEXCHNOINIT" value="1179" prompt="æœŸæƒäº¤æ˜“æœªåˆå§‹åŒ–"/>
+    <error id="PWD_MODI_NOTALLOW" value="1180" prompt="å‘¨è¾¹ä¸å…è®¸ä¿®æ”¹äº¤æ˜“å¯†ç "/>
+    <error id="ORDER_PRICE_MUST_GREAT_ZERO" value="1181" prompt="æŠ¥å•ä»·æ ¼è¦å¤§äºŽ0"/>
+    <error id="NOT_ALLOW_WITHDARW_AGAIN" value="1182" prompt="ä¸å…è®¸é‡å¤æ’¤å•"/>
+    <error id="OVER_RIGHT_HOLD_QUOTA" value="1183" prompt="è¶…å‡ºæƒåˆ©ä»“æŒä»“é™é¢"/>
+    <error id="OVER_TOTAL_HOLD_QUOTA" value="1184" prompt="è¶…å‡ºæ€»æŒä»“é™é¢"/>
+    <error id="OVER_PUR_QUOTA" value="1185" prompt="è¶…å‡ºæœ€å¤§ä¹°å…¥é¢åº¦"/>
+    <error id="OPT_STOCKCODE_CHECK_FAIL" value="1186" prompt="æˆä»½åˆçº¦æ ‡çš„ä¿¡æ¯æ ¡éªŒé”™è¯¯"/>
+    <error id="OPT_OPTHOLDTYPE_NOT_MATCH" value="1187" prompt="æˆä»½åˆçº¦æŒä»“ç±»åˆ«ä¸Žç»„åˆç­–ç•¥ä¿¡æ¯ä¸ä¸€è‡´"/>
+    <error id="OPT_ENDDATE_CHECK_FAIL" value="1188" prompt="æˆä»½åˆçº¦åˆ°æœŸæ—¥æ ¡éªŒé”™è¯¯"/>
+    <error id="OPT_EXERCISEPRICE_CHECK_FAIL" value="1189" prompt="æˆä»½åˆçº¦è¡Œæƒä»·æ£€éªŒé”™è¯¯"/>
+    <error id="OPT_AMOUNTPERHAND_CHECK_FAIL" value="1190" prompt="æˆä»½åˆçº¦åˆçº¦å•ä½æ ¡éªŒé”™è¯¯"/>
+    <error id="OPT_COMPONENTCOUNT_NOT_MATCH" value="1191" prompt="æˆä»½åˆçº¦æ•°é‡ä¸Žç»„åˆç­–ç•¥ä¿¡æ¯ä¸ä¸€è‡´"/>
+    <error id="OPT_OPTIONTYPE_NOT_MATCH" value="1192" prompt="æˆä»½åˆçº¦ç§ç±»ä¸Žç»„åˆç­–ç•¥ä¿¡æ¯ä¸ä¸€è‡´"/>
+    <error id="OPTIONNOTALLOW_OPEN" value="1193" prompt="è¯¥æœŸæƒä¸å…è®¸å¼€ä»“ä¸šåŠ¡"/>
+    <error id="OPTLEVELNOTALLOW_TRADE" value="1194" prompt="è¯¥æŠ•èµ„è€…åˆ†çº§ä¸å…è®¸æ­¤ä¸šåŠ¡"/>
+    <error id="BLACKLIST_TRADE_NOTALLOWED" value="1195" prompt="é»‘åå•ä¸å…è®¸åšäº¤æ˜“"/>
+    <error id="SHORT_FOR_UNLOCK" value="1196" prompt="å¯è§£é”è‚¡ä»½æ•°é‡ä¸è¶³"/>
+    <error id="ASSET_RTE_QUOTA_NOTENOUGH" value="1197" prompt="å®¢æˆ·T+0è‚¡ç¥¨å–å‡ºå¯å–é¢åº¦ä¸è¶³"/>
+    <error id="NOALLOW_MARKET_ORDER" value="1198" prompt="å®¢æˆ·å¿…é¡»æœ‰å¸‚ä»·å§”æ‰˜æƒé™æ‰èƒ½å…è®¸å¸‚ä»·å§”æ‰˜"/>
+    <error id="EXIST_OPT_RESTRICTION" value="1199" prompt="å®¢æˆ·å­˜åœ¨æœŸæƒé™åˆ¶æŽ§åˆ¶ï¼Œä¸å…è®¸å§”æ‰˜"/>
+    <error id="BFARE_OVER_ERROR" value="1200" prompt="å–å‡ºå¯èŽ·å¾—èµ„é‡‘å°äºŽé¢„è®¡è´¹ç”¨,å¯èƒ½ä¼šå‘ç”Ÿé€æ”¯,ä¸å…è®¸å§”æ‰˜"/>
+    <error id="PWD_TYPE_MISMATCH" value="1201" prompt="å¯†ç ç±»åž‹é”™è¯¯"/>
+    <error id="OPTEXERCISEENTRUST_NOTALLOW_COVEREDFLAG" value="1202" prompt="æœŸæƒè¡ŒæƒæŠ¥å•ä¸å…è®¸å¸¦ä¸Šå¤‡å…‘æ ‡å¿—"/>
+    <error id="ORDER_AMOUNT_ERR" value="1203" prompt="æŠ¥å•æ•°é‡æ“å‡ºèŒƒå›´"/>
+    <error id="NO_ACCOUNT" value="1204" prompt="æ— æ­¤è´¦å·"/>
+    <error id="SYS_INIT_TIME" value="1205" prompt="ç³»ç»Ÿåˆå§‹åŒ–æ—¶é—´éžå½“æ—¥"/>
+    <error id="CHECK_UNIT_LOST" value="1206" prompt="æ ¡éªŒå§”æ‰˜ä¹°å…¥å•ä½,å–å‡ºå•ä½å¤±è´¥"/>
+    <error id="OVER_TOTAL_OGE_TIMES" value="1207" prompt="è¯¢ä»·æ¬¡æ•°è¶…è¿‡ä¸Šé™"/>
+    <error id="BANK_NOT_INIT" value="1208" prompt="é“¶è¡Œæœªåˆå§‹åŒ–"/>
+    <error id="BANK_STATUS_STOP" value="1209" prompt="é“¶è¡ŒçŠ¶æ€åœæ­¢"/>
+    <error id="HAVE_RESTRICTION" value="1210" prompt="æœ‰è‚¡ä¸œé™åˆ¶"/>
+    <error id="STOCK_CANUSEAMT_NOTENOUGH" value="1211" prompt="è¯åˆ¸å¯ç”¨æ•°é‡ä¸è¶³"/>
+    <error id="STOCKHOLDERCTRL_FROZEN" value="1212" prompt="è¯åˆ¸è´¦æˆ·å·²å†»ç»“"/>
+    <error id="STOCKHOLDERCTRL_LOSS" value="1213" prompt="è¯åˆ¸è´¦æˆ·å·²æŒ‚å¤±"/>
+    <error id="STOCKHOLDERCTRL_ABNORMAL" value="1214" prompt="è¯åˆ¸è´¦æˆ·çŠ¶æ€ä¸æ­£å¸¸"/>
+    <error id="FUNDTRUNSTEE_NOTEXIST_FORBID" value="1215" prompt="èµ„é‡‘è´¦æˆ·æœªå¼€é€šé“¶è¡è½¬è´¦ï¼Œä¸å…è®¸æœŸæƒäº¤æ˜“"/>
+    <error id="ENTRUSTAMOUNT_OVERFLOW" value="1216" prompt="æœ€é«˜æŠ¥å•æ•°é‡ï¼Œæœ€ä½ŽæŠ¥å•æ•°é‡åˆæ³•æ€§æ ¡éªŒå¤±è´¥"/>
+    <error id="NOT_BIND_ADDRESS" value="1217" prompt="éžç»‘å®šåœ°å€ç¦æ­¢ç™»å½•"/>
+    <error id="ADDRESS_LOCK_ERROR" value="1218" prompt="è¯¥åœ°å€å·²ç»è¢«é”å®šä¸èƒ½ç™»å½•"/>
+    <error id="ADDRESS_SUM_LIMIT" value="1219" prompt="è´¦å·ç™»å½•åœ°å€ä¸ªæ•°è¶…è¿‡é™åˆ¶"/>
+    <error id="BATCHOPERATION_NOTALLOWED" value="1220" prompt="å½“å‰æ—¶é—´ä¸å…è®¸æ‰¹é‡æ“ä½œ"/>
+    <error id="LOCK_NOTENOUGH" value="1221" prompt="å¯é”å®šè‚¡ä»½æ•°é‡ä¸è¶³"/>
 </errors>

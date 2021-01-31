@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright 2016 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -895,12 +895,12 @@ _OesClientApi_HandleReportMsg(OesApiSessionInfoT *pSessionInfo,
     SLOG_ASSERT(pSessionInfo && pMsgHead && pMsgBody);
     SLOG_ASSERT(pSpi);
 
-	//cout << "@order corresponde" << pMsgHead->msgId << endl;
-	//printf("msgId: %d", pMsgHead->msgId);
+    //cout << "@order corresponde" << pMsgHead->msgId << endl;
+    //printf("msgId: %d", pMsgHead->msgId);
 
     switch (pMsgHead->msgId) {
     case OESMSG_RPT_ORDER_INSERT:
-		//cout << "@OnOrderInsert" << endl;/* OES委托已生成 (已通过风控检查) @see OesOrdCnfmT */
+        //cout << "@OnOrderInsert" << endl;/* OES委托已生成 (已通过风控检查) @see OesOrdCnfmT */
         pSpi->OnOrderInsert(&pRptMsg->rptHead,
                 &pRptMsg->rptBody.ordInsertRsp);
         break;
@@ -911,14 +911,14 @@ _OesClientApi_HandleReportMsg(OesApiSessionInfoT *pSessionInfo,
         break;
 
     case OESMSG_RPT_ORDER_REPORT:                           /* 交易所委托回报 (包括交易所委托拒绝、委托确认和撤单完成通知) @see OesOrdCnfmT */
-		//cout << "@OnOrderReport" << endl;
-		pSpi->OnOrderReport(&pRptMsg->rptHead,
+        //cout << "@OnOrderReport" << endl;
+        pSpi->OnOrderReport(&pRptMsg->rptHead,
                 &pRptMsg->rptBody.ordCnfm);
         break;
 
     case OESMSG_RPT_TRADE_REPORT:                           /* 交易所成交回报 @see OesTrdCnfmT */
-		//cout << "@OnTradeReport" << endl;
-		pSpi->OnTradeReport(&pRptMsg->rptHead,
+        //cout << "@OnTradeReport" << endl;
+        pSpi->OnTradeReport(&pRptMsg->rptHead,
                 &pRptMsg->rptBody.trdCnfm);
         break;
 
@@ -967,7 +967,7 @@ _OesClientApi_HandleReportMsg(OesApiSessionInfoT *pSessionInfo,
         break;
 
     case OESMSG_SESS_TEST_REQUEST:                          /* 测试请求消息 */
-		SLOG_DEBUG(">>> Recv test-request response message.");
+        SLOG_DEBUG(">>> Recv test-request response message.");
         break;
 
     case OESMSG_RPT_REPORT_SYNCHRONIZATION:                 /* 回报同步的应答消息 @see OesReportSynchronizationRspT */
@@ -1058,7 +1058,7 @@ _OesClientApi_HandleOrderChannelRsp(OesApiSessionInfoT *pSessionInfo,
 int32
 OesClientApi::SendOrder(const OesOrdReqT *pOrderReq) {
     int32                   ret = 0;
-	// TODO 中文
+    // TODO 中文
     ret = OesAsyncApi_SendOrderReq(_pDefaultOrdChannel, pOrderReq);
     if (__spk_unlikely(ret < 0)) {
         if (__spk_unlikely(SPK_IS_NEG_EINVAL(ret))) {
@@ -1073,7 +1073,7 @@ OesClientApi::SendOrder(const OesOrdReqT *pOrderReq) {
         return ret;
     }
 
-	return ret;
+    return ret;
 }
 
 

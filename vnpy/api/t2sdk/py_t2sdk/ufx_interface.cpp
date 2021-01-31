@@ -147,12 +147,12 @@ void c_IF2Packer::Release()
 
 c_IF2UnPacker::c_IF2UnPacker(char* lpBuffer,int iLen)
 {
-	//printf("³õÊ¼»¯,%d\n",iLen);
+	//printf("åˆå§‹åŒ–,%d\n",iLen);
 	lpBuf = malloc(iLen);
 	memcpy(lpBuf,(void*)lpBuffer,iLen);
 	lpUnPacker = NewUnPacker(lpBuf,iLen);
 	if(lpUnPacker == NULL)
-		printf("³õÊ¼»¯Ê§°Ü,%d\n",iLen);
+		printf("åˆå§‹åŒ–å¤±è´¥,%d\n",iLen);
 	lpUnPacker->AddRef();
 	bRelease = true;
 }
@@ -849,7 +849,7 @@ void c_SubCallBack::OnReceived(CSubscribeInterface *lpSub,int subscribeIndex, co
 {
 	if (lpData == NULL || nLength <= 0)
 	{
-		printf("Ö÷ÍÆÊý¾ÝÖ¸ÕëÎª¿Õ\n");
+		printf("ä¸»æŽ¨æ•°æ®æŒ‡é’ˆä¸ºç©º\n");
 		return;
 	}
 	CSubCalBackPara * lpPara = new CSubCalBackPara();
@@ -1457,7 +1457,7 @@ int c_CConnectionInterface::RecvBizMsg(int hSend, c_IBizMessage* lpMsg, unsigned
 	IBizMessage* lpBizMsg = lpMsg->GetInstance();
 	IBizMessage* lpRecv = NULL;
 	int iRet = lpConnect->RecvBizMsg(hSend,&lpRecv,uiTimeout,uiFlag);
-	if (iRet == 0 && lpRecv != NULL) //Èç¹û½ÓÊÕ³É¹¦
+	if (iRet == 0 && lpRecv != NULL) //å¦‚æžœæŽ¥æ”¶æˆåŠŸ
 	{
 		int iLen = 0;
 		void * lpBuf = lpRecv->GetBuff(iLen);

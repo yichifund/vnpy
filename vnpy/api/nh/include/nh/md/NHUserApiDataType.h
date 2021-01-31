@@ -1,9 +1,9 @@
 /*************************
-*ÕªÒª£ºÄÏ»ªÆÚ»õ½»Ò×ÏµÍ³
-*ÎÄ¼ş£ºNhUserApiDataType.h
-*      ¶¨ÒåÁË¿Í»§¶Ë½Ó¿ÚÊı¾İÀàĞÍ
-*×÷Õß£ºÄÏ»ªÆÚ»õÈí¼ş²¿
-*Ê±¼ä£º20130604
+*æ‘˜è¦ï¼šå—åæœŸè´§äº¤æ˜“ç³»ç»Ÿ
+*æ–‡ä»¶ï¼šNhUserApiDataType.h
+*      å®šä¹‰äº†å®¢æˆ·ç«¯æ¥å£æ•°æ®ç±»å‹
+*ä½œè€…ï¼šå—åæœŸè´§è½¯ä»¶éƒ¨
+*æ—¶é—´ï¼š20130604
 **************************/
 
 #ifndef __NH_USERAPI_DATATYPE_H__
@@ -17,691 +17,691 @@ enum TE_RESUME_TYPE
 };
 
 /////////////////////////////////////////////////////////////////////////////////
-//´íÎóºÅÀàĞÍ(0-±íÊ¾³É¹¦)£¬´íÎóºÅ¶¨Òå²Î¼ûProtocol_Error.h
+//é”™è¯¯å·ç±»å‹(0-è¡¨ç¤ºæˆåŠŸ)ï¼Œé”™è¯¯å·å®šä¹‰å‚è§Protocol_Error.h
 typedef int						TErrorCodeType;
-//³É¹¦
+//æˆåŠŸ
 const TErrorCodeType			ERROR_SUCCEED					= 0;
-//´íÎóÏûÏ¢ÀàĞÍ
+//é”™è¯¯æ¶ˆæ¯ç±»å‹
 typedef char TErrorMessageType[56];
 
 /////////////////////////////////////////////////////////////////////////////////
-//ÈÕÆÚºÍÊ±¼äÀàĞÍ(¸ñÊ½ yyyy-MM-dd hh:nn:ss)
+//æ—¥æœŸå’Œæ—¶é—´ç±»å‹(æ ¼å¼ yyyy-MM-dd hh:nn:ss)
 typedef char					TDateTimeType[21];
-//ÈÕÆÚÀàĞÍ(¸ñÊ½ yyyy-MM-dd)
+//æ—¥æœŸç±»å‹(æ ¼å¼ yyyy-MM-dd)
 typedef char					TDateType[11];
-//Ê±¼äÀàĞÍ(¸ñÊ½ hh:nn:ss)
+//æ—¶é—´ç±»å‹(æ ¼å¼ hh:nn:ss)
 typedef char					TTimeType[11];
-//Ê±¼äÁĞ±íÀàĞÍ(¸ñÊ½ hh:nn:ss)
+//æ—¶é—´åˆ—è¡¨ç±»å‹(æ ¼å¼ hh:nn:ss)
 typedef char					TTimeListType[512];
-//longĞÍÊ±¼äÀàĞÍ(µ¥Î»ÎªÃë)
+//longå‹æ—¶é—´ç±»å‹(å•ä½ä¸ºç§’)
 typedef long TLongTimeType;
 
 /////////////////////////////////////////////////////////////////////////
-///Äê·İÀàĞÍ
+///å¹´ä»½ç±»å‹
 typedef int TYearType;
 
 /////////////////////////////////////////////////////////////////////////
-///ÔÂ·İÀàĞÍ
+///æœˆä»½ç±»å‹
 typedef int TMonthType;
 
 /////////////////////////////////////////////////////////////////////////
-///ºÁÃëÀàĞÍ
+///æ¯«ç§’ç±»å‹
 typedef int TMillisecType;
 
 ////////////////////////////////////////////////////////////////////////////////
-//ĞĞÇéÊıÁ¿ÀàĞÍ(ĞĞÇéÖĞ¿ÉÄÜ»áÉæ¼°µ½¹ÉÆ±³ıÈ¨µÄÎÊÌâ£¬ËùÒÔ»áÓĞĞ¡Êı³öÏÖ)
+//è¡Œæƒ…æ•°é‡ç±»å‹(è¡Œæƒ…ä¸­å¯èƒ½ä¼šæ¶‰åŠåˆ°è‚¡ç¥¨é™¤æƒçš„é—®é¢˜ï¼Œæ‰€ä»¥ä¼šæœ‰å°æ•°å‡ºç°)
 typedef double TMdVolumeType;
-//ÊıÁ¿ÀàĞÍ
+//æ•°é‡ç±»å‹
 typedef long TVolumeType;
-//¼Û¸ñÀàĞÍ
+//ä»·æ ¼ç±»å‹
 typedef double TPriceType;
-//½ğ¶îÀàĞÍ
+//é‡‘é¢ç±»å‹
 typedef double TMoneyType;
-//IntĞÍ±£Áô×Ö¶ÎÀàĞÍ
+//Intå‹ä¿ç•™å­—æ®µç±»å‹
 typedef int TSaveIntType;
-//DoubleĞÍ±£Áô×Ö¶ÎÀàĞÍ
+//Doubleå‹ä¿ç•™å­—æ®µç±»å‹
 typedef double TSaveDoubleType;
-//StringĞÍ±£Áô×Ö¶ÎÀàĞÍ
+//Stringå‹ä¿ç•™å­—æ®µç±»å‹
 typedef char TSaveStringType[256];
-//ÕÇµø·ùÀàĞÍ
+//æ¶¨è·Œå¹…ç±»å‹
 typedef double TRangeType;
-//ĞéÊµ¶ÈÀàĞÍ
+//è™šå®åº¦ç±»å‹
 typedef double TDeltaType;
-//ĞĞÇéÀ´Ô´ÀàĞÍ
+//è¡Œæƒ…æ¥æºç±»å‹
 typedef char TMdSourceType[56];
 
 /////////////////////////////////////////////////////////////////////////////////
-//Ã¿ÊÖºÏÔ¼³ËÊıÀàĞÍ(ÃÀ¹ú¹úÕ®ÊÇĞ¡Êı,LIFFEĞ¡»Æ½ğĞ¡Êı)
+//æ¯æ‰‹åˆçº¦ä¹˜æ•°ç±»å‹(ç¾å›½å›½å€ºæ˜¯å°æ•°,LIFFEå°é»„é‡‘å°æ•°)
 typedef double					TProductDotType;
-//×îĞ¡±ä¶¯¼Û·Ö×ÓÀàĞÍ
+//æœ€å°å˜åŠ¨ä»·åˆ†å­ç±»å‹
 typedef double					TUpperTickType;
-//×îĞ¡±ä¶¯¼Û·ÖÄ¸ÀàĞÍ(·Ç·ÖÊı±¨¼ÛÎª1)
+//æœ€å°å˜åŠ¨ä»·åˆ†æ¯ç±»å‹(éåˆ†æ•°æŠ¥ä»·ä¸º1)
 typedef int						TLowerTickType;
 
 ////////////////////////////////////////////////////////////////////////////////
-//µÇÂ½»úÆ÷ĞÅÏ¢£¬Ö÷Òª°üÀ¨macµØÖ·
+//ç™»é™†æœºå™¨ä¿¡æ¯ï¼Œä¸»è¦åŒ…æ‹¬macåœ°å€
 typedef char					TMachineInfoType[201];
-//ÑéÖ¤·şÎñÆ÷µÄÔ¤ÁôĞÅÏ¢
+//éªŒè¯æœåŠ¡å™¨çš„é¢„ç•™ä¿¡æ¯
 typedef char					TResveredInfoType[256];
-//ÉÏ´ÎµÇÂ¼»úÆ÷ĞÅÏ¢
+//ä¸Šæ¬¡ç™»å½•æœºå™¨ä¿¡æ¯
 typedef char					TWorkstationInfoType[256];
 
 /////////////////////////////////////////////////////////////////////////
-///¶©ÔÄ¹æÔòÀàĞÍ
+///è®¢é˜…è§„åˆ™ç±»å‹
 typedef char TRouteKeyType[100][56];
 
 /////////////////////////////////////////////////////////////////////////////////
-//IpµØÖ·ÀàĞÍ(ipv4×î´ó15Î»,ipv6×î´ó³¤¶È39Î»)
+//Ipåœ°å€ç±»å‹(ipv4æœ€å¤§15ä½,ipv6æœ€å¤§é•¿åº¦39ä½)
 typedef char					TIpType[41];
 /////////////////////////////////////////////////////////////////////////////////
-//MacµØÖ·ÀàĞÍ
+//Macåœ°å€ç±»å‹
 typedef char					TMacAddressType[51];
 
 ////////////////////////////////////////////////////////////////////////////////
-//ĞòºÅÀàĞÍ
+//åºå·ç±»å‹
 typedef int TSequenceIDType;
-//ÏìÓ¦´úÂë´úÂëÀàĞÍ
+//å“åº”ä»£ç ä»£ç ç±»å‹
 typedef int TRspCodeType;
-//ÏìÓ¦ÎÄ±¾ÀàĞÍ
+//å“åº”æ–‡æœ¬ç±»å‹
 typedef char TRspStringType[56];
 
 ////////////////////////////////////////////////////////////////////////////////
-//·şÎñÆ÷IDÀàĞÍ
+//æœåŠ¡å™¨IDç±»å‹
 typedef int TServerIDType;
-//·şÎñÆ÷Ãû³ÆÀàĞÍ
+//æœåŠ¡å™¨åç§°ç±»å‹
 typedef char TServerNameType[56];
-//½»Ò×ËùÁĞ±íÀàĞÍ
+//äº¤æ˜“æ‰€åˆ—è¡¨ç±»å‹
 typedef char TExchangeListType[256];
 
 /////////////////////////////////////////////////////////////////////////////////
-//OMS×´Ì¬ÀàĞÍ
+//OMSçŠ¶æ€ç±»å‹
 typedef char					TOMSStatusType;
-//Õı³£
+//æ­£å¸¸
 const TOMSStatusType			OMS_NORMSL						= 'N';
-//·Ç¹¤×÷×´Ì¬
+//éå·¥ä½œçŠ¶æ€
 const TOMSStatusType			OMS_NOT_WORK				= 'D';
 
 ////////////////////////////////////////////////////////////////////////////////
-//ÓÃ»§ÃûÀàĞÍ
+//ç”¨æˆ·åç±»å‹
 typedef char TUserIDType[56];
-//ÃÜÂëÀàĞÍ
+//å¯†ç ç±»å‹
 typedef char TPassWordType[56];
-//¶¯Ì¬¿ÚÁîÀàĞÍ
+//åŠ¨æ€å£ä»¤ç±»å‹
 typedef char TOneTimePassWordType[7];
-//CAÈÏÖ¤Êı¾İÁ÷ÀàĞÍ(·ÅÔÚÊı¾İ°ü½áÎ²,Í¨¹ıÊı¾İ°ü³¤¶È»ñÈ¡Êı¾İ³¤¶È)
+//CAè®¤è¯æ•°æ®æµç±»å‹(æ”¾åœ¨æ•°æ®åŒ…ç»“å°¾,é€šè¿‡æ•°æ®åŒ…é•¿åº¦è·å–æ•°æ®é•¿åº¦)
 typedef char					TCaInfoType[1];
-//caÑéÖ¤ĞÅÏ¢ÀàĞÍ
+//caéªŒè¯ä¿¡æ¯ç±»å‹
 typedef char TCAInfoType[256];
-//ÑéÖ¤·şÎñÆ÷Ê¶±ğÂëÀàĞÍ
+//éªŒè¯æœåŠ¡å™¨è¯†åˆ«ç ç±»å‹
 typedef char TServerCDKeyType[256];
-//¹«Ô¿ÀàĞÍ
+//å…¬é’¥ç±»å‹
 typedef char TPublicKeyType[129];
 
 ////////////////////////////////////////////////////////////////////////////////
-//¿ª·¢Õß±àÂëÀàĞÍ
+//å¼€å‘è€…ç¼–ç ç±»å‹
 typedef char TDevelopCodeType[56];
-//¿ª·¢ÕßÊÚÈ¨ÀàĞÍ
+//å¼€å‘è€…æˆæƒç±»å‹
 typedef char TDevelopLicenseType[256];
 
 /////////////////////////////////////////////////////////////////////////////////
-//½»Ò×ÕÊºÅÀàĞÍ
+//äº¤æ˜“å¸å·ç±»å‹
 typedef char					TTradeNoType[21];
 /////////////////////////////////////////////////////////////////////////////////
-//¿Í»§±àºÅÀàĞÍ
+//å®¢æˆ·ç¼–å·ç±»å‹
 typedef char					TClientNoType[21];
-//¿Í»§Ô¤ÁôĞÅÏ¢ÀàĞÍ
+//å®¢æˆ·é¢„ç•™ä¿¡æ¯ç±»å‹
 typedef char					TReservedInfoType[51];
-//²Ù×÷Ô±±àºÅÀàĞÍ
+//æ“ä½œå‘˜ç¼–å·ç±»å‹
 typedef char					TOperatorNoType[11];
-//²Ù×÷Ô±Ãû³ÆÀàĞÍ
+//æ“ä½œå‘˜åç§°ç±»å‹
 typedef char					TOperatorNameType[21];
 
 ////////////////////////////////////////////////////////////////////////////////
-//ÊÇ·ñ¼ÓÃÜÀàĞÍ
+//æ˜¯å¦åŠ å¯†ç±»å‹
 typedef bool TIsEncryptType;
-//ÊÇ
+//æ˜¯
 const TIsEncryptType		IS_ENCRYPT_YES		= true;
-//·ñ
+//å¦
 const TIsEncryptType		IS_ENCRYPT_NO			= false;
 
 /////////////////////////////////////////////////////////////////////////////////
-//ÊÇ·ñCAÈÏÖ¤ÀàĞÍ
+//æ˜¯å¦CAè®¤è¯ç±»å‹
 typedef char					TIsCaLoginType;
-//CAÈÏÖ¤·½Ê½
+//CAè®¤è¯æ–¹å¼
 const TIsCaLoginType			CA_LOGIN						= 'Y';
-//·ÇCAÈÏÖ¤·½Ê½
+//éCAè®¤è¯æ–¹å¼
 const TIsCaLoginType			NOT_CA_LOGIN					= 'N';
 
 /////////////////////////////////////////////////////////////////////////////////
-//ÊÇ·ñÇ¿ÖÆĞŞ¸ÄÃÜÂëÀàĞÍ
+//æ˜¯å¦å¼ºåˆ¶ä¿®æ”¹å¯†ç ç±»å‹
 typedef char					TIsForcePasswordType;
-//Ç¿ÖÆĞŞ¸ÄÃÜÂë
+//å¼ºåˆ¶ä¿®æ”¹å¯†ç 
 const TIsForcePasswordType		FORCE_PWD						= 'Y';
-//·ÇÇ¿ÖÆĞŞ¸ÄÃÜÂë
+//éå¼ºåˆ¶ä¿®æ”¹å¯†ç 
 const TIsForcePasswordType		NOT_FORCE_PWD					= 'N';
 
 /////////////////////////////////////////////////////////////////////////////////
-//µÇÂ¼ÃûÀàĞÍ
+//ç™»å½•åç±»å‹
 typedef char					TLoginNoType[21];
-//µÇÂ¼Ãû³ÆÀàĞÍ(¿Í»§¼ò³Æ,²Ù×÷Ô±Ãû³Æ)
+//ç™»å½•åç§°ç±»å‹(å®¢æˆ·ç®€ç§°,æ“ä½œå‘˜åç§°)
 typedef char					TLoginNameType[21];
-//µÇÂ¼ÃÜÂëÀàĞÍ
+//ç™»å½•å¯†ç ç±»å‹
 typedef	char					TLoginPasswordType[21];
-//otpÃÜÂë
+//otpå¯†ç 
 typedef char					TOtpPassType[21];
 
 /////////////////////////////////////////////////////////////////////////////////
-//ÃÜÂëÀàĞÍ
+//å¯†ç ç±»å‹
 typedef char					TPasswordTypeType;
-//½»Ò×ÃÜÂë
+//äº¤æ˜“å¯†ç 
 const TPasswordTypeType			PASSWORD_TYPE_TRADE				= 'T';
-//ĞĞÇéÃÜÂë
+//è¡Œæƒ…å¯†ç 
 const TPasswordTypeType			PASSWORD_TYPE_QUOTE				= 'Q';
-//ÈÏÖ¤ÃÜÂë
+//è®¤è¯å¯†ç 
 const TPasswordTypeType			PASSWORD_TYPE_AUTH				= 'A';
 
 /////////////////////////////////////////////////////////////////////////////////
-//²éÑ¯Í¨ÖªÀàĞÍ
+//æŸ¥è¯¢é€šçŸ¥ç±»å‹
 typedef char					TQryNotifyTypeType;
-//ËùÓĞÓÃ»§Í¨Öª
+//æ‰€æœ‰ç”¨æˆ·é€šçŸ¥
 const TQryNotifyTypeType	QRY_NOTIFY_ALL			= 0;
-//Ä³¸öÌØ¶¨ÓÃ»§
+//æŸä¸ªç‰¹å®šç”¨æˆ·
 const TQryNotifyTypeType	QRY_NOTIFY_SPECIFIC			= 1;
 
 /////////////////////////////////////////////////////////////////////////////////
-//ÊĞ³¡±àºÅÀàĞÍ
+//å¸‚åœºç¼–å·ç±»å‹
 typedef char					TExchangeNoType[11];
-//ÊĞ³¡Ãû³ÆÀàĞÍ
+//å¸‚åœºåç§°ç±»å‹
 typedef char					TExchangeNameType[21];
 
 /////////////////////////////////////////////////////////////////////////////////
-//ÊĞ³¡×´Ì¬ÀàĞÍ
+//å¸‚åœºçŠ¶æ€ç±»å‹
 typedef char					TExchangeStateType;
-//ÊĞ³¡ÔÊĞí½»Ò×
+//å¸‚åœºå…è®¸äº¤æ˜“
 const TExchangeStateType		EXCHANGE_STATE_YES				= 'Y';
-//ÊĞ³¡½ûÖ¹½»Ò×
+//å¸‚åœºç¦æ­¢äº¤æ˜“
 const TExchangeStateType		EXCHANGE_STATE_NO				= 'N';
-//ÊĞ³¡Ö»¿ÉÆ½²Ö
+//å¸‚åœºåªå¯å¹³ä»“
 const TExchangeStateType		EXCHANGE_STATE_COVER			= 'C';
-//ÊĞ³¡¿ªÅÌ
+//å¸‚åœºå¼€ç›˜
 const TExchangeStateType		EXCHANGE_STATE_OPEN				= 'O';
-//ÊĞ³¡´¦ÓÚ½áËã×´Ì¬
+//å¸‚åœºå¤„äºç»“ç®—çŠ¶æ€
 const TExchangeStateType		EXCHANGE_STATE_SETTLE			= 'S';
 
 /////////////////////////////////////////////////////////////////////////////////
-//ÉÌÆ·±àºÅÀàĞÍ(Í¬Ò»ÊĞ³¡ÄÚ²»Î¨Ò»  ÊĞ³¡+ÉÌÆ·ÀàĞÍ+ÉÌÆ· Î¨Ò»)
+//å•†å“ç¼–å·ç±»å‹(åŒä¸€å¸‚åœºå†…ä¸å”¯ä¸€  å¸‚åœº+å•†å“ç±»å‹+å•†å“ å”¯ä¸€)
 typedef char					TCommodityNoType[11];
-//ÉÌÆ·Ãû³ÆÀàĞÍ
+//å•†å“åç§°ç±»å‹
 typedef char					TCommodityNameType[21];
 
 /////////////////////////////////////////////////////////////////////////////////
-//ÉÌÆ·ÀàĞÍÀàĞÍ
+//å•†å“ç±»å‹ç±»å‹
 typedef char					TCommodityTypeType;
-//ÏÖ»õ
+//ç°è´§
 const TCommodityTypeType		COMMODITY_TYPE_GOODS			= 'G';
-//ÆÚ»õ
+//æœŸè´§
 const TCommodityTypeType		COMMODITY_TYPE_FUTURE			= 'F';
-//ÆÚÈ¨
+//æœŸæƒ
 const TCommodityTypeType		COMMODITY_TYPE_OPTION			= 'O';
-//¿çÆÚÌ×Àû
+//è·¨æœŸå¥—åˆ©
 const TCommodityTypeType		COMMODITY_TYPE_SPREAD_MONTH		= 'M';
-//¿çÆ·ÖÖÌ×Àû
+//è·¨å“ç§å¥—åˆ©
 const TCommodityTypeType		COMMODITY_TYPE_SPREAD_COMMODITY	= 'C';
 
 /////////////////////////////////////////////////////////////////////////////////
-//ÉÌÆ·ÊôĞÔÀàĞÍ
+//å•†å“å±æ€§ç±»å‹
 typedef char					TCommodityAttributeType[21];
 
 /////////////////////////////////////////////////////////////////////////////////
-//ÉÌÆ·×´Ì¬ÀàĞÍ
+//å•†å“çŠ¶æ€ç±»å‹
 typedef char					TCommodityStateType;
-//ÉÌÆ·ÔÊĞí½»Ò×
+//å•†å“å…è®¸äº¤æ˜“
 const TCommodityStateType		COMMODITY_STATE_YES				= 'Y';
-//ÉÌÆ·½ûÖ¹½»Ò×
+//å•†å“ç¦æ­¢äº¤æ˜“
 const TCommodityStateType		COMMODITY_STATE_NO				= 'N';
-//ÉÌÆ·Ö»¿ÉÆ½²Ö
+//å•†å“åªå¯å¹³ä»“
 const TCommodityStateType		COMMODITY_STATE_COVER			= 'C';
 
 /////////////////////////////////////////////////////////////////////////////////
-//½»¸î·½Ê½ÀàĞÍ
+//äº¤å‰²æ–¹å¼ç±»å‹
 typedef char					TDeliveryModeType;
-//ÊµÎï½»¸î
+//å®ç‰©äº¤å‰²
 const TDeliveryModeType			DELIVERY_MODE_GOODS				= 'G';
-//ÏÖ½ğ½»¸î
+//ç°é‡‘äº¤å‰²
 const TDeliveryModeType			DELIVERY_MODE_CASH				= 'C';
-//ÆÚÈ¨ĞĞÈ¨
+//æœŸæƒè¡Œæƒ
 const TDeliveryModeType			DELIVERY_MODE_EXECUTE			= 'E';
 
 /////////////////////////////////////////////////////////////////////////////////
-//½»¸îÈÕÆ«ÒÆÀàĞÍ(0¼´µÈÍ¬ÓÚ×îºó½»Ò×ÈÕ)
+//äº¤å‰²æ—¥åç§»ç±»å‹(0å³ç­‰åŒäºæœ€åäº¤æ˜“æ—¥)
 typedef int						TDeliveryDaysType;
 
 /////////////////////////////////////////////////////////////////////////////////
-//³Ö²Ö¹Ø¼ü×ÖÀàĞÍ(ÀúÊ·³Ö²ÖÈ«¾ÖÎ¨Ò»,µ±ÈÕ³Ö²ÖÃ¿´Î²éÑ¯Î¨Ò»)
+//æŒä»“å…³é”®å­—ç±»å‹(å†å²æŒä»“å…¨å±€å”¯ä¸€,å½“æ—¥æŒä»“æ¯æ¬¡æŸ¥è¯¢å”¯ä¸€)
 typedef int						THoldKeyIdType;
-//½»¸î¹Ø¼ü×ÖÀàĞÍ(µ±ÈÕ½»¸îÊı¾İÈ«¾ÖÎ¨Ò»)
+//äº¤å‰²å…³é”®å­—ç±»å‹(å½“æ—¥äº¤å‰²æ•°æ®å…¨å±€å”¯ä¸€)
 typedef int						TDeliveryKeyIdType;
 
 /////////////////////////////////////////////////////////////////////////////////
-//³Ö²Ö¼ÆËã·½Ê½
+//æŒä»“è®¡ç®—æ–¹å¼
 typedef char					TDepositCalculateModeType;
-//Õı³£
+//æ­£å¸¸
 const TDepositCalculateModeType	DEPOSIT_CALCULATE_MODE_NORMAL	= 'N';
-//ºÏÔ¼¾»³Ö²Ö
+//åˆçº¦å‡€æŒä»“
 const TDepositCalculateModeType	DEPOSIT_CALCULATE_MODE_CLEAN	= 'C';
-//Æ·ÖÖËø²Ö
+//å“ç§é”ä»“
 const TDepositCalculateModeType DEPOSIT_CALCULATE_MODE_LOCK		= 'L';
 
 /////////////////////////////////////////////////////////////////////////////////
-//ºÏÔ¼±àºÅÀàĞÍ
+//åˆçº¦ç¼–å·ç±»å‹
 typedef char					TContractNoType[71];
-//ºÏÔ¼Ãû³ÆÀàĞÍ
+//åˆçº¦åç§°ç±»å‹
 typedef char					TContractNameType[21];
-//ºÏÔ¼µ½ÆÚÈÕÌìÊı(ºÏÔ¼»¹ÓĞ¼¸Ììµ½ÆÚ)
+//åˆçº¦åˆ°æœŸæ—¥å¤©æ•°(åˆçº¦è¿˜æœ‰å‡ å¤©åˆ°æœŸ)
 typedef int						TContractLastDays;
 
 /////////////////////////////////////////////////////////////////////////////////
-//ºÏÔ¼ÀàĞÍÀàĞÍ
+//åˆçº¦ç±»å‹ç±»å‹
 typedef char					TContractTypeType;
-//µ¥ÍÈºÏÔ¼
+//å•è…¿åˆçº¦
 const TContractTypeType			CONTRACT_TYPE_SINGLE			= '0';
-//¿çÆÚÌ×Àû
+//è·¨æœŸå¥—åˆ©
 const TContractTypeType			CONTRACT_TYPE_SPREAD			= '1';
-//»¥»»Ì×Àû
+//äº’æ¢å¥—åˆ©
 const TContractTypeType			CONTRACT_TYPE_SWAP				= '2';
-//¿çÆ·ÖÖÌ×Àû
+//è·¨å“ç§å¥—åˆ©
 const TContractTypeType			CONTRACT_TYPE_COMMODITY			= '3';
 
 /////////////////////////////////////////////////////////////////////////////////
-//ºÏÔ¼×´Ì¬ÀàĞÍ
+//åˆçº¦çŠ¶æ€ç±»å‹
 typedef char					TContractStateType;
-//ºÏÔ¼ÔÊĞí½»Ò×
+//åˆçº¦å…è®¸äº¤æ˜“
 const TContractStateType		CONTRACT_STATE_YES				= 'Y';
-//ºÏÔ¼½ûÖ¹½»Ò×
+//åˆçº¦ç¦æ­¢äº¤æ˜“
 const TContractStateType		CONTRACT_STATE_NO				= 'N';
-//ºÏÔ¼Ö»¿ÉÆ½²Ö
+//åˆçº¦åªå¯å¹³ä»“
 const TContractStateType		CONTRACT_STATE_COVER			= 'C';
 
 
 ///////////////////////////////////////////////////////////////////////////
-//ºÏÔ¼½»Ò××´Ì¬ÀàĞÍ
+//åˆçº¦äº¤æ˜“çŠ¶æ€ç±»å‹
 typedef int					TContractTradeStateType;
-//ºÏÔ¼Î´Öª
+//åˆçº¦æœªçŸ¥
 const TContractTradeStateType		CONTRACT_TRADE_STATE_UNKNOW		= -1;
-//¿ªÊĞ
+//å¼€å¸‚
 const TContractTradeStateType		CONTRACT_TRADE_STATE_OPEN			= 0;
-//ÎŞºìÀû
+//æ— çº¢åˆ©
 const TContractTradeStateType		CONTRACT_TRADE_STATE_NOBONUS		= 1;
-//¾º¼Û
+//ç«ä»·
 const TContractTradeStateType		CONTRACT_TRADE_STATE_AUCTION		= 2;
-//¹ÒÆğ
+//æŒ‚èµ·
 const TContractTradeStateType		CONTRACT_TRADE_STATE_HALT			= 3;
-//±ÕÊĞ
+//é—­å¸‚
 const TContractTradeStateType		CONTRACT_TRADE_STATE_CLOSE			= 4;
-//¿ªÊĞÇ°
+//å¼€å¸‚å‰
 const TContractTradeStateType		CONTRACT_TRADE_STATE_BEFORE_OPEN	= 5;
-//±ÕÊĞÇ°
+//é—­å¸‚å‰
 const TContractTradeStateType		CONTRACT_TRADE_STATE_BEFORE_CLOSE	= 6;
-//¿ìÊĞ
+//å¿«å¸‚
 const TContractTradeStateType		CONTRACT_TRADE_STATE_FAST			= 7;
 
 
 ///////////////////////////////////////////////////////////////////////////
-//Î¯ÍĞ±àºÅÀàĞÍ(Ã¿¸ö½»Ò×·şÎñÆ÷ÄÚÎ¨Ò»±êÖ¾,ÓÉ·şÎñÆ÷Éú³É)
+//å§”æ‰˜ç¼–å·ç±»å‹(æ¯ä¸ªäº¤æ˜“æœåŠ¡å™¨å†…å”¯ä¸€æ ‡å¿—,ç”±æœåŠ¡å™¨ç”Ÿæˆ)
 typedef int						TOrderIdType;
-//±¾µØ±àºÅÀàĞÍ(Ã¿¸ö½»Ò×·şÎñÆ÷ÄÚÎ¨Ò»±êÖ¾,ÓÉ·şÎñÆ÷Éú³É)
+//æœ¬åœ°ç¼–å·ç±»å‹(æ¯ä¸ªäº¤æ˜“æœåŠ¡å™¨å†…å”¯ä¸€æ ‡å¿—,ç”±æœåŠ¡å™¨ç”Ÿæˆ)
 typedef char					TLocalNoType[21];
-//ÏµÍ³±àºÅÀàĞÍ(ÉÏ¼¶½»Ò×Ëù±¨µ¥Î¨Ò»±êÖ¾,²»Í¬½»Ò×Ëù¿ÉÄÜ»áÖØ¸´)
+//ç³»ç»Ÿç¼–å·ç±»å‹(ä¸Šçº§äº¤æ˜“æ‰€æŠ¥å•å”¯ä¸€æ ‡å¿—,ä¸åŒäº¤æ˜“æ‰€å¯èƒ½ä¼šé‡å¤)
 typedef char					TSystemNoType[64];
-//³É½»±àºÅ
+//æˆäº¤ç¼–å·
 typedef char					TMatchNoType[71];
-//±¾µØ±àºÅÀàĞÍ(Ã¿¸ö½»Ò×·şÎñÆ÷ÄÚÎ¨Ò»±êÖ¾,ÓÉ·şÎñÆ÷Éú³É)
+//æœ¬åœ°ç¼–å·ç±»å‹(æ¯ä¸ªäº¤æ˜“æœåŠ¡å™¨å†…å”¯ä¸€æ ‡å¿—,ç”±æœåŠ¡å™¨ç”Ÿæˆ)
 typedef char					TFeLocalNoType[sizeof(TLocalNoType) + 1];
-//³É½»ID
+//æˆäº¤ID
 typedef int					TMatchIdType;
 
 ///////////////////////////////////////////////////////////////////////////
-//Êı¾İÁ÷ºÅÀàĞÍ
+//æ•°æ®æµå·ç±»å‹
 typedef unsigned int			TStreamIdType;
 
 
 ///////////////////////////////////////////////////////////////////////////
-//ÊÇ·ñ·çÏÕ±¨µ¥
+//æ˜¯å¦é£é™©æŠ¥å•
 typedef char					TIsRiskOrderType;
-//ÊÇ·çÏÕ±¨µ¥
+//æ˜¯é£é™©æŠ¥å•
 const TIsRiskOrderType			RISK_ORDER_YES					= 'Y';
-//²»ÊÇ·çÏÕ±¨µ¥
+//ä¸æ˜¯é£é™©æŠ¥å•
 const TIsRiskOrderType			RISK_ORDER_NO					= 'N';
 
 ///////////////////////////////////////////////////////////////////////////
-//ÂòÂôÀàĞÍ
+//ä¹°å–ç±»å‹
 typedef char					TDirectType;
-//ÂòÈë
+//ä¹°å…¥
 const TDirectType				DIRECT_BUY						= 'B';
-//Âô³ö
+//å–å‡º
 const TDirectType				DIRECT_SELL						= 'S';
 
 ///////////////////////////////////////////////////////////////////////////
-//¿ªÆ½ÀàĞÍ
+//å¼€å¹³ç±»å‹
 typedef char					TOffsetType;
-//ÎŞ
+//æ— 
 const TOffsetType				OFFSET_NONE						= 'N';
-//¿ª²Ö
+//å¼€ä»“
 const TOffsetType				OFFSET_OPEN						= 'O';
-//Æ½²Ö
+//å¹³ä»“
 const TOffsetType				OFFSET_COVER					= 'C';
-//Æ½½ñ
+//å¹³ä»Š
 const TOffsetType				OFFSET_COVER_TODAY				= 'T';
 
 /////////////////////////////////////////////////////////////////////////////////
-//Æ½²Ö·½Ê½ÀàĞÍ
+//å¹³ä»“æ–¹å¼ç±»å‹
 typedef char					TCoverModeType;
-//²»Çø·Ö¿ªÆ½
+//ä¸åŒºåˆ†å¼€å¹³
 const TCoverModeType			COVER_MODE_NONE					= 'N';
-//Æ½²ÖÎ´ÁË½á
+//å¹³ä»“æœªäº†ç»“
 const TCoverModeType			COVER_MODE_UNFINISHED			= 'U';
-//¿ª²ÖºÍÆ½²Ö
+//å¼€ä»“å’Œå¹³ä»“
 const TCoverModeType			COVER_MODE_OPENCOVER			= 'C';
-//¿ª²Ö¡¢Æ½²ÖºÍÆ½½ñ
+//å¼€ä»“ã€å¹³ä»“å’Œå¹³ä»Š
 const TCoverModeType			COVER_MODE_COVERTODAY			= 'T';
 
 ///////////////////////////////////////////////////////////////////////////
-//Í¶»ú±£ÖµÀàĞÍ
+//æŠ•æœºä¿å€¼ç±»å‹
 typedef char					THedgeType;
-//ÎŞ
+//æ— 
 const THedgeType				HEDGE_NONE						= 'N';
-//Í¶»ú
+//æŠ•æœº
 const THedgeType				HEDGE_T							= 'T';
-//±£Öµ
+//ä¿å€¼
 const THedgeType				HEDGE_B							= 'B';
 
 ///////////////////////////////////////////////////////////////////////////
-//ÈË¹¤ÌîĞ´ÊÖĞø·Ñ
+//äººå·¥å¡«å†™æ‰‹ç»­è´¹
 typedef char					TManualFeeType;
-//ÈË¹¤
+//äººå·¥
 const TManualFeeType			MANUALFEE_YES					= 'Y';
-//×Ô¶¯
+//è‡ªåŠ¨
 const TManualFeeType			MANUALFEE_NO					= 'N';
 
 
 ///////////////////////////////////////////////////////////////////////////
-//Î¯ÍĞÀàĞÍ
+//å§”æ‰˜ç±»å‹
 typedef char					TOrderTypeType;
-//ÏŞ¼Û
+//é™ä»·
 const TOrderTypeType			ORDER_TYPE_LIMIT				= '1';
-//ÊĞ¼Û
+//å¸‚ä»·
 const TOrderTypeType			ORDER_TYPE_MARKET				= '2';
-//ÏŞ¼ÛÖ¹Ëğ
+//é™ä»·æ­¢æŸ
 const TOrderTypeType			ORDER_TYPE_STOP_LIMIT			= '3';
-//ÊĞ¼ÛÖ¹Ëğ
+//å¸‚ä»·æ­¢æŸ
 const TOrderTypeType			ORDER_TYPE_STOP_MARKET			= '4';
 
 ///////////////////////////////////////////////////////////////////////////
-//Î¯ÍĞ·½Ê½
+//å§”æ‰˜æ–¹å¼
 typedef char					TOrderWayType;
-//×ÔÖúµç×Óµ¥
+//è‡ªåŠ©ç”µå­å•
 const char						ORDER_WAY_SELF_ETRADER			= 'E';
-//´úÀíµç×Óµ¥
+//ä»£ç†ç”µå­å•
 const char						ORDER_WAY_PROXY_ETRADER			= 'P';
-//Íâ²¿µç×Óµ¥(Íâ²¿µç×ÓÏµÍ³ÏÂµ¥£¬±¾ÏµÍ³Â¼Èë)
+//å¤–éƒ¨ç”µå­å•(å¤–éƒ¨ç”µå­ç³»ç»Ÿä¸‹å•ï¼Œæœ¬ç³»ç»Ÿå½•å…¥)
 const char						ORDER_WAY_JTRADER				= 'J';
-//ÈË¹¤Â¼Èëµ¥(Íâ²¿ÆäËû·½Ê½ÏÂµ¥£¬±¾ÏµÍ³Â¼Èë)
+//äººå·¥å½•å…¥å•(å¤–éƒ¨å…¶ä»–æ–¹å¼ä¸‹å•ï¼Œæœ¬ç³»ç»Ÿå½•å…¥)
 const char						ORDER_WAY_MANUAL				= 'M';
-//carryµ¥
+//carryå•
 const char						ORDER_WAY_CARRY					= 'C';
-//³ÌÊ½»¯±¨µ¥
+//ç¨‹å¼åŒ–æŠ¥å•
 const char						ORDER_WAY_PROGRAM				= 'S';
 
 ///////////////////////////////////////////////////////////////////////////
-//Î¯ÍĞÄ£Ê½ÀàĞÍ
+//å§”æ‰˜æ¨¡å¼ç±»å‹
 typedef char					TOrderModeType;
 //FOK
 const TOrderModeType			ORDER_MODE_FOK					= '1';
-//FAK»òIOC
+//FAKæˆ–IOC
 const TOrderModeType			ORDER_MODE_FAK					= '2';
-//µ±ÈÕÓĞĞ§
+//å½“æ—¥æœ‰æ•ˆ
 const TOrderModeType			ORDER_MODE_GFD					= '3';
-//È¡ÏûÇ°ÓĞĞ§
+//å–æ¶ˆå‰æœ‰æ•ˆ
 const TOrderModeType			ORDER_MODE_GTC					= '4';
-//Ö¸¶¨ÈÕÆÚÇ°ÓĞĞ§
+//æŒ‡å®šæ—¥æœŸå‰æœ‰æ•ˆ
 const TOrderModeType			ORDER_MODE_GTD					= '5';
 
 ///////////////////////////////////////////////////////////////////////////
-//Î¯ÍĞÂ¼ÈëÀàĞÍ
+//å§”æ‰˜å½•å…¥ç±»å‹
 typedef char					TOrderInputType;
-//ÊÇ
+//æ˜¯
 const TOrderInputType			ORDER_INPUT_YES					= 'Y';
-//·ñ
+//å¦
 const TOrderInputType			ORDER_INPUT_NO					= 'N';
 
 ///////////////////////////////////////////////////////////////////////////
-//Î¯ÍĞ×´Ì¬ÀàĞÍ
+//å§”æ‰˜çŠ¶æ€ç±»å‹
 typedef char					TOrderStateType;
-//Ö¸ÁîÊ§°Ü
+//æŒ‡ä»¤å¤±è´¥
 const TOrderStateType			ORDER_STATE_FAIL				= '0';
-//ÒÑÊÜÀí
+//å·²å—ç†
 const TOrderStateType			ORDER_STATE_ACCEPT				= '1';
-//ÒÑ¹ÒÆğ
+//å·²æŒ‚èµ·
 const TOrderStateType			ORDER_STATE_SUPPENDED			= '2';
-//ÒÑÅÅ¶Ó
+//å·²æ’é˜Ÿ
 const TOrderStateType			ORDER_STATE_QUEUED				= '3';
-//´ı³·Ïû(ÅÅ¶ÓÁÙÊ±×´Ì¬)
+//å¾…æ’¤æ¶ˆ(æ’é˜Ÿä¸´æ—¶çŠ¶æ€)
 const TOrderStateType			ORDER_STATE_DELETEING			= '4';
-//´ıĞŞ¸Ä(ÅÅ¶ÓÁÙÊ±×´Ì¬)
+//å¾…ä¿®æ”¹(æ’é˜Ÿä¸´æ—¶çŠ¶æ€)
 const TOrderStateType			ORDER_STATE_MODIFYING			= '5';
-//²¿·Ö³·µ¥
+//éƒ¨åˆ†æ’¤å•
 const TOrderStateType			ORDER_STATE_PARTDELETED			= '6';
-//ÍêÈ«³·µ¥
+//å®Œå…¨æ’¤å•
 const TOrderStateType			ORDER_STATE_DELETED				= '7';
-//²¿·Ö³É½»
+//éƒ¨åˆ†æˆäº¤
 const TOrderStateType			ORDER_STATE_PARTFINISHED		= '8';
-//ÍêÈ«³É½»
+//å®Œå…¨æˆäº¤
 const TOrderStateType			ORDER_STATE_FINISHED			= '9';
 
 ///////////////////////////////////////////////////////////////////////////
-//Î¯ÍĞ³É½»É¾³ı±ê¼Ç
+//å§”æ‰˜æˆäº¤åˆ é™¤æ ‡è®°
 typedef char					TDeletedType;
-//ÊÇ
+//æ˜¯
 const TDeletedType				DEL_YES							= 'Y';
-//·ñ
+//å¦
 const TDeletedType				DEL_NO							= 'N';
-//Òş²Ø
+//éšè—
 const TDeletedType				DEL_DISAPPEAR					= 'D';
 
 ///////////////////////////////////////////////////////////////////////////
-//³É½»·½Ê½
+//æˆäº¤æ–¹å¼
 typedef char					TMatchWayType;
-//ËùÓĞ
+//æ‰€æœ‰
 const char						MATCH_WAY_ALL					= 'A';
-//×ÔÖúµç×Óµ¥
+//è‡ªåŠ©ç”µå­å•
 const char						MATCH_WAY_SELF_ETRADER			= 'E';
-//´úÀíµç×Óµ¥
+//ä»£ç†ç”µå­å•
 const char						MATCH_WAY_PROXY_ETRADER			= 'P';
-//Íâ²¿µç×Óµ¥(Íâ²¿µç×ÓÏµÍ³ÏÂµ¥£¬±¾ÏµÍ³Â¼Èë)
+//å¤–éƒ¨ç”µå­å•(å¤–éƒ¨ç”µå­ç³»ç»Ÿä¸‹å•ï¼Œæœ¬ç³»ç»Ÿå½•å…¥)
 const char						MATCH_WAY_JTRADER				= 'J';
-//ÈË¹¤Â¼Èëµ¥(Íâ²¿ÆäËû·½Ê½ÏÂµ¥£¬±¾ÏµÍ³Â¼Èë)
+//äººå·¥å½•å…¥å•(å¤–éƒ¨å…¶ä»–æ–¹å¼ä¸‹å•ï¼Œæœ¬ç³»ç»Ÿå½•å…¥)
 const char						MATCH_WAY_MANUAL				= 'M';
-//carryµ¥
+//carryå•
 const char						MATCH_WAY_CARRY					= 'C';
-//½»¸îµ¥
+//äº¤å‰²å•
 const char						MATCH_WAY_DELIVERY				= 'D';
-//³ÌÊ½»¯µ¥
+//ç¨‹å¼åŒ–å•
 const char						MATCH_WAY_PROGRAM				= 'S';
 
 ///////////////////////////////////////////////////////////////////////////
-//³É½»·½Ê½ÀàĞÍ
+//æˆäº¤æ–¹å¼ç±»å‹
 typedef char					TMatchModeType;
-//Õı³£
+//æ­£å¸¸
 const TMatchModeType			MATCH_MODE_NORMAL				= 'N';
-//¸üĞÂÎ¯ÍĞ
+//æ›´æ–°å§”æ‰˜
 const TMatchModeType			MATCH_MODE_UPDATE				= 'U';
-//ÆäËû
+//å…¶ä»–
 const TMatchModeType			MATCH_MODE_OTHER				= 'O';
 
 ///////////////////////////////////////////////////////////////////////////
-//T+1³É½»
+//T+1æˆäº¤
 typedef char					TAddOneType;
-//T+1³É½»
+//T+1æˆäº¤
 const TAddOneType				ADD_ONE_YES						= 'Y';
-//·ÇT+1³É½»
+//éT+1æˆäº¤
 const TAddOneType				ADD_ONE_NO						= 'N';
 
 
 
-//////////////////////////×Ê½ğ//////////////////////////////
+//////////////////////////èµ„é‡‘//////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////////
-//»õ±Ò±àºÅÀàĞÍ
+//è´§å¸ç¼–å·ç±»å‹
 typedef char					TCurrencyNoType[11];
-//»õ±ÒÃû³ÆÀàĞÍ
+//è´§å¸åç§°ç±»å‹
 typedef char					TCurrencyNameType[21];
 
 /////////////////////////////////////////////////////////////////////////////////
-//ÊÇ·ñ»ù±ÒÀàĞÍ
+//æ˜¯å¦åŸºå¸ç±»å‹
 typedef char					TIsPrimaryCurrencyType;
-//ÊÇ»ù±Ò
+//æ˜¯åŸºå¸
 const TIsPrimaryCurrencyType	CURRENCY_PRIMARY_YES			= 'Y';
-//²»ÊÇ»ù±Ò
+//ä¸æ˜¯åŸºå¸
 const TIsPrimaryCurrencyType	CURRENCY_PRIMARY_NO			= 'N';
 
 /////////////////////////////////////////////////////////////////////////////////
-//ÊÇ·ñÓëÆäËû±ÒÖÖ¹²Ïí¼ÆËã(¹²Ïí±íÊ¾·Çµ±Ç°±ÒÖÖ½»Ò×Æ·ÖÖÒ²¿ÉÒÔÕ¼ÓÃµ±Ç°±ÒÖÖ×Ê½ğ½øĞĞ½»Ò×)
+//æ˜¯å¦ä¸å…¶ä»–å¸ç§å…±äº«è®¡ç®—(å…±äº«è¡¨ç¤ºéå½“å‰å¸ç§äº¤æ˜“å“ç§ä¹Ÿå¯ä»¥å ç”¨å½“å‰å¸ç§èµ„é‡‘è¿›è¡Œäº¤æ˜“)
 typedef char					TIsShareCurrencyType;
-//¹²Ïí¼ÆËã±ÒÖÖ
+//å…±äº«è®¡ç®—å¸ç§
 const TIsShareCurrencyType		CURRENCY_SHARE_YES				= 'Y';
-//·Ç¹²Ïí¼ÆËã±ÒÖÖ
+//éå…±äº«è®¡ç®—å¸ç§
 const TIsShareCurrencyType		CURRENCY_SHARE_NO				= 'N';
 
 /////////////////////////////////////////////////////////////////////////////////
-//»ãÂÊ(1µ±Ç°»õ±Ò»»Ëã¶àÉÙ»ù±Ò)
+//æ±‡ç‡(1å½“å‰è´§å¸æ¢ç®—å¤šå°‘åŸºå¸)
 typedef double					TExchangeRateType;
 
 /////////////////////////////////////////////////////////////////////////////////
-//ÊÇ·ñ°üº¬ºÏ¼ÆÖµ
+//æ˜¯å¦åŒ…å«åˆè®¡å€¼
 typedef char					TContainTotleType;
-//°üº¬
+//åŒ…å«
 const TContainTotleType			ContainTotle_Yes			= 'Y';
-//²»°üº¬
+//ä¸åŒ…å«
 const TContainTotleType			ContainTotle_No				= 'N';
 
 ///////////////////////////////////////////////////////////////////////////
-//ÒøĞĞ±êÊ¶
+//é“¶è¡Œæ ‡è¯†
 typedef char					TBankType[3];
-//ÒøĞĞÃû³Æ
+//é“¶è¡Œåç§°
 typedef char					TBankNameType[21];
-//ÒøĞĞÕËºÅ
+//é“¶è¡Œè´¦å·
 typedef char					TAccountType[51];
 
 ///////////////////////////////////////////////////////////////////////////
-//±¾Íâ±Ò±êÊ¶
+//æœ¬å¤–å¸æ ‡è¯†
 typedef char					TLWFlagType;
-//¾³ÄÚÈËÃñ±ÒÕË»§
+//å¢ƒå†…äººæ°‘å¸è´¦æˆ·
 const TLWFlagType				LWFlag_L						= 'L';
-//¿Í»§¾³ÄÚÍâ±ÒÕË»§
+//å®¢æˆ·å¢ƒå†…å¤–å¸è´¦æˆ·
 const TLWFlagType				LWFlag_W						= 'W';
-//¹«Ë¾¾³ÄÚÍâ±ÒÕË»§
+//å…¬å¸å¢ƒå†…å¤–å¸è´¦æˆ·
 const TLWFlagType				LJFFlag_J						= 'J';
-//¹«Ë¾¾³ÍâÍâ±ÒÕË»§
+//å…¬å¸å¢ƒå¤–å¤–å¸è´¦æˆ·
 const TLWFlagType				LJFFlag_F						= 'F';
 
 ///////////////////////////////////////////////////////////////////////////
-//±£Ö¤½ğ¼ÆËã·½Ê½
+//ä¿è¯é‡‘è®¡ç®—æ–¹å¼
 typedef char					TDepositModeType;
-//±ÈÀı
+//æ¯”ä¾‹
 const TDepositModeType			DEPOSIT_MODE_B					= '1';
-//¶¨¶î
+//å®šé¢
 const TDepositModeType			DEPOSIT_MODE_D					= '2';
-//²îÖµ±ÈÀı
+//å·®å€¼æ¯”ä¾‹
 const TDepositModeType			DEPOSIT_MODE_CB					= '3';
-//²îÖµ¶¨¶î
+//å·®å€¼å®šé¢
 const TDepositModeType			DEPOSIT_MODE_CD					= '4';
-//ÕÛ¿Û
+//æŠ˜æ‰£
 const TDepositModeType			DEPOSIT_MODE_Z					= '5';
 
 ///////////////////////////////////////////////////////////////////////////
-//³öÈë½ğÁ÷Ë®ºÅÀàĞÍ
+//å‡ºå…¥é‡‘æµæ°´å·ç±»å‹
 typedef int						TCashSerialIdType;
-//×Ê½ğµ÷ÕûÁ÷Ë®ºÅÀàĞÍ
+//èµ„é‡‘è°ƒæ•´æµæ°´å·ç±»å‹
 typedef int						TAdjustSerialIdType;
 
 ///////////////////////////////////////////////////////////////////////////
-//³öÈë½ğÀàĞÍ
+//å‡ºå…¥é‡‘ç±»å‹
 typedef char					TCashTypeType;
-//³ö½ğ
+//å‡ºé‡‘
 const TCashTypeType				CASH_TYPE_OUT					= 'O';
-//Èë½ğ
+//å…¥é‡‘
 const TCashTypeType				CASH_TYPE_IN					= 'I';
 
-//³öÈë½ğ×´Ì¬
+//å‡ºå…¥é‡‘çŠ¶æ€
 typedef char					TCashStateType;
-//Î´ÉóºË
+//æœªå®¡æ ¸
 const TCashStateType			CASH_STATE_NOT_CHECK			= 'N';
-//ÒÑÉóºË
+//å·²å®¡æ ¸
 const TCashStateType			CASH_STATE_CHECK				= 'Y';
-//ÉóºËÎ´Í¨¹ı
+//å®¡æ ¸æœªé€šè¿‡
 const TCashStateType			CASH_STATE_FAIL					= 'F';
 
 ///////////////////////////////////////////////////////////////////////////
-//³öÈë½ğ·½Ê½
+//å‡ºå…¥é‡‘æ–¹å¼
 typedef char					TCashModeType;
-//×ªÕË
+//è½¬è´¦
 const TCashModeType				CASH_MODE_A						= 'A';
-//Ö§Æ±
+//æ”¯ç¥¨
 const TCashModeType				CASH_MODE_B						= 'B';
-//ÏÖ½ğ
+//ç°é‡‘
 const TCashModeType				CASH_MODE_C						= 'C';
-//»»»ã
+//æ¢æ±‡
 const TCashModeType				CASH_MODE_E						= 'E';
 
 ///////////////////////////////////////////////////////////////////////////
-//³öÈë½ğ±¸×¢
+//å‡ºå…¥é‡‘å¤‡æ³¨
 typedef char					TCashRemarkType[101];
 
-//×Ê½ğµ÷Õû×´Ì¬
+//èµ„é‡‘è°ƒæ•´çŠ¶æ€
 typedef char					TAdjustStateType;
-//Î´ÉóºË
+//æœªå®¡æ ¸
 const TAdjustStateType			ADJUST_STATE_NOT_CHECK			= 'N';
-//ÒÑÉóºË
+//å·²å®¡æ ¸
 const TAdjustStateType			ADJUST_STATE_CHECK				= 'Y';
-//ÉóºËÎ´Í¨¹ı
+//å®¡æ ¸æœªé€šè¿‡
 const TAdjustStateType			ADJUST_STATE_FAIL				= 'F';
 
 ///////////////////////////////////////////////////////////////////////////
-//×Ê½ğµ÷ÕûÀàĞÍÀàĞÍ
+//èµ„é‡‘è°ƒæ•´ç±»å‹ç±»å‹
 typedef char					TAdjustTypeType;
 
 ///////////////////////////////////////////////////////////////////////////
-//×Ê½ğ±ä»¯×Ö¶ÎÀàĞÍ(´ÓµÍÎ»µ½¸ßÎ»,Ã¿Î»¶ÔÓ¦Ò»¸ö±ä»¯×Ö¶Î)
+//èµ„é‡‘å˜åŒ–å­—æ®µç±»å‹(ä»ä½ä½åˆ°é«˜ä½,æ¯ä½å¯¹åº”ä¸€ä¸ªå˜åŒ–å­—æ®µ)
 typedef unsigned int			TMoneyChgType;
-//×Ê½ğµ÷Õû                                                                 
+//èµ„é‡‘è°ƒæ•´                                                                 
 const TMoneyChgType				MONEY_CHG_ADJUST				= 0x00000001;
-//Èë½ğ                                                                     
+//å…¥é‡‘                                                                     
 const TMoneyChgType				MONEY_CHG_CASHIN				= 0x00000002;
-//³ö½ğ                                                                     
+//å‡ºé‡‘                                                                     
 const TMoneyChgType				MONEY_CHG_CASHOUT   			= 0x00000004;
-//ÊÖĞø·Ñ                                                                   
+//æ‰‹ç»­è´¹                                                                   
 const TMoneyChgType				MONEY_CHG_FEE					= 0x00000008;
-//¶³½á×Ê½ğ                                                                 
+//å†»ç»“èµ„é‡‘                                                                 
 const TMoneyChgType				MONEY_CHG_FROZEN				= 0x00000010;
-//Öğ±ÊÆ½Ó¯                                                                 
+//é€ç¬”å¹³ç›ˆ                                                                 
 const TMoneyChgType				MONEY_CHG_COVERPROFIT			= 0x00000020;
-//¶¢ÊĞÆ½Ó¯                                                                 
+//ç›¯å¸‚å¹³ç›ˆ                                                                 
 const TMoneyChgType				MONEY_CHG_DAYCVERPROFIT		= 0x00000040;
-//Öğ±Ê¸¡Ó¯                                                                 
+//é€ç¬”æµ®ç›ˆ                                                                 
 const TMoneyChgType				MONEY_CHG_FLOATPROFIT			= 0x00000080;
-//¶¢ÊĞ¸¡Ó¯                                                                 
+//ç›¯å¸‚æµ®ç›ˆ                                                                 
 const TMoneyChgType				MONEY_CHG_DAYFLOATPROFIT		= 0x00000100;
-//Î´½áÆ½Ó¯                                                                 
+//æœªç»“å¹³ç›ˆ                                                                 
 const TMoneyChgType				MONEY_CHG_UNEXPIREDPROFIT		= 0x00000200;
-//È¨Àû½ğ                                                                   
+//æƒåˆ©é‡‘                                                                   
 const TMoneyChgType				MONEY_CHG_PREMIUM				= 0x00000400;
-//±£Ö¤½ğ                                                                   
+//ä¿è¯é‡‘                                                                   
 const TMoneyChgType				MONEY_CHG_DEPOSIT				= 0x00000800;
-//Î¬³Ö±£Ö¤½ğ                                                               
+//ç»´æŒä¿è¯é‡‘                                                               
 const TMoneyChgType				MONEY_CHG_KEEPDEPOSIT			= 0x00001000;
-//ÖÊÑº×Ê½ğ                                                                 
+//è´¨æŠ¼èµ„é‡‘                                                                 
 const TMoneyChgType				MONEY_CHG_PLEDGE				= 0x00002000;
-//¿ÉÓÃ×Ê½ğ                                                                 
+//å¯ç”¨èµ„é‡‘                                                                 
 const TMoneyChgType				MONEY_CHG_TAVAILABLE			= 0x00004000;
 
 #endif

@@ -1,9 +1,9 @@
 /*************************
-*ÕªÒª£ºÄÏ»ªÆÚ»õ½»Ò×ÏµÍ³
-*ÎÄ¼ş£ºNhUserApiErrCode.h
-*      ¶¨ÒåÁË¿Í»§¶Ë½Ó¿Ú´íÎóÂë
-*×÷Õß£ºÄÏ»ªÆÚ»õÈí¼ş²¿
-*Ê±¼ä£º20100220
+*æ‘˜è¦ï¼šå—åæœŸè´§äº¤æ˜“ç³»ç»Ÿ
+*æ–‡ä»¶ï¼šNhUserApiErrCode.h
+*      å®šä¹‰äº†å®¢æˆ·ç«¯æ¥å£é”™è¯¯ç 
+*ä½œè€…ï¼šå—åæœŸè´§è½¯ä»¶éƒ¨
+*æ—¶é—´ï¼š20100220
 **************************/
 
 #ifndef __NH_USERAPI_ERRCODE_H__
@@ -12,29 +12,29 @@
 #include "NHUserApiDataType.h"
 
 ///////////////////////////////////////////////////////////////////////////
-//Î´Öª´íÎó
+//æœªçŸ¥é”™è¯¯
 const TErrorCodeType Err_Unknown									= -1;
-//³É¹¦
+//æˆåŠŸ
 const TErrorCodeType Err_Succeed									= 0;
-//³¬Ê±
+//è¶…æ—¶
 const TErrorCodeType Err_TimeOut									= 10;
-//½ÓÊÕµ½µÄÊı¾İ¸ñÊ½´íÎó
+//æ¥æ”¶åˆ°çš„æ•°æ®æ ¼å¼é”™è¯¯
 const TErrorCodeType Err_ReceiveMsg								= 11;
-//Á¬½ÓÊı´ïµ½×î´óÖµ
+//è¿æ¥æ•°è¾¾åˆ°æœ€å¤§å€¼
 const TErrorCodeType Err_ConnectNum								= 12;
-//·¢ËÍÊı¾İ³ö´í
+//å‘é€æ•°æ®å‡ºé”™
 const TErrorCodeType Err_SendData									= 13;
-//ÍøÂçÎ´Á¬½Ó
+//ç½‘ç»œæœªè¿æ¥
 const TErrorCodeType Err_DisConnect								= 14;
-//Ô­Ê¼ÇëÇóÒÑ³¬Ê±
+//åŸå§‹è¯·æ±‚å·²è¶…æ—¶
 const TErrorCodeType Err_Request_TimeOUt					= 15;
-//ÓÃ»§ÒÑµÇÂ¼
+//ç”¨æˆ·å·²ç™»å½•
 const TErrorCodeType Err_User_Login								= 16;
-//ÓÃ»§Î´µÇÂ¼
+//ç”¨æˆ·æœªç™»å½•
 const TErrorCodeType Err_User_Not_Login							= 17;
-//²ÎÊıÈ±ÉÙ±ØÌî×Ö¶Î
+//å‚æ•°ç¼ºå°‘å¿…å¡«å­—æ®µ
 const TErrorCodeType Err_Param_Necess								= 18;
-//²éÑ¯ĞÅÏ¢Ê§°Ü
+//æŸ¥è¯¢ä¿¡æ¯å¤±è´¥
 const TErrorCodeType Err_Query_Failed								= 19;
 
 #endif

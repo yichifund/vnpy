@@ -1,4 +1,4 @@
-virtual void onFrontConnected() {};
+﻿virtual void onFrontConnected() {};
 
 virtual void onFrontDisconnected(int reqid) {};
 

@@ -1,4 +1,4 @@
-//ÏµÍ³
+ï»¿//ç³»ç»Ÿ
 #ifdef WIN32
 #include "pch.h"
 #endif
@@ -8,7 +8,7 @@
 #include "nst/uft4_traderspi.h"
 
 
-//³£Á¿
+//å¸¸é‡
 #define ONFRONTCONNECTED 0
 #define ONRSPUSERLOGIN 1
 #define ONANSORDERINSERT 2
@@ -33,17 +33,17 @@
 
 
 ///-------------------------------------------------------------------------------------
-///C++ SPIµÄ»Øµ÷º¯Êı·½·¨ÊµÏÖ
+///C++ SPIçš„å›è°ƒå‡½æ•°æ–¹æ³•å®ç°
 ///-------------------------------------------------------------------------------------
 
-//APIµÄ¼Ì³ĞÊµÏÖ
+//APIçš„ç»§æ‰¿å®ç°
 class TdApi : public CUft4_TraderSpi
 {
 private:
-	CUft4_TraderApi* api;                     //API¶ÔÏó
-    thread task_thread;                    //¹¤×÷Ïß³ÌÖ¸Õë£¨ÏòpythonÖĞÍÆËÍÊı¾İ£©
-    TaskQueue task_queue;                //ÈÎÎñ¶ÓÁĞ
-    bool active = false;                //¹¤×÷×´Ì¬
+    CUft4_TraderApi* api;                     //APIå¯¹è±¡
+    thread task_thread;                    //å·¥ä½œçº¿ç¨‹æŒ‡é’ˆï¼ˆå‘pythonä¸­æ¨é€æ•°æ®ï¼‰
+    TaskQueue task_queue;                //ä»»åŠ¡é˜Ÿåˆ—
+    bool active = false;                //å·¥ä½œçŠ¶æ€
 
 public:
     TdApi()
@@ -59,195 +59,195 @@ public:
     };
 
     //-------------------------------------------------------------------------------------
-    //API»Øµ÷º¯Êı
+    //APIå›è°ƒå‡½æ•°
     //-------------------------------------------------------------------------------------
 
-	virtual void OnFrontConnected();
-	virtual void OnRspUserLogin(CUftRspUserLoginField* pRspUserLogin, CUftRspInfoField* pRspInfo);
+    virtual void OnFrontConnected();
+    virtual void OnRspUserLogin(CUftRspUserLoginField* pRspUserLogin, CUftRspInfoField* pRspInfo);
 
-	//¹ñÌ¨±¨µ¥Â¼ÈëÏìÓ¦
-	virtual void OnAnsOrderInsert(CUftAnsOrderInsertField *pOrderRsp, CUftRspErrorField* pError);
+    //æŸœå°æŠ¥å•å½•å…¥å“åº”
+    virtual void OnAnsOrderInsert(CUftAnsOrderInsertField *pOrderRsp, CUftRspErrorField* pError);
 
-	//½»Ò×Ëù±¨µ¥Â¼ÈëÏìÓ¦
-	virtual void OnRspOrderInsert(CUftRspnOrderInsertField *pOrderRsp, CUftRspErrorField* pError);
+    //äº¤æ˜“æ‰€æŠ¥å•å½•å…¥å“åº”
+    virtual void OnRspOrderInsert(CUftRspnOrderInsertField *pOrderRsp, CUftRspErrorField* pError);
 
-	//¹ñÌ¨±¨µ¥²Ù×÷ÇëÇóÏìÓ¦
-	virtual void OnAnsOrderAction(CUftAnsOrderActionField *pOrderAction, CUftRspErrorField* pError);
+    //æŸœå°æŠ¥å•æ“ä½œè¯·æ±‚å“åº”
+    virtual void OnAnsOrderAction(CUftAnsOrderActionField *pOrderAction, CUftRspErrorField* pError);
 
-	//½»Ò×Ëù±¨µ¥²Ù×÷ÇëÇóÏìÓ¦
-	virtual void OnRspOrderAction(CUftRspnOrderActionField *pOrderAction, CUftRspErrorField* pError);
-
-
-	//±¨µ¥»Ø±¨
-	virtual void OnOrderRtn(CUftRtnnOrderField* pOrder);
-
-	//³É½»»Ø±¨
-	virtual void OnTradeRtn(CUftRtnnTradeField* pOrder);
-
-	//²éÑ¯×Ê½ğ»Ø±¨
-	virtual void OnRspTradingAccount(CUftAnsQueryFundField *pRspFund);
-
-	virtual void OnRspError(CUftRspErrorField* pError);
+    //äº¤æ˜“æ‰€æŠ¥å•æ“ä½œè¯·æ±‚å“åº”
+    virtual void OnRspOrderAction(CUftRspnOrderActionField *pOrderAction, CUftRspErrorField* pError);
 
 
-	///ÇëÇó²éÑ¯±¨µ¥ÏìÓ¦
-	virtual void OnRspQryOrder(CUftAnsQueryOrderField *pEntrust, bool bIsLast);
+    //æŠ¥å•å›æŠ¥
+    virtual void OnOrderRtn(CUftRtnnOrderField* pOrder);
 
-	///ÇëÇó²éÑ¯³É½»ÏìÓ¦
-	virtual void OnRspQryTrade(CUftAnsQueryTradeField *pTrade, bool bIsLast);
+    //æˆäº¤å›æŠ¥
+    virtual void OnTradeRtn(CUftRtnnTradeField* pOrder);
 
-	///ÇëÇó²éÑ¯Í¶×ÊÕß³Ö²ÖÏìÓ¦
-	virtual void OnRspQryInvestorPosition(CUftAnsQueryPositionField *pInvestorPosition, bool bIsLast);
+    //æŸ¥è¯¢èµ„é‡‘å›æŠ¥
+    virtual void OnRspTradingAccount(CUftAnsQueryFundField *pRspFund);
+
+    virtual void OnRspError(CUftRspErrorField* pError);
 
 
-	///ĞŞ¸ÄÃÜÂëÏìÓ¦
-	virtual void OnRspQryChangePwd();
+    ///è¯·æ±‚æŸ¥è¯¢æŠ¥å•å“åº”
+    virtual void OnRspQryOrder(CUftAnsQueryOrderField *pEntrust, bool bIsLast);
 
-	virtual void OnRspLogout(const char* szMsg);
+    ///è¯·æ±‚æŸ¥è¯¢æˆäº¤å“åº”
+    virtual void OnRspQryTrade(CUftAnsQueryTradeField *pTrade, bool bIsLast);
 
-	virtual void OnRtnInstrumentStatus(CUftRtnInstrumentStatusField *pInstStatus);
+    ///è¯·æ±‚æŸ¥è¯¢æŠ•èµ„è€…æŒä»“å“åº”
+    virtual void OnRspQryInvestorPosition(CUftAnsQueryPositionField *pInvestorPosition, bool bIsLast);
 
-	virtual void OnRspTest(CUftRspTest *pTest);
 
-	///±¨µ¥Â¼Èë´íÎó»Ø±¨
-	virtual void OnErrRtnOrderInsert(CUftRspErrorField* pError);
+    ///ä¿®æ”¹å¯†ç å“åº”
+    virtual void OnRspQryChangePwd();
 
-	///±¨µ¥²Ù×÷´íÎó»Ø±¨
-	virtual void OnErrRtnOrderAction(CUftRspErrorField* pError);
+    virtual void OnRspLogout(const char* szMsg);
+
+    virtual void OnRtnInstrumentStatus(CUftRtnInstrumentStatusField *pInstStatus);
+
+    virtual void OnRspTest(CUftRspTest *pTest);
+
+    ///æŠ¥å•å½•å…¥é”™è¯¯å›æŠ¥
+    virtual void OnErrRtnOrderInsert(CUftRspErrorField* pError);
+
+    ///æŠ¥å•æ“ä½œé”™è¯¯å›æŠ¥
+    virtual void OnErrRtnOrderAction(CUftRspErrorField* pError);
 
 
     //-------------------------------------------------------------------------------------
-    //task£ºÈÎÎñ
+    //taskï¼šä»»åŠ¡
     //-------------------------------------------------------------------------------------
     void processTask();
 
-	void processFrontConnected(Task *task);
+    void processFrontConnected(Task *task);
 
-	void processRspUserLogin(Task *task);
+    void processRspUserLogin(Task *task);
 
-	void processAnsOrderInsert(Task *task);
+    void processAnsOrderInsert(Task *task);
 
-	void processRspOrderInsert(Task *task);
+    void processRspOrderInsert(Task *task);
 
-	void processAnsOrderAction(Task *task);
+    void processAnsOrderAction(Task *task);
 
-	void processRspOrderAction(Task *task);
+    void processRspOrderAction(Task *task);
 
-	void processOrderRtn(Task *task);
+    void processOrderRtn(Task *task);
 
-	void processTradeRtn(Task *task);
+    void processTradeRtn(Task *task);
 
-	void processRspTradingAccount(Task *task);
+    void processRspTradingAccount(Task *task);
 
-	void processRspError(Task *task);
+    void processRspError(Task *task);
 
-	void processRspQryOrder(Task *task);
+    void processRspQryOrder(Task *task);
 
-	void processRspQryTrade(Task *task);
+    void processRspQryTrade(Task *task);
 
-	void processRspQryInvestorPosition(Task *task);
+    void processRspQryInvestorPosition(Task *task);
 
-	void processRspQryChangePwd(Task *task);
+    void processRspQryChangePwd(Task *task);
 
-	void processRspLogout(Task *task);
+    void processRspLogout(Task *task);
 
-	void processRtnInstrumentStatus(Task *task);
+    void processRtnInstrumentStatus(Task *task);
 
-	void processRspTest(Task *task);
+    void processRspTest(Task *task);
 
-	void processErrRtnOrderInsert(Task *task);
+    void processErrRtnOrderInsert(Task *task);
 
-	void processErrRtnOrderAction(Task *task);
+    void processErrRtnOrderAction(Task *task);
 
 
 
     //-------------------------------------------------------------------------------------
-    //data£º»Øµ÷º¯ÊıµÄÊı¾İ×Öµä
-    //error£º»Øµ÷º¯ÊıµÄ´íÎó×Öµä
-    //id£ºÇëÇóid
-    //last£ºÊÇ·ñÎª×îºó·µ»Ø
-    //i£ºÕûÊı
+    //dataï¼šå›è°ƒå‡½æ•°çš„æ•°æ®å­—å…¸
+    //errorï¼šå›è°ƒå‡½æ•°çš„é”™è¯¯å­—å…¸
+    //idï¼šè¯·æ±‚id
+    //lastï¼šæ˜¯å¦ä¸ºæœ€åè¿”å›
+    //iï¼šæ•´æ•°
     //-------------------------------------------------------------------------------------    
 
-	virtual void onFrontConnected() {};
+    virtual void onFrontConnected() {};
 
-	virtual void onRspUserLogin(const dict &data, const dict &error) {};
+    virtual void onRspUserLogin(const dict &data, const dict &error) {};
 
-	virtual void onAnsOrderInsert(const dict &data, const dict &error) {};
+    virtual void onAnsOrderInsert(const dict &data, const dict &error) {};
 
-	virtual void onRspOrderInsert(const dict &data, const dict &error) {};
+    virtual void onRspOrderInsert(const dict &data, const dict &error) {};
 
-	virtual void onAnsOrderAction(const dict &data, const dict &error) {};
+    virtual void onAnsOrderAction(const dict &data, const dict &error) {};
 
-	virtual void onRspOrderAction(const dict &data, const dict &error) {};
+    virtual void onRspOrderAction(const dict &data, const dict &error) {};
 
-	virtual void onOrderRtn(const dict &data) {};
+    virtual void onOrderRtn(const dict &data) {};
 
-	virtual void onTradeRtn(const dict &data) {};
+    virtual void onTradeRtn(const dict &data) {};
 
-	virtual void onRspTradingAccount(const dict &data) {};
+    virtual void onRspTradingAccount(const dict &data) {};
 
-	virtual void onRspError(const dict &error) {};
+    virtual void onRspError(const dict &error) {};
 
-	virtual void onRspQryOrder(const dict &data, bool last) {};
+    virtual void onRspQryOrder(const dict &data, bool last) {};
 
-	virtual void onRspQryTrade(const dict &data, bool last) {};
+    virtual void onRspQryTrade(const dict &data, bool last) {};
 
-	virtual void onRspQryInvestorPosition(const dict &data, bool last) {};
+    virtual void onRspQryInvestorPosition(const dict &data, bool last) {};
 
-	virtual void onRspQryChangePwd() {};
+    virtual void onRspQryChangePwd() {};
 
-	virtual void onRspLogout(string data) {};
+    virtual void onRspLogout(string data) {};
 
-	virtual void onRtnInstrumentStatus(const dict &data) {};
+    virtual void onRtnInstrumentStatus(const dict &data) {};
 
-	virtual void onRspTest(const dict &data) {};
+    virtual void onRspTest(const dict &data) {};
 
-	virtual void onErrRtnOrderInsert(const dict &error) {};
+    virtual void onErrRtnOrderInsert(const dict &error) {};
 
-	virtual void onErrRtnOrderAction(const dict &error) {};
+    virtual void onErrRtnOrderAction(const dict &error) {};
 
 
 
     //-------------------------------------------------------------------------------------
-    //req:Ö÷¶¯º¯ÊıµÄÇëÇó×Öµä
+    //req:ä¸»åŠ¨å‡½æ•°çš„è¯·æ±‚å­—å…¸
     //-------------------------------------------------------------------------------------
 
-	void newTradeApi(int nCnnMode);
+    void newTradeApi(int nCnnMode);
 
-	void tasksetCPU(int nBindingRspCpuId, int nBindingRtnCpuId);
+    void tasksetCPU(int nBindingRspCpuId, int nBindingRtnCpuId);
 
     int init(string szAccount, string szPwd, int eExType);
 
     int join();
 
-	int exit();
+    int exit();
 
-	void registerFront(string pszFrontAddress, uint16_t nPort, string pszLocalAddr, uint16_t nReqPort, uint16_t nRspPort, uint16_t nLocalNotifyPort);
+    void registerFront(string pszFrontAddress, uint16_t nPort, string pszLocalAddr, uint16_t nReqPort, uint16_t nRspPort, uint16_t nLocalNotifyPort);
 
-	int reqUserLogin();
+    int reqUserLogin();
 
-	int reqUserLogout();
+    int reqUserLogout();
 
-	int reqOrderInsert(string szCode, char bs, char kp, double dbPrice, int nVolume, int64_t nOrderRef, char cOrderPriceType);
+    int reqOrderInsert(string szCode, char bs, char kp, double dbPrice, int nVolume, int64_t nOrderRef, char cOrderPriceType);
 
-	int reqOrderAction(int nOrderIndex, int nOrderRef);
+    int reqOrderAction(int nOrderIndex, int nOrderRef);
 
-	int reqTradingAccount();
+    int reqTradingAccount();
 
-	int reqQryOrder(string szInstrumentID, int nStartTime, int nEndTime, string szOrderSysID, int nOrderRef, int nOrderIndex);
+    int reqQryOrder(string szInstrumentID, int nStartTime, int nEndTime, string szOrderSysID, int nOrderRef, int nOrderIndex);
 
-	int reqQryTrade(string szInstrumentID, int nStartTime, int nEndTime, string szOrderSysID, int nOrderIndex, int nOrderRef);
+    int reqQryTrade(string szInstrumentID, int nStartTime, int nEndTime, string szOrderSysID, int nOrderIndex, int nOrderRef);
 
-	int reqQryInvestorPosition(string szInstrumentID);
+    int reqQryInvestorPosition(string szInstrumentID);
 
-	int reqChangePwd(string szNewPwd, string szOldPwd);
+    int reqChangePwd(string szNewPwd, string szOldPwd);
 
-	int reqQryTest();
+    int reqQryTest();
 
-	uint64_t getToken();
+    uint64_t getToken();
 
-	int getReqPort();
+    int getReqPort();
 
 
 };

@@ -1,4 +1,4 @@
-/////////////////////////////////////////////////////////////////////////
+﻿/////////////////////////////////////////////////////////////////////////
 ///@author 中泰证券股份有限公司
 ///@file xtp_api_data_type.h
 ///@brief 定义兼容数据基本类型
@@ -35,12 +35,12 @@ typedef char XTPVersionType[XTP_VERSION_LEN];
 ///@brief XTP_LOG_LEVEL是日志输出级别类型
 /////////////////////////////////////////////////////////////////////////
 typedef enum XTP_LOG_LEVEL {
-	XTP_LOG_LEVEL_FATAL, ///<严重错误级别
-	XTP_LOG_LEVEL_ERROR, ///<错误级别
-	XTP_LOG_LEVEL_WARNING, ///<警告级别
-	XTP_LOG_LEVEL_INFO,   ///<info级别
-	XTP_LOG_LEVEL_DEBUG,  ///<debug级别
-	XTP_LOG_LEVEL_TRACE   ///<trace级别
+    XTP_LOG_LEVEL_FATAL, ///<严重错误级别
+    XTP_LOG_LEVEL_ERROR, ///<错误级别
+    XTP_LOG_LEVEL_WARNING, ///<警告级别
+    XTP_LOG_LEVEL_INFO,   ///<info级别
+    XTP_LOG_LEVEL_DEBUG,  ///<debug级别
+    XTP_LOG_LEVEL_TRACE   ///<trace级别
 }XTP_LOG_LEVEL;
 
 /////////////////////////////////////////////////////////////////////////
@@ -48,8 +48,8 @@ typedef enum XTP_LOG_LEVEL {
 /////////////////////////////////////////////////////////////////////////
 typedef enum XTP_PROTOCOL_TYPE
 {
-	XTP_PROTOCOL_TCP = 1,	///<采用TCP方式传输
-	XTP_PROTOCOL_UDP		///<采用UDP方式传输(仅行情接口支持)
+    XTP_PROTOCOL_TCP = 1,	///<采用TCP方式传输
+    XTP_PROTOCOL_UDP		///<采用UDP方式传输(仅行情接口支持)
 }XTP_PROTOCOL_TYPE;
 
 
@@ -59,8 +59,8 @@ typedef enum XTP_PROTOCOL_TYPE
 /////////////////////////////////////////////////////////////////////////
 typedef enum XTP_EXCHANGE_TYPE
 {
-	XTP_EXCHANGE_SH = 1,	///<上证
-	XTP_EXCHANGE_SZ,		///<深证
+    XTP_EXCHANGE_SH = 1,	///<上证
+    XTP_EXCHANGE_SZ,		///<深证
     XTP_EXCHANGE_UNKNOWN	///<不存在的交易所类型
 }XTP_EXCHANGE_TYPE;
 
@@ -81,15 +81,15 @@ typedef enum XTP_MARKET_TYPE
 /////////////////////////////////////////////////////////////////////////
 typedef enum XTP_PRICE_TYPE
 {
-	XTP_PRICE_LIMIT = 1,           ///<限价单-沪 / 深 / 沪期权（除普通股票业务外，其余业务均使用此种类型）
-	XTP_PRICE_BEST_OR_CANCEL,      ///<即时成交剩余转撤销，市价单-深 / 沪期权
-	XTP_PRICE_BEST5_OR_LIMIT,      ///<最优五档即时成交剩余转限价，市价单-沪
-	XTP_PRICE_BEST5_OR_CANCEL,     ///<最优5档即时成交剩余转撤销，市价单-沪深
-	XTP_PRICE_ALL_OR_CANCEL,       ///<全部成交或撤销,市价单-深 / 沪期权
-	XTP_PRICE_FORWARD_BEST,        ///<本方最优，市价单-深
-	XTP_PRICE_REVERSE_BEST_LIMIT,  ///<对方最优剩余转限价，市价单-深 / 沪期权
-	XTP_PRICE_LIMIT_OR_CANCEL,	   ///<期权限价申报FOK
-	XTP_PRICE_TYPE_UNKNOWN,		   ///<未知或者无效价格类型
+    XTP_PRICE_LIMIT = 1,           ///<限价单-沪 / 深 / 沪期权（除普通股票业务外，其余业务均使用此种类型）
+    XTP_PRICE_BEST_OR_CANCEL,      ///<即时成交剩余转撤销，市价单-深 / 沪期权
+    XTP_PRICE_BEST5_OR_LIMIT,      ///<最优五档即时成交剩余转限价，市价单-沪
+    XTP_PRICE_BEST5_OR_CANCEL,     ///<最优5档即时成交剩余转撤销，市价单-沪深
+    XTP_PRICE_ALL_OR_CANCEL,       ///<全部成交或撤销,市价单-深 / 沪期权
+    XTP_PRICE_FORWARD_BEST,        ///<本方最优，市价单-深
+    XTP_PRICE_REVERSE_BEST_LIMIT,  ///<对方最优剩余转限价，市价单-深 / 沪期权
+    XTP_PRICE_LIMIT_OR_CANCEL,	   ///<期权限价申报FOK
+    XTP_PRICE_TYPE_UNKNOWN,		   ///<未知或者无效价格类型
 }XTP_PRICE_TYPE;
 
 
@@ -177,9 +177,9 @@ typedef uint8_t XTP_POSITION_EFFECT_TYPE;
 /////////////////////////////////////////////////////////////////////////
 typedef enum XTP_ORDER_ACTION_STATUS_TYPE
 {
-	XTP_ORDER_ACTION_STATUS_SUBMITTED = 1,	///<已经提交
-	XTP_ORDER_ACTION_STATUS_ACCEPTED,		///<已经接受
-	XTP_ORDER_ACTION_STATUS_REJECTED		///<已经被拒绝
+    XTP_ORDER_ACTION_STATUS_SUBMITTED = 1,	///<已经提交
+    XTP_ORDER_ACTION_STATUS_ACCEPTED,		///<已经接受
+    XTP_ORDER_ACTION_STATUS_REJECTED		///<已经被拒绝
 }XTP_ORDER_ACTION_STATUS_TYPE;
 
 /////////////////////////////////////////////////////////////////////////
@@ -216,9 +216,9 @@ typedef enum XTP_ORDER_SUBMIT_STATUS_TYPE
 /////////////////////////////////////////////////////////////////////////
 typedef enum XTP_TE_RESUME_TYPE
 {
-	XTP_TERT_RESTART = 0,	///<从本交易日开始重传
-	XTP_TERT_RESUME,		///<从从上次收到的续传（暂未支持）
-	XTP_TERT_QUICK			///<只传送登录后公有流（订单响应、成交回报）的内容
+    XTP_TERT_RESTART = 0,	///<从本交易日开始重传
+    XTP_TERT_RESUME,		///<从从上次收到的续传（暂未支持）
+    XTP_TERT_QUICK			///<只传送登录后公有流（订单响应、成交回报）的内容
 }XTP_TE_RESUME_TYPE;
 
 
@@ -243,13 +243,13 @@ typedef enum ETF_REPLACE_TYPE
 //////////////////////////////////////////////////////////////////////////
 typedef enum XTP_TICKER_TYPE
 {
-	XTP_TICKER_TYPE_STOCK = 0,            ///<普通股票
-	XTP_TICKER_TYPE_INDEX,                ///<指数
-	XTP_TICKER_TYPE_FUND,                 ///<基金
-	XTP_TICKER_TYPE_BOND,                 ///<债券
-	XTP_TICKER_TYPE_OPTION,               ///<期权
-	XTP_TICKER_TYPE_UNKNOWN               ///<未知类型
-	
+    XTP_TICKER_TYPE_STOCK = 0,            ///<普通股票
+    XTP_TICKER_TYPE_INDEX,                ///<指数
+    XTP_TICKER_TYPE_FUND,                 ///<基金
+    XTP_TICKER_TYPE_BOND,                 ///<债券
+    XTP_TICKER_TYPE_OPTION,               ///<期权
+    XTP_TICKER_TYPE_UNKNOWN               ///<未知类型
+    
 }XTP_TICKER_TYPE;
 
 //////////////////////////////////////////////////////////////////////////
@@ -257,20 +257,20 @@ typedef enum XTP_TICKER_TYPE
 //////////////////////////////////////////////////////////////////////////
 typedef enum XTP_BUSINESS_TYPE
 {
-	XTP_BUSINESS_TYPE_CASH = 0,            ///<普通股票业务（股票买卖，ETF买卖等）
-	XTP_BUSINESS_TYPE_IPOS,                ///<新股申购业务（对应的price type需选择限价类型）
-	XTP_BUSINESS_TYPE_REPO,                ///<回购业务 ( 对应的price type填为限价，side填为卖 )
-	XTP_BUSINESS_TYPE_ETF,                 ///<ETF申赎业务
-	XTP_BUSINESS_TYPE_MARGIN,              ///<融资融券业务（暂未支持）
-	XTP_BUSINESS_TYPE_DESIGNATION,         ///<转托管（未支持）
-	XTP_BUSINESS_TYPE_ALLOTMENT,		   ///<配股业务（对应的price type需选择限价类型,side填为买）
-	XTP_BUSINESS_TYPE_STRUCTURED_FUND_PURCHASE_REDEMPTION,	   ///<分级基金申赎业务
-	XTP_BUSINESS_TYPE_STRUCTURED_FUND_SPLIT_MERGE,	   ///<分级基金拆分合并业务
-	XTP_BUSINESS_TYPE_MONEY_FUND,		   ///<货币基金业务（暂未支持）
+    XTP_BUSINESS_TYPE_CASH = 0,            ///<普通股票业务（股票买卖，ETF买卖等）
+    XTP_BUSINESS_TYPE_IPOS,                ///<新股申购业务（对应的price type需选择限价类型）
+    XTP_BUSINESS_TYPE_REPO,                ///<回购业务 ( 对应的price type填为限价，side填为卖 )
+    XTP_BUSINESS_TYPE_ETF,                 ///<ETF申赎业务
+    XTP_BUSINESS_TYPE_MARGIN,              ///<融资融券业务（暂未支持）
+    XTP_BUSINESS_TYPE_DESIGNATION,         ///<转托管（未支持）
+    XTP_BUSINESS_TYPE_ALLOTMENT,		   ///<配股业务（对应的price type需选择限价类型,side填为买）
+    XTP_BUSINESS_TYPE_STRUCTURED_FUND_PURCHASE_REDEMPTION,	   ///<分级基金申赎业务
+    XTP_BUSINESS_TYPE_STRUCTURED_FUND_SPLIT_MERGE,	   ///<分级基金拆分合并业务
+    XTP_BUSINESS_TYPE_MONEY_FUND,		   ///<货币基金业务（暂未支持）
     XTP_BUSINESS_TYPE_OPTION,              ///<期权业务
     XTP_BUSINESS_TYPE_EXECUTE,             ///<行权
     XTP_BUSINESS_TYPE_FREEZE,              ///<锁定解锁，暂不支持
-	XTP_BUSINESS_TYPE_UNKNOWN              ///<未知类型
+    XTP_BUSINESS_TYPE_UNKNOWN              ///<未知类型
 
 }XTP_BUSINESS_TYPE;
 
@@ -313,42 +313,42 @@ typedef enum XTP_FUND_OPER_STATUS {
 ///@brief XTP_SPLIT_MERGE_STATUS是一个基金当天拆分合并状态类型
 /////////////////////////////////////////////////////////////////////////
 typedef enum XTP_SPLIT_MERGE_STATUS {
-	XTP_SPLIT_MERGE_STATUS_ALLOW = 0,	///<允许拆分和合并
-	XTP_SPLIT_MERGE_STATUS_ONLY_SPLIT,	///<只允许拆分，不允许合并
-	XTP_SPLIT_MERGE_STATUS_ONLY_MERGE,	///<只允许合并，不允许拆分
-	XTP_SPLIT_MERGE_STATUS_FORBIDDEN	///<不允许拆分合并
+    XTP_SPLIT_MERGE_STATUS_ALLOW = 0,	///<允许拆分和合并
+    XTP_SPLIT_MERGE_STATUS_ONLY_SPLIT,	///<只允许拆分，不允许合并
+    XTP_SPLIT_MERGE_STATUS_ONLY_MERGE,	///<只允许合并，不允许拆分
+    XTP_SPLIT_MERGE_STATUS_FORBIDDEN	///<不允许拆分合并
 }XTP_SPLIT_MERGE_STATUS;
 
 /////////////////////////////////////////////////////////////////////////
 ///@brief XTP_TBT_TYPE是一个逐笔回报类型
 /////////////////////////////////////////////////////////////////////////
 typedef enum XTP_TBT_TYPE {
-	XTP_TBT_ENTRUST = 1,	///<逐笔委托
-	XTP_TBT_TRADE = 2,		///<逐笔成交
+    XTP_TBT_ENTRUST = 1,	///<逐笔委托
+    XTP_TBT_TRADE = 2,		///<逐笔成交
 }XTP_TBT_TYPE;
 
 /////////////////////////////////////////////////////////////////////////
 ///@brief XTP_OPT_CALL_OR_PUT_TYPE是一个认沽或认购类型
 /////////////////////////////////////////////////////////////////////////
 typedef enum XTP_OPT_CALL_OR_PUT_TYPE {
-	XTP_OPT_CALL = 1,	    ///<认购
-	XTP_OPT_PUT = 2,		///<认沽
+    XTP_OPT_CALL = 1,	    ///<认购
+    XTP_OPT_PUT = 2,		///<认沽
 }XTP_OPT_CALL_OR_PUT_TYPE;
 
 /////////////////////////////////////////////////////////////////////////
 ///@brief XTP_OPT_EXERCISE_TYPE_TYPE是一个行权方式类型
 /////////////////////////////////////////////////////////////////////////
 typedef enum XTP_OPT_EXERCISE_TYPE_TYPE {
-	XTP_OPT_EXERCISE_TYPE_EUR = 1,	    ///<欧式
-	XTP_OPT_EXERCISE_TYPE_AME = 2,		///<美式
+    XTP_OPT_EXERCISE_TYPE_EUR = 1,	    ///<欧式
+    XTP_OPT_EXERCISE_TYPE_AME = 2,		///<美式
 }XTP_OPT_EXERCISE_TYPE_TYPE;
 
 /////////////////////////////////////////////////////////////////////////
 ///@brief XTP_POSITION_DIRECTION_TYPE是一个持仓方向类型
 /////////////////////////////////////////////////////////////////////////
 typedef enum XTP_POSITION_DIRECTION_TYPE {
-	XTP_POSITION_DIRECTION_NET = 0,	    ///<净
-	XTP_POSITION_DIRECTION_LONG,		///<多（期权则为权利方）
+    XTP_POSITION_DIRECTION_NET = 0,	    ///<净
+    XTP_POSITION_DIRECTION_LONG,		///<多（期权则为权利方）
     XTP_POSITION_DIRECTION_SHORT,       ///<空（期权则为义务方）
     XTP_POSITION_DIRECTION_COVERED,     ///<备兑（期权则为备兑义务方）
 }XTP_POSITION_DIRECTION_TYPE;

@@ -1,207 +1,207 @@
-/**
- * °æÈ¨ËùÓĞ(C)2012-2016, ´óÁ¬·É´´ĞÅÏ¢¼¼ÊõÓĞÏŞ¹«Ë¾
- * ÎÄ¼şÃû³Æ£ºDFITCSECApiDataType.h
- * ÎÄ¼şËµÃ÷£º¶¨Òå½Ó¿ÚËùĞèµÄÊı¾İÀàĞÍµÄÍ·ÎÄ¼ş
- * µ±Ç°°æ±¾£º1.6
- * ×÷Õß£ºXSpeedÖ¤È¯ÏîÄ¿×é
- * ·¢²¼ÈÕÆÚ£º2019Äê11ÔÂ
+ï»¿/**
+ * ç‰ˆæƒæ‰€æœ‰(C)2012-2016, å¤§è¿é£åˆ›ä¿¡æ¯æŠ€æœ¯æœ‰é™å…¬å¸
+ * æ–‡ä»¶åç§°ï¼šDFITCSECApiDataType.h
+ * æ–‡ä»¶è¯´æ˜ï¼šå®šä¹‰æ¥å£æ‰€éœ€çš„æ•°æ®ç±»å‹çš„å¤´æ–‡ä»¶
+ * å½“å‰ç‰ˆæœ¬ï¼š1.6
+ * ä½œè€…ï¼šXSpeedè¯åˆ¸é¡¹ç›®ç»„
+ * å‘å¸ƒæ—¥æœŸï¼š2019å¹´11æœˆ
  */
 
 #ifndef DFITCSECAPIDATATYPE_H
 #define DFITCSECAPIDATATYPE_H
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECBusinessTypeType ÊÇÒ»¸öÒµÎñÀà±ğÀàĞÍ
+///DFITCSECBusinessTypeType æ˜¯ä¸€ä¸ªä¸šåŠ¡ç±»åˆ«ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECBusinessTypeType;
-///¹ÉÆ±
+///è‚¡ç¥¨
 #define DFITCSEC_BT_Stock                                         0
-///ETFÆÚÈ¨
+///ETFæœŸæƒ
 #define DFITCSEC_BT_SOP                                           1
-///ÈÚ×ÊÈÚÈ¯
+///èèµ„èåˆ¸
 #define DFITCSEC_BT_FASL                                          2
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECRequestIDType ÊÇÒ»¸öÇëÇóIDÀàĞÍ
+///DFITCSECRequestIDType æ˜¯ä¸€ä¸ªè¯·æ±‚IDç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef long   DFITCSECRequestIDType; 
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECAccountIDType ÊÇÒ»¸ö¿Í»§ºÅÀàĞÍ
+///DFITCSECAccountIDType æ˜¯ä¸€ä¸ªå®¢æˆ·å·ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECAccountIDType[21];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECPasswordType ÊÇÒ»¸öÃÜÂëÀàĞÍ
+///DFITCSECPasswordType æ˜¯ä¸€ä¸ªå¯†ç ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECPasswordType[17];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECAuthenticCodeType ÊÇÒ»¸öÈÏÖ¤ÂëÀàĞÍ
+///DFITCSECAuthenticCodeType æ˜¯ä¸€ä¸ªè®¤è¯ç ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECAuthenticCodeType[31];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECAppID ÊÇÒ»¸öAPPIDÀàĞÍ
+///DFITCSECAppID æ˜¯ä¸€ä¸ªAPPIDç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECAppID[31];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECErrorIDType ÊÇÒ»¸ö´íÎóIDÀàĞÍ
+///DFITCSECErrorIDType æ˜¯ä¸€ä¸ªé”™è¯¯IDç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef long   DFITCSECErrorIDType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECSessionIDType ÊÇÒ»¸ö»á»°IDÀàĞÍ
+///DFITCSECSessionIDType æ˜¯ä¸€ä¸ªä¼šè¯IDç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef long   DFITCSECSessionIDType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECLocalOrderIDType ÊÇÒ»¸ö±¾µØÎ¯ÍĞºÅÀàĞÍ
+///DFITCSECLocalOrderIDType æ˜¯ä¸€ä¸ªæœ¬åœ°å§”æ‰˜å·ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef long   DFITCSECLocalOrderIDType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECSpdOrderIDType ÊÇÒ»¸ö¹ñÌ¨Î¯ÍĞºÅÀàĞÍ
+///DFITCSECSpdOrderIDType æ˜¯ä¸€ä¸ªæŸœå°å§”æ‰˜å·ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECSpdOrderIDType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECMessageType ÊÇÒ»·µ»ØĞÅÏ¢ÀàĞÍ
+///DFITCSECMessageType æ˜¯ä¸€è¿”å›ä¿¡æ¯ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECMessageType[1024];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECFrontIDType ÊÇÒ»¸öÇ°ÖÃ»ú±àºÅÀàĞÍ
+///DFITCSECFrontIDType æ˜¯ä¸€ä¸ªå‰ç½®æœºç¼–å·ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef long   DFITCSECFrontIDType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECTimeType ÊÇÒ»¸öÊ±¼äÀàĞÍ
+///DFITCSECTimeType æ˜¯ä¸€ä¸ªæ—¶é—´ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECTimeType[13];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECDateType ÊÇÒ»¸öÈÕÆÚÀàĞÍ
+///DFITCSECDateType æ˜¯ä¸€ä¸ªæ—¥æœŸç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECDateType;
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECWeekType ÊÇÒ»¸öĞÇÆÚÀàĞÍ
+///DFITCSECWeekType æ˜¯ä¸€ä¸ªæ˜ŸæœŸç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECWeekType;
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECDateType ÊÇÒ»¸öºÁÃëÀàĞÍ
+///DFITCSECDateType æ˜¯ä¸€ä¸ªæ¯«ç§’ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECMillisecondType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECPasswordTypeType ÊÇÒ»¸öÃÜÂëÀà±ğÀàĞÍ
+///DFITCSECPasswordTypeType æ˜¯ä¸€ä¸ªå¯†ç ç±»åˆ«ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECPasswordTypeType;
-///½»Ò×
+///äº¤æ˜“
 #define DFITCSEC_PWT_Trade                                        1
-///×Ê½ğ
+///èµ„é‡‘
 #define DFITCSEC_PWT_Funds                                        2
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECPriceType ÊÇÒ»¸ö¼Û¸ñÀàĞÍ
+///DFITCSECPriceType æ˜¯ä¸€ä¸ªä»·æ ¼ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef double DFITCSECPriceType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECFundsType ÊÇÒ»¸ö½ğ¶îÀàĞÍ
+///DFITCSECFundsType æ˜¯ä¸€ä¸ªé‡‘é¢ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef double DFITCSECFundsType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECPositionSourceType ÊÇÒ»¸öÍ·´çÀ´Ô´ÀàĞÍ
+///DFITCSECPositionSourceType æ˜¯ä¸€ä¸ªå¤´å¯¸æ¥æºç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECPositionSourceType;
-///ÆÕÍ¨Í·´ç
+///æ™®é€šå¤´å¯¸
 #define DFITCSEC_PS_General                                       0
-///×¨ÏîÍ·´ç
+///ä¸“é¡¹å¤´å¯¸
 #define DFITCSEC_PS_Special                                       1
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECEntrustDirectionType ÊÇÒ»¸öÎ¯ÍĞÀà±ğÀàĞÍ
+///DFITCSECEntrustDirectionType æ˜¯ä¸€ä¸ªå§”æ‰˜ç±»åˆ«ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECEntrustDirectionType;
-///Âò
+///ä¹°
 #define DFITCSEC_ED_Buy                                           1
-///Âô
+///å–
 #define DFITCSEC_ED_Sell                                          2
-///Åä¹É½É¿î
+///é…è‚¡ç¼´æ¬¾
 #define DFITCSEC_ED_RightsIssueContribution                       3
-///»Ø¹ºÈÚ×Ê
+///å›è´­èèµ„
 #define DFITCSEC_ED_RepurchaseFinancing                           4
-///»Ø¹ºÈÚÈ¯
+///å›è´­èåˆ¸
 #define DFITCSEC_ED_RepurchaseSecurities                          5
-///ÉîÛÚ×ªÍĞ¹Ü
+///æ·±åœ³è½¬æ‰˜ç®¡
 #define DFITCSEC_ED_CustodyTransfer                               7
-///ÉÏº£Ö¸¶¨½»Ò×
+///ä¸Šæµ·æŒ‡å®šäº¤æ˜“
 #define DFITCSEC_ED_DesignateTrading                              9
-///ÉÏº£³·Ö¸½»Ò×
+///ä¸Šæµ·æ’¤æŒ‡äº¤æ˜“
 #define DFITCSEC_ED_RevocationDesignateTrading                    10
-///Õ®×ª¹É
+///å€ºè½¬è‚¡
 #define DFITCSEC_ED_DebtToEquity                                  11
-///×ªÕ®»ØÊÛ
+///è½¬å€ºå›å”®
 #define DFITCSEC_ED_BondsSoldBack                                 12
-///ÅäÊÛÉê¹º
+///é…å”®ç”³è´­
 #define DFITCSEC_ED_PlacingPurchase                               14
-///Í¶Æ±
+///æŠ•ç¥¨
 #define DFITCSEC_ED_Vote                                          23
-///ETFÉê¹º
+///ETFç”³è´­
 #define DFITCSEC_ED_Purchase                                      29
-///ETFÊê»Ø
+///ETFèµå›
 #define DFITCSEC_ED_Redemp                                        30
-///ÖÊÑºÈ¯Èë¿â
+///è´¨æŠ¼åˆ¸å…¥åº“
 #define DFITCSEC_ED_PledgeVoucherIn                               37
-///ÖÊÑºÈ¯³ö¿â
+///è´¨æŠ¼åˆ¸å‡ºåº“
 #define DFITCSEC_ED_PledgeVoucherOut                              38
-///»ù½ğÈÏ¹º
+///åŸºé‡‘è®¤è´­
 #define DFITCSEC_ED_FundSubscribe                                 41
-///»ù½ğÉê¹º
+///åŸºé‡‘ç”³è´­
 #define DFITCSEC_ED_FundPurchase                                  42
-///»ù½ğÊê»Ø
+///åŸºé‡‘èµå›
 #define DFITCSEC_ED_FundRedemption                                43
-///»ù½ğ·ÖºìÉèÖÃ
+///åŸºé‡‘åˆ†çº¢è®¾ç½®
 #define DFITCSEC_ED_FundBonusSetting                              44
-///»ù½ğ×ª»»
+///åŸºé‡‘è½¬æ¢
 #define DFITCSEC_ED_FundConversion                                46
-///»ù½ğ·Ö²ğ
+///åŸºé‡‘åˆ†æ‹†
 #define DFITCSEC_ED_FundSplit                                     47
-///»ù½ğºÏ²¢
+///åŸºé‡‘åˆå¹¶
 #define DFITCSEC_ED_FundMerge                                     48
-///È¨Ö¤ĞĞÈ¨
+///æƒè¯è¡Œæƒ
 #define DFITCSEC_ED_WarrantExercise                               50
-///ÈÚ×ÊÂòÈë
+///èèµ„ä¹°å…¥
 #define DFITCSEC_ED_FinancingToBuy                                61
-///ÂôÈ¯»¹¿î
+///å–åˆ¸è¿˜æ¬¾
 #define DFITCSEC_ED_SellSecPayment                                62
-///ÂòÈ¯»¹È¯
+///ä¹°åˆ¸è¿˜åˆ¸
 #define DFITCSEC_ED_BuySecRepaySec                                63
-///ÈÚÈ¯Âô³ö
+///èåˆ¸å–å‡º
 #define DFITCSEC_ED_SecuritiesToSell                              64
-///µ£±£»®Èë
+///æ‹…ä¿åˆ’å…¥
 #define DFITCSEC_ED_GuaranteeInto                                 65
-///µ£±£»®³ö
+///æ‹…ä¿åˆ’å‡º
 #define DFITCSEC_ED_GuaranteeLayOff                               66
-///ÈÚ×ÊÇ¿Æ½
+///èèµ„å¼ºå¹³
 #define DFITCSEC_ED_FinancingForceSelling                         71
-///ÈÚÈ¯Ç¿Æ½
+///èåˆ¸å¼ºå¹³
 #define DFITCSEC_ED_SecuritiesForceSelling                        72
-///Ô¤ÊÜÒªÔ¼
+///é¢„å—è¦çº¦
 #define DFITCSEC_ED_AcceptOffer                                   76
-///½â³ıÔ¤ÊÜÒªÔ¼
+///è§£é™¤é¢„å—è¦çº¦
 #define DFITCSEC_ED_GiveUpAcceptOffer                             77
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECQuantityType ÊÇÒ»¸öÊıÁ¿ÀàĞÍ
+///DFITCSECQuantityType æ˜¯ä¸€ä¸ªæ•°é‡ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECQuantityType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECLargeQuantityType ÊÇÒ»¸ö´óÊıÁ¿ÀàĞÍ
+///DFITCSECLargeQuantityType æ˜¯ä¸€ä¸ªå¤§æ•°é‡ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 #ifdef WIN32
 typedef __int64 DFITCSECLargeQuantityType;
@@ -210,1012 +210,1012 @@ typedef long   DFITCSECLargeQuantityType;
 #endif
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECOrderTypeType ÊÇÒ»¸ö¶©µ¥Àà±ğÀàĞÍ
+///DFITCSECOrderTypeType æ˜¯ä¸€ä¸ªè®¢å•ç±»åˆ«ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECOrderTypeType;
-////STOCK²¿·ÖµÄ¶©µ¥ÀàĞÍ
-///ÏŞ¼Û
+////STOCKéƒ¨åˆ†çš„è®¢å•ç±»å‹
+///é™ä»·
 #define DFITCSEC_OT_LimitPrice                                    0
-///×îÓÅÎåµµÁ¢¼´³É½»Ê£Óà³·µ¥£¨ÉÏº££©
+///æœ€ä¼˜äº”æ¡£ç«‹å³æˆäº¤å‰©ä½™æ’¤å•ï¼ˆä¸Šæµ·ï¼‰
 #define DFITCSEC_OT_SHBESTFRTradeLeftWithdraw                     1
-///×îÓÅÎåµµÁ¢¼´³É½»Ê£Óà×ªÏŞ¼Û£¨ÉÏº££©
+///æœ€ä¼˜äº”æ¡£ç«‹å³æˆäº¤å‰©ä½™è½¬é™ä»·ï¼ˆä¸Šæµ·ï¼‰
 #define DFITCSEC_OT_SHBESTFRTradeLeftTLimit                       2
-///¶Ô·½×îÓÅ¼Û¸ñ£¨ÉîÛÚ£©
+///å¯¹æ–¹æœ€ä¼˜ä»·æ ¼ï¼ˆæ·±åœ³ï¼‰
 #define DFITCSEC_OT_SZOtherBestPrice                              101
-///±¾·½×îÓÅ¼Û¸ñ£¨ÉîÛÚ£©
+///æœ¬æ–¹æœ€ä¼˜ä»·æ ¼ï¼ˆæ·±åœ³ï¼‰
 #define DFITCSEC_OT_SZBestPrice                                   102
-///¼´Ê±³É½»Ê£Óà³·Ïú£¨ÉîÛÚ£©
+///å³æ—¶æˆäº¤å‰©ä½™æ’¤é”€ï¼ˆæ·±åœ³ï¼‰
 #define DFITCSEC_OT_SZImdeTradeLeftWithdraw                       103
-///×îÓÅÎåµµ¼´Ê±³É½»Ê£Óà³·Ïú£¨ÉîÛÚ£©
+///æœ€ä¼˜äº”æ¡£å³æ—¶æˆäº¤å‰©ä½™æ’¤é”€ï¼ˆæ·±åœ³ï¼‰
 #define DFITCSEC_OT_SZBESTFRTradeLeftWithdraw                     104
-///È«¶î³É½»»ò³·Ïú
+///å…¨é¢æˆäº¤æˆ–æ’¤é”€
 #define DFITCSEC_OT_SZBESTTotalTradeOWithdraw                     105
-////SOP²¿·ÖµÄ¶©µ¥ÀàĞÍ
-///ÏŞ¼Û
+////SOPéƒ¨åˆ†çš„è®¢å•ç±»å‹
+///é™ä»·
 #define DFITCSEC_SOP_LimitPrice                                   1
-///ÊĞ¼Û
+///å¸‚ä»·
 #define DFITCSEC_SOP_LastPrice                                    2
-///ÊĞ¼ÛÊ£Óà×ªÏŞ¼Û£¨ÉÏº££©
+///å¸‚ä»·å‰©ä½™è½¬é™ä»·ï¼ˆä¸Šæµ·ï¼‰
 #define DFITCSEC_SOP_LastTLimit                                   3
-///ÊĞ¼Û±¾·½×îÓÅ£¨ÉîÛÚ£©
+///å¸‚ä»·æœ¬æ–¹æœ€ä¼˜ï¼ˆæ·±åœ³ï¼‰
 #define DFITCSEC_SOP_MineBestPrice                                4
-///ÊĞ¼Û×îÓÅÎåµµ³É½»Ê£Óà³·Ïú£¨ÉîÛÚ£©
+///å¸‚ä»·æœ€ä¼˜äº”æ¡£æˆäº¤å‰©ä½™æ’¤é”€ï¼ˆæ·±åœ³ï¼‰
 #define DFITCSEC_SOP_OptimalFive                                  5
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECAccountType ÊÇÒ»¸ö¿Í»§ÀàĞÍ
+///DFITCSECAccountType æ˜¯ä¸€ä¸ªå®¢æˆ·ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECAccountType;
-///¹«Ë¾
+///å…¬å¸
 #define DFITCSEC_AT_Company                                       0
-///¸öÈË
+///ä¸ªäºº
 #define DFITCSEC_AT_Personal                                      1
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECOrderBatchIDType ÊÇÒ»¸öÎ¯ÍĞÅú´ÎºÅÀàĞÍ
+///DFITCSECOrderBatchIDType æ˜¯ä¸€ä¸ªå§”æ‰˜æ‰¹æ¬¡å·ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECEntrustBatchIDType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECSeatIDType ÊÇÒ»¸öÏ¯Î»ºÅÀàĞÍ
+///DFITCSECSeatIDType æ˜¯ä¸€ä¸ªå¸­ä½å·ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECSeatIDType[9];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECExchangeType ÊÇÒ»¸ö½»Ò×Ëù´úÂëÀàĞÍ
+///DFITCSECExchangeType æ˜¯ä¸€ä¸ªäº¤æ˜“æ‰€ä»£ç ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECExchangeIDType[3];
-///»¦A
+///æ²ªA
 #define DFITCSEC_EI_SH                                          "SH"
-///ÉîA
+///æ·±A
 #define DFITCSEC_EI_SZ                                          "SZ"
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSecurityIDType ÊÇÒ»¸öÖ¤È¯´úÂëÀàĞÍ
+///DFITCSecurityIDType æ˜¯ä¸€ä¸ªè¯åˆ¸ä»£ç ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECSecurityIDType[11];
 
 ////////////////////////////////////////////////////////////
-///DFITCSECOrderQryFlagType ÊÇÒ»¸ö±¨µ¥²éÑ¯±êÖ¾ÀàĞÍ
+///DFITCSECOrderQryFlagType æ˜¯ä¸€ä¸ªæŠ¥å•æŸ¥è¯¢æ ‡å¿—ç±»å‹
 ////////////////////////////////////////////////////////////
 typedef int    DFITCSECEntrustQryFlagType;
-///ËùÓĞÎ¯ÍĞ
+///æ‰€æœ‰å§”æ‰˜
 #define DFITCSTOCK_EQF_Total                                    0
-///¿É³·µ¥Î¯ÍĞ
+///å¯æ’¤å•å§”æ‰˜
 #define DFITCSTOCK_EQF_AbleWithdraw                             1
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECWithdrawFlagType ÊÇÒ»¸ö³·Ïú±êÖ¾ÀàĞÍ
+///DFITCSECWithdrawFlagType æ˜¯ä¸€ä¸ªæ’¤é”€æ ‡å¿—ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECWithdrawFlagType[2];
-///Î¯ÍĞ
+///å§”æ‰˜
 #define DFITCSEC_CF_EntrustSucc                                 "O"
-///³·µ¥
+///æ’¤å•
 #define DFITCSEC_CF_WithdrawSuc                                 "W"
-////FASLĞÅÓÃºÏÔ¼±ä¶¯ĞÅÏ¢²éÑ¯×¨ÓÃ
-///³·Ïú
+////FASLä¿¡ç”¨åˆçº¦å˜åŠ¨ä¿¡æ¯æŸ¥è¯¢ä¸“ç”¨
+///æ’¤é”€
 #define DFITCSEC_CF_Withdraw                                    "-1"
-///Õı³£
+///æ­£å¸¸
 #define DFITCSEC_CF_Normal                                      "0"
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECIncQryIndexType ÊÇÒ»¸öÔöÁ¿²éÑ¯Ë÷ÒıÀàĞÍ
+///DFITCSECIncQryIndexType æ˜¯ä¸€ä¸ªå¢é‡æŸ¥è¯¢ç´¢å¼•ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECIncQryIndexType[129];
 
 ////////////////////////////////////////////////////////////
-///DFITCSECTradeQryFlagType ÊÇÒ»¸ö³É½»²éÑ¯±êÖ¾ÀàĞÍ
+///DFITCSECTradeQryFlagType æ˜¯ä¸€ä¸ªæˆäº¤æŸ¥è¯¢æ ‡å¿—ç±»å‹
 ////////////////////////////////////////////////////////////
 typedef int    DFITCSECTradeQryFlagType;
-///ËùÓĞ»Ø×ª¼ÇÂ¼º¬³·µ¥»Ø×ª
+///æ‰€æœ‰å›è½¬è®°å½•å«æ’¤å•å›è½¬
 #define DFITCSEC_TQF_Total                                      0
-///·µ»Ø³É½»¼ÇÂ¼
+///è¿”å›æˆäº¤è®°å½•
 #define DFITCSEC_TQF_Trade                                      1
 
 ////////////////////////////////////////////////////////////
-///DFITCSECPositionQryFlagType ÊÇÒ»¸ö³É½»²éÑ¯±êÖ¾ÀàĞÍ
+///DFITCSECPositionQryFlagType æ˜¯ä¸€ä¸ªæˆäº¤æŸ¥è¯¢æ ‡å¿—ç±»å‹
 ////////////////////////////////////////////////////////////
 typedef int    DFITCSECPositionQryFlagType;
-///ÎŞÀ©Õ¹ĞÅÏ¢
+///æ— æ‰©å±•ä¿¡æ¯
 #define DFITCSEC_PQF_Normal                                     0
-///·µ»ØÀ©Õ¹ĞÅÏ¢
+///è¿”å›æ‰©å±•ä¿¡æ¯
 #define DFITCSEC_PQF_Extend                                     1
 
 ////////////////////////////////////////////////////////////
-///DFITCSECFundsQryFlagType ÊÇÒ»¸ö×Ê½ğ²éÑ¯±êÖ¾ÀàĞÍ
+///DFITCSECFundsQryFlagType æ˜¯ä¸€ä¸ªèµ„é‡‘æŸ¥è¯¢æ ‡å¿—ç±»å‹
 ////////////////////////////////////////////////////////////
 typedef int    DFITCSECFundsQryFlagType;
-///·µ»Ø»ù±¾ĞÅÏ¢
+///è¿”å›åŸºæœ¬ä¿¡æ¯
 #define DFITCSEC_FQF_Normal                                     0
-///À©Õ¹×Ö¶Î£¬Ôİ²»Ê¹ÓÃ
+///æ‰©å±•å­—æ®µï¼Œæš‚ä¸ä½¿ç”¨
 #define DFITCSEC_FQF_Extend                                     1
 
 ////////////////////////////////////////////////////////////
-///DFITCSECSystemQryFlagType ÊÇÒ»¸ö¸ß¾«¶È·µ»Ø±êÖ¾ÀàĞÍ
+///DFITCSECSystemQryFlagType æ˜¯ä¸€ä¸ªé«˜ç²¾åº¦è¿”å›æ ‡å¿—ç±»å‹
 ////////////////////////////////////////////////////////////
 typedef int    DFITCSECSystemQryFlagType;
-///Õı³£Ê±¼ä
+///æ­£å¸¸æ—¶é—´
 #define DFITCSEC_PQF_Normal                                     0
-///¸ß¾«¶ÈÊ±¼ä
+///é«˜ç²¾åº¦æ—¶é—´
 #define DFITCSEC_SQF_High                                       1
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECCurrencyType ÊÇÒ»¸ö±ÒÖÖÀàĞÍ
+///DFITCSECCurrencyType æ˜¯ä¸€ä¸ªå¸ç§ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECCurrencyType[4];
-///ÈËÃñ±Ò
+///äººæ°‘å¸
 #define DFITCSEC_C_RMB                                          "RMB"
-///ÃÀÔª 
+///ç¾å…ƒ 
 #define DFITCSEC_S_USD                                          "USD"
-///¸Û±Ò
+///æ¸¯å¸
 #define DFITCSEC_S_HKD                                          "HKD"
 
 ////////////////////////////////////////////////////////////
-///DFITCSECFundsTransferFlagType ÊÇÒ»¸ö×Ê½ğµ÷×ª±êÖ¾ÀàĞÍ
+///DFITCSECFundsTransferFlagType æ˜¯ä¸€ä¸ªèµ„é‡‘è°ƒè½¬æ ‡å¿—ç±»å‹
 ////////////////////////////////////////////////////////////
 typedef int    DFITCSECFundsTransferFlagType;
-///×ªÈë
+///è½¬å…¥
 #define DFITCSEC_FTF_In                                         1
-///×ª³ö 
+///è½¬å‡º 
 #define DFITCSEC_FTF_Out                                        2
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECEntrustBatchOrderDetailType ÊÇÒ»¸öÅúÁ¿Î¯ÍĞÃ÷Ï¸ÀàĞÍ
+///DFITCSECEntrustBatchOrderDetailType æ˜¯ä¸€ä¸ªæ‰¹é‡å§”æ‰˜æ˜ç»†ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECEntrustBatchOrderDetailType[1024];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECOrderRangeID ÊÇÒ»¸öÎ¯ÍĞºÅ·¶Î§ÀàĞÍ
+///DFITCSECOrderRangeID æ˜¯ä¸€ä¸ªå§”æ‰˜å·èŒƒå›´ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECOrderIDRangeType[1024];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECFundsFreezeTypeType ÊÇÒ»¸ö×Ê½ğ¶³½áÀà±ğÀàĞÍ
+///DFITCSECFundsFreezeTypeType æ˜¯ä¸€ä¸ªèµ„é‡‘å†»ç»“ç±»åˆ«ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECFundsFreezeTypeType;
-///Î¯ÍĞ¶³½á
+///å§”æ‰˜å†»ç»“
 #define DFITCSEC_FFT_EntrustFreeze                             1
-///ÊµÊ±³É½»½â¶³
+///å®æ—¶æˆäº¤è§£å†»
 #define DFITCSEC_FFT_RealtimeTradeUnFreeze                     2
-///ÊÖ¹¤¶³½á
+///æ‰‹å·¥å†»ç»“
 #define DFITCSEC_FFT_ManualFreeze                              3
-///ÊÖ¹¤½â¶³
+///æ‰‹å·¥è§£å†»
 #define DFITCSEC_FFT_ManualUnFreeze                            4
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECTransFundsFreezeTypeType ÊÇÒ»¸öµ÷²¦×Ê½ğ¶³½áÀà±ğÀàĞÍ
+///DFITCSECTransFundsFreezeTypeType æ˜¯ä¸€ä¸ªè°ƒæ‹¨èµ„é‡‘å†»ç»“ç±»åˆ«ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECTransFundsFreezeTypeType;
-///³õÊ¼»¯×Ê½ğ
+///åˆå§‹åŒ–èµ„é‡‘
 #define DFITCSEC_FFT_InitFunds                                 50
-///ÅÌÖĞ×Ê½ğµ÷Èë
+///ç›˜ä¸­èµ„é‡‘è°ƒå…¥
 #define DFITCSEC_FFT_FundsIn                                   51
-///ÅÌÖĞ×Ê½ğµ÷³ö
+///ç›˜ä¸­èµ„é‡‘è°ƒå‡º
 #define DFITCSEC_FFT_FundsOut                                  52
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECSerialIDType ÊÇÒ»¸öÁ÷Ë®ºÅÀàĞÍ
+///DFITCSECSerialIDType æ˜¯ä¸€ä¸ªæµæ°´å·ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECSerialIDType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECStockFreezeTypeType ÊÇÒ»¸öÖ¤È¯¶³½áÀà±ğÀàĞÍ
+///DFITCSECStockFreezeTypeType æ˜¯ä¸€ä¸ªè¯åˆ¸å†»ç»“ç±»åˆ«ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECStockFreezeTypeType;
-///Î¯ÍĞ¶³½á
+///å§”æ‰˜å†»ç»“
 #define DFITCSEC_SFT_EntrustFreeze                            1
-///Ôö¼Ó¿ÉÂôÊıÁ¿
+///å¢åŠ å¯å–æ•°é‡
 #define DFITCSEC_SFT_IncSellQty                               2
-///¼õÉÙ¿ÉÂôÊıÁ¿
+///å‡å°‘å¯å–æ•°é‡
 #define DFITCSEC_SFT_DecSellQty                               3
-///ÊÖ¹¤³¤ÆÚ¶³½á
+///æ‰‹å·¥é•¿æœŸå†»ç»“
 #define DFITCSEC_SFT_ManualFreeze                             4
-///ÇåËã¶³½á
+///æ¸…ç®—å†»ç»“
 #define DFITCSEC_SFT_ClearFreeze                              5
-///ETFÉê¹ºÊê»Ø¶³½á
+///ETFç”³è´­èµå›å†»ç»“
 #define DFITCSEC_SFT_PurchaseETFFreeze                        6
-///ÒªÔ¼ÊÕ¹º¶³½á
+///è¦çº¦æ”¶è´­å†»ç»“
 #define DFITCSEC_SFT_OfferFreeze                              7
-///È¨Ö¤ĞĞÈ¨¶³½á
+///æƒè¯è¡Œæƒå†»ç»“
 #define DFITCSEC_SFT_ExeFreeze                                8
-///Õ®È¯µÖÑº×ª±ê×¼È¯¶³½á
+///å€ºåˆ¸æŠµæŠ¼è½¬æ ‡å‡†åˆ¸å†»ç»“
 #define DFITCSEC_SFT_CollTranStandFreeze                      9
-///ÖÊÑºÈ¯Èë¿â¶³½á
+///è´¨æŠ¼åˆ¸å…¥åº“å†»ç»“
 #define DFITCSEC_SFT_PledgeStoringFreeze                      10
-///³õÊ¼»¯¹É·İ
+///åˆå§‹åŒ–è‚¡ä»½
 #define DFITCSEC_SFT_INITStock                                50
-///ÅÌÖĞÖ¤È¯µ÷Èë
+///ç›˜ä¸­è¯åˆ¸è°ƒå…¥
 #define DFITCSEC_SFT_StockIn                                  53
-///ÅÌÖĞÖ¤È¯µ÷³ö
+///ç›˜ä¸­è¯åˆ¸è°ƒå‡º
 #define DFITCSEC_SFT_StockOut                                 54
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECShareholderIDType ÊÇÒ»¸ö¹É¶«ºÅÀàĞÍ
+///DFITCSECShareholderIDType æ˜¯ä¸€ä¸ªè‚¡ä¸œå·ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECShareholderIDType[11];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECEntrustTypeType ÊÇÒ»¸öÎ¯ÍĞ·½Ê½ÀàĞÍ
+///DFITCSECEntrustTypeType æ˜¯ä¸€ä¸ªå§”æ‰˜æ–¹å¼ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECEntrustTypeType;
-///µç»°
+///ç”µè¯
 #define DFITCSEC_ET_Phone                                    1
-///´Å¿¨
+///ç£å¡
 #define DFITCSEC_ET_MagicCard                                2
-///ÈÈ¼ü
+///çƒ­é”®
 #define DFITCSEC_ET_Hotkey                                   4
-///¹ñÌ¨
+///æŸœå°
 #define DFITCSEC_ET_Spd                                      8
-///Ô¶³Ì
+///è¿œç¨‹
 #define DFITCSEC_ET_Remote                                   16
-///»¥ÁªÍø
+///äº’è”ç½‘
 #define DFITCSEC_ET_Internet                                 32
-///ÊÖ»ú
+///æ‰‹æœº
 #define DFITCSEC_ET_Mobile                                   64
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECSecurityNameType ÊÇÒ»¸öÖ¤È¯Ãû³ÆÀàĞÍ
+///DFITCSECSecurityNameType æ˜¯ä¸€ä¸ªè¯åˆ¸åç§°ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECSecurityNameType[21];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECDeclareResultType ÊÇÒ»¸öÉê±¨½á¹ûÀàĞÍ
+///DFITCSECDeclareResultType æ˜¯ä¸€ä¸ªç”³æŠ¥ç»“æœç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECDeclareResultType;
-///Î´Éê±¨
+///æœªç”³æŠ¥
 #define DFITCSEC_DR_UnDeclare                                0
-///ÕıÔÚÉê±¨
+///æ­£åœ¨ç”³æŠ¥
 #define DFITCSEC_DR_Declaring                                1
-///ÒÑÉê±¨Î´³É½»
+///å·²ç”³æŠ¥æœªæˆäº¤
 #define DFITCSEC_DR_UnTrade                                  2
-///·Ç·¨Î¯ÍĞ/·Ïµ¥
+///éæ³•å§”æ‰˜/åºŸå•
 #define DFITCSEC_DR_EntrustFail                              3
-///½»Ò×ËùÒÑÈ·ÈÏ
+///äº¤æ˜“æ‰€å·²ç¡®è®¤
 #define DFITCSEC_DR_Confirm                                  4
-///²¿·Ö³É½»
+///éƒ¨åˆ†æˆäº¤
 #define DFITCSEC_DR_PartTrade                                5
-///È«²¿³É½»
+///å…¨éƒ¨æˆäº¤
 #define DFITCSEC_DR_TotalTrade                               6
-///²¿³É²¿³·
+///éƒ¨æˆéƒ¨æ’¤
 #define DFITCSEC_DR_TradeAWithdraw                           7
-///È«²¿³·µ¥
+///å…¨éƒ¨æ’¤å•
 #define DFITCSEC_DR_TotalWithdraw                            8
-///³·µ¥Î´³É
+///æ’¤å•æœªæˆ
 #define DFITCSEC_DR_WithdrawFail                             9
-///µÈ´ıÈË¹¤Éê±¨
+///ç­‰å¾…äººå·¥ç”³æŠ¥
 #define DFITCSEC_DR_ManualDeclare                            10
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECBatchDeclareResultType ÊÇÒ»¸öÅúÁ¿Éê±¨½á¹ûÀàĞÍ
+///DFITCSECBatchDeclareResultType æ˜¯ä¸€ä¸ªæ‰¹é‡ç”³æŠ¥ç»“æœç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECBatchDeclareResultType;
-///ÒÑÉê±¨
+///å·²ç”³æŠ¥
 #define DFITCSEC_BDR_Declared                                1
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECDeclareOrderIDType ÊÇÉê±¨Î¯ÍĞºÅÀàĞÍ
+///DFITCSECDeclareOrderIDType æ˜¯ç”³æŠ¥å§”æ‰˜å·ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECDeclareOrderIDType[11];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECIPAddressType ÊÇÒ»¸öipµØÖ·ÀàĞÍ
+///DFITCSECIPAddressType æ˜¯ä¸€ä¸ªipåœ°å€ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECIPAddressType[32];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECMacAddressType ÊÇÒ»¸ömacµØÖ·ÀàĞÍ
+///DFITCSECMacAddressType æ˜¯ä¸€ä¸ªmacåœ°å€ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECMacAddressType[32];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECTradeIDType ÊÇÒ»¸ö³É½»±àºÅÀàĞÍ
+///DFITCSECTradeIDType æ˜¯ä¸€ä¸ªæˆäº¤ç¼–å·ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECTradeIDType[17];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECSecurityTypeType ÊÇÒ»¸öÖ¤È¯Àà±ğÀàĞÍ
+///DFITCSECSecurityTypeType æ˜¯ä¸€ä¸ªè¯åˆ¸ç±»åˆ«ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECSecurityTypeType[3];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECAccountStatusType ÊÇÒ»¸ö×´Ì¬±êÖ¾ÀàĞÍ
+///DFITCSECAccountStatusType æ˜¯ä¸€ä¸ªçŠ¶æ€æ ‡å¿—ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECAccountStatusType;
-///Õı³£
+///æ­£å¸¸
 #define DFITCSEC_AS_Normal                                    0
-///¶³½á
+///å†»ç»“
 #define DFITCSEC_AS_Freeze                                    1
-///¿Í»§¿¨¹ÒÊ§
+///å®¢æˆ·å¡æŒ‚å¤±
 #define DFITCSEC_AS_LossReporting                             2
-///Ïú»§
+///é”€æˆ·
 #define DFITCSEC_AS_CloseAccount                              3
-///Ğ¡¶îĞİÃß
+///å°é¢ä¼‘çœ 
 #define DFITCSEC_AS_MicroDormancy                             6
-///²»ºÏ¸ñ
+///ä¸åˆæ ¼
 #define DFITCSEC_AS_UnQualified                               7
-///¹«Ë¾²»ºÏ¸ñ
+///å…¬å¸ä¸åˆæ ¼
 #define DFITCSEC_AS_CompUnQualified                           9
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECTradeStatusType ÊÇÒ»¸ö×´Ì¬±êÖ¾ÀàĞÍ
+///DFITCSECTradeStatusType æ˜¯ä¸€ä¸ªçŠ¶æ€æ ‡å¿—ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECTradeStatusType;
-///Õı³£
+///æ­£å¸¸
 #define DFITCSEC_TS_Normal                                    0
-///ÔİÍ£
+///æš‚åœ
 #define DFITCSEC_TS_Suspend                                   2
-///µ÷³ö
+///è°ƒå‡º
 #define DFITCSEC_TS_CallOut                                   4
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECBranchIDType ÊÇÒ»¸ö»ú¹¹´úÂëÀàĞÍ
+///DFITCSECBranchIDType æ˜¯ä¸€ä¸ªæœºæ„ä»£ç ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECBranchIDType[5];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECPhoneIDType ÊÇÒ»¸öÁªÏµµç»°ÀàĞÍ
+///DFITCSECPhoneIDType æ˜¯ä¸€ä¸ªè”ç³»ç”µè¯ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECPhoneIDType[21];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECAccountNameType ÊÇÒ»¸ö¿Í»§Ãû³ÆÀàĞÍ
+///DFITCSECAccountNameType æ˜¯ä¸€ä¸ªå®¢æˆ·åç§°ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECAccountNameType[81];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECAccountIdentityIDType ÊÇÒ»¸öÖ¤¼ş±àºÅÀàĞÍ
+///DFITCSECAccountIdentityIDType æ˜¯ä¸€ä¸ªè¯ä»¶ç¼–å·ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECAccountIdentityIDType[31];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECAccountIdentityTypeType ÊÇÒ»¸öÖ¤¼ş±êÊ¾ÀàĞÍ
+///DFITCSECAccountIdentityTypeType æ˜¯ä¸€ä¸ªè¯ä»¶æ ‡ç¤ºç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECAccountIdentityTypeType;
-///Éí·İÖ¤
+///èº«ä»½è¯
 #define DFITCSEC_AI_IDcard                                   0
-///»¤ÕÕ
+///æŠ¤ç…§
 #define DFITCSEC_AI_PasPrt                                   1
-///¾ü¹ÙÖ¤
+///å†›å®˜è¯
 #define DFITCSEC_AI_OffCard                                  2
-///Ê¿±øÖ¤
+///å£«å…µè¯
 #define DFITCSEC_AI_SolderCard                               3
-///»ØÏçÖ¤
+///å›ä¹¡è¯
 #define DFITCSEC_AI_RntryPrmt                                4
-///»§¿Ú±¾
+///æˆ·å£æœ¬
 #define DFITCSEC_AI_HusHldRgstr                              5
-///Íâ¹ú»¤ÕÕ
+///å¤–å›½æŠ¤ç…§
 #define DFITCSEC_AI_FrignPasPrt                              6
-///¼¼Êõ¼à¶½¾Ö´úÂë
+///æŠ€æœ¯ç›‘ç£å±€ä»£ç 
 #define DFITCSEC_AI_TechSupBruCode                           7
-///ÓªÒµÖ´ÕÕ
+///è¥ä¸šæ‰§ç…§
 #define DFITCSEC_AI_BsnsLicence                              8
-///ĞĞÕş»ú¹Ø
+///è¡Œæ”¿æœºå…³
 #define DFITCSEC_AI_AdminOrgan                               9
-///Éç»áÍÅÌå
+///ç¤¾ä¼šå›¢ä½“
 #define DFITCSEC_AI_SocialGrup                               10
-///¾ü¶Ó
+///å†›é˜Ÿ
 #define DFITCSEC_AI_Army                                     11
-///Îä¾¯
+///æ­¦è­¦
 #define DFITCSEC_AI_ArmdPolice                               12
-///ÏÂÊô»ú¹¹
+///ä¸‹å±æœºæ„
 #define DFITCSEC_AI_SubBody                                  13
-///»ù½ğ»á
+///åŸºé‡‘ä¼š
 #define DFITCSEC_AI_Foundation                               14
-///Ì¨°ûÖ¤
+///å°èƒè¯
 #define DFITCSEC_AI_TaiWanCard                               15
-///¸Û°ÄÌ¨¾ÓÃñÉí·İÖ¤
+///æ¸¯æ¾³å°å±…æ°‘èº«ä»½è¯
 #define DFITCSEC_AI_HMTIDcard                                16
-///ÆäËû
+///å…¶ä»–
 #define DFITCSEC_AI_OtherCard                                99
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSBranchTypeType ÊÇÒ»¸ö»ú¹¹±êÖ¾ÀàĞÍ
+///DFITCSBranchTypeType æ˜¯ä¸€ä¸ªæœºæ„æ ‡å¿—ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSBranchTypeType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECPasswdSyncFlagType ÊÇÒ»¸öÃÜÂëÍ¬²½±êÖ¾ÀàĞÍ
+///DFITCSECPasswdSyncFlagType æ˜¯ä¸€ä¸ªå¯†ç åŒæ­¥æ ‡å¿—ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECPasswdSyncFlagType;
-///²»Í¬²½
+///ä¸åŒæ­¥
 #define DFITCSEC_PSF_Sync                                     0
-///Í¬²½
+///åŒæ­¥
 #define DFITCSEC_PSF_UnSync                                   1
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECShareholderSpecPropType ÊÇÒ»¸ö¹É¶«ÏŞÖÆÊôĞÔÀàĞÍ
+///DFITCSECShareholderSpecPropType æ˜¯ä¸€ä¸ªè‚¡ä¸œé™åˆ¶å±æ€§ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int   DFITCSECShareholderSpecPropType;
-///µ±ÈÕÖ¸¶¨
+///å½“æ—¥æŒ‡å®š
 #define DFITCSEC_SSP_SpecTheDay                               2
-///»Ø¹ºÖ¸¶¨
+///å›è´­æŒ‡å®š
 #define DFITCSEC_SSP_SpecRePurchase                           16
-///¸ôÈÕÖ¸¶¨
+///éš”æ—¥æŒ‡å®š
 #define DFITCSEC_SSP_SpecOtherDay                             32
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECTradePermissionsType ÊÇÒ»¸ö½»Ò×È¨ÏŞÀàĞÍ
+///DFITCSECTradePermissionsType æ˜¯ä¸€ä¸ªäº¤æ˜“æƒé™ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECTradePermissionsType;
-///»ù±¾½»Ò×È¨ÏŞ
+///åŸºæœ¬äº¤æ˜“æƒé™
 #define DFITCSEC_TP_BasicTrade                                 1
-///»Ø¹ºÈÚ×Ê
+///å›è´­èèµ„
 #define DFITCSEC_TP_ReprchFnc                                  2
-///»Ø¹ºÈÚÈ¯
+///å›è´­èåˆ¸
 #define DFITCSEC_TP_ReprchSecLoan                              4
-///ETFÉêÊê
+///ETFç”³èµ
 #define DFITCSEC_TP_ETF_SubRedemp                              8
-///È¨Ö¤½»Ò×
+///æƒè¯äº¤æ˜“
 #define DFITCSEC_TP_WarrantTrade                               16
-///Èı°å±¨¼Û×ªÈÃ
+///ä¸‰æ¿æŠ¥ä»·è½¬è®©
 #define DFITCSEC_TP_ThreeBrdTran                               32
-///´´Òµ°å
+///åˆ›ä¸šæ¿
 #define DFITCSEC_TP_GEM                                        64
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECShareholderStatusType ÊÇÒ»¸ö¹É¶«×´Ì¬ÀàĞÍ
+///DFITCSECShareholderStatusType æ˜¯ä¸€ä¸ªè‚¡ä¸œçŠ¶æ€ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECShareholderStatusType;
-///Õı³£
+///æ­£å¸¸
 #define DFITCSEC_SHS_Normal                                    0
-///¹É¶«¶³½á
+///è‚¡ä¸œå†»ç»“
 #define DFITCSEC_SHS_Freeze                                    1
-///¹É¶«¿¨¹ÒÊ§
+///è‚¡ä¸œå¡æŒ‚å¤±
 #define DFITCSEC_SHS_LOSS                                      2
-///Ğ¡¶îĞİÃß
+///å°é¢ä¼‘çœ 
 #define DFITCSEC_SHS_Dormancy                                  6
-///²»ºÏ¸ñ
+///ä¸åˆæ ¼
 #define DFITCSEC_SHS_Unqualified                               7
-///¼¤»î
+///æ¿€æ´»
 #define DFITCSEC_SHS_Activation                                8
-///¹«Ë¾²»ºÏ¸ñ
+///å…¬å¸ä¸åˆæ ¼
 #define DFITCSEC_SHS_CompanyUnqualified                        9
-///Ê¹ÓÃÉêÇëÖĞ
+///ä½¿ç”¨ç”³è¯·ä¸­
 #define DFITCSEC_SHS_Applying                                  10
-///Ê¹ÓÃÉêÇëÊ§°Ü
+///ä½¿ç”¨ç”³è¯·å¤±è´¥
 #define DFITCSEC_SHS_ApplyFailed                               11
-///VIP×´Ì¬
+///VIPçŠ¶æ€
 #define DFITCSEC_SHS_VIP                                       12
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECMainAccountFlagType ÊÇÒ»¸öÖ÷ÕË»§±êÖ¾ÀàĞÍ
+///DFITCSECMainAccountFlagType æ˜¯ä¸€ä¸ªä¸»è´¦æˆ·æ ‡å¿—ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECMainAccountFlagType;
-///¸¨ÖúÕÊºÅ
+///è¾…åŠ©å¸å·
 #define DFITCSEC_MA_Auxiliary                                  0
-///Ö÷ÕÊºÅ
+///ä¸»å¸å·
 #define DFITCSEC_MA_Master                                     1
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECShareholderCtlPropType ÊÇÒ»¸ö¹É¶«¿ØÖÆÊôĞÔÀàĞÍ
+///DFITCSECShareholderCtlPropType æ˜¯ä¸€ä¸ªè‚¡ä¸œæ§åˆ¶å±æ€§ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECShareholderCtlPropType;
-///Õı³£
+///æ­£å¸¸
 #define DFITCSEC_SHC_Normal                                    0
-///½ûÖ¹ÂòÈë
+///ç¦æ­¢ä¹°å…¥
 #define DFITCSEC_SHC_ForbidBuy                                 4
-///½ûÖ¹Âô³ö
+///ç¦æ­¢å–å‡º
 #define DFITCSEC_SHC_ForbidSell                                8
-///½ûÖ¹³·Ö¸
+///ç¦æ­¢æ’¤æŒ‡
 #define DFITCSEC_SHC_ForbidWithdraw                            64
-///½ûÖ¹×ªÍĞ¹Ü
+///ç¦æ­¢è½¬æ‰˜ç®¡
 #define DFITCSEC_SHC_ForbidCustodyTransfer                     128
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECOrderRangeID ÊÇÒ»¸öÎ¯ÍĞºÅ·¶Î§ÀàĞÍ
+///DFITCSECOrderRangeID æ˜¯ä¸€ä¸ªå§”æ‰˜å·èŒƒå›´ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECOrderRangeID[1024];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECBidTradeFlagType ÊÇÒ»¸ö¾º¼Û½»Ò×±êÖ¾ÀàĞÍ
+///DFITCSECBidTradeFlagType æ˜¯ä¸€ä¸ªç«ä»·äº¤æ˜“æ ‡å¿—ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECBidTradeFlagType;
-///²»ÔÊĞí¼¯ºÏ¾º¼ÛÆÚ¼ä½»Ò× 
+///ä¸å…è®¸é›†åˆç«ä»·æœŸé—´äº¤æ˜“ 
 #define DFITCSEC_BTF_UnBidTrade                           0
-///ÔÊĞí¼¯ºÏ¾º¼ÛÆÚ¼ä½»Ò×
+///å…è®¸é›†åˆç«ä»·æœŸé—´äº¤æ˜“
 #define DFITCSEC_BTF_BidTrade                             1
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECTradeUnitType ÊÇÒ»¸ö½»Ò×µ¥Î»ÀàĞÍ
+///DFITCSECTradeUnitType æ˜¯ä¸€ä¸ªäº¤æ˜“å•ä½ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int   DFITCSECTradeUnitType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECBusinessLimitType ÊÇÒ»¸öÂòÂôÏŞÖÆÀàĞÍ
+///DFITCSECBusinessLimitType æ˜¯ä¸€ä¸ªä¹°å–é™åˆ¶ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int   DFITCSECBusinessLimitType;
-///T+0½»Ò×
+///T+0äº¤æ˜“
 #define DFITCSEC_T0_Transaction                          1
-///Ï¯Î»ÍĞ¹Ü
+///å¸­ä½æ‰˜ç®¡
 #define DFITCSEC_Seat_Hosting                            2
-///¼ÆËãÊĞÖµ
+///è®¡ç®—å¸‚å€¼
 #define DFITCSEC_Computing_Market_Value                  8
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECSubAccountIDType ÊÇ×ÓÕË»§±àÂëÀàĞÍ
+///DFITCSECSubAccountIDType æ˜¯å­è´¦æˆ·ç¼–ç ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECSubAccountIDType[7];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECOpenCloseFlagType ÊÇÒ»¸ö¿ªÆ½±êÖ¾ÀàĞÍ
+///DFITCSECOpenCloseFlagType æ˜¯ä¸€ä¸ªå¼€å¹³æ ‡å¿—ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECOpenCloseFlagType;
-///¿ª²Ö
+///å¼€ä»“
 #define DFITCSEC_OCF_Open                                1
-///Æ½²Ö
+///å¹³ä»“
 #define DFITCSEC_OCF_Close                               2
-///Ö´ĞĞ
+///æ‰§è¡Œ
 #define DFITCSEC_OCF_Execute                             6
-///ÂÄÔ¼
+///å±¥çº¦
 #define DFITCSEC_OCF_Perform                             7
-///ÊµÎïÒâÏò½»¸î
+///å®ç‰©æ„å‘äº¤å‰²
 #define DFITCSEC_OCF_RealIntenDevi                       8
-///ºÏÔ¼³Ö²Öµ÷Õû                     
+///åˆçº¦æŒä»“è°ƒæ•´                     
 #define DFITCSEC_OCF_ConPosiAdj                          9 
-///Ö¤È¯¶³½á
+///è¯åˆ¸å†»ç»“
 #define DFITCSEC_OCF_SecFreeze                           10
-///Ö¤È¯½â¶³
+///è¯åˆ¸è§£å†»
 #define DFITCSEC_OCF_SecThaw                             11
-///Ç¿Æ½
+///å¼ºå¹³
 #define DFITCSEC_OCF_ForceClose                          12
-///×éºÏ
+///ç»„åˆ
 #define DFITCSEC_OCF_Group                               19
-///²ğ·Ö
+///æ‹†åˆ†
 #define DFITCSEC_OCF_Split                               20
-///×ª±¸¶Ò
+///è½¬å¤‡å…‘
 #define DFITCSEC_OCF_ToPrePare                           21
-///×ªÏÖ½ğ
+///è½¬ç°é‡‘
 #define DFITCSEC_OCF_ToCash                              22
-///×éºÏĞĞÈ¨
+///ç»„åˆè¡Œæƒ
 #define DFITCSEC_OCF_GroupExecute                        23
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECCoveredFlagType ÊÇÒ»¸ö±¸¶Ò±êÖ¾ÀàĞÍ
+///DFITCSECCoveredFlagType æ˜¯ä¸€ä¸ªå¤‡å…‘æ ‡å¿—ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECCoveredFlagType;
-///·Ç±¸¶Ò
+///éå¤‡å…‘
 #define DFITCSEC_CF_UnCovered                            0
-///±¸¶Ò
+///å¤‡å…‘
 #define DFITCSEC_CF_Covered                              1
-///±¸¶ÒÓÅÏÈ(Ô¤Áô£¬Ä¿Ç°²»Ö§³Ö)
+///å¤‡å…‘ä¼˜å…ˆ(é¢„ç•™ï¼Œç›®å‰ä¸æ”¯æŒ)
 #define DFITCSEC_CF_CoveredPrior                         2
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECOrderExpiryDateType ÊÇÒ»¸ö¶©µ¥Ê±Ğ§ÏŞÖÆÀàĞÍ
+///DFITCSECOrderExpiryDateType æ˜¯ä¸€ä¸ªè®¢å•æ—¶æ•ˆé™åˆ¶ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECOrderExpiryDateType;
-///µ±ÈÕÓĞĞ§
+///å½“æ—¥æœ‰æ•ˆ
 #define DFITCSEC_OE_NONE                                 0
-///Á¢¼´³É½»Ê£ÓàÖ¸Áî×Ô¶¯³·ÏúÖ¸Áî FAK(IOC)
+///ç«‹å³æˆäº¤å‰©ä½™æŒ‡ä»¤è‡ªåŠ¨æ’¤é”€æŒ‡ä»¤ FAK(IOC)
 #define DFITCSEC_OE_FAK                                  1
-///Á¢¼´È«²¿³É½»·ñÔò×Ô¶¯³·ÏúÖ¸Áî FOK
+///ç«‹å³å…¨éƒ¨æˆäº¤å¦åˆ™è‡ªåŠ¨æ’¤é”€æŒ‡ä»¤ FOK
 #define DFITCSEC_OE_FOK                                  2
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECOrderCategoryType ÊÇÒ»¸öÎ¯ÍĞµ¥Àà±ğÀàĞÍ
+///DFITCSECOrderCategoryType æ˜¯ä¸€ä¸ªå§”æ‰˜å•ç±»åˆ«ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECOrderCategoryType;
-///ÆÕÍ¨Î¯ÍĞ
+///æ™®é€šå§”æ‰˜
 #define DFITCSEC_OC_GeneralOrder                         0
-///ÊÖ¶¯Ç¿Æ½µ¥
+///æ‰‹åŠ¨å¼ºå¹³å•
 #define DFITCSEC_OC_ManualCloseOrder                     1
-///ĞĞÇé´¥·¢µ¥(Ô¤Áô£¬Ä¿Ç°ÏµÍ³²»Ö§³Ö)
+///è¡Œæƒ…è§¦å‘å•(é¢„ç•™ï¼Œç›®å‰ç³»ç»Ÿä¸æ”¯æŒ)
 //#define DFITCSEC_OC_QuoteTriggOrder                      2
-///×Ô¶¯Ç¿Æ½µ¥ 
+///è‡ªåŠ¨å¼ºå¹³å• 
 #define DFITCSEC_OC_AutoCloseOrder                       8
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECQuoteIDType ÊÇÒ»¸öÑ¯¼Û±àºÅÀàĞÍ
+///DFITCSECQuoteIDType æ˜¯ä¸€ä¸ªè¯¢ä»·ç¼–å·ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECQuoteIDType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECTDevIDType ÊÇÒ»¸öµÚÈı·½¿ª·¢ÉÌ´úÂëÀàĞÍ
+///DFITCSECTDevIDType æ˜¯ä¸€ä¸ªç¬¬ä¸‰æ–¹å¼€å‘å•†ä»£ç ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECTDevIDType[13];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECTDevDecInfoType ÊÇÒ»¸öµÚÈı·½¿ª·¢ÉÌÉê±¨ĞÅÏ¢ÀàĞÍ
+///DFITCSECTDevDecInfoType æ˜¯ä¸€ä¸ªç¬¬ä¸‰æ–¹å¼€å‘å•†ç”³æŠ¥ä¿¡æ¯ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECTDevDecInfoType[101];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECOptionTypeType ÊÇÒ»¸öÆÚÈ¨Àà±ğÀàĞÍ
+///DFITCSECOptionTypeType æ˜¯ä¸€ä¸ªæœŸæƒç±»åˆ«ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECOptionTypeType;
-///ÈÏ¹ºÆÚÈ¨
+///è®¤è´­æœŸæƒ
 #define DFITCSEC_OT_CALL                                1
-///ÈÏ¹ÁÆÚÈ¨
+///è®¤æ²½æœŸæƒ
 #define DFITCSEC_OT_PUT                                 2
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECContractObjectTypeType ÊÇÒ»¸ö±êµÄÀàĞÍÀàĞÍ
+///DFITCSECContractObjectTypeType æ˜¯ä¸€ä¸ªæ ‡çš„ç±»å‹ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECContractObjectTypeType;
-///A¹É
+///Aè‚¡
 #define DFITCSEC_COT_STOCK                              1
 ///ETF
 #define DFITCSEC_COT_ETF                                2
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECContractUnitType ÊÇÒ»¸öÆÚÈ¨ºÏÔ¼µ¥Î»ÀàĞÍ
+///DFITCSECContractUnitType æ˜¯ä¸€ä¸ªæœŸæƒåˆçº¦å•ä½ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECContractUnitType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECContractIDType ÊÇÒ»¸öÆÚÈ¨ºÏÔ¼±àÂëÀàĞÍ
+///DFITCSECContractIDType æ˜¯ä¸€ä¸ªæœŸæƒåˆçº¦ç¼–ç ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECContractIDType[20];
 
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECContractIDType ÊÇÒ»¸ö²úÆ·ÊµÊ±½×¶Î¼°±êÖ¾ÀàĞÍ
+///DFITCSECContractIDType æ˜¯ä¸€ä¸ªäº§å“å®æ—¶é˜¶æ®µåŠæ ‡å¿—ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECTradingPhaseCodeType[9];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECAccountTypeType ÊÇÒ»¸öÍ¶×ÊÕßÀà±ğÀàĞÍ
+///DFITCSECAccountTypeType æ˜¯ä¸€ä¸ªæŠ•èµ„è€…ç±»åˆ«ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECAccountTypeType;
-///¸öÈË
+///ä¸ªäºº
 #define DFITCSEC_AT_Personal                           1
-///»ú¹¹
+///æœºæ„
 #define DFITCSEC_AT_Organization                       2
-///×ÔÓª
+///è‡ªè¥
 #define DFITCSEC_AT_Selfoperation                      3
-///×öÊĞÉÌ
+///åšå¸‚å•†
 #define DFITCSEC_AT_Marketmaker                        4
-///½»Ò×»áÔ±
+///äº¤æ˜“ä¼šå‘˜
 #define DFITCSEC_AT_member                             0
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECAccountPropType ÊÇÒ»¸ö¿Í»§ÊôĞÔÀàĞÍ
+///DFITCSECAccountPropType æ˜¯ä¸€ä¸ªå®¢æˆ·å±æ€§ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECAccountPropType;
-///½ûÖ¹´æ¿î
+///ç¦æ­¢å­˜æ¬¾
 #define DFITCSEC_AP_PrhbtDeposit                       1
-///½ûÖ¹È¡¿î
+///ç¦æ­¢å–æ¬¾
 #define DFITCSEC_AP_PrhbtDrawMoney                     2
-///½ûÖ¹ÒøÖ¤×ªÕË
+///ç¦æ­¢é“¶è¯è½¬è´¦
 #define DFITCSEC_AP_PrhbtBankTran                      4
-///½ûÖ¹×ªÍĞ¹Ü
+///ç¦æ­¢è½¬æ‰˜ç®¡
 #define DFITCSEC_AP_PrhbtTransfer                      8
-///½ûÖ¹³·Ö¸
+///ç¦æ­¢æ’¤æŒ‡
 #define DFITCSEC_AP_PrhbtCancelSpecTran                16
-///½ûÖ¹Ïú»§
+///ç¦æ­¢é”€æˆ·
 #define DFITCSEC_AP_PrhbtCancelAcc                     32
-///½ûÖ¹¿ª²Ö
+///ç¦æ­¢å¼€ä»“
 #define DFITCSEC_AP_PrhbtTakePos                       64
-///½ûÖ¹Æ½²Ö
+///ç¦æ­¢å¹³ä»“
 #define DFITCSEC_AP_PrhbtClsPos                        128
-///½ûÖ¹µ¥»§×Ê½ğÄÚ×ª
+///ç¦æ­¢å•æˆ·èµ„é‡‘å†…è½¬
 #define DFITCSEC_AP_PrhbtSngFamFunTran                 256
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECAccountNodeIDType ÊÇÒ»¸ö¿Í»§½Úµã±àºÅÀàĞÍ
+///DFITCSECAccountNodeIDType æ˜¯ä¸€ä¸ªå®¢æˆ·èŠ‚ç‚¹ç¼–å·ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECAccountNodeIDType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECCheckUpLimitFlagType ÊÇÒ»¸ö¼ì²éÎ¯ÍĞÉÏÏŞ±êÖ¾ÀàĞÍ
+///DFITCSECCheckUpLimitFlagType æ˜¯ä¸€ä¸ªæ£€æŸ¥å§”æ‰˜ä¸Šé™æ ‡å¿—ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECCheckUpLimitFlagType;
-///¼ì²é
+///æ£€æŸ¥
 #define DFITCSEC_CULF_Check                           0
-///²»¼ì²é
+///ä¸æ£€æŸ¥
 #define DFITCSEC_CULF_UnChec                          1
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECContractNameType ÊÇÒ»¸öºÏÔ¼Ãû³ÆÀàĞÍ
+///DFITCSECContractNameType æ˜¯ä¸€ä¸ªåˆçº¦åç§°ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECContractNameType[32];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECExecuteTypeType ÊÇÒ»¸öĞĞÈ¨·½Ê½ÀàĞÍ
+///DFITCSECExecuteTypeType æ˜¯ä¸€ä¸ªè¡Œæƒæ–¹å¼ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECExecuteTypeType;
-///ÃÀÊ½
+///ç¾å¼
 #define DFITCSEC_ET_US                                0
-///Å·Ê½
+///æ¬§å¼
 #define DFITCSEC_ET_Europe                            1
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECDeliveryTypeType ÊÇÒ»¸ö½»¸î·½Ê½ÀàĞÍ
+///DFITCSECDeliveryTypeType æ˜¯ä¸€ä¸ªäº¤å‰²æ–¹å¼ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECDeliveryTypeType;
-///ÊµÎï½»¸î
+///å®ç‰©äº¤å‰²
 #define DFITCSEC_DT_Real                              1
-///ÏÖ½ğ½»¸î
+///ç°é‡‘äº¤å‰²
 #define DFITCSEC_DT_Cash                              2
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECOpenLimitsType ÊÇÒ»¸ö¿ª²ÖÏŞÖÆÀàĞÍ
+///DFITCSECOpenLimitsType æ˜¯ä¸€ä¸ªå¼€ä»“é™åˆ¶ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECOpenLimitsType;
-///ÔÊĞí¿ª²Ö
+///å…è®¸å¼€ä»“
 #define DFITCSEC_OL_Permit                            0
-///ÏŞÖÆ¿ª²Ö
+///é™åˆ¶å¼€ä»“
 #define DFITCSEC_OL_UnPermit                          1
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECStockTradeFlagType ÊÇÒ»¸ö¹ÉÆ±½»Ò×±êÖ¾ÀàĞÍ
+///DFITCSECStockTradeFlagType æ˜¯ä¸€ä¸ªè‚¡ç¥¨äº¤æ˜“æ ‡å¿—ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECStockTradeFlagType;
-///Îª"Í£ÅÆ±êÖ¾"Ê±, È¡ÖµÈçÏÂ
-///Õı³£
+///ä¸º"åœç‰Œæ ‡å¿—"æ—¶, å–å€¼å¦‚ä¸‹
+///æ­£å¸¸
 #define DFITCSEC_STF_Normal                           0
-///Í£ÅÆ
+///åœç‰Œ
 #define DFITCSEC_STF_Stop                             1
-///Îª"½»Ò××´Ì¬"Ê±, È¡ÖµÈçÏÂ
-///Õı³£
+///ä¸º"äº¤æ˜“çŠ¶æ€"æ—¶, å–å€¼å¦‚ä¸‹
+///æ­£å¸¸
 #define DFITCSEC_STF_Normal                           0
-///Í£ÅÆ
+///åœç‰Œ
 #define DFITCSEC_STF_Stop                             1
-///·¢ĞĞ
+///å‘è¡Œ
 #define DFITCSEC_STF_Issue                            2
-///Ê×ÈÕÉÏÊĞ
+///é¦–æ—¥ä¸Šå¸‚
 #define DFITCSEC_STF_FirstList                        3
-///ÍËÊĞ
+///é€€å¸‚
 #define DFITCSEC_STF_UnList                           4
 
 ////////////////////////////////////////////////////////////////////////
-///DFITCSECApproachExpireFlagType ÊÇÒ»¸öÁÙ½üµ½ÆÚÈÕ±êÖ¾ÀàĞÍ
+///DFITCSECApproachExpireFlagType æ˜¯ä¸€ä¸ªä¸´è¿‘åˆ°æœŸæ—¥æ ‡å¿—ç±»å‹
 ////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECApproachExpireFlagType;
 
 ////////////////////////////////////////////////////////////////////////
-///DFITCSECTempAdjuestFlagType ÊÇÒ»¸öµ÷Õû±êÖ¾ÀàĞÍ
+///DFITCSECTempAdjuestFlagType æ˜¯ä¸€ä¸ªè°ƒæ•´æ ‡å¿—ç±»å‹
 ////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECTempAdjuestFlagType;
 
 ////////////////////////////////////////////////////////////////////////
-///DFITCSECStockListFlagType ÊÇÒ»¸ö¹ÒÅÆ±êÖ¾ÀàĞÍ
+///DFITCSECStockListFlagType æ˜¯ä¸€ä¸ªæŒ‚ç‰Œæ ‡å¿—ç±»å‹
 ////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECStockListFlagType[2];
-///µ±ÈÕĞÂ¹ÒÅÆºÏÔ¼
+///å½“æ—¥æ–°æŒ‚ç‰Œåˆçº¦
 #define DFITCSEC_SLF_A                               'A'
-///´æĞøµÄºÏÔ¼
+///å­˜ç»­çš„åˆçº¦
 #define DFITCSEC_SLF_E                               'E'
-///µ±ÈÕÕªÅÆµÄºÏÔ¼
+///å½“æ—¥æ‘˜ç‰Œçš„åˆçº¦
 #define DFITCSEC_SLF_D                               'D'
 
 ////////////////////////////////////////////////////////////////////////
-///DFITCSECContractObjectStatusType ÊÇÒ»¸ö±êµÄÖ¤È¯×´Ì¬ÀàĞÍ
+///DFITCSECContractObjectStatusType æ˜¯ä¸€ä¸ªæ ‡çš„è¯åˆ¸çŠ¶æ€ç±»å‹
 ////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECContractObjectStatusType;
-///Õı³£
+///æ­£å¸¸
 #define DFITCSEC_COS_Normal                          0
-///ÔİÍ£
+///æš‚åœ
 #define DFITCSEC_COS_Suspend                         1
-///×÷·Ï
+///ä½œåºŸ
 #define DFITCSEC_COS_Cancel                          2
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECExchangeNameType ÊÇÒ»¸ö½»Ò×Ëù´úÂëÀàĞÍ
+///DFITCSECExchangeNameType æ˜¯ä¸€ä¸ªäº¤æ˜“æ‰€ä»£ç ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECExchangeNameType[11];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECNightTradingFlagType ÊÇÒ»¸öÒ¹ÊĞ½»Ò×±êÖ¾ÀàĞÍ
+///DFITCSECNightTradingFlagType æ˜¯ä¸€ä¸ªå¤œå¸‚äº¤æ˜“æ ‡å¿—ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECNightTradingFlagType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECTradingDayFlagType ÊÇÒ»¸ö½»Ò×ÈÕ±êÖ¾ÀàĞÍ
+///DFITCSECTradingDayFlagType æ˜¯ä¸€ä¸ªäº¤æ˜“æ—¥æ ‡å¿—ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECTradingDayFlagType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECLvelCategoryType ÊÇÒ»¸ö¼¶±ğÀàĞÍ
+///DFITCSECLvelCategoryType æ˜¯ä¸€ä¸ªçº§åˆ«ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECLvelType;
-///½»Ò×Ëù
+///äº¤æ˜“æ‰€
 #define DFITCSEC_L_EXCHANGE                         1
-///¹«Ë¾
+///å…¬å¸
 #define DFITCSEC_L_COMPANY                          2
-///µ¥»§
+///å•æˆ·
 #define DFITCSEC_L_CUSTOMER                         3
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECReferenceTypeType ÊÇÒ»¸ö·ÑÂÊ²ÎÊıÀà±ğÀàĞÍ
+///DFITCSECReferenceTypeType æ˜¯ä¸€ä¸ªè´¹ç‡å‚æ•°ç±»åˆ«ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECReferenceTypeType;
-///°´±êµÄÀàĞÍ
+///æŒ‰æ ‡çš„ç±»å‹
 #define DFITCSEC_RT_ObjectType                      1
-///°´±êµÄ´úÂë
+///æŒ‰æ ‡çš„ä»£ç 
 #define DFITCSEC_RT_ObjectID                        2
-///°´ÆÚÈ¨´úÂë
+///æŒ‰æœŸæƒä»£ç 
 #define DFITCSEC_RT_OptionID                        3
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECCalcTypeType ÊÇÒ»¸ö¼ÆËã·½Ê½ÀàĞÍ
+///DFITCSECCalcTypeType æ˜¯ä¸€ä¸ªè®¡ç®—æ–¹å¼ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECCalcTypeType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECContractNOType ÊÇÒ»¸öÖ¸¶¨ºÏÔ¼±àºÅÀàĞÍ
+///DFITCSECContractNOType æ˜¯ä¸€ä¸ªæŒ‡å®šåˆçº¦ç¼–å·ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECContractNOType[33];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECCrdtContractQryFlagType ÊÇÒ»¸ö²éÑ¯±êÖ¾ÀàĞÍ
+///DFITCSECCrdtContractQryFlagType æ˜¯ä¸€ä¸ªæŸ¥è¯¢æ ‡å¿—ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECCrdtContractQryFlagType;
-///²éÑ¯ËùÓĞ
+///æŸ¥è¯¢æ‰€æœ‰
 #define DFITCSEC_CCQF_Queryall                      0
-///µ±ÈÕÁË½á
+///å½“æ—¥äº†ç»“
 #define DFITCSEC_CCQF_Endoftheday                   1
-///Î´ÁË½á
+///æœªäº†ç»“
 #define DFITCSEC_CCQF_Unfinished                    2
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECCrdtContractStatusType ÊÇÒ»¸öºÏÔ¼×´Ì¬ÀàĞÍ
+///DFITCSECCrdtContractStatusType æ˜¯ä¸€ä¸ªåˆçº¦çŠ¶æ€ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECCrdtContractStatusType;
-///Î´ÁË½á
+///æœªäº†ç»“
 #define DFITCSEC_CCS_UnSettle                      0
-///ÒÑÁË½áÎ´ÇåËã
+///å·²äº†ç»“æœªæ¸…ç®—
 #define DFITCSEC_CCS_UnClear                       1
-///ÒÑÁË½á
+///å·²äº†ç»“
 #define DFITCSEC_CCS_Settle                        3
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECPositionNOType ÊÇÒ»¸öÍ·´ç±àºÅÀàĞÍ
+///DFITCSECPositionNOType æ˜¯ä¸€ä¸ªå¤´å¯¸ç¼–å·ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECPositionNOType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECClearFlagType ÊÇÒ»¸öÇåËã±êÖ¾ÀàĞÍ
+///DFITCSECClearFlagType æ˜¯ä¸€ä¸ªæ¸…ç®—æ ‡å¿—ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECClearFlagType;
-///³É½»ÒıÆğ
+///æˆäº¤å¼•èµ·
 #define DFITCSEC_CF_TradeCause                     1
-///ÇåËãÒıÆğ
+///æ¸…ç®—å¼•èµ·
 #define DFITCSEC_CF_ClearCause                     2
-///È¨Òæ²¹³¥ÒıÆğ
+///æƒç›Šè¡¥å¿å¼•èµ·
 #define DFITCSEC_CF_ComCause                       3
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECShareholderTypeType ÊÇÒ»¸ö¹É¶«Àà±ğÀàĞÍ
+///DFITCSECShareholderTypeType æ˜¯ä¸€ä¸ªè‚¡ä¸œç±»åˆ«ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECShareholderTypeType;
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECHKEntrustLimitType ÊÇÒ»¸ö¸Û¹É½»Ò×ÏŞÖÆÀàĞÍ
+///DFITCSECHKEntrustLimitType æ˜¯ä¸€ä¸ªæ¸¯è‚¡äº¤æ˜“é™åˆ¶ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECHKEntrustLimitType;
-///ÆÕÍ¨¹ÉÆ±
+///æ™®é€šè‚¡ç¥¨
 #define DFITCSEC_HKEL_NormalStolk                  0
-///¾º¼Û
+///ç«ä»·
 #define DFITCSEC_HKEL_Bid                          1
-///¿ªÊĞ¾º¼Û
+///å¼€å¸‚ç«ä»·
 #define DFITCSEC_HKEL_OpeningBid                   2
-///Áã¹É               
+///é›¶è‚¡               
 #define DFITCSEC_HKEL_OddStock                     3
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECHKOrderTypeType ÊÇÒ»¸ö¸Û¹É¶©µ¥ÊôĞÔÀàĞÍ
+///DFITCSECHKOrderTypeType æ˜¯ä¸€ä¸ªæ¸¯è‚¡è®¢å•å±æ€§ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECHKOrderTypeType;
-///µ±ÈÕÓĞĞ§
+///å½“æ—¥æœ‰æ•ˆ
 #define DFITCSEC_HKOT_GFT                          0
-///È«¶î¼´Ê±
+///å…¨é¢å³æ—¶
 #define DFITCSEC_HKOT_FOK                          4
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECOrderConfirmFlagType ÊÇÒ»¸öÎ¯ÍĞÈ·ÈÏÀàĞÍ
+///DFITCSECOrderConfirmFlagType æ˜¯ä¸€ä¸ªå§”æ‰˜ç¡®è®¤ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECOrderConfirmFlagType;
-///Î¯ÍĞ³É¹¦
+///å§”æ‰˜æˆåŠŸ
 #define DFITCSEC_ORDER_SUCCESS                     0
-///Î¯ÍĞÊ§°Ü
+///å§”æ‰˜å¤±è´¥
 #define DFITCSEC_ORDER_FAIL                        1
 
 //////////////////////////////////////////////////////////////////////////
-///DFITCSECExchangeGroupTypeType ÊÇÒ»¸ö½»Ò×Ëù×éºÏÀàĞÍ
+///DFITCSECExchangeGroupTypeType æ˜¯ä¸€ä¸ªäº¤æ˜“æ‰€ç»„åˆç±»å‹
 //////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECExchangeGroupTypeType;
-///×ª±¸¶Ò
+///è½¬å¤‡å…‘
 #define DFITCSEC_EGT_ToPrepare                     1
-///ÈÏ¹ºÅ£ÊĞ¼Û²î²ßÂÔ
+///è®¤è´­ç‰›å¸‚ä»·å·®ç­–ç•¥
 #define DFITCSEC_EGT_BullBuy                       2
-///ÈÏ¹ÁĞÜÊĞ¼Û²î²ßÂÔ
+///è®¤æ²½ç†Šå¸‚ä»·å·®ç­–ç•¥
 #define DFITCSEC_EGT_BearSell                      3
-///ÈÏ¹ÁÅ£ÊĞ¼Û²î²ßÂÔ
+///è®¤æ²½ç‰›å¸‚ä»·å·®ç­–ç•¥
 #define DFITCSEC_EGT_BullSell                      4
-///ÈÏ¹ºĞÜÊĞ¼Û²î²ßÂÔ
+///è®¤è´­ç†Šå¸‚ä»·å·®ç­–ç•¥
 #define DFITCSEC_EGT_BearBuy                       5
-///¿çÊ½¿ÕÍ·
+///è·¨å¼ç©ºå¤´
 #define DFITCSEC_EGT_ShortStraddle                 6
-///¿í¿çÊ½¿ÕÍ·
+///å®½è·¨å¼ç©ºå¤´
 #define DFITCSEC_EGT_WideStraddle                  7
-///±¸¶Ò×ªÏÖ½ğ
+///å¤‡å…‘è½¬ç°é‡‘
 #define DFITCSEC_EGT_CoveredToCash                 8
 
 //////////////////////////////////////////////////////////////////////////
-///DFITCSECGroupCodeType ÊÇÒ»¸ö×éºÏ±àÂëÀàĞÍ
+///DFITCSECGroupCodeType æ˜¯ä¸€ä¸ªç»„åˆç¼–ç ç±»å‹
 //////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECGroupCodeType[21];
 
 //////////////////////////////////////////////////////////////////////////
-///DFITCSECContractAdjustRemindType ÊÇÒ»¸öºÏÔ¼µ÷ÕûÌáĞÑÀàĞÍ
+///DFITCSECContractAdjustRemindType æ˜¯ä¸€ä¸ªåˆçº¦è°ƒæ•´æé†’ç±»å‹
 //////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECContractAdjustRemindType;
-///Î´µ÷Õû
+///æœªè°ƒæ•´
 #define DFITCSEC_CAR_NotAdj                        0
-///ÒÑµ÷Õû
+///å·²è°ƒæ•´
 #define DFITCSEC_CAR_Adj                           1
 
 //////////////////////////////////////////////////////////////////////////
-///DFITCSECContraceExpireRemindType ÊÇÒ»¸öºÏÔ¼¼´½«µ½ÆÚÌáĞÑÀàĞÍ
+///DFITCSECContraceExpireRemindType æ˜¯ä¸€ä¸ªåˆçº¦å³å°†åˆ°æœŸæé†’ç±»å‹
 //////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECContraceExpireRemindType;
-///Î´µ½ÆÚ
+///æœªåˆ°æœŸ
 #define DFITCSEC_CER_NotExpire                     0
-///¾àÀëµ½ÆÚÈÕ²»×ã10¸ö½»Ò×ÈÕ
+///è·ç¦»åˆ°æœŸæ—¥ä¸è¶³10ä¸ªäº¤æ˜“æ—¥
 #define DFITCSEC_CER_WillExpire                    1
 
 //////////////////////////////////////////////////////////////////////////
-///DFITCSESecurityOptionIndexType ÊÇÒ»¸ö¹ÉÆ±ÆÚÈ¨Ë÷ÒıÖµÀàĞÍ
+///DFITCSESecurityOptionIndexType æ˜¯ä¸€ä¸ªè‚¡ç¥¨æœŸæƒç´¢å¼•å€¼ç±»å‹
 //////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSESecurityOptionIndexType[21];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECOrderTypeLimitType ÊÇÒ»¸ö¶©µ¥ÀàĞÍÏŞÖÆÀàĞÍ
+///DFITCSECOrderTypeLimitType æ˜¯ä¸€ä¸ªè®¢å•ç±»å‹é™åˆ¶ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef char   DFITCSECOrderTypeLimitType[128];
 
 /////////////////////////////////////////////////////////////////////////
-///DFITCSECMiniPriceChangeType ÊÇÒ»¸ö×îĞ¡±ä¶¯¼ÛÎ»ÀàĞÍ
+///DFITCSECMiniPriceChangeType æ˜¯ä¸€ä¸ªæœ€å°å˜åŠ¨ä»·ä½ç±»å‹
 /////////////////////////////////////////////////////////////////////////
 typedef double DFITCSECMiniPriceChangeType;
 
 //////////////////////////////////////////////////////////////////////////
-///DFITCSECMDCompressFalgType ĞĞÇéÑ¹Ëõ±êÖ¾ÀàĞÍ
+///DFITCSECMDCompressFalgType è¡Œæƒ…å‹ç¼©æ ‡å¿—ç±»å‹
 //////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECMDCompressFalgType;
-///²»ÒªÇóĞĞÇéÇ°ÖÃÑ¹ËõĞĞÇé
+///ä¸è¦æ±‚è¡Œæƒ…å‰ç½®å‹ç¼©è¡Œæƒ…
 #define DFITCSEC_COMPRESS_FALSE                                      0
-///ÒªÇóĞĞÇéÇ°ÖÃÑ¹ËõĞĞÇé
+///è¦æ±‚è¡Œæƒ…å‰ç½®å‹ç¼©è¡Œæƒ…
 #define DFITCSEC_COMPRESS_TRUE                                       1
 
 //////////////////////////////////////////////////////////////////////////
-///DFITCSECCollectInterfaceType ¿´´©Ê½¼à¹Ü²É¼¯½Ó¿ÚÀàĞÍ
+///DFITCSECCollectInterfaceType çœ‹ç©¿å¼ç›‘ç®¡é‡‡é›†æ¥å£ç±»å‹
 //////////////////////////////////////////////////////////////////////////
 typedef int    DFITCSECCollectInterfaceType;
-///¶¥µã²É¼¯½Ó¿Ú
+///é¡¶ç‚¹é‡‡é›†æ¥å£
 #define DFITCSEC_COLLECTTYPE_APEX                                    1
-///ºãÉú²É¼¯½Ó¿Ú
+///æ’ç”Ÿé‡‡é›†æ¥å£
 #define DFITCSEC_COLLECTTYPE_HS                                      2
-///½ğÖ¤²É¼¯½Ó¿Ú
+///é‡‘è¯é‡‡é›†æ¥å£
 #define DFITCSEC_COLLECTTYPE_KD                                      3
-///½ğÊË´ï²É¼¯½Ó¿Ú
+///é‡‘ä»•è¾¾é‡‡é›†æ¥å£
 #define DFITCSEC_COLLECTTYPE_KS                                      4
 
 //////////////////////////////////////////////////////////////////////////
-///¿´´©Ê½¼à¹ÜÊ¹ÓÃÀàĞÍ
+///çœ‹ç©¿å¼ç›‘ç®¡ä½¿ç”¨ç±»å‹
 //////////////////////////////////////////////////////////////////////////
-///¿´´©Ê½¼à¹ÜÁ¬½ÓÀàĞÍ
+///çœ‹ç©¿å¼ç›‘ç®¡è¿æ¥ç±»å‹
 typedef int     DFITCSECConnectType;
-///Ö±Á¬Ä£Ê½
+///ç›´è¿æ¨¡å¼
 #define DFITCSEC_CONNECT_DIRECT 1
-///ÖĞ¼ÌÄ£Ê½
+///ä¸­ç»§æ¨¡å¼
 #define DFITCSEC_CONNECT_RELAY  2
-///²É¼¯ĞÅÏ¢
+///é‡‡é›†ä¿¡æ¯
 typedef char    DFITCSECSystemInfo[1024];
-///²É¼¯ĞÅÏ¢ÍêÕûĞÔ
+///é‡‡é›†ä¿¡æ¯å®Œæ•´æ€§
 typedef char    DFITCSECSystemInfoIntegrity[512];
-///ÃØÔ¿°æ±¾
+///ç§˜é’¥ç‰ˆæœ¬
 typedef char    DFITCSECSecretkeyVer[1024];
 ///AppID
 typedef char    DFITCSECAppID[31];
-///Òì³£±êÊ¶
+///å¼‚å¸¸æ ‡è¯†
 typedef int     DFITCSECExceptionFlag;
-///¿Í»§ÖÕ¶Ë¹«ÍøIPµØÖ·
+///å®¢æˆ·ç»ˆç«¯å…¬ç½‘IPåœ°å€
 typedef char    DFITCSECClientPublicIP[20];
-///¿Í»§ÖÕ¶Ë¹«Íø¶Ë¿ÚºÅ
+///å®¢æˆ·ç»ˆç«¯å…¬ç½‘ç«¯å£å·
 typedef int     DFITCSECClientPublicPort;
-///¿Í»§ÖÕ¶ËµÇÂ¼Ê±¼ä
+///å®¢æˆ·ç»ˆç«¯ç™»å½•æ—¶é—´
 typedef char    DFITCSECClientLoginTime[9];
 
 #endif//DFITCStockAPIDATATYPE_H

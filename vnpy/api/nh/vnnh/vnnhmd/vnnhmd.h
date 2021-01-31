@@ -1,4 +1,4 @@
-//ÏµÍ³
+//ç³»ç»Ÿ
 #ifdef WIN32
 #include "stdafx.h"
 #endif
@@ -10,7 +10,7 @@
 
 using namespace pybind11;
 
-//³£Á¿
+//å¸¸é‡
 #define ONFRONTCONNECTED 0
 #define ONFRONTDISCONNECTED 1
 #define ONHEARTBEATWARNING 2
@@ -25,17 +25,17 @@ using namespace pybind11;
 
 
 ///-------------------------------------------------------------------------------------
-///C++ SPIµÄ»Øµ÷º¯Êı·½·¨ÊµÏÖ
+///C++ SPIçš„å›è°ƒå‡½æ•°æ–¹æ³•å®ç°
 ///-------------------------------------------------------------------------------------
 
-//APIµÄ¼Ì³ĞÊµÏÖ
+//APIçš„ç»§æ‰¿å®ç°
 class MdApi : public CNhMdSpi
 {
 private:
-	CNhMdApi* api;						//API¶ÔÏó
-	thread task_thread;					//¹¤×÷Ïß³ÌÖ¸Õë£¨ÏòpythonÖĞÍÆËÍÊı¾İ£©
-	TaskQueue task_queue;			    //ÈÎÎñ¶ÓÁĞ
-	bool active = false;				//¹¤×÷×´Ì¬
+	CNhMdApi* api;						//APIå¯¹è±¡
+	thread task_thread;					//å·¥ä½œçº¿ç¨‹æŒ‡é’ˆï¼ˆå‘pythonä¸­æ¨é€æ•°æ®ï¼‰
+	TaskQueue task_queue;			    //ä»»åŠ¡é˜Ÿåˆ—
+	bool active = false;				//å·¥ä½œçŠ¶æ€
 
 public:
 	MdApi()
@@ -51,44 +51,44 @@ public:
 	};
 
 	//-------------------------------------------------------------------------------------
-	//API»Øµ÷º¯Êı
+	//APIå›è°ƒå‡½æ•°
 	//-------------------------------------------------------------------------------------
 
-	///µ±¿Í»§¶ËÓëĞĞÇéÍø¹Ø½¨Á¢ÆğÍ¨ĞÅÁ¬½ÓÊ±£¨»¹Î´µÇÂ¼Ç°£©£¬¸Ã·½·¨±»µ÷ÓÃ¡£
+	///å½“å®¢æˆ·ç«¯ä¸è¡Œæƒ…ç½‘å…³å»ºç«‹èµ·é€šä¿¡è¿æ¥æ—¶ï¼ˆè¿˜æœªç™»å½•å‰ï¼‰ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚
 	virtual void OnFrontConnected() ;
 
-	///µ±¿Í»§¶ËÓëĞĞÇéÍø¹ØÍ¨ĞÅÁ¬½Ó¶Ï¿ªÊ±£¬¸Ã·½·¨±»µ÷ÓÃ¡£
+	///å½“å®¢æˆ·ç«¯ä¸è¡Œæƒ…ç½‘å…³é€šä¿¡è¿æ¥æ–­å¼€æ—¶ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚
 	virtual void OnFrontDisConnected() ;
 
-	///ĞÄÌø³¬Ê±¾¯¸æ¡£µ±³¤Ê±¼äÎ´ÊÕµ½±¨ÎÄÊ±£¬¸Ã·½·¨±»µ÷ÓÃ¡£
-	/* \param nTimeLapse ¾àÀëÉÏ´Î½ÓÊÕ±¨ÎÄµÄÊ±¼ä
+	///å¿ƒè·³è¶…æ—¶è­¦å‘Šã€‚å½“é•¿æ—¶é—´æœªæ”¶åˆ°æŠ¥æ–‡æ—¶ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚
+	/* \param nTimeLapse è·ç¦»ä¸Šæ¬¡æ¥æ”¶æŠ¥æ–‡çš„æ—¶é—´
 	****************************************/
 	virtual void OnHeartBeatWarning(int nTimeLapse) ;
 
 	/***************************************
 	/* \fn    OnRspError
-	/* \brief ´íÎóÓ¦´ğ
-	/* \param ERRORMSGINFO_t & req,´íÎóÓ¦´ğÏûÏ¢
-	/* \param TSequenceIDType nRequestID£¬Èç¹ûÊÇÓÉÓÚrequestÒıÆğµÄ´íÎó£¬ÔòÎª¶ÔÓ¦ÇëÇóID£¬·ñÔò£¬Îª0
+	/* \brief é”™è¯¯åº”ç­”
+	/* \param ERRORMSGINFO_t & req,é”™è¯¯åº”ç­”æ¶ˆæ¯
+	/* \param TSequenceIDType nRequestIDï¼Œå¦‚æœæ˜¯ç”±äºrequestå¼•èµ·çš„é”™è¯¯ï¼Œåˆ™ä¸ºå¯¹åº”è¯·æ±‚IDï¼Œå¦åˆ™ï¼Œä¸º0
 	/* \return void
 	****************************************/
 	virtual void OnRspError(ERRORMSGINFO_t &pRspInfo, TSequenceIDType nRequestID) ;
 
-	///ĞĞÇéÍ¨Öª
+	///è¡Œæƒ…é€šçŸ¥
 	virtual void OnRtnMarketData(STKMarketData_t &pData) ;
 
 	/***************************************
 	/* \fn    OnRspUtpLogin
-	/* \brief µÇÂ¼ÄÏ»ªÍ³Ò»½»Ò×Æ½Ì¨UTPÇëÇóÊ±ÏìÓ¦
+	/* \brief ç™»å½•å—åç»Ÿä¸€äº¤æ˜“å¹³å°UTPè¯·æ±‚æ—¶å“åº”
 	/* \param RspUtpLoginField_t & req
-	/* \param TSequenceIDType nRequestID£¬
+	/* \param TSequenceIDType nRequestIDï¼Œ
 	/* \return void
 	****************************************/
 	virtual void OnRspUtpLogin(const RspUtpLoginField_t& rsp, TSequenceIDType nRequestID) ;
 
 	/***************************************
 	/* \fn    OnRspUtpLogout
-	/* \brief µÇÂ¼ÄÏ»ªÍ³Ò»½»Ò×Æ½Ì¨UTPÇëÇóÊ±ÏìÓ¦
+	/* \brief ç™»å½•å—åç»Ÿä¸€äº¤æ˜“å¹³å°UTPè¯·æ±‚æ—¶å“åº”
 	/* \param RspUtpLogoutField_t & req
 	/* \param TSequenceIDType nRequestID
 	/* \return void
@@ -97,7 +97,7 @@ public:
 
 	/***************************************
 	/* \fn    OnRspSubscribe
-	/* \brief ¶©ÔÄĞĞÇéÊı¾İÇëÇóÊ±ÏìÓ¦
+	/* \brief è®¢é˜…è¡Œæƒ…æ•°æ®è¯·æ±‚æ—¶å“åº”
 	/* \param RspSubscribeField_t & req
 	/* \param TSequenceIDType nRequestID
 	/* \return void
@@ -106,7 +106,7 @@ public:
 
 	/***************************************
 	/* \fn    OnRspUnSubscribe
-	/* \brief È¡Ïû¶©ÔÄĞĞÇéÊı¾İÇëÇóÊ±ÏìÓ¦
+	/* \brief å–æ¶ˆè®¢é˜…è¡Œæƒ…æ•°æ®è¯·æ±‚æ—¶å“åº”
 	/* \param RspUnSubscribeField_t & req
 	/* \param TSequenceIDType nRequestID
 	/* \return void
@@ -115,7 +115,7 @@ public:
 
 	/***************************************
 	* \fn    OnRspQryExchange
-	* \brief ²éÑ¯½»Ò×ËùÇëÇóÊ±ÏìÓ¦
+	* \brief æŸ¥è¯¢äº¤æ˜“æ‰€è¯·æ±‚æ—¶å“åº”
 	* \param RspQryExchangeField_t & rsp
 	* \param TSequenceIDType nRequestID
 	* \return void
@@ -124,7 +124,7 @@ public:
 
 	/***************************************
 	* \fn    OnRspQryInstrument
-	* \brief ²éÑ¯ºÏÔ¼ÇëÇóÊ±ÏìÓ¦
+	* \brief æŸ¥è¯¢åˆçº¦è¯·æ±‚æ—¶å“åº”
 	* \param RspQryInstrumentField_t & rsp
 	* \param TSequenceIDType nRequestID
 	* \return void
@@ -132,7 +132,7 @@ public:
 	virtual void OnRspQryInstrument(const RspQryInstrumentField_t& rsp, TSequenceIDType nRequestID) ;
 
 	//-------------------------------------------------------------------------------------
-	//task£ºÈÎÎñ
+	//taskï¼šä»»åŠ¡
 	//-------------------------------------------------------------------------------------
 
 	void processTask();
@@ -160,11 +160,11 @@ public:
 	void processRspQryInstrument(Task *task);
 
 	//-------------------------------------------------------------------------------------
-	//data£º»Øµ÷º¯ÊıµÄÊı¾İ×Öµä
-	//error£º»Øµ÷º¯ÊıµÄ´íÎó×Öµä
-	//id£ºÇëÇóid
-	//last£ºÊÇ·ñÎª×îºó·µ»Ø
-	//i£ºÕûÊı
+	//dataï¼šå›è°ƒå‡½æ•°çš„æ•°æ®å­—å…¸
+	//errorï¼šå›è°ƒå‡½æ•°çš„é”™è¯¯å­—å…¸
+	//idï¼šè¯·æ±‚id
+	//lastï¼šæ˜¯å¦ä¸ºæœ€åè¿”å›
+	//iï¼šæ•´æ•°
 	//-------------------------------------------------------------------------------------
 
 	virtual void onFrontConnected() {};
@@ -190,7 +190,7 @@ public:
 	virtual void onRspQryInstrument(const dict &data, int reqid) {};
 
 	//-------------------------------------------------------------------------------------
-	//req:Ö÷¶¯º¯ÊıµÄÇëÇó×Öµä
+	//req:ä¸»åŠ¨å‡½æ•°çš„è¯·æ±‚å­—å…¸
 	//-------------------------------------------------------------------------------------
 
 	void createMdApi();

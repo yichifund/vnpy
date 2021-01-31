@@ -1,4 +1,4 @@
-//ÏµÍ³
+ï»¿//ç³»ç»Ÿ
 #ifdef WIN32
 #include "pch.h"
 #endif
@@ -14,15 +14,15 @@ using namespace HFT;
 
 
 ///-------------------------------------------------------------------------------------
-///C++ SPIµÄ»Øµ÷º¯Êı·½·¨ÊµÏÖ
+///C++ SPIçš„å›è°ƒå‡½æ•°æ–¹æ³•å®ç°
 ///-------------------------------------------------------------------------------------
 
-//APIµÄ¼Ì³ĞÊµÏÖ
+//APIçš„ç»§æ‰¿å®ç°
 class TdApi : public TraderSpi
 {
 private:
-	TraderApi* api;            //API¶ÔÏó
-    bool active = false;       //¹¤×÷×´Ì¬
+    TraderApi* api;            //APIå¯¹è±¡
+    bool active = false;       //å·¥ä½œçŠ¶æ€
 
 public:
     TdApi()
@@ -38,632 +38,632 @@ public:
     };
 
     //-------------------------------------------------------------------------------------
-    //API»Øµ÷º¯Êı
+    //APIå›è°ƒå‡½æ•°
     //-------------------------------------------------------------------------------------
 
-	/**
-	 * Á¬½Ó¶Ï¿ªÊ±»Øµ÷
-	 */
-	virtual void OnDisconnect();
+    /**
+     * è¿æ¥æ–­å¼€æ—¶å›è°ƒ
+     */
+    virtual void OnDisconnect();
 
-	/**
-	 * ´íÎóÏûÏ¢»Øµ÷£¬ÏµÍ³³ö´íÊ±²Å»á»Øµ÷
-	 *
-	 * @param error_info    ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ£¬Èç¹û²»ÊÇÇëÇó´¥·¢µÄ´íÎó£¬´Ë×Ö¶ÎÖµÎª0
-	 */
-	virtual void OnError(ErrorInfo* error_info, int request_id = 0);
+    /**
+     * é”™è¯¯æ¶ˆæ¯å›è°ƒï¼Œç³»ç»Ÿå‡ºé”™æ—¶æ‰ä¼šå›è°ƒ
+     *
+     * @param error_info    é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·ï¼Œå¦‚æœä¸æ˜¯è¯·æ±‚è§¦å‘çš„é”™è¯¯ï¼Œæ­¤å­—æ®µå€¼ä¸º0
+     */
+    virtual void OnError(ErrorInfo* error_info, int request_id = 0);
 
-	/**
-	 * ·ç¿Ø¸æ¾¯ĞÅÏ¢Í¨Öª»Øµ÷
-	 *
-	 * @param risk_notify   ·ç¿Ø¸æ¾¯ĞÅÏ¢
-	 */
-	virtual void OnRiskNotify(RiskNotify* risk_notify);
+    /**
+     * é£æ§å‘Šè­¦ä¿¡æ¯é€šçŸ¥å›è°ƒ
+     *
+     * @param risk_notify   é£æ§å‘Šè­¦ä¿¡æ¯
+     */
+    virtual void OnRiskNotify(RiskNotify* risk_notify);
 
-	/**
-	 * µÇÂ¼³É¹¦»òÊ§°ÜÊ±»Øµ÷
-	 *
-	 * @param rsp           µÇÂ¼Ó¦´ğÊı¾İ£¬°üº¬¿Í»§ºÅ¡¢¿Í»§ĞÕÃû¡¢¹É¶«´úÂëµÈĞÅÏ¢
-	 * @param error_info    ´íÎóĞÅÏ¢
-	 */
-	virtual void OnLogin(LoginRsp* rsp, ErrorInfo* error_info);
+    /**
+     * ç™»å½•æˆåŠŸæˆ–å¤±è´¥æ—¶å›è°ƒ
+     *
+     * @param rsp           ç™»å½•åº”ç­”æ•°æ®ï¼ŒåŒ…å«å®¢æˆ·å·ã€å®¢æˆ·å§“åã€è‚¡ä¸œä»£ç ç­‰ä¿¡æ¯
+     * @param error_info    é”™è¯¯ä¿¡æ¯
+     */
+    virtual void OnLogin(LoginRsp* rsp, ErrorInfo* error_info);
 
-	/**
-	 * ³É½»»Ø±¨»Øµ÷
-	 *
-	 * @param trade_detail  »Øµ÷µÄ³É½»ÏêÇé¶ÔÏó
-	 */
-	virtual void OnTradeReport(TradeDetail* trade_detail);
+    /**
+     * æˆäº¤å›æŠ¥å›è°ƒ
+     *
+     * @param trade_detail  å›è°ƒçš„æˆäº¤è¯¦æƒ…å¯¹è±¡
+     */
+    virtual void OnTradeReport(TradeDetail* trade_detail);
 
-	/**
-	 * ¶©µ¥×´Ì¬±ä»¯»Øµ÷
-	 *
-	 * @param order_detail  »Øµ÷µÄ¶©µ¥¶ÔÏó
-	 */
-	virtual void OnOrderStatus(OrderDetail* order_detail);
+    /**
+     * è®¢å•çŠ¶æ€å˜åŒ–å›è°ƒ
+     *
+     * @param order_detail  å›è°ƒçš„è®¢å•å¯¹è±¡
+     */
+    virtual void OnOrderStatus(OrderDetail* order_detail);
 
-	/**
-	 * ¶©µ¥Î¯ÍĞµÄÏìÓ¦
-	 *
-	 * @param order_rsp     ¶©µ¥Î¯ÍĞÓ¦´ğ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 */
-	virtual void OnOrderRsp(OrderRsp* order_rsp, ErrorInfo* error_info,
-		int request_id, bool is_last);
+    /**
+     * è®¢å•å§”æ‰˜çš„å“åº”
+     *
+     * @param order_rsp     è®¢å•å§”æ‰˜åº”ç­”
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     */
+    virtual void OnOrderRsp(OrderRsp* order_rsp, ErrorInfo* error_info,
+        int request_id, bool is_last);
 
-	/**
-	 * ³·µ¥µÄÏìÓ¦
-	 *
-	 * @param cancel_rsp    ³·µ¥Ó¦´ğ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 */
-	virtual void OnCancelRsp(CancelRsp* cancel_rsp, ErrorInfo* error_info,
-		int request_id, bool is_last);
+    /**
+     * æ’¤å•çš„å“åº”
+     *
+     * @param cancel_rsp    æ’¤å•åº”ç­”
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     */
+    virtual void OnCancelRsp(CancelRsp* cancel_rsp, ErrorInfo* error_info,
+        int request_id, bool is_last);
 
-	/**
-	 * ²éÑ¯µ±ÈÕ¶©µ¥ÏêÇéµÄÏìÓ¦£¬Ò»´Î·µ»ØÒ»¸ö¶©µ¥ÏêÇé
-	 * QueryOrder¡¢QueryOrderByCode¡¢QueryOrders¾ùÓÉ´Ë½Ó¿ÚÏìÓ¦
-	 *
-	 * @param order_detail  ¶©µ¥ÏêÇé
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 * @param pos_str       ±¾´Î²éÑ¯×îºóÒ»Ìõ¼ÇÂ¼µÄ¶¨Î»´®£¬ÓÃÓÚÏÂÒ»´Î²éÑ¯
-	 */
-	virtual void OnQueryOrderRsp(OrderDetail* order_detail,
-		ErrorInfo* error_info, int request_id,
-		bool is_last, const char* pos_str);
+    /**
+     * æŸ¥è¯¢å½“æ—¥è®¢å•è¯¦æƒ…çš„å“åº”ï¼Œä¸€æ¬¡è¿”å›ä¸€ä¸ªè®¢å•è¯¦æƒ…
+     * QueryOrderã€QueryOrderByCodeã€QueryOrderså‡ç”±æ­¤æ¥å£å“åº”
+     *
+     * @param order_detail  è®¢å•è¯¦æƒ…
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     * @param pos_str       æœ¬æ¬¡æŸ¥è¯¢æœ€åä¸€æ¡è®°å½•çš„å®šä½ä¸²ï¼Œç”¨äºä¸‹ä¸€æ¬¡æŸ¥è¯¢
+     */
+    virtual void OnQueryOrderRsp(OrderDetail* order_detail,
+        ErrorInfo* error_info, int request_id,
+        bool is_last, const char* pos_str);
 
-	/**
-	 * ²éÑ¯µ±ÈÕ³É½»ÏêÇéµÄÏìÓ¦£¬Ò»´Î·µ»ØÒ»¸ö³É½»ÏêÇé
-	 * QueryTradeByCode¡¢QueryTradeByOrderId¡¢QueryTrades¡¢QueryETFTrades¾ùÓÉ´Ë½Ó¿ÚÏìÓ¦
-	 *
-	 * @param trade_detail  ³É½»ÏêÇé
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 * @param pos_str       ±¾´Î²éÑ¯×îºóÒ»Ìõ¼ÇÂ¼µÄ¶¨Î»´®£¬ÓÃÓÚÏÂÒ»´Î²éÑ¯
-	 */
-	virtual void OnQueryTradeRsp(TradeDetail* trade_detail,
-		ErrorInfo* error_info, int request_id,
-		bool is_last, const char* pos_str);
+    /**
+     * æŸ¥è¯¢å½“æ—¥æˆäº¤è¯¦æƒ…çš„å“åº”ï¼Œä¸€æ¬¡è¿”å›ä¸€ä¸ªæˆäº¤è¯¦æƒ…
+     * QueryTradeByCodeã€QueryTradeByOrderIdã€QueryTradesã€QueryETFTradeså‡ç”±æ­¤æ¥å£å“åº”
+     *
+     * @param trade_detail  æˆäº¤è¯¦æƒ…
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     * @param pos_str       æœ¬æ¬¡æŸ¥è¯¢æœ€åä¸€æ¡è®°å½•çš„å®šä½ä¸²ï¼Œç”¨äºä¸‹ä¸€æ¬¡æŸ¥è¯¢
+     */
+    virtual void OnQueryTradeRsp(TradeDetail* trade_detail,
+        ErrorInfo* error_info, int request_id,
+        bool is_last, const char* pos_str);
 
-	/**
-	 * ²éÑ¯µ±ÈÕ³Ö²ÖÏêÇéµÄÏìÓ¦£¬Ò»´Î·µ»ØÒ»¸ö³Ö²ÖÏêÇé
-	 * QueryPosition¡¢QueryPositionsÓÉ´Ë½Ó¿ÚÏìÓ¦
-	 *
-	 * @param position_detail   ³Ö²ÖÏêÇé
-	 * @param error_info        Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id        ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last           ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦
-	 * @param pos_str           ±¾´Î²éÑ¯×îºóÒ»Ìõ¼ÇÂ¼µÄ¶¨Î»´®£¬ÓÃÓÚÏÂÒ»´Î²éÑ¯
-	 */
-	virtual void OnQueryPositionRsp(PositionDetail* position_detail,
-		ErrorInfo* error_info, int request_id,
-		bool is_last, const char* pos_str);
+    /**
+     * æŸ¥è¯¢å½“æ—¥æŒä»“è¯¦æƒ…çš„å“åº”ï¼Œä¸€æ¬¡è¿”å›ä¸€ä¸ªæŒä»“è¯¦æƒ…
+     * QueryPositionã€QueryPositionsç”±æ­¤æ¥å£å“åº”
+     *
+     * @param position_detail   æŒä»“è¯¦æƒ…
+     * @param error_info        åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id        å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last           æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”
+     * @param pos_str           æœ¬æ¬¡æŸ¥è¯¢æœ€åä¸€æ¡è®°å½•çš„å®šä½ä¸²ï¼Œç”¨äºä¸‹ä¸€æ¬¡æŸ¥è¯¢
+     */
+    virtual void OnQueryPositionRsp(PositionDetail* position_detail,
+        ErrorInfo* error_info, int request_id,
+        bool is_last, const char* pos_str);
 
-	/**
-	 * ²éÑ¯µ±ÈÕ×Ê½ğµÄÏìÓ¦
-	 *
-	 * @param cash_detail   ×Ê½ğÏêÇé
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 */
-	virtual void OnQueryCashRsp(CashDetail* cash_detail, ErrorInfo* error_info,
-		int request_id);
+    /**
+     * æŸ¥è¯¢å½“æ—¥èµ„é‡‘çš„å“åº”
+     *
+     * @param cash_detail   èµ„é‡‘è¯¦æƒ…
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     */
+    virtual void OnQueryCashRsp(CashDetail* cash_detail, ErrorInfo* error_info,
+        int request_id);
 
-	/**
-	 * ²é¼¯ÖĞ½»Ò×ÏµÍ³¿ÉÓÃ×Ê½ğ
-	 *
-	 * @param avail_balance ¿ÉÓÃ×Ê½ğ£¬µ¥Î»£ºÈËÃñ±Ò
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ÇëÇóĞòÁĞºÅ£¬ÓÃÓÚÆ¥ÅäÏìÓ¦£¬ÓÉÓÃ»§×Ô¶¨Òå£¬·Ç0
-	 */
-	virtual void OnQueryJZJYAvailFundRsp(int64_t avail_balance,
-		ErrorInfo* error_info,
-		int request_id);
+    /**
+     * æŸ¥é›†ä¸­äº¤æ˜“ç³»ç»Ÿå¯ç”¨èµ„é‡‘
+     *
+     * @param avail_balance å¯ç”¨èµ„é‡‘ï¼Œå•ä½ï¼šäººæ°‘å¸
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    è¯·æ±‚åºåˆ—å·ï¼Œç”¨äºåŒ¹é…å“åº”ï¼Œç”±ç”¨æˆ·è‡ªå®šä¹‰ï¼Œé0
+     */
+    virtual void OnQueryJZJYAvailFundRsp(int64_t avail_balance,
+        ErrorInfo* error_info,
+        int request_id);
 
-	/**
-	 * ¼¯ÖĞ½»Ò×¹ñÌ¨Óë¿ìËÙ¹ñÌ¨Ö®¼ä×Ê½ğ×ªÈë×ª³ö
-	 *
-	 * @param transfer_value    »®×ª½ğ¶î
-	 * @param error_info        Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id        ÇëÇóĞòÁĞºÅ£¬ÓÃÓÚÆ¥ÅäÏìÓ¦£¬ÓÉÓÃ»§×Ô¶¨Òå
-	 */
-	virtual void OnTransferFundInAndOutRsp(int64_t transfer_value,
-		ErrorInfo* error_info,
-		int request_id);
+    /**
+     * é›†ä¸­äº¤æ˜“æŸœå°ä¸å¿«é€ŸæŸœå°ä¹‹é—´èµ„é‡‘è½¬å…¥è½¬å‡º
+     *
+     * @param transfer_value    åˆ’è½¬é‡‘é¢
+     * @param error_info        åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id        è¯·æ±‚åºåˆ—å·ï¼Œç”¨äºåŒ¹é…å“åº”ï¼Œç”±ç”¨æˆ·è‡ªå®šä¹‰
+     */
+    virtual void OnTransferFundInAndOutRsp(int64_t transfer_value,
+        ErrorInfo* error_info,
+        int request_id);
 
-	/**
-	 * Õë¶ÔÍ¬Ò»¸ö×Ê½ğÕËºÅ£¬Ò»»§Á½µØÖ®¼ä×Ê½ğ»®×ª
-	 *
-	 * @param transfer_value    »®×ª½ğ¶î
-	 * @param error_info        Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id        ÇëÇóĞòÁĞºÅ£¬ÓÃÓÚÆ¥ÅäÏìÓ¦£¬ÓÉÓÃ»§×Ô¶¨Òå
-	 */
-	virtual void OnTransferFundBetweenSecuidRsp(int64_t transfer_value,
-		ErrorInfo* error_info,
-		int request_id);
+    /**
+     * é’ˆå¯¹åŒä¸€ä¸ªèµ„é‡‘è´¦å·ï¼Œä¸€æˆ·ä¸¤åœ°ä¹‹é—´èµ„é‡‘åˆ’è½¬
+     *
+     * @param transfer_value    åˆ’è½¬é‡‘é¢
+     * @param error_info        åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id        è¯·æ±‚åºåˆ—å·ï¼Œç”¨äºåŒ¹é…å“åº”ï¼Œç”±ç”¨æˆ·è‡ªå®šä¹‰
+     */
+    virtual void OnTransferFundBetweenSecuidRsp(int64_t transfer_value,
+        ErrorInfo* error_info,
+        int request_id);
 
-	/**
-	 * ²éÑ¯ETF»ù±¾ĞÅÏ¢µÄÏìÓ¦£¬Ã¿´Î·µ»ØÒ»¸öETFĞÅÏ¢
-	 *
-	 * @param etf_detail    ETF»ù±¾ĞÅÏ¢ÏêÇé
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 */
-	virtual void OnQueryETFRsp(ETFDetail* etf_detail, ErrorInfo* error_info,
-		int request_id, bool is_last);
+    /**
+     * æŸ¥è¯¢ETFåŸºæœ¬ä¿¡æ¯çš„å“åº”ï¼Œæ¯æ¬¡è¿”å›ä¸€ä¸ªETFä¿¡æ¯
+     *
+     * @param etf_detail    ETFåŸºæœ¬ä¿¡æ¯è¯¦æƒ…
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     */
+    virtual void OnQueryETFRsp(ETFDetail* etf_detail, ErrorInfo* error_info,
+        int request_id, bool is_last);
 
-	/**
-	 * ²éÑ¯Ò»¸öETF¹ÉÆ±Àº×ÓµÄÏìÓ¦£¬Ã¿´Î·µ»ØETFµÄÒ»¸ö¹ÉÆ±ĞÅÏ¢
-	 *
-	 * @param etf_stock_detail      ETFµÄÒ»¸ö¹ÉÆ±ĞÅÏ¢
-	 * @param error_info            Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id            ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last               ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 */
-	virtual void OnQueryETFStockRsp(ETFStockDetail* etf_stock_detail,
-		ErrorInfo* error_info, int request_id,
-		bool is_last);
+    /**
+     * æŸ¥è¯¢ä¸€ä¸ªETFè‚¡ç¥¨ç¯®å­çš„å“åº”ï¼Œæ¯æ¬¡è¿”å›ETFçš„ä¸€ä¸ªè‚¡ç¥¨ä¿¡æ¯
+     *
+     * @param etf_stock_detail      ETFçš„ä¸€ä¸ªè‚¡ç¥¨ä¿¡æ¯
+     * @param error_info            åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id            å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last               æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     */
+    virtual void OnQueryETFStockRsp(ETFStockDetail* etf_stock_detail,
+        ErrorInfo* error_info, int request_id,
+        bool is_last);
 
-	/**
-	 * ²éÑ¯×î´ó¿ÉÎ¯ÍĞÊıÁ¿»Øµ÷
-	 *
-	 * @param detail        ×î´ó¿ÉÎ¯ÍĞÊıÁ¿Êı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ÇëÇóĞòÁĞºÅ£¬ÓÃÓÚÆ¥ÅäÏìÓ¦£¬ÓÉÓÃ»§×Ô¶¨Òå£¬·Ç0
-	 */
-	virtual void OnQueryMaxOrderQtyRsp(MaxOrderQtyDetail* detail,
-		ErrorInfo* error_info, int request_id);
+    /**
+     * æŸ¥è¯¢æœ€å¤§å¯å§”æ‰˜æ•°é‡å›è°ƒ
+     *
+     * @param detail        æœ€å¤§å¯å§”æ‰˜æ•°é‡æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    è¯·æ±‚åºåˆ—å·ï¼Œç”¨äºåŒ¹é…å“åº”ï¼Œç”±ç”¨æˆ·è‡ªå®šä¹‰ï¼Œé0
+     */
+    virtual void OnQueryMaxOrderQtyRsp(MaxOrderQtyDetail* detail,
+        ErrorInfo* error_info, int request_id);
 
-	/**
-	 * ²éÑ¯ĞÂ¹É¿ÉÉê¹º¶î¶ÈµÄÏìÓ¦
-	 *
-	 * @param detail        ĞÂ¹É¿ÉÉê¹º¶î¶ÈÊı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 */
-	virtual void OnQueryIPOMaxPurchaseRsp(IPOMaxPurchaseDetail* detail,
-		ErrorInfo* error_info, int request_id,
-		bool is_last);
+    /**
+     * æŸ¥è¯¢æ–°è‚¡å¯ç”³è´­é¢åº¦çš„å“åº”
+     *
+     * @param detail        æ–°è‚¡å¯ç”³è´­é¢åº¦æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     */
+    virtual void OnQueryIPOMaxPurchaseRsp(IPOMaxPurchaseDetail* detail,
+        ErrorInfo* error_info, int request_id,
+        bool is_last);
 
-	/**
-	 * ²éÑ¯ĞÂ¹ÉµÄÏìÓ¦
-	 *
-	 * @param detail        ĞÂ¹ÉÊı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 */
-	virtual void OnQueryIPOStockRsp(IPOStockDetail* detail,
-		ErrorInfo* error_info, int request_id,
-		bool is_last);
+    /**
+     * æŸ¥è¯¢æ–°è‚¡çš„å“åº”
+     *
+     * @param detail        æ–°è‚¡æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     */
+    virtual void OnQueryIPOStockRsp(IPOStockDetail* detail,
+        ErrorInfo* error_info, int request_id,
+        bool is_last);
 
-	/**
-	 * ²éÑ¯ĞÂ¹ÉÅäºÅµÄÏìÓ¦
-	 *
-	 * @param detail        ĞÂ¹ÉÅäºÅÊı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 * @param pos_str       ±¾´Î²éÑ¯×îºóÒ»Ìõ¼ÇÂ¼µÄ¶¨Î»´®£¬ÓÃÓÚÏÂÒ»´Î²éÑ¯
-	 */
-	virtual void OnQueryIPODistributionRsp(IPODistributionDetail* detail,
-		ErrorInfo* error_info,
-		int request_id, bool is_last,
-		const char* pos_str);
+    /**
+     * æŸ¥è¯¢æ–°è‚¡é…å·çš„å“åº”
+     *
+     * @param detail        æ–°è‚¡é…å·æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     * @param pos_str       æœ¬æ¬¡æŸ¥è¯¢æœ€åä¸€æ¡è®°å½•çš„å®šä½ä¸²ï¼Œç”¨äºä¸‹ä¸€æ¬¡æŸ¥è¯¢
+     */
+    virtual void OnQueryIPODistributionRsp(IPODistributionDetail* detail,
+        ErrorInfo* error_info,
+        int request_id, bool is_last,
+        const char* pos_str);
 
-	/**
-	 * ²éÑ¯ĞÂ¹ÉÖĞÇ©µÄÏìÓ¦
-	 *
-	 * @param detail        ĞÂ¹ÉÖĞÇ©Êı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 * @param pos_str       ±¾´Î²éÑ¯×îºóÒ»Ìõ¼ÇÂ¼µÄ¶¨Î»´®£¬ÓÃÓÚÏÂÒ»´Î²éÑ¯
-	 */
-	virtual void OnQueryIPOLotteryRsp(IPOLotteryDetail* detail,
-		ErrorInfo* error_info, int request_id,
-		bool is_last, const char* pos_str);
+    /**
+     * æŸ¥è¯¢æ–°è‚¡ä¸­ç­¾çš„å“åº”
+     *
+     * @param detail        æ–°è‚¡ä¸­ç­¾æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     * @param pos_str       æœ¬æ¬¡æŸ¥è¯¢æœ€åä¸€æ¡è®°å½•çš„å®šä½ä¸²ï¼Œç”¨äºä¸‹ä¸€æ¬¡æŸ¥è¯¢
+     */
+    virtual void OnQueryIPOLotteryRsp(IPOLotteryDetail* detail,
+        ErrorInfo* error_info, int request_id,
+        bool is_last, const char* pos_str);
 
-	/**
-	* ²éÑ¯Ö¤È¯ĞÅÏ¢µÄÏìÓ¦
-	*
-	* @param detail            Ö¤È¯ĞÅÏ¢
-	* @param error_info        Ó¦´ğµÄ´íÎóĞÅÏ¢
-	* @param request_id        ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	* @param is_last           ÊÇ·ñÊÇ×îºóÒ»±ÊÏìÓ¦
-	*/
-	virtual void OnQuerySecurityBaseInfoRsp(SecurityBaseInfo* detail, ErrorInfo* error_info,
-		int request_id, bool is_last);
+    /**
+    * æŸ¥è¯¢è¯åˆ¸ä¿¡æ¯çš„å“åº”
+    *
+    * @param detail            è¯åˆ¸ä¿¡æ¯
+    * @param error_info        åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+    * @param request_id        å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+    * @param is_last           æ˜¯å¦æ˜¯æœ€åä¸€ç¬”å“åº”
+    */
+    virtual void OnQuerySecurityBaseInfoRsp(SecurityBaseInfo* detail, ErrorInfo* error_info,
+        int request_id, bool is_last);
 
-	/**
-	 * µ£±£Æ·×ªÈë×ª³öÓ¦´ğ»Øµ÷
-	 *
-	 * @param rsp           µ£±£Æ·×ªÈë×ª³öÓ¦´ğ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 */
-	virtual void OnCreditMortgageInOutRsp(CreditMortgageInOutRsp* rsp,
-		ErrorInfo* error_info,
-		int request_id);
+    /**
+     * æ‹…ä¿å“è½¬å…¥è½¬å‡ºåº”ç­”å›è°ƒ
+     *
+     * @param rsp           æ‹…ä¿å“è½¬å…¥è½¬å‡ºåº”ç­”
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     */
+    virtual void OnCreditMortgageInOutRsp(CreditMortgageInOutRsp* rsp,
+        ErrorInfo* error_info,
+        int request_id);
 
-	/**
-	 * ÏÖÈ¯»¹È¯Ó¦´ğ»Øµ÷
-	 *
-	 * @param rsp           ÏÖÈ¯»¹È¯Ó¦´ğ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 */
-	virtual void OnCreditStockBackRsp(CreditStockBackRsp* rsp,
-		ErrorInfo* error_info, int request_id);
+    /**
+     * ç°åˆ¸è¿˜åˆ¸åº”ç­”å›è°ƒ
+     *
+     * @param rsp           ç°åˆ¸è¿˜åˆ¸åº”ç­”
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     */
+    virtual void OnCreditStockBackRsp(CreditStockBackRsp* rsp,
+        ErrorInfo* error_info, int request_id);
 
-	/**
-	 * Ö±½Ó»¹¿îÓ¦´ğ»Øµ÷
-	 *
-	 * @param rsp           Ö±½Ó»¹¿îÓ¦´ğ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 */
-	virtual void OnCreditPayBackRsp(CreditPayBackRsp* rsp,
-		ErrorInfo* error_info, int request_id);
+    /**
+     * ç›´æ¥è¿˜æ¬¾åº”ç­”å›è°ƒ
+     *
+     * @param rsp           ç›´æ¥è¿˜æ¬¾åº”ç­”
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     */
+    virtual void OnCreditPayBackRsp(CreditPayBackRsp* rsp,
+        ErrorInfo* error_info, int request_id);
 
-	/**
-	 * Ö¸¶¨ºÏÔ¼Ö±½Ó»¹¿î
-	 *
-	 * @param rsp           »¹¿îĞÅÏ¢
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ÇëÇóĞòÁĞºÅ£¬ÓÃÓÚÆ¥ÅäÏìÓ¦£¬ÓÉÓÃ»§×Ô¶¨Òå
-	 */
-	virtual void OnCreditPayBackByOrderRsp(CreditPayBackRsp* rsp,
-		ErrorInfo* error_info,
-		int request_id);
+    /**
+     * æŒ‡å®šåˆçº¦ç›´æ¥è¿˜æ¬¾
+     *
+     * @param rsp           è¿˜æ¬¾ä¿¡æ¯
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    è¯·æ±‚åºåˆ—å·ï¼Œç”¨äºåŒ¹é…å“åº”ï¼Œç”±ç”¨æˆ·è‡ªå®šä¹‰
+     */
+    virtual void OnCreditPayBackByOrderRsp(CreditPayBackRsp* rsp,
+        ErrorInfo* error_info,
+        int request_id);
 
-	/**
-	 * ĞÅÓÃ±êµÄÈ¯Ó¦´ğ»Øµ÷
-	 *
-	 * @param detail        ĞÅÓÃ±êµÄÈ¯Êı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 * @param pos_str       ±¾´Î²éÑ¯×îºóÒ»Ìõ¼ÇÂ¼µÄ¶¨Î»´®£¬ÓÃÓÚÏÂÒ»´Î²éÑ¯
-	 */
-	virtual void OnQueryCreditStockRsp(CreditStockDetail* detail,
-		ErrorInfo* error_info, int request_id,
-		bool is_last, const char* pos_str);
+    /**
+     * ä¿¡ç”¨æ ‡çš„åˆ¸åº”ç­”å›è°ƒ
+     *
+     * @param detail        ä¿¡ç”¨æ ‡çš„åˆ¸æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     * @param pos_str       æœ¬æ¬¡æŸ¥è¯¢æœ€åä¸€æ¡è®°å½•çš„å®šä½ä¸²ï¼Œç”¨äºä¸‹ä¸€æ¬¡æŸ¥è¯¢
+     */
+    virtual void OnQueryCreditStockRsp(CreditStockDetail* detail,
+        ErrorInfo* error_info, int request_id,
+        bool is_last, const char* pos_str);
 
-	/**
-	 * ²éÑ¯µ£±£Æ·È¯»Øµ÷
-	 *
-	 * @param detail        µ£±£Æ·È¯ĞÅÏ¢
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ÇëÇóĞòÁĞºÅ£¬ÓÃÓÚÆ¥ÅäÏìÓ¦£¬ÓÉÓÃ»§×Ô¶¨Òå£¬·Ç0
-	 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 * @param pos_str       ±¾´Î²éÑ¯×îºóÒ»Ìõ¼ÇÂ¼µÄ¶¨Î»´®£¬ÓÃÓÚÏÂÒ»´Î²éÑ¯
-	 */
-	virtual void OnQueryCreditMortgageHoldRsp(CreditMortgageHoldDetail* detail,
-		ErrorInfo* error_info,
-		int request_id, bool is_last,
-		const char* pos_str);
+    /**
+     * æŸ¥è¯¢æ‹…ä¿å“åˆ¸å›è°ƒ
+     *
+     * @param detail        æ‹…ä¿å“åˆ¸ä¿¡æ¯
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    è¯·æ±‚åºåˆ—å·ï¼Œç”¨äºåŒ¹é…å“åº”ï¼Œç”±ç”¨æˆ·è‡ªå®šä¹‰ï¼Œé0
+     * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     * @param pos_str       æœ¬æ¬¡æŸ¥è¯¢æœ€åä¸€æ¡è®°å½•çš„å®šä½ä¸²ï¼Œç”¨äºä¸‹ä¸€æ¬¡æŸ¥è¯¢
+     */
+    virtual void OnQueryCreditMortgageHoldRsp(CreditMortgageHoldDetail* detail,
+        ErrorInfo* error_info,
+        int request_id, bool is_last,
+        const char* pos_str);
 
-	/**
-	 * ĞÅÓÃ×Ê²ú²éÑ¯Ó¦´ğ»Øµ÷
-	 *
-	 * @param detail        ĞÅÓÃ×Ê²úÊı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 */
-	virtual void OnQueryCreditAssetsRsp(CreditAssetsDetail* detail,
-		ErrorInfo* error_info, int request_id);
+    /**
+     * ä¿¡ç”¨èµ„äº§æŸ¥è¯¢åº”ç­”å›è°ƒ
+     *
+     * @param detail        ä¿¡ç”¨èµ„äº§æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     */
+    virtual void OnQueryCreditAssetsRsp(CreditAssetsDetail* detail,
+        ErrorInfo* error_info, int request_id);
 
-	/**
-	 * ²éÑ¯ÈÚ×ÊºÏÔ¼Ó¦´ğ»Øµ÷
-	 *
-	 * @param detail        ÈÚ×ÊºÏÔ¼Êı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 * @param pos_str       ±¾´Î²éÑ¯×îºóÒ»Ìõ¼ÇÂ¼µÄ¶¨Î»´®£¬ÓÃÓÚÏÂÒ»´Î²éÑ¯
-	 */
-	virtual void OnQueryCreditFinanceRsp(CreditFinanceDetail* detail,
-		ErrorInfo* error_info, int request_id,
-		bool is_last, const char* pos_str);
+    /**
+     * æŸ¥è¯¢èèµ„åˆçº¦åº”ç­”å›è°ƒ
+     *
+     * @param detail        èèµ„åˆçº¦æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     * @param pos_str       æœ¬æ¬¡æŸ¥è¯¢æœ€åä¸€æ¡è®°å½•çš„å®šä½ä¸²ï¼Œç”¨äºä¸‹ä¸€æ¬¡æŸ¥è¯¢
+     */
+    virtual void OnQueryCreditFinanceRsp(CreditFinanceDetail* detail,
+        ErrorInfo* error_info, int request_id,
+        bool is_last, const char* pos_str);
 
-	/**
-	 * ²éÑ¯ÈÚÈ¯ºÏÔ¼Ó¦´ğ»Øµ÷
-	 *
-	 * @param detail        ÈÚÈ¯ºÏÔ¼Êı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 * @param pos_str       ±¾´Î²éÑ¯×îºóÒ»Ìõ¼ÇÂ¼µÄ¶¨Î»´®£¬ÓÃÓÚÏÂÒ»´Î²éÑ¯
-	 */
-	virtual void OnQueryCreditShortsellRsp(CreditShortsellDetail* detail,
-		ErrorInfo* error_info,
-		int request_id, bool is_last,
-		const char* pos_str);
+    /**
+     * æŸ¥è¯¢èåˆ¸åˆçº¦åº”ç­”å›è°ƒ
+     *
+     * @param detail        èåˆ¸åˆçº¦æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     * @param pos_str       æœ¬æ¬¡æŸ¥è¯¢æœ€åä¸€æ¡è®°å½•çš„å®šä½ä¸²ï¼Œç”¨äºä¸‹ä¸€æ¬¡æŸ¥è¯¢
+     */
+    virtual void OnQueryCreditShortsellRsp(CreditShortsellDetail* detail,
+        ErrorInfo* error_info,
+        int request_id, bool is_last,
+        const char* pos_str);
 
-	/**
-	 * ²éÑ¯¿É»¹ÈÚ×Ê¸ºÕ®½ğ¶îÓ¦´ğ»Øµ÷
-	 *
-	 * @param detail        ¿É»¹½ğ¶îÊı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 */
-	virtual void OnQueryCreditRepayAmountRsp(CreditRepayAmountDetail* detail,
-		ErrorInfo* error_info,
-		int request_id);
+    /**
+     * æŸ¥è¯¢å¯è¿˜èèµ„è´Ÿå€ºé‡‘é¢åº”ç­”å›è°ƒ
+     *
+     * @param detail        å¯è¿˜é‡‘é¢æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     */
+    virtual void OnQueryCreditRepayAmountRsp(CreditRepayAmountDetail* detail,
+        ErrorInfo* error_info,
+        int request_id);
 
-	/**
-	 * ²éÑ¯ĞÅÓÃÈÚÈ¯¸ºÕ®ÊıÁ¿Ó¦´ğ»Øµ÷
-	 *
-	 * @param detail        ¿É»¹Êı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 * @param pos_str       ±¾´Î²éÑ¯×îºóÒ»Ìõ¼ÇÂ¼µÄ¶¨Î»´®£¬ÓÃÓÚÏÂÒ»´Î²éÑ¯
-	 */
-	virtual void OnQueryCreditRepayStockRsp(CreditRepayStockDetail* detail,
-		ErrorInfo* error_info,
-		int request_id, bool is_last,
-		const char* pos_str);
+    /**
+     * æŸ¥è¯¢ä¿¡ç”¨èåˆ¸è´Ÿå€ºæ•°é‡åº”ç­”å›è°ƒ
+     *
+     * @param detail        å¯è¿˜æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     * @param pos_str       æœ¬æ¬¡æŸ¥è¯¢æœ€åä¸€æ¡è®°å½•çš„å®šä½ä¸²ï¼Œç”¨äºä¸‹ä¸€æ¬¡æŸ¥è¯¢
+     */
+    virtual void OnQueryCreditRepayStockRsp(CreditRepayStockDetail* detail,
+        ErrorInfo* error_info,
+        int request_id, bool is_last,
+        const char* pos_str);
 
-	/**
-	 * ²éÑ¯¿ÉÈÚÈ¯Âô³öÊıÁ¿£¬´ËÊıÁ¿ÊÇÖ¸ËøÈ¯µÄ¿ÉÓÃÁ¿
-	 *
-	 * @param rsp               ²éÑ¯ÊıÁ¿ĞÅÏ¢
-	 * @param error_info        Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id        ÇëÇóĞòÁĞºÅ£¬ÓÃÓÚÆ¥ÅäÏìÓ¦£¬ÓÉÓÃ»§×Ô¶¨Òå
-	 * @param is_last           ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 */
-	virtual void OnQueryCreditSecuritySellQtyRsp(CreditSecuritySellQtyRsp* rsp,
-		ErrorInfo* error_info,
-		int request_id, bool is_last);
+    /**
+     * æŸ¥è¯¢å¯èåˆ¸å–å‡ºæ•°é‡ï¼Œæ­¤æ•°é‡æ˜¯æŒ‡é”åˆ¸çš„å¯ç”¨é‡
+     *
+     * @param rsp               æŸ¥è¯¢æ•°é‡ä¿¡æ¯
+     * @param error_info        åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id        è¯·æ±‚åºåˆ—å·ï¼Œç”¨äºåŒ¹é…å“åº”ï¼Œç”±ç”¨æˆ·è‡ªå®šä¹‰
+     * @param is_last           æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     */
+    virtual void OnQueryCreditSecuritySellQtyRsp(CreditSecuritySellQtyRsp* rsp,
+        ErrorInfo* error_info,
+        int request_id, bool is_last);
 
-	/**
-	 * ²éÑ¯ÕË»§½»Ò×È¨ÏŞ»Øµ÷
-	 *
-	 * @param market        ÊĞ³¡,Èç"SZ SH",Ô­Ñù·µ»ØµÄÇëÇó²ÎÊı
-	 * @param secuid_right  È¨ÏŞÀàĞÍ,Èç´´Òµ°å,Ô­Ñù·µ»ØµÄÇëÇó²ÎÊı
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param sign_flag     Ç©ÊğÈ¨ÏŞ±êÖ¾,true¼´ÓĞÈ¨ÏŞ
-	 * @param request_id    ÇëÇóĞòÁĞºÅ£¬ÓÃÓÚÆ¥ÅäÏìÓ¦£¬ÓÉÓÃ»§×Ô¶¨Òå£¬·Ç0
-	 */
-	virtual void OnQuerySecuidRightRsp(const char* market, int16_t secuid_right,
-		ErrorInfo* error_info, bool sign_flag,
-		int request_id);
+    /**
+     * æŸ¥è¯¢è´¦æˆ·äº¤æ˜“æƒé™å›è°ƒ
+     *
+     * @param market        å¸‚åœº,å¦‚"SZ SH",åŸæ ·è¿”å›çš„è¯·æ±‚å‚æ•°
+     * @param secuid_right  æƒé™ç±»å‹,å¦‚åˆ›ä¸šæ¿,åŸæ ·è¿”å›çš„è¯·æ±‚å‚æ•°
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param sign_flag     ç­¾ç½²æƒé™æ ‡å¿—,trueå³æœ‰æƒé™
+     * @param request_id    è¯·æ±‚åºåˆ—å·ï¼Œç”¨äºåŒ¹é…å“åº”ï¼Œç”±ç”¨æˆ·è‡ªå®šä¹‰ï¼Œé0
+     */
+    virtual void OnQuerySecuidRightRsp(const char* market, int16_t secuid_right,
+        ErrorInfo* error_info, bool sign_flag,
+        int request_id);
 
-	// »¦¸ÛÍ¨¡¢Éî¸ÛÍ¨ÌØÓĞ½Ó¿Ú
-	/**
-	 * ²éÑ¯»¦¸ÛÍ¨²Î¿¼»ãÂÊµÄÏìÓ¦
-	 *
-	 * @param detail        »¦¸ÛÍ¨²Î¿¼»ãÂÊÊı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 */
-	virtual void OnQueryHKRateRsp(HKRateDetail* detail, ErrorInfo* error_info,
-		int request_id, bool is_last);
+    // æ²ªæ¸¯é€šã€æ·±æ¸¯é€šç‰¹æœ‰æ¥å£
+    /**
+     * æŸ¥è¯¢æ²ªæ¸¯é€šå‚è€ƒæ±‡ç‡çš„å“åº”
+     *
+     * @param detail        æ²ªæ¸¯é€šå‚è€ƒæ±‡ç‡æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     */
+    virtual void OnQueryHKRateRsp(HKRateDetail* detail, ErrorInfo* error_info,
+        int request_id, bool is_last);
 
-	/**
-	 * ²éÑ¯»¦¸ÛÍ¨±êµÄÈ¯µÄÏìÓ¦
-	 *
-	 * @param detail        »¦¸ÛÍ¨±êµÄÈ¯Êı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 */
-	virtual void OnQueryHKStockRsp(HKStockDetail* detail, ErrorInfo* error_info,
-		int request_id, bool is_last);
+    /**
+     * æŸ¥è¯¢æ²ªæ¸¯é€šæ ‡çš„åˆ¸çš„å“åº”
+     *
+     * @param detail        æ²ªæ¸¯é€šæ ‡çš„åˆ¸æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     */
+    virtual void OnQueryHKStockRsp(HKStockDetail* detail, ErrorInfo* error_info,
+        int request_id, bool is_last);
 
-	/**
-	 * ²éÑ¯»¦¸ÛÍ¨¸¨×Ê½ğ±í×Ê²úµÄÏìÓ¦
-	 *
-	 * @param detail        »¦¸ÛÍ¨¸¨×Ê½ğ±í×Ê²úÊı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 */
-	virtual void OnQueryHKFundRsp(HKFundDetail* detail, ErrorInfo* error_info,
-		int request_id);
+    /**
+     * æŸ¥è¯¢æ²ªæ¸¯é€šè¾…èµ„é‡‘è¡¨èµ„äº§çš„å“åº”
+     *
+     * @param detail        æ²ªæ¸¯é€šè¾…èµ„é‡‘è¡¨èµ„äº§æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     */
+    virtual void OnQueryHKFundRsp(HKFundDetail* detail, ErrorInfo* error_info,
+        int request_id);
 
-	/**
-	 * ²éÑ¯»¦¸ÛÍ¨×îĞ¡¼Û²îµÄÏìÓ¦
-	 *
-	 * @param detail        »¦¸ÛÍ¨×îĞ¡¼Û²îÊı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 */
-	virtual void OnQueryHKMinPriceUnitRsp(HKMinPriceUnitDetail* detail,
-		ErrorInfo* error_info, int request_id,
-		bool is_last);
+    /**
+     * æŸ¥è¯¢æ²ªæ¸¯é€šæœ€å°ä»·å·®çš„å“åº”
+     *
+     * @param detail        æ²ªæ¸¯é€šæœ€å°ä»·å·®æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     */
+    virtual void OnQueryHKMinPriceUnitRsp(HKMinPriceUnitDetail* detail,
+        ErrorInfo* error_info, int request_id,
+        bool is_last);
 
-	/**
-	 * ²éÑ¯»¦¸ÛÍ¨½»Ò×ÈÕÀúµÄÏìÓ¦
-	 *
-	 * @param detail        »¦¸ÛÍ¨½»Ò×ÈÕÀúÊı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 */
-	virtual void OnQueryHKTradeCalendarRsp(HKTradeCalendarDetail* detail,
-		ErrorInfo* error_info,
-		int request_id, bool is_last);
+    /**
+     * æŸ¥è¯¢æ²ªæ¸¯é€šäº¤æ˜“æ—¥å†çš„å“åº”
+     *
+     * @param detail        æ²ªæ¸¯é€šäº¤æ˜“æ—¥å†æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     */
+    virtual void OnQueryHKTradeCalendarRsp(HKTradeCalendarDetail* detail,
+        ErrorInfo* error_info,
+        int request_id, bool is_last);
 
-	/**
-	 * ²éÑ¯ËøÈ¯Ã÷Ï¸Ó¦´ğ
-	 *
-	 * @param detail        ËøÈ¯Ã÷Ï¸Êı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 */
-	virtual void OnQueryLockSecurityDetailRsp(LockSecurityDetail* detail,
-		ErrorInfo* error_info,
-		int request_id, bool is_last);
+    /**
+     * æŸ¥è¯¢é”åˆ¸æ˜ç»†åº”ç­”
+     *
+     * @param detail        é”åˆ¸æ˜ç»†æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     */
+    virtual void OnQueryLockSecurityDetailRsp(LockSecurityDetail* detail,
+        ErrorInfo* error_info,
+        int request_id, bool is_last);
 
-	/**
-	 * Õ¹ÆÚÓ¦´ğ
-	 *
-	 * @param apply_sno     ÉêÇë±àºÅ
-	 * @param apply_date    ÉêÇëÈÕÆÚ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ÇëÇóĞòÁĞºÅ£¬ÓÃÓÚÆ¥ÅäÏìÓ¦£¬ÓÉÓÃ»§×Ô¶¨Òå£¬·Ç0
-	 */
-	virtual void OnExtendLockSecurityRsp(int32_t apply_sno, int32_t apply_date,
-		ErrorInfo* error_info,
-		int request_id);
+    /**
+     * å±•æœŸåº”ç­”
+     *
+     * @param apply_sno     ç”³è¯·ç¼–å·
+     * @param apply_date    ç”³è¯·æ—¥æœŸ
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    è¯·æ±‚åºåˆ—å·ï¼Œç”¨äºåŒ¹é…å“åº”ï¼Œç”±ç”¨æˆ·è‡ªå®šä¹‰ï¼Œé0
+     */
+    virtual void OnExtendLockSecurityRsp(int32_t apply_sno, int32_t apply_date,
+        ErrorInfo* error_info,
+        int request_id);
 
-	/**
-	 * ²éÑ¯Õ¹ÆÚÉêÇëÓ¦´ğ
-	 *
-	 * @param detail        Õ¹ÆÚÃ÷Ï¸Êı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-	 */
-	virtual void OnQueryLockSecurityExtensionRsp(
-		LockSecurityExtensionDetail* detail, ErrorInfo* error_info,
-		int request_id, bool is_last);
+    /**
+     * æŸ¥è¯¢å±•æœŸç”³è¯·åº”ç­”
+     *
+     * @param detail        å±•æœŸæ˜ç»†æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+     */
+    virtual void OnQueryLockSecurityExtensionRsp(
+        LockSecurityExtensionDetail* detail, ErrorInfo* error_info,
+        int request_id, bool is_last);
 
-	/**
-	 * ³·ÏúËøÈ¯Õ¹ÆÚÉêÇëÓ¦´ğ
-	 *
-	 * @param apply_date    ÉêÇëÈÕÆÚ£¬Èç20190415
-	 * @param apply_sno     ÉêÇëĞòºÅ
-	 * @param cancel_sno    ³·ÏúĞòºÅ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-	 */
-	virtual void OnCancelExtendLockSecurityRsp(int apply_date,
-		const char* apply_sno,
-		const char* cancel_sno,
-		ErrorInfo* error_info,
-		int request_id);
+    /**
+     * æ’¤é”€é”åˆ¸å±•æœŸç”³è¯·åº”ç­”
+     *
+     * @param apply_date    ç”³è¯·æ—¥æœŸï¼Œå¦‚20190415
+     * @param apply_sno     ç”³è¯·åºå·
+     * @param cancel_sno    æ’¤é”€åºå·
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+     */
+    virtual void OnCancelExtendLockSecurityRsp(int apply_date,
+        const char* apply_sno,
+        const char* cancel_sno,
+        ErrorInfo* error_info,
+        int request_id);
 
-	/**
-	 * ²éÑ¯×Ê½ğ»®×ªÁ÷Ë®µÄÏìÓ¦
-	 *
-	 * @param detail        ×Ê½ğ»®×ªÃ÷Ï¸Êı¾İ
-	 * @param error_info    Ó¦´ğµÄ´íÎóĞÅÏ¢
-	 * @param request_id    ¶ÔÓ¦ÇëÇóÊ±´«ÈëµÄĞòÁĞºÅ
-		 * @param is_last       ÊÇ·ñÊÇ±¾´ÎÇëÇóµÄ×îºóÒ»±ÊÏìÓ¦
-		 */
-	virtual void OnQueryTransferFundHistoryRsp(TransferFundDetail* detail,
-		ErrorInfo* error_info,
-		int request_id, bool is_last);
+    /**
+     * æŸ¥è¯¢èµ„é‡‘åˆ’è½¬æµæ°´çš„å“åº”
+     *
+     * @param detail        èµ„é‡‘åˆ’è½¬æ˜ç»†æ•°æ®
+     * @param error_info    åº”ç­”çš„é”™è¯¯ä¿¡æ¯
+     * @param request_id    å¯¹åº”è¯·æ±‚æ—¶ä¼ å…¥çš„åºåˆ—å·
+         * @param is_last       æ˜¯å¦æ˜¯æœ¬æ¬¡è¯·æ±‚çš„æœ€åä¸€ç¬”å“åº”
+         */
+    virtual void OnQueryTransferFundHistoryRsp(TransferFundDetail* detail,
+        ErrorInfo* error_info,
+        int request_id, bool is_last);
 
 
 
     //-------------------------------------------------------------------------------------
-    //data£º»Øµ÷º¯ÊıµÄÊı¾İ×Öµä
-    //error£º»Øµ÷º¯ÊıµÄ´íÎó×Öµä
-    //id£ºÇëÇóid
-    //last£ºÊÇ·ñÎª×îºó·µ»Ø
-    //i£ºÕûÊı
+    //dataï¼šå›è°ƒå‡½æ•°çš„æ•°æ®å­—å…¸
+    //errorï¼šå›è°ƒå‡½æ•°çš„é”™è¯¯å­—å…¸
+    //idï¼šè¯·æ±‚id
+    //lastï¼šæ˜¯å¦ä¸ºæœ€åè¿”å›
+    //iï¼šæ•´æ•°
     //-------------------------------------------------------------------------------------
-	virtual void onDisconnect() {};
+    virtual void onDisconnect() {};
 
-	virtual void onError(const dict &error, int request_id) {};
+    virtual void onError(const dict &error, int request_id) {};
 
-	virtual void onRiskNotify(const dict &data) {};
+    virtual void onRiskNotify(const dict &data) {};
 
-	virtual void onLogin(const dict &data, const dict &error) {};
+    virtual void onLogin(const dict &data, const dict &error) {};
 
-	virtual void onTradeReport(const dict &data) {};
+    virtual void onTradeReport(const dict &data) {};
 
-	virtual void onOrderStatus(const dict &data) {};
+    virtual void onOrderStatus(const dict &data) {};
 
-	virtual void onOrderRsp(const dict &data, const dict &error, int request_id, bool last) {};
+    virtual void onOrderRsp(const dict &data, const dict &error, int request_id, bool last) {};
 
-	virtual void onCancelRsp(const dict &data, const dict &error, int request_id, bool last) {};
+    virtual void onCancelRsp(const dict &data, const dict &error, int request_id, bool last) {};
 
-	virtual void onQueryOrderRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
+    virtual void onQueryOrderRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
 
-	virtual void onQueryTradeRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
+    virtual void onQueryTradeRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
 
-	virtual void onQueryPositionRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
+    virtual void onQueryPositionRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
 
-	virtual void onQueryCashRsp(const dict &data, const dict &error, int request_id) {};
+    virtual void onQueryCashRsp(const dict &data, const dict &error, int request_id) {};
 
-	virtual void onQueryJZJYAvailFundRsp(int64_t avail_balance, const dict &error, int request_id) {};
+    virtual void onQueryJZJYAvailFundRsp(int64_t avail_balance, const dict &error, int request_id) {};
 
-	virtual void onTransferFundInAndOutRsp(int64_t transfer_value, const dict &error, int request_id) {};
+    virtual void onTransferFundInAndOutRsp(int64_t transfer_value, const dict &error, int request_id) {};
 
-	virtual void onTransferFundBetweenSecuidRsp(int64_t transfer_value, const dict &error, int request_id) {};
+    virtual void onTransferFundBetweenSecuidRsp(int64_t transfer_value, const dict &error, int request_id) {};
 
-	virtual void onQueryETFRsp(const dict &data, const dict &error, int request_id, bool last) {};
+    virtual void onQueryETFRsp(const dict &data, const dict &error, int request_id, bool last) {};
 
-	virtual void onQueryETFStockRsp(const dict &data, const dict &error, int request_id, bool last) {};
+    virtual void onQueryETFStockRsp(const dict &data, const dict &error, int request_id, bool last) {};
 
-	virtual void onQueryMaxOrderQtyRsp(const dict &data, const dict &error, int request_id) {};
+    virtual void onQueryMaxOrderQtyRsp(const dict &data, const dict &error, int request_id) {};
 
-	virtual void onQueryIPOMaxPurchaseRsp(const dict &data, const dict &error, int request_id, bool last) {};
+    virtual void onQueryIPOMaxPurchaseRsp(const dict &data, const dict &error, int request_id, bool last) {};
 
-	virtual void onQueryIPOStockRsp(const dict &data, const dict &error, int request_id, bool last) {};
+    virtual void onQueryIPOStockRsp(const dict &data, const dict &error, int request_id, bool last) {};
 
-	virtual void onQueryIPODistributionRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
+    virtual void onQueryIPODistributionRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
 
-	virtual void onQueryIPOLotteryRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
+    virtual void onQueryIPOLotteryRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
 
-	virtual void onQuerySecurityBaseInfoRsp(const dict &data, const dict &error, int request_id, bool last) {};
+    virtual void onQuerySecurityBaseInfoRsp(const dict &data, const dict &error, int request_id, bool last) {};
 
-	virtual void onCreditMortgageInOutRsp(const dict &data, const dict &error, int request_id) {};
+    virtual void onCreditMortgageInOutRsp(const dict &data, const dict &error, int request_id) {};
 
-	virtual void onCreditStockBackRsp(const dict &data, const dict &error, int request_id) {};
+    virtual void onCreditStockBackRsp(const dict &data, const dict &error, int request_id) {};
 
-	virtual void onCreditPayBackRsp(const dict &data, const dict &error, int request_id) {};
+    virtual void onCreditPayBackRsp(const dict &data, const dict &error, int request_id) {};
 
-	virtual void onCreditPayBackByOrderRsp(const dict &data, const dict &error, int request_id) {};
+    virtual void onCreditPayBackByOrderRsp(const dict &data, const dict &error, int request_id) {};
 
-	virtual void onQueryCreditStockRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
+    virtual void onQueryCreditStockRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
 
-	virtual void onQueryCreditMortgageHoldRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
+    virtual void onQueryCreditMortgageHoldRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
 
-	virtual void onQueryCreditAssetsRsp(const dict &data, const dict &error, int request_id) {};
+    virtual void onQueryCreditAssetsRsp(const dict &data, const dict &error, int request_id) {};
 
-	virtual void onQueryCreditFinanceRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
+    virtual void onQueryCreditFinanceRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
 
-	virtual void onQueryCreditShortsellRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
+    virtual void onQueryCreditShortsellRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
 
-	virtual void onQueryCreditRepayAmountRsp(const dict &data, const dict &error, int request_id) {};
+    virtual void onQueryCreditRepayAmountRsp(const dict &data, const dict &error, int request_id) {};
 
-	virtual void onQueryCreditRepayStockRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
+    virtual void onQueryCreditRepayStockRsp(const dict &data, const dict &error, int request_id, bool last, string pos_str) {};
 
-	virtual void onQueryCreditSecuritySellQtyRsp(const dict &data, const dict &error, int request_id, bool last) {};
+    virtual void onQueryCreditSecuritySellQtyRsp(const dict &data, const dict &error, int request_id, bool last) {};
 
-	virtual void onQuerySecuidRightRsp(string market, int secuid_right, const dict &error, bool last, int request_id) {};
+    virtual void onQuerySecuidRightRsp(string market, int secuid_right, const dict &error, bool last, int request_id) {};
 
-	virtual void onQueryHKRateRsp(const dict &data, const dict &error, int request_id, bool last) {};
+    virtual void onQueryHKRateRsp(const dict &data, const dict &error, int request_id, bool last) {};
 
-	virtual void onQueryHKStockRsp(const dict &data, const dict &error, int request_id, bool last) {};
+    virtual void onQueryHKStockRsp(const dict &data, const dict &error, int request_id, bool last) {};
 
-	virtual void onQueryHKFundRsp(const dict &data, const dict &error, int request_id) {};
+    virtual void onQueryHKFundRsp(const dict &data, const dict &error, int request_id) {};
 
-	virtual void onQueryHKMinPriceUnitRsp(const dict &data, const dict &error, int request_id, bool last) {};
+    virtual void onQueryHKMinPriceUnitRsp(const dict &data, const dict &error, int request_id, bool last) {};
 
-	virtual void onQueryHKTradeCalendarRsp(const dict &data, const dict &error, int request_id, bool last) {};
+    virtual void onQueryHKTradeCalendarRsp(const dict &data, const dict &error, int request_id, bool last) {};
 
-	virtual void onQueryLockSecurityDetailRsp(const dict &data, const dict &error, int request_id, bool last) {};
+    virtual void onQueryLockSecurityDetailRsp(const dict &data, const dict &error, int request_id, bool last) {};
 
-	virtual void onExtendLockSecurityRsp(int apply_sno, int apply_date, const dict &error, int request_id) {};
+    virtual void onExtendLockSecurityRsp(int apply_sno, int apply_date, const dict &error, int request_id) {};
 
-	virtual void onQueryLockSecurityExtensionRsp(const dict &data, const dict &error, int request_id, bool last) {};
+    virtual void onQueryLockSecurityExtensionRsp(const dict &data, const dict &error, int request_id, bool last) {};
 
-	virtual void onCancelExtendLockSecurityRsp(int apply_date, string apply_sno, string cancel_sno, const dict &error, int request_id) {};
+    virtual void onCancelExtendLockSecurityRsp(int apply_date, string apply_sno, string cancel_sno, const dict &error, int request_id) {};
 
-	virtual void onQueryTransferFundHistoryRsp(const dict &data, const dict &error, int request_id, bool last) {};
+    virtual void onQueryTransferFundHistoryRsp(const dict &data, const dict &error, int request_id, bool last) {};
 
     //-------------------------------------------------------------------------------------
-    //req:Ö÷¶¯º¯ÊıµÄÇëÇó×Öµä
+    //req:ä¸»åŠ¨å‡½æ•°çš„è¯·æ±‚å­—å…¸
     //-------------------------------------------------------------------------------------
-	void setLogConfig(string log_path);
+    void setLogConfig(string log_path);
 
     void createTraderApi();
 
@@ -673,109 +673,109 @@ public:
 
     string getApiVersion();
 
-	int login(string svr_ip, int svr_port, const dict &req, string terminal_info);
+    int login(string svr_ip, int svr_port, const dict &req, string terminal_info);
 
-	int getCounterType();
+    int getCounterType();
 
-	pybind11::list getSecuidInfo();
+    pybind11::list getSecuidInfo();
 
-	dict getApiLocalAddr();
+    dict getApiLocalAddr();
 
-	int order(const dict &req, int request_id);
+    int order(const dict &req, int request_id);
 
-	int batchOrder(const dict &req, int count, int request_id);
+    int batchOrder(const dict &req, int count, int request_id);
 
-	int cancelOrder(const dict &req, int request_id);
+    int cancelOrder(const dict &req, int request_id);
 
-	int batchCancelOrder(const dict &req, int count, int request_id);
+    int batchCancelOrder(const dict &req, int count, int request_id);
 
-	int queryOrder(string order_id, int request_id, string market);
+    int queryOrder(string order_id, int request_id, string market);
 
-	int queryOrderByCode(string symbol, int request_id);
+    int queryOrderByCode(string symbol, int request_id);
 
-	int queryOrders(string pos_str, int query_num, int request_id, int query_flag);
+    int queryOrders(string pos_str, int query_num, int request_id, int query_flag);
 
-	int queryTradeByOrderId(string order_id, int request_id, string market);
+    int queryTradeByOrderId(string order_id, int request_id, string market);
 
-	int queryTradeByCode(string symbol, int request_id);
+    int queryTradeByCode(string symbol, int request_id);
 
-	int queryTrades(string pos_str, int query_num, int request_id);
+    int queryTrades(string pos_str, int query_num, int request_id);
 
-	int queryETFTrades(string pos_str, int query_num, int request_id, string market);
+    int queryETFTrades(string pos_str, int query_num, int request_id, string market);
 
-	int queryPosition(string symbol, int request_id);
+    int queryPosition(string symbol, int request_id);
 
-	int queryPositions(string pos_str, int query_num, int request_id);
+    int queryPositions(string pos_str, int query_num, int request_id);
 
-	int queryCash(int request_id);
+    int queryCash(int request_id);
 
-	int queryJZJYAvailFund(int request_id);
+    int queryJZJYAvailFund(int request_id);
 
-	int transferFundInAndOut(int transfer_side, int transfer_value, int request_id, string market);
+    int transferFundInAndOut(int transfer_side, int transfer_value, int request_id, string market);
 
-	int transferFundBetweenSecuid(string fund_out_market, string fund_in_market, int transfer_value, int request_id);
+    int transferFundBetweenSecuid(string fund_out_market, string fund_in_market, int transfer_value, int request_id);
 
-	int queryETFs(int request_id);
+    int queryETFs(int request_id);
 
-	int queryETFStocks(string first_symbol, int request_id);
+    int queryETFStocks(string first_symbol, int request_id);
 
-	int queryMaxOrderQty(string symbol, int order_type, int side, int price, int request_id);
+    int queryMaxOrderQty(string symbol, int order_type, int side, int price, int request_id);
 
-	int queryIPOMaxPurchase(int request_id);
+    int queryIPOMaxPurchase(int request_id);
 
-	int queryIPOStock(int request_id, int query_flag);
+    int queryIPOStock(int request_id, int query_flag);
 
-	int queryIPODistribution(int start_date, int end_date, string pos_str, int query_num, int request_id);
+    int queryIPODistribution(int start_date, int end_date, string pos_str, int query_num, int request_id);
 
-	int queryIPOLottery(int start_date, int end_date, string pos_str, int query_num, int request_id);
+    int queryIPOLottery(int start_date, int end_date, string pos_str, int query_num, int request_id);
 
-	int querySecurityBaseInfo(int request_id, string symbol);
+    int querySecurityBaseInfo(int request_id, string symbol);
 
-	int creditMortgageInOut(const dict &req, int request_id);
+    int creditMortgageInOut(const dict &req, int request_id);
 
-	int creditStockBack(const dict &req, int request_id);
+    int creditStockBack(const dict &req, int request_id);
 
-	int creditPayBack(int back_amt, int request_id);
+    int creditPayBack(int back_amt, int request_id);
 
-	int creditPayBackByOrder(string order_id, int order_date, int back_amt, int request_id);
+    int creditPayBackByOrder(string order_id, int order_date, int back_amt, int request_id);
 
-	int queryCreditStock(string pos_str, int query_num, int request_id);
+    int queryCreditStock(string pos_str, int query_num, int request_id);
 
-	int queryCreditMortgageHold(string pos_str, int query_num, int request_id);
+    int queryCreditMortgageHold(string pos_str, int query_num, int request_id);
 
-	int queryCreditAssets(int request_id);
+    int queryCreditAssets(int request_id);
 
-	int queryCreditFinance(string pos_str, int query_num, int request_id);
+    int queryCreditFinance(string pos_str, int query_num, int request_id);
 
-	int queryCreditShortsell(string pos_str, int query_num, int request_id);
+    int queryCreditShortsell(string pos_str, int query_num, int request_id);
 
-	int queryCreditRepayAmount(int request_id);
+    int queryCreditRepayAmount(int request_id);
 
-	int queryCreditRepayStock(string market, string code, int request_id);
+    int queryCreditRepayStock(string market, string code, int request_id);
 
-	int queryCreditSecuritySellQty(string market, string code, int request_id);
+    int queryCreditSecuritySellQty(string market, string code, int request_id);
 
-	int querySecuidRight(string market, int secuid_right, int request_id);
+    int querySecuidRight(string market, int secuid_right, int request_id);
 
-	int queryHKRate(string market, int request_id);
+    int queryHKRate(string market, int request_id);
 
-	int queryHKStock(string market, int request_id);
+    int queryHKStock(string market, int request_id);
 
-	int queryHKFund(int request_id);
+    int queryHKFund(int request_id);
 
-	int queryHKMinPriceUnit(string market, int request_id);
+    int queryHKMinPriceUnit(string market, int request_id);
 
-	int queryHKTradeCalendar(int start_date, int end_date, int request_id);
+    int queryHKTradeCalendar(int start_date, int end_date, int request_id);
 
-	int queryLockSecurityDetail(int begin_date, int end_date, int request_id, string market, string code);
+    int queryLockSecurityDetail(int begin_date, int end_date, int request_id, string market, string code);
 
-	int extendLockSecurity(const dict &req, int request_id);
+    int extendLockSecurity(const dict &req, int request_id);
 
-	int queryLockSecurityExtension(int begin_date, int end_date, int request_id);
+    int queryLockSecurityExtension(int begin_date, int end_date, int request_id);
 
-	int cancelExtendLockSecurity(int apply_date, string apply_sno, int request_id);
+    int cancelExtendLockSecurity(int apply_date, string apply_sno, int request_id);
 
-	int queryTransferFundHistory(int request_id);
+    int queryTransferFundHistory(int request_id);
 
 
 

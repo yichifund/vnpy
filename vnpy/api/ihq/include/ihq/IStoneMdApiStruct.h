@@ -1,398 +1,398 @@
-#pragma once
+ï»¿#pragma once
 #include "IStoneApiDataType.h"
 
 namespace istone
 {
-	namespace mdapi
-	{
-		///ÓÃ»§µÇÂ¼ÇëÇó
-		struct CIStoneReqUserLogin
-		{
-			char	TradingDay[ISTONE_TRADING_DAY_LEN];		//½»Ò×ÈÕ
-			char	UserID[ISTONE_USERID_LEN];				//½»Ò×ÓÃ»§´úÂë
-			char	Password[ISTONE_USER_PW_LEN];			//ÃÜÂë
-			char	UserProductInfo[41];					//ÓÃ»§¶Ë²úÆ·ĞÅÏ¢
-			char	IPAddress[30];							//IPµØÖ·
-			char	MacAddress[30];							//MacµØÖ·
-		};
+    namespace mdapi
+    {
+        ///ç”¨æˆ·ç™»å½•è¯·æ±‚
+        struct CIStoneReqUserLogin
+        {
+            char	TradingDay[ISTONE_TRADING_DAY_LEN];		//äº¤æ˜“æ—¥
+            char	UserID[ISTONE_USERID_LEN];				//äº¤æ˜“ç”¨æˆ·ä»£ç 
+            char	Password[ISTONE_USER_PW_LEN];			//å¯†ç 
+            char	UserProductInfo[41];					//ç”¨æˆ·ç«¯äº§å“ä¿¡æ¯
+            char	IPAddress[30];							//IPåœ°å€
+            char	MacAddress[30];							//Macåœ°å€
+        };
 
-		///ÓÃ»§µÇÂ¼Ó¦´ğ
-		struct CIStoneRspUserLogin
-		{
-			char	TradingDay[ISTONE_TRADING_DAY_LEN];		//½»Ò×ÈÕ
-			char	UserID[ISTONE_USERID_LEN];				//½»Ò×ÓÃ»§´úÂë
-			int		MaxUserOrderLocalID;					//ÓÃ»§×î´ó±¾µØ±¨µ¥ºÅ
-			char	LoginTime[ISTONE_TIMESTAMP_LEN];		//µÇÂ¼³É¹¦Ê±¼ä
-			ISTONE_USERS_TYPE    userType;                  //ÓÃ»§ÀàĞÍ
-		};
+        ///ç”¨æˆ·ç™»å½•åº”ç­”
+        struct CIStoneRspUserLogin
+        {
+            char	TradingDay[ISTONE_TRADING_DAY_LEN];		//äº¤æ˜“æ—¥
+            char	UserID[ISTONE_USERID_LEN];				//äº¤æ˜“ç”¨æˆ·ä»£ç 
+            int		MaxUserOrderLocalID;					//ç”¨æˆ·æœ€å¤§æœ¬åœ°æŠ¥å•å·
+            char	LoginTime[ISTONE_TIMESTAMP_LEN];		//ç™»å½•æˆåŠŸæ—¶é—´
+            ISTONE_USERS_TYPE    userType;                  //ç”¨æˆ·ç±»å‹
+        };
 
-		///ÓÃ»§µÇ³öÇëÇó
-		struct CIStoneReqUserLogout
-		{
-			char	UserID[ISTONE_USERID_LEN];				//½»Ò×ÓÃ»§´úÂë
-		};
+        ///ç”¨æˆ·ç™»å‡ºè¯·æ±‚
+        struct CIStoneReqUserLogout
+        {
+            char	UserID[ISTONE_USERID_LEN];				//äº¤æ˜“ç”¨æˆ·ä»£ç 
+        };
 
-		///ÓÃ»§µÇ³öÓ¦´ğ
-		struct CIStoneRspUserLogout
-		{
-			char	UserID[ISTONE_USERID_LEN];				//½»Ò×ÓÃ»§´úÂë
-		};
+        ///ç”¨æˆ·ç™»å‡ºåº”ç­”
+        struct CIStoneRspUserLogout
+        {
+            char	UserID[ISTONE_USERID_LEN];				//äº¤æ˜“ç”¨æˆ·ä»£ç 
+        };
 
-		///ÓÃ»§¶©ÔÄ¿ìÕÕĞĞÇéÓ¦´ğ
-		struct CIStoneSubParams
-		{
-			int TickType;					//¹ÉÆ±ÀàĞÍ
-			int ExchangeType;				//½»Ò×Ëù´úÂë
-		};
+        ///ç”¨æˆ·è®¢é˜…å¿«ç…§è¡Œæƒ…åº”ç­”
+        struct CIStoneSubParams
+        {
+            int TickType;					//è‚¡ç¥¨ç±»å‹
+            int ExchangeType;				//äº¤æ˜“æ‰€ä»£ç 
+        };
 
-		///ÓÃ»§Öğ±ÊĞĞÇéÓ¦´ğ
-		struct CIStoneRspSubTickByTick 
-		{
-			int16_t SubAllFlag;								//È«²¿¶©ÔÄ
-			ISTONE_EXCHANGE_TYPE ExchangeID;				// ½»Ò×Ëù´úÂë
-			char	Ticker[ISTONE_TICKER_LEN];				//ºÏÔ¼´úÂë
-		};
-		///ÓÃ»§Öğ±ÊĞĞÇéÓ¦´ğ
-		struct CIStoneRspUnSubTickByTick
-		{
-			int16_t UnSubAllFlag;								//È«²¿¶©ÔÄ
-			ISTONE_EXCHANGE_TYPE ExchangeID;				// ½»Ò×Ëù´úÂë
-			char	Ticker[ISTONE_TICKER_LEN];				//ºÏÔ¼´úÂë		
-		};
-
-
-		///ÏìÓ¦ĞÅÏ¢
-		struct CIStoneRspInfo
-		{
-			int	Tid;										//ÒµÎñID
-			int	ErrorID;									//´íÎó´úÂë
-			TIStoneErrorMsgType	ErrorMsg;					//´íÎóĞÅÏ¢
-		};
-
-		enum ISTONE_MARKETDATA_TYPE 
-		{
-			ISTONE_MARKETDATA_ACTUAL = 0,					// ÏÖ»õ(¹ÉÆ±/»ù½ğ/Õ®È¯µÈ)
-			ISTONE_MARKETDATA_OPTION = 1,					// ÆÚÈ¨
-		};
-
-		///ÊµÊ±ĞĞÇé²éÑ¯ÇëÇó
-		struct CIStoneQryMarketData
-		{
-			ISTONE_EXCHANGE_TYPE	ExchangeID;		//½»Ò×Ëù´úÂë
-			char	Ticker[ISTONE_TICKER_LEN];		//ºÏÔ¼´úÂë
-		};
-
-		struct CIStoneSpecificTicker
-		{
-			ISTONE_EXCHANGE_TYPE ExchangeID;				// ½»Ò×Ëù´úÂë
-			char	Ticker[ISTONE_TICKER_LEN];				//ºÏÔ¼´úÂë
-		};
-
-		///¹ÉÆ±¡¢»ù½ğ¡¢Õ®È¯µÈ¶îÍâÊı¾İ
-		struct CIStoneMarketDataStockExData 
-		{
-			///Î¯ÍĞÂòÈë×ÜÁ¿(SH,SZ)
-			int64_t TotalBidQty;
-			///Î¯ÍĞÂô³ö×ÜÁ¿(SH,SZ)
-			int64_t TotalAskQty;
-			///¼ÓÈ¨Æ½¾ùÎ¯Âò¼Û¸ñ(SH,SZ)
-			double MaBidPrice;
-			///¼ÓÈ¨Æ½¾ùÎ¯Âô¼Û¸ñ(SH,SZ)
-			double MaAskPrice;
-			///Õ®È¯¼ÓÈ¨Æ½¾ùÎ¯Âò¼Û¸ñ(SH)
-			double MaBondBidPrice;
-			///Õ®È¯¼ÓÈ¨Æ½¾ùÎ¯Âô¼Û¸ñ(SH)
-			double MaBondAskPrice;
-			///Õ®È¯µ½ÆÚÊÕÒæÂÊ(SH)
-			double YieldToMaturity;
-			///»ù½ğÊµÊ±²Î¿¼¾»Öµ(SH,SZ)
-			double Iopv;
-			///ETFÉê¹º±ÊÊı(SH)
-			int32_t EtfBuyCount;
-			///ETFÊê»Ø±ÊÊı(SH)
-			int32_t EtfSellCount;
-			///ETFÉê¹ºÊıÁ¿(SH)
-			double EtfBuyQty;
-			///ETFÉê¹º½ğ¶î(SH)
-			double EtfBuyMoney;
-			///ETFÊê»ØÊıÁ¿(SH)
-			double EtfSellQty;
-			///ETFÊê»Ø½ğ¶î(SH)
-			double EtfSellMoney;
-			///È¨Ö¤Ö´ĞĞµÄ×ÜÊıÁ¿(SH)
-			double TotalWarrantExecQty;
-			///È¨Ö¤µøÍ£¼Û¸ñ£¨Ôª£©(SH)
-			double WarrantLowerPrice;
-			///È¨Ö¤ÕÇÍ£¼Û¸ñ£¨Ôª£©(SH)
-			double WarrantUpperPrice;
-			///ÂòÈë³·µ¥±ÊÊı(SH)
-			int32_t CancelBuyCount;
-			///Âô³ö³·µ¥±ÊÊı(SH)
-			int32_t CancelSellCount;
-			///ÂòÈë³·µ¥ÊıÁ¿(SH)
-			double CancelBuyQty;
-			///Âô³ö³·µ¥ÊıÁ¿(SH)
-			double CancelSellQty;
-			///ÂòÈë³·µ¥½ğ¶î(SH)
-			double CancelBuyMoney;
-			///Âô³ö³·µ¥½ğ¶î(SH)
-			double CancelSellMoney;
-			///ÂòÈë×Ü±ÊÊı(SH)
-			int64_t TotalBuyCount;
-			///Âô³ö×Ü±ÊÊı(SH)
-			int64_t TotalSellCount;
-			///ÂòÈëÎ¯ÍĞ³É½»×î´óµÈ´ıÊ±¼ä(SH)
-			int32_t DurationAfterBuy;
-			///Âô³öÎ¯ÍĞ³É½»×î´óµÈ´ıÊ±¼ä(SH)
-			int32_t DurationAfterSell;
-			///Âò·½Î¯ÍĞ¼ÛÎ»Êı(SH)
-			int32_t NumBidOrders;
-			///Âô·½Î¯ÍĞ¼ÛÎ»Êı(SH)
-			int32_t NumAskOrders;
-
-			///»ù½ğT-1ÈÕ¾»Öµ(SZ)
-			double PreIopv;
-			///Ô¤Áô
-			int64_t R1;
-			///Ô¤Áô
-			int64_t R2;
-		};
-
-		// ÆÚÈ¨¶îÍâÊı¾İ
-		struct CIStoneMarketDataOptionExData 
-		{
-			///²¨¶ÎĞÔÖĞ¶Ï²Î¿¼¼Û(SH)
-			double  AuctionPrice;
-			///²¨¶ÎĞÔÖĞ¶Ï¼¯ºÏ¾º¼ÛĞéÄâÆ¥ÅäÁ¿(SH)
-			int64_t AuctionQty;
-			///×î½üÑ¯¼ÛÊ±¼ä(SH)
-			int64_t LastEnquiryTime;
-		};
-
-		///Ò»µµ50±ÊÎ¯ÍĞĞĞÇé
-		struct CIStoneTickerBid1
-		{
-			uint32_t			Bid1NumOfOrders;			// ÂòÒ»µµ¼ÛÎ»×ÜÎ¯ÍĞ±ÊÊı
-			uint8_t				Bid1NoOrders;				// ÂòÒ»µµ¼ÛÎ»½ÒÊ¾Î¯ÍĞ±ÊÊı
-			uint32_t			Bid1Orders[50];				// ÂòÒ»µµ50±ÊÎ¯ÍĞ
-			uint32_t			Ask1NumOfOrders;			// ÂôÒ»µµ¼ÛÎ»×ÜÎ¯ÍĞ±ÊÊı
-			uint8_t				Ask1NoOrders;				// ÂôÒ»µµ¼ÛÎ»½ÒÊ¾Î¯ÍĞ±ÊÊı
-			uint32_t			Ask1Orders[50];				// ÂôÒ»µµ50±ÊÎ¯ÍĞ
-		};
-
-		///Éî¶ÈĞĞÇé
-		struct CIStoneDepthMarketData
-		{
-			//½»Ò×Ëù´úÂë
-			ISTONE_EXCHANGE_TYPE ExchangeID;
-			/// ºÏÔ¼ÀàĞÍ
-			ISTONE_TICKER_TYPE TickerType;
-			///ºÏÔ¼´úÂë£¨²»°üº¬½»Ò×ËùĞÅÏ¢£©£¬²»´ø¿Õ¸ñ£¬ÒÔ'\0'½áÎ²
-			char	Ticker[ISTONE_TICKER_LEN];
-
-			///×îĞÂ¼Û
-			double	LastPrice;
-			///×òÊÕÅÌ
-			double	PreClosePrice;
-			///½ñ¿ªÅÌ
-			double	OpenPrice;
-			///×î¸ß¼Û
-			double	HighestPrice;
-			///×îµÍ¼Û
-			double	LowestPrice;
-			///½ñÊÕÅÌ
-			double	ClosePrice;
-
-			// ÆÚÈ¨Êı¾İ
-			///×òÈÕ³Ö²ÖÁ¿(ÕÅ)(Ä¿Ç°Î´ÌîĞ´)
-			int64_t PreOpenInterest;
-			///³Ö²ÖÁ¿(ÕÅ)
-			int64_t	OpenInterest;
-			///×òÈÕ½áËã¼Û
-			double	PreSettlementPrice;
-			///½ñÈÕ½áËã¼Û
-			double	SettlementPrice;
-
-			///×òĞéÊµ¶È
-			double	PreDelta;
-			///½ñĞéÊµ¶È
-			double	CurrDelta;
-			///ÕÇÍ£°å¼Û
-			double	UpperLimitPrice;
-			///µøÍ£°å¼Û
-			double	LowerLimitPrice;
-
-			/// Ê±¼äÀà£¬¸ñÊ½ÎªYYYYMMDDHHMMSSsss
-			int64_t DateTime;
-
-			// Á¿¶îÊı¾İ
-			///ÊıÁ¿£¬Îª×Ü³É½»Á¿£¨µ¥Î»¹É£¬Óë½»Ò×ËùÒ»ÖÂ£©
-			int64_t		Qty;
-			///³É½»½ğ¶î£¬Îª×Ü³É½»½ğ¶î£¨µ¥Î»Ôª£¬Óë½»Ò×ËùÒ»ÖÂ£©
-			double	Turnover;
-			///µ±ÈÕ¾ù¼Û=(turnover/qty)
-			double	AvgPrice;
-
-			// ÂòÂôÅÌ
-			///Ê®µµÉêÂò¼Û
-			double Bid[10];
-			///Ê®µµÉêÂô¼Û
-			double	Ask[10];
-			///Ê®µµÉêÂòÁ¿
-			int64_t	BidQty[10];
-			///Ê®µµÉêÂôÁ¿
-			int64_t	AskQty[10];
-			///³É½»±ÊÊı
-			int64_t TradesCount;
-			///µ±Ç°½»Ò××´Ì¬ËµÃ÷
-			char TickerStatus[8];
-
-			//Ò»µµ50±ÊÎ¯ÍĞ
-			CIStoneTickerBid1 tickBid1;
-
-			///¾ö¶¨ÁËunionÊÇÄÄÖÖÊı¾İÀàĞÍ
-			ISTONE_MARKETDATA_TYPE DataType;
-			// ¶îÍâÊı¾İ
-			///Êı¾İ
-			union {
-				CIStoneMarketDataStockExData  Stk;
-				CIStoneMarketDataOptionExData Opt;
-			};
-			///Ô¤Áô
-			int32_t R4;
-		};
-
-		///¹ÉÆ±ĞĞÇé¾²Ì¬ĞÅÏ¢
-		struct CIStoneQuoteStaticInfo 
-		{
-			///½»Ò×Ëù´úÂë
-			ISTONE_EXCHANGE_TYPE ExchangeID;
-			///ºÏÔ¼´úÂë£¨²»°üº¬½»Ò×ËùĞÅÏ¢£©£¬²»´ø¿Õ¸ñ£¬ÒÔ'\0'½áÎ²
-			char    Ticker[ISTONE_TICKER_LEN];
-			/// ºÏÔ¼Ãû³Æ
-			char    TickerName[ISTONE_TICKER_NAME_LEN];
-			/// ºÏÔ¼ÀàĞÍ
-			ISTONE_TICKER_TYPE TickerType;
-			///×òÊÕÅÌ
-			double  PreClosePrice;
-			///ÕÇÍ£°å¼Û
-			double  UpperLimitPrice;
-			///µøÍ£°å¼Û
-			double  LowerLimitPrice;
-			///×îĞ¡±ä¶¯¼ÛÎ»
-			double  PriceTick;
-			/// ºÏÔ¼×îĞ¡½»Ò×Á¿(Âò)
-			int32_t  BuyQtyUnit;
-			/// ºÏÔ¼×îĞ¡½»Ò×Á¿(Âô)
-			int32_t SellQtyUnit;
-		};
+        ///ç”¨æˆ·é€ç¬”è¡Œæƒ…åº”ç­”
+        struct CIStoneRspSubTickByTick 
+        {
+            int16_t SubAllFlag;								//å…¨éƒ¨è®¢é˜…
+            ISTONE_EXCHANGE_TYPE ExchangeID;				// äº¤æ˜“æ‰€ä»£ç 
+            char	Ticker[ISTONE_TICKER_LEN];				//åˆçº¦ä»£ç 
+        };
+        ///ç”¨æˆ·é€ç¬”è¡Œæƒ…åº”ç­”
+        struct CIStoneRspUnSubTickByTick
+        {
+            int16_t UnSubAllFlag;								//å…¨éƒ¨è®¢é˜…
+            ISTONE_EXCHANGE_TYPE ExchangeID;				// äº¤æ˜“æ‰€ä»£ç 
+            char	Ticker[ISTONE_TICKER_LEN];				//åˆçº¦ä»£ç 		
+        };
 
 
-		///¶¨µ¥±¡£¨½öÊÊÓÃÓÚÉî½»Ëù£©
-		struct CIStoneOrderBook 
-		{
-			///½»Ò×Ëù´úÂë
-			ISTONE_EXCHANGE_TYPE ExchangeID;
-			///ºÏÔ¼´úÂë£¨²»°üº¬½»Ò×ËùĞÅÏ¢£©£¬²»´ø¿Õ¸ñ£¬ÒÔ'\0'½áÎ²
-			char    Ticker[ISTONE_TICKER_LEN];
+        ///å“åº”ä¿¡æ¯
+        struct CIStoneRspInfo
+        {
+            int	Tid;										//ä¸šåŠ¡ID
+            int	ErrorID;									//é”™è¯¯ä»£ç 
+            TIStoneErrorMsgType	ErrorMsg;					//é”™è¯¯ä¿¡æ¯
+        };
 
-			///×îĞÂ¼Û
-			double LastPrice;
-			///ÊıÁ¿£¬Îª×Ü³É½»Á¿
-			int64_t Qty;
-			///³É½»½ğ¶î£¬Îª×Ü³É½»½ğ¶î
-			double  Turnover;
-			///³É½»±ÊÊı
-			int64_t TradesCount;
+        enum ISTONE_MARKETDATA_TYPE 
+        {
+            ISTONE_MARKETDATA_ACTUAL = 0,					// ç°è´§(è‚¡ç¥¨/åŸºé‡‘/å€ºåˆ¸ç­‰)
+            ISTONE_MARKETDATA_OPTION = 1,					// æœŸæƒ
+        };
 
-			// ÂòÂôÅÌ
-			///Ê®µµÉêÂò¼Û
-			double Bid[10];
-			///Ê®µµÉêÂô¼Û
-			double  Ask[10];
-			///Ê®µµÉêÂòÁ¿
-			int64_t BidQty[10];
-			///Ê®µµÉêÂôÁ¿
-			int64_t AskQty[10];
-			/// Ê±¼äÀà
-			int64_t DataTime;
+        ///å®æ—¶è¡Œæƒ…æŸ¥è¯¢è¯·æ±‚
+        struct CIStoneQryMarketData
+        {
+            ISTONE_EXCHANGE_TYPE	ExchangeID;		//äº¤æ˜“æ‰€ä»£ç 
+            char	Ticker[ISTONE_TICKER_LEN];		//åˆçº¦ä»£ç 
+        };
 
-			///»º´æÊ®µµ¶ÔÓ¦µÄĞòÁĞºÅ
-			string bidSeq[10];
-			string askSeq[10];
-		};
+        struct CIStoneSpecificTicker
+        {
+            ISTONE_EXCHANGE_TYPE ExchangeID;				// äº¤æ˜“æ‰€ä»£ç 
+            char	Ticker[ISTONE_TICKER_LEN];				//åˆçº¦ä»£ç 
+        };
 
-		////////////////////////////////// Öğ±ÊÊı¾İ
+        ///è‚¡ç¥¨ã€åŸºé‡‘ã€å€ºåˆ¸ç­‰é¢å¤–æ•°æ®
+        struct CIStoneMarketDataStockExData 
+        {
+            ///å§”æ‰˜ä¹°å…¥æ€»é‡(SH,SZ)
+            int64_t TotalBidQty;
+            ///å§”æ‰˜å–å‡ºæ€»é‡(SH,SZ)
+            int64_t TotalAskQty;
+            ///åŠ æƒå¹³å‡å§”ä¹°ä»·æ ¼(SH,SZ)
+            double MaBidPrice;
+            ///åŠ æƒå¹³å‡å§”å–ä»·æ ¼(SH,SZ)
+            double MaAskPrice;
+            ///å€ºåˆ¸åŠ æƒå¹³å‡å§”ä¹°ä»·æ ¼(SH)
+            double MaBondBidPrice;
+            ///å€ºåˆ¸åŠ æƒå¹³å‡å§”å–ä»·æ ¼(SH)
+            double MaBondAskPrice;
+            ///å€ºåˆ¸åˆ°æœŸæ”¶ç›Šç‡(SH)
+            double YieldToMaturity;
+            ///åŸºé‡‘å®æ—¶å‚è€ƒå‡€å€¼(SH,SZ)
+            double Iopv;
+            ///ETFç”³è´­ç¬”æ•°(SH)
+            int32_t EtfBuyCount;
+            ///ETFèµå›ç¬”æ•°(SH)
+            int32_t EtfSellCount;
+            ///ETFç”³è´­æ•°é‡(SH)
+            double EtfBuyQty;
+            ///ETFç”³è´­é‡‘é¢(SH)
+            double EtfBuyMoney;
+            ///ETFèµå›æ•°é‡(SH)
+            double EtfSellQty;
+            ///ETFèµå›é‡‘é¢(SH)
+            double EtfSellMoney;
+            ///æƒè¯æ‰§è¡Œçš„æ€»æ•°é‡(SH)
+            double TotalWarrantExecQty;
+            ///æƒè¯è·Œåœä»·æ ¼ï¼ˆå…ƒï¼‰(SH)
+            double WarrantLowerPrice;
+            ///æƒè¯æ¶¨åœä»·æ ¼ï¼ˆå…ƒï¼‰(SH)
+            double WarrantUpperPrice;
+            ///ä¹°å…¥æ’¤å•ç¬”æ•°(SH)
+            int32_t CancelBuyCount;
+            ///å–å‡ºæ’¤å•ç¬”æ•°(SH)
+            int32_t CancelSellCount;
+            ///ä¹°å…¥æ’¤å•æ•°é‡(SH)
+            double CancelBuyQty;
+            ///å–å‡ºæ’¤å•æ•°é‡(SH)
+            double CancelSellQty;
+            ///ä¹°å…¥æ’¤å•é‡‘é¢(SH)
+            double CancelBuyMoney;
+            ///å–å‡ºæ’¤å•é‡‘é¢(SH)
+            double CancelSellMoney;
+            ///ä¹°å…¥æ€»ç¬”æ•°(SH)
+            int64_t TotalBuyCount;
+            ///å–å‡ºæ€»ç¬”æ•°(SH)
+            int64_t TotalSellCount;
+            ///ä¹°å…¥å§”æ‰˜æˆäº¤æœ€å¤§ç­‰å¾…æ—¶é—´(SH)
+            int32_t DurationAfterBuy;
+            ///å–å‡ºå§”æ‰˜æˆäº¤æœ€å¤§ç­‰å¾…æ—¶é—´(SH)
+            int32_t DurationAfterSell;
+            ///ä¹°æ–¹å§”æ‰˜ä»·ä½æ•°(SH)
+            int32_t NumBidOrders;
+            ///å–æ–¹å§”æ‰˜ä»·ä½æ•°(SH)
+            int32_t NumAskOrders;
+
+            ///åŸºé‡‘T-1æ—¥å‡€å€¼(SZ)
+            double PreIopv;
+            ///é¢„ç•™
+            int64_t R1;
+            ///é¢„ç•™
+            int64_t R2;
+        };
+
+        // æœŸæƒé¢å¤–æ•°æ®
+        struct CIStoneMarketDataOptionExData 
+        {
+            ///æ³¢æ®µæ€§ä¸­æ–­å‚è€ƒä»·(SH)
+            double  AuctionPrice;
+            ///æ³¢æ®µæ€§ä¸­æ–­é›†åˆç«ä»·è™šæ‹ŸåŒ¹é…é‡(SH)
+            int64_t AuctionQty;
+            ///æœ€è¿‘è¯¢ä»·æ—¶é—´(SH)
+            int64_t LastEnquiryTime;
+        };
+
+        ///ä¸€æ¡£50ç¬”å§”æ‰˜è¡Œæƒ…
+        struct CIStoneTickerBid1
+        {
+            uint32_t			Bid1NumOfOrders;			// ä¹°ä¸€æ¡£ä»·ä½æ€»å§”æ‰˜ç¬”æ•°
+            uint8_t				Bid1NoOrders;				// ä¹°ä¸€æ¡£ä»·ä½æ­ç¤ºå§”æ‰˜ç¬”æ•°
+            uint32_t			Bid1Orders[50];				// ä¹°ä¸€æ¡£50ç¬”å§”æ‰˜
+            uint32_t			Ask1NumOfOrders;			// å–ä¸€æ¡£ä»·ä½æ€»å§”æ‰˜ç¬”æ•°
+            uint8_t				Ask1NoOrders;				// å–ä¸€æ¡£ä»·ä½æ­ç¤ºå§”æ‰˜ç¬”æ•°
+            uint32_t			Ask1Orders[50];				// å–ä¸€æ¡£50ç¬”å§”æ‰˜
+        };
+
+        ///æ·±åº¦è¡Œæƒ…
+        struct CIStoneDepthMarketData
+        {
+            //äº¤æ˜“æ‰€ä»£ç 
+            ISTONE_EXCHANGE_TYPE ExchangeID;
+            /// åˆçº¦ç±»å‹
+            ISTONE_TICKER_TYPE TickerType;
+            ///åˆçº¦ä»£ç ï¼ˆä¸åŒ…å«äº¤æ˜“æ‰€ä¿¡æ¯ï¼‰ï¼Œä¸å¸¦ç©ºæ ¼ï¼Œä»¥'\0'ç»“å°¾
+            char	Ticker[ISTONE_TICKER_LEN];
+
+            ///æœ€æ–°ä»·
+            double	LastPrice;
+            ///æ˜¨æ”¶ç›˜
+            double	PreClosePrice;
+            ///ä»Šå¼€ç›˜
+            double	OpenPrice;
+            ///æœ€é«˜ä»·
+            double	HighestPrice;
+            ///æœ€ä½ä»·
+            double	LowestPrice;
+            ///ä»Šæ”¶ç›˜
+            double	ClosePrice;
+
+            // æœŸæƒæ•°æ®
+            ///æ˜¨æ—¥æŒä»“é‡(å¼ )(ç›®å‰æœªå¡«å†™)
+            int64_t PreOpenInterest;
+            ///æŒä»“é‡(å¼ )
+            int64_t	OpenInterest;
+            ///æ˜¨æ—¥ç»“ç®—ä»·
+            double	PreSettlementPrice;
+            ///ä»Šæ—¥ç»“ç®—ä»·
+            double	SettlementPrice;
+
+            ///æ˜¨è™šå®åº¦
+            double	PreDelta;
+            ///ä»Šè™šå®åº¦
+            double	CurrDelta;
+            ///æ¶¨åœæ¿ä»·
+            double	UpperLimitPrice;
+            ///è·Œåœæ¿ä»·
+            double	LowerLimitPrice;
+
+            /// æ—¶é—´ç±»ï¼Œæ ¼å¼ä¸ºYYYYMMDDHHMMSSsss
+            int64_t DateTime;
+
+            // é‡é¢æ•°æ®
+            ///æ•°é‡ï¼Œä¸ºæ€»æˆäº¤é‡ï¼ˆå•ä½è‚¡ï¼Œä¸äº¤æ˜“æ‰€ä¸€è‡´ï¼‰
+            int64_t		Qty;
+            ///æˆäº¤é‡‘é¢ï¼Œä¸ºæ€»æˆäº¤é‡‘é¢ï¼ˆå•ä½å…ƒï¼Œä¸äº¤æ˜“æ‰€ä¸€è‡´ï¼‰
+            double	Turnover;
+            ///å½“æ—¥å‡ä»·=(turnover/qty)
+            double	AvgPrice;
+
+            // ä¹°å–ç›˜
+            ///åæ¡£ç”³ä¹°ä»·
+            double Bid[10];
+            ///åæ¡£ç”³å–ä»·
+            double	Ask[10];
+            ///åæ¡£ç”³ä¹°é‡
+            int64_t	BidQty[10];
+            ///åæ¡£ç”³å–é‡
+            int64_t	AskQty[10];
+            ///æˆäº¤ç¬”æ•°
+            int64_t TradesCount;
+            ///å½“å‰äº¤æ˜“çŠ¶æ€è¯´æ˜
+            char TickerStatus[8];
+
+            //ä¸€æ¡£50ç¬”å§”æ‰˜
+            CIStoneTickerBid1 tickBid1;
+
+            ///å†³å®šäº†unionæ˜¯å“ªç§æ•°æ®ç±»å‹
+            ISTONE_MARKETDATA_TYPE DataType;
+            // é¢å¤–æ•°æ®
+            ///æ•°æ®
+            union {
+                CIStoneMarketDataStockExData  Stk;
+                CIStoneMarketDataOptionExData Opt;
+            };
+            ///é¢„ç•™
+            int32_t R4;
+        };
+
+        ///è‚¡ç¥¨è¡Œæƒ…é™æ€ä¿¡æ¯
+        struct CIStoneQuoteStaticInfo 
+        {
+            ///äº¤æ˜“æ‰€ä»£ç 
+            ISTONE_EXCHANGE_TYPE ExchangeID;
+            ///åˆçº¦ä»£ç ï¼ˆä¸åŒ…å«äº¤æ˜“æ‰€ä¿¡æ¯ï¼‰ï¼Œä¸å¸¦ç©ºæ ¼ï¼Œä»¥'\0'ç»“å°¾
+            char    Ticker[ISTONE_TICKER_LEN];
+            /// åˆçº¦åç§°
+            char    TickerName[ISTONE_TICKER_NAME_LEN];
+            /// åˆçº¦ç±»å‹
+            ISTONE_TICKER_TYPE TickerType;
+            ///æ˜¨æ”¶ç›˜
+            double  PreClosePrice;
+            ///æ¶¨åœæ¿ä»·
+            double  UpperLimitPrice;
+            ///è·Œåœæ¿ä»·
+            double  LowerLimitPrice;
+            ///æœ€å°å˜åŠ¨ä»·ä½
+            double  PriceTick;
+            /// åˆçº¦æœ€å°äº¤æ˜“é‡(ä¹°)
+            int32_t  BuyQtyUnit;
+            /// åˆçº¦æœ€å°äº¤æ˜“é‡(å–)
+            int32_t SellQtyUnit;
+        };
 
 
-		///Öğ±ÊÎ¯ÍĞ(½öÊÊÓÃÉî½»Ëù)
-		struct CIStoneTickByTickEntrust 
-		{
-			///ÆµµÀ´úÂë
-			int32_t ChannalNo;
-			///Î¯ÍĞĞòºÅ(ÔÚÍ¬Ò»¸öchannel_noÄÚÎ¨Ò»£¬´Ó1¿ªÊ¼Á¬Ğø)
-			int64_t Seq;
-			///Î¯ÍĞ¼Û¸ñ
-			double  Price;
-			///Î¯ÍĞÊıÁ¿
-			int64_t Qty;
-			///'1':Âò; '2':Âô; 'G':½èÈë; 'F':³ö½è
-			char  Side;
-			///¶©µ¥Àà±ğ: '1': ÊĞ¼Û; '2': ÏŞ¼Û; 'U': ±¾·½×îÓÅ
-			char OrdType;
-		};
+        ///å®šå•è–„ï¼ˆä»…é€‚ç”¨äºæ·±äº¤æ‰€ï¼‰
+        struct CIStoneOrderBook 
+        {
+            ///äº¤æ˜“æ‰€ä»£ç 
+            ISTONE_EXCHANGE_TYPE ExchangeID;
+            ///åˆçº¦ä»£ç ï¼ˆä¸åŒ…å«äº¤æ˜“æ‰€ä¿¡æ¯ï¼‰ï¼Œä¸å¸¦ç©ºæ ¼ï¼Œä»¥'\0'ç»“å°¾
+            char    Ticker[ISTONE_TICKER_LEN];
 
-		///Öğ±Ê³É½»
-		struct CIStoneTickByTickTrade 
-		{
-			///ÆµµÀ´úÂë
-			int32_t ChannalNo;
-			///Î¯ÍĞĞòºÅ(ÔÚÍ¬Ò»¸öchannel_noÄÚÎ¨Ò»£¬´Ó1¿ªÊ¼Á¬Ğø)
-			int64_t Seq;
-			///³É½»¼Û¸ñ
-			double Price;
-			///³É½»Á¿
-			int64_t Qty;
-			///³É½»½ğ¶î(½öÊÊÓÃÉÏ½»Ëù)
-			double Money;
-			///Âò·½¶©µ¥ºÅ
-			int64_t BidNo;
-			///Âô·½¶©µ¥ºÅ
-			int64_t AskNo;
-			/// SH: ÄÚÍâÅÌ±êÊ¶('B':Ö÷¶¯Âò; 'S':Ö÷¶¯Âô; 'N':Î´Öª)
-			/// SZ: ³É½»±êÊ¶('4':³·; 'F':³É½»)
-			char TradeFlag;
-		};
+            ///æœ€æ–°ä»·
+            double LastPrice;
+            ///æ•°é‡ï¼Œä¸ºæ€»æˆäº¤é‡
+            int64_t Qty;
+            ///æˆäº¤é‡‘é¢ï¼Œä¸ºæ€»æˆäº¤é‡‘é¢
+            double  Turnover;
+            ///æˆäº¤ç¬”æ•°
+            int64_t TradesCount;
 
-		///Öğ±ÊÊı¾İĞÅÏ¢
-		struct CIStoneTickByTick 
-		{
-			///½»Ò×Ëù´úÂë
-			ISTONE_EXCHANGE_TYPE ExchangeID;
-			///ºÏÔ¼´úÂë£¨²»°üº¬½»Ò×ËùĞÅÏ¢£©£¬²»´ø¿Õ¸ñ£¬ÒÔ'\0'½áÎ²
-			char Ticker[ISTONE_TICKER_LEN];
-			///Ô¤Áô
-			int64_t Seq;
-			///Î¯ÍĞÊ±¼ä or ³É½»Ê±¼ä
-			int64_t DataTime;
-			///Î¯ÍĞ or ³É½»
-			ISTONE_TBT_TYPE Type;
+            // ä¹°å–ç›˜
+            ///åæ¡£ç”³ä¹°ä»·
+            double Bid[10];
+            ///åæ¡£ç”³å–ä»·
+            double  Ask[10];
+            ///åæ¡£ç”³ä¹°é‡
+            int64_t BidQty[10];
+            ///åæ¡£ç”³å–é‡
+            int64_t AskQty[10];
+            /// æ—¶é—´ç±»
+            int64_t DataTime;
 
-			union {
-				CIStoneTickByTickEntrust Entrust;
-				CIStoneTickByTickTrade   Trade;
-			};
-		};
+            ///ç¼“å­˜åæ¡£å¯¹åº”çš„åºåˆ—å·
+            string bidSeq[10];
+            string askSeq[10];
+        };
 
-		///¹©²éÑ¯µÄ×îĞÂĞÅÏ¢
-		struct CIStoneTickerPriceInfo 
-		{
-			///½»Ò×Ëù´úÂë
-			ISTONE_EXCHANGE_TYPE ExchangeID;
-			///ºÏÔ¼´úÂë£¨²»°üº¬½»Ò×ËùĞÅÏ¢£©£¬²»´ø¿Õ¸ñ£¬ÒÔ'\0'½áÎ²
-			char Ticker[ISTONE_TICKER_LEN];
-			///×îĞÂ¼Û
-			double LastPrice;
-		};
-	}
+        ////////////////////////////////// é€ç¬”æ•°æ®
+
+
+        ///é€ç¬”å§”æ‰˜(ä»…é€‚ç”¨æ·±äº¤æ‰€)
+        struct CIStoneTickByTickEntrust 
+        {
+            ///é¢‘é“ä»£ç 
+            int32_t ChannalNo;
+            ///å§”æ‰˜åºå·(åœ¨åŒä¸€ä¸ªchannel_noå†…å”¯ä¸€ï¼Œä»1å¼€å§‹è¿ç»­)
+            int64_t Seq;
+            ///å§”æ‰˜ä»·æ ¼
+            double  Price;
+            ///å§”æ‰˜æ•°é‡
+            int64_t Qty;
+            ///'1':ä¹°; '2':å–; 'G':å€Ÿå…¥; 'F':å‡ºå€Ÿ
+            char  Side;
+            ///è®¢å•ç±»åˆ«: '1': å¸‚ä»·; '2': é™ä»·; 'U': æœ¬æ–¹æœ€ä¼˜
+            char OrdType;
+        };
+
+        ///é€ç¬”æˆäº¤
+        struct CIStoneTickByTickTrade 
+        {
+            ///é¢‘é“ä»£ç 
+            int32_t ChannalNo;
+            ///å§”æ‰˜åºå·(åœ¨åŒä¸€ä¸ªchannel_noå†…å”¯ä¸€ï¼Œä»1å¼€å§‹è¿ç»­)
+            int64_t Seq;
+            ///æˆäº¤ä»·æ ¼
+            double Price;
+            ///æˆäº¤é‡
+            int64_t Qty;
+            ///æˆäº¤é‡‘é¢(ä»…é€‚ç”¨ä¸Šäº¤æ‰€)
+            double Money;
+            ///ä¹°æ–¹è®¢å•å·
+            int64_t BidNo;
+            ///å–æ–¹è®¢å•å·
+            int64_t AskNo;
+            /// SH: å†…å¤–ç›˜æ ‡è¯†('B':ä¸»åŠ¨ä¹°; 'S':ä¸»åŠ¨å–; 'N':æœªçŸ¥)
+            /// SZ: æˆäº¤æ ‡è¯†('4':æ’¤; 'F':æˆäº¤)
+            char TradeFlag;
+        };
+
+        ///é€ç¬”æ•°æ®ä¿¡æ¯
+        struct CIStoneTickByTick 
+        {
+            ///äº¤æ˜“æ‰€ä»£ç 
+            ISTONE_EXCHANGE_TYPE ExchangeID;
+            ///åˆçº¦ä»£ç ï¼ˆä¸åŒ…å«äº¤æ˜“æ‰€ä¿¡æ¯ï¼‰ï¼Œä¸å¸¦ç©ºæ ¼ï¼Œä»¥'\0'ç»“å°¾
+            char Ticker[ISTONE_TICKER_LEN];
+            ///é¢„ç•™
+            int64_t Seq;
+            ///å§”æ‰˜æ—¶é—´ or æˆäº¤æ—¶é—´
+            int64_t DataTime;
+            ///å§”æ‰˜ or æˆäº¤
+            ISTONE_TBT_TYPE Type;
+
+            union {
+                CIStoneTickByTickEntrust Entrust;
+                CIStoneTickByTickTrade   Trade;
+            };
+        };
+
+        ///ä¾›æŸ¥è¯¢çš„æœ€æ–°ä¿¡æ¯
+        struct CIStoneTickerPriceInfo 
+        {
+            ///äº¤æ˜“æ‰€ä»£ç 
+            ISTONE_EXCHANGE_TYPE ExchangeID;
+            ///åˆçº¦ä»£ç ï¼ˆä¸åŒ…å«äº¤æ˜“æ‰€ä¿¡æ¯ï¼‰ï¼Œä¸å¸¦ç©ºæ ¼ï¼Œä»¥'\0'ç»“å°¾
+            char Ticker[ISTONE_TICKER_LEN];
+            ///æœ€æ–°ä»·
+            double LastPrice;
+        };
+    }
 }

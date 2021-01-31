@@ -1,10 +1,10 @@
-/** @file
-* @brief   Æ½Ì¨Ïà¹Ø¶¨ÒåºÍ»ù±¾Í·ÎÄ¼ş
-* @author  ºÎÖÙ¾ı
-* @author  ºãÉúµç×Ó¹É·İÓĞÏŞ¹«Ë¾
+ï»¿/** @file
+* @brief   å¹³å°ç›¸å…³å®šä¹‰å’ŒåŸºæœ¬å¤´æ–‡ä»¶
+* @author  ä½•ä»²å›
+* @author  æ’ç”Ÿç”µå­è‚¡ä»½æœ‰é™å…¬å¸
 * @version 1.0
-* @date    20120106 ³õÊ¼°æ±¾
-* @date    20140402 ÎªÁË¸üºÃµÄÓëÆäËûÍ·ÎÄ¼ş¹²´¦¶øµ÷Õû£¬Ôö¼ÓOS_COMMON_EXT
+* @date    20120106 åˆå§‹ç‰ˆæœ¬
+* @date    20140402 ä¸ºäº†æ›´å¥½çš„ä¸å…¶ä»–å¤´æ–‡ä»¶å…±å¤„è€Œè°ƒæ•´ï¼Œå¢åŠ OS_COMMON_EXT
 */
 
 #ifndef _OS_COMMON_H_
@@ -127,7 +127,7 @@ typedef unsigned __int64	uint64_t;
 
 #else // !OS_WIN
 
-// Ó¦×îÔç°üº¬±¾ÎÄ¼ş£¬»òÕß°Ñ_FILE_OFFSET_BITS¶¨Òå·ÅÔÚ±àÒë²ÎÊıÖĞ£¬Èçg++ -D_FILE_OFFSET_BITS=64
+// åº”æœ€æ—©åŒ…å«æœ¬æ–‡ä»¶ï¼Œæˆ–è€…æŠŠ_FILE_OFFSET_BITSå®šä¹‰æ”¾åœ¨ç¼–è¯‘å‚æ•°ä¸­ï¼Œå¦‚g++ -D_FILE_OFFSET_BITS=64
 #ifndef _FILE_OFFSET_BITS
 #define _FILE_OFFSET_BITS	64
 #elif _FILE_OFFSET_BITS != 64
@@ -184,7 +184,7 @@ typedef unsigned __int64	uint64_t;
 #define	lseek64				_lseeki64			
 #endif
 
-// ÓĞÏ¸½Ú²îÒìµÄ£¨_snprintf²»ÄÜ±£Ö¤0½áÎ²£©£¬ÒªĞ¡ĞÄÊ¹ÓÃ
+// æœ‰ç»†èŠ‚å·®å¼‚çš„ï¼ˆ_snprintfä¸èƒ½ä¿è¯0ç»“å°¾ï¼‰ï¼Œè¦å°å¿ƒä½¿ç”¨
 #ifndef snprintf
 #define snprintf			_snprintf
 #endif

@@ -1,9 +1,9 @@
 /*************************
-*ÕªÒª£ºÄÏ»ªÆÚ»õ½»Ò×ÏµÍ³
-*ÎÄ¼ş£ºNhMdApi.h
-*      ¶¨ÒåÁË¿Í»§¶Ë½Ó¿Ú
-*×÷Õß£ºÄÏ»ªÆÚ»õÈí¼ş²¿
-*Ê±¼ä£º20130604
+*æ‘˜è¦ï¼šå—åæœŸè´§äº¤æ˜“ç³»ç»Ÿ
+*æ–‡ä»¶ï¼šNhMdApi.h
+*      å®šä¹‰äº†å®¢æˆ·ç«¯æ¥å£
+*ä½œè€…ï¼šå—åæœŸè´§è½¯ä»¶éƒ¨
+*æ—¶é—´ï¼š20130604
 **************************/
 
 #ifndef __CNH_MD_API_H__
@@ -21,41 +21,41 @@
 class CNhMdSpi
 {
 public:
-	///µ±¿Í»§¶ËÓëĞĞÇéÍø¹Ø½¨Á¢ÆğÍ¨ĞÅÁ¬½ÓÊ±£¨»¹Î´µÇÂ¼Ç°£©£¬¸Ã·½·¨±»µ÷ÓÃ¡£
+	///å½“å®¢æˆ·ç«¯ä¸è¡Œæƒ…ç½‘å…³å»ºç«‹èµ·é€šä¿¡è¿æ¥æ—¶ï¼ˆè¿˜æœªç™»å½•å‰ï¼‰ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚
 	virtual void OnFrontConnected(){};
 	
-	///µ±¿Í»§¶ËÓëĞĞÇéÍø¹ØÍ¨ĞÅÁ¬½Ó¶Ï¿ªÊ±£¬¸Ã·½·¨±»µ÷ÓÃ¡£
+	///å½“å®¢æˆ·ç«¯ä¸è¡Œæƒ…ç½‘å…³é€šä¿¡è¿æ¥æ–­å¼€æ—¶ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚
 	virtual void OnFrontDisConnected(){};
 
-	///ĞÄÌø³¬Ê±¾¯¸æ¡£µ±³¤Ê±¼äÎ´ÊÕµ½±¨ÎÄÊ±£¬¸Ã·½·¨±»µ÷ÓÃ¡£
-	/* \param nTimeLapse ¾àÀëÉÏ´Î½ÓÊÕ±¨ÎÄµÄÊ±¼ä
+	///å¿ƒè·³è¶…æ—¶è­¦å‘Šã€‚å½“é•¿æ—¶é—´æœªæ”¶åˆ°æŠ¥æ–‡æ—¶ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚
+	/* \param nTimeLapse è·ç¦»ä¸Šæ¬¡æ¥æ”¶æŠ¥æ–‡çš„æ—¶é—´
 	****************************************/
 	virtual void OnHeartBeatWarning(int nTimeLapse){};
 
 	/***************************************
 	/* \fn    OnRspError
-	/* \brief ´íÎóÓ¦´ğ
-	/* \param ERRORMSGINFO_t & req,´íÎóÓ¦´ğÏûÏ¢
-	/* \param TSequenceIDType nRequestID£¬Èç¹ûÊÇÓÉÓÚrequestÒıÆğµÄ´íÎó£¬ÔòÎª¶ÔÓ¦ÇëÇóID£¬·ñÔò£¬Îª0
+	/* \brief é”™è¯¯åº”ç­”
+	/* \param ERRORMSGINFO_t & req,é”™è¯¯åº”ç­”æ¶ˆæ¯
+	/* \param TSequenceIDType nRequestIDï¼Œå¦‚æœæ˜¯ç”±äºrequestå¼•èµ·çš„é”™è¯¯ï¼Œåˆ™ä¸ºå¯¹åº”è¯·æ±‚IDï¼Œå¦åˆ™ï¼Œä¸º0
 	/* \return void
 	****************************************/
 	virtual void OnRspError(ERRORMSGINFO_t &pRspInfo,TSequenceIDType nRequestID) {};
 
-	///ĞĞÇéÍ¨Öª
+	///è¡Œæƒ…é€šçŸ¥
 	virtual void OnRtnMarketData(STKMarketData_t &pData) {};
 
 	/***************************************
 	/* \fn    OnRspUtpLogin
-	/* \brief µÇÂ¼ÄÏ»ªÍ³Ò»½»Ò×Æ½Ì¨UTPÇëÇóÊ±ÏìÓ¦
+	/* \brief ç™»å½•å—åç»Ÿä¸€äº¤æ˜“å¹³å°UTPè¯·æ±‚æ—¶å“åº”
 	/* \param RspUtpLoginField_t & req
-	/* \param TSequenceIDType nRequestID£¬
+	/* \param TSequenceIDType nRequestIDï¼Œ
 	/* \return void
 	****************************************/
 	virtual void OnRspUtpLogin(const RspUtpLoginField_t& rsp,TSequenceIDType nRequestID){};
 	
 	/***************************************
 	/* \fn    OnRspUtpLogout
-	/* \brief µÇÂ¼ÄÏ»ªÍ³Ò»½»Ò×Æ½Ì¨UTPÇëÇóÊ±ÏìÓ¦
+	/* \brief ç™»å½•å—åç»Ÿä¸€äº¤æ˜“å¹³å°UTPè¯·æ±‚æ—¶å“åº”
 	/* \param RspUtpLogoutField_t & req
 	/* \param TSequenceIDType nRequestID
 	/* \return void
@@ -64,7 +64,7 @@ public:
 	
 	/***************************************
 	/* \fn    OnRspSubscribe
-	/* \brief ¶©ÔÄĞĞÇéÊı¾İÇëÇóÊ±ÏìÓ¦
+	/* \brief è®¢é˜…è¡Œæƒ…æ•°æ®è¯·æ±‚æ—¶å“åº”
 	/* \param RspSubscribeField_t & req
 	/* \param TSequenceIDType nRequestID
 	/* \return void
@@ -73,7 +73,7 @@ public:
 	
 	/***************************************
 	/* \fn    OnRspUnSubscribe
-	/* \brief È¡Ïû¶©ÔÄĞĞÇéÊı¾İÇëÇóÊ±ÏìÓ¦
+	/* \brief å–æ¶ˆè®¢é˜…è¡Œæƒ…æ•°æ®è¯·æ±‚æ—¶å“åº”
 	/* \param RspUnSubscribeField_t & req
 	/* \param TSequenceIDType nRequestID
 	/* \return void
@@ -82,7 +82,7 @@ public:
 
 	/***************************************
 	* \fn    OnRspQryExchange
-	* \brief ²éÑ¯½»Ò×ËùÇëÇóÊ±ÏìÓ¦
+	* \brief æŸ¥è¯¢äº¤æ˜“æ‰€è¯·æ±‚æ—¶å“åº”
 	* \param RspQryExchangeField_t & rsp
 	* \param TSequenceIDType nRequestID
 	* \return void
@@ -91,7 +91,7 @@ public:
 
 	/***************************************
 	* \fn    OnRspQryInstrument
-	* \brief ²éÑ¯ºÏÔ¼ÇëÇóÊ±ÏìÓ¦
+	* \brief æŸ¥è¯¢åˆçº¦è¯·æ±‚æ—¶å“åº”
 	* \param RspQryInstrumentField_t & rsp
 	* \param TSequenceIDType nRequestID
 	* \return void
@@ -103,126 +103,126 @@ class MD_API_EXPORT CNhMdApi
 {
 public:
 	/***************************************
-	/* \brief ´´½¨MdApi
-	/* \return ´´½¨³öµÄUserApi
+	/* \brief åˆ›å»ºMdApi
+	/* \return åˆ›å»ºå‡ºçš„UserApi
 	****************************************/
 	static CNhMdApi *CreateMdApi();
 
 	/***************************************
-	/* \brief É¾³ı½Ó¿Ú¶ÔÏó±¾Éí
-	/* \remark ²»ÔÙÊ¹ÓÃ±¾½Ó¿Ú¶ÔÏóÊ±,µ÷ÓÃ¸Ãº¯ÊıÉ¾³ı½Ó¿Ú¶ÔÏó
+	/* \brief åˆ é™¤æ¥å£å¯¹è±¡æœ¬èº«
+	/* \remark ä¸å†ä½¿ç”¨æœ¬æ¥å£å¯¹è±¡æ—¶,è°ƒç”¨è¯¥å‡½æ•°åˆ é™¤æ¥å£å¯¹è±¡
 	****************************************/
 	virtual void Release() = 0;
 
 	/***************************************
-	/* \brief ³õÊ¼»¯
-	/* \remark ³õÊ¼»¯ÔËĞĞ»·¾³,Ö»ÓĞµ÷ÓÃºó,½Ó¿Ú²Å¿ªÊ¼¹¤×÷
+	/* \brief åˆå§‹åŒ–
+	/* \remark åˆå§‹åŒ–è¿è¡Œç¯å¢ƒ,åªæœ‰è°ƒç”¨å,æ¥å£æ‰å¼€å§‹å·¥ä½œ
 	****************************************/
 	virtual void Init() = 0;
 
 	/***************************************
-	/* \brief »ñÈ¡ÏµÍ³°æ±¾ºÅ
-	/* \param nMajorVersion Ö÷°æ±¾ºÅ
-	/* \param nMinorVersion ×Ó°æ±¾ºÅ
-	/* \return ÏµÍ³±êÊ¶×Ö·û´®
+	/* \brief è·å–ç³»ç»Ÿç‰ˆæœ¬å·
+	/* \param nMajorVersion ä¸»ç‰ˆæœ¬å·
+	/* \param nMinorVersion å­ç‰ˆæœ¬å·
+	/* \return ç³»ç»Ÿæ ‡è¯†å­—ç¬¦ä¸²
 	****************************************/
 	virtual const char *GetVersion(int &nMajorVersion, int &nMinorVersion) = 0;
 
 	/***************************************
-	/* \brief ×¢²áÇ°ÖÃ»úÍøÂçµØÖ·
-	/* \param pszFrontAddress£ºÇ°ÖÃ»úÍøÂçµØÖ·¡£
-	/* \remark ÍøÂçµØÖ·µÄ¸ñÊ½Îª£º¡°protocol://ipaddress:port¡±£¬Èç£º¡±tcp://127.0.0.1:17001¡±¡£ 
-	/* \remark ¡°tcp¡±´ú±í´«ÊäĞ­Òé£¬¡°127.0.0.1¡±´ú±í·şÎñÆ÷µØÖ·¡£¡±17001¡±´ú±í·şÎñÆ÷¶Ë¿ÚºÅ¡£
+	/* \brief æ³¨å†Œå‰ç½®æœºç½‘ç»œåœ°å€
+	/* \param pszFrontAddressï¼šå‰ç½®æœºç½‘ç»œåœ°å€ã€‚
+	/* \remark ç½‘ç»œåœ°å€çš„æ ¼å¼ä¸ºï¼šâ€œprotocol://ipaddress:portâ€ï¼Œå¦‚ï¼šâ€tcp://127.0.0.1:17001â€ã€‚ 
+	/* \remark â€œtcpâ€ä»£è¡¨ä¼ è¾“åè®®ï¼Œâ€œ127.0.0.1â€ä»£è¡¨æœåŠ¡å™¨åœ°å€ã€‚â€17001â€ä»£è¡¨æœåŠ¡å™¨ç«¯å£å·ã€‚
 	****************************************/
 	virtual void RegisterFront(char *pszFrontAddress) = 0;
 
 	/***************************************
-	/* \brief ×¢²áÃû×Ö·şÎñÆ÷ÍøÂçµØÖ·(ÔİÎ´Ê¹ÓÃ)
-	/* \param pszNsAddress£ºÃû×Ö·şÎñÆ÷ÍøÂçµØÖ·¡£
-	/* \remark ÍøÂçµØÖ·µÄ¸ñÊ½Îª£º¡°protocol://ipaddress:port¡±£¬Èç£º¡±tcp://127.0.0.1:12001¡±¡£ 
-	/* \remark ¡°tcp¡±´ú±í´«ÊäĞ­Òé£¬¡°127.0.0.1¡±´ú±í·şÎñÆ÷µØÖ·¡£¡±12001¡±´ú±í·şÎñÆ÷¶Ë¿ÚºÅ¡£
-	/* \remark RegisterNameServerÓÅÏÈÓÚRegisterFront
+	/* \brief æ³¨å†Œåå­—æœåŠ¡å™¨ç½‘ç»œåœ°å€(æš‚æœªä½¿ç”¨)
+	/* \param pszNsAddressï¼šåå­—æœåŠ¡å™¨ç½‘ç»œåœ°å€ã€‚
+	/* \remark ç½‘ç»œåœ°å€çš„æ ¼å¼ä¸ºï¼šâ€œprotocol://ipaddress:portâ€ï¼Œå¦‚ï¼šâ€tcp://127.0.0.1:12001â€ã€‚ 
+	/* \remark â€œtcpâ€ä»£è¡¨ä¼ è¾“åè®®ï¼Œâ€œ127.0.0.1â€ä»£è¡¨æœåŠ¡å™¨åœ°å€ã€‚â€12001â€ä»£è¡¨æœåŠ¡å™¨ç«¯å£å·ã€‚
+	/* \remark RegisterNameServerä¼˜å…ˆäºRegisterFront
 	****************************************/
 	virtual void RegisterNameServer(char *pszNsAddress) = 0;
 	
 	/***************************************
-	/*×¢²á»Øµ÷½Ó¿Ú
-	/* \param pSpi ÅÉÉú×Ô»Øµ÷½Ó¿ÚÀàµÄÊµÀı
+	/*æ³¨å†Œå›è°ƒæ¥å£
+	/* \param pSpi æ´¾ç”Ÿè‡ªå›è°ƒæ¥å£ç±»çš„å®ä¾‹
 	****************************************/
 	virtual void RegisterSpi(CNhMdSpi *pSpi) = 0;
 
 	/***************************************
-	/* \brief ÉèÖÃĞÄÌø³¬Ê±Ê±¼ä¡£
-	/* \param timeout ĞÄÌø³¬Ê±Ê±¼ä(Ãë)  
+	/* \brief è®¾ç½®å¿ƒè·³è¶…æ—¶æ—¶é—´ã€‚
+	/* \param timeout å¿ƒè·³è¶…æ—¶æ—¶é—´(ç§’)  
 	****************************************/
 	virtual void SetHeartbeatTimeout(unsigned int timeout) = 0;
 	
 	/***************************************
 	/* \fn    UtpLoginRequest
-	/* \brief ·¢ËÍµÇÂ¼ÄÏ»ªÍ³Ò»½»Ò×Æ½Ì¨UTPÇëÇó
-	/* \param TSequenceIDType nRequestID ÇëÇóĞòºÅ
-	/* \return 0:³É¹¦£¬ÆäËûÊ§°Ü,·µ»Ø³É¹¦Ö»±íÃ÷ÇëÇó·¢ËÍ³É¹¦
-	/*			 ´¦Àí½á¹ûÔÚ¶ÔÓ¦»Øµ÷º¯ÊıÖĞ¼ì²é
+	/* \brief å‘é€ç™»å½•å—åç»Ÿä¸€äº¤æ˜“å¹³å°UTPè¯·æ±‚
+	/* \param TSequenceIDType nRequestID è¯·æ±‚åºå·
+	/* \return 0:æˆåŠŸï¼Œå…¶ä»–å¤±è´¥,è¿”å›æˆåŠŸåªè¡¨æ˜è¯·æ±‚å‘é€æˆåŠŸ
+	/*			 å¤„ç†ç»“æœåœ¨å¯¹åº”å›è°ƒå‡½æ•°ä¸­æ£€æŸ¥
 	****************************************/
 	virtual int ReqUtpLogin(ReqUtpLoginField_t& req, TSequenceIDType nRequestID) = 0;
 
 	/***************************************
 	* \fn    UtpLogoutRequest
-	* \brief ·¢ËÍµÇ³öÄÏ»ªÍ³Ò»½»Ò×Æ½Ì¨UTPÇëÇó
-	* \param TSequenceIDType nRequestID ÇëÇóĞòºÅ
-	* \return 0:³É¹¦£¬ÆäËûÊ§°Ü,·µ»Ø³É¹¦Ö»±íÃ÷ÇëÇó·¢ËÍ³É¹¦
-	*			 ´¦Àí½á¹ûÔÚ¶ÔÓ¦»Øµ÷º¯ÊıÖĞ¼ì²é
+	* \brief å‘é€ç™»å‡ºå—åç»Ÿä¸€äº¤æ˜“å¹³å°UTPè¯·æ±‚
+	* \param TSequenceIDType nRequestID è¯·æ±‚åºå·
+	* \return 0:æˆåŠŸï¼Œå…¶ä»–å¤±è´¥,è¿”å›æˆåŠŸåªè¡¨æ˜è¯·æ±‚å‘é€æˆåŠŸ
+	*			 å¤„ç†ç»“æœåœ¨å¯¹åº”å›è°ƒå‡½æ•°ä¸­æ£€æŸ¥
 	****************************************/
 	virtual int ReqUtpLogout(TSequenceIDType nRequestID) = 0;
 
 	/***************************************
 	* \fn    SubscribeRequest
-	* \brief ·¢ËÍ¶©ÔÄĞĞÇéÊı¾İÇëÇó,µ±ĞĞÇéÊı¾İ¶©ÔÄ³É¹¦ÒÔºó£¬Èç¹ûÍøÂç¶Ï¿ªÔò£¬ĞèÒªÖØĞÂ¶©ÔÄ
-	* \µ±ÓÃ»§³É¹¦logoutÒÔºó£¬ÏµÍ³»á×Ô¶¯È¡Ïû¶©ÔÄËùÓĞµÄĞĞÇéĞÅÏ¢¡£
+	* \brief å‘é€è®¢é˜…è¡Œæƒ…æ•°æ®è¯·æ±‚,å½“è¡Œæƒ…æ•°æ®è®¢é˜…æˆåŠŸä»¥åï¼Œå¦‚æœç½‘ç»œæ–­å¼€åˆ™ï¼Œéœ€è¦é‡æ–°è®¢é˜…
+	* \å½“ç”¨æˆ·æˆåŠŸlogoutä»¥åï¼Œç³»ç»Ÿä¼šè‡ªåŠ¨å–æ¶ˆè®¢é˜…æ‰€æœ‰çš„è¡Œæƒ…ä¿¡æ¯ã€‚
 	* \param ReqSubscribeField_t & req
-	* \param TSequenceIDType nRequestID ÇëÇóĞòºÅ
-	* \return 0:³É¹¦£¬ÆäËûÊ§°Ü,·µ»Ø³É¹¦Ö»±íÃ÷ÇëÇó·¢ËÍ³É¹¦
-	*			 ´¦Àí½á¹ûÔÚ¶ÔÓ¦»Øµ÷º¯ÊıÖĞ¼ì²é
+	* \param TSequenceIDType nRequestID è¯·æ±‚åºå·
+	* \return 0:æˆåŠŸï¼Œå…¶ä»–å¤±è´¥,è¿”å›æˆåŠŸåªè¡¨æ˜è¯·æ±‚å‘é€æˆåŠŸ
+	*			 å¤„ç†ç»“æœåœ¨å¯¹åº”å›è°ƒå‡½æ•°ä¸­æ£€æŸ¥
 	****************************************/
 	virtual int ReqSubscribe(ReqSubscribeField_t& req,TSequenceIDType nRequestID) = 0;
 
 	/***************************************
 	* \fn    UnSubscribeRequest
-	* \brief ·¢ËÍÈ¡Ïû¶©ÔÄĞĞÇéÊı¾İÇëÇó
+	* \brief å‘é€å–æ¶ˆè®¢é˜…è¡Œæƒ…æ•°æ®è¯·æ±‚
 	* \param ReqUnSubscribeField_t & req
-	* \param TSequenceIDType nRequestID ÇëÇóĞòºÅ
-	* \return 0:³É¹¦£¬ÆäËûÊ§°Ü,·µ»Ø³É¹¦Ö»±íÃ÷ÇëÇó·¢ËÍ³É¹¦
-	*			 ´¦Àí½á¹ûÔÚ¶ÔÓ¦»Øµ÷º¯ÊıÖĞ¼ì²é
+	* \param TSequenceIDType nRequestID è¯·æ±‚åºå·
+	* \return 0:æˆåŠŸï¼Œå…¶ä»–å¤±è´¥,è¿”å›æˆåŠŸåªè¡¨æ˜è¯·æ±‚å‘é€æˆåŠŸ
+	*			 å¤„ç†ç»“æœåœ¨å¯¹åº”å›è°ƒå‡½æ•°ä¸­æ£€æŸ¥
 	****************************************/
 	virtual int ReqUnSubscribe(ReqUnSubscribeField_t& req,TSequenceIDType nRequestID) = 0;
 
 	/***************************************
-	* \fn    AuthUserPassworRequest(¸Ã·½·¨ÔİÊ±Î´ÓÃ)
-	* \brief ·¢ËÍÓÃ»§ÑéÖ¤Êı¾İÇëÇó
+	* \fn    AuthUserPassworRequest(è¯¥æ–¹æ³•æš‚æ—¶æœªç”¨)
+	* \brief å‘é€ç”¨æˆ·éªŒè¯æ•°æ®è¯·æ±‚
 	* \param ReqAuthUserPassworField_t & req
-	* \param TSequenceIDType nRequestID ÇëÇóĞòºÅ
-	* \return 0:³É¹¦£¬ÆäËûÊ§°Ü,·µ»Ø³É¹¦Ö»±íÃ÷ÇëÇó·¢ËÍ³É¹¦
-	*			 ´¦Àí½á¹ûÔÚ¶ÔÓ¦»Øµ÷º¯ÊıÖĞ¼ì²é
+	* \param TSequenceIDType nRequestID è¯·æ±‚åºå·
+	* \return 0:æˆåŠŸï¼Œå…¶ä»–å¤±è´¥,è¿”å›æˆåŠŸåªè¡¨æ˜è¯·æ±‚å‘é€æˆåŠŸ
+	*			 å¤„ç†ç»“æœåœ¨å¯¹åº”å›è°ƒå‡½æ•°ä¸­æ£€æŸ¥
 	****************************************/
 	virtual int ReqAuthUserPasswor(ReqAuthUserPassworField_t& req,TSequenceIDType nRequestID) = 0;
 		
 	/***************************************
 	* \fn    ReqQryExchange
-	* \brief ·¢ËÍ²éÑ¯½»Ò×ËùÇëÇó
+	* \brief å‘é€æŸ¥è¯¢äº¤æ˜“æ‰€è¯·æ±‚
 	* \param ReqQryExchangeField_t & req
-	* \param TSequenceIDType nRequestID ÇëÇóĞòºÅ
-	* \return 0:³É¹¦£¬ÆäËûÊ§°Ü,·µ»Ø³É¹¦Ö»±íÃ÷ÇëÇó·¢ËÍ³É¹¦
-	*			 ´¦Àí½á¹ûÔÚ¶ÔÓ¦»Øµ÷º¯ÊıÖĞ¼ì²é
+	* \param TSequenceIDType nRequestID è¯·æ±‚åºå·
+	* \return 0:æˆåŠŸï¼Œå…¶ä»–å¤±è´¥,è¿”å›æˆåŠŸåªè¡¨æ˜è¯·æ±‚å‘é€æˆåŠŸ
+	*			 å¤„ç†ç»“æœåœ¨å¯¹åº”å›è°ƒå‡½æ•°ä¸­æ£€æŸ¥
 	****************************************/
 	virtual int ReqQryExchange(const ReqQryExchangeField_t& req,TSequenceIDType nRequestID) = 0;
 	
 	/***************************************
 	* \fn    ReqQryInstrument
-	* \brief ·¢ËÍ²éÑ¯ºÏÔ¼ÇëÇó
+	* \brief å‘é€æŸ¥è¯¢åˆçº¦è¯·æ±‚
 	* \param ReqQryInstrumentField_t & req
-	* \param TSequenceIDType nRequestID ÇëÇóĞòºÅ
-	* \return 0:³É¹¦£¬ÆäËûÊ§°Ü,·µ»Ø³É¹¦Ö»±íÃ÷ÇëÇó·¢ËÍ³É¹¦
-	*			 ´¦Àí½á¹ûÔÚ¶ÔÓ¦»Øµ÷º¯ÊıÖĞ¼ì²é
+	* \param TSequenceIDType nRequestID è¯·æ±‚åºå·
+	* \return 0:æˆåŠŸï¼Œå…¶ä»–å¤±è´¥,è¿”å›æˆåŠŸåªè¡¨æ˜è¯·æ±‚å‘é€æˆåŠŸ
+	*			 å¤„ç†ç»“æœåœ¨å¯¹åº”å›è°ƒå‡½æ•°ä¸­æ£€æŸ¥
 	****************************************/
 	virtual int ReqQryInstrument(const ReqQryInstrumentField_t& req,TSequenceIDType nRequestID) = 0;
 protected:

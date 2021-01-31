@@ -1,4 +1,4 @@
-.def("reqAuthenticate", &TdApi::reqAuthenticate)
+﻿.def("reqAuthenticate", &TdApi::reqAuthenticate)
 .def("reqUserLogin", &TdApi::reqUserLogin)
 .def("reqUserLogout", &TdApi::reqUserLogout)
 .def("reqUserPasswordUpdate", &TdApi::reqUserPasswordUpdate)

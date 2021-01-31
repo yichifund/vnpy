@@ -7,21 +7,20 @@
 #include <condition_variable>
 #include <locale>
 
-#include "pybind11.h"
+#include "pybind11/pybind11.h"
 
 
 using namespace std;
 using namespace pybind11;
 
 
-//����ṹ��
 struct Task
 {
-    int task_name;		//�ص��������ƶ�Ӧ�ĳ���
-    void *task_data;	//����ָ��
-    void *task_error;	//����ָ��
-    int task_id;		//����id
-    bool task_last;		//�Ƿ�Ϊ��󷵻�
+    int task_name;
+    void* task_data;
+    void* task_error;
+    int task_id;
+    bool task_last;
 };
 
 class TerminatedError : std::exception
@@ -30,58 +29,56 @@ class TerminatedError : std::exception
 class TaskQueue
 {
 private:
-    queue<Task> queue_;						//��׼�����
-    mutex mutex_;							//������
-    condition_variable cond_;				//��������
+    queue<Task> queue_;
+    mutex mutex_;
+    condition_variable cond_;
 
     bool _terminate = false;
 
 public:
 
-    //�����µ�����
-    void push(const Task &task)
+
+    void push(const Task& task)
     {
         unique_lock<mutex > mlock(mutex_);
-        queue_.push(task);					//������д�������
-        mlock.unlock();						//�ͷ���
-        cond_.notify_one();					//֪ͨ���������ȴ����߳�
+        queue_.push(task);
+        mlock.unlock();
+        cond_.notify_one();
     }
 
-    //ȡ���ϵ�����
+
     Task pop()
     {
         unique_lock<mutex> mlock(mutex_);
         cond_.wait(mlock, [&]() {
             return !queue_.empty() || _terminate;
-        });				//�ȴ���������֪ͨ
+            });
         if (_terminate)
             throw TerminatedError();
-        Task task = queue_.front();			//��ȡ�����е����һ������
-        queue_.pop();						//ɾ��������
-        return task;						//���ظ�����
+        Task task = queue_.front();
+        queue_.pop();
+        return task;
     }
 
     void terminate()
     {
         _terminate = true;
-        cond_.notify_all();					//֪ͨ���������ȴ����߳�
+        cond_.notify_all();	
     }
 };
 
 
-//���ֵ��л�ȡĳ����ֵ��Ӧ������������ֵ������ṹ������ֵ��
-void getInt(const dict &d, const char *key, int *value)
+void getInt(const dict& d, const char* key, int* value)
 {
-    if (d.contains(key))		//����ֵ����Ƿ���ڸü�ֵ
+    if (d.contains(key))
     {
-        object o = d[key];		//��ȡ�ü�ֵ
+        object o = d[key];
         *value = o.cast<int>();
     }
 };
 
 
-//���ֵ��л�ȡĳ����ֵ��Ӧ�ĸ�����������ֵ������ṹ������ֵ��
-void getDouble(const dict &d, const char *key, double *value)
+void getDouble(const dict& d, const char* key, double* value)
 {
     if (d.contains(key))
     {
@@ -91,8 +88,8 @@ void getDouble(const dict &d, const char *key, double *value)
 };
 
 
-//���ֵ��л�ȡĳ����ֵ��Ӧ���ַ�������ֵ������ṹ������ֵ��
-void getChar(const dict &d, const char *key, char *value)
+
+void getChar(const dict& d, const char* key, char* value)
 {
     if (d.contains(key))
     {
@@ -105,21 +102,21 @@ void getChar(const dict &d, const char *key, char *value)
 template <size_t size>
 using string_literal = char[size];
 
-//���ֵ��л�ȡĳ����ֵ��Ӧ���ַ���������ֵ������ṹ������ֵ��
+
 template <size_t size>
-void getString(const pybind11::dict &d, const char *key, string_literal<size> &value)
+void getString(const pybind11::dict& d, const char* key, string_literal<size>& value)
 {
     if (d.contains(key))
     {
         object o = d[key];
         string s = o.cast<string>();
-        const char *buf = s.c_str();
-        strcpy(value, buf);
+        const char* buf = s.c_str();
+        strcpy_s(value, buf);
     }
 };
 
-//��GBK������ַ���ת��ΪUTF8
-inline string toUtf(const string &gb2312)
+
+inline string toUtf(const string& gb2312)
 {
 #ifdef _MSC_VER
     const static locale loc("zh-CN");

@@ -1,4 +1,4 @@
-void processFrontConnected(Task *task);
+﻿void processFrontConnected(Task *task);
 
 void processFrontDisconnected(Task *task);
 

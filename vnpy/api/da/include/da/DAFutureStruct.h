@@ -1,4 +1,4 @@
-/////////////////////////////////////////////////////////////////////////
+ï»¿/////////////////////////////////////////////////////////////////////////
 /// DriectAccess Trade Engine
 /// Copyright (C) Shanghai DirectAccess Technology Co., Ltd.
 /// Last Modify 2019/3/18
@@ -6,791 +6,792 @@
 /// Author (c) Wang Jian Quan (Franklin)
 /////////////////////////////////////////////////////////////////////////
 
+
 #pragma once
 
 #include "DADataType.h"
 
-// ´íÎóÃèÊö
+// é”™è¯¯æè¿°
 struct CFutureRspInfoField 
 {
-	TDAIntType			ErrorID;							// ´íÎóÂë
-	TDAStringType		ErrorMsg;							// ´íÎóÃèÊö
+    TDAIntType			ErrorID;							// é”™è¯¯ç 
+    TDAStringType		ErrorMsg;							// é”™è¯¯æè¿°
 };
-// ÓÃ»§µÇÂ¼ÇëÇó
+// ç”¨æˆ·ç™»å½•è¯·æ±‚
 struct CFutureReqUserLoginField
 {
-	TDAStringType		UserId;								// ÓÃ»§±êÊ¶
-	TDAStringType		UserPwd;							// ÓÃ»§ÃÜÂë
-	TDAStringType		UserType;							// ÓÃ»§ÀàĞÍ
-	TDAStringType		MacAddress;							// MACµØÖ·
-	TDAStringType		ComputerName;						// ¼ÆËã»úÃû
-	TDAStringType		SoftwareName;						// Èí¼şÃû³Æ
-	TDAStringType		SoftwareVersion;					// Èí¼ş°æ±¾ºÅ
-	TDAStringType		AuthorCode;							// ÊÚÈ¨Âë
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		UserId;								// ç”¨æˆ·æ ‡è¯†
+    TDAStringType		UserPwd;							// ç”¨æˆ·å¯†ç 
+    TDAStringType		UserType;							// ç”¨æˆ·ç±»å‹
+    TDAStringType		MacAddress;							// MACåœ°å€
+    TDAStringType		ComputerName;						// è®¡ç®—æœºå
+    TDAStringType		SoftwareName;						// è½¯ä»¶åç§°
+    TDAStringType		SoftwareVersion;					// è½¯ä»¶ç‰ˆæœ¬å·
+    TDAStringType		AuthorCode;							// æˆæƒç 
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ÓÃ»§µÇÂ¼·µ»Ø
+// ç”¨æˆ·ç™»å½•è¿”å›
 struct CFutureRspAccountField
 {
-	TDAStringType		UserId;								// ÓÃ»§±êÊ¶
-	TDAStringType		UserName;							// ÓÃ»§Ãû    
-	TDAStringType		UserType;							// ÓÃ»§ÀàĞÍ             
-	TDAStringType		LoginPwd;							// µÇÂ¼ÃÜÂë             
-	TDAStringType		AccountNo;							// ×Ê½ğÕËºÅ              
-	TDAStringType		TradePwd;							// ½»Ò×ÃÜÂë             
-	TDAStringType		IsSimulation;						// ÊÇ·ñÄ£ÄâÓÃ»§              
-	TDAStringType		FrontendIp;							// Ç°ÖÃ»úIPµØÖ·              
-	TDAStringType		FrontendPort;						// Ç°ÖÃ»ú¶Ë¿ÚºÅ            
-	TDAStringType		CurrencyNo;							// ÕÊ»§±ÒÖÖ           
-	TDAStringType		UserState;							// ÓÃ»§×´Ì¬ CÏû»§ UÔÚÓÃ D¶³½á         
-	TDAStringType		SelAll;								// ÊÇ·ñ¿ÉÒÔÂô¿ÕÆÚÈ¨             
-	TDAStringType		Strategy;							// ÊÇ·ñ¿ÉÒÔÏÂ×Ô¶¨Òå²ßÂÔµ¥              
-	TDAStringType		Inner;								// ÊÇ·ñ¿ÉÒÔÏÂ¹úÄÚµ¥             
-	TDAStringType		YingSun;							// ÊÇ·ñ¿ÉÒÔÊ¹ÓÃÖ¹ËğÖ¹Ó¯ºÍÌõ¼şµ¥¹¦ÄÜ          
-	TDAStringType		ChaoDan;							// ÊÇ·ñ¿ÉÒÔÊ¹ÓÃ³´µ¥ÊÖ¹¦ÄÜ             
-	TDAStringType		Option;								// ÊÇ·ñ¿ÉÒÔ½»Ò×ÆÚÈ¨£º0             
-	TDAStringType		CmeMarket;							// ÊÇ·ñ¿ÉÒÔ»ñÈ¡CMEĞĞÇé£º0              
-	TDAStringType		CmeCOMEXMarket;						// ÊÇ·ñ¿ÉÒÔ»ñÈ¡CME_COMEXĞĞÇé               
-	TDAStringType		CmeNYMEXMarket;						// ÊÇ·ñ¿ÉÒÔ»ñÈ¡CME_NYMEXĞĞÇé               
-	TDAStringType		CmeCBTMarket;						// ÊÇ·ñ¿ÉÒÔ»ñÈ¡CME_CBTĞĞÇé               
-	TDAStringType		IceUSMarket;						// ÊÇ·ñ¿ÉÒÔ»ñÈ¡ICE USĞĞÇé              
-	TDAStringType		IceECMarket;						// ÊÇ·ñ¿ÉÒÔ»ñÈ¡ICE ECĞĞÇé             
-	TDAStringType		IceEFMarket;						// ÊÇ·ñ¿ÉÒÔ»ñÈ¡ICE EFĞĞÇé             
-	TDAStringType		CanTradeStockHK;					// ÊÇ·ñ¿ÉÒÔ½»Ò×¸Û¹É             
-	TDAStringType		CanTradeStockAM;					// ÊÇ·ñ¿ÉÒÔ½»Ò×ÃÀ¹É            
-	TDAStringType		MultiLogin;							// ÊÇ·ñ¿ÉÒÔ¶à´¦µÇÂ¼          
-	TDAStringType		SellStockHK;						// ÊÇ·ñ¿ÉÒÔÂô¿Õ¸Û¹É              
-	TDAStringType		SellStockAM;						// ÊÇ·ñ¿ÉÒÔÂô¿ÕÃÀ¹É                
-	TDAStringType		CanTradeStockKRX;					// ÊÇ·ñ¿ÉÒÔ½»Ò×º«¹É               
-	TDAStringType		HkexMarket;							// ÊÇ·ñ¿ÉÒÔ»ñÈ¡ÆÚ»õ¸Û½»ËùHKEXĞĞÇé£º0£º²»¿ÉÒÔ£»1£º¿ÉÒÔ£¨²»Ê¹ÓÃÓÅ»İĞĞÇé£©£»2£º¾³ÄÚÊ¹ÓÃÓÅ»İĞĞÇé£»3£º¾³ÍâÊ¹ÓÃÓÅ»İĞĞÇé mantis1080 mantis393           
-	TDAStringType		IdNumber;							// ÓÃ»§Éí·İÖ¤£¨¹ÉÆ±´«Éí·İÖ¤ÀàĞÍ£¬Ö»ÓĞÀàĞÍÎª1Ê±²ÅÄÜÑ¡88µÄÓÅ»İĞĞÇé£»ÆÚ»õ´«Éí·İÖ¤ºÅÂë£¬15Î»»ò18Î»ÊÇ¹úÄÚ¿Í»§£©    
-	TDAStringType		HkexMarketFee;						// ¸Û½»ËùĞĞÇéÊÕ·Ñ½ğ¶î£¨Îª0Ê±±íÊ¾ÔÚ»íÃâÆÚ£¬´óÓÚ0±íÊ¾¿ªÊ¼ÊÕ·Ñ£©       
-	TDAStringType		IsProfessional;						// CMEĞĞÇéÈ¨ÏŞÊÇ·ñÊÇ×¨Òµ°æ£¨1£ºÊÇ£»0£º·ñ£©  
-	TDAStringType		IsOverSea;							// ÊÇ·ñ¾³ÍâµÇÂ¼       
-	TDAStringType		IsFirstLogin;						// ÊÇ·ñĞÂÉè±¸³õ´ÎµÇÂ¼ 
-	TDAStringType		UserMobile;							// ÓÃ»§ÊÖ»úºÅ 
-	TDAStringType		HasSetQA;							// ÊÇ·ñÒÑ¾­ÉèÖÃÁËÃÜ±£ÎÊÌâ´ğ°¸ 
-	TDAStringType		CanTradeStockSGXQ;					// ÊÇ·ñ¿ÉÒÔ½»Ò×ĞÂ¼ÓÆÂ¹É      
-	TDAStringType		ExistMac;							// ÊÇ·ñÒÑ¾­°ó¶¨¹ıÉè±¸macµØÖ·£º1£ºÊÇ£»0 or other£º²»ÊÇ   
-	TDAStringType		RatioINE;							// ÉÏº£ÄÜÔ´¿ÉÈ¡×Ê½ğÏµÊı          
-	TDAStringType		EurexMarket;						// ÊÇ·ñ¿ÉÒÔ»ñÈ¡EurexĞĞÇé£º0£º²»¿ÉÒÔ£»1£º¿ÉÒÔ£¨ÑÇÌ«ÇøÓÅ»İ£©£»2£º¿ÉÒÔ£¨·Ç×¨Òµ£©£»3£º¿ÉÒÔ£¨×¨ÒµÍ¶×ÊÕß£©£»4£º²»¿ÉÒÔ£¬ĞèÌáÊ¾£¨ÑÇÌ«ÇøÒÔÍâÊ¹ÓÃÑÇÌ«ÇøÓÅ»İĞĞÇé£©   
-	TDAStringType		HkexIsOverMaxTerminal;				// ÊÇ·ñ³¬¹ı×î´óÖÕ¶ËÊı:0:Î´³¬¹ı,·Ç0³¬¹ı      
-	TDAStringType		HkexOverMoney;						// ¸Û½»Ëù³¬¹ıÖÕ¶ËÊıÊÕ·Ñ      
-	TDAStringType		CanTradeStockAU;					// ÊÇ·ñ¿É½»Ò×°Ä¹É      
-	TDAStringType		NyFlag;								// ÄÜÔ´±êÊ¾
+    TDAStringType		UserId;								// ç”¨æˆ·æ ‡è¯†
+    TDAStringType		UserName;							// ç”¨æˆ·å    
+    TDAStringType		UserType;							// ç”¨æˆ·ç±»å‹             
+    TDAStringType		LoginPwd;							// ç™»å½•å¯†ç              
+    TDAStringType		AccountNo;							// èµ„é‡‘è´¦å·              
+    TDAStringType		TradePwd;							// äº¤æ˜“å¯†ç              
+    TDAStringType		IsSimulation;						// æ˜¯å¦æ¨¡æ‹Ÿç”¨æˆ·              
+    TDAStringType		FrontendIp;							// å‰ç½®æœºIPåœ°å€              
+    TDAStringType		FrontendPort;						// å‰ç½®æœºç«¯å£å·            
+    TDAStringType		CurrencyNo;							// å¸æˆ·å¸ç§           
+    TDAStringType		UserState;							// ç”¨æˆ·çŠ¶æ€ Cæ¶ˆæˆ· Uåœ¨ç”¨ Då†»ç»“         
+    TDAStringType		SelAll;								// æ˜¯å¦å¯ä»¥å–ç©ºæœŸæƒ             
+    TDAStringType		Strategy;							// æ˜¯å¦å¯ä»¥ä¸‹è‡ªå®šä¹‰ç­–ç•¥å•              
+    TDAStringType		Inner;								// æ˜¯å¦å¯ä»¥ä¸‹å›½å†…å•             
+    TDAStringType		YingSun;							// æ˜¯å¦å¯ä»¥ä½¿ç”¨æ­¢æŸæ­¢ç›ˆå’Œæ¡ä»¶å•åŠŸèƒ½          
+    TDAStringType		ChaoDan;							// æ˜¯å¦å¯ä»¥ä½¿ç”¨ç‚’å•æ‰‹åŠŸèƒ½             
+    TDAStringType		Option;								// æ˜¯å¦å¯ä»¥äº¤æ˜“æœŸæƒï¼š0             
+    TDAStringType		CmeMarket;							// æ˜¯å¦å¯ä»¥è·å–CMEè¡Œæƒ…ï¼š0              
+    TDAStringType		CmeCOMEXMarket;						// æ˜¯å¦å¯ä»¥è·å–CME_COMEXè¡Œæƒ…               
+    TDAStringType		CmeNYMEXMarket;						// æ˜¯å¦å¯ä»¥è·å–CME_NYMEXè¡Œæƒ…               
+    TDAStringType		CmeCBTMarket;						// æ˜¯å¦å¯ä»¥è·å–CME_CBTè¡Œæƒ…               
+    TDAStringType		IceUSMarket;						// æ˜¯å¦å¯ä»¥è·å–ICE USè¡Œæƒ…              
+    TDAStringType		IceECMarket;						// æ˜¯å¦å¯ä»¥è·å–ICE ECè¡Œæƒ…             
+    TDAStringType		IceEFMarket;						// æ˜¯å¦å¯ä»¥è·å–ICE EFè¡Œæƒ…             
+    TDAStringType		CanTradeStockHK;					// æ˜¯å¦å¯ä»¥äº¤æ˜“æ¸¯è‚¡             
+    TDAStringType		CanTradeStockAM;					// æ˜¯å¦å¯ä»¥äº¤æ˜“ç¾è‚¡            
+    TDAStringType		MultiLogin;							// æ˜¯å¦å¯ä»¥å¤šå¤„ç™»å½•          
+    TDAStringType		SellStockHK;						// æ˜¯å¦å¯ä»¥å–ç©ºæ¸¯è‚¡              
+    TDAStringType		SellStockAM;						// æ˜¯å¦å¯ä»¥å–ç©ºç¾è‚¡                
+    TDAStringType		CanTradeStockKRX;					// æ˜¯å¦å¯ä»¥äº¤æ˜“éŸ©è‚¡               
+    TDAStringType		HkexMarket;							// æ˜¯å¦å¯ä»¥è·å–æœŸè´§æ¸¯äº¤æ‰€HKEXè¡Œæƒ…ï¼š0ï¼šä¸å¯ä»¥ï¼›1ï¼šå¯ä»¥ï¼ˆä¸ä½¿ç”¨ä¼˜æƒ è¡Œæƒ…ï¼‰ï¼›2ï¼šå¢ƒå†…ä½¿ç”¨ä¼˜æƒ è¡Œæƒ…ï¼›3ï¼šå¢ƒå¤–ä½¿ç”¨ä¼˜æƒ è¡Œæƒ… mantis1080 mantis393           
+    TDAStringType		IdNumber;							// ç”¨æˆ·èº«ä»½è¯ï¼ˆè‚¡ç¥¨ä¼ èº«ä»½è¯ç±»å‹ï¼Œåªæœ‰ç±»å‹ä¸º1æ—¶æ‰èƒ½é€‰88çš„ä¼˜æƒ è¡Œæƒ…ï¼›æœŸè´§ä¼ èº«ä»½è¯å·ç ï¼Œ15ä½æˆ–18ä½æ˜¯å›½å†…å®¢æˆ·ï¼‰    
+    TDAStringType		HkexMarketFee;						// æ¸¯äº¤æ‰€è¡Œæƒ…æ”¶è´¹é‡‘é¢ï¼ˆä¸º0æ—¶è¡¨ç¤ºåœ¨è±å…æœŸï¼Œå¤§äº0è¡¨ç¤ºå¼€å§‹æ”¶è´¹ï¼‰       
+    TDAStringType		IsProfessional;						// CMEè¡Œæƒ…æƒé™æ˜¯å¦æ˜¯ä¸“ä¸šç‰ˆï¼ˆ1ï¼šæ˜¯ï¼›0ï¼šå¦ï¼‰  
+    TDAStringType		IsOverSea;							// æ˜¯å¦å¢ƒå¤–ç™»å½•       
+    TDAStringType		IsFirstLogin;						// æ˜¯å¦æ–°è®¾å¤‡åˆæ¬¡ç™»å½• 
+    TDAStringType		UserMobile;							// ç”¨æˆ·æ‰‹æœºå· 
+    TDAStringType		HasSetQA;							// æ˜¯å¦å·²ç»è®¾ç½®äº†å¯†ä¿é—®é¢˜ç­”æ¡ˆ 
+    TDAStringType		CanTradeStockSGXQ;					// æ˜¯å¦å¯ä»¥äº¤æ˜“æ–°åŠ å¡è‚¡      
+    TDAStringType		ExistMac;							// æ˜¯å¦å·²ç»ç»‘å®šè¿‡è®¾å¤‡macåœ°å€ï¼š1ï¼šæ˜¯ï¼›0 or otherï¼šä¸æ˜¯   
+    TDAStringType		RatioINE;							// ä¸Šæµ·èƒ½æºå¯å–èµ„é‡‘ç³»æ•°          
+    TDAStringType		EurexMarket;						// æ˜¯å¦å¯ä»¥è·å–Eurexè¡Œæƒ…ï¼š0ï¼šä¸å¯ä»¥ï¼›1ï¼šå¯ä»¥ï¼ˆäºšå¤ªåŒºä¼˜æƒ ï¼‰ï¼›2ï¼šå¯ä»¥ï¼ˆéä¸“ä¸šï¼‰ï¼›3ï¼šå¯ä»¥ï¼ˆä¸“ä¸šæŠ•èµ„è€…ï¼‰ï¼›4ï¼šä¸å¯ä»¥ï¼Œéœ€æç¤ºï¼ˆäºšå¤ªåŒºä»¥å¤–ä½¿ç”¨äºšå¤ªåŒºä¼˜æƒ è¡Œæƒ…ï¼‰   
+    TDAStringType		HkexIsOverMaxTerminal;				// æ˜¯å¦è¶…è¿‡æœ€å¤§ç»ˆç«¯æ•°:0:æœªè¶…è¿‡,é0è¶…è¿‡      
+    TDAStringType		HkexOverMoney;						// æ¸¯äº¤æ‰€è¶…è¿‡ç»ˆç«¯æ•°æ”¶è´¹      
+    TDAStringType		CanTradeStockAU;					// æ˜¯å¦å¯äº¤æ˜“æ¾³è‚¡      
+    TDAStringType		NyFlag;								// èƒ½æºæ ‡ç¤º
 };
-// ÓÃ»§µÇ³öÇëÇó
+// ç”¨æˆ·ç™»å‡ºè¯·æ±‚
 struct CFutureReqUserLogoutField
 {
-	TDAStringType		UserId;								// ÓÃ»§±êÊ¶
-	TDAStringType		AccountNo;							// ×Ê½ğÕËºÅ
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		UserId;								// ç”¨æˆ·æ ‡è¯†
+    TDAStringType		AccountNo;							// èµ„é‡‘è´¦å·
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ĞÂÔö¶©µ¥ÇëÇó
+// æ–°å¢è®¢å•è¯·æ±‚
 struct CFutureReqOrderInsertField
 {
-	TDAStringType		UserId;								// ÓÃ»§±êÊ¶
-	TDAStringType		UserType;							// ÓÃ»§ÀàĞÍ£º1£ºÒ»°ãÓÃ»§£»2£º»ú¹¹Í¨ÓÃ»§£»
-	TDAStringType		AccountNo;							// ×Ê½ğÕËºÅ
-	TDAStringType		LocalNo;							// ±¾µØ±àºÅ
-	TDAStringType		TradePwd;							// ½»Ò×ÃÜÂë
-	TDAStringType		IsRiskOrder;						// ÓÃ»§ÏÂµ¥ÀàĞÍ£ºC»òÊÇ¿Õ¿Í»§ÏÂµ¥£»D£ºÊÇdelÏÂµ¥ R£ºÇ¿Æ½ÏÂµ¥£¨·ç¿Ø£©£»Y£ºÓ¯Ëğµ¥£»T£ºÌõ¼şµ¥
-	TDAStringType		ExchangeCode;						// ½»Ò×Ëù´úÂë
-	TDAStringType		TreatyCode;							// ºÏÔ¼´úÂë
-	TDAStringType		BuySale;							// Âò»¹ÊÇÂô£º1=buy 2=sell
-	TDAStringType		AddReduce;							// ¿ª²Ö»¹ÊÇÆ½²Ö£º1=¿ª²Ö 2=Æ½²Ö£¬3=Æ½½ñ
-	TDAStringType		OrderNumber;						// ÏÂµ¥Êı
-	TDAStringType		OrderPrice;							// ÏÂµ¥¼Û¸ñ
-	TDAStringType		TradeType;							// ½»Ò×·½Ê½£º1=regular 2=FOK 3=IOC
-	TDAStringType		PriceType;							// ¶¨µ¥ÀàĞÍ£º1=ÏŞ¼Ûµ¥, 2=ÊĞ¼Ûµ¥£¬3=ÏŞ¼ÛÖ¹Ëğ£¨stop to limit£©£¬4=Ö¹Ëğ£¨stop to market£©
-	TDAStringType		HtsType;							// ¿çÆÚºÏÔ¼ÏÂµ¥£º "STARTEGY";×Ô¶¨Òå²ßÂÔÏÂµ¥£º"SELFDEFINE"
-	TDAStringType		ForceID;							// Ç¿Æ½±àºÅ
-	TDAStringType		TriggerPrice;						// ´¥·¢¼Û¸ñ
-	TDAStringType		ValidDate;							// ÓĞĞ§ÈÕÆÚ£¨1=µ±ÈÕÓĞĞ§, 2=ÓÀ¾ÃÓĞĞ§£¨GTC£©£¬3=OPG£¬4=IOC£¬5=FOK£¬6=GTD£¬7=ATC£¬8=FAK£©
-	TDAStringType		StrategyId;							// ²ßÂÔID 20130726 add
-	TDAStringType		MaxShow;							// ÏÔÊ¾Î¯ÍĞÁ¿ 20150803 add ±ØĞëĞ¡ÓÚÎ¯ÍĞÁ¿
-	TDAStringType		MinQty;								// ×îĞ¡³É½»Á¿ 20150901 add ±ØĞëĞ¡ÓÚµÈÓÚÎ¯ÍĞÁ¿ ÓĞĞ§ÈÕÆÚ=4IOCÊ± MaxShow>=1Ğ¡ÓÚÎ¯ÍĞÁ¿Ê±ÊÇFOK£¬µÈÓÚÎ¯ÍĞÁ¿Ê±ÊÇFAK
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		UserId;								// ç”¨æˆ·æ ‡è¯†
+    TDAStringType		UserType;							// ç”¨æˆ·ç±»å‹ï¼š1ï¼šä¸€èˆ¬ç”¨æˆ·ï¼›2ï¼šæœºæ„é€šç”¨æˆ·ï¼›
+    TDAStringType		AccountNo;							// èµ„é‡‘è´¦å·
+    TDAStringType		LocalNo;							// æœ¬åœ°ç¼–å·
+    TDAStringType		TradePwd;							// äº¤æ˜“å¯†ç 
+    TDAStringType		IsRiskOrder;						// ç”¨æˆ·ä¸‹å•ç±»å‹ï¼šCæˆ–æ˜¯ç©ºå®¢æˆ·ä¸‹å•ï¼›Dï¼šæ˜¯delä¸‹å• Rï¼šå¼ºå¹³ä¸‹å•ï¼ˆé£æ§ï¼‰ï¼›Yï¼šç›ˆæŸå•ï¼›Tï¼šæ¡ä»¶å•
+    TDAStringType		ExchangeCode;						// äº¤æ˜“æ‰€ä»£ç 
+    TDAStringType		TreatyCode;							// åˆçº¦ä»£ç 
+    TDAStringType		BuySale;							// ä¹°è¿˜æ˜¯å–ï¼š1=buy 2=sell
+    TDAStringType		AddReduce;							// å¼€ä»“è¿˜æ˜¯å¹³ä»“ï¼š1=å¼€ä»“ 2=å¹³ä»“ï¼Œ3=å¹³ä»Š
+    TDAStringType		OrderNumber;						// ä¸‹å•æ•°
+    TDAStringType		OrderPrice;							// ä¸‹å•ä»·æ ¼
+    TDAStringType		TradeType;							// äº¤æ˜“æ–¹å¼ï¼š1=regular 2=FOK 3=IOC
+    TDAStringType		PriceType;							// å®šå•ç±»å‹ï¼š1=é™ä»·å•, 2=å¸‚ä»·å•ï¼Œ3=é™ä»·æ­¢æŸï¼ˆstop to limitï¼‰ï¼Œ4=æ­¢æŸï¼ˆstop to marketï¼‰
+    TDAStringType		HtsType;							// è·¨æœŸåˆçº¦ä¸‹å•ï¼š "STARTEGY";è‡ªå®šä¹‰ç­–ç•¥ä¸‹å•ï¼š"SELFDEFINE"
+    TDAStringType		ForceID;							// å¼ºå¹³ç¼–å·
+    TDAStringType		TriggerPrice;						// è§¦å‘ä»·æ ¼
+    TDAStringType		ValidDate;							// æœ‰æ•ˆæ—¥æœŸï¼ˆ1=å½“æ—¥æœ‰æ•ˆ, 2=æ°¸ä¹…æœ‰æ•ˆï¼ˆGTCï¼‰ï¼Œ3=OPGï¼Œ4=IOCï¼Œ5=FOKï¼Œ6=GTDï¼Œ7=ATCï¼Œ8=FAKï¼‰
+    TDAStringType		StrategyId;							// ç­–ç•¥ID 20130726 add
+    TDAStringType		MaxShow;							// æ˜¾ç¤ºå§”æ‰˜é‡ 20150803 add å¿…é¡»å°äºå§”æ‰˜é‡
+    TDAStringType		MinQty;								// æœ€å°æˆäº¤é‡ 20150901 add å¿…é¡»å°äºç­‰äºå§”æ‰˜é‡ æœ‰æ•ˆæ—¥æœŸ=4IOCæ—¶ MaxShow>=1å°äºå§”æ‰˜é‡æ—¶æ˜¯FOKï¼Œç­‰äºå§”æ‰˜é‡æ—¶æ˜¯FAK
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ĞÂÔö¶©µ¥·µ»Ø
+// æ–°å¢è®¢å•è¿”å›
 struct CFutureRspOrderInsertField
 {
-	TDAStringType		UserId;								// ÓÃ»§±êÊ¶
-	TDAStringType		AccountNo;							// ×Ê½ğÕËºÅ
-	TDAStringType		SystemNo;							// ÏµÍ³±àºÅ
-	TDAStringType		LocalNo;							// ±¾µØ±àºÅ
-	TDAStringType		OrderNo;							// ¶¨µ¥ºÅ
-	TDAStringType		OrigOrderNo;						// Ô­¶¨µ¥ºÅ
-	TDAStringType		OrderMethod;						// ÏÂµ¥·½Ê½£º1£º¶¨µ¥£»2£º¸Äµ¥£»3£º³·µ¥
-	TDAStringType		AcceptType;							// £¨·ÏÆú£©
-	TDAStringType		ExchangeCode;						// ½»Ò×Ëù´úÂë
-	TDAStringType		TreatyCode;							// ºÏÔ¼´úÂë
-	TDAStringType		BuySale;							// Âò»¹ÊÇÂô£º1=buy 2=sell
-	TDAStringType		OrderNumber;						// ÏÂµ¥Êı
-	TDAStringType		OrderPrice;							// ÏÂµ¥¼Û¸ñ
-	TDAStringType		FilledNumber;						// ÒÑ³É½»Êı
-	TDAStringType		FilledPrice;						// ³É½»¾ù¼Û
-	TDAStringType		TradeType;							// ½»Ò×·½Ê½£º1=regular 2=FOK 3=IOC
-	TDAStringType		PriceType;							// ¶¨µ¥ÀàĞÍ£º1=ÏŞ¼Ûµ¥, 2=ÊĞ¼Ûµ¥£¬3=ÏŞ¼ÛÖ¹Ëğ£¨stop to limit£©£¬4=Ö¹Ëğ£¨stop to market£©
-	TDAStringType		HtsType;							// 0=regular 1=HTS
-	TDAStringType		OrderDate;							// ÏÂµ¥ÈÕÆÚ
-	TDAStringType		OrderTime;							// ÏÂµ¥Ê±¼ä
-	TDAStringType		ErrorCode;							// ´íÎó´úÂë
-	TDAStringType		OrderState;							// ¶©µ¥×´Ì¬£¨1£ºÒÑÇëÇó£»2£ºÒÑÅÅ¶Ó£»3£º²¿·Ö³É½»£»4£ºÍêÈ«³É½»£»5£ºÒÑ³·Óàµ¥£»6£ºÒÑ³·µ¥£»7£ºÖ¸ÁîÊ§°Ü£»8£º´ıËÍ³ö£»9£º´ı¸ü¸Ä£»A£º´ı³·µ¥£©
-	TDAStringType		IsRiskOrder;						// ÓÃ»§ÏÂµ¥ÀàĞÍ£ºC»òÊÇ¿Õ¿Í»§ÏÂµ¥£»D£ºÊÇdelÏÂµ¥ R£ºÇ¿Æ½ÏÂµ¥£¨·ç¿Ø£©£»Y£ºÓ¯Ëğµ¥£»T£ºÌõ¼şµ¥
-	TDAStringType		CancelUserId;						// ³·µ¥µÄÓÃ»§±êÊ¶
-	TDAStringType		TriggerPrice;						// ´¥·¢¼Û¸ñ
-	TDAStringType		ValidDate;							// ÓĞĞ§ÈÕÆÚ£¨1=µ±ÈÕÓĞĞ§, 2=ÓÀ¾ÃÓĞĞ§£¨GTC£©£¬3=OPG£¬4=IOC£¬5=FOK£¬6=GTD£¬7=ATC£¬8=FAK£©
-	TDAStringType		AddReduce;							// ¿ª²Ö»¹ÊÇÆ½²Ö£º1=¿ª²Ö 2=Æ½²Ö£¬3=Æ½½ñ£¬4=Æ½×ò
-	TDAStringType		StrategyId;							// ²ßÂÔID 20130726 add
-	TDAStringType		MaxShow;							// ÏÔÊ¾Î¯ÍĞÁ¿ 20150803 add ±ØĞëĞ¡ÓÚÎ¯ÍĞÁ¿
-	TDAStringType		MinQty;								// ×îĞ¡³É½»Á¿ 
-	TDAStringType		ExchangeTime;						// ½»Ò×Ëù·µ»ØÊ±¼ä
-	TDAStringType		CancelTime;							// ³·µ¥Ê±¼ä
+    TDAStringType		UserId;								// ç”¨æˆ·æ ‡è¯†
+    TDAStringType		AccountNo;							// èµ„é‡‘è´¦å·
+    TDAStringType		SystemNo;							// ç³»ç»Ÿç¼–å·
+    TDAStringType		LocalNo;							// æœ¬åœ°ç¼–å·
+    TDAStringType		OrderNo;							// å®šå•å·
+    TDAStringType		OrigOrderNo;						// åŸå®šå•å·
+    TDAStringType		OrderMethod;						// ä¸‹å•æ–¹å¼ï¼š1ï¼šå®šå•ï¼›2ï¼šæ”¹å•ï¼›3ï¼šæ’¤å•
+    TDAStringType		AcceptType;							// ï¼ˆåºŸå¼ƒï¼‰
+    TDAStringType		ExchangeCode;						// äº¤æ˜“æ‰€ä»£ç 
+    TDAStringType		TreatyCode;							// åˆçº¦ä»£ç 
+    TDAStringType		BuySale;							// ä¹°è¿˜æ˜¯å–ï¼š1=buy 2=sell
+    TDAStringType		OrderNumber;						// ä¸‹å•æ•°
+    TDAStringType		OrderPrice;							// ä¸‹å•ä»·æ ¼
+    TDAStringType		FilledNumber;						// å·²æˆäº¤æ•°
+    TDAStringType		FilledPrice;						// æˆäº¤å‡ä»·
+    TDAStringType		TradeType;							// äº¤æ˜“æ–¹å¼ï¼š1=regular 2=FOK 3=IOC
+    TDAStringType		PriceType;							// å®šå•ç±»å‹ï¼š1=é™ä»·å•, 2=å¸‚ä»·å•ï¼Œ3=é™ä»·æ­¢æŸï¼ˆstop to limitï¼‰ï¼Œ4=æ­¢æŸï¼ˆstop to marketï¼‰
+    TDAStringType		HtsType;							// 0=regular 1=HTS
+    TDAStringType		OrderDate;							// ä¸‹å•æ—¥æœŸ
+    TDAStringType		OrderTime;							// ä¸‹å•æ—¶é—´
+    TDAStringType		ErrorCode;							// é”™è¯¯ä»£ç 
+    TDAStringType		OrderState;							// è®¢å•çŠ¶æ€ï¼ˆ1ï¼šå·²è¯·æ±‚ï¼›2ï¼šå·²æ’é˜Ÿï¼›3ï¼šéƒ¨åˆ†æˆäº¤ï¼›4ï¼šå®Œå…¨æˆäº¤ï¼›5ï¼šå·²æ’¤ä½™å•ï¼›6ï¼šå·²æ’¤å•ï¼›7ï¼šæŒ‡ä»¤å¤±è´¥ï¼›8ï¼šå¾…é€å‡ºï¼›9ï¼šå¾…æ›´æ”¹ï¼›Aï¼šå¾…æ’¤å•ï¼‰
+    TDAStringType		IsRiskOrder;						// ç”¨æˆ·ä¸‹å•ç±»å‹ï¼šCæˆ–æ˜¯ç©ºå®¢æˆ·ä¸‹å•ï¼›Dï¼šæ˜¯delä¸‹å• Rï¼šå¼ºå¹³ä¸‹å•ï¼ˆé£æ§ï¼‰ï¼›Yï¼šç›ˆæŸå•ï¼›Tï¼šæ¡ä»¶å•
+    TDAStringType		CancelUserId;						// æ’¤å•çš„ç”¨æˆ·æ ‡è¯†
+    TDAStringType		TriggerPrice;						// è§¦å‘ä»·æ ¼
+    TDAStringType		ValidDate;							// æœ‰æ•ˆæ—¥æœŸï¼ˆ1=å½“æ—¥æœ‰æ•ˆ, 2=æ°¸ä¹…æœ‰æ•ˆï¼ˆGTCï¼‰ï¼Œ3=OPGï¼Œ4=IOCï¼Œ5=FOKï¼Œ6=GTDï¼Œ7=ATCï¼Œ8=FAKï¼‰
+    TDAStringType		AddReduce;							// å¼€ä»“è¿˜æ˜¯å¹³ä»“ï¼š1=å¼€ä»“ 2=å¹³ä»“ï¼Œ3=å¹³ä»Šï¼Œ4=å¹³æ˜¨
+    TDAStringType		StrategyId;							// ç­–ç•¥ID 20130726 add
+    TDAStringType		MaxShow;							// æ˜¾ç¤ºå§”æ‰˜é‡ 20150803 add å¿…é¡»å°äºå§”æ‰˜é‡
+    TDAStringType		MinQty;								// æœ€å°æˆäº¤é‡ 
+    TDAStringType		ExchangeTime;						// äº¤æ˜“æ‰€è¿”å›æ—¶é—´
+    TDAStringType		CancelTime;							// æ’¤å•æ—¶é—´
 };
-// ĞŞ¸Ä¶©µ¥ÇëÇó
+// ä¿®æ”¹è®¢å•è¯·æ±‚
 struct CFutureReqOrderModifyField
 {
-	TDAStringType		SystemNo;							// ÏµÍ³±àºÅ
-	TDAStringType		UserId;								// ÓÃ»§±êÊ¶
-	TDAStringType		UserType;							// ÓÃ»§ÀàĞÍ£º1£ºÒ»°ãÓÃ»§£»2£º»ú¹¹Í¨ÓÃ»§£»
-	TDAStringType		LocalNo;							// ±¾µØ±àºÅ
-	TDAStringType		AccountNo;							// ×Ê½ğÕËºÅ
-	TDAStringType		TradePwd;							// ½»Ò×ÃÜÂë
-	TDAStringType		OrderNo;							// ¶¨µ¥ºÅ
-	TDAStringType		ExchangeCode;						// ½»Ò×Ëù´úÂë
-	TDAStringType		TreatyCode;							// ºÏÔ¼´úÂë
-	TDAStringType		BuySale;							// Âò»¹ÊÇÂô£º1=buy 2=sell
-	TDAStringType		OrderNumber;						// ÏÂµ¥Êı
-	TDAStringType		OrderPrice;							// ÏÂµ¥¼Û¸ñ
-	TDAStringType		FilledNumber;						// ÒÑ³É½»Êı 
-	TDAStringType		ModifyNumber;						// ¸Äµ¥Êı 
-	TDAStringType		ModifyPrice;						// ¸Äµ¥¼Û¸ñ
-	TDAStringType		TradeType;							// ½»Ò×·½Ê½£º1=regular 2=FOK 3=IOC
-	TDAStringType		PriceType;							// ¼Û¸ñÀàĞÍ£º1=ÏŞ¼Ûµ¥, 2=ÊĞ¼Ûµ¥£¬3=ÏŞ¼ÛÖ¹Ëğ£¨stop to limit£©£¬4=Ö¹Ëğ£¨stop to market£©
-	TDAStringType		IsRiskOrder;						// ÓÃ»§ÏÂµ¥ÀàĞÍ£ºC»òÊÇ¿Õ¿Í»§ÏÂµ¥£»D£ºÊÇdelÏÂµ¥ R£ºÇ¿Æ½ÏÂµ¥£¨·ç¿Ø£©
-	TDAStringType		TriggerPrice;						// ´¥·¢¼Û¸ñ
-	TDAStringType		ModifyTriggerPrice;					// ¸Äµ¥´¥·¢¼Û¸ñ
-	TDAStringType		ValidDate;							// ÓĞĞ§ÈÕÆÚ£¨1£ºµ±ÈÕÓĞĞ§£»2£ºÓÀ¾ÃÓĞĞ§£©
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		SystemNo;							// ç³»ç»Ÿç¼–å·
+    TDAStringType		UserId;								// ç”¨æˆ·æ ‡è¯†
+    TDAStringType		UserType;							// ç”¨æˆ·ç±»å‹ï¼š1ï¼šä¸€èˆ¬ç”¨æˆ·ï¼›2ï¼šæœºæ„é€šç”¨æˆ·ï¼›
+    TDAStringType		LocalNo;							// æœ¬åœ°ç¼–å·
+    TDAStringType		AccountNo;							// èµ„é‡‘è´¦å·
+    TDAStringType		TradePwd;							// äº¤æ˜“å¯†ç 
+    TDAStringType		OrderNo;							// å®šå•å·
+    TDAStringType		ExchangeCode;						// äº¤æ˜“æ‰€ä»£ç 
+    TDAStringType		TreatyCode;							// åˆçº¦ä»£ç 
+    TDAStringType		BuySale;							// ä¹°è¿˜æ˜¯å–ï¼š1=buy 2=sell
+    TDAStringType		OrderNumber;						// ä¸‹å•æ•°
+    TDAStringType		OrderPrice;							// ä¸‹å•ä»·æ ¼
+    TDAStringType		FilledNumber;						// å·²æˆäº¤æ•° 
+    TDAStringType		ModifyNumber;						// æ”¹å•æ•° 
+    TDAStringType		ModifyPrice;						// æ”¹å•ä»·æ ¼
+    TDAStringType		TradeType;							// äº¤æ˜“æ–¹å¼ï¼š1=regular 2=FOK 3=IOC
+    TDAStringType		PriceType;							// ä»·æ ¼ç±»å‹ï¼š1=é™ä»·å•, 2=å¸‚ä»·å•ï¼Œ3=é™ä»·æ­¢æŸï¼ˆstop to limitï¼‰ï¼Œ4=æ­¢æŸï¼ˆstop to marketï¼‰
+    TDAStringType		IsRiskOrder;						// ç”¨æˆ·ä¸‹å•ç±»å‹ï¼šCæˆ–æ˜¯ç©ºå®¢æˆ·ä¸‹å•ï¼›Dï¼šæ˜¯delä¸‹å• Rï¼šå¼ºå¹³ä¸‹å•ï¼ˆé£æ§ï¼‰
+    TDAStringType		TriggerPrice;						// è§¦å‘ä»·æ ¼
+    TDAStringType		ModifyTriggerPrice;					// æ”¹å•è§¦å‘ä»·æ ¼
+    TDAStringType		ValidDate;							// æœ‰æ•ˆæ—¥æœŸï¼ˆ1ï¼šå½“æ—¥æœ‰æ•ˆï¼›2ï¼šæ°¸ä¹…æœ‰æ•ˆï¼‰
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ĞŞ¸Ä¶©µ¥·µ»Ø
+// ä¿®æ”¹è®¢å•è¿”å›
 typedef CFutureRspOrderInsertField CFutureRspOrderModifyField;
-// ³·µ¥ÇëÇó
+// æ’¤å•è¯·æ±‚
 struct CFutureReqOrderCancelField
 {
-	TDAStringType		UserId;								// ÓÃ»§±êÊ¶
-	TDAStringType		UserType;							// ÓÃ»§ÀàĞÍ£º1£ºÒ»°ãÓÃ»§£»2£º»ú¹¹Í¨ÓÃ»§£»
-	TDAStringType		LocalNo;							// ±¾µØ±àºÅ
-	TDAStringType		AccountNo;							// ×Ê½ğÕËºÅ
-	TDAStringType		TradePwd;							// ½»Ò×ÃÜÂë
-	TDAStringType		IsSimulation;						// ÊÇ·ñÄ£ÄâÓÃ»§£º1£ºÊÇ£»0 or other£º²»ÊÇ
-	TDAStringType		SystemNo;							// ÏµÍ³±àºÅ
-	TDAStringType		OrderNo;							// ¶¨µ¥ºÅ
-	TDAStringType		ExchangeCode;						// ½»Ò×Ëù´úÂë
-	TDAStringType		TreatyCode;							// ºÏÔ¼´úÂë
-	TDAStringType		BuySale;							// Âò»¹ÊÇÂô£º1=buy 2=sell
-	TDAStringType		OrderNumber;						// ÏÂµ¥Êı
-	TDAStringType		OrderPrice;							// ÏÂµ¥¼Û¸ñ
-	TDAStringType		FilledNumber;						// ÒÑ³É½»Êı 
-	TDAStringType		TradeType;							// ½»Ò×·½Ê½£º1=regular 2=FOK 3=IOC
-	TDAStringType		PriceType;							// ¼Û¸ñÀàĞÍ£º1=limit order, 2=market order
-	TDAStringType		HtsType;							// 0=regular 1=HTS
-	TDAStringType		IsRiskOrder;						// ÓÃ»§ÏÂµ¥ÀàĞÍ£ºC»òÊÇ¿Õ¿Í»§ÏÂµ¥£»D£ºÊÇdelÏÂµ¥ R£ºÇ¿Æ½ÏÂµ¥£¨·ç¿Ø£©
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		UserId;								// ç”¨æˆ·æ ‡è¯†
+    TDAStringType		UserType;							// ç”¨æˆ·ç±»å‹ï¼š1ï¼šä¸€èˆ¬ç”¨æˆ·ï¼›2ï¼šæœºæ„é€šç”¨æˆ·ï¼›
+    TDAStringType		LocalNo;							// æœ¬åœ°ç¼–å·
+    TDAStringType		AccountNo;							// èµ„é‡‘è´¦å·
+    TDAStringType		TradePwd;							// äº¤æ˜“å¯†ç 
+    TDAStringType		IsSimulation;						// æ˜¯å¦æ¨¡æ‹Ÿç”¨æˆ·ï¼š1ï¼šæ˜¯ï¼›0 or otherï¼šä¸æ˜¯
+    TDAStringType		SystemNo;							// ç³»ç»Ÿç¼–å·
+    TDAStringType		OrderNo;							// å®šå•å·
+    TDAStringType		ExchangeCode;						// äº¤æ˜“æ‰€ä»£ç 
+    TDAStringType		TreatyCode;							// åˆçº¦ä»£ç 
+    TDAStringType		BuySale;							// ä¹°è¿˜æ˜¯å–ï¼š1=buy 2=sell
+    TDAStringType		OrderNumber;						// ä¸‹å•æ•°
+    TDAStringType		OrderPrice;							// ä¸‹å•ä»·æ ¼
+    TDAStringType		FilledNumber;						// å·²æˆäº¤æ•° 
+    TDAStringType		TradeType;							// äº¤æ˜“æ–¹å¼ï¼š1=regular 2=FOK 3=IOC
+    TDAStringType		PriceType;							// ä»·æ ¼ç±»å‹ï¼š1=limit order, 2=market order
+    TDAStringType		HtsType;							// 0=regular 1=HTS
+    TDAStringType		IsRiskOrder;						// ç”¨æˆ·ä¸‹å•ç±»å‹ï¼šCæˆ–æ˜¯ç©ºå®¢æˆ·ä¸‹å•ï¼›Dï¼šæ˜¯delä¸‹å• Rï¼šå¼ºå¹³ä¸‹å•ï¼ˆé£æ§ï¼‰
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ³·µ¥·µ»Ø
+// æ’¤å•è¿”å›
 struct CFutureRspOrderCancelField
 {
-	TDAStringType		UserId;								// ÓÃ»§±êÊ¶
-	TDAStringType		AccountNo;							// ×Ê½ğÕËºÅ
-	TDAStringType		SystemNo;							// ÏµÍ³±àºÅ
-	TDAStringType		LocalNo;							// ±¾µØºÅ
-	TDAStringType		OrderNo;							// ¶¨µ¥ºÅ
-	TDAStringType		CancelNo;							// ³·µ¥ºÅ
-	TDAStringType		ExchangeCode;						// ½»Ò×Ëù´úÂë
-	TDAStringType		TreatyCode;							// ºÏÔ¼´úÂë
-	TDAStringType		BuySale;							// Âò»¹ÊÇÂô£º1=buy 2=sell
-	TDAStringType		OrderNumber;						// ÏÂµ¥Êı
-	TDAStringType		OrderPrice;							// ÏÂµ¥¼Û¸ñ
-	TDAStringType		FilledNumber;						// ÒÑ³É½»Êı
-	TDAStringType		CancelNumber;						// ÒÑ³·µ¥Êı
-	TDAStringType		TradeType;							// ½»Ò×·½Ê½£º1=regular 2=FOK 3=IOC
-	TDAStringType		PriceType;							// ¼Û¸ñÀàĞÍ£º1=limit order, 2=market order
-	TDAStringType		HtsType;							// 0=regular 1=HTS
-	TDAStringType		CancelDate;							// ³·µ¥ÈÕÆÚ
-	TDAStringType		CancelTime;							// ³·µ¥Ê±¼ä
-	TDAStringType		ErrorCode;							// ´íÎó´úÂë
-	TDAStringType		IsRiskOrder;						// ÓÃ»§ÏÂµ¥ÀàĞÍ£ºC»òÊÇ¿Õ¿Í»§ÏÂµ¥£»D£ºÊÇdelÏÂµ¥ R£ºÇ¿Æ½ÏÂµ¥£¨·ç¿Ø£©
+    TDAStringType		UserId;								// ç”¨æˆ·æ ‡è¯†
+    TDAStringType		AccountNo;							// èµ„é‡‘è´¦å·
+    TDAStringType		SystemNo;							// ç³»ç»Ÿç¼–å·
+    TDAStringType		LocalNo;							// æœ¬åœ°å·
+    TDAStringType		OrderNo;							// å®šå•å·
+    TDAStringType		CancelNo;							// æ’¤å•å·
+    TDAStringType		ExchangeCode;						// äº¤æ˜“æ‰€ä»£ç 
+    TDAStringType		TreatyCode;							// åˆçº¦ä»£ç 
+    TDAStringType		BuySale;							// ä¹°è¿˜æ˜¯å–ï¼š1=buy 2=sell
+    TDAStringType		OrderNumber;						// ä¸‹å•æ•°
+    TDAStringType		OrderPrice;							// ä¸‹å•ä»·æ ¼
+    TDAStringType		FilledNumber;						// å·²æˆäº¤æ•°
+    TDAStringType		CancelNumber;						// å·²æ’¤å•æ•°
+    TDAStringType		TradeType;							// äº¤æ˜“æ–¹å¼ï¼š1=regular 2=FOK 3=IOC
+    TDAStringType		PriceType;							// ä»·æ ¼ç±»å‹ï¼š1=limit order, 2=market order
+    TDAStringType		HtsType;							// 0=regular 1=HTS
+    TDAStringType		CancelDate;							// æ’¤å•æ—¥æœŸ
+    TDAStringType		CancelTime;							// æ’¤å•æ—¶é—´
+    TDAStringType		ErrorCode;							// é”™è¯¯ä»£ç 
+    TDAStringType		IsRiskOrder;						// ç”¨æˆ·ä¸‹å•ç±»å‹ï¼šCæˆ–æ˜¯ç©ºå®¢æˆ·ä¸‹å•ï¼›Dï¼šæ˜¯delä¸‹å• Rï¼šå¼ºå¹³ä¸‹å•ï¼ˆé£æ§ï¼‰
 };
-// ĞŞ¸ÄÃÜÂëÇëÇó
+// ä¿®æ”¹å¯†ç è¯·æ±‚
 struct CFutureReqPasswordUpdateField
 {
-	TDAStringType		UserId;								// ÓÃ»§´úÂë
-	TDAStringType		OldPassword;						// ÓÃ»§Ô­ÃÜÂë
-	TDAStringType		NewPassword;						// ÓÃ»§ĞÂÃÜÂë
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		UserId;								// ç”¨æˆ·ä»£ç 
+    TDAStringType		OldPassword;						// ç”¨æˆ·åŸå¯†ç 
+    TDAStringType		NewPassword;						// ç”¨æˆ·æ–°å¯†ç 
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ĞŞ¸ÄÃÜÂë·µ»Ø
+// ä¿®æ”¹å¯†ç è¿”å›
 struct CFutureRspPasswordUpdateField
 {
-	TDAStringType		UserId;								// ÓÃ»§´úÂë
-	TDAStringType		OldPassword;						// ÓÃ»§Ô­ÃÜÂë
-	TDAStringType		NewPassword;						// ÓÃ»§ĞÂÃÜÂë
+    TDAStringType		UserId;								// ç”¨æˆ·ä»£ç 
+    TDAStringType		OldPassword;						// ç”¨æˆ·åŸå¯†ç 
+    TDAStringType		NewPassword;						// ç”¨æˆ·æ–°å¯†ç 
 };
-// ²éÑ¯¶©µ¥ÇëÇó
+// æŸ¥è¯¢è®¢å•è¯·æ±‚
 struct CFutureQryOrderField
 {
-	TDAStringType		UserId;								// ÓÃ»§±êÊ¶
-	TDAStringType		UserType;							// ÓÃ»§ÀàĞÍ£º1£ºÒ»°ãÓÃ»§£»2£º»ú¹¹Í¨ÓÃ»§£»
-	TDAStringType		AccountNo;							// ×Ê½ğÕËºÅ
-	TDAStringType		TradePwd;							// ½»Ò×ÃÜÂë
-	TDAStringType		IsSimulation;						// ÊÇ·ñÄ£ÄâÓÃ»§£º1£ºÊÇ£»0 or other£º²»ÊÇ
-	TDAStringType		OrderNo;							// È¡µÃÖ¸¶¨¶©µ¥ºÅÒÔºóµÄ¶¨µ¥
-	TDAStringType		OrderDateTime;						// È¡µÃÖ¸¶¨¶©µ¥Ê±¼äÒÔºóµÄ¶¨µ¥£¨¸ñÊ½£ºyyyy-MM-dd hh:mm:ss£©
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		UserId;								// ç”¨æˆ·æ ‡è¯†
+    TDAStringType		UserType;							// ç”¨æˆ·ç±»å‹ï¼š1ï¼šä¸€èˆ¬ç”¨æˆ·ï¼›2ï¼šæœºæ„é€šç”¨æˆ·ï¼›
+    TDAStringType		AccountNo;							// èµ„é‡‘è´¦å·
+    TDAStringType		TradePwd;							// äº¤æ˜“å¯†ç 
+    TDAStringType		IsSimulation;						// æ˜¯å¦æ¨¡æ‹Ÿç”¨æˆ·ï¼š1ï¼šæ˜¯ï¼›0 or otherï¼šä¸æ˜¯
+    TDAStringType		OrderNo;							// å–å¾—æŒ‡å®šè®¢å•å·ä»¥åçš„å®šå•
+    TDAStringType		OrderDateTime;						// å–å¾—æŒ‡å®šè®¢å•æ—¶é—´ä»¥åçš„å®šå•ï¼ˆæ ¼å¼ï¼šyyyy-MM-dd hh:mm:ssï¼‰
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ²éÑ¯¶©µ¥·µ»Ø
+// æŸ¥è¯¢è®¢å•è¿”å›
 struct CFutureRspOrderField
 {
-	TDAStringType		UserId;								// ÓÃ»§±êÊ¶
-	TDAStringType		AccountNo;							// ×Ê½ğÕËºÅ
-	TDAStringType		SystemNo;							// ÏµÍ³±àºÅ
-	TDAStringType		LocalNo;							// ±¾µØ±àºÅ
-	TDAStringType		OrderNo;							// ¶¨µ¥ºÅ
-	TDAStringType		OrigOrderNo;						// Ô­¶¨µ¥ºÅ
-	TDAStringType		OrderMethod;						// ÏÂµ¥·½Ê½£º1£º¶¨µ¥£»2£º¸Äµ¥£»3£º³·µ¥
-	TDAStringType		AcceptType;							// £¨·ÏÆú£©
-	TDAStringType		ExchangeCode;						// ½»Ò×Ëù´úÂë
-	TDAStringType		TreatyCode;							// ºÏÔ¼´úÂë
-	TDAStringType		BuySale;							// Âò»¹ÊÇÂô£º1=buy 2=sell
-	TDAStringType		OrderNumber;						// ÏÂµ¥Êı
-	TDAStringType		OrderPrice;							// ÏÂµ¥¼Û¸ñ
-	TDAStringType		FilledNumber;						// ÒÑ³É½»Êı
-	TDAStringType		FilledPrice;						// ³É½»¾ù¼Û
-	TDAStringType		TradeType;							// ½»Ò×·½Ê½£º1=regular 2=FOK 3=IOC
-	TDAStringType		PriceType;							// ¶¨µ¥ÀàĞÍ£º1=ÏŞ¼Ûµ¥, 2=ÊĞ¼Ûµ¥£¬3=ÏŞ¼ÛÖ¹Ëğ£¨stop to limit£©£¬4=Ö¹Ëğ£¨stop to market£©
-	TDAStringType		HtsType;							// 0=regular 1=HTS
-	TDAStringType		OrderDate;							// ÏÂµ¥ÈÕÆÚ
-	TDAStringType		OrderTime;							// ÏÂµ¥Ê±¼ä
-	TDAStringType		ErrorCode;							// ´íÎó´úÂë
-	TDAStringType		OrderState;							// ¶©µ¥×´Ì¬£¨1£ºÒÑÇëÇó£»2£ºÒÑÅÅ¶Ó£»3£º²¿·Ö³É½»£»4£ºÍêÈ«³É½»£»5£ºÒÑ³·Óàµ¥£»6£ºÒÑ³·µ¥£»7£ºÖ¸ÁîÊ§°Ü£»8£º´ıËÍ³ö£»9£º´ı¸ü¸Ä£»A£º´ı³·µ¥£©
-	TDAStringType		IsRiskOrder;						// ÓÃ»§ÏÂµ¥ÀàĞÍ£ºC»òÊÇ¿Õ¿Í»§ÏÂµ¥£»D£ºÊÇdelÏÂµ¥ R£ºÇ¿Æ½ÏÂµ¥£¨·ç¿Ø£©£»Y£ºÓ¯Ëğµ¥£»T£ºÌõ¼şµ¥
-	TDAStringType		CancelUserId;						// ³·µ¥µÄÓÃ»§±êÊ¶
-	TDAStringType		TriggerPrice;						// ´¥·¢¼Û¸ñ
-	TDAStringType		ValidDate;							// ÓĞĞ§ÈÕÆÚ£¨1=µ±ÈÕÓĞĞ§, 2=ÓÀ¾ÃÓĞĞ§£¨GTC£©£¬3=OPG£¬4=IOC£¬5=FOK£¬6=GTD£¬7=ATC£¬8=FAK£©
-	TDAStringType		AddReduce;							// ¿ª²Ö»¹ÊÇÆ½²Ö£º1=¿ª²Ö 2=Æ½²Ö£¬3=Æ½½ñ£¬4=Æ½×ò
-	TDAStringType		StrategyId;							// ²ßÂÔID 20130726 add
-	TDAStringType		MaxShow;							// ÏÔÊ¾Î¯ÍĞÁ¿ 20150803 add ±ØĞëĞ¡ÓÚÎ¯ÍĞÁ¿
-	TDAStringType		MinQty;								// ×îĞ¡³É½»Á¿ 
-	TDAStringType		ExchangeTime;						// ½»Ò×Ëù·µ»ØÊ±¼ä
-	TDAStringType		CancelTime;							// ³·µ¥Ê±¼ä
+    TDAStringType		UserId;								// ç”¨æˆ·æ ‡è¯†
+    TDAStringType		AccountNo;							// èµ„é‡‘è´¦å·
+    TDAStringType		SystemNo;							// ç³»ç»Ÿç¼–å·
+    TDAStringType		LocalNo;							// æœ¬åœ°ç¼–å·
+    TDAStringType		OrderNo;							// å®šå•å·
+    TDAStringType		OrigOrderNo;						// åŸå®šå•å·
+    TDAStringType		OrderMethod;						// ä¸‹å•æ–¹å¼ï¼š1ï¼šå®šå•ï¼›2ï¼šæ”¹å•ï¼›3ï¼šæ’¤å•
+    TDAStringType		AcceptType;							// ï¼ˆåºŸå¼ƒï¼‰
+    TDAStringType		ExchangeCode;						// äº¤æ˜“æ‰€ä»£ç 
+    TDAStringType		TreatyCode;							// åˆçº¦ä»£ç 
+    TDAStringType		BuySale;							// ä¹°è¿˜æ˜¯å–ï¼š1=buy 2=sell
+    TDAStringType		OrderNumber;						// ä¸‹å•æ•°
+    TDAStringType		OrderPrice;							// ä¸‹å•ä»·æ ¼
+    TDAStringType		FilledNumber;						// å·²æˆäº¤æ•°
+    TDAStringType		FilledPrice;						// æˆäº¤å‡ä»·
+    TDAStringType		TradeType;							// äº¤æ˜“æ–¹å¼ï¼š1=regular 2=FOK 3=IOC
+    TDAStringType		PriceType;							// å®šå•ç±»å‹ï¼š1=é™ä»·å•, 2=å¸‚ä»·å•ï¼Œ3=é™ä»·æ­¢æŸï¼ˆstop to limitï¼‰ï¼Œ4=æ­¢æŸï¼ˆstop to marketï¼‰
+    TDAStringType		HtsType;							// 0=regular 1=HTS
+    TDAStringType		OrderDate;							// ä¸‹å•æ—¥æœŸ
+    TDAStringType		OrderTime;							// ä¸‹å•æ—¶é—´
+    TDAStringType		ErrorCode;							// é”™è¯¯ä»£ç 
+    TDAStringType		OrderState;							// è®¢å•çŠ¶æ€ï¼ˆ1ï¼šå·²è¯·æ±‚ï¼›2ï¼šå·²æ’é˜Ÿï¼›3ï¼šéƒ¨åˆ†æˆäº¤ï¼›4ï¼šå®Œå…¨æˆäº¤ï¼›5ï¼šå·²æ’¤ä½™å•ï¼›6ï¼šå·²æ’¤å•ï¼›7ï¼šæŒ‡ä»¤å¤±è´¥ï¼›8ï¼šå¾…é€å‡ºï¼›9ï¼šå¾…æ›´æ”¹ï¼›Aï¼šå¾…æ’¤å•ï¼‰
+    TDAStringType		IsRiskOrder;						// ç”¨æˆ·ä¸‹å•ç±»å‹ï¼šCæˆ–æ˜¯ç©ºå®¢æˆ·ä¸‹å•ï¼›Dï¼šæ˜¯delä¸‹å• Rï¼šå¼ºå¹³ä¸‹å•ï¼ˆé£æ§ï¼‰ï¼›Yï¼šç›ˆæŸå•ï¼›Tï¼šæ¡ä»¶å•
+    TDAStringType		CancelUserId;						// æ’¤å•çš„ç”¨æˆ·æ ‡è¯†
+    TDAStringType		TriggerPrice;						// è§¦å‘ä»·æ ¼
+    TDAStringType		ValidDate;							// æœ‰æ•ˆæ—¥æœŸï¼ˆ1=å½“æ—¥æœ‰æ•ˆ, 2=æ°¸ä¹…æœ‰æ•ˆï¼ˆGTCï¼‰ï¼Œ3=OPGï¼Œ4=IOCï¼Œ5=FOKï¼Œ6=GTDï¼Œ7=ATCï¼Œ8=FAKï¼‰
+    TDAStringType		AddReduce;							// å¼€ä»“è¿˜æ˜¯å¹³ä»“ï¼š1=å¼€ä»“ 2=å¹³ä»“ï¼Œ3=å¹³ä»Šï¼Œ4=å¹³æ˜¨
+    TDAStringType		StrategyId;							// ç­–ç•¥ID 20130726 add
+    TDAStringType		MaxShow;							// æ˜¾ç¤ºå§”æ‰˜é‡ 20150803 add å¿…é¡»å°äºå§”æ‰˜é‡
+    TDAStringType		MinQty;								// æœ€å°æˆäº¤é‡ 
+    TDAStringType		ExchangeTime;						// äº¤æ˜“æ‰€è¿”å›æ—¶é—´
+    TDAStringType		CancelTime;							// æ’¤å•æ—¶é—´
 };
-// ²éÑ¯³É½»ÇëÇó
+// æŸ¥è¯¢æˆäº¤è¯·æ±‚
 struct CFutureQryTradeField
 {
-	TDAStringType		UserId;								// ÓÃ»§		
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		UserId;								// ç”¨æˆ·		
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ²éÑ¯³É½»·µ»Ø
+// æŸ¥è¯¢æˆäº¤è¿”å›
 struct CFutureRspTradeField
 {
-	TDAStringType		UserId;								// ÓÃ»§±êÊ¶
-	TDAStringType		AccountNo;							// ×Ê½ğÕËºÅ
-	TDAStringType		FilledNo;							// ³É½»±àºÅ£¨Òª°üÀ¨7Î»µÄ¶©µ¥±àºÅ£¬Ò»¹²11Î»£©
-	TDAStringType		OrderNo;							// ¶¨µ¥ºÅ
-	TDAStringType		SystemNo;							// ÏµÍ³±àºÅ
-	TDAStringType		LocalNo;							// ±¾µØ±àºÅ
-	TDAStringType		ExchangeCode;						// ½»Ò×Ëù´úÂë
-	TDAStringType		TreatyCode;							// ºÏÔ¼´úÂë
-	TDAStringType		BuySale;							// Âò»¹ÊÇÂô£º1=buy 2=sell
-	TDAStringType		FilledNumber;						// ³É½»Êı
-	TDAStringType		FilledPrice;						// ³É½»¼Û¸ñ
-	TDAStringType		FilledDate;							// ³É½»ÈÕÆÚ(yyyy-MM-dd)
-	TDAStringType		FilledTime;							// ³É½»Ê±¼ä(hh:mm:ss)
-	TDAStringType		Commsion;							// ³É½»ÊÖĞø·Ñ
-	TDAStringType		OrderNumber;						// Î¯ÍĞÊıÁ¿
-	TDAStringType		OrderPrice;							// Î¯ÍĞ¼Û¸ñ
-	TDAStringType		DeliveryDate;						// ºÏÔ¼½»¸îÈÕÆÚ(yyyyMMdd)
-	TDAStringType		FilledType;							// ³É½»Àà±ğ(N£ºÆÕÍ¨ÏÂµ¥³É½»£»C¡¢T£ºµ÷ÆÚÄ£Äâ³É½»)
-	TDAStringType		OrderType;							// ¶¨µ¥ÀàĞÍ£¨1=ÏŞ¼Ûµ¥, 2=ÊĞ¼Ûµ¥£¬3=ÏŞ¼ÛÖ¹Ëğ£¨stop to limit£©£¬4=Ö¹Ëğ£¨stop to market£©
-	TDAStringType		ValidDate;							// ÓĞĞ§ÈÕÆÚ£¨1=µ±ÈÕÓĞĞ§, 2=ÓÀ¾ÃÓĞĞ§£©
-	TDAStringType		AddReduce;							// ¿ª²Ö»¹ÊÇÆ½²Ö£º1=¿ª²Ö 2=Æ½²Ö£¬3=Æ½½ñ£¬4=Æ½×ò
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		UserId;								// ç”¨æˆ·æ ‡è¯†
+    TDAStringType		AccountNo;							// èµ„é‡‘è´¦å·
+    TDAStringType		FilledNo;							// æˆäº¤ç¼–å·ï¼ˆè¦åŒ…æ‹¬7ä½çš„è®¢å•ç¼–å·ï¼Œä¸€å…±11ä½ï¼‰
+    TDAStringType		OrderNo;							// å®šå•å·
+    TDAStringType		SystemNo;							// ç³»ç»Ÿç¼–å·
+    TDAStringType		LocalNo;							// æœ¬åœ°ç¼–å·
+    TDAStringType		ExchangeCode;						// äº¤æ˜“æ‰€ä»£ç 
+    TDAStringType		TreatyCode;							// åˆçº¦ä»£ç 
+    TDAStringType		BuySale;							// ä¹°è¿˜æ˜¯å–ï¼š1=buy 2=sell
+    TDAStringType		FilledNumber;						// æˆäº¤æ•°
+    TDAStringType		FilledPrice;						// æˆäº¤ä»·æ ¼
+    TDAStringType		FilledDate;							// æˆäº¤æ—¥æœŸ(yyyy-MM-dd)
+    TDAStringType		FilledTime;							// æˆäº¤æ—¶é—´(hh:mm:ss)
+    TDAStringType		Commsion;							// æˆäº¤æ‰‹ç»­è´¹
+    TDAStringType		OrderNumber;						// å§”æ‰˜æ•°é‡
+    TDAStringType		OrderPrice;							// å§”æ‰˜ä»·æ ¼
+    TDAStringType		DeliveryDate;						// åˆçº¦äº¤å‰²æ—¥æœŸ(yyyyMMdd)
+    TDAStringType		FilledType;							// æˆäº¤ç±»åˆ«(Nï¼šæ™®é€šä¸‹å•æˆäº¤ï¼›Cã€Tï¼šè°ƒæœŸæ¨¡æ‹Ÿæˆäº¤)
+    TDAStringType		OrderType;							// å®šå•ç±»å‹ï¼ˆ1=é™ä»·å•, 2=å¸‚ä»·å•ï¼Œ3=é™ä»·æ­¢æŸï¼ˆstop to limitï¼‰ï¼Œ4=æ­¢æŸï¼ˆstop to marketï¼‰
+    TDAStringType		ValidDate;							// æœ‰æ•ˆæ—¥æœŸï¼ˆ1=å½“æ—¥æœ‰æ•ˆ, 2=æ°¸ä¹…æœ‰æ•ˆï¼‰
+    TDAStringType		AddReduce;							// å¼€ä»“è¿˜æ˜¯å¹³ä»“ï¼š1=å¼€ä»“ 2=å¹³ä»“ï¼Œ3=å¹³ä»Šï¼Œ4=å¹³æ˜¨
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ²éÑ¯ºÏÔ¼ÇëÇó
+// æŸ¥è¯¢åˆçº¦è¯·æ±‚
 struct CFutureQryInstrumentField
 {
-	TDAIntType			PageIndex;							// ²éÑ¯¶àÉÙÌõ,Ã¿´Î·µ»ØµÄÌõÊı
-	TDAStringType		ExchangeNo;							// ½»Ò×Ëù´úÂë£¬Èç¹ûÌîĞ´Öµ£¬²éÑ¯Ò»¸ö½»Ò×ËùµÄºÏÔ¼
-	TDAStringType		CommodityNo;						// ºÏÔ¼´úÂë¡£²éÑ¯µ¥¸öºÏÔ¼	
-	TDAStringType		CommodityType;						// ÉÌÆ·Àà±ğ 
-	TDAStringType		ContractNo;							// ºÏÔ¼NO
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAIntType			PageIndex;							// æŸ¥è¯¢å¤šå°‘æ¡,æ¯æ¬¡è¿”å›çš„æ¡æ•°
+    TDAStringType		ExchangeNo;							// äº¤æ˜“æ‰€ä»£ç ï¼Œå¦‚æœå¡«å†™å€¼ï¼ŒæŸ¥è¯¢ä¸€ä¸ªäº¤æ˜“æ‰€çš„åˆçº¦
+    TDAStringType		CommodityNo;						// åˆçº¦ä»£ç ã€‚æŸ¥è¯¢å•ä¸ªåˆçº¦	
+    TDAStringType		CommodityType;						// å•†å“ç±»åˆ« 
+    TDAStringType		ContractNo;							// åˆçº¦NO
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ²éÑ¯ºÏÔ¼·µ»Ø
+// æŸ¥è¯¢åˆçº¦è¿”å›
 struct CFutureRspInstrumentField
 {
-	TDAStringType		CommodityCode;						// ÉÌÆ·±àºÅºÏÔ¼NO 
-	TDAStringType		ExchangeNo;							// ½»Ò×Ëù±àºÅ
-	TDAStringType		ContractNo;							// ºÏÔ¼NO
-	TDAStringType		ContractFName;						// ºÏÔ¼Ãû
-	TDAStringType		CommodityNo;						// ÉÌÆ·±àºÅ
-	TDAStringType		CommodityFName;						// ÉÌÆ·Ãû 
-	TDAStringType		CommodityType;						// ÉÌÆ·Àà±ğ 
-	TDAStringType		CommodityFCurrencyNo;				// »õ±Ò±àºÅ 
-	TDAStringType		CurrencyFName;						// »õ±ÒÃû³Æ 
-	TDADoubleType		ProductDot;							// µãÖµ£¨Ò»¸ö×îĞ¡ÌøµãµÄ¼ÛÖµ£©
-	TDADoubleType		UpperTick;							// ×îĞ¡±ä¶¯µ¥Î» 
-	TDAStringType		ExchangeName;						// ½»Ò×ËùÃû³Æ 
-	TDADoubleType		LastSettlePrice;					// ÉÏÈÕ½áËã¼Û 
-	TDAStringType		TradeMonth;							// ½»Ò×ÔÂ (yyyyMM)/½»¸îÈÕ (yyyyMMdd)
-	TDAIntType			DotNum;								// ĞĞÇéĞ¡ÊıµãÎ»Êı
-	TDAIntType			LowerTick;							// ½ø½×µ¥Î»
-	TDAIntType			DotNumCarry;						// µ÷ÆÚĞ¡ÊıµãÎ»Êı
-	TDADoubleType		UpperTickCarry;						// µ÷ÆÚ×îĞ¡±ä¶¯µ¥Î»
-	TDAStringType		FirstNoticeDay;						// Ê×´ÎÍ¨ÖªÈÕ (yyyyMMdd)
-	TDADoubleType		FreezenPercent;						// ¶³½á±£Ö¤½ğ°Ù·Ö±È £¨ÉÏº£ÄÜÔ´ÂòÈë±£Ö¤½ğ°Ù·Ö±È£©
-	TDADoubleType		FreezenMoney;						// ¶³½á±£Ö¤½ğ¹Ì¶¨Öµ 
-	TDADoubleType		FeeMoney;							// ¹Ì¶¨ÊÖĞø·Ñ 
-	TDADoubleType		FeePercent;							// °Ù·Ö±ÈÊÖĞø·Ñ 
-	TDADoubleType		PriceStrike;						// ÏÖ»õÉÌÆ·×ò½áËã¼Û 
-	TDADoubleType		ProductDotStrike;					// ÏÖ»õÉÌÆ·µãÖµ  
-	TDADoubleType		UpperTickStrike;					// ÏÖ»õÉÌÆ·×îĞ¡±ä¶¯µ¥Î» 
-	TDAStringType		LastTradeDay;						// ×îºó½»Ò×ÈÕ (yyyyMMdd)
-	TDAStringType		LastUpdateDay;						// ×îºó¸üĞÂÈÕ (yyyyMMdd)
-	TDADoubleType		CriticalPrice;						// ÆÚÈ¨ÁÙ½ç¼Û¸ñ 
-	TDADoubleType		CriticalMinChangedPrice;			// ÆÚÈ¨ÁÙ½ç¼Û¸ñÒÔÏÂµÄ×îĞ¡Ìøµã 
-	TDAStringType		ExchangeSub;						// Êµ¼Ê½»Ò×Ëù(CMEÏ¸·Ö³É3¸ö½»Ò×Ëù:CME,CME_COMEX,CME_NYMEX)
-	TDAStringType		OptionType;							// ÆÚÈ¨ÀàĞÍ(R£º¿´ÕÇ£»F£º¿´µø)
-	TDAStringType		OptionMonth;						// ÆÚÈ¨ÄêÔÂ(yyyyMM)
-	TDAStringType		OptionStrikePrice;					// ÆÚÈ¨Ö´ĞĞ¼Û¸ñ
-	TDAStringType		OptionCommodityNo;					// ÆÚÈ¨¶ÔÓ¦ÆÚ»õÉÌÆ·±àºÅ£¨ÉÏº£ÄÜÔ´Âô³ö±£Ö¤½ğ°Ù·Ö±È£©
-	TDAStringType		OptionContractNo;					// ÆÚÈ¨¶ÔÓ¦ÆÚ»õºÏÔ¼±àºÅ
-	TDAStringType		ContractFNameEN;					// ºÏÔ¼Ãû£¨Ó¢ÎÄ£©
-	TDAStringType		CommodityFNameEN;					// ÉÌÆ·Ãû£¨Ó¢ÎÄ£©
-	TDAStringType		OptionStyle;						// ÆÚÈ¨Àà±ğ(E£ºÅ·Ê½£»A£ºÃÀÊ½)
+    TDAStringType		CommodityCode;						// å•†å“ç¼–å·åˆçº¦NO 
+    TDAStringType		ExchangeNo;							// äº¤æ˜“æ‰€ç¼–å·
+    TDAStringType		ContractNo;							// åˆçº¦NO
+    TDAStringType		ContractFName;						// åˆçº¦å
+    TDAStringType		CommodityNo;						// å•†å“ç¼–å·
+    TDAStringType		CommodityFName;						// å•†å“å 
+    TDAStringType		CommodityType;						// å•†å“ç±»åˆ« 
+    TDAStringType		CommodityFCurrencyNo;				// è´§å¸ç¼–å· 
+    TDAStringType		CurrencyFName;						// è´§å¸åç§° 
+    TDADoubleType		ProductDot;							// ç‚¹å€¼ï¼ˆä¸€ä¸ªæœ€å°è·³ç‚¹çš„ä»·å€¼ï¼‰
+    TDADoubleType		UpperTick;							// æœ€å°å˜åŠ¨å•ä½ 
+    TDAStringType		ExchangeName;						// äº¤æ˜“æ‰€åç§° 
+    TDADoubleType		LastSettlePrice;					// ä¸Šæ—¥ç»“ç®—ä»· 
+    TDAStringType		TradeMonth;							// äº¤æ˜“æœˆ (yyyyMM)/äº¤å‰²æ—¥ (yyyyMMdd)
+    TDAIntType			DotNum;								// è¡Œæƒ…å°æ•°ç‚¹ä½æ•°
+    TDAIntType			LowerTick;							// è¿›é˜¶å•ä½
+    TDAIntType			DotNumCarry;						// è°ƒæœŸå°æ•°ç‚¹ä½æ•°
+    TDADoubleType		UpperTickCarry;						// è°ƒæœŸæœ€å°å˜åŠ¨å•ä½
+    TDAStringType		FirstNoticeDay;						// é¦–æ¬¡é€šçŸ¥æ—¥ (yyyyMMdd)
+    TDADoubleType		FreezenPercent;						// å†»ç»“ä¿è¯é‡‘ç™¾åˆ†æ¯” ï¼ˆä¸Šæµ·èƒ½æºä¹°å…¥ä¿è¯é‡‘ç™¾åˆ†æ¯”ï¼‰
+    TDADoubleType		FreezenMoney;						// å†»ç»“ä¿è¯é‡‘å›ºå®šå€¼ 
+    TDADoubleType		FeeMoney;							// å›ºå®šæ‰‹ç»­è´¹ 
+    TDADoubleType		FeePercent;							// ç™¾åˆ†æ¯”æ‰‹ç»­è´¹ 
+    TDADoubleType		PriceStrike;						// ç°è´§å•†å“æ˜¨ç»“ç®—ä»· 
+    TDADoubleType		ProductDotStrike;					// ç°è´§å•†å“ç‚¹å€¼  
+    TDADoubleType		UpperTickStrike;					// ç°è´§å•†å“æœ€å°å˜åŠ¨å•ä½ 
+    TDAStringType		LastTradeDay;						// æœ€åäº¤æ˜“æ—¥ (yyyyMMdd)
+    TDAStringType		LastUpdateDay;						// æœ€åæ›´æ–°æ—¥ (yyyyMMdd)
+    TDADoubleType		CriticalPrice;						// æœŸæƒä¸´ç•Œä»·æ ¼ 
+    TDADoubleType		CriticalMinChangedPrice;			// æœŸæƒä¸´ç•Œä»·æ ¼ä»¥ä¸‹çš„æœ€å°è·³ç‚¹ 
+    TDAStringType		ExchangeSub;						// å®é™…äº¤æ˜“æ‰€(CMEç»†åˆ†æˆ3ä¸ªäº¤æ˜“æ‰€:CME,CME_COMEX,CME_NYMEX)
+    TDAStringType		OptionType;							// æœŸæƒç±»å‹(Rï¼šçœ‹æ¶¨ï¼›Fï¼šçœ‹è·Œ)
+    TDAStringType		OptionMonth;						// æœŸæƒå¹´æœˆ(yyyyMM)
+    TDAStringType		OptionStrikePrice;					// æœŸæƒæ‰§è¡Œä»·æ ¼
+    TDAStringType		OptionCommodityNo;					// æœŸæƒå¯¹åº”æœŸè´§å•†å“ç¼–å·ï¼ˆä¸Šæµ·èƒ½æºå–å‡ºä¿è¯é‡‘ç™¾åˆ†æ¯”ï¼‰
+    TDAStringType		OptionContractNo;					// æœŸæƒå¯¹åº”æœŸè´§åˆçº¦ç¼–å·
+    TDAStringType		ContractFNameEN;					// åˆçº¦åï¼ˆè‹±æ–‡ï¼‰
+    TDAStringType		CommodityFNameEN;					// å•†å“åï¼ˆè‹±æ–‡ï¼‰
+    TDAStringType		OptionStyle;						// æœŸæƒç±»åˆ«(Eï¼šæ¬§å¼ï¼›Aï¼šç¾å¼)
 };
-// ²éÑ¯½»Ò×ËùÇëÇó
+// æŸ¥è¯¢äº¤æ˜“æ‰€è¯·æ±‚
 struct CFutureQryExchangeField
 {
-	TDAStringType		ProductGroupID;
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		ProductGroupID;
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ²éÑ¯½»Ò×Ëù·µ»Ø
+// æŸ¥è¯¢äº¤æ˜“æ‰€è¿”å›
 struct CFutureRspExchangeField
 {
-	TDAStringType		ExchangeNo;							// ½»Ò×Ëù±àºÅ
-	TDAStringType		ExchangeName;						// ½»Ò×ËùÃû³Æ
-	TDAStringType		SettleType;							// ½»Ò×ËùÀàĞÍ£¨HK£º¸Û¹É£»US£ºÃÀ¹É£©
-	TDAStringType 		NameEN;								// ½»Ò×ËùÃû³Æ£¨Ó¢ÎÄ£©
+    TDAStringType		ExchangeNo;							// äº¤æ˜“æ‰€ç¼–å·
+    TDAStringType		ExchangeName;						// äº¤æ˜“æ‰€åç§°
+    TDAStringType		SettleType;							// äº¤æ˜“æ‰€ç±»å‹ï¼ˆHKï¼šæ¸¯è‚¡ï¼›USï¼šç¾è‚¡ï¼‰
+    TDAStringType 		NameEN;								// äº¤æ˜“æ‰€åç§°ï¼ˆè‹±æ–‡ï¼‰
 };
-// ²éÑ¯×Ê½ğÇëÇó
+// æŸ¥è¯¢èµ„é‡‘è¯·æ±‚
 struct CFutureQryCapitalField
 {
-	TDACharType			Unused;								// ²»Ê¹ÓÃ	
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDACharType			Unused;								// ä¸ä½¿ç”¨	
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ²éÑ¯×Ê½ğ·µ»Ø
+// æŸ¥è¯¢èµ„é‡‘è¿”å›
 struct CFutureRspCapitalField
 {
-	TDAStringType		UserId;								// ÓÃ»§±êÊ¶
-	TDAStringType		InMoney;							// Èë½ğ
-	TDAStringType		OutMoney;							// ³ö½ğ
-	TDAStringType		TodayCanUse;						// ½ñ¿ÉÓÃ
-	TDAStringType		TodayAmount;						// ½ñ½á´æ
-	TDAStringType		TodayBalance;						// ½ñÈ¨Òæ
-	TDAStringType		FreezenMoney;						// ¶³½á×Ê½ğ
-	TDAStringType		Commission;							// Ó¶½ğ
-	TDAStringType		Margin;								// ±£Ö¤½ğ
-	TDAStringType		OldCanUse;							// ×ò¿ÉÓÃ
-	TDAStringType		OldAmount;							// ×ò½á´æ
-	TDAStringType		OldBalance;							// ×òÈ¨Òæ
-	TDAStringType		FloatingProfit;						// ¸¡¶¯Ó¯¿÷
-	TDAStringType		CurrencyNo;							// ±ÒÖÖ±àºÅ 
-	TDAMoneyType		CurrencyRate;						// »õ±ÒÓë»ù±¾µÄ»ãÂÊ
-	TDAMoneyType		UnexpiredProfit;					// Î´µ½ÆÚÆ½Ó¯
-	TDAMoneyType		UnaccountProfit;					// Î´½áÆ½Ó¯
-	TDAMoneyType		KeepDeposit;						// Î¬³Ö±£Ö¤½ğ
-	TDAMoneyType		Royalty;							// ÆÚÈ¨È¨Àû½ğ
-	TDAMoneyType		Credit;								// ĞÅÈÎ¶î¶È
-	TDAMoneyType		AddCapital;							// Åä×Ê×Ê½ğ
-	TDAMoneyType		IniEquity;							// ³õÊ¼×Ê½ğ
-	TDAStringType		AccountNo;							// ×Ê½ğÕÊºÅ 1
-	TDAMoneyType		MortgageMoney;						// °´½Ò¼ÛÖµ 20150610 added for ¸Û¹É
-	TDAMoneyType		MarginLimit;						// ŒIÕ¹ÉÏÏŞ¶î¶È 20150727 added for ¸Û¹É
-	TDAMoneyType		BorrowValue;						// ½è»õ¼ÛÖµ 20150727 added for ¸Û¹É
-	TDAMoneyType		T1;									// T1 20160219 added for ¸Û¹É
-	TDAMoneyType		T2;									// T2 20160219 added for ¸Û¹É
-	TDAMoneyType		T3;									// T3 20160219 added for ¸Û¹É
-	TDAMoneyType		TN;									// Tn 20160219 added for ¸Û¹É
-	TDAMoneyType		TradeLimit;							// ½»Ò×ÏŞ¶î
-	TDAMoneyType		CanCashOut;							// ¿ÉÈ¡×Ê½ğ
-	TDAMoneyType		AccruedCrInt;						// ÔÂ´æ¿îÀûÏ¢
-	TDAMoneyType		AccruedDrInt;						// ÔÂÇ·¿îÀûÏ¢
-	TDAMoneyType		CrossMax;							// ¿çÊĞ³¡×Ê½ğÏŞ¶î
-	TDAMoneyType		SellFreezenMoney;					// Âô¿Õ¶³½á×Ê½ğ
-	TDAMoneyType		SellInterest;						// Âô¿ÕÀûÏ¢
-	TDAMoneyType		SellNeedAddMargin;					// Ğè²¹°´½ğ
-	TDAStringType		NetProfit;							// ¾»Ó¯Àû 1
-	TDAStringType		ProfitRate;							// Ó¯ÀûÂÊ 1
-	TDAStringType		RiskRate;							// ·çÏÕÂÊ 1
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		UserId;								// ç”¨æˆ·æ ‡è¯†
+    TDAStringType		InMoney;							// å…¥é‡‘
+    TDAStringType		OutMoney;							// å‡ºé‡‘
+    TDAStringType		TodayCanUse;						// ä»Šå¯ç”¨
+    TDAStringType		TodayAmount;						// ä»Šç»“å­˜
+    TDAStringType		TodayBalance;						// ä»Šæƒç›Š
+    TDAStringType		FreezenMoney;						// å†»ç»“èµ„é‡‘
+    TDAStringType		Commission;							// ä½£é‡‘
+    TDAStringType		Margin;								// ä¿è¯é‡‘
+    TDAStringType		OldCanUse;							// æ˜¨å¯ç”¨
+    TDAStringType		OldAmount;							// æ˜¨ç»“å­˜
+    TDAStringType		OldBalance;							// æ˜¨æƒç›Š
+    TDAStringType		FloatingProfit;						// æµ®åŠ¨ç›ˆäº
+    TDAStringType		CurrencyNo;							// å¸ç§ç¼–å· 
+    TDAMoneyType		CurrencyRate;						// è´§å¸ä¸åŸºæœ¬çš„æ±‡ç‡
+    TDAMoneyType		UnexpiredProfit;					// æœªåˆ°æœŸå¹³ç›ˆ
+    TDAMoneyType		UnaccountProfit;					// æœªç»“å¹³ç›ˆ
+    TDAMoneyType		KeepDeposit;						// ç»´æŒä¿è¯é‡‘
+    TDAMoneyType		Royalty;							// æœŸæƒæƒåˆ©é‡‘
+    TDAMoneyType		Credit;								// ä¿¡ä»»é¢åº¦
+    TDAMoneyType		AddCapital;							// é…èµ„èµ„é‡‘
+    TDAMoneyType		IniEquity;							// åˆå§‹èµ„é‡‘
+    TDAStringType		AccountNo;							// èµ„é‡‘å¸å· 1
+    TDAMoneyType		MortgageMoney;						// æŒ‰æ­ä»·å€¼ 20150610 added for æ¸¯è‚¡
+    TDAMoneyType		MarginLimit;						// å­–å±•ä¸Šé™é¢åº¦ 20150727 added for æ¸¯è‚¡
+    TDAMoneyType		BorrowValue;						// å€Ÿè´§ä»·å€¼ 20150727 added for æ¸¯è‚¡
+    TDAMoneyType		T1;									// T1 20160219 added for æ¸¯è‚¡
+    TDAMoneyType		T2;									// T2 20160219 added for æ¸¯è‚¡
+    TDAMoneyType		T3;									// T3 20160219 added for æ¸¯è‚¡
+    TDAMoneyType		TN;									// Tn 20160219 added for æ¸¯è‚¡
+    TDAMoneyType		TradeLimit;							// äº¤æ˜“é™é¢
+    TDAMoneyType		CanCashOut;							// å¯å–èµ„é‡‘
+    TDAMoneyType		AccruedCrInt;						// æœˆå­˜æ¬¾åˆ©æ¯
+    TDAMoneyType		AccruedDrInt;						// æœˆæ¬ æ¬¾åˆ©æ¯
+    TDAMoneyType		CrossMax;							// è·¨å¸‚åœºèµ„é‡‘é™é¢
+    TDAMoneyType		SellFreezenMoney;					// å–ç©ºå†»ç»“èµ„é‡‘
+    TDAMoneyType		SellInterest;						// å–ç©ºåˆ©æ¯
+    TDAMoneyType		SellNeedAddMargin;					// éœ€è¡¥æŒ‰é‡‘
+    TDAStringType		NetProfit;							// å‡€ç›ˆåˆ© 1
+    TDAStringType		ProfitRate;							// ç›ˆåˆ©ç‡ 1
+    TDAStringType		RiskRate;							// é£é™©ç‡ 1
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ²éÑ¯³Ö²ÖÇëÇó
+// æŸ¥è¯¢æŒä»“è¯·æ±‚
 struct CFutureQryPositionField
 {
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ²éÑ¯³Ö²Ö·µ»Ø
+// æŸ¥è¯¢æŒä»“è¿”å›
 struct CFutureRspPositionField
 {
-	TDAStringType		MatchDate;							// ³É½»ÈÕÆÚ£¨yyyyMMdd£©
-	TDAStringType		MatchNo;							// ³É½»±àºÅ
-	TDAStringType		ClientNo;							// ¿Í»§±àºÅ
-	TDAStringType		ExchangeNo;							// ½»Ò×Ëù±àºÅ
-	TDAStringType		CommodityNo;						// ÉÌÆ·±àºÅ
-	TDAStringType		ContractNo;							// ºÏÔ¼±àºÅ
-	TDAStringType		Direct;								// ÂòÂô·½Ïò£¨1£ºÂò£»2£ºÂô£©
-	TDAVolumeType		HoldVol;							// ³Ö²ÖÊı
-	TDAPriceType		HoldPrice;							// ¿ª²Ö¾ù¼Û£¨Ô­Ê¼¿ª²Ö¼Û£©
-	TDAStringType		CurrencyNo;							// »õ±Ò±àºÅ
-	TDAPriceType		ForciblyPrice;						// ½áËãºóµÄ³Ö²Ö¾ù¼Û
-	TDAStringType		Account;							// ×Ê½ğÕËºÅ
-	TDAStringType		HoldType;							// ³Ö²ÖÀàĞÍ£¨0£º×ò²Ö£»1£º½ñ²Ö£©
-	TDAStringType		DeliveryDate;						// ºÏÔ¼½»¸îÈÕÆÚ(yyyyMMdd)
-	TDAStringType		ExchangeName;						// ½»Ò×ËùÃû³Æ(¿Í»§¶Ë×Ô¼ºÈ¡µÃ)
-	TDAStringType		CurrencyName;						// »õ±ÒÃû³Æ(¿Í»§¶Ë×Ô¼ºÈ¡µÃ)
-	TDAStringType		ContCode;							// ºÏÔ¼´úÂë£¨ÉÌÆ·±àºÅ+ºÏÔ¼±àºÅ£©(¿Í»§¶Ë×Ô¼ºÈ¡µÃ)
-	TDAPriceType		HoldMargin;							// ³Ö²Ö±£Ö¤½ğ add 20141222
+    TDAStringType		MatchDate;							// æˆäº¤æ—¥æœŸï¼ˆyyyyMMddï¼‰
+    TDAStringType		MatchNo;							// æˆäº¤ç¼–å·
+    TDAStringType		ClientNo;							// å®¢æˆ·ç¼–å·
+    TDAStringType		ExchangeNo;							// äº¤æ˜“æ‰€ç¼–å·
+    TDAStringType		CommodityNo;						// å•†å“ç¼–å·
+    TDAStringType		ContractNo;							// åˆçº¦ç¼–å·
+    TDAStringType		Direct;								// ä¹°å–æ–¹å‘ï¼ˆ1ï¼šä¹°ï¼›2ï¼šå–ï¼‰
+    TDAVolumeType		HoldVol;							// æŒä»“æ•°
+    TDAPriceType		HoldPrice;							// å¼€ä»“å‡ä»·ï¼ˆåŸå§‹å¼€ä»“ä»·ï¼‰
+    TDAStringType		CurrencyNo;							// è´§å¸ç¼–å·
+    TDAPriceType		ForciblyPrice;						// ç»“ç®—åçš„æŒä»“å‡ä»·
+    TDAStringType		Account;							// èµ„é‡‘è´¦å·
+    TDAStringType		HoldType;							// æŒä»“ç±»å‹ï¼ˆ0ï¼šæ˜¨ä»“ï¼›1ï¼šä»Šä»“ï¼‰
+    TDAStringType		DeliveryDate;						// åˆçº¦äº¤å‰²æ—¥æœŸ(yyyyMMdd)
+    TDAStringType		ExchangeName;						// äº¤æ˜“æ‰€åç§°(å®¢æˆ·ç«¯è‡ªå·±å–å¾—)
+    TDAStringType		CurrencyName;						// è´§å¸åç§°(å®¢æˆ·ç«¯è‡ªå·±å–å¾—)
+    TDAStringType		ContCode;							// åˆçº¦ä»£ç ï¼ˆå•†å“ç¼–å·+åˆçº¦ç¼–å·ï¼‰(å®¢æˆ·ç«¯è‡ªå·±å–å¾—)
+    TDAPriceType		HoldMargin;							// æŒä»“ä¿è¯é‡‘ add 20141222
 };
-// ²éÑ¯ÌøµãÇëÇó
+// æŸ¥è¯¢è·³ç‚¹è¯·æ±‚
 struct CFutureQryTickField
 {
-	TDACharType			Unused;								// ²»Ê¹ÓÃ
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDACharType			Unused;								// ä¸ä½¿ç”¨
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ²éÑ¯Ìøµã·µ»Ø
+// æŸ¥è¯¢è·³ç‚¹è¿”å›
 struct CFutureRspTickField
 {
-	TDAStringType		UpperTickCode;						// ×îĞ¡±ä¶¯µ¥Î»´úÂë
-	TDAStringType		PriceFrom;							// ×îĞ¡±ä¶¯µ¥Î»¿ªÊ¼ĞĞÇé¼Û¸ñ
-	TDAStringType		UpperTick;							// ĞĞÇé×îĞ¡±ä¶¯µ¥Î»
-	TDAStringType		ProductDot;							// ×îĞ¡±ä¶¯µ¥Î»¶ÔÓ¦µÄµãÖµ
-	TDAStringType		DotNum;								// ĞĞÇéĞ¡ÊıÎ»Êı
-	TDAStringType		LowerTick;							// ½ø¼Ûµ¥Î»
+    TDAStringType		UpperTickCode;						// æœ€å°å˜åŠ¨å•ä½ä»£ç 
+    TDAStringType		PriceFrom;							// æœ€å°å˜åŠ¨å•ä½å¼€å§‹è¡Œæƒ…ä»·æ ¼
+    TDAStringType		UpperTick;							// è¡Œæƒ…æœ€å°å˜åŠ¨å•ä½
+    TDAStringType		ProductDot;							// æœ€å°å˜åŠ¨å•ä½å¯¹åº”çš„ç‚¹å€¼
+    TDAStringType		DotNum;								// è¡Œæƒ…å°æ•°ä½æ•°
+    TDAStringType		LowerTick;							// è¿›ä»·å•ä½
 };
-// ²éÑ¯»õ±ÒÇëÇó
+// æŸ¥è¯¢è´§å¸è¯·æ±‚
 struct CFutureQryCurrencyField
 {
-	TDACharType			Unused;								// ²»Ê¹ÓÃ
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDACharType			Unused;								// ä¸ä½¿ç”¨
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ²éÑ¯»õ±Ò·µ»Ø
+// æŸ¥è¯¢è´§å¸è¿”å›
 struct CFutureRspCurrencyField
 {
-	TDAStringType		CurrencyNo;							// »õ±Ò±àºÅ
-	TDAIntType			IsBase;								// »ù±Ò»õ±Ò±àºÅ
-	TDADoubleType		ChangeRate;							// Óë»ù±ÒµÄ»»Ëã»ãÂÊ
-	TDAStringType		CurrencyName;						// »õ±ÒÃû³Æ
-	TDAStringType		CurrencyNameEN;						// »õ±ÒÃû³Æ£¨Ó¢ÎÄ£©
+    TDAStringType		CurrencyNo;							// è´§å¸ç¼–å·
+    TDAIntType			IsBase;								// åŸºå¸è´§å¸ç¼–å·
+    TDADoubleType		ChangeRate;							// ä¸åŸºå¸çš„æ¢ç®—æ±‡ç‡
+    TDAStringType		CurrencyName;						// è´§å¸åç§°
+    TDAStringType		CurrencyNameEN;						// è´§å¸åç§°ï¼ˆè‹±æ–‡ï¼‰
 };
-// ²éÑ¯¿ªÊÕÅÌÊ±¼äÇëÇó
+// æŸ¥è¯¢å¼€æ”¶ç›˜æ—¶é—´è¯·æ±‚
 struct CFutureQryCommodityField
 {
-	TDAStringType		UpdateDate;							// ¸üĞÂÈÕÆÚ
-	TDAStringType		ExchangeNo;							// ½»Ò×Ëù±àºÅ
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		UpdateDate;							// æ›´æ–°æ—¥æœŸ
+    TDAStringType		ExchangeNo;							// äº¤æ˜“æ‰€ç¼–å·
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ²éÑ¯ÉÌÆ·ÁĞ±í
+// æŸ¥è¯¢å•†å“åˆ—è¡¨
 struct CFutureRspCommodityField
 {
-	TDAStringType		CommodityNo;						// ÉÌÆ·±àºÅ
-	TDAStringType		ExchangeNo;							// ½»Ò×Ëù±àºÅ
-	TDAStringType		CommodityType;						// ÉÌÆ·ÀàĞÍ	
-	TDAStringType		Name;								// ÉÌÆ·Ãû³Æ
-	TDAStringType		Enabled;							// ½»Ò××´Ì¬
-	TDAStringType		RegDate;							// ¸üĞÂÈÕ	
-	TDAStringType		CurrencyNo;							// ±ÒÖÖ±àºÅ	
-	TDADoubleType		ProductDot;							// ÕËÃæÌøµãÖµ
-	TDADoubleType		LowerTick;							// ½ø½×µ¥Î»
-	TDADoubleType		UpperTick;							// ×îĞ¡±ä¶¯µ¥Î»	
-	TDAIntType			DotNum;								// ĞĞÇéĞ¡ÊıµãÎ»Êı
-	TDAIntType			StrikeCommodityId;					// ²ßÂÔºÏÔ¼ID
-	TDAStringType		OptionStyle;						// ÆÚÈ¨ÀàĞÍ
-	TDAStringType		ExchangeNo2;						// ½»Ò×Ëù±àºÅ (ÔÚExchangeNoÏÂµÄ½»Ò×Ëù±ÈÈçCOMEX NYMEX)
-	TDAStringType		IsSFuture;							// ÊÇ·ñÊÇ¸ö¹ÉÆÚ»õ
+    TDAStringType		CommodityNo;						// å•†å“ç¼–å·
+    TDAStringType		ExchangeNo;							// äº¤æ˜“æ‰€ç¼–å·
+    TDAStringType		CommodityType;						// å•†å“ç±»å‹	
+    TDAStringType		Name;								// å•†å“åç§°
+    TDAStringType		Enabled;							// äº¤æ˜“çŠ¶æ€
+    TDAStringType		RegDate;							// æ›´æ–°æ—¥	
+    TDAStringType		CurrencyNo;							// å¸ç§ç¼–å·	
+    TDADoubleType		ProductDot;							// è´¦é¢è·³ç‚¹å€¼
+    TDADoubleType		LowerTick;							// è¿›é˜¶å•ä½
+    TDADoubleType		UpperTick;							// æœ€å°å˜åŠ¨å•ä½	
+    TDAIntType			DotNum;								// è¡Œæƒ…å°æ•°ç‚¹ä½æ•°
+    TDAIntType			StrikeCommodityId;					// ç­–ç•¥åˆçº¦ID
+    TDAStringType		OptionStyle;						// æœŸæƒç±»å‹
+    TDAStringType		ExchangeNo2;						// äº¤æ˜“æ‰€ç¼–å· (åœ¨ExchangeNoä¸‹çš„äº¤æ˜“æ‰€æ¯”å¦‚COMEX NYMEX)
+    TDAStringType		IsSFuture;							// æ˜¯å¦æ˜¯ä¸ªè‚¡æœŸè´§
 };
-// ²éÑ¯½»Ò×Ëù¿ªÊÕÅÌÊ±¼äÇëÇó
+// æŸ¥è¯¢äº¤æ˜“æ‰€å¼€æ”¶ç›˜æ—¶é—´è¯·æ±‚
 struct CFutureQryExchangeTimeField
 {
-	TDACharType			Unused;								// ²»Ê¹ÓÃ
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDACharType			Unused;								// ä¸ä½¿ç”¨
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ²éÑ¯ÉÌÆ·¿ªÊÕÅÌÊ±¼äÇëÇó
+// æŸ¥è¯¢å•†å“å¼€æ”¶ç›˜æ—¶é—´è¯·æ±‚
 struct CFutureQryCommodityTimeField
 {
-	TDAStringType		ExchangeNo;							// ½»Ò×Ëù´úÂë
-	TDAStringType		CommodityNo;						// ²úÆ·´úÂë
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		ExchangeNo;							// äº¤æ˜“æ‰€ä»£ç 
+    TDAStringType		CommodityNo;						// äº§å“ä»£ç 
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ²éÑ¯½»Ò×Ëù¿ªÊÕÅÌÊ±¼ä·µ»Ø
+// æŸ¥è¯¢äº¤æ˜“æ‰€å¼€æ”¶ç›˜æ—¶é—´è¿”å›
 struct CFutureRspExchangeTimeField
 {
-	TDAStringType		Year;								//  µ±Ç°Äê·İ
-	TDAStringType		SummerBegin;						//  ÏÄÁîÊ±¿ªÊ¼Ê±¼ä
-	TDAStringType		WinterBegin;						//  ¶¬ÁîÊ±¿ªÊ¼Ê±¼ä
-	TDAStringType		ExchangeNo;							//  ½»Ò×Ëù´úÂë
-	TDAStringType		Name;								//  ½»Ò×ËùÃû³Æ
+    TDAStringType		Year;								//  å½“å‰å¹´ä»½
+    TDAStringType		SummerBegin;						//  å¤ä»¤æ—¶å¼€å§‹æ—¶é—´
+    TDAStringType		WinterBegin;						//  å†¬ä»¤æ—¶å¼€å§‹æ—¶é—´
+    TDAStringType		ExchangeNo;							//  äº¤æ˜“æ‰€ä»£ç 
+    TDAStringType		Name;								//  äº¤æ˜“æ‰€åç§°
 };
-// ²éÑ¯ÉÌÆ·¿ªÊÕÅÌÊ±¼ä·µ»Ø
+// æŸ¥è¯¢å•†å“å¼€æ”¶ç›˜æ—¶é—´è¿”å›
 struct CFutureRspCommodityTimeField
 {
-	TDAStringType		CrossTrade;							// ÊÇ·ñ¿çÈÕ
-	TDAStringType		Stage;								// ×´Ì¬
-	TDAStringType		Summer;								// 2¶¬Áî 1ÏÄÁî	
-	TDAStringType		Opendate;							// ²úÆ·¿ªÊĞÊ±¼ä
-	TDAStringType		Closingdate;						// ²úÆ·ÊÕÊĞÊ±¼ä
-	TDAStringType		CommodityNo;						// ²úÆ·´úÂë
-	TDAStringType		ComName;							// ²úÆ·Ãû³Æ
-	TDAStringType		ExchangeNo;							// ½»Ò×Ëù´úÂë
-	TDAStringType		ExName;								// ½»Ò×ËùÃû³Æ
+    TDAStringType		CrossTrade;							// æ˜¯å¦è·¨æ—¥
+    TDAStringType		Stage;								// çŠ¶æ€
+    TDAStringType		Summer;								// 2å†¬ä»¤ 1å¤ä»¤	
+    TDAStringType		Opendate;							// äº§å“å¼€å¸‚æ—¶é—´
+    TDAStringType		Closingdate;						// äº§å“æ”¶å¸‚æ—¶é—´
+    TDAStringType		CommodityNo;						// äº§å“ä»£ç 
+    TDAStringType		ComName;							// äº§å“åç§°
+    TDAStringType		ExchangeNo;							// äº¤æ˜“æ‰€ä»£ç 
+    TDAStringType		ExName;								// äº¤æ˜“æ‰€åç§°
 };
-// ²éÑ¯°æ±¾ÇëÇó
+// æŸ¥è¯¢ç‰ˆæœ¬è¯·æ±‚
 struct CFutureQryVersionField
 {
-	TDAStringType		UserId;								// ÓÃ»§±êÊ¶
-	TDAStringType		UserPwd;							// ÓÃ»§ÃÜÂë
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		UserId;								// ç”¨æˆ·æ ‡è¯†
+    TDAStringType		UserPwd;							// ç”¨æˆ·å¯†ç 
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ²éÑ¯°æ±¾·µ»Ø
+// æŸ¥è¯¢ç‰ˆæœ¬è¿”å›
 struct CFutureRspVersionField
 {
-	TDAStringType		Version;							// °æ±¾ºÅ
-	TDAStringType		MustUpdate;							// ÊÇ·ñ±ØĞë¸üĞÂµ½ĞÂ°æ±¾²ÅÄÜÕı³£Ê¹ÓÃ£¨0£º¿ÉÒÔ²»¸üĞÂ£»1£º±ØĞë¸üĞÂ£©
-	TDAStringType		MustVersion;						// ±ØĞëÒª¸üµ½µÄ°æ±¾ºÅ
-	TDAStringType		VersionContent_CN;					// °æ±¾ÄÚÈİÖĞÎÄ
-	TDAStringType		VersionContent_US;					// °æ±¾ÄÚÈİÓ¢ÎÄ
+    TDAStringType		Version;							// ç‰ˆæœ¬å·
+    TDAStringType		MustUpdate;							// æ˜¯å¦å¿…é¡»æ›´æ–°åˆ°æ–°ç‰ˆæœ¬æ‰èƒ½æ­£å¸¸ä½¿ç”¨ï¼ˆ0ï¼šå¯ä»¥ä¸æ›´æ–°ï¼›1ï¼šå¿…é¡»æ›´æ–°ï¼‰
+    TDAStringType		MustVersion;						// å¿…é¡»è¦æ›´åˆ°çš„ç‰ˆæœ¬å·
+    TDAStringType		VersionContent_CN;					// ç‰ˆæœ¬å†…å®¹ä¸­æ–‡
+    TDAStringType		VersionContent_US;					// ç‰ˆæœ¬å†…å®¹è‹±æ–‡
 };
 //-------------------------------------------------------------------------
-// ÍÆËÍ¶©µ¥±ä»¯
+// æ¨é€è®¢å•å˜åŒ–
 struct CFutureRtnOrderField
 {
-	TDAStringType		LocalOrderNo;						// ±¾µØ¶©µ¥ºÅ
-	TDAStringType		ExchangeNo;							// ½»Ò×Ëù´úÂë
-	TDAStringType		TreatyCode;							// ºÏÔ¼´úÂë
-	TDAStringType		OrderNo;							// ¶¨µ¥ºÅ
-	TDAIntType			OrderNumber;						// Î¯ÍĞÊıÁ¿
-	TDAIntType			FilledNumber;						// ÒÑ³É½»ÊıÁ¿
-	TDAPriceType		FilledAdvPrice;						// ³É½»¾ù¼Û
-	TDAIntType			BuyHoldNumber;						// ³ÖÂòÊıÁ¿
-	TDAPriceType		BuyHoldOpenPrice;					// ³ÖÂò¿ª²Ö¾ù¼Û
-	TDAPriceType		BuyHoldPrice;						// ³ÖÂò¾ù¼Û
-	TDAIntType			SaleHoldNumber;						// ³ÖÂôÊıÁ¿
-	TDAPriceType		SaleHoldOpenPrice;					// ³ÖÂô¿ª²Ö¾ù¼Û
-	TDAPriceType		SaleHoldPrice;						// ³ÖÂô¾ù¼Û
-	TDAStringType		IsCanceled;							// ÊÇ·ñÒÑ¾­³·µ¥£¨0£ºÃ»ÓĞ£»1£ºÒÑ³·µ¥£©
-	TDAPriceType		FilledTotalFee;						// ³É½»×ÜµÄÊÖĞø·Ñ
-	TDAIntType			Status;								// Ë³ĞòºÅ
-	TDAStringType		AccountNo;							// ×Ê½ğÕÊºÅ
-	TDAStringType		HoldType;							// ³Ö²ÖÀàĞÍ£¨0£º×ò²Ö£»1£º½ñ²Ö£©
-	TDAPriceType		HoldMarginBuy;						// ³ÖÂò±£Ö¤½ğ
-	TDAPriceType		HoldMarginSale;						// ³ÖÂô±£Ö¤½ğ
-	TDAPriceType		CurrPrice;							// ×îĞÂ¼Û
-	TDAPriceType		FloatProfit;						// ¸¡¶¯Ó¯¿÷
+    TDAStringType		LocalOrderNo;						// æœ¬åœ°è®¢å•å·
+    TDAStringType		ExchangeNo;							// äº¤æ˜“æ‰€ä»£ç 
+    TDAStringType		TreatyCode;							// åˆçº¦ä»£ç 
+    TDAStringType		OrderNo;							// å®šå•å·
+    TDAIntType			OrderNumber;						// å§”æ‰˜æ•°é‡
+    TDAIntType			FilledNumber;						// å·²æˆäº¤æ•°é‡
+    TDAPriceType		FilledAdvPrice;						// æˆäº¤å‡ä»·
+    TDAIntType			BuyHoldNumber;						// æŒä¹°æ•°é‡
+    TDAPriceType		BuyHoldOpenPrice;					// æŒä¹°å¼€ä»“å‡ä»·
+    TDAPriceType		BuyHoldPrice;						// æŒä¹°å‡ä»·
+    TDAIntType			SaleHoldNumber;						// æŒå–æ•°é‡
+    TDAPriceType		SaleHoldOpenPrice;					// æŒå–å¼€ä»“å‡ä»·
+    TDAPriceType		SaleHoldPrice;						// æŒå–å‡ä»·
+    TDAStringType		IsCanceled;							// æ˜¯å¦å·²ç»æ’¤å•ï¼ˆ0ï¼šæ²¡æœ‰ï¼›1ï¼šå·²æ’¤å•ï¼‰
+    TDAPriceType		FilledTotalFee;						// æˆäº¤æ€»çš„æ‰‹ç»­è´¹
+    TDAIntType			Status;								// é¡ºåºå·
+    TDAStringType		AccountNo;							// èµ„é‡‘å¸å·
+    TDAStringType		HoldType;							// æŒä»“ç±»å‹ï¼ˆ0ï¼šæ˜¨ä»“ï¼›1ï¼šä»Šä»“ï¼‰
+    TDAPriceType		HoldMarginBuy;						// æŒä¹°ä¿è¯é‡‘
+    TDAPriceType		HoldMarginSale;						// æŒå–ä¿è¯é‡‘
+    TDAPriceType		CurrPrice;							// æœ€æ–°ä»·
+    TDAPriceType		FloatProfit;						// æµ®åŠ¨ç›ˆäº
 };
-// ÍÆËÍ×Ê½ğ±ä»¯
+// æ¨é€èµ„é‡‘å˜åŒ–
 struct CFutureRtnCapitalField
 {
-	TDAStringType		ClientNo;							// ¿Í»§ºÅ
-	TDAStringType		AccountNo;							// ×Ê½ğÕÊºÅ
-	TDAStringType		CurrencyNo;							// ±ÒÖÖ
-	TDAPriceType		Available;							// ½ñ¿ÉÓÃ
-	TDAPriceType		YAvailable;							// ×ò¿ÉÓÃ
-	TDAPriceType		CanCashOut;							// ½ñ¿É³ö
-	TDAPriceType		Money;								// ½ñ½á´æ
-	TDAPriceType		ExpiredProfit;						// Æ½²ÖÓ¯¿÷
-	TDAPriceType		FrozenDeposit;						// ¶³½á×Ê½ğ
-	TDAPriceType		Fee;								// ÊÖĞø·Ñ
-	TDAPriceType		Deposit;							// ±£Ö¤½ğ
-	TDAPriceType		KeepDeposit;						// Î¬³Ö±£Ö¤½ğ
-	TDAIntType			Status;								// ×´Ì¬
-	TDAPriceType		InMoney;							// Èë½ğ
-	TDAPriceType		OutMoney;							// ³ö½ğ
-	TDAPriceType		UnexpiredProfit;					// Î´µ½ÆÚÆ½Ó¯
-	TDAPriceType		TodayTotal;							// ½ñÈ¨Òæ
-	TDAPriceType		UnaccountProfit;					// Î´½áÆ½Ó¯
-	TDAPriceType		Royalty;							// ÆÚÈ¨È¨Àû½ğ
-	TDAStringType		ExchangeNo;							// ½»Ò×Ëù´úÂë
-	TDAStringType		TreatyCode;							// ºÏÔ¼´úÂë
-	TDAStringType		OrderNo;							// ¶¨µ¥ºÅ
-	TDAIntType			OrderNumber;						// Î¯ÍĞÊıÁ¿
-	TDAIntType			FilledNumber;						// ÒÑ³É½»ÊıÁ¿
-	TDAPriceType		FilledAdvPrice;						// ³É½»¾ù¼Û
-	TDAIntType			BuyHoldNumber;						// ³ÖÂòÊıÁ¿
-	TDAPriceType		BuyHoldOpenPrice;					// ³ÖÂò¿ª²Ö¾ù¼Û
-	TDAPriceType		BuyHoldPrice;						// ³ÖÂò¾ù¼Û
-	TDAIntType			SaleHoldNumber;						// ³ÖÂôÊıÁ¿
-	TDAPriceType		SaleHoldOpenPrice;					// ³ÖÂô¿ª²Ö¾ù¼Û
-	TDAPriceType		SaleHoldPrice;						// ³ÖÂô¾ù¼Û
-	TDAStringType		IsCanceled;							// ÊÇ·ñÒÑ¾­³·µ¥£¨0£ºÃ»ÓĞ£»1£ºÒÑ³·µ¥£©
-	TDAPriceType		FilledTotalFee;						// ³É½»×ÜµÄÊÖĞø·Ñ
-	TDAPriceType		Credit;								// ĞÅÈÎ¶î¶È
-	TDAPriceType		MarginLimit;						// ŒIÕ¹ÉÏÏŞ¶î¶È 20150727 added for ¸Û¹É
-	TDAPriceType		BorrowValue;						// ½è»õ¼ÛÖµ 20150727 added for ¸Û¹É
-	TDAPriceType		MortgageMoney;						// °´½Ò¼ÛÖµ 20150727 added for ¸Û¹É
-	TDAPriceType		T1;									// T1 20160219 added for ¸Û¹É
-	TDAPriceType		T2;									// T2 20160219 added for ¸Û¹É
-	TDAPriceType		T3;									// T3 20160219 added for ¸Û¹É
-	TDAPriceType		TN;									// Tn 20160219 added for ¸Û¹É
-	TDAPriceType		TradeLimit;							// ½»Ò×ÏŞ¶î
-	TDAPriceType		FCrossMax;							// ¿çÊĞ³¡×Ê½ğÏŞ¶î
-	TDAPriceType		SellFreezenMoney;					// Âô¿Õ¶³½á×Ê½ğ
-	TDAPriceType		SellInterest;						// Âô¿ÕÀûÏ¢
-	TDAPriceType		SellNeedAddMargin;					// Ğè²¹°´½ğ
+    TDAStringType		ClientNo;							// å®¢æˆ·å·
+    TDAStringType		AccountNo;							// èµ„é‡‘å¸å·
+    TDAStringType		CurrencyNo;							// å¸ç§
+    TDAPriceType		Available;							// ä»Šå¯ç”¨
+    TDAPriceType		YAvailable;							// æ˜¨å¯ç”¨
+    TDAPriceType		CanCashOut;							// ä»Šå¯å‡º
+    TDAPriceType		Money;								// ä»Šç»“å­˜
+    TDAPriceType		ExpiredProfit;						// å¹³ä»“ç›ˆäº
+    TDAPriceType		FrozenDeposit;						// å†»ç»“èµ„é‡‘
+    TDAPriceType		Fee;								// æ‰‹ç»­è´¹
+    TDAPriceType		Deposit;							// ä¿è¯é‡‘
+    TDAPriceType		KeepDeposit;						// ç»´æŒä¿è¯é‡‘
+    TDAIntType			Status;								// çŠ¶æ€
+    TDAPriceType		InMoney;							// å…¥é‡‘
+    TDAPriceType		OutMoney;							// å‡ºé‡‘
+    TDAPriceType		UnexpiredProfit;					// æœªåˆ°æœŸå¹³ç›ˆ
+    TDAPriceType		TodayTotal;							// ä»Šæƒç›Š
+    TDAPriceType		UnaccountProfit;					// æœªç»“å¹³ç›ˆ
+    TDAPriceType		Royalty;							// æœŸæƒæƒåˆ©é‡‘
+    TDAStringType		ExchangeNo;							// äº¤æ˜“æ‰€ä»£ç 
+    TDAStringType		TreatyCode;							// åˆçº¦ä»£ç 
+    TDAStringType		OrderNo;							// å®šå•å·
+    TDAIntType			OrderNumber;						// å§”æ‰˜æ•°é‡
+    TDAIntType			FilledNumber;						// å·²æˆäº¤æ•°é‡
+    TDAPriceType		FilledAdvPrice;						// æˆäº¤å‡ä»·
+    TDAIntType			BuyHoldNumber;						// æŒä¹°æ•°é‡
+    TDAPriceType		BuyHoldOpenPrice;					// æŒä¹°å¼€ä»“å‡ä»·
+    TDAPriceType		BuyHoldPrice;						// æŒä¹°å‡ä»·
+    TDAIntType			SaleHoldNumber;						// æŒå–æ•°é‡
+    TDAPriceType		SaleHoldOpenPrice;					// æŒå–å¼€ä»“å‡ä»·
+    TDAPriceType		SaleHoldPrice;						// æŒå–å‡ä»·
+    TDAStringType		IsCanceled;							// æ˜¯å¦å·²ç»æ’¤å•ï¼ˆ0ï¼šæ²¡æœ‰ï¼›1ï¼šå·²æ’¤å•ï¼‰
+    TDAPriceType		FilledTotalFee;						// æˆäº¤æ€»çš„æ‰‹ç»­è´¹
+    TDAPriceType		Credit;								// ä¿¡ä»»é¢åº¦
+    TDAPriceType		MarginLimit;						// å­–å±•ä¸Šé™é¢åº¦ 20150727 added for æ¸¯è‚¡
+    TDAPriceType		BorrowValue;						// å€Ÿè´§ä»·å€¼ 20150727 added for æ¸¯è‚¡
+    TDAPriceType		MortgageMoney;						// æŒ‰æ­ä»·å€¼ 20150727 added for æ¸¯è‚¡
+    TDAPriceType		T1;									// T1 20160219 added for æ¸¯è‚¡
+    TDAPriceType		T2;									// T2 20160219 added for æ¸¯è‚¡
+    TDAPriceType		T3;									// T3 20160219 added for æ¸¯è‚¡
+    TDAPriceType		TN;									// Tn 20160219 added for æ¸¯è‚¡
+    TDAPriceType		TradeLimit;							// äº¤æ˜“é™é¢
+    TDAPriceType		FCrossMax;							// è·¨å¸‚åœºèµ„é‡‘é™é¢
+    TDAPriceType		SellFreezenMoney;					// å–ç©ºå†»ç»“èµ„é‡‘
+    TDAPriceType		SellInterest;						// å–ç©ºåˆ©æ¯
+    TDAPriceType		SellNeedAddMargin;					// éœ€è¡¥æŒ‰é‡‘
 };
-// ÍÆËÍ³Ö²Ö±ä»¯
+// æ¨é€æŒä»“å˜åŒ–
 typedef CFutureRtnOrderField CFutureRtnPositionField;
-// ÍÆËÍ³É½»·µ»Ø
+// æ¨é€æˆäº¤è¿”å›
 typedef CFutureRspTradeField CFutureRtnTradeField;
 //-------------------------------------------------------------------------
-// »ñÈ¡ÎÊÌâ
+// è·å–é—®é¢˜
 struct CFutureReqGetQuestionField
 {
-	TDAIntType			Unused;								// ÓÃ»§ÕÊºÅ
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAIntType			Unused;								// ç”¨æˆ·å¸å·
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// »ñÈ¡ÎÊÌâ·µ»Ø
+// è·å–é—®é¢˜è¿”å›
 struct CFutureRspQuestionField
 {
-	TDAStringType		QuestionType;						// ÎÊÌâÀàĞÍ	0£º¹ú¼ÊÆÚ»õ£¬1£º¹ú¼Ê¹ÉÆ±
-	TDAStringType		QuestionId;							// ÎÊÌâ±àºÅ
-	TDAStringType		QuestionCN;							// ÎÊÌâ£¨ÖĞÎÄ£©
-	TDAStringType		QuestionEN;							// ÎÊÌâ£¨Ó¢ÎÄ£©
+    TDAStringType		QuestionType;						// é—®é¢˜ç±»å‹	0ï¼šå›½é™…æœŸè´§ï¼Œ1ï¼šå›½é™…è‚¡ç¥¨
+    TDAStringType		QuestionId;							// é—®é¢˜ç¼–å·
+    TDAStringType		QuestionCN;							// é—®é¢˜ï¼ˆä¸­æ–‡ï¼‰
+    TDAStringType		QuestionEN;							// é—®é¢˜ï¼ˆè‹±æ–‡ï¼‰
 };
-// °²È«ÑéÖ¤ÇëÇó
+// å®‰å…¨éªŒè¯è¯·æ±‚
 struct CFutureReqSafeVerifyField
 {
-	TDAStringType		UserId;								// ÓÃ»§ÕÊºÅ
-	TDAStringType		UserPwd;							// ½»Ò×ÃÜÂë
-	TDAStringType		Type;								// Àà±ğ
-	TDAStringType		Question;							// ÃÜ±£ÎÊÌâ±àºÅ
-	TDAStringType		Answer;								// ÃÜ±£ÎÊÌâ´ğ°¸
-	TDAStringType		MobileNumber;						// ÊÖ»úºÅ
-	TDAStringType		VerifyCode;							// ÊÖ»úÑéÖ¤Âë
-	TDAStringType		SaveMac;							// ÊÇ·ñĞèÒª¼Ç×¡¸ÃÉè±¸
-	TDAStringType		MacAddress;							// MACµØÖ·
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		UserId;								// ç”¨æˆ·å¸å·
+    TDAStringType		UserPwd;							// äº¤æ˜“å¯†ç 
+    TDAStringType		Type;								// ç±»åˆ«
+    TDAStringType		Question;							// å¯†ä¿é—®é¢˜ç¼–å·
+    TDAStringType		Answer;								// å¯†ä¿é—®é¢˜ç­”æ¡ˆ
+    TDAStringType		MobileNumber;						// æ‰‹æœºå·
+    TDAStringType		VerifyCode;							// æ‰‹æœºéªŒè¯ç 
+    TDAStringType		SaveMac;							// æ˜¯å¦éœ€è¦è®°ä½è¯¥è®¾å¤‡
+    TDAStringType		MacAddress;							// MACåœ°å€
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ÉèÖÃÑéÖ¤ÎÊÌâ´ğ°¸
+// è®¾ç½®éªŒè¯é—®é¢˜ç­”æ¡ˆ
 struct CFutureReqSetVerifyQAField
 {
-	TDAStringType		UserId;								// ÓÃ»§ÕÊºÅ
-	TDAStringType		UserPwd;							// ½»Ò×ÃÜÂë
-	TDAStringType		Type;								// Àà±ğ
-	TDAStringType		Question;							// ÃÜ±£ÎÊÌâ±àºÅ
-	TDAStringType		Answer;								// ÃÜ±£ÎÊÌâ´ğ°¸
-	TDAStringType		MobileNumber;						// ÊÖ»úºÅ
-	TDAStringType		VerifyCode;							// ÊÖ»úÑéÖ¤Âë
-	TDAStringType		SaveMac;							// ÊÇ·ñĞèÒª¼Ç×¡¸ÃÉè±¸
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		UserId;								// ç”¨æˆ·å¸å·
+    TDAStringType		UserPwd;							// äº¤æ˜“å¯†ç 
+    TDAStringType		Type;								// ç±»åˆ«
+    TDAStringType		Question;							// å¯†ä¿é—®é¢˜ç¼–å·
+    TDAStringType		Answer;								// å¯†ä¿é—®é¢˜ç­”æ¡ˆ
+    TDAStringType		MobileNumber;						// æ‰‹æœºå·
+    TDAStringType		VerifyCode;							// æ‰‹æœºéªŒè¯ç 
+    TDAStringType		SaveMac;							// æ˜¯å¦éœ€è¦è®°ä½è¯¥è®¾å¤‡
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ÇëÇóÑéÖ¤Âë
+// è¯·æ±‚éªŒè¯ç 
 struct CFutureReqVerifyCodeField
 {
-	TDAStringType		UserId;								// ÓÃ»§ÕÊºÅ
-	TDAStringType		UserPwd;							// ½»Ò×ÃÜÂë
-	TDAStringType		Type;								// Àà±ğ
-	TDAStringType		Question;							// ÃÜ±£ÎÊÌâ±àºÅ
-	TDAStringType		Answer;								// ÃÜ±£ÎÊÌâ´ğ°¸
-	TDAStringType		MobileNumber;						// ÊÖ»úºÅ
-	TDAStringType		VerifyCode;							// ÊÖ»úÑéÖ¤Âë
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		UserId;								// ç”¨æˆ·å¸å·
+    TDAStringType		UserPwd;							// äº¤æ˜“å¯†ç 
+    TDAStringType		Type;								// ç±»åˆ«
+    TDAStringType		Question;							// å¯†ä¿é—®é¢˜ç¼–å·
+    TDAStringType		Answer;								// å¯†ä¿é—®é¢˜ç­”æ¡ˆ
+    TDAStringType		MobileNumber;						// æ‰‹æœºå·
+    TDAStringType		VerifyCode;							// æ‰‹æœºéªŒè¯ç 
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
 //-------------------------------------------------------------------------
-// ²éÑ¯³Ö²ÖºÏ¼ÆÇëÇó
+// æŸ¥è¯¢æŒä»“åˆè®¡è¯·æ±‚
 struct CFutureQryTotalPositionField
 {
-	TDAStringType		AccountNo;							// ×Ê½ğÕËºÅ
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		AccountNo;							// èµ„é‡‘è´¦å·
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ²éÑ¯³Ö²ÖºÏ¼Æ·µ»Ø
+// æŸ¥è¯¢æŒä»“åˆè®¡è¿”å›
 typedef CFutureRtnOrderField CFutureRspTotalPositionField;
-// ²éÑ¯²ßÂÔÇëÇó
+// æŸ¥è¯¢ç­–ç•¥è¯·æ±‚
 struct CFutureQryStrategyField
 {
-	TDAStringType		ExchangeNo;							// ½»Ò×Ëù´úÂë£¬Èç¹ûÌîĞ´Öµ£¬²éÑ¯Ò»¸ö½»Ò×ËùµÄ²ßÂÔ
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		ExchangeNo;							// äº¤æ˜“æ‰€ä»£ç ï¼Œå¦‚æœå¡«å†™å€¼ï¼ŒæŸ¥è¯¢ä¸€ä¸ªäº¤æ˜“æ‰€çš„ç­–ç•¥
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ²éÑ¯²ßÂÔ·µ»Ø
+// æŸ¥è¯¢ç­–ç•¥è¿”å›
 struct CFutureRspStrategyField
 {
-	TDAStringType		UserId;								// ²ßÂÔËùÊôÓÃ»§°¬µÏ
-	TDAStringType		KeyId;								// ²ßÂÔId
-	TDAStringType		Name;								// ²ßÂÔÃû³Æ
-	TDAStringType		Code;								// ²ßÂÔ´úÂë
-	TDAIntType			PriceType;							// ²ßÂÔ¼Û¸ñÀàĞÍ
-	TDAIntType			PriceTypeDetailType;				// ²ßÂÔ¼Û¸ñÏêÏ¸ÀàĞÍ
-	TDAStringType		PriceFormula;						// ²ßÂÔ¼Û¸ñ¹«Ê½
-	TDAIntType			TriggerMethod;						// ´¥·¢Ä£Ê½
-	TDAIntType			InnerProtect;						// ÊÇ·ñÆôÓÃÄÚÅÌ±£»¤
-	TDAIntType			PassiveFailCloseMainLeg;			// ÊÇ·ñ±»¶¯ÍÈÏÂµ¥Ê§°ÜÁ¢¼´Æ½¶ÔÓ¦Ö÷¶¯ÍÈ
-	TDAIntType			SlipPoint;							// ´¥·¢Ä£Ê½Îª2£º³É½»ÓÅÏÈÊ±ÉèÖÃµÄ»¬µãÊı
-	TDAIntType			RecoverPriceMethod;					// ×·¼Ó±£»¤²ßÂÔ
-	TDAIntType			RecoverPriceSeconds;				// ±»¶¯ÍÈ¹Òµ¥¶àÉÙÃëºóÒÔÊĞ¼Û×·µ¥
-	TDAStringType		SetType;							// ²ßÂÔÉèÖÃÀàĞÍ
-	TDAPriceType		MinChangePrice;						// ²ßÂÔĞĞÇé¼Û¸ñ×îĞ¡±ä¶¯µ¥Î»
-	TDAIntType			MaxNum;								// Ö÷¶¯ÍÈµ¥´Î×î´óÏÂµ¥Á¿
-	TDAIntType			SuportQuantity;						// ±»¶¯ÍÈºÏÔ¼×îĞ¡¶ÔÅÌ¹Òµ¥Á¿
-	TDAIntType			SafeDeep;							// °²È«Éî¶È
-	TDAIntType			MainRange;							// Ö÷¶¯ÇøÓò
-	TDAStringType		ManualZhuiDanBeyondNum;				// µ¥ÍÈÊÖ¶¯×·±»¶¯ÉèÖÃ
-	TDAStringType		ManualPingZhuDongBeyondNum;			// µ¥ÍÈÊÖ¶¯Æ½Ö÷¶¯ÉèÖÃ
-	TDAIntType			AutoGuaDanSeconds;					// µ¥ÍÈ×Ô¶¯¶¨Ê±ÉèÖÃ£¬¹Òµ¥ÃëÊı
-	TDAIntType			AutoZhuiBeiDongDots;				// µ¥ÍÈ×Ô¶¯¶¨Ê±×·±»¶¯ÉèÖÃ
-	TDAIntType			AutoPingZhuDongDots;				// µ¥ÍÈ×Ô¶¯¶¨Ê±Æ½Ö÷¶¯ÉèÖÃ
-	TDAIntType			AutoZhiSunDot;						// µ¥ÍÈ×Ô¶¯Ö¹ËğÉèÖÃ
-	TDAIntType			AutoZhiSunZhuiBeiDongDots;			// µ¥ÍÈ×Ô¶¯Ö¹Ëğ×·±»¶¯ÉèÖÃ£¬×·¼Û»¬µãÊı£º
-	TDAIntType			AutoZhiSunPingZhuDongDots;			// µ¥ÍÈ×Ô¶¯Ö¹ËğÆ½Ö÷¶¯ÉèÖÃ£¬×·¼Û»¬µãÊı£º
-	TDAIntType			DotLen;								// ²ßÂÔĞĞÇé¼Û¸ñĞ¡ÊıÎ»Êı
-	TDAStringType		TradeTime;							// ÉèÖÃ½»Ò×µÄÊ±¼ä¶Î
+    TDAStringType		UserId;								// ç­–ç•¥æ‰€å±ç”¨æˆ·è‰¾è¿ª
+    TDAStringType		KeyId;								// ç­–ç•¥Id
+    TDAStringType		Name;								// ç­–ç•¥åç§°
+    TDAStringType		Code;								// ç­–ç•¥ä»£ç 
+    TDAIntType			PriceType;							// ç­–ç•¥ä»·æ ¼ç±»å‹
+    TDAIntType			PriceTypeDetailType;				// ç­–ç•¥ä»·æ ¼è¯¦ç»†ç±»å‹
+    TDAStringType		PriceFormula;						// ç­–ç•¥ä»·æ ¼å…¬å¼
+    TDAIntType			TriggerMethod;						// è§¦å‘æ¨¡å¼
+    TDAIntType			InnerProtect;						// æ˜¯å¦å¯ç”¨å†…ç›˜ä¿æŠ¤
+    TDAIntType			PassiveFailCloseMainLeg;			// æ˜¯å¦è¢«åŠ¨è…¿ä¸‹å•å¤±è´¥ç«‹å³å¹³å¯¹åº”ä¸»åŠ¨è…¿
+    TDAIntType			SlipPoint;							// è§¦å‘æ¨¡å¼ä¸º2ï¼šæˆäº¤ä¼˜å…ˆæ—¶è®¾ç½®çš„æ»‘ç‚¹æ•°
+    TDAIntType			RecoverPriceMethod;					// è¿½åŠ ä¿æŠ¤ç­–ç•¥
+    TDAIntType			RecoverPriceSeconds;				// è¢«åŠ¨è…¿æŒ‚å•å¤šå°‘ç§’åä»¥å¸‚ä»·è¿½å•
+    TDAStringType		SetType;							// ç­–ç•¥è®¾ç½®ç±»å‹
+    TDAPriceType		MinChangePrice;						// ç­–ç•¥è¡Œæƒ…ä»·æ ¼æœ€å°å˜åŠ¨å•ä½
+    TDAIntType			MaxNum;								// ä¸»åŠ¨è…¿å•æ¬¡æœ€å¤§ä¸‹å•é‡
+    TDAIntType			SuportQuantity;						// è¢«åŠ¨è…¿åˆçº¦æœ€å°å¯¹ç›˜æŒ‚å•é‡
+    TDAIntType			SafeDeep;							// å®‰å…¨æ·±åº¦
+    TDAIntType			MainRange;							// ä¸»åŠ¨åŒºåŸŸ
+    TDAStringType		ManualZhuiDanBeyondNum;				// å•è…¿æ‰‹åŠ¨è¿½è¢«åŠ¨è®¾ç½®
+    TDAStringType		ManualPingZhuDongBeyondNum;			// å•è…¿æ‰‹åŠ¨å¹³ä¸»åŠ¨è®¾ç½®
+    TDAIntType			AutoGuaDanSeconds;					// å•è…¿è‡ªåŠ¨å®šæ—¶è®¾ç½®ï¼ŒæŒ‚å•ç§’æ•°
+    TDAIntType			AutoZhuiBeiDongDots;				// å•è…¿è‡ªåŠ¨å®šæ—¶è¿½è¢«åŠ¨è®¾ç½®
+    TDAIntType			AutoPingZhuDongDots;				// å•è…¿è‡ªåŠ¨å®šæ—¶å¹³ä¸»åŠ¨è®¾ç½®
+    TDAIntType			AutoZhiSunDot;						// å•è…¿è‡ªåŠ¨æ­¢æŸè®¾ç½®
+    TDAIntType			AutoZhiSunZhuiBeiDongDots;			// å•è…¿è‡ªåŠ¨æ­¢æŸè¿½è¢«åŠ¨è®¾ç½®ï¼Œè¿½ä»·æ»‘ç‚¹æ•°ï¼š
+    TDAIntType			AutoZhiSunPingZhuDongDots;			// å•è…¿è‡ªåŠ¨æ­¢æŸå¹³ä¸»åŠ¨è®¾ç½®ï¼Œè¿½ä»·æ»‘ç‚¹æ•°ï¼š
+    TDAIntType			DotLen;								// ç­–ç•¥è¡Œæƒ…ä»·æ ¼å°æ•°ä½æ•°
+    TDAStringType		TradeTime;							// è®¾ç½®äº¤æ˜“çš„æ—¶é—´æ®µ
 };
-// ²éÑ¯²ßÂÔÃ÷Ï¸ÇëÇó
+// æŸ¥è¯¢ç­–ç•¥æ˜ç»†è¯·æ±‚
 struct CFutureQryStrategyDetailField
 {
-	TDAStringType		StartegyCommodityNo;				// ºÏÔ¼´úÂë
-	TDAStringType		ErrorDescription;					// ´íÎóĞÅÏ¢
+    TDAStringType		StartegyCommodityNo;				// åˆçº¦ä»£ç 
+    TDAStringType		ErrorDescription;					// é”™è¯¯ä¿¡æ¯
 };
-// ²éÑ¯²ßÂÔÃ÷Ï¸·µ»Ø
+// æŸ¥è¯¢ç­–ç•¥æ˜ç»†è¿”å›
 struct CFutureRspStrategyDetailField
 {
-	TDAStringType		StartegyCommodityNo;				// ²ßÂÔÉÌÆ·±àºÅ
-	TDAStringType		StartegyContractNo;					// ²ßÂÔºÏÔ¼×éºÏ±àºÅ
-	TDAStringType		Price;								// ¼Û¸ñ
-	TDAIntType			LegNum;								// ÍÈÊı£¨2¸öºÏÔ¼Ì×ÀûÎª2ÍÈ£©
-	TDAStringType		LastTradeDate;						// ×îºó½»Ò×ÈÕ£¨yyyy-MM-dd£©
-	TDAIntType			SeqId;								// ²ßÂÔÖĞºÏÔ¼Ë³ĞòºÅ
-	TDAStringType		CommodityNo;						// ²ßÂÔÖĞºÏÔ¼µÄÉÌÆ·±àºÅ
-	TDAStringType		ContractNo;							// ²ßÂÔÖĞºÏÔ¼µÄºÏÔ¼±àºÅ
-	TDAStringType		Direct;								// ÂòÂô·½Ïò£¨1±íÊ¾Âò£¬2±íÊ¾Âô£©
-	TDAIntType			Quantity;							// ºÏÔ¼ÏÂµ¥ÊıÁ¿
-	TDAStringType		Model;								// ºÏÔ¼ÏÂµ¥ÊıÁ¿
-	TDAStringType		ModifyDate;							// ×îºó¸üĞÂÈÕÆÚ£¨yyyy-MM-dd£©
-	TDAStringType		OrderMethod;						// ÏÂµ¥ÀàĞÍ£¨ÏŞ¼Û£¬ÊĞ¼Û£©
-	TDAPriceType		PriceTolerance;						// ¼Û¸ñÈİÈÌ¶È
-	TDAPriceType		PriceParam;							// ¼Û¸ñ³ËÊı²ÎÊı
-	TDAIntType			SuportQuantity;						// ºÏÔ¼×îĞ¡¶ÔÅÌ¹Òµ¥Á¿
-	TDAIntType			MinMove;							// ºÏÔ¼×îĞ¡ÒÆ¶¯
-	TDAIntType			TimerOrder;							// ºÏÔ¼¶¨Ê±×·µ¥
-	TDAStringType		TimerOrderBeyondNum;				// ¶¨Ê±×·µ¥»¬µãÊı
-	TDAIntType			TimerOrderPrice;					// ºÏÔ¼¶¨Ê±×·¼Û
-	TDAStringType		TimerOrderPriceBeyondNum;			// ¶¨Ê±×·¼Û»¬µãÊı
-	TDAStringType		TimerOrderPriceTriggerNum;			// ¶¨Ê±×·¼Û´¥·¢´ÎÊı
-	TDAIntType			ZhiSunOrder;						// Ö¹Ëğ×·µ¥
-	TDAStringType		ZhiSunOrderBeyondNum;				// Ö¹Ëğ×·µ¥»¬µãÊı
-	TDAIntType			TimerPingCang;						// ºÏÔ¼¶¨Ê±Æ½²Ö
-	TDAStringType		TimerPingCangBeyondNum;				// ¶¨Ê±Æ½²Ö»¬µãÊı
-	TDAIntType			SafeDeep;							// °²È«Éî¶È
-	TDAIntType			MainRange;							// Ö÷¶¯ÇøÓò
+    TDAStringType		StartegyCommodityNo;				// ç­–ç•¥å•†å“ç¼–å·
+    TDAStringType		StartegyContractNo;					// ç­–ç•¥åˆçº¦ç»„åˆç¼–å·
+    TDAStringType		Price;								// ä»·æ ¼
+    TDAIntType			LegNum;								// è…¿æ•°ï¼ˆ2ä¸ªåˆçº¦å¥—åˆ©ä¸º2è…¿ï¼‰
+    TDAStringType		LastTradeDate;						// æœ€åäº¤æ˜“æ—¥ï¼ˆyyyy-MM-ddï¼‰
+    TDAIntType			SeqId;								// ç­–ç•¥ä¸­åˆçº¦é¡ºåºå·
+    TDAStringType		CommodityNo;						// ç­–ç•¥ä¸­åˆçº¦çš„å•†å“ç¼–å·
+    TDAStringType		ContractNo;							// ç­–ç•¥ä¸­åˆçº¦çš„åˆçº¦ç¼–å·
+    TDAStringType		Direct;								// ä¹°å–æ–¹å‘ï¼ˆ1è¡¨ç¤ºä¹°ï¼Œ2è¡¨ç¤ºå–ï¼‰
+    TDAIntType			Quantity;							// åˆçº¦ä¸‹å•æ•°é‡
+    TDAStringType		Model;								// åˆçº¦ä¸‹å•æ•°é‡
+    TDAStringType		ModifyDate;							// æœ€åæ›´æ–°æ—¥æœŸï¼ˆyyyy-MM-ddï¼‰
+    TDAStringType		OrderMethod;						// ä¸‹å•ç±»å‹ï¼ˆé™ä»·ï¼Œå¸‚ä»·ï¼‰
+    TDAPriceType		PriceTolerance;						// ä»·æ ¼å®¹å¿åº¦
+    TDAPriceType		PriceParam;							// ä»·æ ¼ä¹˜æ•°å‚æ•°
+    TDAIntType			SuportQuantity;						// åˆçº¦æœ€å°å¯¹ç›˜æŒ‚å•é‡
+    TDAIntType			MinMove;							// åˆçº¦æœ€å°ç§»åŠ¨
+    TDAIntType			TimerOrder;							// åˆçº¦å®šæ—¶è¿½å•
+    TDAStringType		TimerOrderBeyondNum;				// å®šæ—¶è¿½å•æ»‘ç‚¹æ•°
+    TDAIntType			TimerOrderPrice;					// åˆçº¦å®šæ—¶è¿½ä»·
+    TDAStringType		TimerOrderPriceBeyondNum;			// å®šæ—¶è¿½ä»·æ»‘ç‚¹æ•°
+    TDAStringType		TimerOrderPriceTriggerNum;			// å®šæ—¶è¿½ä»·è§¦å‘æ¬¡æ•°
+    TDAIntType			ZhiSunOrder;						// æ­¢æŸè¿½å•
+    TDAStringType		ZhiSunOrderBeyondNum;				// æ­¢æŸè¿½å•æ»‘ç‚¹æ•°
+    TDAIntType			TimerPingCang;						// åˆçº¦å®šæ—¶å¹³ä»“
+    TDAStringType		TimerPingCangBeyondNum;				// å®šæ—¶å¹³ä»“æ»‘ç‚¹æ•°
+    TDAIntType			SafeDeep;							// å®‰å…¨æ·±åº¦
+    TDAIntType			MainRange;							// ä¸»åŠ¨åŒºåŸŸ
 };
 

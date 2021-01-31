@@ -1,4 +1,4 @@
-#include <string>
+ï»¿#include <string>
 #include <iostream>
 #include <codecvt>
 #include <condition_variable>
@@ -11,18 +11,18 @@ using namespace std;
 using namespace pybind11;
 
 
-//´Ó×ÖµäÖĞ»ñÈ¡Ä³¸ö½¨Öµ¶ÔÓ¦µÄÕûÊı£¬²¢¸³Öµµ½ÇëÇó½á¹¹Ìå¶ÔÏóµÄÖµÉÏ
+//ä»å­—å…¸ä¸­è·å–æŸä¸ªå»ºå€¼å¯¹åº”çš„æ•´æ•°ï¼Œå¹¶èµ‹å€¼åˆ°è¯·æ±‚ç»“æ„ä½“å¯¹è±¡çš„å€¼ä¸Š
 void getInt(const dict &d, const char *key, int *value)
 {
-    if (d.contains(key))		//¼ì²é×ÖµäÖĞÊÇ·ñ´æÔÚ¸Ã¼üÖµ
+    if (d.contains(key))		//æ£€æŸ¥å­—å…¸ä¸­æ˜¯å¦å­˜åœ¨è¯¥é”®å€¼
     {
-        object o = d[key];		//»ñÈ¡¸Ã¼üÖµ
+        object o = d[key];		//è·å–è¯¥é”®å€¼
         *value = o.cast<int>();
     }
 };
 
 
-//´Ó×ÖµäÖĞ»ñÈ¡Ä³¸ö½¨Öµ¶ÔÓ¦µÄ¸¡µãÊı£¬²¢¸³Öµµ½ÇëÇó½á¹¹Ìå¶ÔÏóµÄÖµÉÏ
+//ä»å­—å…¸ä¸­è·å–æŸä¸ªå»ºå€¼å¯¹åº”çš„æµ®ç‚¹æ•°ï¼Œå¹¶èµ‹å€¼åˆ°è¯·æ±‚ç»“æ„ä½“å¯¹è±¡çš„å€¼ä¸Š
 void getDouble(const dict &d, const char *key, double *value)
 {
     if (d.contains(key))
@@ -33,7 +33,7 @@ void getDouble(const dict &d, const char *key, double *value)
 };
 
 
-//´Ó×ÖµäÖĞ»ñÈ¡Ä³¸ö½¨Öµ¶ÔÓ¦µÄ×Ö·û£¬²¢¸³Öµµ½ÇëÇó½á¹¹Ìå¶ÔÏóµÄÖµÉÏ
+//ä»å­—å…¸ä¸­è·å–æŸä¸ªå»ºå€¼å¯¹åº”çš„å­—ç¬¦ï¼Œå¹¶èµ‹å€¼åˆ°è¯·æ±‚ç»“æ„ä½“å¯¹è±¡çš„å€¼ä¸Š
 void getChar(const dict &d, const char *key, char *value)
 {
     if (d.contains(key))
@@ -47,7 +47,7 @@ void getChar(const dict &d, const char *key, char *value)
 template <size_t size>
 using string_literal = char[size];
 
-//´Ó×ÖµäÖĞ»ñÈ¡Ä³¸ö½¨Öµ¶ÔÓ¦µÄ×Ö·û´®£¬²¢¸³Öµµ½ÇëÇó½á¹¹Ìå¶ÔÏóµÄÖµÉÏ
+//ä»å­—å…¸ä¸­è·å–æŸä¸ªå»ºå€¼å¯¹åº”çš„å­—ç¬¦ä¸²ï¼Œå¹¶èµ‹å€¼åˆ°è¯·æ±‚ç»“æ„ä½“å¯¹è±¡çš„å€¼ä¸Š
 template <size_t size>
 void getString(const pybind11::dict &d, const char *key, string_literal<size> &value)
 {
@@ -56,11 +56,11 @@ void getString(const pybind11::dict &d, const char *key, string_literal<size> &v
         object o = d[key];
         string s = o.cast<string>();
         const char *buf = s.c_str();
-        strcpy(value, buf);
+        strcpy_s(value, buf);
     }
 };
 
-//½«GBK±àÂëµÄ×Ö·û´®×ª»»ÎªUTF8
+//å°†GBKç¼–ç çš„å­—ç¬¦ä¸²è½¬æ¢ä¸ºUTF8
 inline string toUtf(const string &gb2312)
 {
 #ifdef _MSC_VER

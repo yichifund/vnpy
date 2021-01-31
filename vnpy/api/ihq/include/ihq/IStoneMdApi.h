@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "IStoneMdApiStruct.h"
 
 #if defined(ISLIB) && defined(WIN32)
@@ -14,273 +14,273 @@
 using namespace istone::mdapi;
 namespace istone
 {
-	namespace mdapi
-	{
-		class IStoneMdSpi
-		{
-		public:
-			///µ±¿Í»§¶ËÓë½»Ò×ºóÌ¨½¨Á¢ÆğÍ¨ĞÅÁ¬½ÓÊ±£¨»¹Î´µÇÂ¼Ç°£©£¬¸Ã·½·¨±»µ÷ÓÃ¡£
-			virtual void OnFrontConnected() {};
+    namespace mdapi
+    {
+        class IStoneMdSpi
+        {
+        public:
+            ///å½“å®¢æˆ·ç«¯ä¸äº¤æ˜“åå°å»ºç«‹èµ·é€šä¿¡è¿æ¥æ—¶ï¼ˆè¿˜æœªç™»å½•å‰ï¼‰ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚
+            virtual void OnFrontConnected() {};
 
-			///µ±¿Í»§¶ËÓë½»Ò×ºóÌ¨Í¨ĞÅÁ¬½Ó¶Ï¿ªÊ±£¬¸Ã·½·¨±»µ÷ÓÃ¡£µ±·¢ÉúÕâ¸öÇé¿öºó£¬API»á×Ô¶¯ÖØĞÂÁ¬½Ó£¬¿Í»§¶Ë¿É²»×ö´¦Àí¡£
-			///@param nReason ´íÎóÔ­Òò
-			///        0x1001 ÍøÂç¶ÁÊ§°Ü
-			///        0x1002 ÍøÂçĞ´Ê§°Ü
-			///        0x2001 ½ÓÊÕĞÄÌø³¬Ê±
-			///        0x2002 ·¢ËÍĞÄÌøÊ§°Ü
-			///        0x2003 ÊÕµ½´íÎó±¨ÎÄ
-			virtual void OnFrontDisconnected(int nReason) {};
+            ///å½“å®¢æˆ·ç«¯ä¸äº¤æ˜“åå°é€šä¿¡è¿æ¥æ–­å¼€æ—¶ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚å½“å‘ç”Ÿè¿™ä¸ªæƒ…å†µåï¼ŒAPIä¼šè‡ªåŠ¨é‡æ–°è¿æ¥ï¼Œå®¢æˆ·ç«¯å¯ä¸åšå¤„ç†ã€‚
+            ///@param nReason é”™è¯¯åŸå› 
+            ///        0x1001 ç½‘ç»œè¯»å¤±è´¥
+            ///        0x1002 ç½‘ç»œå†™å¤±è´¥
+            ///        0x2001 æ¥æ”¶å¿ƒè·³è¶…æ—¶
+            ///        0x2002 å‘é€å¿ƒè·³å¤±è´¥
+            ///        0x2003 æ”¶åˆ°é”™è¯¯æŠ¥æ–‡
+            virtual void OnFrontDisconnected(int nReason) {};
 
-			///ĞÄÌø³¬Ê±¾¯¸æ¡£µ±³¤Ê±¼äÎ´ÊÕµ½±¨ÎÄÊ±£¬¸Ã·½·¨±»µ÷ÓÃ¡£
-			///@param nTimeLapse ¾àÀëÉÏ´Î½ÓÊÕ±¨ÎÄµÄÊ±¼ä
-			virtual void OnHeartBeatWarning(int nTimeLapse) {};
+            ///å¿ƒè·³è¶…æ—¶è­¦å‘Šã€‚å½“é•¿æ—¶é—´æœªæ”¶åˆ°æŠ¥æ–‡æ—¶ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚
+            ///@param nTimeLapse è·ç¦»ä¸Šæ¬¡æ¥æ”¶æŠ¥æ–‡çš„æ—¶é—´
+            virtual void OnHeartBeatWarning(int nTimeLapse) {};
 
-			///´íÎóÓ¦´ğ
-			virtual void OnRspError(CIStoneRspInfo* pRspInfo, int nRequestID, bool bIsLast) {};
+            ///é”™è¯¯åº”ç­”
+            virtual void OnRspError(CIStoneRspInfo* pRspInfo, int nRequestID, bool bIsLast) {};
 
-			///ÓÃ»§µÇÂ¼Ó¦´ğ
-			///@param pRspUserLogout	µÇÂ¼³É¹¦Ê±£¬·µ»Ø¸ÃĞÅÏ¢
-			///@param pRspInfo			µÇÂ¼³É¹¦Ê±£¬pRspInfoÎª¿Õ£»µÇÂ¼Ê§°ÜÊ±£¬pRspInfo·µ»Ø´íÎó´úÂëÓëĞÅÏ¢
-			virtual void OnRspUserLogin(CIStoneRspUserLogin* pRspUserLogin, CIStoneRspInfo* pRspInfo, int nRequestID, bool bIsLast) {};
+            ///ç”¨æˆ·ç™»å½•åº”ç­”
+            ///@param pRspUserLogout	ç™»å½•æˆåŠŸæ—¶ï¼Œè¿”å›è¯¥ä¿¡æ¯
+            ///@param pRspInfo			ç™»å½•æˆåŠŸæ—¶ï¼ŒpRspInfoä¸ºç©ºï¼›ç™»å½•å¤±è´¥æ—¶ï¼ŒpRspInfoè¿”å›é”™è¯¯ä»£ç ä¸ä¿¡æ¯
+            virtual void OnRspUserLogin(CIStoneRspUserLogin* pRspUserLogin, CIStoneRspInfo* pRspInfo, int nRequestID, bool bIsLast) {};
 
-			///ÓÃ»§ÍË³öÓ¦´ğ
-			///@param pRspUserLogout	ÍË³ö³É¹¦Ê±£¬·µ»Ø¸ÃĞÅÏ¢
-			///@param pRspInfo			ÍË³ö³É¹¦Ê±£¬pRspInfoÎª¿Õ£»ÍË³öÊ§°ÜÊ±£¬pRspInfo·µ»Ø´íÎó´úÂëÓëĞÅÏ¢
-			virtual void OnRspUserLogout(CIStoneRspUserLogout* pRspUserLogout, CIStoneRspInfo* pRspInfo, int nRequestID, bool bIsLast) {};
+            ///ç”¨æˆ·é€€å‡ºåº”ç­”
+            ///@param pRspUserLogout	é€€å‡ºæˆåŠŸæ—¶ï¼Œè¿”å›è¯¥ä¿¡æ¯
+            ///@param pRspInfo			é€€å‡ºæˆåŠŸæ—¶ï¼ŒpRspInfoä¸ºç©ºï¼›é€€å‡ºå¤±è´¥æ—¶ï¼ŒpRspInfoè¿”å›é”™è¯¯ä»£ç ä¸ä¿¡æ¯
+            virtual void OnRspUserLogout(CIStoneRspUserLogout* pRspUserLogout, CIStoneRspInfo* pRspInfo, int nRequestID, bool bIsLast) {};
 
-			///ÓÃ»§Éî¶ÈĞĞÇéÈ«¶©ÔÄÓ¦´ğ
-			///@param tickType						¹ÉÆ±ÀàĞÍ, ¶àÀàĞÍ¶©ÔÄ¿ÉÊ¹ÓÃ ISTONE_TICKER_TYPE_SPOT | ISTONE_TICKER_TYPE_INDEX ·½Ê½¶©ÔÄ¡£
-			///        ISTONE_TICKER_TYPE_SPOT		<ÆÕÍ¨¹ÉÆ±<Õ®È¯<»ù½ğ
-			///        ISTONE_TICKER_TYPE_INDEX		<Ö¸Êı
-			///        ISTONE_TICKER_TYPE_OPTION	<ÆÚÈ¨
-			///@param exchangeType					½»Ò×ËùÀàĞÍ£¬ ¶à½»Ò×Ëù¿ÉÊ¹ÓÃ ISTONE_EXCHANGE_SH | ISTONE_EXCHANGE_SZ ·½Ê½¶©ÔÄ¡£
-			///        ISTONE_EXCHANGE_SH			<ÉÏÖ¤
-			///        ISTONE_EXCHANGE_SZ			<ÉîÖ¤
-			virtual void OnRspSubAllMarketData(int tickType, int exchangeID, int nRequestID, bool isSuccess) {};
+            ///ç”¨æˆ·æ·±åº¦è¡Œæƒ…å…¨è®¢é˜…åº”ç­”
+            ///@param tickType						è‚¡ç¥¨ç±»å‹, å¤šç±»å‹è®¢é˜…å¯ä½¿ç”¨ ISTONE_TICKER_TYPE_SPOT | ISTONE_TICKER_TYPE_INDEX æ–¹å¼è®¢é˜…ã€‚
+            ///        ISTONE_TICKER_TYPE_SPOT		<æ™®é€šè‚¡ç¥¨<å€ºåˆ¸<åŸºé‡‘
+            ///        ISTONE_TICKER_TYPE_INDEX		<æŒ‡æ•°
+            ///        ISTONE_TICKER_TYPE_OPTION	<æœŸæƒ
+            ///@param exchangeType					äº¤æ˜“æ‰€ç±»å‹ï¼Œ å¤šäº¤æ˜“æ‰€å¯ä½¿ç”¨ ISTONE_EXCHANGE_SH | ISTONE_EXCHANGE_SZ æ–¹å¼è®¢é˜…ã€‚
+            ///        ISTONE_EXCHANGE_SH			<ä¸Šè¯
+            ///        ISTONE_EXCHANGE_SZ			<æ·±è¯
+            virtual void OnRspSubAllMarketData(int tickType, int exchangeID, int nRequestID, bool isSuccess) {};
 
-			///ÓÃ»§Éî¶ÈĞĞÇéÈ«ÍË¶©Ó¦´ğ
-			///@param tickType						¹ÉÆ±ÀàĞÍ, ¶àÀàĞÍ¶©ÔÄ¿ÉÊ¹ÓÃ ISTONE_TICKER_TYPE_SPOT | ISTONE_TICKER_TYPE_INDEX ·½Ê½¶©ÔÄ¡£
-			///        ISTONE_TICKER_TYPE_SPOT		<ÆÕÍ¨¹ÉÆ±<Õ®È¯<»ù½ğ
-			///        ISTONE_TICKER_TYPE_INDEX		<Ö¸Êı
-			///        ISTONE_TICKER_TYPE_OPTION	<ÆÚÈ¨
-			///@param exchangeType					½»Ò×ËùÀàĞÍ£¬ ¶à½»Ò×Ëù¿ÉÊ¹ÓÃ ISTONE_EXCHANGE_SH | ISTONE_EXCHANGE_SZ ·½Ê½¶©ÔÄ¡£
-			///        ISTONE_EXCHANGE_SH			<ÉÏÖ¤
-			///        ISTONE_EXCHANGE_SZ			<ÉîÖ¤
-			virtual void OnRspUnSubAllMarketData(int tickType, int exchangeID, int nRequestID, bool isSuccess) {};
+            ///ç”¨æˆ·æ·±åº¦è¡Œæƒ…å…¨é€€è®¢åº”ç­”
+            ///@param tickType						è‚¡ç¥¨ç±»å‹, å¤šç±»å‹è®¢é˜…å¯ä½¿ç”¨ ISTONE_TICKER_TYPE_SPOT | ISTONE_TICKER_TYPE_INDEX æ–¹å¼è®¢é˜…ã€‚
+            ///        ISTONE_TICKER_TYPE_SPOT		<æ™®é€šè‚¡ç¥¨<å€ºåˆ¸<åŸºé‡‘
+            ///        ISTONE_TICKER_TYPE_INDEX		<æŒ‡æ•°
+            ///        ISTONE_TICKER_TYPE_OPTION	<æœŸæƒ
+            ///@param exchangeType					äº¤æ˜“æ‰€ç±»å‹ï¼Œ å¤šäº¤æ˜“æ‰€å¯ä½¿ç”¨ ISTONE_EXCHANGE_SH | ISTONE_EXCHANGE_SZ æ–¹å¼è®¢é˜…ã€‚
+            ///        ISTONE_EXCHANGE_SH			<ä¸Šè¯
+            ///        ISTONE_EXCHANGE_SZ			<æ·±è¯
+            virtual void OnRspUnSubAllMarketData(int tickType, int exchangeID, int nRequestID, bool isSuccess) {};
 
-			///ÓÃ»§Öğ±ÊĞĞÇéÈ«¶©ÔÄÓ¦´ğ
-			///@param tickType						¹ÉÆ±ÀàĞÍ, ¶àÀàĞÍ¶©ÔÄ¿ÉÊ¹ÓÃ ISTONE_TICKER_TYPE_SPOT | ISTONE_TICKER_TYPE_INDEX ·½Ê½¶©ÔÄ¡£
-			///        ISTONE_TICKER_TYPE_SPOT		<ÆÕÍ¨¹ÉÆ±<Õ®È¯<»ù½ğ
-			///        ISTONE_TICKER_TYPE_INDEX		<Ö¸Êı
-			///        ISTONE_TICKER_TYPE_OPTION	<ÆÚÈ¨
-			///@param exchangeType					½»Ò×ËùÀàĞÍ£¬ ¶à½»Ò×Ëù¿ÉÊ¹ÓÃ ISTONE_EXCHANGE_SH | ISTONE_EXCHANGE_SZ ·½Ê½¶©ÔÄ¡£
-			///        ISTONE_EXCHANGE_SH			<ÉÏÖ¤
-			///        ISTONE_EXCHANGE_SZ			<ÉîÖ¤
-			virtual void OnRspSubAllTickByTick(int exchangeID, int nRequestID, bool isSuccess) {};
+            ///ç”¨æˆ·é€ç¬”è¡Œæƒ…å…¨è®¢é˜…åº”ç­”
+            ///@param tickType						è‚¡ç¥¨ç±»å‹, å¤šç±»å‹è®¢é˜…å¯ä½¿ç”¨ ISTONE_TICKER_TYPE_SPOT | ISTONE_TICKER_TYPE_INDEX æ–¹å¼è®¢é˜…ã€‚
+            ///        ISTONE_TICKER_TYPE_SPOT		<æ™®é€šè‚¡ç¥¨<å€ºåˆ¸<åŸºé‡‘
+            ///        ISTONE_TICKER_TYPE_INDEX		<æŒ‡æ•°
+            ///        ISTONE_TICKER_TYPE_OPTION	<æœŸæƒ
+            ///@param exchangeType					äº¤æ˜“æ‰€ç±»å‹ï¼Œ å¤šäº¤æ˜“æ‰€å¯ä½¿ç”¨ ISTONE_EXCHANGE_SH | ISTONE_EXCHANGE_SZ æ–¹å¼è®¢é˜…ã€‚
+            ///        ISTONE_EXCHANGE_SH			<ä¸Šè¯
+            ///        ISTONE_EXCHANGE_SZ			<æ·±è¯
+            virtual void OnRspSubAllTickByTick(int exchangeID, int nRequestID, bool isSuccess) {};
 
-			///ÓÃ»§Öğ±ÊĞĞÇéÈ«ÍË¶©Ó¦´ğ
-			///@param tickType						¹ÉÆ±ÀàĞÍ, ¶àÀàĞÍ¶©ÔÄ¿ÉÊ¹ÓÃ ISTONE_TICKER_TYPE_SPOT | ISTONE_TICKER_TYPE_INDEX ·½Ê½¶©ÔÄ¡£
-			///        ISTONE_TICKER_TYPE_SPOT		<ÆÕÍ¨¹ÉÆ±<Õ®È¯<»ù½ğ
-			///        ISTONE_TICKER_TYPE_INDEX		<Ö¸Êı
-			///        ISTONE_TICKER_TYPE_OPTION	<ÆÚÈ¨
-			///@param exchangeType					½»Ò×ËùÀàĞÍ£¬ ¶à½»Ò×Ëù¿ÉÊ¹ÓÃ ISTONE_EXCHANGE_SH | ISTONE_EXCHANGE_SZ ·½Ê½¶©ÔÄ¡£
-			///        ISTONE_EXCHANGE_SH			<ÉÏÖ¤
-			///        ISTONE_EXCHANGE_SZ			<ÉîÖ¤
-			virtual void OnRspUnSubAllTickByTick(int exchangeID, int nRequestID, bool isSuccess) {};
+            ///ç”¨æˆ·é€ç¬”è¡Œæƒ…å…¨é€€è®¢åº”ç­”
+            ///@param tickType						è‚¡ç¥¨ç±»å‹, å¤šç±»å‹è®¢é˜…å¯ä½¿ç”¨ ISTONE_TICKER_TYPE_SPOT | ISTONE_TICKER_TYPE_INDEX æ–¹å¼è®¢é˜…ã€‚
+            ///        ISTONE_TICKER_TYPE_SPOT		<æ™®é€šè‚¡ç¥¨<å€ºåˆ¸<åŸºé‡‘
+            ///        ISTONE_TICKER_TYPE_INDEX		<æŒ‡æ•°
+            ///        ISTONE_TICKER_TYPE_OPTION	<æœŸæƒ
+            ///@param exchangeType					äº¤æ˜“æ‰€ç±»å‹ï¼Œ å¤šäº¤æ˜“æ‰€å¯ä½¿ç”¨ ISTONE_EXCHANGE_SH | ISTONE_EXCHANGE_SZ æ–¹å¼è®¢é˜…ã€‚
+            ///        ISTONE_EXCHANGE_SH			<ä¸Šè¯
+            ///        ISTONE_EXCHANGE_SZ			<æ·±è¯
+            virtual void OnRspUnSubAllTickByTick(int exchangeID, int nRequestID, bool isSuccess) {};
 
-			///ÓÃ»§Éî¶ÈĞĞÇé¶©ÔÄÓ¦´ğ
-			///@param ppInstrumentID	¹ÉÆ±´úÂë
-			///@param nCount			¹ÉÆ±ÊıÁ¿
-			virtual void OnRspSubMarketData(char* tickers[], int count, int nRequestID, bool bIsSuccess) {};
+            ///ç”¨æˆ·æ·±åº¦è¡Œæƒ…è®¢é˜…åº”ç­”
+            ///@param ppInstrumentID	è‚¡ç¥¨ä»£ç 
+            ///@param nCount			è‚¡ç¥¨æ•°é‡
+            virtual void OnRspSubMarketData(char* tickers[], int count, int nRequestID, bool bIsSuccess) {};
 
-			///ÓÃ»§Éî¶ÈĞĞÇéÍË¶©Ó¦´ğ
-			///@param ppInstrumentID	¹ÉÆ±´úÂë
-			///@param nCount			¹ÉÆ±ÊıÁ¿
-			virtual void OnRspUnSubMarketData(char* tickers[], int count, int nRequestID, bool bIsSuccess) {};
+            ///ç”¨æˆ·æ·±åº¦è¡Œæƒ…é€€è®¢åº”ç­”
+            ///@param ppInstrumentID	è‚¡ç¥¨ä»£ç 
+            ///@param nCount			è‚¡ç¥¨æ•°é‡
+            virtual void OnRspUnSubMarketData(char* tickers[], int count, int nRequestID, bool bIsSuccess) {};
 
-			///ÓÃ»§Öğ±ÊĞĞÇé¶©ÔÄÓ¦´ğ
-			///@param ppInstrumentID	¹ÉÆ±´úÂë
-			///@param nCount			¹ÉÆ±ÊıÁ¿
-			virtual void OnRspSubTickByTick(char* tickers[], int count, int nRequestID, bool bIsSuccess) {};
+            ///ç”¨æˆ·é€ç¬”è¡Œæƒ…è®¢é˜…åº”ç­”
+            ///@param ppInstrumentID	è‚¡ç¥¨ä»£ç 
+            ///@param nCount			è‚¡ç¥¨æ•°é‡
+            virtual void OnRspSubTickByTick(char* tickers[], int count, int nRequestID, bool bIsSuccess) {};
 
-			///ÓÃ»§Öğ±ÊĞĞÇéÍË¶©Ó¦´ğ
-			///@param ppInstrumentID	¹ÉÆ±´úÂë
-			///@param nCount			¹ÉÆ±ÊıÁ¿
-			virtual void OnRspUnSubTickByTick(char* tickers[], int count, int nRequestID, bool bIsSuccess) {};
+            ///ç”¨æˆ·é€ç¬”è¡Œæƒ…é€€è®¢åº”ç­”
+            ///@param ppInstrumentID	è‚¡ç¥¨ä»£ç 
+            ///@param nCount			è‚¡ç¥¨æ•°é‡
+            virtual void OnRspUnSubTickByTick(char* tickers[], int count, int nRequestID, bool bIsSuccess) {};
 
-			///Éî¶ÈĞĞÇéÍ¨Öª
-			virtual void OnRtnDepthMarketData(CIStoneDepthMarketData* data) {};
+            ///æ·±åº¦è¡Œæƒ…é€šçŸ¥
+            virtual void OnRtnDepthMarketData(CIStoneDepthMarketData* data) {};
 
-			///Öğ±ÊĞĞÇéÍ¨Öª
-			virtual void OnRtnTickByTick(CIStoneTickByTick* data) {};
+            ///é€ç¬”è¡Œæƒ…é€šçŸ¥
+            virtual void OnRtnTickByTick(CIStoneTickByTick* data) {};
 
-			///¶©µ¥²¾Í¨Öª
-			virtual void OnRtnOrderBook(CIStoneOrderBook* data) {};
+            ///è®¢å•ç°¿é€šçŸ¥
+            virtual void OnRtnOrderBook(CIStoneOrderBook* data) {};
 
-			///ÓÃ»§¶©µ¥²¾¶©ÔÄÓ¦´ğ
-			///@param ppInstrumentID	¹ÉÆ±´úÂë
-			///@param nCount			¹ÉÆ±ÊıÁ¿
-			virtual void OnRspSubOrderBook(char* tickers[], int count, int nRequestID, bool bIsSuccess) {};
+            ///ç”¨æˆ·è®¢å•ç°¿è®¢é˜…åº”ç­”
+            ///@param ppInstrumentID	è‚¡ç¥¨ä»£ç 
+            ///@param nCount			è‚¡ç¥¨æ•°é‡
+            virtual void OnRspSubOrderBook(char* tickers[], int count, int nRequestID, bool bIsSuccess) {};
 
-			///ÓÃ»§¶©µ¥²¾ÍË¶©Ó¦´ğ
-			///@param ppInstrumentID	¹ÉÆ±´úÂë
-			///@param nCount			¹ÉÆ±ÊıÁ¿
-			virtual void OnRspUnSubOrderBook(char* tickers[], int count, int nRequestID, bool bIsSuccess) {};
-		};
+            ///ç”¨æˆ·è®¢å•ç°¿é€€è®¢åº”ç­”
+            ///@param ppInstrumentID	è‚¡ç¥¨ä»£ç 
+            ///@param nCount			è‚¡ç¥¨æ•°é‡
+            virtual void OnRspUnSubOrderBook(char* tickers[], int count, int nRequestID, bool bIsSuccess) {};
+        };
 
-		class MD_API_EXPORT IStoneMdApi
-		{
-		public:
-			///´´½¨MduserApi
-			///@param pszFlowPath ´æÖü¶©ÔÄĞÅÏ¢ÎÄ¼şµÄÄ¿Â¼£¬Ä¬ÈÏÎªµ±Ç°Ä¿Â¼
-			///@return ´´½¨³öµÄUserApi
-			static IStoneMdApi* CreateMdUserApi(const char* pszFlowPath = "");
+        class MD_API_EXPORT IStoneMdApi
+        {
+        public:
+            ///åˆ›å»ºMduserApi
+            ///@param pszFlowPath å­˜è´®è®¢é˜…ä¿¡æ¯æ–‡ä»¶çš„ç›®å½•ï¼Œé»˜è®¤ä¸ºå½“å‰ç›®å½•
+            ///@return åˆ›å»ºå‡ºçš„UserApi
+            static IStoneMdApi* CreateMdUserApi(const char* pszFlowPath = "");
 
-			///»ñÈ¡APIµÄ°æ±¾ĞÅÏ¢
-			///@retrun »ñÈ¡µ½µÄ°æ±¾ºÅ
-			static const char* GetVersion();
+            ///è·å–APIçš„ç‰ˆæœ¬ä¿¡æ¯
+            ///@retrun è·å–åˆ°çš„ç‰ˆæœ¬å·
+            static const char* GetVersion();
 
-			///É¾³ı½Ó¿Ú¶ÔÏó±¾Éí
-			///@remark ²»ÔÙÊ¹ÓÃ±¾½Ó¿Ú¶ÔÏóÊ±,µ÷ÓÃ¸Ãº¯ÊıÉ¾³ı½Ó¿Ú¶ÔÏó
-			virtual void Release() = 0;
+            ///åˆ é™¤æ¥å£å¯¹è±¡æœ¬èº«
+            ///@remark ä¸å†ä½¿ç”¨æœ¬æ¥å£å¯¹è±¡æ—¶,è°ƒç”¨è¯¥å‡½æ•°åˆ é™¤æ¥å£å¯¹è±¡
+            virtual void Release() = 0;
 
-			///³õÊ¼»¯
-			///@remark ³õÊ¼»¯ÔËĞĞ»·¾³,Ö»ÓĞµ÷ÓÃºó,½Ó¿Ú²Å¿ªÊ¼¹¤×÷
-			virtual int Init() = 0;
+            ///åˆå§‹åŒ–
+            ///@remark åˆå§‹åŒ–è¿è¡Œç¯å¢ƒ,åªæœ‰è°ƒç”¨å,æ¥å£æ‰å¼€å§‹å·¥ä½œ
+            virtual int Init() = 0;
 
-			///µÈ´ı½Ó¿ÚÏß³Ì½áÊøÔËĞĞ
-			///@return Ïß³ÌÍË³ö´úÂë
-			virtual int Join() = 0;
+            ///ç­‰å¾…æ¥å£çº¿ç¨‹ç»“æŸè¿è¡Œ
+            ///@return çº¿ç¨‹é€€å‡ºä»£ç 
+            virtual int Join() = 0;
 
-			///»ñÈ¡µ±Ç°½»Ò×ÈÕ
-			///@retrun »ñÈ¡µ½µÄ½»Ò×ÈÕ
-			///@remark Ö»ÓĞµÇÂ¼³É¹¦ºó,²ÅÄÜµÃµ½ÕıÈ·µÄ½»Ò×ÈÕ
-			virtual const char* GetTradingDay() = 0;
+            ///è·å–å½“å‰äº¤æ˜“æ—¥
+            ///@retrun è·å–åˆ°çš„äº¤æ˜“æ—¥
+            ///@remark åªæœ‰ç™»å½•æˆåŠŸå,æ‰èƒ½å¾—åˆ°æ­£ç¡®çš„äº¤æ˜“æ—¥
+            virtual const char* GetTradingDay() = 0;
 
-			///×¢²áÇ°ÖÃ»úÍøÂçµØÖ·
-			///@param pszFrontAddress£ºÇ°ÖÃ»úÍøÂçµØÖ·¡£
-			///@remark ÍøÂçµØÖ·µÄ¸ñÊ½Îª£º¡°protocol://ipaddress:port¡±£¬Èç£º¡±tcp://127.0.0.1:17001¡±¡£ 
-			///@remark ¡°tcp¡±´ú±í´«ÊäĞ­Òé£¬¡°127.0.0.1¡±´ú±í·şÎñÆ÷µØÖ·¡£¡±17001¡±´ú±í·şÎñÆ÷¶Ë¿ÚºÅ¡£
-			virtual void RegisterFront(const char* pszFrontAddress) = 0;
+            ///æ³¨å†Œå‰ç½®æœºç½‘ç»œåœ°å€
+            ///@param pszFrontAddressï¼šå‰ç½®æœºç½‘ç»œåœ°å€ã€‚
+            ///@remark ç½‘ç»œåœ°å€çš„æ ¼å¼ä¸ºï¼šâ€œprotocol://ipaddress:portâ€ï¼Œå¦‚ï¼šâ€tcp://127.0.0.1:17001â€ã€‚ 
+            ///@remark â€œtcpâ€ä»£è¡¨ä¼ è¾“åè®®ï¼Œâ€œ127.0.0.1â€ä»£è¡¨æœåŠ¡å™¨åœ°å€ã€‚â€17001â€ä»£è¡¨æœåŠ¡å™¨ç«¯å£å·ã€‚
+            virtual void RegisterFront(const char* pszFrontAddress) = 0;
 
-			///×¢²áĞĞÇé×é²¥µØÖ·
-			///@param pMutilcastAddr£ºĞĞÇé×é²¥µØÖ·
-			///@remark ÍøÂçµØÖ·µÄ¸ñÊ½Îª£º¡°protocol://ipaddress:port¡±£¬Èç£º¡±udp://224.0.0.1:17002¡± 
-			///@remark ¡°udp¡±´ú±í´«ÊäĞ­Òé£¬¡°224.0.0.1¡±´ú±íĞĞÇé×é²¥µØÖ·¡£¡±17001¡±´ú±í×é²¥¶Ë¿ÚºÅ
-			virtual void RegisterFpgaFront(const char* pMutilcastAddr) = 0;
+            ///æ³¨å†Œè¡Œæƒ…ç»„æ’­åœ°å€
+            ///@param pMutilcastAddrï¼šè¡Œæƒ…ç»„æ’­åœ°å€
+            ///@remark ç½‘ç»œåœ°å€çš„æ ¼å¼ä¸ºï¼šâ€œprotocol://ipaddress:portâ€ï¼Œå¦‚ï¼šâ€udp://224.0.0.1:17002â€ 
+            ///@remark â€œudpâ€ä»£è¡¨ä¼ è¾“åè®®ï¼Œâ€œ224.0.0.1â€ä»£è¡¨è¡Œæƒ…ç»„æ’­åœ°å€ã€‚â€17001â€ä»£è¡¨ç»„æ’­ç«¯å£å·
+            virtual void RegisterFpgaFront(const char* pMutilcastAddr) = 0;
 
-			///×¢²áÁ¬½ÓÇ°ÖÃµÄ±¾µØµØÖ·
-			///@param localTcpAddr£ºÁ¬½ÓÇ°ÖÃµÄ±¾µØÍø¿¨µØÖ·£¬²»ÉèÖÃÊ±ÏµÍ³×Ô¶¯Ê¶±ğ
-			///@remark ÍøÂçµØÖ·µÄ¸ñÊ½Îª£º¡°protocol://ipaddress:port¡±£¬Èç£º¡±tcp://127.0.0.1:17001¡±¡£ 
-			///@remark ¡°tcp¡±´ú±í´«ÊäĞ­Òé£¬¡°127.0.0.1¡±´ú±í·şÎñÆ÷µØÖ·¡£¡±17001¡±´ú±í·şÎñÆ÷¶Ë¿ÚºÅ¡£
-			virtual void RegisterTcpLocalAddr(const char* localTcpAddr) = 0;
+            ///æ³¨å†Œè¿æ¥å‰ç½®çš„æœ¬åœ°åœ°å€
+            ///@param localTcpAddrï¼šè¿æ¥å‰ç½®çš„æœ¬åœ°ç½‘å¡åœ°å€ï¼Œä¸è®¾ç½®æ—¶ç³»ç»Ÿè‡ªåŠ¨è¯†åˆ«
+            ///@remark ç½‘ç»œåœ°å€çš„æ ¼å¼ä¸ºï¼šâ€œprotocol://ipaddress:portâ€ï¼Œå¦‚ï¼šâ€tcp://127.0.0.1:17001â€ã€‚ 
+            ///@remark â€œtcpâ€ä»£è¡¨ä¼ è¾“åè®®ï¼Œâ€œ127.0.0.1â€ä»£è¡¨æœåŠ¡å™¨åœ°å€ã€‚â€17001â€ä»£è¡¨æœåŠ¡å™¨ç«¯å£å·ã€‚
+            virtual void RegisterTcpLocalAddr(const char* localTcpAddr) = 0;
 
-			///×¢²á½ÓÊÕ×é²¥µÄ±¾µØµØÖ·
-			///@param localAddr£º½ÓÊÕ×é²¥µÄ±¾µØÍø¿¨µØÖ·£¬²»ÉèÖÃÊ±ÏµÍ³×Ô¶¯Ê¶±ğ
-			///@remark ÍøÂçµØÖ·µÄ¸ñÊ½Îª£º¡°ipaddress¡±£¬Èç£º¡±127.0.0.1¡± 
-			///@remark ¡°¡°127.0.0.1¡±´ú±í½ÓÊÕ×é²¥µÄ±¾µØÍø¿¨µØÖ·¡£
-			virtual void RegisterUdpLocalAddr(const char* localAddr) = 0;
+            ///æ³¨å†Œæ¥æ”¶ç»„æ’­çš„æœ¬åœ°åœ°å€
+            ///@param localAddrï¼šæ¥æ”¶ç»„æ’­çš„æœ¬åœ°ç½‘å¡åœ°å€ï¼Œä¸è®¾ç½®æ—¶ç³»ç»Ÿè‡ªåŠ¨è¯†åˆ«
+            ///@remark ç½‘ç»œåœ°å€çš„æ ¼å¼ä¸ºï¼šâ€œipaddressâ€ï¼Œå¦‚ï¼šâ€127.0.0.1â€ 
+            ///@remark â€œâ€œ127.0.0.1â€ä»£è¡¨æ¥æ”¶ç»„æ’­çš„æœ¬åœ°ç½‘å¡åœ°å€ã€‚
+            virtual void RegisterUdpLocalAddr(const char* localAddr) = 0;
 
-			///×¢²áÊ¹ÓÃefvi½ÓÊÕudpµÄÍø¿¨Éè±¸Ãû×Ö
-			///@param device£ºÍø¿¨Éè±¸Ãû×Ö £¬ÀıÈç"ens1"
-			virtual void RegisterEfviDevice(const char* device) = 0;
+            ///æ³¨å†Œä½¿ç”¨efviæ¥æ”¶udpçš„ç½‘å¡è®¾å¤‡åå­—
+            ///@param deviceï¼šç½‘å¡è®¾å¤‡åå­— ï¼Œä¾‹å¦‚"ens1"
+            virtual void RegisterEfviDevice(const char* device) = 0;
 
-			///×¢²á»Øµ÷½Ó¿Ú
-			///@param pSpi ÅÉÉú×Ô»Øµ÷½Ó¿ÚÀàµÄÊµÀı
-			virtual void RegisterSpi(IStoneMdSpi* pSpi) = 0;
+            ///æ³¨å†Œå›è°ƒæ¥å£
+            ///@param pSpi æ´¾ç”Ÿè‡ªå›è°ƒæ¥å£ç±»çš„å®ä¾‹
+            virtual void RegisterSpi(IStoneMdSpi* pSpi) = 0;
 
-			///ÉèÖÃĞÄÌø³¬Ê±Ê±¼ä¡£
-			///@param timeout ĞÄÌø³¬Ê±Ê±¼ä(Ãë),×îĞ¡ĞÄÌø³¬Ê±Ê±¼ä²»Ğ¡ÓÚ10Ãë  
-			virtual void SetHeartbeatTimeout(uint32_t timeout) = 0;
+            ///è®¾ç½®å¿ƒè·³è¶…æ—¶æ—¶é—´ã€‚
+            ///@param timeout å¿ƒè·³è¶…æ—¶æ—¶é—´(ç§’),æœ€å°å¿ƒè·³è¶…æ—¶æ—¶é—´ä¸å°äº10ç§’  
+            virtual void SetHeartbeatTimeout(uint32_t timeout) = 0;
 
-			///ÓÃ»§µÇÂ¼ÇëÇó
-			///@param pReqUserLogin µÇÂ¼ĞÅÏ¢, UserID Óë Password Îª±ØÌî×Ö¶Î£¬ÆäËûÎ´Ñ¡Ìî×Ö¶Î 
-			virtual int ReqUserLogin(CIStoneReqUserLogin* pReqUserLogin, int nRequestID) = 0;
+            ///ç”¨æˆ·ç™»å½•è¯·æ±‚
+            ///@param pReqUserLogin ç™»å½•ä¿¡æ¯, UserID ä¸ Password ä¸ºå¿…å¡«å­—æ®µï¼Œå…¶ä»–æœªé€‰å¡«å­—æ®µ 
+            virtual int ReqUserLogin(CIStoneReqUserLogin* pReqUserLogin, int nRequestID) = 0;
 
-			///ÓÃ»§ÍË³öÇëÇó
-			///@param pReqUserLogin ÍË³öĞÅÏ¢, UserID Îª±ØÌî×Ö¶Î£¬ÆäËûÎ´Ñ¡Ìî×Ö¶Î 
-			virtual int ReqUserLogout(CIStoneReqUserLogout* pReqUserLogout, int nRequestID) = 0;
+            ///ç”¨æˆ·é€€å‡ºè¯·æ±‚
+            ///@param pReqUserLogin é€€å‡ºä¿¡æ¯, UserID ä¸ºå¿…å¡«å­—æ®µï¼Œå…¶ä»–æœªé€‰å¡«å­—æ®µ 
+            virtual int ReqUserLogout(CIStoneReqUserLogout* pReqUserLogout, int nRequestID) = 0;
 
-			///¶©ÔÄ¹ÉÆ±Éî¶ÈĞĞÇé
-			///@param tickType						¹ÉÆ±ÀàĞÍ, ¶àÀàĞÍ¶©ÔÄ¿ÉÊ¹ÓÃ ISTONE_TICKER_TYPE_SPOT | ISTONE_TICKER_TYPE_INDEX ·½Ê½¶©ÔÄ¡£
-			///        ISTONE_TICKER_TYPE_SPOT		<ÆÕÍ¨¹ÉÆ±<Õ®È¯<»ù½ğ
-			///        ISTONE_TICKER_TYPE_INDEX		<Ö¸Êı
-			///        ISTONE_TICKER_TYPE_OPTION	<ÆÚÈ¨
-			///@param exchangeType					½»Ò×ËùÀàĞÍ£¬ ¶à½»Ò×Ëù¿ÉÊ¹ÓÃ ISTONE_EXCHANGE_SH | ISTONE_EXCHANGE_SZ ·½Ê½¶©ÔÄ¡£
-			///        ISTONE_EXCHANGE_SH			<ÉÏÖ¤
-			///        ISTONE_EXCHANGE_SZ			<ÉîÖ¤
-			virtual int SubAllMarketData(int tickType, int exchangeID, int nRequestID) = 0;
+            ///è®¢é˜…è‚¡ç¥¨æ·±åº¦è¡Œæƒ…
+            ///@param tickType						è‚¡ç¥¨ç±»å‹, å¤šç±»å‹è®¢é˜…å¯ä½¿ç”¨ ISTONE_TICKER_TYPE_SPOT | ISTONE_TICKER_TYPE_INDEX æ–¹å¼è®¢é˜…ã€‚
+            ///        ISTONE_TICKER_TYPE_SPOT		<æ™®é€šè‚¡ç¥¨<å€ºåˆ¸<åŸºé‡‘
+            ///        ISTONE_TICKER_TYPE_INDEX		<æŒ‡æ•°
+            ///        ISTONE_TICKER_TYPE_OPTION	<æœŸæƒ
+            ///@param exchangeType					äº¤æ˜“æ‰€ç±»å‹ï¼Œ å¤šäº¤æ˜“æ‰€å¯ä½¿ç”¨ ISTONE_EXCHANGE_SH | ISTONE_EXCHANGE_SZ æ–¹å¼è®¢é˜…ã€‚
+            ///        ISTONE_EXCHANGE_SH			<ä¸Šè¯
+            ///        ISTONE_EXCHANGE_SZ			<æ·±è¯
+            virtual int SubAllMarketData(int tickType, int exchangeID, int nRequestID) = 0;
 
-			///ÍË¶©¹ÉÆ±Éî¶ÈĞĞÇé
-			///@param tickType						¹ÉÆ±ÀàĞÍ, ¶àÀàĞÍ¶©ÔÄ¿ÉÊ¹ÓÃ ISTONE_TICKER_TYPE_SPOT | ISTONE_TICKER_TYPE_INDEX ·½Ê½¶©ÔÄ¡£
-			///        ISTONE_TICKER_TYPE_SPOT		<ÆÕÍ¨¹ÉÆ±<Õ®È¯<»ù½ğ
-			///        ISTONE_TICKER_TYPE_INDEX		<Ö¸Êı
-			///        ISTONE_TICKER_TYPE_OPTION	<ÆÚÈ¨
-			///@param exchangeType					½»Ò×ËùÀàĞÍ£¬ ¶à½»Ò×Ëù¿ÉÊ¹ÓÃ ISTONE_EXCHANGE_SH | ISTONE_EXCHANGE_SZ ·½Ê½¶©ÔÄ¡£
-			///        ISTONE_EXCHANGE_SH			<ÉÏÖ¤
-			///        ISTONE_EXCHANGE_SZ			<ÉîÖ¤
-			virtual int UnSubAllMarketData(int tickType, int exchangeID, int nRequestID) = 0;
+            ///é€€è®¢è‚¡ç¥¨æ·±åº¦è¡Œæƒ…
+            ///@param tickType						è‚¡ç¥¨ç±»å‹, å¤šç±»å‹è®¢é˜…å¯ä½¿ç”¨ ISTONE_TICKER_TYPE_SPOT | ISTONE_TICKER_TYPE_INDEX æ–¹å¼è®¢é˜…ã€‚
+            ///        ISTONE_TICKER_TYPE_SPOT		<æ™®é€šè‚¡ç¥¨<å€ºåˆ¸<åŸºé‡‘
+            ///        ISTONE_TICKER_TYPE_INDEX		<æŒ‡æ•°
+            ///        ISTONE_TICKER_TYPE_OPTION	<æœŸæƒ
+            ///@param exchangeType					äº¤æ˜“æ‰€ç±»å‹ï¼Œ å¤šäº¤æ˜“æ‰€å¯ä½¿ç”¨ ISTONE_EXCHANGE_SH | ISTONE_EXCHANGE_SZ æ–¹å¼è®¢é˜…ã€‚
+            ///        ISTONE_EXCHANGE_SH			<ä¸Šè¯
+            ///        ISTONE_EXCHANGE_SZ			<æ·±è¯
+            virtual int UnSubAllMarketData(int tickType, int exchangeID, int nRequestID) = 0;
 
-			///¶©ÔÄ¹ÉÆ±Öğ±ÊĞĞÇé
-			///@param tickType						¹ÉÆ±ÀàĞÍ, ¶àÀàĞÍ¶©ÔÄ¿ÉÊ¹ÓÃ ISTONE_TICKER_TYPE_SPOT | ISTONE_TICKER_TYPE_INDEX ·½Ê½¶©ÔÄ¡£
-			///        ISTONE_TICKER_TYPE_SPOT		<ÆÕÍ¨¹ÉÆ±<Õ®È¯<»ù½ğ
-			///        ISTONE_TICKER_TYPE_INDEX		<Ö¸Êı
-			///        ISTONE_TICKER_TYPE_OPTION	<ÆÚÈ¨
-			///@param exchangeType					½»Ò×ËùÀàĞÍ£¬ ¶à½»Ò×Ëù¿ÉÊ¹ÓÃ ISTONE_EXCHANGE_SH | ISTONE_EXCHANGE_SZ ·½Ê½¶©ÔÄ¡£
-			///        ISTONE_EXCHANGE_SH			<ÉÏÖ¤
-			///        ISTONE_EXCHANGE_SZ			<ÉîÖ¤
-			virtual int SubAllTickByTick(int exchangeID, int nRequestID) = 0;
+            ///è®¢é˜…è‚¡ç¥¨é€ç¬”è¡Œæƒ…
+            ///@param tickType						è‚¡ç¥¨ç±»å‹, å¤šç±»å‹è®¢é˜…å¯ä½¿ç”¨ ISTONE_TICKER_TYPE_SPOT | ISTONE_TICKER_TYPE_INDEX æ–¹å¼è®¢é˜…ã€‚
+            ///        ISTONE_TICKER_TYPE_SPOT		<æ™®é€šè‚¡ç¥¨<å€ºåˆ¸<åŸºé‡‘
+            ///        ISTONE_TICKER_TYPE_INDEX		<æŒ‡æ•°
+            ///        ISTONE_TICKER_TYPE_OPTION	<æœŸæƒ
+            ///@param exchangeType					äº¤æ˜“æ‰€ç±»å‹ï¼Œ å¤šäº¤æ˜“æ‰€å¯ä½¿ç”¨ ISTONE_EXCHANGE_SH | ISTONE_EXCHANGE_SZ æ–¹å¼è®¢é˜…ã€‚
+            ///        ISTONE_EXCHANGE_SH			<ä¸Šè¯
+            ///        ISTONE_EXCHANGE_SZ			<æ·±è¯
+            virtual int SubAllTickByTick(int exchangeID, int nRequestID) = 0;
 
-			///ÍË¶©¹ÉÆ±Öğ±ÊĞĞÇé
-			///@param tickType						¹ÉÆ±ÀàĞÍ, ¶àÀàĞÍ¶©ÔÄ¿ÉÊ¹ÓÃ ISTONE_TICKER_TYPE_SPOT | ISTONE_TICKER_TYPE_INDEX ·½Ê½¶©ÔÄ¡£
-			///        ISTONE_TICKER_TYPE_SPOT		<ÆÕÍ¨¹ÉÆ±<Õ®È¯<»ù½ğ
-			///        ISTONE_TICKER_TYPE_INDEX		<Ö¸Êı
-			///        ISTONE_TICKER_TYPE_OPTION	<ÆÚÈ¨
-			///@param exchangeType					½»Ò×ËùÀàĞÍ£¬ ¶à½»Ò×Ëù¿ÉÊ¹ÓÃ ISTONE_EXCHANGE_SH | ISTONE_EXCHANGE_SZ ·½Ê½¶©ÔÄ¡£
-			///        ISTONE_EXCHANGE_SH			<ÉÏÖ¤
-			///        ISTONE_EXCHANGE_SZ			<ÉîÖ¤
-			virtual int UnSubAllTickByTick(int exchangeID, int nRequestID) = 0;
+            ///é€€è®¢è‚¡ç¥¨é€ç¬”è¡Œæƒ…
+            ///@param tickType						è‚¡ç¥¨ç±»å‹, å¤šç±»å‹è®¢é˜…å¯ä½¿ç”¨ ISTONE_TICKER_TYPE_SPOT | ISTONE_TICKER_TYPE_INDEX æ–¹å¼è®¢é˜…ã€‚
+            ///        ISTONE_TICKER_TYPE_SPOT		<æ™®é€šè‚¡ç¥¨<å€ºåˆ¸<åŸºé‡‘
+            ///        ISTONE_TICKER_TYPE_INDEX		<æŒ‡æ•°
+            ///        ISTONE_TICKER_TYPE_OPTION	<æœŸæƒ
+            ///@param exchangeType					äº¤æ˜“æ‰€ç±»å‹ï¼Œ å¤šäº¤æ˜“æ‰€å¯ä½¿ç”¨ ISTONE_EXCHANGE_SH | ISTONE_EXCHANGE_SZ æ–¹å¼è®¢é˜…ã€‚
+            ///        ISTONE_EXCHANGE_SH			<ä¸Šè¯
+            ///        ISTONE_EXCHANGE_SZ			<æ·±è¯
+            virtual int UnSubAllTickByTick(int exchangeID, int nRequestID) = 0;
 
-			///¶©ÔÄºÏÔ¼ĞĞÇé
-			///@param ppInstrumentID	¹ÉÆ±´úÂë
-			///@param nCount			¹ÉÆ±ÊıÁ¿
-			virtual int SubMarketData(char* ppInstrumentID[], int nCount, int nRequestID) = 0;
+            ///è®¢é˜…åˆçº¦è¡Œæƒ…
+            ///@param ppInstrumentID	è‚¡ç¥¨ä»£ç 
+            ///@param nCount			è‚¡ç¥¨æ•°é‡
+            virtual int SubMarketData(char* ppInstrumentID[], int nCount, int nRequestID) = 0;
 
-			///ÍË¶©ºÏÔ¼ĞĞÇé
-			///@param ppInstrumentID	¹ÉÆ±´úÂë
-			///@param nCount			¹ÉÆ±ÊıÁ¿
-			virtual int UnSubMarketData(char* ppInstrumentID[], int nCount, int nRequestID) = 0;
+            ///é€€è®¢åˆçº¦è¡Œæƒ…
+            ///@param ppInstrumentID	è‚¡ç¥¨ä»£ç 
+            ///@param nCount			è‚¡ç¥¨æ•°é‡
+            virtual int UnSubMarketData(char* ppInstrumentID[], int nCount, int nRequestID) = 0;
 
-			///¶©ÔÄºÏÔ¼ĞĞÇé
-			///@param ppInstrumentID	¹ÉÆ±´úÂë
-			///@param nCount			¹ÉÆ±ÊıÁ¿
-			virtual int SubTickByTick(char* ppInstrumentID[], int nCount, int nRequestID) = 0;
+            ///è®¢é˜…åˆçº¦è¡Œæƒ…
+            ///@param ppInstrumentID	è‚¡ç¥¨ä»£ç 
+            ///@param nCount			è‚¡ç¥¨æ•°é‡
+            virtual int SubTickByTick(char* ppInstrumentID[], int nCount, int nRequestID) = 0;
 
-			///ÍË¶©ºÏÔ¼ĞĞÇé
-			///@param ppInstrumentID	¹ÉÆ±´úÂë
-			///@param nCount			¹ÉÆ±ÊıÁ¿
-			virtual int UnSubTickByTick(char* ppInstrumentID[], int nCount, int nRequestID) = 0;
+            ///é€€è®¢åˆçº¦è¡Œæƒ…
+            ///@param ppInstrumentID	è‚¡ç¥¨ä»£ç 
+            ///@param nCount			è‚¡ç¥¨æ•°é‡
+            virtual int UnSubTickByTick(char* ppInstrumentID[], int nCount, int nRequestID) = 0;
 
-			///¶©ÔÄËùÓĞ¹ÉÆ±¶©µ¥²¾
-			///@param exchangeID ½»Ò×ËùID,Ä¿Ç°½öÖ§³ÖÉî½»Ëù   1¡ª¡ªÉÏÖ¤  2¡ª¡ªÉîÖ¤
-			virtual int SubAllOrderBook(int exchangeID, int nRequestID) = 0;
+            ///è®¢é˜…æ‰€æœ‰è‚¡ç¥¨è®¢å•ç°¿
+            ///@param exchangeID äº¤æ˜“æ‰€ID,ç›®å‰ä»…æ”¯æŒæ·±äº¤æ‰€   1â€•â€•ä¸Šè¯  2â€•â€•æ·±è¯
+            virtual int SubAllOrderBook(int exchangeID, int nRequestID) = 0;
 
-			///ÍË¶©ËùÓĞ¹ÉÆ±¶©µ¥²¾
-			///@param exchangeID ½»Ò×ËùID,Ä¿Ç°½öÖ§³ÖÉî½»Ëù   1¡ª¡ªÉÏÖ¤  2¡ª¡ªÉîÖ¤
-			virtual int UnSubAllOrderBook(int exchangeID, int nRequestID) = 0;
+            ///é€€è®¢æ‰€æœ‰è‚¡ç¥¨è®¢å•ç°¿
+            ///@param exchangeID äº¤æ˜“æ‰€ID,ç›®å‰ä»…æ”¯æŒæ·±äº¤æ‰€   1â€•â€•ä¸Šè¯  2â€•â€•æ·±è¯
+            virtual int UnSubAllOrderBook(int exchangeID, int nRequestID) = 0;
 
-			///¶©ÔÄ¶©µ¥²¾
-			///@param ppInstrumentID	¹ÉÆ±´úÂë
-			///@param nCount			¹ÉÆ±ÊıÁ¿
-			virtual int SubOrderBook(char* ppInstrumentID[], int nCount, int nRequestID) = 0;
+            ///è®¢é˜…è®¢å•ç°¿
+            ///@param ppInstrumentID	è‚¡ç¥¨ä»£ç 
+            ///@param nCount			è‚¡ç¥¨æ•°é‡
+            virtual int SubOrderBook(char* ppInstrumentID[], int nCount, int nRequestID) = 0;
 
-			///ÍË¶©¶©µ¥²¾
-			///@param ppInstrumentID	¹ÉÆ±´úÂë
-			///@param nCount			¹ÉÆ±ÊıÁ¿
-			virtual int UnSubOrderBook(char* ppInstrumentID[], int nCount, int nRequestID) = 0;
+            ///é€€è®¢è®¢å•ç°¿
+            ///@param ppInstrumentID	è‚¡ç¥¨ä»£ç 
+            ///@param nCount			è‚¡ç¥¨æ•°é‡
+            virtual int UnSubOrderBook(char* ppInstrumentID[], int nCount, int nRequestID) = 0;
 
-		protected:
-			~IStoneMdApi() {};
-		};
-	}
+        protected:
+            ~IStoneMdApi() {};
+        };
+    }
 }

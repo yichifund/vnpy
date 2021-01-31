@@ -1,4 +1,4 @@
-//ÏµÍ³
+ï»¿//ç³»ç»Ÿ
 #ifdef WIN32
 #include "pch.h"
 #endif
@@ -11,7 +11,7 @@
 using namespace pybind11;
 //using namespace Quant360;
 
-//³£Á¿
+//å¸¸é‡
 #define ONCONNECTED 0
 #define ONDISCONNECTED 1
 #define ONRTNSTOCKDATA 2
@@ -20,15 +20,15 @@ using namespace pybind11;
 
 
 ///-------------------------------------------------------------------------------------
-///C++ SPIµÄ»Øµ÷º¯Êı·½·¨ÊµÏÖ
+///C++ SPIçš„å›è°ƒå‡½æ•°æ–¹æ³•å®ç°
 ///-------------------------------------------------------------------------------------
 
-	/* APIÀàµÄÇ°ÖÃÉùÃ÷ */
+    /* APIç±»çš„å‰ç½®å£°æ˜ */
 class MdsClientApi;
 
 
 /**
- * ½»Ò×½Ó¿ÚÏìÓ¦Àà
+ * äº¤æ˜“æ¥å£å“åº”ç±»
  */
 
 
@@ -38,104 +38,104 @@ class MdApi
 {
 
 private:
-	MdApi* api;            //API¶ÔÏó
-	thread task_thread;                    //¹¤×÷Ïß³ÌÖ¸Õë£¨ÏòpythonÖĞÍÆËÍÊı¾İ£©
-	TaskQueue task_queue;                //ÈÎÎñ¶ÓÁĞ
-	bool active = false;                //¹¤×÷×´Ì¬
-	MdsAsyncApiChannelT *channel;
+    MdApi* api;            //APIå¯¹è±¡
+    thread task_thread;                    //å·¥ä½œçº¿ç¨‹æŒ‡é’ˆï¼ˆå‘pythonä¸­æ¨é€æ•°æ®ï¼‰
+    TaskQueue task_queue;                //ä»»åŠ¡é˜Ÿåˆ—
+    bool active = false;                //å·¥ä½œçŠ¶æ€
+    MdsAsyncApiChannelT *channel;
 
 public:
-	MdApi()
-	{
+    MdApi()
+    {
 
-	};
+    };
 
-	~MdApi()
-	{
-		if (this->active)
-		{
-			this->exit();
-		}
-	};
+    ~MdApi()
+    {
+        if (this->active)
+        {
+            this->exit();
+        }
+    };
 
-	//-------------------------------------------------------------------------------------
-	//API»Øµ÷º¯Êı
-	//-------------------------------------------------------------------------------------
-
-
-
-	/* Á¬½Ó»òÖØĞÂÁ¬½ÓÍê³ÉºóµÄ»Øµ÷º¯Êı */
-	int32       OnConnected(MdsAsyncApiChannelT *pAsyncChannel);
-	/* Á¬½Ó¶Ï¿ªºóµÄ»Øµ÷º¯Êı */
-	int32       OnDisConnected(MdsAsyncApiChannelT *pAsyncChannel) ;
-
-	int32		OnData(MdsApiSessionInfoT *pSessionInfo, SMsgHeadT *pMsgHead, void *pMsgBody, void *pCallbackParams);
-
-	void		OnRtnStockData(const MdsMktDataSnapshotHeadT *head, const MdsStockSnapshotBodyT *stock);
-	void		OnRtnIndexData(const MdsMktDataSnapshotHeadT *head, const MdsIndexSnapshotBodyT *index);
-	void		OnRtnOptionData(const MdsMktDataSnapshotHeadT *head, const MdsStockSnapshotBodyT *option);
-	//-------------------------------------------------------------------------------------
-	//task£ºÈÎÎñ
-	//-------------------------------------------------------------------------------------
-	void processTask();
-
-	int32 processConnected(Task *task);
-
-	int32 processDisconnected(Task *task);
-
-	void processRtnStockData(Task *task);
-	void processRtnIndexData(Task *task);
-	void processRtnOptionData(Task *task);
-
-	//-------------------------------------------------------------------------------------
-	//data£º»Øµ÷º¯ÊıµÄÊı¾İ×Öµä
-	//error£º»Øµ÷º¯ÊıµÄ´íÎó×Öµä
-	//id£ºÇëÇóid
-	//last£ºÊÇ·ñÎª×îºó·µ»Ø
-	//i£ºÕûÊı
-	//-------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------
+    //APIå›è°ƒå‡½æ•°
+    //-------------------------------------------------------------------------------------
 
 
-	virtual void onConnected(int channelType, const dict &data) {};
 
-	virtual void onDisConnected(int channelType, const dict &data) {};
+    /* è¿æ¥æˆ–é‡æ–°è¿æ¥å®Œæˆåçš„å›è°ƒå‡½æ•° */
+    int32       OnConnected(MdsAsyncApiChannelT *pAsyncChannel);
+    /* è¿æ¥æ–­å¼€åçš„å›è°ƒå‡½æ•° */
+    int32       OnDisConnected(MdsAsyncApiChannelT *pAsyncChannel) ;
 
-	virtual void onRtnStockData(const dict &error, const dict &data) {};
-	virtual void onRtnIndexData(const dict &error, const dict &data) {};
-	virtual void onRtnOptionData(const dict &error, const dict &data) {};
+    int32		OnData(MdsApiSessionInfoT *pSessionInfo, SMsgHeadT *pMsgHead, void *pMsgBody, void *pCallbackParams);
 
-	//-------------------------------------------------------------------------------------
-	//req:Ö÷¶¯º¯ÊıµÄÇëÇó×Öµä
-	//-------------------------------------------------------------------------------------
+    void		OnRtnStockData(const MdsMktDataSnapshotHeadT *head, const MdsStockSnapshotBodyT *stock);
+    void		OnRtnIndexData(const MdsMktDataSnapshotHeadT *head, const MdsIndexSnapshotBodyT *index);
+    void		OnRtnOptionData(const MdsMktDataSnapshotHeadT *head, const MdsStockSnapshotBodyT *option);
+    //-------------------------------------------------------------------------------------
+    //taskï¼šä»»åŠ¡
+    //-------------------------------------------------------------------------------------
+    void processTask();
 
-	bool createMdApi(string pCfgFile, string username, string password);
+    int32 processConnected(Task *task);
 
-	bool init();
+    int32 processDisconnected(Task *task);
 
-	int exit();
-	bool subscribeMarketData(string symbol, int exchange, int product_type);
+    void processRtnStockData(Task *task);
+    void processRtnIndexData(Task *task);
+    void processRtnOptionData(Task *task);
+
+    //-------------------------------------------------------------------------------------
+    //dataï¼šå›è°ƒå‡½æ•°çš„æ•°æ®å­—å…¸
+    //errorï¼šå›è°ƒå‡½æ•°çš„é”™è¯¯å­—å…¸
+    //idï¼šè¯·æ±‚id
+    //lastï¼šæ˜¯å¦ä¸ºæœ€åè¿”å›
+    //iï¼šæ•´æ•°
+    //-------------------------------------------------------------------------------------
 
 
-	private:
-		/* ½ûÖ¹¿½±´¹¹Ôìº¯Êı */
-		MdApi(const MdApi&);
-		/* ½ûÖ¹¸³Öµº¯Êı */
-		MdApi&      operator=(const MdApi&);
+    virtual void onConnected(int channelType, const dict &data) {};
 
-	public:
-		/* ÎªÁË·½±ã¿Í»§¶ËÊ¹ÓÃ¶øÄÚÖÃµÄÁ÷Ë®ºÅ¼ÆÊıÆ÷, ¿ÉÒÔ»ùÓÚ¸Ã×Ö¶ÎÀ´µİÔöÎ¬»¤¿Í»§¶ËÎ¯ÍĞÁ÷Ë®ºÅ */
-		int32               defaultClSeqNo;
+    virtual void onDisConnected(int channelType, const dict &data) {};
 
-	protected:
-		MdsApiClientCfgT    _apiCfg;
-		MdsApiSessionInfoT  _qryChannel;
-		BOOL                _isInitialized;
-		BOOL                _isRunning;
+    virtual void onRtnStockData(const dict &error, const dict &data) {};
+    virtual void onRtnIndexData(const dict &error, const dict &data) {};
+    virtual void onRtnOptionData(const dict &error, const dict &data) {};
 
-		//MdSpi *_pSpi;
-		MdsAsyncApiContextT *_pAsyncContext;
-		MdsAsyncApiChannelT *_pDefaultTcpChannel;
-		MdsApiSessionInfoT  *_pQryChannel;
+    //-------------------------------------------------------------------------------------
+    //req:ä¸»åŠ¨å‡½æ•°çš„è¯·æ±‚å­—å…¸
+    //-------------------------------------------------------------------------------------
+
+    bool createMdApi(string pCfgFile, string username, string password);
+
+    bool init();
+
+    int exit();
+    bool subscribeMarketData(string symbol, int exchange, int product_type);
+
+
+    private:
+        /* ç¦æ­¢æ‹·è´æ„é€ å‡½æ•° */
+        MdApi(const MdApi&);
+        /* ç¦æ­¢èµ‹å€¼å‡½æ•° */
+        MdApi&      operator=(const MdApi&);
+
+    public:
+        /* ä¸ºäº†æ–¹ä¾¿å®¢æˆ·ç«¯ä½¿ç”¨è€Œå†…ç½®çš„æµæ°´å·è®¡æ•°å™¨, å¯ä»¥åŸºäºè¯¥å­—æ®µæ¥é€’å¢ç»´æŠ¤å®¢æˆ·ç«¯å§”æ‰˜æµæ°´å· */
+        int32               defaultClSeqNo;
+
+    protected:
+        MdsApiClientCfgT    _apiCfg;
+        MdsApiSessionInfoT  _qryChannel;
+        BOOL                _isInitialized;
+        BOOL                _isRunning;
+
+        //MdSpi *_pSpi;
+        MdsAsyncApiContextT *_pAsyncContext;
+        MdsAsyncApiChannelT *_pDefaultTcpChannel;
+        MdsApiSessionInfoT  *_pQryChannel;
 };
 
 

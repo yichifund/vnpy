@@ -1,4 +1,4 @@
-#include <string>
+ï»¿#include <string>
 #include <queue>
 #include <thread>
 #include <mutex>
@@ -13,14 +13,14 @@
 using namespace std;
 using namespace pybind11;
 
-//ÈÎÎñ½á¹¹Ìå
+//ä»»åŠ¡ç»“æ„ä½“
 struct Task
 {
-	int task_name;		//»Øµ÷º¯ÊıÃû³Æ¶ÔÓ¦µÄ³£Á¿
-	void *task_data;	//Êı¾İÖ¸Õë
-	void *task_error;	//´íÎóÖ¸Õë
-	int task_id;		//ÇëÇóid
-	bool task_last;		//ÊÇ·ñÎª×îºó·µ»Ø
+    int task_name;		//å›è°ƒå‡½æ•°åç§°å¯¹åº”çš„å¸¸é‡
+    void *task_data;	//æ•°æ®æŒ‡é’ˆ
+    void *task_error;	//é”™è¯¯æŒ‡é’ˆ
+    int task_id;		//è¯·æ±‚id
+    bool task_last;		//æ˜¯å¦ä¸ºæœ€åè¿”å›
 };
 
 class TerminatedError : std::exception
@@ -29,124 +29,124 @@ class TerminatedError : std::exception
 class TaskQueue
 {
 private:
-	queue<Task> queue_;						//±ê×¼¿â¶ÓÁĞ
-	mutex mutex_;							//»¥³âËø
-	condition_variable cond_;				//Ìõ¼ş±äÁ¿
+    queue<Task> queue_;						//æ ‡å‡†åº“é˜Ÿåˆ—
+    mutex mutex_;							//äº’æ–¥é”
+    condition_variable cond_;				//æ¡ä»¶å˜é‡
 
-	bool _terminate = false;
+    bool _terminate = false;
 
 public:
 
-	//´æÈëĞÂµÄÈÎÎñ
-	void push(const Task &task)
-	{
-		unique_lock<mutex > mlock(mutex_);
-		queue_.push(task);					//Ïò¶ÓÁĞÖĞ´æÈëÊı¾İ
-		mlock.unlock();						//ÊÍ·ÅËø
-		cond_.notify_one();					//Í¨ÖªÕıÔÚ×èÈûµÈ´ıµÄÏß³Ì
-	}
+    //å­˜å…¥æ–°çš„ä»»åŠ¡
+    void push(const Task &task)
+    {
+        unique_lock<mutex > mlock(mutex_);
+        queue_.push(task);					//å‘é˜Ÿåˆ—ä¸­å­˜å…¥æ•°æ®
+        mlock.unlock();						//é‡Šæ”¾é”
+        cond_.notify_one();					//é€šçŸ¥æ­£åœ¨é˜»å¡ç­‰å¾…çš„çº¿ç¨‹
+    }
 
-	//È¡³öÀÏµÄÈÎÎñ
-	Task pop()
-	{
-		unique_lock<mutex> mlock(mutex_);
-		cond_.wait(mlock, [&]() {
-			return !queue_.empty() || _terminate;
-		});				//µÈ´ıÌõ¼ş±äÁ¿Í¨Öª
-		if (_terminate)
-			throw TerminatedError();
-		Task task = queue_.front();			//»ñÈ¡¶ÓÁĞÖĞµÄ×îºóÒ»¸öÈÎÎñ
-		queue_.pop();						//É¾³ı¸ÃÈÎÎñ
-		return task;						//·µ»Ø¸ÃÈÎÎñ
-	}
+    //å–å‡ºè€çš„ä»»åŠ¡
+    Task pop()
+    {
+        unique_lock<mutex> mlock(mutex_);
+        cond_.wait(mlock, [&]() {
+            return !queue_.empty() || _terminate;
+        });				//ç­‰å¾…æ¡ä»¶å˜é‡é€šçŸ¥
+        if (_terminate)
+            throw TerminatedError();
+        Task task = queue_.front();			//è·å–é˜Ÿåˆ—ä¸­çš„æœ€åä¸€ä¸ªä»»åŠ¡
+        queue_.pop();						//åˆ é™¤è¯¥ä»»åŠ¡
+        return task;						//è¿”å›è¯¥ä»»åŠ¡
+    }
 
-	void terminate()
-	{
-		_terminate = true;
-		cond_.notify_all();					//Í¨ÖªÕıÔÚ×èÈûµÈ´ıµÄÏß³Ì
-	}
+    void terminate()
+    {
+        _terminate = true;
+        cond_.notify_all();					//é€šçŸ¥æ­£åœ¨é˜»å¡ç­‰å¾…çš„çº¿ç¨‹
+    }
 };
 
-//´Ó×ÖµäÖĞ»ñÈ¡Ä³¸ö½¨Öµ¶ÔÓ¦µÄÕûÊı£¬²¢¸³Öµµ½ÇëÇó½á¹¹Ìå¶ÔÏóµÄÖµÉÏ
+//ä»å­—å…¸ä¸­è·å–æŸä¸ªå»ºå€¼å¯¹åº”çš„æ•´æ•°ï¼Œå¹¶èµ‹å€¼åˆ°è¯·æ±‚ç»“æ„ä½“å¯¹è±¡çš„å€¼ä¸Š
 void getInt(const dict &d, const char *key, int *value)
 {
-	if (d.contains(key))		//¼ì²é×ÖµäÖĞÊÇ·ñ´æÔÚ¸Ã¼üÖµ
-	{
-		object o = d[key];		//»ñÈ¡¸Ã¼üÖµ
-		*value = o.cast<int>();
-	}
+    if (d.contains(key))		//æ£€æŸ¥å­—å…¸ä¸­æ˜¯å¦å­˜åœ¨è¯¥é”®å€¼
+    {
+        object o = d[key];		//è·å–è¯¥é”®å€¼
+        *value = o.cast<int>();
+    }
 };
 
-//´Ó×ÖµäÖĞ»ñÈ¡Ä³¸ö½¨Öµ¶ÔÓ¦µÄ¸¡µãÊı£¬²¢¸³Öµµ½ÇëÇó½á¹¹Ìå¶ÔÏóµÄÖµÉÏ
+//ä»å­—å…¸ä¸­è·å–æŸä¸ªå»ºå€¼å¯¹åº”çš„æµ®ç‚¹æ•°ï¼Œå¹¶èµ‹å€¼åˆ°è¯·æ±‚ç»“æ„ä½“å¯¹è±¡çš„å€¼ä¸Š
 void getDouble(const dict &d, const char *key, double *value)
 {
-	if (d.contains(key))
-	{
-		object o = d[key];
-		*value = o.cast<double>();
-	}
+    if (d.contains(key))
+    {
+        object o = d[key];
+        *value = o.cast<double>();
+    }
 };
 
-//´Ó×ÖµäÖĞ»ñÈ¡Ä³¸ö½¨Öµ¶ÔÓ¦µÄ¸¡µãÊı£¬²¢¸³Öµµ½ÇëÇó½á¹¹Ìå¶ÔÏóµÄÖµÉÏ
+//ä»å­—å…¸ä¸­è·å–æŸä¸ªå»ºå€¼å¯¹åº”çš„æµ®ç‚¹æ•°ï¼Œå¹¶èµ‹å€¼åˆ°è¯·æ±‚ç»“æ„ä½“å¯¹è±¡çš„å€¼ä¸Š
 void getLong(const dict &d, const char *key, long *value)
 {
-	if (d.contains(key))
-	{
-		object o = d[key];
-		*value = o.cast<long>();
-	}
+    if (d.contains(key))
+    {
+        object o = d[key];
+        *value = o.cast<long>();
+    }
 };
 
 
-//´Ó×ÖµäÖĞ»ñÈ¡Ä³¸ö½¨Öµ¶ÔÓ¦µÄ×Ö·û£¬²¢¸³Öµµ½ÇëÇó½á¹¹Ìå¶ÔÏóµÄÖµÉÏ
+//ä»å­—å…¸ä¸­è·å–æŸä¸ªå»ºå€¼å¯¹åº”çš„å­—ç¬¦ï¼Œå¹¶èµ‹å€¼åˆ°è¯·æ±‚ç»“æ„ä½“å¯¹è±¡çš„å€¼ä¸Š
 void getChar(const dict &d, const char *key, char *value)
 {
-	if (d.contains(key))
-	{
-		object o = d[key];
-		*value = o.cast<char>();
-	}
+    if (d.contains(key))
+    {
+        object o = d[key];
+        *value = o.cast<char>();
+    }
 };
 
 template <size_t size>
 using string_literal = char[size];
 
-//´Ó×ÖµäÖĞ»ñÈ¡Ä³¸ö½¨Öµ¶ÔÓ¦µÄ×Ö·û´®£¬²¢¸³Öµµ½ÇëÇó½á¹¹Ìå¶ÔÏóµÄÖµÉÏ
+//ä»å­—å…¸ä¸­è·å–æŸä¸ªå»ºå€¼å¯¹åº”çš„å­—ç¬¦ä¸²ï¼Œå¹¶èµ‹å€¼åˆ°è¯·æ±‚ç»“æ„ä½“å¯¹è±¡çš„å€¼ä¸Š
 template <size_t size>
 void getString(const pybind11::dict &d, const char *key, string_literal<size> &value)
 {
-	if (d.contains(key))
-	{
-		object o = d[key];
-		string s = o.cast<string>();
-		const char *buf = s.c_str();
-		strcpy(value, buf);
-	}
+    if (d.contains(key))
+    {
+        object o = d[key];
+        string s = o.cast<string>();
+        const char *buf = s.c_str();
+        strcpy(value, buf);
+    }
 };
 
-//½«GBK±àÂëµÄ×Ö·û´®×ª»»ÎªUTF8
+//å°†GBKç¼–ç çš„å­—ç¬¦ä¸²è½¬æ¢ä¸ºUTF8
 inline string toUtf(const string &gb2312)
 {
 #ifdef _MSC_VER
-	const static locale loc("zh-CN");
+    const static locale loc("zh-CN");
 #else
-	const static locale loc("zh_CN.GB18030");
+    const static locale loc("zh_CN.GB18030");
 #endif
 
-	vector<wchar_t> wstr(gb2312.size());
-	wchar_t* wstrEnd = nullptr;
-	const char* gbEnd = nullptr;
-	mbstate_t state = {};
-	int res = use_facet<codecvt<wchar_t, char, mbstate_t> >
-		(loc).in(state,
-			gb2312.data(), gb2312.data() + gb2312.size(), gbEnd,
-			wstr.data(), wstr.data() + wstr.size(), wstrEnd);
+    vector<wchar_t> wstr(gb2312.size());
+    wchar_t* wstrEnd = nullptr;
+    const char* gbEnd = nullptr;
+    mbstate_t state = {};
+    int res = use_facet<codecvt<wchar_t, char, mbstate_t> >
+        (loc).in(state,
+            gb2312.data(), gb2312.data() + gb2312.size(), gbEnd,
+            wstr.data(), wstr.data() + wstr.size(), wstrEnd);
 
-	if (codecvt_base::ok == res)
-	{
-		wstring_convert<codecvt_utf8<wchar_t>> cutf8;
-		return cutf8.to_bytes(wstring(wstr.data(), wstrEnd));
-	}
+    if (codecvt_base::ok == res)
+    {
+        wstring_convert<codecvt_utf8<wchar_t>> cutf8;
+        return cutf8.to_bytes(wstring(wstr.data(), wstrEnd));
+    }
 
-	return string();
+    return string();
 }

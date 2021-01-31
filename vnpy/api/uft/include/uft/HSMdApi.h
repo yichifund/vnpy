@@ -1,8 +1,8 @@
-/**
-* @author ÊÙºØ·É
-* @company ºãÉúµç×Ó¹É·İÓĞÏŞ¹«Ë¾
+ï»¿/**
+* @author å¯¿è´ºé£
+* @company æ’ç”Ÿç”µå­è‚¡ä»½æœ‰é™å…¬å¸
 * @file HSMdApi.h
-* @brief ¶¨ÒåÁËĞĞÇé½Ó¿Ú
+* @brief å®šä¹‰äº†è¡Œæƒ…æ¥å£
 * @date    20170927
 */
 #ifndef _HS_MD_API_H_
@@ -21,78 +21,78 @@
     #endif
 #endif
 
-///»Øµ÷ĞéÀà
+///å›è°ƒè™šç±»
 class CHSMdSpi
 {
 public:
-    /// Description: µ±¿Í»§¶ËÓë½»Ò×ºóÌ¨¿ªÊ¼½¨Á¢Í¨ĞÅÁ¬½Ó£¬Á¬½Ó³É¹¦ºó´Ë·½·¨±»»Øµ÷¡£
+    /// Description: å½“å®¢æˆ·ç«¯ä¸äº¤æ˜“åå°å¼€å§‹å»ºç«‹é€šä¿¡è¿æ¥ï¼Œè¿æ¥æˆåŠŸåæ­¤æ–¹æ³•è¢«å›è°ƒã€‚
     virtual void OnFrontConnected(){};
 
-    /// Description:µ±¿Í»§¶ËÓë½»Ò×ºóÌ¨Í¨ĞÅÁ¬½ÓÒì³£Ê±£¬¸Ã·½·¨±»µ÷ÓÃ¡£
-    /// Others     :Í¨¹ıGetApiErrorMsg(nResult)»ñÈ¡ÏêÏ¸´íÎóĞÅÏ¢¡£
+    /// Description:å½“å®¢æˆ·ç«¯ä¸äº¤æ˜“åå°é€šä¿¡è¿æ¥å¼‚å¸¸æ—¶ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚
+    /// Others     :é€šè¿‡GetApiErrorMsg(nResult)è·å–è¯¦ç»†é”™è¯¯ä¿¡æ¯ã€‚
     virtual void OnFrontDisconnected(int nResult){};
 
-    /// Description: ¶©ÔÄ-ĞĞÇéÓ¦´ğ
+    /// Description: è®¢é˜…-è¡Œæƒ…åº”ç­”
     virtual void OnRspDepthMarketDataSubscribe(CHSRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-    /// Description: ¶©ÔÄÈ¡Ïû-ĞĞÇéÓ¦´ğ
+    /// Description: è®¢é˜…å–æ¶ˆ-è¡Œæƒ…åº”ç­”
     virtual void OnRspDepthMarketDataCancel(CHSRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
-    /// Description: Ö÷ÍÆ-ĞĞÇé
+    /// Description: ä¸»æ¨-è¡Œæƒ…
     virtual void OnRtnDepthMarketData(CHSDepthMarketDataField *pDepthMarketData) {};
 
 };
 
-///ĞĞÇé
+///è¡Œæƒ…
 class CHSMdApi
 {
 public:
-    /// Description: É¾³ı½Ó¿Ú¶ÔÏó±¾Éí
+    /// Description: åˆ é™¤æ¥å£å¯¹è±¡æœ¬èº«
     virtual void ReleaseApi() = 0;
 
-    /// Description: ³õÊ¼»¯Á¬½Ó
-    ///              pszLicFile            Í¨Ñ¶Ö¤Êé
-    ///              pszSafeLevel          °²È«¼¶±ğ
-    ///              pszPwd                Í¨Ñ¶ÃÜÂë
-    ///              pszSslFile            SSLÖ¤Êé
-    ///              pszSslPwd             SSLÃÜÂë
+    /// Description: åˆå§‹åŒ–è¿æ¥
+    ///              pszLicFile            é€šè®¯è¯ä¹¦
+    ///              pszSafeLevel          å®‰å…¨çº§åˆ«
+    ///              pszPwd                é€šè®¯å¯†ç 
+    ///              pszSslFile            SSLè¯ä¹¦
+    ///              pszSslPwd             SSLå¯†ç 
     virtual int Init(const char *pszLicFile,const char *pszSafeLevel = "", const char *pszPwd = "", const char *pszSslFile = "", const char *pszSslPwd = "") = 0;
 
-    /// Description: APIºÍ½»Ò×¹ñÌ¨½¨Á¢Á¬½Ó£¬Á¬½Ó½¨Á¢³É¹¦ºó£¬Ö÷Ïß³Ì»áµÈ´ıÓÃ»§²Ù×÷×ÓÏß³ÌÍË³ö
-    /// Return     £ºint 0±íÊ¾Á¬½Ó½¨Á¢³É¹¦£¬·ñÔò±íÊ¾Ê§°Ü£¬Í¨¹ıµ÷ÓÃGetApiErrorMsg¿ÉÒÔ»ñÈ¡ÏêÏ¸´íÎóĞÅÏ¢
+    /// Description: APIå’Œäº¤æ˜“æŸœå°å»ºç«‹è¿æ¥ï¼Œè¿æ¥å»ºç«‹æˆåŠŸåï¼Œä¸»çº¿ç¨‹ä¼šç­‰å¾…ç”¨æˆ·æ“ä½œå­çº¿ç¨‹é€€å‡º
+    /// Return     ï¼šint 0è¡¨ç¤ºè¿æ¥å»ºç«‹æˆåŠŸï¼Œå¦åˆ™è¡¨ç¤ºå¤±è´¥ï¼Œé€šè¿‡è°ƒç”¨GetApiErrorMsgå¯ä»¥è·å–è¯¦ç»†é”™è¯¯ä¿¡æ¯
     virtual int Join() = 0;
 
-    /// Description: ×¢²áÇ°ÖÃ»úÍøÂçµØÖ·
-    /// Input      : pszFrontAddress            Ç°ÖÃ»úÍøÂçµØÖ·  Èç£º¡±tcp://127.0.0.1:17001¡±
-    /// Return     : int 0±íÊ¾ÉèÖÃ³É¹¦£¬·ñÔò±íÊ¾Ê§°Ü£¬Í¨¹ıµ÷ÓÃGetApiErrorMsg¿ÉÒÔ»ñÈ¡ÏêÏ¸´íÎóĞÅÏ¢
+    /// Description: æ³¨å†Œå‰ç½®æœºç½‘ç»œåœ°å€
+    /// Input      : pszFrontAddress            å‰ç½®æœºç½‘ç»œåœ°å€  å¦‚ï¼šâ€tcp://127.0.0.1:17001â€
+    /// Return     : int 0è¡¨ç¤ºè®¾ç½®æˆåŠŸï¼Œå¦åˆ™è¡¨ç¤ºå¤±è´¥ï¼Œé€šè¿‡è°ƒç”¨GetApiErrorMsgå¯ä»¥è·å–è¯¦ç»†é”™è¯¯ä¿¡æ¯
     virtual int RegisterFront(const char *pszFrontAddress) = 0;
 
-    /// Description: ×¢²áFensÍøÂçµØÖ·
-    /// Input      : pszFensAddress            FensÍøÂçµØÖ·
-    /// Input      : pszAccountID              ÕËºÅ
-    /// Return     : int 0±íÊ¾ÉèÖÃ³É¹¦£¬·ñÔò±íÊ¾Ê§°Ü£¬Í¨¹ıµ÷ÓÃGetApiErrorMsg¿ÉÒÔ»ñÈ¡ÏêÏ¸´íÎóĞÅÏ¢
+    /// Description: æ³¨å†ŒFensç½‘ç»œåœ°å€
+    /// Input      : pszFensAddress            Fensç½‘ç»œåœ°å€
+    /// Input      : pszAccountID              è´¦å·
+    /// Return     : int 0è¡¨ç¤ºè®¾ç½®æˆåŠŸï¼Œå¦åˆ™è¡¨ç¤ºå¤±è´¥ï¼Œé€šè¿‡è°ƒç”¨GetApiErrorMsgå¯ä»¥è·å–è¯¦ç»†é”™è¯¯ä¿¡æ¯
     virtual int RegisterFensServer(const char *pszFensAddress, const char *pszAccountID) = 0;
 
-    /// Description: ×¢²á»Øµ÷½Ó¿Ú
-    /// Input      : pSpi            ÅÉÉú×Ô»Øµ÷½Ó¿ÚÀàµÄÊµÀı     
+    /// Description: æ³¨å†Œå›è°ƒæ¥å£
+    /// Input      : pSpi            æ´¾ç”Ÿè‡ªå›è°ƒæ¥å£ç±»çš„å®ä¾‹     
     virtual void RegisterSpi(CHSMdSpi *pSpi) = 0;
 
-    /// Description: ¶©ÔÄ-ĞĞÇéÇëÇó
-    /// Input      : pReqDepthMarketDataSubscribe[]        ĞĞÇé¶©ÔÄÇëÇó½á¹¹ÌåÊı×é 
-    ///              nCount                                ¶©ÔÄĞĞÇéºÏÔ¼¸öÊı
-    ///              nRequestID                            ÇëÇó±àºÅ 
+    /// Description: è®¢é˜…-è¡Œæƒ…è¯·æ±‚
+    /// Input      : pReqDepthMarketDataSubscribe[]        è¡Œæƒ…è®¢é˜…è¯·æ±‚ç»“æ„ä½“æ•°ç»„ 
+    ///              nCount                                è®¢é˜…è¡Œæƒ…åˆçº¦ä¸ªæ•°
+    ///              nRequestID                            è¯·æ±‚ç¼–å· 
     virtual int ReqDepthMarketDataSubscribe(CHSReqDepthMarketDataField pReqDepthMarketDataSubscribe[], int nCount, int nRequestID) = 0;
 
-    /// Description: ¶©ÔÄÈ¡Ïû-ĞĞÇéÇëÇó
-    /// Input      : pReqDepthMarketDataCancel[]        ĞĞÇé¶©ÔÄÇëÇó½á¹¹ÌåÊı×é 
-    ///              nCount                             ¶©ÔÄĞĞÇéºÏÔ¼¸öÊı
-    ///              nRequestID                         ÇëÇó±àºÅ 
+    /// Description: è®¢é˜…å–æ¶ˆ-è¡Œæƒ…è¯·æ±‚
+    /// Input      : pReqDepthMarketDataCancel[]        è¡Œæƒ…è®¢é˜…è¯·æ±‚ç»“æ„ä½“æ•°ç»„ 
+    ///              nCount                             è®¢é˜…è¡Œæƒ…åˆçº¦ä¸ªæ•°
+    ///              nRequestID                         è¯·æ±‚ç¼–å· 
     virtual int ReqDepthMarketDataCancel(CHSReqDepthMarketDataField pReqDepthMarketDataCancel[], int nCount, int nRequestID) = 0;
 
     ///////////////////////////////////////////////////////////////////////////////////////
-    /// Description: »ñµÃ´íÎóÏêÏ¸ĞÅÏ¢
-    /// Input      : nErrorCode            ´íÎóºÅ
-    /// Return     £º´íÎóĞÅÏ¢
+    /// Description: è·å¾—é”™è¯¯è¯¦ç»†ä¿¡æ¯
+    /// Input      : nErrorCode            é”™è¯¯å·
+    /// Return     ï¼šé”™è¯¯ä¿¡æ¯
     ///////////////////////////////////////////////////////////////////////////////////////
     virtual const char* GetApiErrorMsg(int nErrorCode) = 0;
 
@@ -103,12 +103,12 @@ protected:
 extern "C"
 {
 #endif
-    /// Description: »ñÈ¡API°æ±¾ºÅ
-    /// Return     : API°æ±¾ºÅ
+    /// Description: è·å–APIç‰ˆæœ¬å·
+    /// Return     : APIç‰ˆæœ¬å·
     const char* GetMdApiVersion();
 
-    /// Description: ´´½¨ĞĞÇé½Ó¿Ú
-    /// Input      : pszFlowPath    ÈÕÖ¾Â·¾¶   
+    /// Description: åˆ›å»ºè¡Œæƒ…æ¥å£
+    /// Input      : pszFlowPath    æ—¥å¿—è·¯å¾„   
     CHSMdApi* NewMdApi(const char *pszFlowPath);
 
 #ifdef __cplusplus

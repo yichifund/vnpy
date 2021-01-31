@@ -1,4 +1,4 @@
-int reqAuthenticate(const dict &req, int reqid);
+﻿int reqAuthenticate(const dict &req, int reqid);
 
 int reqUserLogin(const dict &req, int reqid);
 

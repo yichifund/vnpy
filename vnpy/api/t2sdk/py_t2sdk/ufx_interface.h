@@ -14,7 +14,7 @@ class c_IF2UnPacker;
 struct CCallBackParam{
 	int hSend;
 	int iResult;
-	int iCallFuncType; //回调方法
+	int iCallFuncType; //鍥炶皟鏂规硶
 	IF2UnPacker* lpUnPacker;
 	IBizMessage* lpBizMsg;
 	char* sValue;

@@ -1,4 +1,4 @@
-THOST_FTDC_EXP_Normal = '0'
+﻿THOST_FTDC_EXP_Normal = '0'
 THOST_FTDC_EXP_GenOrderByTrade = '1'
 THOST_FTDC_ICT_EID = '0'
 THOST_FTDC_ICT_IDCard = '1'

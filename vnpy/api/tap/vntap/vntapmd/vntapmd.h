@@ -1,4 +1,4 @@
-//ÏµÍ³
+ï»¿//ç³»ç»Ÿ
 #ifdef WIN32
 #include "stdafx.h"
 #endif
@@ -10,7 +10,7 @@
 
 using namespace pybind11;
 
-//³£Á¿
+//å¸¸é‡
 #define ONRSPLOGIN 0
 #define ONAPIREADY 1
 #define ONDISCONNECT 2
@@ -22,184 +22,184 @@ using namespace pybind11;
 
 
 ///-------------------------------------------------------------------------------------
-///C++ SPIµÄ»Øµ÷º¯Êı·½·¨ÊµÏÖ
+///C++ SPIçš„å›è°ƒå‡½æ•°æ–¹æ³•å®ç°
 ///-------------------------------------------------------------------------------------
 
-//APIµÄ¼Ì³ĞÊµÏÖ
+//APIçš„ç»§æ‰¿å®ç°
 class MdApi : public ITapQuoteAPINotify
 {
 private:
-	ITapQuoteAPI* api;				//API¶ÔÏó
-	thread task_thread;					//¹¤×÷Ïß³ÌÖ¸Õë£¨ÏòpythonÖĞÍÆËÍÊı¾İ£©
-	TaskQueue task_queue;			    //ÈÎÎñ¶ÓÁĞ
-	bool active = false;				//¹¤×÷×´Ì¬
+    ITapQuoteAPI* api;				//APIå¯¹è±¡
+    thread task_thread;					//å·¥ä½œçº¿ç¨‹æŒ‡é’ˆï¼ˆå‘pythonä¸­æ¨é€æ•°æ®ï¼‰
+    TaskQueue task_queue;			    //ä»»åŠ¡é˜Ÿåˆ—
+    bool active = false;				//å·¥ä½œçŠ¶æ€
 
 public:
-	MdApi()
-	{
-	};
+    MdApi()
+    {
+    };
 
-	~MdApi()
-	{
-		if (this->active)
-		{
-			this->exit();
-		}
-	};
+    ~MdApi()
+    {
+        if (this->active)
+        {
+            this->exit();
+        }
+    };
 
-	//-------------------------------------------------------------------------------------
-	//API»Øµ÷º¯Êı
-	//-------------------------------------------------------------------------------------
-	/**
-	* @brief	ÏµÍ³µÇÂ¼¹ı³Ì»Øµ÷¡£
-	* @details	´Ëº¯ÊıÎªLogin()µÇÂ¼º¯ÊıµÄ»Øµ÷£¬µ÷ÓÃLogin()³É¹¦ºó½¨Á¢ÁËÁ´Â·Á¬½Ó£¬È»ºóAPI½«Ïò·şÎñÆ÷·¢ËÍµÇÂ¼ÈÏÖ¤ĞÅÏ¢£¬
-	*			µÇÂ¼ÆÚ¼äµÄÊı¾İ·¢ËÍÇé¿öºÍµÇÂ¼µÄ»ØÀ¡ĞÅÏ¢´«µİµ½´Ë»Øµ÷º¯ÊıÖĞ¡£
-	* @param[in] errorCode ·µ»Ø´íÎóÂë,0±íÊ¾³É¹¦¡£
-	* @param[in] info µÇÂ½Ó¦´ğĞÅÏ¢£¬Èç¹ûerrorCode!=0£¬Ôòinfo=NULL¡£
-	* @attention	¸Ã»Øµ÷·µ»Ø³É¹¦£¬ËµÃ÷ÓÃ»§µÇÂ¼³É¹¦¡£µ«ÊÇ²»´ú±íAPI×¼±¸Íê±Ï¡£ĞèÒªµÈµ½OnAPIReady²ÅÄÜ½øĞĞ²éÑ¯Óë¶©ÔÄÇëÇó¡£
-	* @ingroup G_Q_Login
-	*/
-	virtual void TAP_CDECL OnRspLogin(TAPIINT32 errorCode, const TapAPIQuotLoginRspInfo *info);
-	/**
-	* @brief	Í¨ÖªÓÃ»§API×¼±¸¾ÍĞ÷¡£
-	* @details	Ö»ÓĞÓÃ»§»Øµ÷ÊÕµ½´Ë¾ÍĞ÷Í¨ÖªÊ±²ÅÄÜ½øĞĞºóĞøµÄ¸÷ÖÖĞĞÇéÊı¾İ²éÑ¯²Ù×÷¡£\n
-	*			´Ë»Øµ÷º¯ÊıÊÇAPIÄÜ·ñÕı³£¹¤×÷µÄ±êÖ¾¡£
-	* @attention  ¾ÍĞ÷ºó²Å¿ÉÒÔ½øĞĞºóĞøÕı³£²Ù×÷
-	* @ingroup G_Q_Login
-	*/
-	virtual void TAP_CDECL OnAPIReady();
-	/**
-	* @brief	APIºÍ·şÎñÊ§È¥Á¬½ÓµÄ»Øµ÷
-	* @details	ÔÚAPIÊ¹ÓÃ¹ı³ÌÖĞÖ÷¶¯»òÕß±»¶¯Óë·şÎñÆ÷·şÎñÊ§È¥Á¬½Óºó¶¼»á´¥·¢´Ë»Øµ÷Í¨ÖªÓÃ»§Óë·şÎñÆ÷µÄÁ¬½ÓÒÑ¾­¶Ï¿ª¡£
-	* @param[in] reasonCode ¶Ï¿ªÔ­Òò´úÂë¡£¾ßÌåÔ­ÒòÇë²Î¼û´íÎóÂëÁĞ±í \n
-	* @ingroup G_Q_Disconnect
-	*/
-	virtual void TAP_CDECL OnDisconnect(TAPIINT32 reasonCode);
-	/**
-	* @brief	·µ»ØËùÓĞÆ·ÖÖĞÅÏ¢¡£
-	* @details	´Ë»Øµ÷½Ó¿ÚÓÃÓÚÏòÓÃ»§·µ»ØµÃµ½µÄËùÓĞÆ·ÖÖĞÅÏ¢¡£
-	* @param[in] sessionID ÇëÇóµÄ»á»°ID
-	* @param[in] errorCode ´íÎóÂë£¬µ±errorCode!=0Ê±,infoÎªNULL£»
-	* @param[in] isLast ±êÊ¾ÊÇ·ñÊÇ×îºóÒ»ÅúÊı¾İ£»
-	* @param[in] info ·µ»ØµÄĞÅÏ¢Êı×éµÄÆğÊ¼Ö¸Õë¡£
-	* @attention  ²»ÒªĞŞ¸ÄºÍÉ¾³ıinfoËùÖ¸Ê¾µÄÊı¾İ£»º¯Êıµ÷ÓÃ½áÊø£¬²ÎÊı²»ÔÙÓĞĞ§¡£
-	* @ingroup G_Q_Commodity
-	*/
-	virtual void TAP_CDECL OnRspQryCommodity(TAPIUINT32 sessionID, TAPIINT32 errorCode, TAPIYNFLAG isLast, const TapAPIQuoteCommodityInfo *info);
-	/**
-	* @brief ·µ»ØÏµÍ³ÖĞºÏÔ¼ĞÅÏ¢
-	* @param[in] sessionID ÇëÇóµÄ»á»°ID£»
-	* @param[in] errorCode ´íÎóÂë£¬µ±errorCode!=0Ê±,infoÎªNULL£»
-	* @param[in] isLast ±êÊ¾ÊÇ·ñÊÇ×îºóÒ»ÅúÊı¾İ£»
-	* @param[in] info		Ö¸Ïò·µ»ØµÄĞÅÏ¢½á¹¹Ìå¡£µ±errorCode²»Îª0Ê±£¬infoÎª¿Õ¡£
-	* @attention ²»ÒªĞŞ¸ÄºÍÉ¾³ıinfoËùÖ¸Ê¾µÄÊı¾İ£»º¯Êıµ÷ÓÃ½áÊø£¬²ÎÊı²»ÔÙÓĞĞ§¡£
-	* @ingroup G_Q_Contract
-	*/
-	virtual void TAP_CDECL OnRspQryContract(TAPIUINT32 sessionID, TAPIINT32 errorCode, TAPIYNFLAG isLast, const TapAPIQuoteContractInfo *info);
-	/**
-	* @brief	·µ»Ø¶©ÔÄĞĞÇéµÄÈ«ÎÄ¡£
-	* @details	´Ë»Øµ÷½Ó¿ÚÓÃÀ´·µ»Ø¶©ÔÄĞĞÇéµÄÈ«ÎÄ¡£È«ÎÄÎªµ±Ç°Ê±¼äµÄĞĞÇéĞÅÏ¢¡£
-	* @param[in] sessionID ÇëÇóµÄ»á»°ID£»
-	* @param[in] isLast ±êÊ¾ÊÇ·ñÊÇ×îºóÒ»ÅúÊı¾İ£»
-	* @param[in] errorCode ´íÎóÂë£¬µ±errorCode!=0Ê±,infoÎªNULL£»
-	* @param[in] info		Ö¸Ïò·µ»ØµÄĞÅÏ¢½á¹¹Ìå¡£µ±errorCode²»Îª0Ê±£¬infoÎª¿Õ¡£
-	* @attention  ²»ÒªĞŞ¸ÄºÍÉ¾³ıinfoËùÖ¸Ê¾µÄÊı¾İ£»º¯Êıµ÷ÓÃ½áÊø£¬²ÎÊı²»ÔÙÓĞĞ§¡£
-	* @ingroup G_Q_Quote
-	*/
-	virtual void TAP_CDECL OnRspSubscribeQuote(TAPIUINT32 sessionID, TAPIINT32 errorCode, TAPIYNFLAG isLast, const TapAPIQuoteWhole *info);
-	/**
-	* @brief ÍË¶©Ö¸¶¨ºÏÔ¼µÄĞĞÇéµÄ½á¹û»Øµ÷
-	* @param[in] sessionID ÇëÇóµÄ»á»°ID£»
-	* @param[in] errorCode ´íÎóÂë£¬µ±errorCode!=0Ê±,infoÎªNULL£»
-	* @param[in] isLast ±êÊ¾ÊÇ·ñÊÇ×îºóÒ»ÅúÊı¾İ£»
-	* @param[in] info		Ö¸Ïò·µ»ØµÄĞÅÏ¢½á¹¹Ìå¡£µ±errorCode²»Îª0Ê±£¬infoÎª¿Õ¡£
-	* @attention  ²»ÒªĞŞ¸ÄºÍÉ¾³ıinfoËùÖ¸Ê¾µÄÊı¾İ£»º¯Êıµ÷ÓÃ½áÊø£¬²ÎÊı²»ÔÙÓĞĞ§¡£
-	* @ingroup G_Q_Quote
-	*/
-	virtual void TAP_CDECL OnRspUnSubscribeQuote(TAPIUINT32 sessionID, TAPIINT32 errorCode, TAPIYNFLAG isLast, const TapAPIContract *info);
-	/**
-	* @brief	·µ»Ø¶©ÔÄĞĞÇéµÄ±ä»¯ÄÚÈİ¡£
-	* @details	´Ë»Øµ÷½Ó¿ÚÓÃÀ´Í¨ÖªÓÃ»§ĞĞÇéĞÅÏ¢²úÉúÁË±ä»¯£¬²¢ÏòÓÃ»§Ìá½»ĞÂµÄĞĞÇéÈ«ÎÄ¡£
-	* @param[in] info ×îĞÂµÄĞĞÇéÈ«ÎÄÄÚÈİ
-	* @attention ²»ÒªĞŞ¸ÄºÍÉ¾³ıQuoteÖ¸Ê¾µÄÊı¾İ£»º¯Êıµ÷ÓÃ½áÊø£¬²ÎÊı²»ÔÙÓĞĞ§¡£
-	* @ingroup G_Q_Quote
-	*/
-	virtual void TAP_CDECL OnRtnQuote(const TapAPIQuoteWhole *info);
+    //-------------------------------------------------------------------------------------
+    //APIå›è°ƒå‡½æ•°
+    //-------------------------------------------------------------------------------------
+    /**
+    * @brief	ç³»ç»Ÿç™»å½•è¿‡ç¨‹å›è°ƒã€‚
+    * @details	æ­¤å‡½æ•°ä¸ºLogin()ç™»å½•å‡½æ•°çš„å›è°ƒï¼Œè°ƒç”¨Login()æˆåŠŸåå»ºç«‹äº†é“¾è·¯è¿æ¥ï¼Œç„¶åAPIå°†å‘æœåŠ¡å™¨å‘é€ç™»å½•è®¤è¯ä¿¡æ¯ï¼Œ
+    *			ç™»å½•æœŸé—´çš„æ•°æ®å‘é€æƒ…å†µå’Œç™»å½•çš„å›é¦ˆä¿¡æ¯ä¼ é€’åˆ°æ­¤å›è°ƒå‡½æ•°ä¸­ã€‚
+    * @param[in] errorCode è¿”å›é”™è¯¯ç ,0è¡¨ç¤ºæˆåŠŸã€‚
+    * @param[in] info ç™»é™†åº”ç­”ä¿¡æ¯ï¼Œå¦‚æœerrorCode!=0ï¼Œåˆ™info=NULLã€‚
+    * @attention	è¯¥å›è°ƒè¿”å›æˆåŠŸï¼Œè¯´æ˜ç”¨æˆ·ç™»å½•æˆåŠŸã€‚ä½†æ˜¯ä¸ä»£è¡¨APIå‡†å¤‡å®Œæ¯•ã€‚éœ€è¦ç­‰åˆ°OnAPIReadyæ‰èƒ½è¿›è¡ŒæŸ¥è¯¢ä¸è®¢é˜…è¯·æ±‚ã€‚
+    * @ingroup G_Q_Login
+    */
+    virtual void TAP_CDECL OnRspLogin(TAPIINT32 errorCode, const TapAPIQuotLoginRspInfo *info);
+    /**
+    * @brief	é€šçŸ¥ç”¨æˆ·APIå‡†å¤‡å°±ç»ªã€‚
+    * @details	åªæœ‰ç”¨æˆ·å›è°ƒæ”¶åˆ°æ­¤å°±ç»ªé€šçŸ¥æ—¶æ‰èƒ½è¿›è¡Œåç»­çš„å„ç§è¡Œæƒ…æ•°æ®æŸ¥è¯¢æ“ä½œã€‚\n
+    *			æ­¤å›è°ƒå‡½æ•°æ˜¯APIèƒ½å¦æ­£å¸¸å·¥ä½œçš„æ ‡å¿—ã€‚
+    * @attention  å°±ç»ªåæ‰å¯ä»¥è¿›è¡Œåç»­æ­£å¸¸æ“ä½œ
+    * @ingroup G_Q_Login
+    */
+    virtual void TAP_CDECL OnAPIReady();
+    /**
+    * @brief	APIå’ŒæœåŠ¡å¤±å»è¿æ¥çš„å›è°ƒ
+    * @details	åœ¨APIä½¿ç”¨è¿‡ç¨‹ä¸­ä¸»åŠ¨æˆ–è€…è¢«åŠ¨ä¸æœåŠ¡å™¨æœåŠ¡å¤±å»è¿æ¥åéƒ½ä¼šè§¦å‘æ­¤å›è°ƒé€šçŸ¥ç”¨æˆ·ä¸æœåŠ¡å™¨çš„è¿æ¥å·²ç»æ–­å¼€ã€‚
+    * @param[in] reasonCode æ–­å¼€åŸå› ä»£ç ã€‚å…·ä½“åŸå› è¯·å‚è§é”™è¯¯ç åˆ—è¡¨ \n
+    * @ingroup G_Q_Disconnect
+    */
+    virtual void TAP_CDECL OnDisconnect(TAPIINT32 reasonCode);
+    /**
+    * @brief	è¿”å›æ‰€æœ‰å“ç§ä¿¡æ¯ã€‚
+    * @details	æ­¤å›è°ƒæ¥å£ç”¨äºå‘ç”¨æˆ·è¿”å›å¾—åˆ°çš„æ‰€æœ‰å“ç§ä¿¡æ¯ã€‚
+    * @param[in] sessionID è¯·æ±‚çš„ä¼šè¯ID
+    * @param[in] errorCode é”™è¯¯ç ï¼Œå½“errorCode!=0æ—¶,infoä¸ºNULLï¼›
+    * @param[in] isLast æ ‡ç¤ºæ˜¯å¦æ˜¯æœ€åä¸€æ‰¹æ•°æ®ï¼›
+    * @param[in] info è¿”å›çš„ä¿¡æ¯æ•°ç»„çš„èµ·å§‹æŒ‡é’ˆã€‚
+    * @attention  ä¸è¦ä¿®æ”¹å’Œåˆ é™¤infoæ‰€æŒ‡ç¤ºçš„æ•°æ®ï¼›å‡½æ•°è°ƒç”¨ç»“æŸï¼Œå‚æ•°ä¸å†æœ‰æ•ˆã€‚
+    * @ingroup G_Q_Commodity
+    */
+    virtual void TAP_CDECL OnRspQryCommodity(TAPIUINT32 sessionID, TAPIINT32 errorCode, TAPIYNFLAG isLast, const TapAPIQuoteCommodityInfo *info);
+    /**
+    * @brief è¿”å›ç³»ç»Ÿä¸­åˆçº¦ä¿¡æ¯
+    * @param[in] sessionID è¯·æ±‚çš„ä¼šè¯IDï¼›
+    * @param[in] errorCode é”™è¯¯ç ï¼Œå½“errorCode!=0æ—¶,infoä¸ºNULLï¼›
+    * @param[in] isLast æ ‡ç¤ºæ˜¯å¦æ˜¯æœ€åä¸€æ‰¹æ•°æ®ï¼›
+    * @param[in] info		æŒ‡å‘è¿”å›çš„ä¿¡æ¯ç»“æ„ä½“ã€‚å½“errorCodeä¸ä¸º0æ—¶ï¼Œinfoä¸ºç©ºã€‚
+    * @attention ä¸è¦ä¿®æ”¹å’Œåˆ é™¤infoæ‰€æŒ‡ç¤ºçš„æ•°æ®ï¼›å‡½æ•°è°ƒç”¨ç»“æŸï¼Œå‚æ•°ä¸å†æœ‰æ•ˆã€‚
+    * @ingroup G_Q_Contract
+    */
+    virtual void TAP_CDECL OnRspQryContract(TAPIUINT32 sessionID, TAPIINT32 errorCode, TAPIYNFLAG isLast, const TapAPIQuoteContractInfo *info);
+    /**
+    * @brief	è¿”å›è®¢é˜…è¡Œæƒ…çš„å…¨æ–‡ã€‚
+    * @details	æ­¤å›è°ƒæ¥å£ç”¨æ¥è¿”å›è®¢é˜…è¡Œæƒ…çš„å…¨æ–‡ã€‚å…¨æ–‡ä¸ºå½“å‰æ—¶é—´çš„è¡Œæƒ…ä¿¡æ¯ã€‚
+    * @param[in] sessionID è¯·æ±‚çš„ä¼šè¯IDï¼›
+    * @param[in] isLast æ ‡ç¤ºæ˜¯å¦æ˜¯æœ€åä¸€æ‰¹æ•°æ®ï¼›
+    * @param[in] errorCode é”™è¯¯ç ï¼Œå½“errorCode!=0æ—¶,infoä¸ºNULLï¼›
+    * @param[in] info		æŒ‡å‘è¿”å›çš„ä¿¡æ¯ç»“æ„ä½“ã€‚å½“errorCodeä¸ä¸º0æ—¶ï¼Œinfoä¸ºç©ºã€‚
+    * @attention  ä¸è¦ä¿®æ”¹å’Œåˆ é™¤infoæ‰€æŒ‡ç¤ºçš„æ•°æ®ï¼›å‡½æ•°è°ƒç”¨ç»“æŸï¼Œå‚æ•°ä¸å†æœ‰æ•ˆã€‚
+    * @ingroup G_Q_Quote
+    */
+    virtual void TAP_CDECL OnRspSubscribeQuote(TAPIUINT32 sessionID, TAPIINT32 errorCode, TAPIYNFLAG isLast, const TapAPIQuoteWhole *info);
+    /**
+    * @brief é€€è®¢æŒ‡å®šåˆçº¦çš„è¡Œæƒ…çš„ç»“æœå›è°ƒ
+    * @param[in] sessionID è¯·æ±‚çš„ä¼šè¯IDï¼›
+    * @param[in] errorCode é”™è¯¯ç ï¼Œå½“errorCode!=0æ—¶,infoä¸ºNULLï¼›
+    * @param[in] isLast æ ‡ç¤ºæ˜¯å¦æ˜¯æœ€åä¸€æ‰¹æ•°æ®ï¼›
+    * @param[in] info		æŒ‡å‘è¿”å›çš„ä¿¡æ¯ç»“æ„ä½“ã€‚å½“errorCodeä¸ä¸º0æ—¶ï¼Œinfoä¸ºç©ºã€‚
+    * @attention  ä¸è¦ä¿®æ”¹å’Œåˆ é™¤infoæ‰€æŒ‡ç¤ºçš„æ•°æ®ï¼›å‡½æ•°è°ƒç”¨ç»“æŸï¼Œå‚æ•°ä¸å†æœ‰æ•ˆã€‚
+    * @ingroup G_Q_Quote
+    */
+    virtual void TAP_CDECL OnRspUnSubscribeQuote(TAPIUINT32 sessionID, TAPIINT32 errorCode, TAPIYNFLAG isLast, const TapAPIContract *info);
+    /**
+    * @brief	è¿”å›è®¢é˜…è¡Œæƒ…çš„å˜åŒ–å†…å®¹ã€‚
+    * @details	æ­¤å›è°ƒæ¥å£ç”¨æ¥é€šçŸ¥ç”¨æˆ·è¡Œæƒ…ä¿¡æ¯äº§ç”Ÿäº†å˜åŒ–ï¼Œå¹¶å‘ç”¨æˆ·æäº¤æ–°çš„è¡Œæƒ…å…¨æ–‡ã€‚
+    * @param[in] info æœ€æ–°çš„è¡Œæƒ…å…¨æ–‡å†…å®¹
+    * @attention ä¸è¦ä¿®æ”¹å’Œåˆ é™¤QuoteæŒ‡ç¤ºçš„æ•°æ®ï¼›å‡½æ•°è°ƒç”¨ç»“æŸï¼Œå‚æ•°ä¸å†æœ‰æ•ˆã€‚
+    * @ingroup G_Q_Quote
+    */
+    virtual void TAP_CDECL OnRtnQuote(const TapAPIQuoteWhole *info);
 
-	//-------------------------------------------------------------------------------------
-	//task£ºÈÎÎñ
-	//-------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------
+    //taskï¼šä»»åŠ¡
+    //-------------------------------------------------------------------------------------
 
-	void processTask();
+    void processTask();
 
-	void processRspLogin(Task *task);
+    void processRspLogin(Task *task);
 
-	void processAPIReady(Task *task);
+    void processAPIReady(Task *task);
 
-	void processDisconnect(Task *task);
+    void processDisconnect(Task *task);
 
-	void processRspQryCommodity(Task *task);
+    void processRspQryCommodity(Task *task);
 
-	void processRspQryContract(Task *task);
+    void processRspQryContract(Task *task);
 
-	void processRspSubscribeQuote(Task *task);
+    void processRspSubscribeQuote(Task *task);
 
-	void processRspUnSubscribeQuote(Task *task);
+    void processRspUnSubscribeQuote(Task *task);
 
-	void processRtnQuote(Task *task);
+    void processRtnQuote(Task *task);
 
 
-	//-------------------------------------------------------------------------------------
-	//data£º»Øµ÷º¯ÊıµÄÊı¾İ×Öµä
-	//error£º»Øµ÷º¯ÊıµÄ´íÎó×Öµä
-	//id£ºÇëÇóid
-	//last£ºÊÇ·ñÎª×îºó·µ»Ø
-	//i£ºÕûÊı
-	//-------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------
+    //dataï¼šå›è°ƒå‡½æ•°çš„æ•°æ®å­—å…¸
+    //errorï¼šå›è°ƒå‡½æ•°çš„é”™è¯¯å­—å…¸
+    //idï¼šè¯·æ±‚id
+    //lastï¼šæ˜¯å¦ä¸ºæœ€åè¿”å›
+    //iï¼šæ•´æ•°
+    //-------------------------------------------------------------------------------------
 
-	virtual void onRspLogin(int error, const dict &data) {};
+    virtual void onRspLogin(int error, const dict &data) {};
 
-	virtual void onAPIReady() {};
+    virtual void onAPIReady() {};
 
-	virtual void onDisconnect(int reason) {};
+    virtual void onDisconnect(int reason) {};
 
-	virtual void onRspQryCommodity(unsigned int session, int error, char last, const dict &data) {};
+    virtual void onRspQryCommodity(unsigned int session, int error, char last, const dict &data) {};
 
-	virtual void onRspQryContract(unsigned int session, int error, char last, const dict &data) {};
+    virtual void onRspQryContract(unsigned int session, int error, char last, const dict &data) {};
 
-	virtual void onRspSubscribeQuote(unsigned int session, int error, char last, const dict &data) {};
+    virtual void onRspSubscribeQuote(unsigned int session, int error, char last, const dict &data) {};
 
-	virtual void onRspUnSubscribeQuote(unsigned int session, int error, char last, const dict &data) {};
+    virtual void onRspUnSubscribeQuote(unsigned int session, int error, char last, const dict &data) {};
 
-	virtual void onRtnQuote(const dict &data) {};
+    virtual void onRtnQuote(const dict &data) {};
 
-	//-------------------------------------------------------------------------------------
-	//req:Ö÷¶¯º¯ÊıµÄÇëÇó×Öµä
-	//-------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------
+    //req:ä¸»åŠ¨å‡½æ•°çš„è¯·æ±‚å­—å…¸
+    //-------------------------------------------------------------------------------------
 
-	void createTapQuoteAPI(const dict &req, int &iResult);
+    void createTapQuoteAPI(const dict &req, int &iResult);
 
-	void release();
+    void release();
 
-	void init();
+    void init();
 
-	int exit();
+    int exit();
 
-	string getTapQuoteAPIVersion();
+    string getTapQuoteAPIVersion();
 
-	int setTapQuoteAPIDataPath(string path);
+    int setTapQuoteAPIDataPath(string path);
 
-	int setTapQuoteAPILogLevel(string level); //1
+    int setTapQuoteAPILogLevel(string level); //1
 
-	int setHostAddress(string IP, int port); //2
+    int setHostAddress(string IP, int port); //2
 
-	int login(const dict &req);
+    int login(const dict &req);
 
-	int disconnect();
+    int disconnect();
 
-	int subscribeQuote(const dict &req); //3
+    int subscribeQuote(const dict &req); //3
 
-	int qryCommodity();
+    int qryCommodity();
 
-	int qryContract(const dict &req);
+    int qryContract(const dict &req);
 };

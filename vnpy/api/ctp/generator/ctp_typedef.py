@@ -1,4 +1,4 @@
-TThostFtdcTraderIDType = "string"
+﻿TThostFtdcTraderIDType = "string"
 TThostFtdcInvestorIDType = "string"
 TThostFtdcBrokerIDType = "string"
 TThostFtdcBrokerAbbrType = "string"

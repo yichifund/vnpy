@@ -1,4 +1,4 @@
-#ifndef _HSFUTU_MONITOR_INFO_H
+ï»¿#ifndef _HSFUTU_MONITOR_INFO_H
 #define _HSFUTU_MONITOR_INFO_H
 
 #ifdef WIN32
@@ -7,7 +7,7 @@
 #define EXPORT  __attribute__((visibility("default")))
 #endif
 
-//µ÷ÓÃ¹æÔ¼
+//è°ƒç”¨è§„çº¦
 #ifdef _WIN32
 #  ifndef HSAPI
 #  define HSAPI __stdcall
@@ -21,35 +21,35 @@
 extern "C"
 {
 #endif
-/* ¼ÓÃÜsession_id
-*@param   in   ĞèÒª¼ÓÃÜµÄ×Ö·û´®
-*@param   inLen ĞèÒª¼ÓÃÜµÄ×Ö·û´®³¤¶È
-*@param   out   Êä³ö¼ÓÃÜºóµÄÖ¸Õë,´Ë»º³åÇø³¤¶ÈĞèÒª´óÓÚ ((inLen+16)/3+1)*4
-*@param	  outlen ¼ÓÃÜºóµÄ×Ö·û´®³¤¶È
-*@param   key   ¼´±¾µØÊÚÈ¨Âë
-*@return  0: ³É¹¦ ·Ç0:Ê§°Ü
+/* åŠ å¯†session_id
+*@param   in   éœ€è¦åŠ å¯†çš„å­—ç¬¦ä¸²
+*@param   inLen éœ€è¦åŠ å¯†çš„å­—ç¬¦ä¸²é•¿åº¦
+*@param   out   è¾“å‡ºåŠ å¯†åçš„æŒ‡é’ˆ,æ­¤ç¼“å†²åŒºé•¿åº¦éœ€è¦å¤§äº ((inLen+16)/3+1)*4
+*@param	  outlen åŠ å¯†åçš„å­—ç¬¦ä¸²é•¿åº¦
+*@param   key   å³æœ¬åœ°æˆæƒç 
+*@return  0: æˆåŠŸ é0:å¤±è´¥
 */
 EXPORT int HSAPI hundsun_encrypt(char* in, int inLen, char* out, int* outLen, char* key);
 
-/*²É¼¯ÏµÍ³ĞÅÏ¢
-*@param pszSysInfo:  ¼ÓÃÜºóµÄ²É¼¯ĞÅÏ¢, »º³åÇø³¤¶ÈÖÁÉÙ492×Ö½Ú
-*@param iSysInfoLen:  ¼ÓÃÜºóµÄ²É¼¯ĞÅÏ¢µÄ³¤¶È
-*@param pszSysInfoIntegrity:   ²É¼¯ĞÅÏ¢ÍêÕû¶È£¬»º³åÇø³¤¶ÈÖÁÉÙ300×Ö½Ú
-*@param iSysInfoIntegrityLen:   ²É¼¯ĞÅÏ¢ÍêÕû¶ÈµÄ³¤¶È
-*@return 0£ºÕı³£1£ºÖÕ¶ËĞÅÏ¢²É¼¯Îª¿Õ2£ºÖÕ¶Ë²É¼¯Êı¾İ¼ÓÃÜÃÜÔ¿°æ±¾Òì³£3£ºÖÕ¶ËĞÅÏ¢Êı¾İÒì³£	
+/*é‡‡é›†ç³»ç»Ÿä¿¡æ¯
+*@param pszSysInfo:  åŠ å¯†åçš„é‡‡é›†ä¿¡æ¯, ç¼“å†²åŒºé•¿åº¦è‡³å°‘492å­—èŠ‚
+*@param iSysInfoLen:  åŠ å¯†åçš„é‡‡é›†ä¿¡æ¯çš„é•¿åº¦
+*@param pszSysInfoIntegrity:   é‡‡é›†ä¿¡æ¯å®Œæ•´åº¦ï¼Œç¼“å†²åŒºé•¿åº¦è‡³å°‘300å­—èŠ‚
+*@param iSysInfoIntegrityLen:   é‡‡é›†ä¿¡æ¯å®Œæ•´åº¦çš„é•¿åº¦
+*@return 0ï¼šæ­£å¸¸1ï¼šç»ˆç«¯ä¿¡æ¯é‡‡é›†ä¸ºç©º2ï¼šç»ˆç«¯é‡‡é›†æ•°æ®åŠ å¯†å¯†é’¥ç‰ˆæœ¬å¼‚å¸¸3ï¼šç»ˆç«¯ä¿¡æ¯æ•°æ®å¼‚å¸¸	
 */
 EXPORT int HSAPI hundsun_getsysteminfo(char* pszSysInfo, int* iSysInfoLen, char* pszSysInfoIntegrity, int* iSysInfoIntegrityLen);
 
-/*»ñÈ¡Ö¸±ê²É¼¯ÏêÏ¸´íÎóĞÅÏ¢¡¾Ö»ÓĞHUNDSUN_getsysteminfoµÄ·µ»ØÖµÒì³£±êÊ¶ÎªµÄÊ±ºòµ÷ÓÃÕâ¸ö»ñÈ¡¾ßÌå´íÎóĞÅÏ¢²ÅÓĞÒâÒå¡¿
-*@param pszSysInfoIntegrity:HUNDSUN_getsysteminfoº¯Êı·µ»ØµÄ²É¼¯ĞÅÏ¢ÍêÕû¶È
-*@param pszDetailInfo:ÏêÏ¸´íÎóĞÅÏ¢£¬»º³åÇø³¤¶ÈÖÁÉÙ150×Ö½Ú
-*@param iDetailInfoLen:ÏêÏ¸´íÎóĞÅÏ¢³¤¶È
-*@return true£º»ñÈ¡³É¹¦ false£º»ñÈ¡Ê§°Ü
+/*è·å–æŒ‡æ ‡é‡‡é›†è¯¦ç»†é”™è¯¯ä¿¡æ¯ã€åªæœ‰HUNDSUN_getsysteminfoçš„è¿”å›å€¼å¼‚å¸¸æ ‡è¯†ä¸ºçš„æ—¶å€™è°ƒç”¨è¿™ä¸ªè·å–å…·ä½“é”™è¯¯ä¿¡æ¯æ‰æœ‰æ„ä¹‰ã€‘
+*@param pszSysInfoIntegrity:HUNDSUN_getsysteminfoå‡½æ•°è¿”å›çš„é‡‡é›†ä¿¡æ¯å®Œæ•´åº¦
+*@param pszDetailInfo:è¯¦ç»†é”™è¯¯ä¿¡æ¯ï¼Œç¼“å†²åŒºé•¿åº¦è‡³å°‘150å­—èŠ‚
+*@param iDetailInfoLen:è¯¦ç»†é”™è¯¯ä¿¡æ¯é•¿åº¦
+*@return trueï¼šè·å–æˆåŠŸ falseï¼šè·å–å¤±è´¥
 */
 EXPORT bool HSAPI hundsun_getdetailerror(char* pszSysInfoIntegrity, char* pszDetailInfo, int* iDetailInfoLen);
 
-/*»ñÈ¡²É¼¯¿â°æ±¾ºÅ
-*@return :×Ö·û´®ĞÎÊ½µÄ°æ±¾ºÅ
+/*è·å–é‡‡é›†åº“ç‰ˆæœ¬å·
+*@return :å­—ç¬¦ä¸²å½¢å¼çš„ç‰ˆæœ¬å·
 */
 EXPORT const char* HSAPI hundsun_getversion();
 #ifdef __cplusplus

@@ -1,4 +1,4 @@
-/////////////////////////////////////////////////////////////////////////
+﻿/////////////////////////////////////////////////////////////////////////
 ///@author 中泰证券股份有限公司
 ///@file xquote_api_struct.h
 ///@brief 定义行情类相关数据结构
@@ -17,7 +17,7 @@ typedef struct XTPSpecificTickerStruct
     ///交易所代码
     XTP_EXCHANGE_TYPE exchange_id;
     ///合约代码（不包含交易所信息）例如"600000"，不带空格，以'\0'结尾
-	char	ticker[XTP_TICKER_LEN];
+    char	ticker[XTP_TICKER_LEN];
 } XTPST;
 
 ///股票、基金、债券等额外数据
@@ -117,16 +117,16 @@ typedef struct XTPMarketDataStruct
     char	ticker[XTP_TICKER_LEN];
 
     // 价格
-	///最新价
-	double	last_price;
-	///昨收盘
-	double	pre_close_price;
-	///今开盘
-	double	open_price;
-	///最高价
-	double	high_price;
-	///最低价
-	double	low_price;
+    ///最新价
+    double	last_price;
+    ///昨收盘
+    double	pre_close_price;
+    ///今开盘
+    double	open_price;
+    ///最高价
+    double	high_price;
+    ///最低价
+    double	low_price;
     ///今收盘
     double	close_price;
 
@@ -134,21 +134,21 @@ typedef struct XTPMarketDataStruct
     ///昨日持仓量(张)(目前未填写)
     int64_t pre_total_long_positon;
     ///持仓量(张)
-	int64_t	total_long_positon;
+    int64_t	total_long_positon;
     ///昨日结算价
     double	pre_settl_price;
     ///今日结算价
-	double	settl_price;
+    double	settl_price;
 
-	// 涨跌停
-	///涨停价
-	double	upper_limit_price;
-	///跌停价
-	double	lower_limit_price;
-	///预留
-	double	pre_delta;
-	///预留
-	double	curr_delta;
+    // 涨跌停
+    ///涨停价
+    double	upper_limit_price;
+    ///跌停价
+    double	lower_limit_price;
+    ///预留
+    double	pre_delta;
+    ///预留
+    double	curr_delta;
 
     /// 时间类，格式为YYYYMMDDHHMMSSsss
     int64_t data_time;
@@ -197,19 +197,19 @@ typedef struct XTPQuoteStaticInfo {
     /// 合约名称
     char    ticker_name[XTP_TICKER_NAME_LEN];
     /// 合约类型
-	XTP_TICKER_TYPE ticker_type;
+    XTP_TICKER_TYPE ticker_type;
     ///昨收盘
     double  pre_close_price;
     ///涨停板价
     double  upper_limit_price;
     ///跌停板价
     double  lower_limit_price;
-	///最小变动价位
-	double  price_tick;
+    ///最小变动价位
+    double  price_tick;
     /// 合约最小交易量(买)
     int32_t  buy_qty_unit;
     /// 合约最小交易量(卖)
-	int32_t sell_qty_unit;
+    int32_t sell_qty_unit;
 } XTPQSI;
 
 

@@ -1,4 +1,4 @@
-/////////////////////////////////////////////////////////////////////////
+﻿/////////////////////////////////////////////////////////////////////////
 ///@author 中泰证券股份有限公司
 ///@file xoms_api_struct.h
 ///@brief 定义交易类相关数据结构
@@ -33,21 +33,21 @@ struct XTPOrderInsertInfo
     ///报单价格
     XTP_PRICE_TYPE          price_type;
     union{
-		///32位字段，用来兼容老版本api，用户无需关心
+        ///32位字段，用来兼容老版本api，用户无需关心
         uint32_t            u32;
         struct {
             ///买卖方向
             XTP_SIDE_TYPE               side;
             ///开平标志
             XTP_POSITION_EFFECT_TYPE    position_effect;
-			///预留字段1
+            ///预留字段1
             uint8_t                     reserved1;
-			///预留字段2
-			uint8_t                     reserved2;
+            ///预留字段2
+            uint8_t                     reserved2;
         };
     };
-	///业务类型
-	XTP_BUSINESS_TYPE       business_type;
+    ///业务类型
+    XTP_BUSINESS_TYPE       business_type;
 };
 
 
@@ -65,59 +65,59 @@ struct XTPOrderCancelInfo
 struct XTPOrderInfo
 {
     ///XTP系统订单ID，在XTP系统中唯一
-	uint64_t                order_xtp_id;
-	///报单引用，用户自定义
-	uint32_t	            order_client_id;
+    uint64_t                order_xtp_id;
+    ///报单引用，用户自定义
+    uint32_t	            order_client_id;
     ///报单操作引用，用户自定义（暂未使用）
     uint32_t                order_cancel_client_id;
     ///撤单在XTP系统中的id，在XTP系统中唯一
     uint64_t                order_cancel_xtp_id;
-	///合约代码
-	char                    ticker[XTP_TICKER_LEN];
-	///交易市场
-	XTP_MARKET_TYPE         market;
-	///价格
-	double                  price;
-	///数量，此订单的报单数量
-	int64_t                 quantity;
-	///报单价格条件
-	XTP_PRICE_TYPE          price_type;
+    ///合约代码
+    char                    ticker[XTP_TICKER_LEN];
+    ///交易市场
+    XTP_MARKET_TYPE         market;
+    ///价格
+    double                  price;
+    ///数量，此订单的报单数量
+    int64_t                 quantity;
+    ///报单价格条件
+    XTP_PRICE_TYPE          price_type;
     union{
-		///32位字段，用来兼容老版本api，用户无需关心
+        ///32位字段，用来兼容老版本api，用户无需关心
         uint32_t            u32;
         struct {
             ///买卖方向
             XTP_SIDE_TYPE               side;
             ///开平标志
             XTP_POSITION_EFFECT_TYPE    position_effect;
-			///预留字段1
-			uint8_t                     reserved1;
-			///预留字段2
-			uint8_t                     reserved2;
+            ///预留字段1
+            uint8_t                     reserved1;
+            ///预留字段2
+            uint8_t                     reserved2;
         };
     };
-	///业务类型
-	XTP_BUSINESS_TYPE       business_type;
-	///今成交数量，为此订单累计成交数量
-	int64_t                 qty_traded;
-	///剩余数量，当撤单成功时，表示撤单数量
-	int64_t                 qty_left;
-	///委托时间，格式为YYYYMMDDHHMMSSsss
-	int64_t                 insert_time;
-	///最后修改时间，格式为YYYYMMDDHHMMSSsss
-	int64_t                 update_time;
-	///撤销时间，格式为YYYYMMDDHHMMSSsss
-	int64_t                 cancel_time;
-	///成交金额，为此订单的成交总金额
-	double                  trade_amount;
-	///本地报单编号 OMS生成的单号，不等同于order_xtp_id，为服务器传到报盘的单号
-	char                    order_local_id[XTP_LOCAL_ORDER_LEN];
-	///报单状态，订单响应中没有部分成交状态的推送，在查询订单结果中，会有部分成交状态
-	XTP_ORDER_STATUS_TYPE   order_status;
-	///报单提交状态，OMS内部使用，用户无需关心
-	XTP_ORDER_SUBMIT_STATUS_TYPE   order_submit_status;
-	///报单类型
-	TXTPOrderTypeType       order_type;
+    ///业务类型
+    XTP_BUSINESS_TYPE       business_type;
+    ///今成交数量，为此订单累计成交数量
+    int64_t                 qty_traded;
+    ///剩余数量，当撤单成功时，表示撤单数量
+    int64_t                 qty_left;
+    ///委托时间，格式为YYYYMMDDHHMMSSsss
+    int64_t                 insert_time;
+    ///最后修改时间，格式为YYYYMMDDHHMMSSsss
+    int64_t                 update_time;
+    ///撤销时间，格式为YYYYMMDDHHMMSSsss
+    int64_t                 cancel_time;
+    ///成交金额，为此订单的成交总金额
+    double                  trade_amount;
+    ///本地报单编号 OMS生成的单号，不等同于order_xtp_id，为服务器传到报盘的单号
+    char                    order_local_id[XTP_LOCAL_ORDER_LEN];
+    ///报单状态，订单响应中没有部分成交状态的推送，在查询订单结果中，会有部分成交状态
+    XTP_ORDER_STATUS_TYPE   order_status;
+    ///报单提交状态，OMS内部使用，用户无需关心
+    XTP_ORDER_SUBMIT_STATUS_TYPE   order_submit_status;
+    ///报单类型
+    TXTPOrderTypeType       order_type;
 };
 
 
@@ -152,21 +152,21 @@ struct XTPTradeReport
     ///成交类型  --成交回报中的执行类型
     TXTPTradeTypeType        trade_type;
     union{
-		///32位字段，用来兼容老版本api，用户无需关心
+        ///32位字段，用来兼容老版本api，用户无需关心
         uint32_t            u32;
         struct {
             ///买卖方向
             XTP_SIDE_TYPE               side;
             ///开平标志
             XTP_POSITION_EFFECT_TYPE    position_effect;
-			///预留字段1
-			uint8_t                     reserved1;
-			///预留字段2
-			uint8_t                     reserved2;
+            ///预留字段1
+            uint8_t                     reserved1;
+            ///预留字段2
+            uint8_t                     reserved2;
         };
     };
-	///业务类型
-	XTP_BUSINESS_TYPE        business_type;
+    ///业务类型
+    XTP_BUSINESS_TYPE        business_type;
     ///交易所交易员代码 
     char                     branch_pbu[XTP_BRANCH_PBU_LEN];
 };
@@ -305,9 +305,9 @@ struct XTPQueryStkPositionRsp
     int64_t				purchase_redeemable_qty;
 
     /// 持仓方向
-	XTP_POSITION_DIRECTION_TYPE      position_direction;
-	///保留字段1
-	uint32_t			reserved1;
+    XTP_POSITION_DIRECTION_TYPE      position_direction;
+    ///保留字段1
+    uint32_t			reserved1;
     /// 可行权合约
     int64_t             executable_option;
     /// 可锁定标的
@@ -363,8 +363,8 @@ typedef struct XTPFundTransferNotice XTPFundTransferLog;
 //////////////////////////////////////////////////////////////////////////
 struct XTPQueryStructuredFundInfoReq
 {
-	XTP_EXCHANGE_TYPE   exchange_id;  ///<交易所代码，不可为空
-	char                sf_ticker[XTP_TICKER_LEN];   ///<分级基金母基金代码，可以为空，如果为空，则默认查询所有的分级基金
+    XTP_EXCHANGE_TYPE   exchange_id;  ///<交易所代码，不可为空
+    char                sf_ticker[XTP_TICKER_LEN];   ///<分级基金母基金代码，可以为空，如果为空，则默认查询所有的分级基金
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -373,11 +373,11 @@ struct XTPQueryStructuredFundInfoReq
 struct XTPStructuredFundInfo
 {
     XTP_EXCHANGE_TYPE   exchange_id;  ///<交易所代码
-	char                sf_ticker[XTP_TICKER_LEN];   ///<分级基金母基金代码
-	char                sf_ticker_name[XTP_TICKER_NAME_LEN]; ///<分级基金母基金名称
+    char                sf_ticker[XTP_TICKER_LEN];   ///<分级基金母基金代码
+    char                sf_ticker_name[XTP_TICKER_NAME_LEN]; ///<分级基金母基金名称
     char                ticker[XTP_TICKER_LEN];   ///<分级基金子基金代码
     char                ticker_name[XTP_TICKER_NAME_LEN]; ///<分级基金子基金名称
-	XTP_SPLIT_MERGE_STATUS	split_merge_status;   ///<基金允许拆分合并状态
+    XTP_SPLIT_MERGE_STATUS	split_merge_status;   ///<基金允许拆分合并状态
     uint32_t            ratio; ///<拆分合并比例
     uint32_t            min_split_qty;///<最小拆分数量
     uint32_t            min_merge_qty; ///<最小合并数量
@@ -505,7 +505,7 @@ struct XTPQueryOptionAuctionInfoRsp {
     char                symbol[XTP_TICKER_NAME_LEN];        ///<合约简称
     char                contract_id[XTP_TICKER_NAME_LEN];   ///<合约交易代码
     char                underlying_security_id[XTP_TICKER_LEN]; ///<基础证券代码
-	XTP_MARKET_TYPE     underlying_security_id_source;      ///<基础证券代码源
+    XTP_MARKET_TYPE     underlying_security_id_source;      ///<基础证券代码源
 
     uint32_t            list_date;                          ///<上市日期，格式为YYYYMMDD
     uint32_t            last_trade_date;                    ///<最后交易日，格式为YYYYMMDD
@@ -563,11 +563,11 @@ struct XTPCrdCashRepayRsp
 //////////////////////////////////////////////////////////////////////////
 struct XTPCrdCashRepayDebtInterestFeeRsp
 {
-	int64_t xtp_id;             ///< 直接还款操作的XTPID
-	double  request_amount;     ///< 直接还款的申请金额
-	double  cash_repay_amount;  ///< 实际还款使用金额
-	char	debt_compact_id[XTP_CREDIT_DEBT_ID_LEN]; ///< 指定的负债合约编号
-	char	unknow[32];			///< 保留字段
+    int64_t xtp_id;             ///< 直接还款操作的XTPID
+    double  request_amount;     ///< 直接还款的申请金额
+    double  cash_repay_amount;  ///< 实际还款使用金额
+    char	debt_compact_id[XTP_CREDIT_DEBT_ID_LEN]; ///< 指定的负债合约编号
+    char	unknow[32];			///< 保留字段
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -580,7 +580,7 @@ struct XTPCrdCashRepayInfo
     double                      request_amount;     ///< 直接还款的申请金额
     double                      cash_repay_amount;  ///< 实际还款使用金额
     XTP_POSITION_EFFECT_TYPE    position_effect;    ///< 强平标志
-	XTPRI						error_info;			///< 直接还款发生错误时的错误信息
+    XTPRI						error_info;			///< 直接还款发生错误时的错误信息
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -602,8 +602,8 @@ typedef struct XTPCrdDebtInfo
     double              remain_amt;             ///< 未偿还金额
     int64_t             remain_qty;             ///< 未偿还融券数量
     double              remain_principal;       ///< 未偿还本金金额
-	int64_t				due_right_qty;			///< 应偿还权益数量
-	int64_t				unknown[2];				///< 保留字段
+    int64_t				due_right_qty;			///< 应偿还权益数量
+    int64_t				unknown[2];				///< 保留字段
 }XTPCrdDebtInfo;
 
 //////////////////////////////////////////////////////////////////////////
