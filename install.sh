@@ -36,10 +36,10 @@ $python -m pip install ta-lib
 #$python -m pip install https://pip.vnpy.com/colletion/ibapi-9.76.1.tar.gz
 
 # Install Python Modules
-$python -m pip install -r requirements.txt
+#$python -m pip install -r requirements.txt
 
 # Install local Chinese language environment
 locale-gen zh_CN.GB18030
 
 # Install vn.py
-$python -m pip install .
+#$python -m pip install .

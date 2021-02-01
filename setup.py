@@ -58,8 +58,6 @@ def is_psycopg2_exists():
 
 def get_install_requires():
     install_requires = [
-        "peewee",
-        "pymysql",
         "pandas",
         "ta-lib",
     ]

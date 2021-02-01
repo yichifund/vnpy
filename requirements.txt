@@ -1,4 +1,2 @@
-peewee
-pymysql
 pandas
 ta-lib
